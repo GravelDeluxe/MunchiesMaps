@@ -284,6 +284,8 @@
           btn.type = 'button';
           btn.className = 'dropdown-btn';
           btn.textContent = 'Layer';
+          btn.setAttribute('aria-haspopup', 'true');
+          btn.setAttribute('aria-expanded', 'false');
 
           const panel = document.createElement('div');
           panel.className = 'dropdown-panel';
@@ -306,10 +308,15 @@
             panel.appendChild(row);
           });
 
-          const closePanel = () => panel.classList.remove('open');
+          const closePanel = () => {
+            panel.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+          };
           btn.addEventListener('click', (e) => {
             e.preventDefault();
+            const nextOpen = !panel.classList.contains('open');
             panel.classList.toggle('open');
+            btn.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
           });
 
           const onDocClick = (e) => {
@@ -317,9 +324,15 @@
           };
           document.addEventListener('click', onDocClick);
 
+          const onKey = (e) => {
+            if (e.key === 'Escape') closePanel();
+          };
+          document.addEventListener('keydown', onKey);
+
           // Clean up when control is removed
           this.onRemove = function() {
             document.removeEventListener('click', onDocClick);
+            document.removeEventListener('keydown', onKey);
           };
 
           wrap.appendChild(btn);
@@ -438,6 +451,17 @@
       );
 
       layers = Object.fromEntries(loadedEntries);
+
+      layerRegistry.layer1 = layer1;
+      layerRegistry.layer2 = layer2;
+
+      const layerDefs = [
+        { id: 'layer1', label: 'Layer 1 – Wasser' },
+        { id: 'layer2', label: 'Layer 2 – Automat' }
+      ];
+
+      // Default layer selection: keep initial state aligned with checkboxes
+      toggleLayer('layer1', true);
 
       layerRegistry.layer1 = layer1;
       layerRegistry.layer2 = layer2;
