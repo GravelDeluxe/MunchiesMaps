@@ -155,9 +155,6 @@
     // Vending machine glyph (simplified rectangle + slots)
     const vendingPath = "M10 7 h8 a1 1 0 0 1 1 1 v12 a1 1 0 0 1-1 1 h-8 a1 1 0 0 1-1-1 v-12 a1 1 0 0 1 1-1 z M11.5 9.2 h5 v2.2 h-5 z M11.5 12.3 h5 v1.3 h-5 z M11.5 14.4 h5 v1.3 h-5 z M12 17.2 h4 v2 h-4 z";
 
-    const iconLayer1 = svgIcon(waterDropPath);
-    const iconLayer2 = svgIcon(vendingPath);
-
     function clusterGlyph(glyphPathD) {
       return `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true">
@@ -165,6 +162,28 @@
         </svg>
       `.trim();
     }
+
+    const ICONS = {
+      water: svgIcon(waterDropPath),
+      vending: svgIcon(vendingPath)
+    };
+
+    const LAYERS = {
+      layer1: {
+        name: "Layer 1 – Wasser",
+        geojson: "layer1_points.geojson",
+        iconType: "water",
+        clusterGlyphSvg: clusterGlyph(waterDropPath)
+      },
+      layer2: {
+        name: "Layer 2 – Automat",
+        geojson: "layer2_points.geojson",
+        iconType: "vending",
+        clusterGlyphSvg: clusterGlyph(vendingPath)
+      }
+    };
+
+    const DEFAULT_LAYER_MODE = Object.keys(LAYERS)[0] || "layer1";
 
     class SuperclusterLayer extends L.Layer {
       constructor(geojson, options) {
@@ -336,6 +355,18 @@
       }
     });
 
+    // Fit-to-data button
+    const ResetViewButton = L.Control.extend({
+      onAdd: function(map) {
+        const btn = L.DomUtil.create('div', 'btn');
+        btn.title = "Auf alle Punkte zoomen";
+        btn.innerHTML = "Alle Punkte";
+        L.DomEvent.on(btn, 'click', fitToActiveBounds);
+        L.DomEvent.disableClickPropagation(btn);
+        return btn;
+      }
+    });
+
     let layer1, layer2;
     // Active layer IDs are stored in this Set so we can quickly sync map state with checkboxes.
     const activeLayers = new Set();
@@ -406,24 +437,31 @@
     }
 
     (async () => {
-      const [g1, g2] = await Promise.all([
-        loadGeoJSON('layer1_points.geojson'),
-        loadGeoJSON('layer2_points.geojson')
-      ]);
+      const loadedEntries = await Promise.all(
+        Object.entries(LAYERS).map(async ([key, cfg]) => {
+          const geojson = await loadGeoJSON(cfg.geojson);
+          const layer = new SuperclusterLayer(geojson, {
+            minPoints: 10,
+            radius: 60,
+            pointIcon: ICONS[cfg.iconType],
+            clusterGlyphSvg: cfg.clusterGlyphSvg
+          });
+          return [key, layer];
+        })
+      );
 
-      layer1 = new SuperclusterLayer(g1, {
-        minPoints: 10,
-        radius: 60,
-        pointIcon: iconLayer1,
-        clusterGlyphSvg: clusterGlyph(waterDropPath)
-      });
+      layers = Object.fromEntries(loadedEntries);
 
-      layer2 = new SuperclusterLayer(g2, {
-        minPoints: 10,
-        radius: 60,
-        pointIcon: iconLayer2,
-        clusterGlyphSvg: clusterGlyph(vendingPath)
-      });
+      layerRegistry.layer1 = layer1;
+      layerRegistry.layer2 = layer2;
+
+      const layerDefs = [
+        { id: 'layer1', label: 'Layer 1 – Wasser' },
+        { id: 'layer2', label: 'Layer 2 – Automat' }
+      ];
+
+      // Default layer selection: keep initial state aligned with checkboxes
+      toggleLayer('layer1', true);
 
       layerRegistry.layer1 = layer1;
       layerRegistry.layer2 = layer2;
@@ -444,13 +482,7 @@
       map.addControl(loc);
 
       // Fit bounds of both layers so switching doesn't feel "empty"
-      const b1 = layer1.getBounds();
-      const b2 = layer2.getBounds();
-      let bb = null;
-      if (b1 && b1.isValid()) bb = b1;
-      if (b2 && b2.isValid()) bb = bb ? bb.extend(b2) : b2;
-      if (bb && bb.isValid()) map.fitBounds(bb, { padding: [20, 20] });
-      else map.setView([52.52, 13.405], 11);
+      fitToActiveBounds();
     })().catch(err => {
       console.error(err);
       alert("Fehler beim Laden: " + (err.message || err));
