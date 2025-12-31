@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testkarte – Clustering ab 10 + Layer Dropdown + Standort</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #map { height: 100%; width: 100%; }
+
+    .note {
+      position: absolute; top: 10px; left: 10px; right: 10px; z-index: 1000;
+      background: rgba(255,255,255,0.92); padding: 8px 10px; border-radius: 10px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.15);
+      font: 13px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    code { background: rgba(0,0,0,0.06); padding: 1px 4px; border-radius: 4px; }
+
+    /* Custom controls */
+    .ctl {
+      background: rgba(255,255,255,0.92);
+      padding: 8px 10px;
+      border-radius: 10px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.15);
+      font: 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .ctl label { display:block; font-weight: 650; margin-bottom: 6px; }
+    .ctl select {
+      width: 220px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.18);
+      background: #fff;
+      font-size: 13px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 1px 8px rgba(0,0,0,0.15);
+      cursor: pointer;
+      user-select: none;
+      font: 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .btn:active { transform: translateY(1px); }
+
+    /* Cluster icon */
+    .cluster-badge {
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-weight: 750;
+      border: 1px solid rgba(0,0,0,0.25);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+      min-width: 34px;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cluster-badge svg { width: 14px; height: 14px; display:block; }
+  </style>
+</head>
+<body>
+  <div class="note">
+    Clustering erst ab <b>10 Punkten</b> pro Cluster (Supercluster <code>minPoints=10</code>). Layer-Auswahl per Dropdown.
+    Nutzerposition (GPS) via Button rechts unten.
+  </div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/supercluster@8.0.1/dist/supercluster.min.js"></script>
+
+  <script>
+    const map = L.map('map', { zoomControl: true, preferCanvas: true });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap-Mitwirkende'
+    }).addTo(map);
+
+    function popupHtml(props) {
+      const p = props || {};
+      const name = p.name || '(ohne Name)';
+      const desc = p.description ? p.description : '';
+      const other = Object.keys(p)
+        .filter(k => !['name','description','cluster','cluster_id','point_count','point_count_abbreviated'].includes(k))
+        .filter(k => p[k] != null && String(p[k]).trim() !== '')
+        .slice(0, 20)
+        .map(k => `<div><b>${k}</b>: ${String(p[k])}</div>`)
+        .join('');
+      return `
+        <div style="font: 13px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 320px;">
+          <div style="font-weight: 700; margin-bottom: 6px;">${name}</div>
+          ${desc ? `<div style="margin-bottom: 8px;">${desc}</div>` : ''}
+          ${other ? `<div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 8px;">${other}</div>` : ''}
+        </div>
+      `;
+    }
+
+    // Simple SVG icons (circle + glyph)
+    function svgIcon(glyphSvgPathD) {
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+          <circle cx="14" cy="14" r="12" fill="white" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
+          <path d="${glyphSvgPathD}" fill="rgba(0,0,0,0.85)"/>
+        </svg>
+      `.trim();
+      return L.divIcon({
+        className: '',
+        html: svg,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14],
+        popupAnchor: [0, -14]
+      });
+    }
+
+    // Water drop glyph (simple)
+    const waterDropPath = "M14 6 C11 10,9 12,9 15 a5 5 0 0 0 10 0 c0-3-2-5-5-9 z";
+    // Vending machine glyph (simplified rectangle + slots)
+    const vendingPath = "M10 7 h8 a1 1 0 0 1 1 1 v12 a1 1 0 0 1-1 1 h-8 a1 1 0 0 1-1-1 v-12 a1 1 0 0 1 1-1 z M11.5 9.2 h5 v2.2 h-5 z M11.5 12.3 h5 v1.3 h-5 z M11.5 14.4 h5 v1.3 h-5 z M12 17.2 h4 v2 h-4 z";
+
+    const iconLayer1 = svgIcon(waterDropPath);
+    const iconLayer2 = svgIcon(vendingPath);
+
+    function clusterGlyph(glyphPathD) {
+      return `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true">
+          <path d="${glyphPathD}" fill="rgba(0,0,0,0.8)"/>
+        </svg>
+      `.trim();
+    }
+
+    class SuperclusterLayer extends L.Layer {
+      constructor(geojson, options) {
+        super();
+        this.options = options || {};
+        this._index = new Supercluster({
+          radius: this.options.radius ?? 60,
+          maxZoom: this.options.maxZoom ?? 18,
+          minPoints: this.options.minPoints ?? 10
+        });
+        this._points = (geojson.features || []).map(f => ({
+          type: 'Feature',
+          geometry: f.geometry,
+          properties: f.properties || {}
+        }));
+        this._index.load(this._points);
+        this._render = this._render.bind(this);
+      }
+
+      onAdd(map) {
+        this._map = map;
+        this._group = L.layerGroup().addTo(map);
+        map.on('moveend zoomend', this._render);
+        this._render();
+      }
+
+      onRemove(map) {
+        map.off('moveend zoomend', this._render);
+        map.removeLayer(this._group);
+        this._group = null;
+        this._map = null;
+      }
+
+      getBounds() {
+        const coords = this._points.map(p => p.geometry.coordinates);
+        if (!coords.length) return null;
+        let minX=coords[0][0], minY=coords[0][1], maxX=coords[0][0], maxY=coords[0][1];
+        for (const [x,y] of coords) {
+          if (x < minX) minX = x;
+          if (y < minY) minY = y;
+          if (x > maxX) maxX = x;
+          if (y > maxY) maxY = y;
+        }
+        return L.latLngBounds([minY, minX], [maxY, maxX]);
+      }
+
+      _render() {
+        if (!this._map || !this._group) return;
+        const b = this._map.getBounds();
+        const zoom = this._map.getZoom();
+        const bbox = [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()];
+        const items = this._index.getClusters(bbox, zoom);
+
+        this._group.clearLayers();
+
+        for (const it of items) {
+          const [lon, lat] = it.geometry.coordinates;
+          const ll = L.latLng(lat, lon);
+
+          if (it.properties && it.properties.cluster) {
+            const count = it.properties.point_count;
+            const glyph = this.options.clusterGlyphSvg || '';
+            const marker = L.marker(ll, {
+              icon: L.divIcon({
+                className: '',
+                html: `<div class="cluster-badge">${glyph}${count}</div>`,
+                iconSize: [44, 34],
+                iconAnchor: [22, 17]
+              })
+            });
+            marker.on('click', () => {
+              const expansionZoom = Math.min(this._index.getClusterExpansionZoom(it.properties.cluster_id), 19);
+              this._map.setView(ll, expansionZoom, { animate: true });
+            });
+            this._group.addLayer(marker);
+          } else {
+            const m = L.marker(ll, { icon: this.options.pointIcon });
+            m.bindPopup(popupHtml(it.properties));
+            this._group.addLayer(m);
+          }
+        }
+      }
+    }
+
+    async function loadGeoJSON(url) {
+      const r = await fetch(url, { cache: 'no-store' });
+      if (!r.ok) throw new Error(`Fetch failed for ${url}: HTTP ${r.status}`);
+      const txt = await r.text();
+      return JSON.parse(txt);
+    }
+
+    // Dropdown control
+    const LayerDropdown = L.Control.extend({
+      onAdd: function(map) {
+        const div = L.DomUtil.create('div', 'ctl');
+        div.innerHTML = `
+          <label>Layer</label>
+          <select id="layerSelect">
+            <option value="layer1" selected>Layer 1 – Wasser</option>
+            <option value="layer2">Layer 2 – Automat</option>
+            <option value="both">Beide Layer</option>
+          </select>
+        `;
+        L.DomEvent.disableClickPropagation(div);
+        return div;
+      }
+    });
+
+    // Locate button
+    const LocateButton = L.Control.extend({
+      onAdd: function(map) {
+        const btn = L.DomUtil.create('div', 'btn');
+        btn.title = "Zu meiner Position";
+        btn.innerHTML = "Standort";
+        L.DomEvent.on(btn, 'click', () => startLocate(true));
+        L.DomEvent.disableClickPropagation(btn);
+        return btn;
+      }
+    });
+
+    let layer1, layer2;
+    let currentMode = "layer1";
+
+    // User position marker + accuracy circle
+    let userMarker = null;
+    let userAccuracy = null;
+    let watchId = null;
+
+    function setLayerMode(mode) {
+      currentMode = mode;
+      if (layer1) map.removeLayer(layer1);
+      if (layer2) map.removeLayer(layer2);
+
+      if (mode === "layer1") {
+        layer1.addTo(map);
+      } else if (mode === "layer2") {
+        layer2.addTo(map);
+      } else {
+        layer1.addTo(map);
+        layer2.addTo(map);
+      }
+    }
+
+    function startLocate(centerOnFix) {
+      if (!navigator.geolocation) {
+        alert("Geolocation wird von diesem Browser nicht unterstützt.");
+        return;
+      }
+
+      // Reuse watch if active; otherwise start it
+      if (watchId == null) {
+        watchId = navigator.geolocation.watchPosition(
+          (pos) => {
+            const { latitude, longitude, accuracy } = pos.coords;
+            const ll = [latitude, longitude];
+
+            if (!userMarker) {
+              userMarker = L.circleMarker(ll, { radius: 8, weight: 2, opacity: 0.95, fillOpacity: 0.8 }).addTo(map);
+              userMarker.bindPopup("Deine Position");
+            } else {
+              userMarker.setLatLng(ll);
+            }
+
+            if (!userAccuracy) {
+              userAccuracy = L.circle(ll, { radius: accuracy, weight: 1, opacity: 0.35, fillOpacity: 0.08 }).addTo(map);
+            } else {
+              userAccuracy.setLatLng(ll);
+              userAccuracy.setRadius(accuracy);
+            }
+
+            if (centerOnFix) {
+              map.setView(ll, Math.max(map.getZoom(), 15), { animate: true });
+              centerOnFix = false;
+            }
+          },
+          (err) => {
+            alert("Standort konnte nicht ermittelt werden: " + err.message);
+          },
+          { enableHighAccuracy: true, maximumAge: 10000, timeout: 15000 }
+        );
+      } else if (centerOnFix && userMarker) {
+        map.setView(userMarker.getLatLng(), Math.max(map.getZoom(), 15), { animate: true });
+      }
+    }
+
+    (async () => {
+      const [g1, g2] = await Promise.all([
+        loadGeoJSON('layer1_points.geojson'),
+        loadGeoJSON('layer2_points.geojson')
+      ]);
+
+      layer1 = new SuperclusterLayer(g1, {
+        minPoints: 10,
+        radius: 60,
+        pointIcon: iconLayer1,
+        clusterGlyphSvg: clusterGlyph(waterDropPath)
+      });
+
+      layer2 = new SuperclusterLayer(g2, {
+        minPoints: 10,
+        radius: 60,
+        pointIcon: iconLayer2,
+        clusterGlyphSvg: clusterGlyph(vendingPath)
+      });
+
+      // Add controls
+      const dd = new LayerDropdown({ position: 'topright' });
+      map.addControl(dd);
+
+      const loc = new LocateButton({ position: 'bottomright' });
+      map.addControl(loc);
+
+      // Hook dropdown
+      setTimeout(() => {
+        const sel = document.getElementById('layerSelect');
+        sel.addEventListener('change', (e) => setLayerMode(e.target.value));
+      }, 0);
+
+      // Default layer
+      setLayerMode("layer1");
+
+      // Fit bounds of both layers so switching doesn't feel "empty"
+      const b1 = layer1.getBounds();
+      const b2 = layer2.getBounds();
+      let bb = null;
+      if (b1 && b1.isValid()) bb = b1;
+      if (b2 && b2.isValid()) bb = bb ? bb.extend(b2) : b2;
+      if (bb && bb.isValid()) map.fitBounds(bb, { padding: [20, 20] });
+      else map.setView([52.52, 13.405], 11);
+    })().catch(err => {
+      console.error(err);
+      alert("Fehler beim Laden: " + (err.message || err));
+      map.setView([52.52, 13.405], 11);
+    });
+  </script>
+</body>
+</html>
