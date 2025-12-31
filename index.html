@@ -26,16 +26,44 @@
       border-radius: 10px;
       box-shadow: 0 1px 8px rgba(0,0,0,0.15);
       font: 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      position: relative;
     }
-    .ctl label { display:block; font-weight: 650; margin-bottom: 6px; }
-    .ctl select {
-      width: 220px;
-      padding: 6px 8px;
+    .dropdown-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-width: 160px;
+      padding: 8px 10px;
       border-radius: 8px;
       border: 1px solid rgba(0,0,0,0.18);
       background: #fff;
-      font-size: 13px;
+      cursor: pointer;
+      font-weight: 650;
     }
+    .dropdown-btn:active { transform: translateY(1px); }
+    .dropdown-panel {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 6px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 10px;
+      box-shadow: 0 1px 10px rgba(0,0,0,0.22);
+      padding: 10px 12px;
+      border: 1px solid rgba(0,0,0,0.1);
+      min-width: 220px;
+      z-index: 2000;
+      display: none;
+    }
+    .dropdown-panel.open { display: block; }
+    .dropdown-panel .title {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .layer-option { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .layer-option:last-child { margin-bottom: 0; }
+    .layer-option input { width: 16px; height: 16px; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       gap: 8px;
@@ -69,8 +97,8 @@
 </head>
 <body>
   <div class="note">
-    Clustering erst ab <b>10 Punkten</b> pro Cluster (Supercluster <code>minPoints=10</code>). Layer-Auswahl per Dropdown.
-    Nutzerposition (GPS) und Zoom auf alle Punkte via Buttons rechts unten.
+    Clustering erst ab <b>10 Punkten</b> pro Cluster (Supercluster <code>minPoints=10</code>). Layer-Auswahl über Dropdown-Panel mit Checkboxen.
+    Nutzerposition (GPS) via Button rechts unten.
   </div>
   <div id="map"></div>
 
@@ -247,24 +275,60 @@
       return JSON.parse(txt);
     }
 
-    // Dropdown control
-    const LayerDropdown = L.Control.extend({
-      onAdd: function(map) {
-        const div = L.DomUtil.create('div', 'ctl');
-        const opts = Object.entries(LAYERS)
-          .map(([key, cfg]) => `<option value="${key}" ${key === DEFAULT_LAYER_MODE ? 'selected' : ''}>${cfg.name}</option>`)
-          .join('');
-        div.innerHTML = `
-          <label>Layer</label>
-          <select id="layerSelect">
-            ${opts}
-            <option value="both">Beide Layer</option>
-          </select>
-        `;
-        L.DomEvent.disableClickPropagation(div);
-        return div;
-      }
-    });
+    // Dropdown control with checkbox list (closes on outside click)
+    function createLayerDropdown(layerDefs, onToggle, getActive) {
+      return L.Control.extend({
+        onAdd: function() {
+          const wrap = L.DomUtil.create('div', 'ctl');
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'dropdown-btn';
+          btn.textContent = 'Layer';
+
+          const panel = document.createElement('div');
+          panel.className = 'dropdown-panel';
+          panel.innerHTML = '<div class="title">Layer auswählen</div>';
+
+          // Build checkbox list from provided layer definitions
+          layerDefs.forEach(ld => {
+            const row = document.createElement('label');
+            row.className = 'layer-option';
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = ld.id;
+            cb.checked = getActive().has(ld.id);
+            cb.addEventListener('change', (e) => onToggle(ld.id, e.target.checked));
+
+            const text = document.createElement('span');
+            text.textContent = ld.label;
+            row.appendChild(cb);
+            row.appendChild(text);
+            panel.appendChild(row);
+          });
+
+          const closePanel = () => panel.classList.remove('open');
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            panel.classList.toggle('open');
+          });
+
+          const onDocClick = (e) => {
+            if (!wrap.contains(e.target)) closePanel();
+          };
+          document.addEventListener('click', onDocClick);
+
+          // Clean up when control is removed
+          this.onRemove = function() {
+            document.removeEventListener('click', onDocClick);
+          };
+
+          wrap.appendChild(btn);
+          wrap.appendChild(panel);
+          L.DomEvent.disableClickPropagation(wrap);
+          return wrap;
+        }
+      });
+    }
 
     // Locate button
     const LocateButton = L.Control.extend({
@@ -291,45 +355,31 @@
     });
 
     let layer1, layer2;
-    let currentMode = "layer1";
+    // Active layer IDs are stored in this Set so we can quickly sync map state with checkboxes.
+    const activeLayers = new Set();
+
+    // Checkbox change calls this helper to attach/detach the matching Leaflet layer right away.
+    function toggleLayer(id, enable) {
+      if (!layerRegistry[id]) return;
+      const layer = layerRegistry[id];
+
+      // Update state set first so UI and map stay in sync.
+      if (enable) {
+        activeLayers.add(id);
+        layer.addTo(map);
+      } else {
+        activeLayers.delete(id);
+        map.removeLayer(layer);
+      }
+    }
+
+    // Central registry so checkbox handlers can map IDs to Leaflet layers.
+    const layerRegistry = {};
 
     // User position marker + accuracy circle
     let userMarker = null;
     let userAccuracy = null;
     let watchId = null;
-
-    function setLayerMode(mode) {
-      currentMode = mode;
-      const layerList = Object.values(layers);
-      layerList.forEach(l => map.removeLayer(l));
-
-      if (mode === "both") {
-        layerList.forEach(l => l.addTo(map));
-        return;
-      }
-
-      const targetLayer = layers[mode];
-      if (targetLayer) targetLayer.addTo(map);
-    }
-
-    function fitToActiveBounds() {
-      const bounds = [];
-      if ((currentMode === "layer1" || currentMode === "both") && layer1) {
-        const b = layer1.getBounds();
-        if (b && b.isValid()) bounds.push(b);
-      }
-      if ((currentMode === "layer2" || currentMode === "both") && layer2) {
-        const b = layer2.getBounds();
-        if (b && b.isValid()) bounds.push(b);
-      }
-
-      if (bounds.length) {
-        const combined = bounds.slice(1).reduce((acc, b) => acc.extend(b), bounds[0]);
-        map.fitBounds(combined, { padding: [20, 20] });
-      } else {
-        map.setView([52.52, 13.405], 11);
-      }
-    }
 
     function startLocate(centerOnFix) {
       if (!navigator.geolocation) {
@@ -389,24 +439,23 @@
 
       layers = Object.fromEntries(loadedEntries);
 
+      layerRegistry.layer1 = layer1;
+      layerRegistry.layer2 = layer2;
+
+      const layerDefs = [
+        { id: 'layer1', label: 'Layer 1 – Wasser' },
+        { id: 'layer2', label: 'Layer 2 – Automat' }
+      ];
+
+      // Default layer selection: keep initial state aligned with checkboxes
+      toggleLayer('layer1', true);
+
       // Add controls
-      const dd = new LayerDropdown({ position: 'topright' });
-      map.addControl(dd);
+      const dropdown = new (createLayerDropdown(layerDefs, toggleLayer, () => activeLayers))({ position: 'topright' });
+      map.addControl(dropdown);
 
       const loc = new LocateButton({ position: 'bottomright' });
       map.addControl(loc);
-
-      const reset = new ResetViewButton({ position: 'bottomright' });
-      map.addControl(reset);
-
-      // Hook dropdown
-      setTimeout(() => {
-        const sel = document.getElementById('layerSelect');
-        sel.addEventListener('change', (e) => setLayerMode(e.target.value));
-      }, 0);
-
-      // Default layer
-      setLayerMode(DEFAULT_LAYER_MODE);
 
       // Fit bounds of both layers so switching doesn't feel "empty"
       fitToActiveBounds();
