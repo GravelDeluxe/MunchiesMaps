@@ -70,7 +70,7 @@
 <body>
   <div class="note">
     Clustering erst ab <b>10 Punkten</b> pro Cluster (Supercluster <code>minPoints=10</code>). Layer-Auswahl per Dropdown.
-    Nutzerposition (GPS) via Button rechts unten.
+    Nutzerposition (GPS) und Zoom auf alle Punkte via Buttons rechts unten.
   </div>
   <div id="map"></div>
 
@@ -278,8 +278,20 @@
       }
     });
 
-    let layers = {};
-    let currentMode = DEFAULT_LAYER_MODE;
+    // Fit-to-data button
+    const ResetViewButton = L.Control.extend({
+      onAdd: function(map) {
+        const btn = L.DomUtil.create('div', 'btn');
+        btn.title = "Auf alle Punkte zoomen";
+        btn.innerHTML = "Alle Punkte";
+        L.DomEvent.on(btn, 'click', fitToActiveBounds);
+        L.DomEvent.disableClickPropagation(btn);
+        return btn;
+      }
+    });
+
+    let layer1, layer2;
+    let currentMode = "layer1";
 
     // User position marker + accuracy circle
     let userMarker = null;
@@ -298,6 +310,25 @@
 
       const targetLayer = layers[mode];
       if (targetLayer) targetLayer.addTo(map);
+    }
+
+    function fitToActiveBounds() {
+      const bounds = [];
+      if ((currentMode === "layer1" || currentMode === "both") && layer1) {
+        const b = layer1.getBounds();
+        if (b && b.isValid()) bounds.push(b);
+      }
+      if ((currentMode === "layer2" || currentMode === "both") && layer2) {
+        const b = layer2.getBounds();
+        if (b && b.isValid()) bounds.push(b);
+      }
+
+      if (bounds.length) {
+        const combined = bounds.slice(1).reduce((acc, b) => acc.extend(b), bounds[0]);
+        map.fitBounds(combined, { padding: [20, 20] });
+      } else {
+        map.setView([52.52, 13.405], 11);
+      }
     }
 
     function startLocate(centerOnFix) {
@@ -365,6 +396,9 @@
       const loc = new LocateButton({ position: 'bottomright' });
       map.addControl(loc);
 
+      const reset = new ResetViewButton({ position: 'bottomright' });
+      map.addControl(reset);
+
       // Hook dropdown
       setTimeout(() => {
         const sel = document.getElementById('layerSelect');
@@ -375,13 +409,7 @@
       setLayerMode(DEFAULT_LAYER_MODE);
 
       // Fit bounds of both layers so switching doesn't feel "empty"
-      const boundsList = Object.values(layers)
-        .map(l => l.getBounds())
-        .filter(b => b && b.isValid());
-      let bb = null;
-      for (const b of boundsList) bb = bb ? bb.extend(b) : b;
-      if (bb && bb.isValid()) map.fitBounds(bb, { padding: [20, 20] });
-      else map.setView([52.52, 13.405], 11);
+      fitToActiveBounds();
     })().catch(err => {
       console.error(err);
       alert("Fehler beim Laden: " + (err.message || err));
