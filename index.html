@@ -288,13 +288,16 @@
 
     function setLayerMode(mode) {
       currentMode = mode;
-      Object.values(layers).forEach(l => map.removeLayer(l));
+      const layerList = Object.values(layers);
+      layerList.forEach(l => map.removeLayer(l));
 
       if (mode === "both") {
-        Object.values(layers).forEach(l => l.addTo(map));
-      } else if (layers[mode]) {
-        layers[mode].addTo(map);
+        layerList.forEach(l => l.addTo(map));
+        return;
       }
+
+      const targetLayer = layers[mode];
+      if (targetLayer) targetLayer.addTo(map);
     }
 
     function startLocate(centerOnFix) {
