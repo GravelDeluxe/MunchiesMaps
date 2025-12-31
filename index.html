@@ -127,9 +127,6 @@
     // Vending machine glyph (simplified rectangle + slots)
     const vendingPath = "M10 7 h8 a1 1 0 0 1 1 1 v12 a1 1 0 0 1-1 1 h-8 a1 1 0 0 1-1-1 v-12 a1 1 0 0 1 1-1 z M11.5 9.2 h5 v2.2 h-5 z M11.5 12.3 h5 v1.3 h-5 z M11.5 14.4 h5 v1.3 h-5 z M12 17.2 h4 v2 h-4 z";
 
-    const iconLayer1 = svgIcon(waterDropPath);
-    const iconLayer2 = svgIcon(vendingPath);
-
     function clusterGlyph(glyphPathD) {
       return `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true">
@@ -137,6 +134,28 @@
         </svg>
       `.trim();
     }
+
+    const ICONS = {
+      water: svgIcon(waterDropPath),
+      vending: svgIcon(vendingPath)
+    };
+
+    const LAYERS = {
+      layer1: {
+        name: "Layer 1 – Wasser",
+        geojson: "layer1_points.geojson",
+        iconType: "water",
+        clusterGlyphSvg: clusterGlyph(waterDropPath)
+      },
+      layer2: {
+        name: "Layer 2 – Automat",
+        geojson: "layer2_points.geojson",
+        iconType: "vending",
+        clusterGlyphSvg: clusterGlyph(vendingPath)
+      }
+    };
+
+    const DEFAULT_LAYER_MODE = Object.keys(LAYERS)[0] || "layer1";
 
     class SuperclusterLayer extends L.Layer {
       constructor(geojson, options) {
@@ -232,11 +251,13 @@
     const LayerDropdown = L.Control.extend({
       onAdd: function(map) {
         const div = L.DomUtil.create('div', 'ctl');
+        const opts = Object.entries(LAYERS)
+          .map(([key, cfg]) => `<option value="${key}" ${key === DEFAULT_LAYER_MODE ? 'selected' : ''}>${cfg.name}</option>`)
+          .join('');
         div.innerHTML = `
           <label>Layer</label>
           <select id="layerSelect">
-            <option value="layer1" selected>Layer 1 – Wasser</option>
-            <option value="layer2">Layer 2 – Automat</option>
+            ${opts}
             <option value="both">Beide Layer</option>
           </select>
         `;
@@ -257,8 +278,8 @@
       }
     });
 
-    let layer1, layer2;
-    let currentMode = "layer1";
+    let layers = {};
+    let currentMode = DEFAULT_LAYER_MODE;
 
     // User position marker + accuracy circle
     let userMarker = null;
@@ -267,16 +288,12 @@
 
     function setLayerMode(mode) {
       currentMode = mode;
-      if (layer1) map.removeLayer(layer1);
-      if (layer2) map.removeLayer(layer2);
+      Object.values(layers).forEach(l => map.removeLayer(l));
 
-      if (mode === "layer1") {
-        layer1.addTo(map);
-      } else if (mode === "layer2") {
-        layer2.addTo(map);
-      } else {
-        layer1.addTo(map);
-        layer2.addTo(map);
+      if (mode === "both") {
+        Object.values(layers).forEach(l => l.addTo(map));
+      } else if (layers[mode]) {
+        layers[mode].addTo(map);
       }
     }
 
@@ -323,24 +340,20 @@
     }
 
     (async () => {
-      const [g1, g2] = await Promise.all([
-        loadGeoJSON('layer1_points.geojson'),
-        loadGeoJSON('layer2_points.geojson')
-      ]);
+      const loadedEntries = await Promise.all(
+        Object.entries(LAYERS).map(async ([key, cfg]) => {
+          const geojson = await loadGeoJSON(cfg.geojson);
+          const layer = new SuperclusterLayer(geojson, {
+            minPoints: 10,
+            radius: 60,
+            pointIcon: ICONS[cfg.iconType],
+            clusterGlyphSvg: cfg.clusterGlyphSvg
+          });
+          return [key, layer];
+        })
+      );
 
-      layer1 = new SuperclusterLayer(g1, {
-        minPoints: 10,
-        radius: 60,
-        pointIcon: iconLayer1,
-        clusterGlyphSvg: clusterGlyph(waterDropPath)
-      });
-
-      layer2 = new SuperclusterLayer(g2, {
-        minPoints: 10,
-        radius: 60,
-        pointIcon: iconLayer2,
-        clusterGlyphSvg: clusterGlyph(vendingPath)
-      });
+      layers = Object.fromEntries(loadedEntries);
 
       // Add controls
       const dd = new LayerDropdown({ position: 'topright' });
@@ -356,14 +369,14 @@
       }, 0);
 
       // Default layer
-      setLayerMode("layer1");
+      setLayerMode(DEFAULT_LAYER_MODE);
 
       // Fit bounds of both layers so switching doesn't feel "empty"
-      const b1 = layer1.getBounds();
-      const b2 = layer2.getBounds();
+      const boundsList = Object.values(layers)
+        .map(l => l.getBounds())
+        .filter(b => b && b.isValid());
       let bb = null;
-      if (b1 && b1.isValid()) bb = b1;
-      if (b2 && b2.isValid()) bb = bb ? bb.extend(b2) : b2;
+      for (const b of boundsList) bb = bb ? bb.extend(b) : b;
       if (bb && bb.isValid()) map.fitBounds(bb, { padding: [20, 20] });
       else map.setView([52.52, 13.405], 11);
     })().catch(err => {
