@@ -109,6 +109,10 @@
   <script>
     const map = L.map('map', { zoomControl: true, preferCanvas: true });
 
+    const FALLBACK_VIEW = { center: [52.52, 13.405], zoom: 11 };
+    // Ensure the map has an initial view before any custom layers render.
+    map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom);
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; OpenStreetMap-Mitwirkende'
@@ -393,7 +397,7 @@
         .filter(Boolean);
 
       if (!boundsList.length) {
-        map.setView([52.52, 13.405], 11);
+        map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom);
         return;
       }
 
@@ -485,7 +489,7 @@
     })().catch(err => {
       console.error(err);
       alert("Fehler beim Laden: " + (err.message || err));
-      map.setView([52.52, 13.405], 11);
+      map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom);
     });
   </script>
 </body>
