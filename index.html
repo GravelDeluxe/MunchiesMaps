@@ -366,15 +366,16 @@
         return btn;
       }
     });
-
-    let layer1, layer2;
     // Active layer IDs are stored in this Set so we can quickly sync map state with checkboxes.
     const activeLayers = new Set();
 
+    // Central registry so checkbox handlers can map IDs to Leaflet layers.
+    const layerRegistry = {};
+
     // Checkbox change calls this helper to attach/detach the matching Leaflet layer right away.
     function toggleLayer(id, enable) {
-      if (!layerRegistry[id]) return;
       const layer = layerRegistry[id];
+      if (!layer) return;
 
       // Update state set first so UI and map stay in sync.
       if (enable) {
@@ -386,8 +387,19 @@
       }
     }
 
-    // Central registry so checkbox handlers can map IDs to Leaflet layers.
-    const layerRegistry = {};
+    function fitToActiveBounds() {
+      const boundsList = Array.from(activeLayers)
+        .map(id => layerRegistry[id]?.getBounds())
+        .filter(Boolean);
+
+      if (!boundsList.length) {
+        map.setView([52.52, 13.405], 11);
+        return;
+      }
+
+      const merged = boundsList.slice(1).reduce((acc, b) => acc.extend(b), boundsList[0].clone());
+      map.fitBounds(merged, { padding: [30, 30], maxZoom: 17 });
+    }
 
     // User position marker + accuracy circle
     let userMarker = null;
@@ -450,29 +462,13 @@
         })
       );
 
-      layers = Object.fromEntries(loadedEntries);
+      const layers = Object.fromEntries(loadedEntries);
+      Object.assign(layerRegistry, layers);
 
-      layerRegistry.layer1 = layer1;
-      layerRegistry.layer2 = layer2;
-
-      const layerDefs = [
-        { id: 'layer1', label: 'Layer 1 – Wasser' },
-        { id: 'layer2', label: 'Layer 2 – Automat' }
-      ];
+      const layerDefs = Object.entries(LAYERS).map(([id, cfg]) => ({ id, label: cfg.name }));
 
       // Default layer selection: keep initial state aligned with checkboxes
-      toggleLayer('layer1', true);
-
-      layerRegistry.layer1 = layer1;
-      layerRegistry.layer2 = layer2;
-
-      const layerDefs = [
-        { id: 'layer1', label: 'Layer 1 – Wasser' },
-        { id: 'layer2', label: 'Layer 2 – Automat' }
-      ];
-
-      // Default layer selection: keep initial state aligned with checkboxes
-      toggleLayer('layer1', true);
+      toggleLayer(DEFAULT_LAYER_MODE, true);
 
       // Add controls
       const dropdown = new (createLayerDropdown(layerDefs, toggleLayer, () => activeLayers))({ position: 'topright' });
@@ -480,6 +476,9 @@
 
       const loc = new LocateButton({ position: 'bottomright' });
       map.addControl(loc);
+
+      const reset = new ResetViewButton({ position: 'bottomright' });
+      map.addControl(reset);
 
       // Fit bounds of both layers so switching doesn't feel "empty"
       fitToActiveBounds();
