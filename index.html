@@ -401,7 +401,11 @@
         return;
       }
 
-      const merged = boundsList.slice(1).reduce((acc, b) => acc.extend(b), boundsList[0].clone());
+      // Leaflet's LatLngBounds doesn't expose a clone method, so use pad(0) to copy.
+      const merged = boundsList.slice(1).reduce(
+        (acc, b) => acc.extend(b),
+        boundsList[0].pad(0)
+      );
       map.fitBounds(merged, { padding: [30, 30], maxZoom: 17 });
     }
 
