@@ -8,7 +8,39 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <style>
-    html, body { height: 100%; margin: 0; }
+    :root {
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --text: #111827;
+      --muted: #4b5563;
+      --border: rgba(0,0,0,0.12);
+      --btn-bg: rgba(255,255,255,0.95);
+      --btn-text: #0f172a;
+      --btn-border: rgba(0,0,0,0.18);
+      --btn-shadow: 0 2px 10px rgba(0,0,0,0.18);
+      --overlay: rgba(0,0,0,0.35);
+      --action-bg: rgba(245,245,245,0.92);
+      --switch-bg: #e5e7eb;
+      --switch-thumb: #ffffff;
+    }
+
+    .theme-dark {
+      --bg: #0f172a;
+      --panel: #111827;
+      --text: #e5e7eb;
+      --muted: #cbd5e1;
+      --border: rgba(255,255,255,0.14);
+      --btn-bg: rgba(30,41,59,0.92);
+      --btn-text: #e5e7eb;
+      --btn-border: rgba(255,255,255,0.18);
+      --btn-shadow: 0 2px 12px rgba(0,0,0,0.45);
+      --overlay: rgba(0,0,0,0.55);
+      --action-bg: rgba(45,55,72,0.85);
+      --switch-bg: #1e293b;
+      --switch-thumb: #0ea5e9;
+    }
+
+    html, body { height: 100%; margin: 0; background: var(--bg); color: var(--text); }
     #map { height: 100%; width: 100%; }
 
     /* Drawer + overlay */
@@ -24,10 +56,11 @@
     #layerDrawerToggle,
     #locateButton {
       padding: 10px 14px;
-      border: 1px solid rgba(0,0,0,0.18);
+      border: 1px solid var(--btn-border);
       border-radius: 12px;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+      background: var(--btn-bg);
+      box-shadow: var(--btn-shadow);
+      color: var(--btn-text);
       font: 14px/1.3 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       font-weight: 700;
       cursor: pointer;
@@ -38,7 +71,7 @@
     #layerDrawerBackdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.35);
+      background: var(--overlay);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.25s ease;
@@ -54,7 +87,7 @@
       width: auto;
       max-width: min(92vw, 420px);
       min-width: 260px;
-      background: #fff;
+      background: var(--panel);
       box-shadow: -2px 0 16px rgba(0,0,0,0.2);
       transform: translateX(100%);
       transition: transform 0.25s ease;
@@ -62,6 +95,7 @@
       display: flex;
       flex-direction: column;
       font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
     }
     #layerDrawer.open { transform: translateX(0); }
     #layerDrawer header {
@@ -69,7 +103,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      border-bottom: 1px solid var(--border);
       gap: 12px;
     }
     #layerDrawer header h2 { margin: 0; font-size: 18px; }
@@ -80,9 +114,10 @@
       font-size: 20px;
       line-height: 1;
       padding: 6px;
+      color: var(--text);
     }
     #layerDrawer .drawer-body { flex: 1; overflow: auto; padding: 0 16px 18px; }
-    #layerDrawer .section { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    #layerDrawer .section { border-bottom: 1px solid var(--border); }
     #layerDrawer .section:last-of-type { border-bottom: none; }
     .accordion-header {
       display: flex;
@@ -92,6 +127,7 @@
       cursor: pointer;
       font-weight: 700;
       gap: 12px;
+      color: var(--text);
     }
     .accordion-header span { flex: 1; }
     .accordion-header .chevron {
@@ -103,20 +139,21 @@
       font-size: 16px;
     }
     .accordion-header[aria-expanded="false"] .chevron { transform: rotate(-90deg); }
-    .accordion-body { padding: 0 0 14px; display: none; }
+    .accordion-body { padding: 0 0 14px; display: none; color: var(--text); }
     .accordion-body.open { display: block; }
     .action-row { display: flex; gap: 10px; margin-bottom: 10px; }
     .action-row button {
       flex: 1;
       padding: 8px 10px;
       border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.16);
-      background: rgba(245,245,245,0.9);
+      border: 1px solid var(--btn-border);
+      background: var(--action-bg);
       cursor: pointer;
       font-weight: 650;
+      color: var(--text);
     }
     .checklist { display: flex; flex-direction: column; gap: 8px; }
-    .checklist label { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+    .checklist label { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
     .checklist input[type="checkbox"] { width: 16px; height: 16px; }
     /* Custom controls */
     .btn {
@@ -124,14 +161,55 @@
       gap: 8px;
       padding: 8px 10px;
       border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.18);
-      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--btn-border);
+      background: var(--btn-bg);
       box-shadow: 0 1px 8px rgba(0,0,0,0.15);
       cursor: pointer;
       user-select: none;
       font: 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--btn-text);
     }
     .btn:active { transform: translateY(1px); }
+
+    /* Drawer bottom */
+    .drawer-bottom {
+      border-top: 1px solid var(--border);
+      padding: 12px 16px 16px;
+      background: var(--panel);
+    }
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--text);
+      user-select: none;
+    }
+    .theme-toggle input { display: none; }
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      border-radius: 999px;
+      background: var(--switch-bg);
+      border: 1px solid var(--border);
+      transition: background 0.2s ease;
+      flex-shrink: 0;
+    }
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--switch-thumb);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease;
+    }
+    .theme-toggle input:checked + .toggle-switch::after { transform: translateX(22px); }
 
     /* Cluster icon */
     .cluster-badge {
@@ -149,6 +227,16 @@
     }
     .cluster-badge svg { width: 14px; height: 14px; display:block; }
   </style>
+  <script>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialTheme = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
+      document.documentElement.classList.toggle('theme-dark', initialTheme === 'dark');
+      document.documentElement.dataset.theme = initialTheme;
+      window.__themePreference = initialTheme;
+    })();
+  </script>
 </head>
 <body>
     <div id="map"></div>
@@ -190,6 +278,13 @@
         </div>
       </div>
     </div>
+    <div class="drawer-bottom">
+      <label class="theme-toggle" for="darkModeToggle">
+        <span>Darkmode</span>
+        <input type="checkbox" id="darkModeToggle" aria-label="Darkmode umschalten" />
+        <span class="toggle-switch" aria-hidden="true"></span>
+      </label>
+    </div>
   </aside>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -197,6 +292,27 @@
   <script src="https://unpkg.com/supercluster@8.0.1/dist/supercluster.min.js"></script>
 
   <script>
+    const THEME_KEY = 'theme';
+
+    function applyTheme(theme) {
+      const next = theme === 'dark' ? 'dark' : 'light';
+      document.documentElement.classList.toggle('theme-dark', next === 'dark');
+      document.documentElement.dataset.theme = next;
+    }
+
+    function setupThemeToggle() {
+      const toggle = document.getElementById('darkModeToggle');
+      if (!toggle) return;
+      const initial = document.documentElement.dataset.theme || (window.__themePreference || 'light');
+      toggle.checked = initial === 'dark';
+
+      toggle.addEventListener('change', () => {
+        const isDark = toggle.checked;
+        applyTheme(isDark ? 'dark' : 'light');
+        localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+      });
+    }
+
     const map = L.map('map', { zoomControl: true, preferCanvas: true });
     window.map = map;
 
@@ -654,6 +770,7 @@
       setAccordionHandlers();
       setupDrawer();
       setupDrawerWidthMeasurement();
+      setupThemeToggle();
 
       document.getElementById('locateButton').addEventListener('click', () => startLocate(true));
 
