@@ -418,6 +418,11 @@
     ];
     const KATEGORIEN = ["Wasser", "Automaten"];
 
+    const CATEGORY_TO_LAYERS = {
+      "Wasser": ["layer1"],
+      "Automaten": ["layer2"]
+    };
+
     const filterState = {
       bundeslaender: new Set(BUNDESLAENDER),
       kategorien: new Set(KATEGORIEN)
@@ -462,12 +467,16 @@
     }
 
     function applyFilters() {
-      const selected = {
-        bundeslaender: Array.from(filterState.bundeslaender),
-        kategorien: Array.from(filterState.kategorien)
-      };
-      console.log('Ausgewählte Filter', selected);
-      // TODO: Apply real map filtering once backend/data schema is connected
+      const selectedCategories = new Set(filterState.kategorien);
+
+      // Toggle layers based on selected categories
+      Object.entries(CATEGORY_TO_LAYERS).forEach(([category, layerIds]) => {
+        const shouldShow = selectedCategories.has(category);
+        layerIds.forEach((id) => toggleLayer(id, shouldShow));
+      });
+
+      // Keep view consistent with current active layers
+      fitToActiveBounds();
     }
 
     function measureDrawerWidth() {
@@ -831,7 +840,7 @@
       Object.assign(layerRegistry, layers);
 
       // Default layer selection: keep initial state aligned with checkboxes
-      toggleLayer(DEFAULT_LAYER_MODE, true);
+      applyFilters();
 
       // Fit bounds of both layers so switching doesn't feel "empty"
       fitToActiveBounds();
