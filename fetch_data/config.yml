@@ -1,0 +1,28 @@
+overpass:
+  endpoint: "https://overpass-api.de/api/interpreter"
+  timeout: 180
+states:
+  - Baden-Württemberg
+  - Bayern
+  - Berlin
+  - Brandenburg
+  - Bremen
+  - Hamburg
+  - Hessen
+  - Mecklenburg-Vorpommern
+  - Niedersachsen
+  - Nordrhein-Westfalen
+  - Rheinland-Pfalz
+  - Saarland
+  - Sachsen
+  - Sachsen-Anhalt
+  - Schleswig-Holstein
+  - Thüringen
+categories:
+  fuel: fuel
+  supermarkets: supermarkets
+  toilets_public: toilets_public
+  drinking_water: drinking_water
+  mcdonalds: mcdonalds
+  burger_king: burger_king
+  vending_snacks: vending_snacks
