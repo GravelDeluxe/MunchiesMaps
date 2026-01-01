@@ -474,9 +474,6 @@
         const shouldShow = selectedCategories.has(category);
         layerIds.forEach((id) => toggleLayer(id, shouldShow));
       });
-
-      // Keep view consistent with current active layers
-      fitToActiveBounds();
     }
 
     function measureDrawerWidth() {
