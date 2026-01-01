@@ -17,7 +17,8 @@
       right: 14px;
       bottom: 14px;
       z-index: 1035;
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 10px;
     }
     #layerDrawerToggle,
@@ -50,7 +51,8 @@
       top: 0;
       right: 0;
       height: 100vh;
-      width: min(380px, 92vw);
+      width: fit-content;
+      max-width: min(92vw, 420px);
       background: #fff;
       box-shadow: -2px 0 16px rgba(0,0,0,0.2);
       transform: translateX(100%);
@@ -91,7 +93,14 @@
       gap: 12px;
     }
     .accordion-header span { flex: 1; }
-    .accordion-header .chevron { transition: transform 0.2s ease; }
+    .accordion-header .chevron {
+      transition: transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      font-size: 16px;
+    }
     .accordion-header[aria-expanded="false"] .chevron { transform: rotate(-90deg); }
     .accordion-body { padding: 0 0 14px; display: none; }
     .accordion-body.open { display: block; }
@@ -158,12 +167,12 @@
   </style>
 </head>
 <body>
-  <div id="map"></div>
-  <div class="map-controls-br">
-    <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Filter öffnen">Filter</button>
-    <button id="locateButton" type="button" aria-label="Standort zentrieren">Standort</button>
-  </div>
-  <div id="layerDrawerBackdrop" aria-hidden="true"></div>
+    <div id="map"></div>
+    <div class="map-controls-br">
+      <button id="locateButton" type="button" aria-label="Standort zentrieren">Standort</button>
+      <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Filter öffnen">Filter</button>
+    </div>
+    <div id="layerDrawerBackdrop" aria-hidden="true"></div>
   <aside id="layerDrawer" aria-hidden="true" aria-label="Filter">
     <header>
       <h2>Filter</h2>
