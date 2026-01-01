@@ -51,8 +51,9 @@
       top: 0;
       right: 0;
       height: 100vh;
-      width: fit-content;
+      width: auto;
       max-width: min(92vw, 420px);
+      min-width: 260px;
       background: #fff;
       box-shadow: -2px 0 16px rgba(0,0,0,0.2);
       transform: translateX(100%);
@@ -117,23 +118,6 @@
     .checklist { display: flex; flex-direction: column; gap: 8px; }
     .checklist label { display: flex; align-items: center; gap: 10px; font-size: 14px; }
     .checklist input[type="checkbox"] { width: 16px; height: 16px; }
-    #layerDrawer footer {
-      padding: 14px 16px 18px;
-      border-top: 1px solid rgba(0,0,0,0.08);
-    }
-    #applyFiltersBtn {
-      width: 100%;
-      padding: 12px;
-      border-radius: 12px;
-      border: none;
-      background: #0d6efd;
-      color: #fff;
-      font-weight: 750;
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.18);
-    }
-    #applyFiltersBtn:active { transform: translateY(1px); }
-
     /* Custom controls */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
@@ -206,9 +190,6 @@
         </div>
       </div>
     </div>
-    <footer>
-      <button type="button" id="applyFiltersBtn">Anwenden</button>
-    </footer>
   </aside>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -257,6 +238,7 @@
           } else {
             selectedSet.delete(val);
           }
+          applyFilters();
         });
         const text = document.createElement('span');
         text.textContent = val;
@@ -269,11 +251,13 @@
     function selectAll(values, set, containerId, setName) {
       values.forEach(v => set.add(v));
       renderChecklist(containerId, values, set, setName);
+      applyFilters();
     }
 
     function selectNone(values, set, containerId, setName) {
       set.clear();
       renderChecklist(containerId, values, set, setName);
+      applyFilters();
     }
 
     function applyFilters() {
@@ -283,6 +267,41 @@
       };
       console.log('Ausgewählte Filter', selected);
       // TODO: Apply real map filtering once backend/data schema is connected
+    }
+
+    function measureDrawerWidth() {
+      const drawer = document.getElementById('layerDrawer');
+      if (!drawer) return;
+      const headers = drawer.querySelectorAll('.accordion-header');
+      if (!headers.length) return;
+
+      // Allow natural sizing to measure intrinsic widths
+      drawer.style.width = 'auto';
+
+      let maxHeaderWidth = 0;
+      headers.forEach((header) => {
+        maxHeaderWidth = Math.max(maxHeaderWidth, header.scrollWidth);
+      });
+
+      const BUFFER = 24;
+      const MIN_WIDTH = 260;
+      const MAX_WIDTH = Math.min(window.innerWidth * 0.92, 420);
+      const targetWidth = Math.min(Math.max(maxHeaderWidth + BUFFER, MIN_WIDTH), MAX_WIDTH);
+
+      drawer.style.width = `${targetWidth}px`;
+    }
+
+    function setupDrawerWidthMeasurement() {
+      const fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+      // Measure once immediately and again after fonts settle to avoid jumps
+      measureDrawerWidth();
+      fontsReady.then(measureDrawerWidth).catch(() => measureDrawerWidth());
+
+      let resizeTimer = null;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(measureDrawerWidth, 150);
+      });
     }
 
     function setAccordionHandlers() {
@@ -634,6 +653,7 @@
       renderChecklist('catList', KATEGORIEN, filterState.kategorien, 'cat');
       setAccordionHandlers();
       setupDrawer();
+      setupDrawerWidthMeasurement();
 
       document.getElementById('locateButton').addEventListener('click', () => startLocate(true));
 
@@ -641,7 +661,6 @@
       document.getElementById('blSelectNone').addEventListener('click', () => selectNone(BUNDESLAENDER, filterState.bundeslaender, 'blList', 'bl'));
       document.getElementById('catSelectAll').addEventListener('click', () => selectAll(KATEGORIEN, filterState.kategorien, 'catList', 'cat'));
       document.getElementById('catSelectNone').addEventListener('click', () => selectNone(KATEGORIEN, filterState.kategorien, 'catList', 'cat'));
-      document.getElementById('applyFiltersBtn').addEventListener('click', applyFilters);
 
       centerToUserLocation();
     })().catch(err => {
