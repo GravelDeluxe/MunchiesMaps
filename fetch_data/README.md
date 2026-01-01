@@ -1,21 +1,8 @@
-# Fetch Overpass Data
+# Overpass data fetch
 
-Dieses Verzeichnis enthält das Python-Skript zur Abfrage der Overpass API und zur Ablage der Ergebnisse als GeoJSON unterhalb von `resources/`.
+Automation scripts for pulling OpenStreetMap data and exporting it as GeoJSON for the map runtime.
 
-## Installation
-
-```bash
-pip install -r requirements.txt
-```
-
-## Ausführung
-
-```bash
-python fetch_overpass.py
-```
-
-Die Konfiguration der Bundesländer, Kategorien sowie des Endpunkts erfolgt über `config.yml`.
-
-## GitHub Actions
-
-Ein automatisierter Workflow liegt unter `.github/workflows/fetch_overpass.yml`. Er kann manuell über die GitHub-Oberfläche gestartet werden: "Actions" → "Fetch Overpass Data" → "Run workflow". Zusätzlich läuft der Workflow wöchentlich montags um 03:00 UTC über einen Cron-Trigger.
+- `fetch_overpass.py` runs the Overpass queries defined in `overpass_templates.py` and writes results into `../resources/geojson/` following `config.yml`.
+- Install dependencies with `pip install -r requirements.txt` and execute `python fetch_overpass.py` when regenerating data.
+- Workflow configuration lives in `.github/workflows/fetch_overpass.yml`; it can be triggered manually or via its scheduled cron job.
+- The scripts are for preprocessing only and are not part of the client-side application.
