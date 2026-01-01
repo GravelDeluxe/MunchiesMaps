@@ -7,7 +7,6 @@
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.css" />
   <style>
     :root {
       --bg: #f6f7fb;
@@ -282,7 +281,8 @@
   <script>
     (function() {
       const stored = localStorage.getItem('theme');
-      const initialTheme = stored === 'dark' ? 'dark' : 'light';
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialTheme = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
       document.documentElement.classList.toggle('theme-dark', initialTheme === 'dark');
       document.documentElement.dataset.theme = initialTheme;
       window.__themePreference = initialTheme;
@@ -341,78 +341,12 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="https://unpkg.com/supercluster@8.0.1/dist/supercluster.min.js"></script>
-  <script src="https://unpkg.com/maplibre-gl@3.6.1/dist/maplibre-gl.js"></script>
-  <script src="https://unpkg.com/maplibre-gl-leaflet@0.0.19/leaflet-maplibre-gl.js"></script>
 
   <script>
     const THEME_KEY = 'theme';
-    const DARK_STYLE_URL = new URL('styles/dark-grey.json', window.location.href).toString();
 
     let baseLayers = null;
     let activeBaseLayer = null;
-    let darkStyleProbe = null;
-
-    function fallbackToLight(reason) {
-      if (document.documentElement.dataset.theme === 'light') return;
-      console.warn('Falling back to light style:', reason);
-      const toggle = document.getElementById('darkModeToggle');
-      if (toggle) toggle.checked = false;
-      applyTheme('light');
-      localStorage.setItem(THEME_KEY, 'light');
-    }
-
-    function logAndAttachMapLibreEvents(layer) {
-      if (!layer || typeof layer.getMaplibreMap !== 'function') return null;
-      const ml = layer.getMaplibreMap();
-      if (!ml || ml.__debugHandlersAttached) return ml;
-      ml.__debugHandlersAttached = true;
-
-      ml.on('error', (e) => {
-        console.error('MapLibre error:', e?.error || e);
-        const status = e?.error?.status;
-        const message = e?.error?.message || '';
-        const shouldFallback = (typeof status === 'number' && status >= 400) || /style/i.test(message);
-        if (shouldFallback && document.documentElement.dataset.theme === 'dark' && activeBaseLayer === layer) {
-          fallbackToLight('Dark basemap failed to load.');
-        }
-      });
-
-      ml.on('styledata', () => {
-        const style = ml.getStyle && ml.getStyle();
-        console.info('MapLibre styledata loaded', style?.name || '');
-      });
-
-      ml.on('style.load', () => {
-        console.info('MapLibre style.load complete for dark basemap.');
-      });
-
-      return ml;
-    }
-
-    function probeDarkStyle() {
-      if (!darkStyleProbe) {
-        console.info('Probing dark style availability:', DARK_STYLE_URL);
-        darkStyleProbe = fetch(DARK_STYLE_URL, { cache: 'no-store' })
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error(`Dark style fetch failed: HTTP ${res.status}`);
-            }
-            return res.json();
-          })
-          .then((style) => {
-            if (!style || !style.sources || !Array.isArray(style.layers)) {
-              throw new Error('Dark style JSON is missing required fields.');
-            }
-            console.info('Dark style reachable and valid:', style.name || '');
-            return style;
-          })
-          .catch((err) => {
-            darkStyleProbe = null;
-            throw err;
-          });
-      }
-      return darkStyleProbe;
-    }
 
     function applyTheme(theme) {
       const next = theme === 'dark' ? 'dark' : 'light';
@@ -427,23 +361,12 @@
       const nextLayer = baseLayers[target];
       if (!nextLayer) return;
 
-      console.info(`Switching basemap to ${target === 'dark' ? 'dark (MapLibre)' : 'light (OSM raster)'}`);
-      if (target === 'dark') {
-        probeDarkStyle().catch((err) => {
-          console.error(err);
-          fallbackToLight('Dark style unavailable.');
-        });
-      }
-
       if (activeBaseLayer && activeBaseLayer !== nextLayer) {
         map.removeLayer(activeBaseLayer);
       }
 
       if (!map.hasLayer(nextLayer)) {
         nextLayer.addTo(map);
-      }
-      if (target === 'dark') {
-        logAndAttachMapLibreEvents(nextLayer);
       }
       if (typeof nextLayer.bringToBack === 'function') {
         nextLayer.bringToBack();
@@ -475,16 +398,13 @@
       maxZoom: 19,
       attribution: '&copy; OpenStreetMap-Mitwirkende'
     });
-    const DARK_STYLE_LAYER = L.maplibreGL({
-      style: DARK_STYLE_URL,
-      interactive: false
+    const DARK_TILES = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19,
+      subdomains: 'abcd',
+      attribution: '&copy; OpenStreetMap-Mitwirkende, &copy; <a href="https://carto.com/attributions">CARTO</a>'
     });
 
-    if (typeof DARK_STYLE_LAYER.on === 'function') {
-      DARK_STYLE_LAYER.on('add', () => logAndAttachMapLibreEvents(DARK_STYLE_LAYER));
-    }
-
-    baseLayers = { light: LIGHT_TILES, dark: DARK_STYLE_LAYER };
+    baseLayers = { light: LIGHT_TILES, dark: DARK_TILES };
 
     const initialTheme = document.documentElement.dataset.theme || (window.__themePreference || 'light');
     applyTheme(initialTheme);
