@@ -11,6 +11,114 @@
     html, body { height: 100%; margin: 0; }
     #map { height: 100%; width: 100%; }
 
+    /* Drawer + overlay */
+    #layerDrawerToggle {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 1050;
+      padding: 10px 14px;
+      border: 1px solid rgba(0,0,0,0.18);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+      font: 14px/1.3 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    #layerDrawerToggle:active { transform: translateY(1px); }
+
+    #layerDrawerBackdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 1040;
+    }
+    #layerDrawerBackdrop.open { opacity: 1; pointer-events: all; }
+
+    #layerDrawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: min(380px, 92vw);
+      background: #fff;
+      box-shadow: -2px 0 16px rgba(0,0,0,0.2);
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      z-index: 1055;
+      display: flex;
+      flex-direction: column;
+      font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    #layerDrawer.open { transform: translateX(0); }
+    #layerDrawer header {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      gap: 12px;
+    }
+    #layerDrawer header h2 { margin: 0; font-size: 18px; }
+    #layerDrawer header button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+      padding: 6px;
+    }
+    #layerDrawer .drawer-body { flex: 1; overflow: auto; padding: 0 16px 18px; }
+    #layerDrawer .section { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    #layerDrawer .section:last-of-type { border-bottom: none; }
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      cursor: pointer;
+      font-weight: 700;
+      gap: 12px;
+    }
+    .accordion-header span { flex: 1; }
+    .accordion-header .chevron { transition: transform 0.2s ease; }
+    .accordion-header[aria-expanded="false"] .chevron { transform: rotate(-90deg); }
+    .accordion-body { padding: 0 0 14px; display: none; }
+    .accordion-body.open { display: block; }
+    .action-row { display: flex; gap: 10px; margin-bottom: 10px; }
+    .action-row button {
+      flex: 1;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.16);
+      background: rgba(245,245,245,0.9);
+      cursor: pointer;
+      font-weight: 650;
+    }
+    .checklist { display: flex; flex-direction: column; gap: 8px; }
+    .checklist label { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+    .checklist input[type="checkbox"] { width: 16px; height: 16px; }
+    #layerDrawer footer {
+      padding: 14px 16px 18px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    #applyFiltersBtn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      background: #0d6efd;
+      color: #fff;
+      font-weight: 750;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+    }
+    #applyFiltersBtn:active { transform: translateY(1px); }
+
     /* Custom controls */
     .ctl {
       background: rgba(255,255,255,0.92);
@@ -91,6 +199,45 @@
 </head>
 <body>
   <div id="map"></div>
+  <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false">Layer</button>
+  <div id="layerDrawerBackdrop" aria-hidden="true"></div>
+  <aside id="layerDrawer" aria-hidden="true" aria-label="Layer Filter">
+    <header>
+      <h2>Filter</h2>
+      <button type="button" id="layerDrawerClose" aria-label="Schließen">×</button>
+    </header>
+    <div class="drawer-body">
+      <div class="section" id="bundeslandSection">
+        <div class="accordion-header" data-target="blSection" aria-expanded="true" role="button" tabindex="0">
+          <span>Bundesland</span>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="accordion-body open" id="blSection">
+          <div class="action-row">
+            <button type="button" id="blSelectAll">Alle auswählen</button>
+            <button type="button" id="blSelectNone">Keine auswählen</button>
+          </div>
+          <div class="checklist" id="blList"></div>
+        </div>
+      </div>
+      <div class="section" id="kategorieSection">
+        <div class="accordion-header" data-target="catSection" aria-expanded="true" role="button" tabindex="0">
+          <span>Kategorie</span>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="accordion-body open" id="catSection">
+          <div class="action-row">
+            <button type="button" id="catSelectAll">Alle auswählen</button>
+            <button type="button" id="catSelectNone">Keine auswählen</button>
+          </div>
+          <div class="checklist" id="catList"></div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <button type="button" id="applyFiltersBtn">Anwenden</button>
+    </footer>
+  </aside>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -98,6 +245,7 @@
 
   <script>
     const map = L.map('map', { zoomControl: true, preferCanvas: true });
+    window.map = map;
 
     const FALLBACK_VIEW = { center: [52.52, 13.405], zoom: 11 };
     // Ensure the map has an initial view before any custom layers render.
@@ -107,6 +255,118 @@
       maxZoom: 19,
       attribution: '&copy; OpenStreetMap-Mitwirkende'
     }).addTo(map);
+
+    const BUNDESLAENDER = [
+      "Baden-Württemberg", "Bayern", "Berlin", "Brandenburg", "Bremen", "Hamburg",
+      "Hessen", "Mecklenburg-Vorpommern", "Niedersachsen", "Nordrhein-Westfalen",
+      "Rheinland-Pfalz", "Saarland", "Sachsen", "Sachsen-Anhalt", "Schleswig-Holstein",
+      "Thüringen"
+    ];
+    const KATEGORIEN = ["Wasser", "Automaten"];
+
+    const filterState = {
+      bundeslaender: new Set(BUNDESLAENDER),
+      kategorien: new Set(KATEGORIEN)
+    };
+
+    function renderChecklist(containerId, values, selectedSet, setName) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      values.forEach((val, idx) => {
+        const row = document.createElement('label');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.value = val;
+        cb.checked = selectedSet.has(val);
+        cb.id = `${setName}-${idx}`;
+        cb.addEventListener('change', (e) => {
+          if (e.target.checked) {
+            selectedSet.add(val);
+          } else {
+            selectedSet.delete(val);
+          }
+        });
+        const text = document.createElement('span');
+        text.textContent = val;
+        row.appendChild(cb);
+        row.appendChild(text);
+        container.appendChild(row);
+      });
+    }
+
+    function selectAll(values, set, containerId, setName) {
+      values.forEach(v => set.add(v));
+      renderChecklist(containerId, values, set, setName);
+    }
+
+    function selectNone(values, set, containerId, setName) {
+      set.clear();
+      renderChecklist(containerId, values, set, setName);
+    }
+
+    function applyFilters() {
+      const selected = {
+        bundeslaender: Array.from(filterState.bundeslaender),
+        kategorien: Array.from(filterState.kategorien)
+      };
+      console.log('Ausgewählte Filter', selected);
+      // TODO: Apply real map filtering once backend/data schema is connected
+    }
+
+    function setAccordionHandlers() {
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        const targetId = header.getAttribute('data-target');
+        const body = document.getElementById(targetId);
+        const toggle = () => {
+          const next = !body.classList.contains('open');
+          body.classList.toggle('open', next);
+          header.setAttribute('aria-expanded', next ? 'true' : 'false');
+        };
+        header.addEventListener('click', toggle);
+        header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggle();
+          }
+        });
+      });
+    }
+
+    function setupDrawer() {
+      const drawer = document.getElementById('layerDrawer');
+      const backdrop = document.getElementById('layerDrawerBackdrop');
+      const toggleBtn = document.getElementById('layerDrawerToggle');
+      const closeBtn = document.getElementById('layerDrawerClose');
+
+      const openDrawer = () => {
+        drawer.classList.add('open');
+        drawer.setAttribute('aria-hidden', 'false');
+        backdrop.classList.add('open');
+        backdrop.setAttribute('aria-hidden', 'false');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      };
+
+      const closeDrawer = () => {
+        drawer.classList.remove('open');
+        drawer.setAttribute('aria-hidden', 'true');
+        backdrop.classList.remove('open');
+        backdrop.setAttribute('aria-hidden', 'true');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      };
+
+      toggleBtn.addEventListener('click', () => {
+        if (drawer.classList.contains('open')) {
+          closeDrawer();
+        } else {
+          openDrawer();
+        }
+      });
+      closeBtn.addEventListener('click', closeDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+    }
 
     function popupHtml(props) {
       const p = props || {};
@@ -442,6 +702,26 @@
       }
     }
 
+    function centerToUserLocation() {
+      if (!navigator.geolocation) return;
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords;
+          if (map && typeof map._leaflet_id !== 'undefined' && typeof map.flyTo === 'function') {
+            map.flyTo([latitude, longitude], 12, { animate: true });
+          } else if (map && typeof map.flyTo === 'function') {
+            map.flyTo({ center: [longitude, latitude], zoom: 12, essential: true });
+          } else if (map && typeof map.setView === 'function') {
+            map.setView([latitude, longitude], 12, { animate: true });
+          }
+        },
+        (err) => {
+          console.warn('Geolocation wurde abgelehnt oder ist fehlgeschlagen:', err);
+        },
+        { enableHighAccuracy: false, maximumAge: 600000, timeout: 8000 }
+      );
+    }
+
     (async () => {
       const loadedEntries = await Promise.all(
         Object.entries(LAYERS).map(async ([key, cfg]) => {
@@ -473,6 +753,19 @@
 
       // Fit bounds of both layers so switching doesn't feel "empty"
       fitToActiveBounds();
+
+      renderChecklist('blList', BUNDESLAENDER, filterState.bundeslaender, 'bl');
+      renderChecklist('catList', KATEGORIEN, filterState.kategorien, 'cat');
+      setAccordionHandlers();
+      setupDrawer();
+
+      document.getElementById('blSelectAll').addEventListener('click', () => selectAll(BUNDESLAENDER, filterState.bundeslaender, 'blList', 'bl'));
+      document.getElementById('blSelectNone').addEventListener('click', () => selectNone(BUNDESLAENDER, filterState.bundeslaender, 'blList', 'bl'));
+      document.getElementById('catSelectAll').addEventListener('click', () => selectAll(KATEGORIEN, filterState.kategorien, 'catList', 'cat'));
+      document.getElementById('catSelectNone').addEventListener('click', () => selectNone(KATEGORIEN, filterState.kategorien, 'catList', 'cat'));
+      document.getElementById('applyFiltersBtn').addEventListener('click', applyFilters);
+
+      centerToUserLocation();
     })().catch(err => {
       console.error(err);
       alert("Fehler beim Laden: " + (err.message || err));
