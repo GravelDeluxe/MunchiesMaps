@@ -167,8 +167,16 @@
       color: var(--text);
     }
     .checklist { display: flex; flex-direction: column; gap: 8px; }
-    .checklist label { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
+    .checklist .checkrow { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
     .checklist input[type="checkbox"] { width: 16px; height: 16px; }
+    .cat-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      flex: 0 0 10px;
+      border: 1px solid var(--border);
+      box-sizing: border-box;
+    }
     /* Custom controls */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
@@ -274,7 +282,10 @@
     .leaflet-popup-content a { color: var(--btn-text); }
 
     .popup-content { font: 13px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 320px; color: var(--popup-text); }
-    .popup-title { font-weight: 700; margin-bottom: 6px; }
+    .popup-title { font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .popup-cat { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--muted); padding: 2px 8px; border-radius: 999px; border: 1px solid var(--popup-border); background: rgba(0,0,0,0.03); }
+    .popup-cat .cat-dot { border-color: var(--popup-border); }
+    .theme-dark .popup-cat { background: rgba(255,255,255,0.06); }
     .popup-desc { margin-bottom: 8px; }
     .popup-extra { border-top: 1px solid var(--popup-border); padding-top: 8px; }
   </style>
@@ -344,6 +355,22 @@
 
   <script>
     const THEME_KEY = 'theme';
+
+    const CATEGORY_STYLE = {
+      fuel: { color: '#f97316' },
+      supermarkets: { color: '#22c55e' },
+      drinking_water: { color: '#0ea5e9' },
+      burger_king: { color: '#a855f7' },
+      mcdonalds: { color: '#ef4444' },
+      toilets_public: { color: '#06b6d4' },
+      vending_snacks: { color: '#eab308' }
+    };
+
+    function categoryColor(categoryId) {
+      return CATEGORY_STYLE[categoryId]?.color || '#6b7280';
+    }
+
+    let categoryLabelMap = {};
 
     let baseLayers = null;
     let activeBaseLayer = null;
@@ -430,6 +457,7 @@
       container.innerHTML = '';
       items.forEach((item, idx) => {
         const row = document.createElement('label');
+        row.classList.add('checkrow');
         const cb = document.createElement('input');
         cb.type = 'checkbox';
         cb.value = item.id;
@@ -443,9 +471,17 @@
           }
           triggerApplyFilters();
         });
+        let dot = null;
+        if (setName === 'cat') {
+          dot = document.createElement('span');
+          dot.className = 'cat-dot';
+          dot.dataset.catId = item.id;
+          dot.style.backgroundColor = categoryColor(item.id);
+        }
         const text = document.createElement('span');
         text.textContent = item.label;
         row.appendChild(cb);
+        if (dot) { row.appendChild(dot); }
         row.appendChild(text);
         container.appendChild(row);
       });
@@ -557,10 +593,13 @@
       });
     }
 
-    function popupHtml(props) {
+    function popupHtml(props, categoryId) {
       const p = props || {};
       const name = p.name || '(ohne Name)';
       const desc = p.description ? p.description : '';
+      const catLabel = categoryId ? categoryLabelMap[categoryId] : null;
+      const catColor = categoryId ? categoryColor(categoryId) : null;
+      const categoryBadge = catLabel ? `<span class="popup-cat"><span class="cat-dot" aria-hidden="true" style="background:${catColor};"></span><span>${catLabel}</span></span>` : '';
       const other = Object.keys(p)
         .filter(k => !['name','description','cluster','cluster_id','point_count','point_count_abbreviated'].includes(k))
         .filter(k => p[k] != null && String(p[k]).trim() !== '')
@@ -569,7 +608,7 @@
         .join('');
       return `
         <div class="popup-content">
-          <div class="popup-title">${name}</div>
+          <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${name}</span></div>
           ${desc ? `<div class="popup-desc">${desc}</div>` : ''}
           ${other ? `<div class="popup-extra">${other}</div>` : ''}
         </div>
@@ -577,11 +616,14 @@
     }
 
     // Simple SVG icons (circle + glyph)
-    function svgIcon(glyphSvgPathD) {
+    function svgIcon(glyphSvgPathD, fillColor) {
+      const circleFill = fillColor || 'white';
+      const strokeColor = 'var(--control-border, rgba(0,0,0,0.18))';
+      const glyphColor = 'var(--btn-text, #0f172a)';
       const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
-          <circle cx="14" cy="14" r="12" fill="white" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
-          <path d="${glyphSvgPathD}" fill="rgba(0,0,0,0.85)"/>
+          <circle cx="14" cy="14" r="12" fill="${circleFill}" stroke="${strokeColor}" stroke-width="1.5"/>
+          <path d="${glyphSvgPathD}" fill="${glyphColor}"/>
         </svg>
       `.trim();
       return L.divIcon({
@@ -599,36 +641,41 @@
     // Vending machine glyph (simplified rectangle + slots)
     const vendingPath = "M10 7 h8 a1 1 0 0 1 1 1 v12 a1 1 0 0 1-1 1 h-8 a1 1 0 0 1-1-1 v-12 a1 1 0 0 1 1-1 z M11.5 9.2 h5 v2.2 h-5 z M11.5 12.3 h5 v1.3 h-5 z M11.5 14.4 h5 v1.3 h-5 z M12 17.2 h4 v2 h-4 z";
 
-    function clusterGlyph(glyphPathD) {
+    function clusterGlyph(glyphPathD, fillColor) {
+      const circleFill = fillColor || 'white';
+      const strokeColor = 'var(--control-border, rgba(0,0,0,0.18))';
+      const glyphColor = 'var(--btn-text, #0f172a)';
       return `
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true">
-          <path d="${glyphPathD}" fill="rgba(0,0,0,0.8)"/>
+          <circle cx="14" cy="14" r="10" fill="${circleFill}" stroke="${strokeColor}" stroke-width="1.5"/>
+          <path d="${glyphPathD}" fill="${glyphColor}"/>
         </svg>
       `.trim();
     }
 
-    const ICONS = {
-      default: svgIcon(defaultPinPath),
-      water: svgIcon(waterDropPath),
-      vending: svgIcon(vendingPath)
-    };
+    function glyphPathForCategory(categoryId) {
+      if (categoryId === 'drinking_water') return waterDropPath;
+      if (categoryId === 'vending_snacks') return vendingPath;
+      return defaultPinPath;
+    }
 
-    const CLUSTER_GLYPHS = {
-      default: clusterGlyph(defaultPinPath),
-      water: clusterGlyph(waterDropPath),
-      vending: clusterGlyph(vendingPath)
-    };
+    const ICON_CACHE = {};
+    const CLUSTER_GLYPH_CACHE = {};
 
     function iconForCategory(categoryId) {
-      if (categoryId === 'drinking_water') return ICONS.water;
-      if (categoryId === 'vending_snacks') return ICONS.vending;
-      return ICONS.default;
+      const key = categoryId || 'default';
+      if (!ICON_CACHE[key]) {
+        ICON_CACHE[key] = svgIcon(glyphPathForCategory(categoryId), categoryColor(categoryId));
+      }
+      return ICON_CACHE[key];
     }
 
     function clusterGlyphForCategory(categoryId) {
-      if (categoryId === 'drinking_water') return CLUSTER_GLYPHS.water;
-      if (categoryId === 'vending_snacks') return CLUSTER_GLYPHS.vending;
-      return CLUSTER_GLYPHS.default;
+      const key = categoryId || 'default';
+      if (!CLUSTER_GLYPH_CACHE[key]) {
+        CLUSTER_GLYPH_CACHE[key] = clusterGlyph(glyphPathForCategory(categoryId), categoryColor(categoryId));
+      }
+      return CLUSTER_GLYPH_CACHE[key];
     }
 
     class SuperclusterLayer extends L.Layer {
@@ -707,7 +754,7 @@
             this._group.addLayer(marker);
           } else {
             const m = L.marker(ll, { icon: this.options.pointIcon });
-            m.bindPopup(popupHtml(it.properties));
+            m.bindPopup(popupHtml(it.properties, this.options.categoryId));
             this._group.addLayer(m);
           }
         }
@@ -743,7 +790,9 @@
           minPoints: 10,
           radius: 60,
           pointIcon: iconForCategory(categoryId),
-          clusterGlyphSvg: clusterGlyphForCategory(categoryId)
+          clusterGlyphSvg: clusterGlyphForCategory(categoryId),
+          categoryId,
+          categoryLabel: categoryLabelMap[categoryId]
         });
         const entry = { status: 'ready', layer, visible: false };
         comboRegistry.set(key, entry);
@@ -841,6 +890,10 @@
 
     (async () => {
       manifestData = await loadManifest();
+      categoryLabelMap = (manifestData.categories || []).reduce((acc, cat) => {
+        acc[cat.id] = cat.label;
+        return acc;
+      }, {});
 
       manifestData.bundeslaender.forEach(bl => filterState.bundeslaender.add(bl.id));
       manifestData.categories.forEach(cat => filterState.kategorien.add(cat.id));
