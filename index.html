@@ -16,7 +16,7 @@
       position: absolute;
       top: 14px;
       left: 14px;
-      z-index: 1050;
+      z-index: 1035;
       padding: 10px 14px;
       border: 1px solid rgba(0,0,0,0.18);
       border-radius: 12px;
@@ -120,52 +120,6 @@
     #applyFiltersBtn:active { transform: translateY(1px); }
 
     /* Custom controls */
-    .ctl {
-      background: rgba(255,255,255,0.92);
-      padding: 8px 10px;
-      border-radius: 10px;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.15);
-      font: 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      position: relative;
-    }
-    .dropdown-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      width: 38px;
-      height: 38px;
-      padding: 6px;
-      min-width: 0;
-      border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.18);
-      background: #fff;
-      cursor: pointer;
-      font-weight: 650;
-    }
-    .dropdown-btn:active { transform: translateY(1px); }
-    .dropdown-panel {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      margin-top: 6px;
-      background: rgba(255,255,255,0.97);
-      border-radius: 10px;
-      box-shadow: 0 1px 10px rgba(0,0,0,0.22);
-      padding: 10px 12px;
-      border: 1px solid rgba(0,0,0,0.1);
-      min-width: 220px;
-      z-index: 2000;
-      display: none;
-    }
-    .dropdown-panel.open { display: block; }
-    .dropdown-panel .title {
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .layer-option { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-    .layer-option:last-child { margin-bottom: 0; }
-    .layer-option input { width: 16px; height: 16px; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       gap: 8px;
@@ -207,6 +161,19 @@
       <button type="button" id="layerDrawerClose" aria-label="Schließen">×</button>
     </header>
     <div class="drawer-body">
+      <div class="section" id="layerSection">
+        <div class="accordion-header" data-target="layerSectionBody" aria-expanded="true" role="button" tabindex="0">
+          <span>Layer</span>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="accordion-body open" id="layerSectionBody">
+          <div class="action-row">
+            <button type="button" id="layerSelectAll">Alle auswählen</button>
+            <button type="button" id="layerSelectNone">Keine auswählen</button>
+          </div>
+          <div class="checklist" id="layerList"></div>
+        </div>
+      </div>
       <div class="section" id="bundeslandSection">
         <div class="accordion-header" data-target="blSection" aria-expanded="true" role="button" tabindex="0">
           <span>Bundesland</span>
@@ -529,81 +496,6 @@
       return JSON.parse(txt);
     }
 
-    // Dropdown control with checkbox list (closes on outside click)
-    function createLayerDropdown(layerDefs, onToggle, getActive) {
-      return L.Control.extend({
-        onAdd: function() {
-          const wrap = L.DomUtil.create('div', 'ctl');
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'dropdown-btn';
-          const gear = `
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path fill="none" d="M0 0h24v24H0z" />
-              <path d="M9.875 4.5c.207-.615.806-1.027 1.452-1.027h1.346c.646 0 1.245.412 1.452 1.027l.28.835c.103.306.348.545.657.643l.96.303c.629.198 1.321-.025 1.702-.55l.315-.436a1.55 1.55 0 0 1 2.12-.38l1.164.775c.546.364.76 1.05.51 1.664l-.314.785c-.115.29-.07.618.122.869l.623.81c.407.53.407 1.264 0 1.793l-.623.81a1.05 1.05 0 0 0-.122.869l.314.785c.25.614.036 1.3-.51 1.664l-1.164.775a1.55 1.55 0 0 1-2.12-.38l-.315-.436c-.381-.525-1.073-.748-1.702-.55l-.96.303a1.15 1.15 0 0 0-.657.643l-.28.835c-.207.615-.806 1.027-1.452 1.027h-1.346c-.646 0-1.245-.412-1.452-1.027l-.28-.835a1.15 1.15 0 0 0-.657-.643l-.96-.303c-.629-.198-1.321.025-1.702.55l-.315.436a1.55 1.55 0 0 1-2.12.38l-1.164-.775c-.546-.364-.76-1.05-.51-1.664l.314-.785c.115-.29.07-.618-.122-.869l-.623-.81a1.269 1.269 0 0 1 0-1.793l.623-.81c.192-.25.237-.579.122-.869l-.314-.785c-.25-.614-.036-1.3.51-1.664l1.164-.775a1.55 1.55 0 0 1 2.12.38l.315.436c.381.525 1.073.748 1.702.55l.96-.303c.309-.098.554-.337.657-.643zM12 9.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5z" fill="currentColor" />
-            </svg>
-          `.trim();
-          btn.innerHTML = gear;
-          btn.setAttribute('aria-label', 'Layer auswählen');
-          btn.setAttribute('aria-haspopup', 'true');
-          btn.setAttribute('aria-expanded', 'false');
-
-          const panel = document.createElement('div');
-          panel.className = 'dropdown-panel';
-          panel.innerHTML = '<div class="title">Layer auswählen</div>';
-
-          // Build checkbox list from provided layer definitions
-          layerDefs.forEach(ld => {
-            const row = document.createElement('label');
-            row.className = 'layer-option';
-            const cb = document.createElement('input');
-            cb.type = 'checkbox';
-            cb.value = ld.id;
-            cb.checked = getActive().has(ld.id);
-            cb.addEventListener('change', (e) => onToggle(ld.id, e.target.checked));
-
-            const text = document.createElement('span');
-            text.textContent = ld.label;
-            row.appendChild(cb);
-            row.appendChild(text);
-            panel.appendChild(row);
-          });
-
-          const closePanel = () => {
-            panel.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-          };
-          btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const nextOpen = !panel.classList.contains('open');
-            panel.classList.toggle('open');
-            btn.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
-          });
-
-          const onDocClick = (e) => {
-            if (!wrap.contains(e.target)) closePanel();
-          };
-          document.addEventListener('click', onDocClick);
-
-          const onKey = (e) => {
-            if (e.key === 'Escape') closePanel();
-          };
-          document.addEventListener('keydown', onKey);
-
-          // Clean up when control is removed
-          this.onRemove = function() {
-            document.removeEventListener('click', onDocClick);
-            document.removeEventListener('keydown', onKey);
-          };
-
-          wrap.appendChild(btn);
-          wrap.appendChild(panel);
-          L.DomEvent.disableClickPropagation(wrap);
-          return wrap;
-        }
-      });
-    }
-
     // Locate button
     const LocateButton = L.Control.extend({
       onAdd: function(map) {
@@ -744,15 +636,43 @@
       // Default layer selection: keep initial state aligned with checkboxes
       toggleLayer(DEFAULT_LAYER_MODE, true);
 
-      // Add controls
-      const dropdown = new (createLayerDropdown(layerDefs, toggleLayer, () => activeLayers))({ position: 'topright' });
-      map.addControl(dropdown);
+      // Layer toggles now live exclusively in the drawer (gear dropdown removed)
+      const layerList = document.getElementById('layerList');
+      const renderLayerList = () => {
+        layerList.innerHTML = '';
+        layerDefs.forEach((ld, idx) => {
+          const row = document.createElement('label');
+          const cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.id = `layer-${idx}`;
+          cb.value = ld.id;
+          cb.checked = activeLayers.has(ld.id);
+          cb.addEventListener('change', (e) => toggleLayer(ld.id, e.target.checked));
+
+          const text = document.createElement('span');
+          text.textContent = ld.label;
+          row.appendChild(cb);
+          row.appendChild(text);
+          layerList.appendChild(row);
+        });
+      };
+
+      renderLayerList();
 
       const loc = new LocateButton({ position: 'bottomright' });
       map.addControl(loc);
 
       // Fit bounds of both layers so switching doesn't feel "empty"
       fitToActiveBounds();
+
+      document.getElementById('layerSelectAll').addEventListener('click', () => {
+        layerDefs.forEach(ld => toggleLayer(ld.id, true));
+        renderLayerList();
+      });
+      document.getElementById('layerSelectNone').addEventListener('click', () => {
+        layerDefs.forEach(ld => toggleLayer(ld.id, false));
+        renderLayerList();
+      });
 
       renderChecklist('blList', BUNDESLAENDER, filterState.bundeslaender, 'bl');
       renderChecklist('catList', KATEGORIEN, filterState.kategorien, 'cat');
