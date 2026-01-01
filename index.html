@@ -484,8 +484,11 @@
       sampledPoints: [],
       radiusMeters: DEFAULT_GPX_RADIUS_KM * 1000,
       bbox: null,
-      active: false
+      active: false,
+      geoJson: null
     };
+
+    let gpxTrackLayer = null;
 
     const comboRegistry = new Map();
     const missingWarnings = new Set();
@@ -570,10 +573,81 @@
             return null;
           })
           .filter(Boolean);
-        return pts;
+        return { points: pts, xml };
       } catch (err) {
         console.error('GPX parse error', err);
-        return [];
+        return { points: [], xml: null };
+      }
+    }
+
+    function buildGpxGeoJson(xmlDoc) {
+      if (!xmlDoc) return null;
+
+      const lineFeatures = [];
+
+      const extractCoords = (nodeList) => {
+        return Array.from(nodeList)
+          .map((el) => {
+            const lat = parseFloat(el.getAttribute('lat'));
+            const lon = parseFloat(el.getAttribute('lon'));
+            if (Number.isFinite(lat) && Number.isFinite(lon)) {
+              return [lon, lat];
+            }
+            return null;
+          })
+          .filter(Boolean);
+      };
+
+      const trackSegments = Array.from(xmlDoc.querySelectorAll('trkseg'));
+      trackSegments.forEach((seg) => {
+        const coords = extractCoords(seg.querySelectorAll('trkpt'));
+        if (coords.length >= 2) {
+          lineFeatures.push({
+            type: 'Feature',
+            geometry: { type: 'LineString', coordinates: coords },
+            properties: {}
+          });
+        }
+      });
+
+      if (!lineFeatures.length) {
+        const rteCoords = extractCoords(xmlDoc.querySelectorAll('rtept'));
+        if (rteCoords.length >= 2) {
+          lineFeatures.push({
+            type: 'Feature',
+            geometry: { type: 'LineString', coordinates: rteCoords },
+            properties: {}
+          });
+        }
+      }
+
+      if (!lineFeatures.length) return { type: 'FeatureCollection', features: [] };
+
+      return {
+        type: 'FeatureCollection',
+        features: lineFeatures
+      };
+    }
+
+    function clearGpxTrack() {
+      if (gpxTrackLayer) {
+        map.removeLayer(gpxTrackLayer);
+        gpxTrackLayer = null;
+      }
+    }
+
+    function renderGpxTrack(geoJson) {
+      clearGpxTrack();
+      if (!geoJson || !Array.isArray(geoJson.features) || !geoJson.features.length) return;
+      gpxTrackLayer = L.geoJSON(geoJson, {
+        style: {
+          color: '#ff0000',
+          weight: 3,
+          opacity: 0.9
+        }
+      }).addTo(map);
+      if (gpxTrackLayer.bringToBack) {
+        gpxTrackLayer.bringToBack();
       }
     }
 
@@ -1001,9 +1075,11 @@
       gpxState.radiusMeters = DEFAULT_GPX_RADIUS_KM * 1000;
       gpxState.bbox = null;
       gpxState.active = false;
+      gpxState.geoJson = null;
       const fileInput = document.getElementById('gpxFileInput');
       const radiusInput = document.getElementById('gpxRadiusKm');
       const err = document.getElementById('gpxError');
+      clearGpxTrack();
       if (fileInput) fileInput.value = '';
       if (radiusInput) radiusInput.value = String(DEFAULT_GPX_RADIUS_KM);
       if (err) err.textContent = '';
@@ -1020,11 +1096,14 @@
       const radiusMeters = clampedKm * 1000;
 
       let trackPoints = gpxState.points;
+      let gpxGeoJson = gpxState.geoJson;
       const file = fileInput?.files?.[0];
       if (file) {
         try {
           const text = await readFileAsText(file);
-          trackPoints = parseGpxText(text);
+          const parsed = parseGpxText(text);
+          trackPoints = parsed.points;
+          gpxGeoJson = buildGpxGeoJson(parsed.xml);
         } catch (err) {
           if (errorEl) errorEl.textContent = 'Datei konnte nicht gelesen werden.';
           return;
@@ -1046,7 +1125,10 @@
       gpxState.sampledPoints = sampled;
       gpxState.radiusMeters = radiusMeters;
       gpxState.bbox = computeExpandedBBox(sampled, radiusMeters);
+      gpxState.geoJson = gpxGeoJson;
       gpxState.active = true;
+
+      renderGpxTrack(gpxGeoJson);
 
       await applyFilters();
     }
