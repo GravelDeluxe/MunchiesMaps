@@ -12,11 +12,16 @@
     #map { height: 100%; width: 100%; }
 
     /* Drawer + overlay */
-    #layerDrawerToggle {
-      position: absolute;
-      top: 14px;
-      left: 14px;
+    .map-controls-br {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
       z-index: 1035;
+      display: grid;
+      gap: 10px;
+    }
+    #layerDrawerToggle,
+    #locateButton {
       padding: 10px 14px;
       border: 1px solid rgba(0,0,0,0.18);
       border-radius: 12px;
@@ -26,7 +31,8 @@
       font-weight: 700;
       cursor: pointer;
     }
-    #layerDrawerToggle:active { transform: translateY(1px); }
+    #layerDrawerToggle:active,
+    #locateButton:active { transform: translateY(1px); }
 
     #layerDrawerBackdrop {
       position: fixed;
@@ -153,33 +159,23 @@
 </head>
 <body>
   <div id="map"></div>
-  <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false">Layer</button>
+  <div class="map-controls-br">
+    <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Filter öffnen">Filter</button>
+    <button id="locateButton" type="button" aria-label="Standort zentrieren">Standort</button>
+  </div>
   <div id="layerDrawerBackdrop" aria-hidden="true"></div>
-  <aside id="layerDrawer" aria-hidden="true" aria-label="Layer Filter">
+  <aside id="layerDrawer" aria-hidden="true" aria-label="Filter">
     <header>
       <h2>Filter</h2>
       <button type="button" id="layerDrawerClose" aria-label="Schließen">×</button>
     </header>
     <div class="drawer-body">
-      <div class="section" id="layerSection">
-        <div class="accordion-header" data-target="layerSectionBody" aria-expanded="true" role="button" tabindex="0">
-          <span>Layer</span>
-          <span class="chevron">⌄</span>
-        </div>
-        <div class="accordion-body open" id="layerSectionBody">
-          <div class="action-row">
-            <button type="button" id="layerSelectAll">Alle auswählen</button>
-            <button type="button" id="layerSelectNone">Keine auswählen</button>
-          </div>
-          <div class="checklist" id="layerList"></div>
-        </div>
-      </div>
       <div class="section" id="bundeslandSection">
-        <div class="accordion-header" data-target="blSection" aria-expanded="true" role="button" tabindex="0">
+        <div class="accordion-header" data-target="blSection" aria-expanded="false" role="button" tabindex="0">
           <span>Bundesland</span>
           <span class="chevron">⌄</span>
         </div>
-        <div class="accordion-body open" id="blSection">
+        <div class="accordion-body" id="blSection">
           <div class="action-row">
             <button type="button" id="blSelectAll">Alle auswählen</button>
             <button type="button" id="blSelectNone">Keine auswählen</button>
@@ -188,11 +184,11 @@
         </div>
       </div>
       <div class="section" id="kategorieSection">
-        <div class="accordion-header" data-target="catSection" aria-expanded="true" role="button" tabindex="0">
+        <div class="accordion-header" data-target="catSection" aria-expanded="false" role="button" tabindex="0">
           <span>Kategorie</span>
           <span class="chevron">⌄</span>
         </div>
-        <div class="accordion-body open" id="catSection">
+        <div class="accordion-body" id="catSection">
           <div class="action-row">
             <button type="button" id="catSelectAll">Alle auswählen</button>
             <button type="button" id="catSelectNone">Keine auswählen</button>
@@ -496,18 +492,6 @@
       return JSON.parse(txt);
     }
 
-    // Locate button
-    const LocateButton = L.Control.extend({
-      onAdd: function(map) {
-        const btn = L.DomUtil.create('div', 'btn');
-        btn.title = "Zu meiner Position";
-        btn.innerHTML = "Standort";
-        L.DomEvent.on(btn, 'click', () => startLocate(true));
-        L.DomEvent.disableClickPropagation(btn);
-        return btn;
-      }
-    });
-
     // Active layer IDs are stored in this Set so we can quickly sync map state with checkboxes.
     const activeLayers = new Set();
 
@@ -631,53 +615,18 @@
       const layers = Object.fromEntries(loadedEntries);
       Object.assign(layerRegistry, layers);
 
-      const layerDefs = Object.entries(LAYERS).map(([id, cfg]) => ({ id, label: cfg.name }));
-
       // Default layer selection: keep initial state aligned with checkboxes
       toggleLayer(DEFAULT_LAYER_MODE, true);
 
-      // Layer toggles now live exclusively in the drawer (gear dropdown removed)
-      const layerList = document.getElementById('layerList');
-      const renderLayerList = () => {
-        layerList.innerHTML = '';
-        layerDefs.forEach((ld, idx) => {
-          const row = document.createElement('label');
-          const cb = document.createElement('input');
-          cb.type = 'checkbox';
-          cb.id = `layer-${idx}`;
-          cb.value = ld.id;
-          cb.checked = activeLayers.has(ld.id);
-          cb.addEventListener('change', (e) => toggleLayer(ld.id, e.target.checked));
-
-          const text = document.createElement('span');
-          text.textContent = ld.label;
-          row.appendChild(cb);
-          row.appendChild(text);
-          layerList.appendChild(row);
-        });
-      };
-
-      renderLayerList();
-
-      const loc = new LocateButton({ position: 'bottomright' });
-      map.addControl(loc);
-
       // Fit bounds of both layers so switching doesn't feel "empty"
       fitToActiveBounds();
-
-      document.getElementById('layerSelectAll').addEventListener('click', () => {
-        layerDefs.forEach(ld => toggleLayer(ld.id, true));
-        renderLayerList();
-      });
-      document.getElementById('layerSelectNone').addEventListener('click', () => {
-        layerDefs.forEach(ld => toggleLayer(ld.id, false));
-        renderLayerList();
-      });
 
       renderChecklist('blList', BUNDESLAENDER, filterState.bundeslaender, 'bl');
       renderChecklist('catList', KATEGORIEN, filterState.kategorien, 'cat');
       setAccordionHandlers();
       setupDrawer();
+
+      document.getElementById('locateButton').addEventListener('click', () => startLocate(true));
 
       document.getElementById('blSelectAll').addEventListener('click', () => selectAll(BUNDESLAENDER, filterState.bundeslaender, 'blList', 'bl'));
       document.getElementById('blSelectNone').addEventListener('click', () => selectNone(BUNDESLAENDER, filterState.bundeslaender, 'blList', 'bl'));
