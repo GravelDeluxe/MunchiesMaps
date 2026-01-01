@@ -280,12 +280,12 @@
   </style>
   <script>
     (function() {
-      const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initialTheme = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
-      document.documentElement.classList.toggle('theme-dark', initialTheme === 'dark');
-      document.documentElement.dataset.theme = initialTheme;
-      window.__themePreference = initialTheme;
+      const storedTheme = localStorage.getItem('theme');
+      const isDark = storedTheme === 'dark';
+      document.documentElement.classList.toggle('theme-dark', isDark);
+      document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+      window.__themePreference = isDark ? 'dark' : 'light';
+      window.__isDarkTheme = isDark;
     })();
   </script>
 </head>
@@ -348,9 +348,10 @@
     let baseLayers = null;
     let activeBaseLayer = null;
 
-    function applyTheme(theme) {
-      const next = theme === 'dark' ? 'dark' : 'light';
-      document.documentElement.classList.toggle('theme-dark', next === 'dark');
+    function applyTheme(isDark) {
+      const nextIsDark = isDark === true;
+      const next = nextIsDark ? 'dark' : 'light';
+      document.documentElement.classList.toggle('theme-dark', nextIsDark);
       document.documentElement.dataset.theme = next;
       updateMapTheme(next);
     }
@@ -377,12 +378,12 @@
     function setupThemeToggle() {
       const toggle = document.getElementById('darkModeToggle');
       if (!toggle) return;
-      const initial = document.documentElement.dataset.theme || (window.__themePreference || 'light');
-      toggle.checked = initial === 'dark';
+      const initial = window.__isDarkTheme === true;
+      toggle.checked = initial;
 
       toggle.addEventListener('change', () => {
         const isDark = toggle.checked;
-        applyTheme(isDark ? 'dark' : 'light');
+        applyTheme(isDark);
         localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
       });
     }
@@ -406,7 +407,7 @@
 
     baseLayers = { light: LIGHT_TILES, dark: DARK_TILES };
 
-    const initialTheme = document.documentElement.dataset.theme || (window.__themePreference || 'light');
+    const initialTheme = window.__isDarkTheme === true;
     applyTheme(initialTheme);
 
     const BUNDESLAENDER = [
