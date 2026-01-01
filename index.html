@@ -680,11 +680,15 @@
     let userAccuracy = null;
     let watchId = null;
 
-    function startLocate(centerOnFix) {
+    function goToUserLocation({ centerOnFix = true, suppressErrorAlert = false } = {}) {
       if (!navigator.geolocation) {
-        alert("Geolocation wird von diesem Browser nicht unterstützt.");
+        if (!suppressErrorAlert) {
+          alert("Geolocation wird von diesem Browser nicht unterstützt.");
+        }
         return;
       }
+
+      let shouldCenter = centerOnFix;
 
       // Reuse watch if active; otherwise start it
       if (watchId == null) {
@@ -707,39 +711,21 @@
               userAccuracy.setRadius(accuracy);
             }
 
-            if (centerOnFix) {
+            if (shouldCenter) {
               map.setView(ll, Math.max(map.getZoom(), 15), { animate: true });
-              centerOnFix = false;
+              shouldCenter = false;
             }
           },
           (err) => {
-            alert("Standort konnte nicht ermittelt werden: " + err.message);
+            if (!suppressErrorAlert) {
+              alert("Standort konnte nicht ermittelt werden: " + err.message);
+            }
           },
           { enableHighAccuracy: true, maximumAge: 10000, timeout: 15000 }
         );
-      } else if (centerOnFix && userMarker) {
+      } else if (shouldCenter && userMarker) {
         map.setView(userMarker.getLatLng(), Math.max(map.getZoom(), 15), { animate: true });
       }
-    }
-
-    function centerToUserLocation() {
-      if (!navigator.geolocation) return;
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          const { latitude, longitude } = pos.coords;
-          if (map && typeof map._leaflet_id !== 'undefined' && typeof map.flyTo === 'function') {
-            map.flyTo([latitude, longitude], 12, { animate: true });
-          } else if (map && typeof map.flyTo === 'function') {
-            map.flyTo({ center: [longitude, latitude], zoom: 12, essential: true });
-          } else if (map && typeof map.setView === 'function') {
-            map.setView([latitude, longitude], 12, { animate: true });
-          }
-        },
-        (err) => {
-          console.warn('Geolocation wurde abgelehnt oder ist fehlgeschlagen:', err);
-        },
-        { enableHighAccuracy: false, maximumAge: 600000, timeout: 8000 }
-      );
     }
 
     (async () => {
@@ -772,14 +758,14 @@
       setupDrawerWidthMeasurement();
       setupThemeToggle();
 
-      document.getElementById('locateButton').addEventListener('click', () => startLocate(true));
+      document.getElementById('locateButton').addEventListener('click', () => goToUserLocation({ centerOnFix: true }));
 
       document.getElementById('blSelectAll').addEventListener('click', () => selectAll(BUNDESLAENDER, filterState.bundeslaender, 'blList', 'bl'));
       document.getElementById('blSelectNone').addEventListener('click', () => selectNone(BUNDESLAENDER, filterState.bundeslaender, 'blList', 'bl'));
       document.getElementById('catSelectAll').addEventListener('click', () => selectAll(KATEGORIEN, filterState.kategorien, 'catList', 'cat'));
       document.getElementById('catSelectNone').addEventListener('click', () => selectNone(KATEGORIEN, filterState.kategorien, 'catList', 'cat'));
 
-      centerToUserLocation();
+      goToUserLocation({ centerOnFix: true, suppressErrorAlert: true });
     })().catch(err => {
       console.error(err);
       alert("Fehler beim Laden: " + (err.message || err));
