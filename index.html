@@ -410,70 +410,61 @@
     const initialTheme = window.__isDarkTheme === true;
     applyTheme(initialTheme);
 
-    const BUNDESLAENDER = [
-      "Baden-Württemberg", "Bayern", "Berlin", "Brandenburg", "Bremen", "Hamburg",
-      "Hessen", "Mecklenburg-Vorpommern", "Niedersachsen", "Nordrhein-Westfalen",
-      "Rheinland-Pfalz", "Saarland", "Sachsen", "Sachsen-Anhalt", "Schleswig-Holstein",
-      "Thüringen"
-    ];
-    const KATEGORIEN = ["Wasser", "Automaten"];
-
-    const CATEGORY_TO_LAYERS = {
-      "Wasser": ["layer1"],
-      "Automaten": ["layer2"]
-    };
+    const MANIFEST_URL = 'resources/geojson/manifest.json';
 
     const filterState = {
-      bundeslaender: new Set(BUNDESLAENDER),
-      kategorien: new Set(KATEGORIEN)
+      bundeslaender: new Set(),
+      kategorien: new Set()
     };
 
-    function renderChecklist(containerId, values, selectedSet, setName) {
+    const comboRegistry = new Map();
+    const missingWarnings = new Set();
+    let manifestData = { bundeslaender: [], categories: [] };
+
+    function comboKey(bundeslandId, categoryId) {
+      return `${bundeslandId}__${categoryId}`;
+    }
+
+    function renderChecklist(containerId, items, selectedSet, setName) {
       const container = document.getElementById(containerId);
       container.innerHTML = '';
-      values.forEach((val, idx) => {
+      items.forEach((item, idx) => {
         const row = document.createElement('label');
         const cb = document.createElement('input');
         cb.type = 'checkbox';
-        cb.value = val;
-        cb.checked = selectedSet.has(val);
+        cb.value = item.id;
+        cb.checked = selectedSet.has(item.id);
         cb.id = `${setName}-${idx}`;
         cb.addEventListener('change', (e) => {
           if (e.target.checked) {
-            selectedSet.add(val);
+            selectedSet.add(item.id);
           } else {
-            selectedSet.delete(val);
+            selectedSet.delete(item.id);
           }
-          applyFilters();
+          triggerApplyFilters();
         });
         const text = document.createElement('span');
-        text.textContent = val;
+        text.textContent = item.label;
         row.appendChild(cb);
         row.appendChild(text);
         container.appendChild(row);
       });
     }
 
-    function selectAll(values, set, containerId, setName) {
-      values.forEach(v => set.add(v));
-      renderChecklist(containerId, values, set, setName);
-      applyFilters();
+    function selectAll(items, set, containerId, setName) {
+      items.forEach(v => set.add(v.id));
+      renderChecklist(containerId, items, set, setName);
+      triggerApplyFilters();
     }
 
-    function selectNone(values, set, containerId, setName) {
+    function selectNone(set, containerId, setName, items) {
       set.clear();
-      renderChecklist(containerId, values, set, setName);
-      applyFilters();
+      renderChecklist(containerId, items, set, setName);
+      triggerApplyFilters();
     }
 
-    function applyFilters() {
-      const selectedCategories = new Set(filterState.kategorien);
-
-      // Toggle layers based on selected categories
-      Object.entries(CATEGORY_TO_LAYERS).forEach(([category, layerIds]) => {
-        const shouldShow = selectedCategories.has(category);
-        layerIds.forEach((id) => toggleLayer(id, shouldShow));
-      });
+    function triggerApplyFilters() {
+      applyFilters().catch(err => console.error(err));
     }
 
     function measureDrawerWidth() {
@@ -602,6 +593,7 @@
       });
     }
 
+    const defaultPinPath = "M14 4a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z";
     // Water drop glyph (simple)
     const waterDropPath = "M14 6 C11 10,9 12,9 15 a5 5 0 0 0 10 0 c0-3-2-5-5-9 z";
     // Vending machine glyph (simplified rectangle + slots)
@@ -616,26 +608,28 @@
     }
 
     const ICONS = {
+      default: svgIcon(defaultPinPath),
       water: svgIcon(waterDropPath),
       vending: svgIcon(vendingPath)
     };
 
-    const LAYERS = {
-      layer1: {
-        name: "Layer 1 – Wasser",
-        geojson: "layer1_points.geojson",
-        iconType: "water",
-        clusterGlyphSvg: clusterGlyph(waterDropPath)
-      },
-      layer2: {
-        name: "Layer 2 – Automat",
-        geojson: "layer2_points.geojson",
-        iconType: "vending",
-        clusterGlyphSvg: clusterGlyph(vendingPath)
-      }
+    const CLUSTER_GLYPHS = {
+      default: clusterGlyph(defaultPinPath),
+      water: clusterGlyph(waterDropPath),
+      vending: clusterGlyph(vendingPath)
     };
 
-    const DEFAULT_LAYER_MODE = Object.keys(LAYERS)[0] || "layer1";
+    function iconForCategory(categoryId) {
+      if (categoryId === 'drinking_water') return ICONS.water;
+      if (categoryId === 'vending_snacks') return ICONS.vending;
+      return ICONS.default;
+    }
+
+    function clusterGlyphForCategory(categoryId) {
+      if (categoryId === 'drinking_water') return CLUSTER_GLYPHS.water;
+      if (categoryId === 'vending_snacks') return CLUSTER_GLYPHS.vending;
+      return CLUSTER_GLYPHS.default;
+    }
 
     class SuperclusterLayer extends L.Layer {
       constructor(geojson, options) {
@@ -727,43 +721,69 @@
       return JSON.parse(txt);
     }
 
-    // Active layer IDs are stored in this Set so we can quickly sync map state with checkboxes.
-    const activeLayers = new Set();
+    async function loadManifest() {
+      const r = await fetch(MANIFEST_URL, { cache: 'no-store' });
+      if (!r.ok) throw new Error(`Manifest konnte nicht geladen werden (HTTP ${r.status})`);
+      const data = await r.json();
+      const bundeslaender = Array.isArray(data.bundeslaender) ? data.bundeslaender : [];
+      const categories = Array.isArray(data.categories) ? data.categories : [];
+      return { bundeslaender, categories };
+    }
 
-    // Central registry so checkbox handlers can map IDs to Leaflet layers.
-    const layerRegistry = {};
+    async function ensureLayer(bundeslandId, categoryId) {
+      const key = comboKey(bundeslandId, categoryId);
+      const existing = comboRegistry.get(key);
+      if (existing) return existing;
 
-    // Checkbox change calls this helper to attach/detach the matching Leaflet layer right away.
-    function toggleLayer(id, enable) {
-      const layer = layerRegistry[id];
-      if (!layer) return;
+      const url = `resources/geojson/${bundeslandId}/${categoryId}.geojson`;
 
-      // Update state set first so UI and map stay in sync.
-      if (enable) {
-        activeLayers.add(id);
-        layer.addTo(map);
-      } else {
-        activeLayers.delete(id);
-        map.removeLayer(layer);
+      try {
+        const geojson = await loadGeoJSON(url);
+        const layer = new SuperclusterLayer(geojson, {
+          minPoints: 10,
+          radius: 60,
+          pointIcon: iconForCategory(categoryId),
+          clusterGlyphSvg: clusterGlyphForCategory(categoryId)
+        });
+        const entry = { status: 'ready', layer, visible: false };
+        comboRegistry.set(key, entry);
+        return entry;
+      } catch (err) {
+        if (!missingWarnings.has(key)) {
+          console.warn(`GeoJSON fehlt für ${bundeslandId}/${categoryId}:`, err);
+          missingWarnings.add(key);
+        }
+        const entry = { status: 'missing', visible: false };
+        comboRegistry.set(key, entry);
+        return entry;
       }
     }
 
-    function fitToActiveBounds() {
-      const boundsList = Array.from(activeLayers)
-        .map(id => layerRegistry[id]?.getBounds())
-        .filter(Boolean);
+    async function applyFilters() {
+      const combos = [];
+      filterState.bundeslaender.forEach((bundeslandId) => {
+        filterState.kategorien.forEach((categoryId) => {
+          combos.push({ key: comboKey(bundeslandId, categoryId), bundeslandId, categoryId });
+        });
+      });
 
-      if (!boundsList.length) {
-        map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom);
-        return;
-      }
+      const targetKeys = new Set(combos.map(c => c.key));
 
-      // Leaflet's LatLngBounds doesn't expose a clone method, so use pad(0) to copy.
-      const merged = boundsList.slice(1).reduce(
-        (acc, b) => acc.extend(b),
-        boundsList[0].pad(0)
-      );
-      map.fitBounds(merged, { padding: [30, 30], maxZoom: 17 });
+      comboRegistry.forEach((entry, key) => {
+        if (!targetKeys.has(key) && entry?.layer && entry.visible) {
+          map.removeLayer(entry.layer);
+          entry.visible = false;
+        }
+      });
+
+      await Promise.all(combos.map(async ({ key, bundeslandId, categoryId }) => {
+        const entry = await ensureLayer(bundeslandId, categoryId);
+        if (!entry || entry.status !== 'ready') return;
+        if (!entry.visible) {
+          entry.layer.addTo(map);
+          entry.visible = true;
+        }
+      }));
     }
 
     // User position marker + accuracy circle
@@ -820,41 +840,26 @@
     }
 
     (async () => {
-      const loadedEntries = await Promise.all(
-        Object.entries(LAYERS).map(async ([key, cfg]) => {
-          const geojson = await loadGeoJSON(cfg.geojson);
-          const layer = new SuperclusterLayer(geojson, {
-            minPoints: 10,
-            radius: 60,
-            pointIcon: ICONS[cfg.iconType],
-            clusterGlyphSvg: cfg.clusterGlyphSvg
-          });
-          return [key, layer];
-        })
-      );
+      manifestData = await loadManifest();
 
-      const layers = Object.fromEntries(loadedEntries);
-      Object.assign(layerRegistry, layers);
+      manifestData.bundeslaender.forEach(bl => filterState.bundeslaender.add(bl.id));
+      manifestData.categories.forEach(cat => filterState.kategorien.add(cat.id));
 
-      // Default layer selection: keep initial state aligned with checkboxes
-      applyFilters();
-
-      // Fit bounds of both layers so switching doesn't feel "empty"
-      fitToActiveBounds();
-
-      renderChecklist('blList', BUNDESLAENDER, filterState.bundeslaender, 'bl');
-      renderChecklist('catList', KATEGORIEN, filterState.kategorien, 'cat');
+      renderChecklist('blList', manifestData.bundeslaender, filterState.bundeslaender, 'bl');
+      renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
       setAccordionHandlers();
       setupDrawer();
       setupDrawerWidthMeasurement();
       setupThemeToggle();
 
+      await applyFilters();
+
       document.getElementById('locateButton').addEventListener('click', () => goToUserLocation({ centerOnFix: true }));
 
-      document.getElementById('blSelectAll').addEventListener('click', () => selectAll(BUNDESLAENDER, filterState.bundeslaender, 'blList', 'bl'));
-      document.getElementById('blSelectNone').addEventListener('click', () => selectNone(BUNDESLAENDER, filterState.bundeslaender, 'blList', 'bl'));
-      document.getElementById('catSelectAll').addEventListener('click', () => selectAll(KATEGORIEN, filterState.kategorien, 'catList', 'cat'));
-      document.getElementById('catSelectNone').addEventListener('click', () => selectNone(KATEGORIEN, filterState.kategorien, 'catList', 'cat'));
+      document.getElementById('blSelectAll').addEventListener('click', () => selectAll(manifestData.bundeslaender, filterState.bundeslaender, 'blList', 'bl'));
+      document.getElementById('blSelectNone').addEventListener('click', () => selectNone(filterState.bundeslaender, 'blList', 'bl', manifestData.bundeslaender));
+      document.getElementById('catSelectAll').addEventListener('click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
+      document.getElementById('catSelectNone').addEventListener('click', () => selectNone(filterState.kategorien, 'catList', 'cat', manifestData.categories));
 
       goToUserLocation({ centerOnFix: true, suppressErrorAlert: true });
     })().catch(err => {
