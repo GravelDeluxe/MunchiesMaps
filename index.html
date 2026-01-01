@@ -198,6 +198,9 @@
       border-top: 1px solid var(--border);
       padding: 12px 16px 16px;
       background: var(--panel);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
     .theme-toggle {
       display: flex;
@@ -232,6 +235,16 @@
       transition: transform 0.2s ease;
     }
     .theme-toggle input:checked + .toggle-switch::after { transform: translateX(22px); }
+
+    .gpx-inputs { display: flex; flex-direction: column; gap: 10px; }
+    .gpx-row { display: flex; flex-direction: column; gap: 6px; }
+    .gpx-row label { font-weight: 650; color: var(--text); }
+    .gpx-row input[type="number"] { width: 120px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+    .gpx-row input[type="file"] { color: var(--text); }
+    .gpx-apply { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); }
+    .gpx-error { color: #dc2626; font-size: 13px; }
+
+    .drawer-reset-btn { width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 750; color: var(--text); }
 
     /* Cluster icon */
     .cluster-badge {
@@ -339,8 +352,29 @@
           <div class="checklist" id="catList"></div>
         </div>
       </div>
+      <div class="section" id="gpxSection">
+        <div class="accordion-header" data-target="gpxBody" aria-expanded="false" role="button" tabindex="0">
+          <span>GPX-Import</span>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="accordion-body" id="gpxBody">
+          <div class="gpx-inputs">
+            <div class="gpx-row">
+              <label for="gpxFileInput">GPX-Datei</label>
+              <input type="file" id="gpxFileInput" accept=".gpx" />
+            </div>
+            <div class="gpx-row">
+              <label for="gpxRadiusKm">Umkreis (km)</label>
+              <input type="number" id="gpxRadiusKm" min="0" step="1" value="5" />
+            </div>
+            <button type="button" class="gpx-apply" id="gpxApplyBtn">Anwenden</button>
+            <div class="gpx-error" id="gpxError" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="drawer-bottom">
+      <button type="button" id="resetAllBtn" class="drawer-reset-btn">Zurücksetzen</button>
       <label class="theme-toggle" for="darkModeToggle">
         <span>Darkmode</span>
         <input type="checkbox" id="darkModeToggle" aria-label="Darkmode umschalten" />
@@ -444,6 +478,15 @@
       kategorien: new Set()
     };
 
+    const DEFAULT_GPX_RADIUS_KM = 5;
+    const gpxState = {
+      points: [],
+      sampledPoints: [],
+      radiusMeters: DEFAULT_GPX_RADIUS_KM * 1000,
+      bbox: null,
+      active: false
+    };
+
     const comboRegistry = new Map();
     const missingWarnings = new Set();
     let manifestData = { bundeslaender: [], categories: [] };
@@ -497,6 +540,113 @@
       set.clear();
       renderChecklist(containerId, items, set, setName);
       triggerApplyFilters();
+    }
+
+    function clampRadiusKm(value) {
+      const km = Math.max(0, Math.floor(Number(value)) || 0);
+      return km;
+    }
+
+    function readFileAsText(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error || new Error('Datei konnte nicht gelesen werden'));
+        reader.readAsText(file);
+      });
+    }
+
+    function parseGpxText(text) {
+      try {
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(text, 'application/xml');
+        const pts = Array.from(xml.querySelectorAll('trkpt, rtept'))
+          .map((el) => {
+            const lat = parseFloat(el.getAttribute('lat'));
+            const lon = parseFloat(el.getAttribute('lon'));
+            if (Number.isFinite(lat) && Number.isFinite(lon)) {
+              return { lat, lon };
+            }
+            return null;
+          })
+          .filter(Boolean);
+        return pts;
+      } catch (err) {
+        console.error('GPX parse error', err);
+        return [];
+      }
+    }
+
+    function downsamplePoints(points, maxPoints = 2000) {
+      if (!Array.isArray(points) || !points.length) return [];
+      const step = Math.max(1, Math.ceil(points.length / maxPoints));
+      const sampled = points.filter((_, idx) => idx % step === 0);
+      const last = points[points.length - 1];
+      if (sampled[sampled.length - 1] !== last) {
+        sampled.push(last);
+      }
+      return sampled;
+    }
+
+    function haversineMeters(lat1, lon1, lat2, lon2) {
+      const R = 6371000;
+      const toRad = (d) => (d * Math.PI) / 180;
+      const dLat = toRad(lat2 - lat1);
+      const dLon = toRad(lon2 - lon1);
+      const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    function computeExpandedBBox(points, radiusMeters) {
+      if (!points.length) return null;
+      let minLat = points[0].lat, maxLat = points[0].lat, minLon = points[0].lon, maxLon = points[0].lon;
+      points.forEach(({ lat, lon }) => {
+        if (lat < minLat) minLat = lat;
+        if (lat > maxLat) maxLat = lat;
+        if (lon < minLon) minLon = lon;
+        if (lon > maxLon) maxLon = lon;
+      });
+      const latBuffer = radiusMeters / 111320;
+      const avgLatRad = ((minLat + maxLat) / 2) * (Math.PI / 180);
+      const lonBuffer = radiusMeters / (111320 * Math.max(Math.cos(avgLatRad), 0.0001));
+      return {
+        minLat: minLat - latBuffer,
+        maxLat: maxLat + latBuffer,
+        minLon: minLon - lonBuffer,
+        maxLon: maxLon + lonBuffer
+      };
+    }
+
+    function isPointInBBox(lat, lon, bbox) {
+      if (!bbox) return true;
+      return !(lat < bbox.minLat || lat > bbox.maxLat || lon < bbox.minLon || lon > bbox.maxLon);
+    }
+
+    function isFeatureNearGpx(feature) {
+      if (!gpxState.active || !gpxState.sampledPoints.length) return true;
+      if (!feature || !feature.geometry || feature.geometry.type !== 'Point') return false;
+      const coords = feature.geometry.coordinates || [];
+      const lon = Number(coords[0]);
+      const lat = Number(coords[1]);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return false;
+      if (!isPointInBBox(lat, lon, gpxState.bbox)) return false;
+
+      const radius = gpxState.radiusMeters;
+      let minDist = Infinity;
+      for (let i = 0; i < gpxState.sampledPoints.length; i++) {
+        const pt = gpxState.sampledPoints[i];
+        const dist = haversineMeters(lat, lon, pt.lat, pt.lon);
+        if (dist < minDist) minDist = dist;
+        if (minDist <= radius) break;
+      }
+      return minDist <= radius;
+    }
+
+    function filteredFeatures(entry) {
+      if (!entry || !Array.isArray(entry.originalFeatures)) return [];
+      if (!gpxState.active || !gpxState.sampledPoints.length) return entry.originalFeatures;
+      return entry.originalFeatures.filter((f) => isFeatureNearGpx(f));
     }
 
     function triggerApplyFilters() {
@@ -687,12 +837,8 @@
           maxZoom: this.options.maxZoom ?? 18,
           minPoints: this.options.minPoints ?? 10
         });
-        this._points = (geojson.features || []).map(f => ({
-          type: 'Feature',
-          geometry: f.geometry,
-          properties: f.properties || {}
-        }));
-        this._index.load(this._points);
+        this._points = [];
+        this.updateDataFromFeatures(geojson.features || []);
         this._render = this._render.bind(this);
       }
 
@@ -721,6 +867,18 @@
           if (y > maxY) maxY = y;
         }
         return L.latLngBounds([minY, minX], [maxY, maxX]);
+      }
+
+      updateDataFromFeatures(features) {
+        this._points = (features || []).map(f => ({
+          type: 'Feature',
+          geometry: f.geometry,
+          properties: f.properties || {}
+        }));
+        this._index.load(this._points);
+        if (this._group) {
+          this._render();
+        }
       }
 
       _render() {
@@ -794,7 +952,7 @@
           categoryId,
           categoryLabel: categoryLabelMap[categoryId]
         });
-        const entry = { status: 'ready', layer, visible: false };
+        const entry = { status: 'ready', layer, visible: false, originalFeatures: geojson.features || [] };
         comboRegistry.set(key, entry);
         return entry;
       } catch (err) {
@@ -828,11 +986,78 @@
       await Promise.all(combos.map(async ({ key, bundeslandId, categoryId }) => {
         const entry = await ensureLayer(bundeslandId, categoryId);
         if (!entry || entry.status !== 'ready') return;
+        const feats = filteredFeatures(entry);
+        entry.layer.updateDataFromFeatures(feats);
         if (!entry.visible) {
           entry.layer.addTo(map);
           entry.visible = true;
         }
       }));
+    }
+
+    function resetGpxState() {
+      gpxState.points = [];
+      gpxState.sampledPoints = [];
+      gpxState.radiusMeters = DEFAULT_GPX_RADIUS_KM * 1000;
+      gpxState.bbox = null;
+      gpxState.active = false;
+      const fileInput = document.getElementById('gpxFileInput');
+      const radiusInput = document.getElementById('gpxRadiusKm');
+      const err = document.getElementById('gpxError');
+      if (fileInput) fileInput.value = '';
+      if (radiusInput) radiusInput.value = String(DEFAULT_GPX_RADIUS_KM);
+      if (err) err.textContent = '';
+    }
+
+    async function handleGpxApply() {
+      const errorEl = document.getElementById('gpxError');
+      const radiusInput = document.getElementById('gpxRadiusKm');
+      const fileInput = document.getElementById('gpxFileInput');
+      if (errorEl) errorEl.textContent = '';
+
+      const clampedKm = clampRadiusKm(radiusInput ? radiusInput.value : DEFAULT_GPX_RADIUS_KM);
+      if (radiusInput) radiusInput.value = String(clampedKm);
+      const radiusMeters = clampedKm * 1000;
+
+      let trackPoints = gpxState.points;
+      const file = fileInput?.files?.[0];
+      if (file) {
+        try {
+          const text = await readFileAsText(file);
+          trackPoints = parseGpxText(text);
+        } catch (err) {
+          if (errorEl) errorEl.textContent = 'Datei konnte nicht gelesen werden.';
+          return;
+        }
+      }
+
+      if (!trackPoints || !trackPoints.length) {
+        if (errorEl) errorEl.textContent = 'Bitte eine gültige GPX-Datei auswählen.';
+        return;
+      }
+
+      const sampled = downsamplePoints(trackPoints);
+      if (!sampled.length) {
+        if (errorEl) errorEl.textContent = 'Keine Punkte in der GPX-Datei gefunden.';
+        return;
+      }
+
+      gpxState.points = trackPoints;
+      gpxState.sampledPoints = sampled;
+      gpxState.radiusMeters = radiusMeters;
+      gpxState.bbox = computeExpandedBBox(sampled, radiusMeters);
+      gpxState.active = true;
+
+      await applyFilters();
+    }
+
+    function resetAllFilters() {
+      filterState.bundeslaender = new Set((manifestData.bundeslaender || []).map((b) => b.id));
+      filterState.kategorien = new Set((manifestData.categories || []).map((c) => c.id));
+      renderChecklist('blList', manifestData.bundeslaender, filterState.bundeslaender, 'bl');
+      renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
+      resetGpxState();
+      triggerApplyFilters();
     }
 
     // User position marker + accuracy circle
@@ -913,6 +1138,21 @@
       document.getElementById('blSelectNone').addEventListener('click', () => selectNone(filterState.bundeslaender, 'blList', 'bl', manifestData.bundeslaender));
       document.getElementById('catSelectAll').addEventListener('click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
       document.getElementById('catSelectNone').addEventListener('click', () => selectNone(filterState.kategorien, 'catList', 'cat', manifestData.categories));
+
+      const radiusInput = document.getElementById('gpxRadiusKm');
+      if (radiusInput) {
+        radiusInput.addEventListener('change', () => {
+          radiusInput.value = String(clampRadiusKm(radiusInput.value));
+        });
+      }
+      const gpxApplyBtn = document.getElementById('gpxApplyBtn');
+      if (gpxApplyBtn) {
+        gpxApplyBtn.addEventListener('click', () => { handleGpxApply().catch(err => console.error(err)); });
+      }
+      const resetBtn = document.getElementById('resetAllBtn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', resetAllFilters);
+      }
 
       goToUserLocation({ centerOnFix: true, suppressErrorAlert: true });
     })().catch(err => {
