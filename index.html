@@ -244,40 +244,30 @@
     .gpx-row label { font-weight: 650; color: var(--text); }
     .gpx-row input[type="number"] { width: 120px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
     .gpx-row input[type="file"] { color: var(--text); }
-    .gpx-apply,
-    .cluster-apply { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); }
-    .cluster-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
-    .cluster-row label { font-weight: 650; color: var(--text); }
-    .cluster-row input[type="number"] { width: 120px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
-    .cluster-actions { align-items: stretch; }
-    .cluster-actions .cluster-apply { flex: 1; text-align: center; }
-    .cluster-help { margin-top: 8px; font-size: 12px; color: var(--muted); }
+    .gpx-apply { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); }
     .gpx-error { color: #dc2626; font-size: 13px; }
 
     .drawer-reset-btn { width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 750; color: var(--text); }
 
     /* Cluster icon */
-    .poi-cluster {
-      background: linear-gradient(145deg, rgba(75, 85, 99, 0.92), rgba(55, 65, 81, 0.92));
-      border: 2px solid rgba(255, 255, 255, 0.9);
-      border-radius: 999px;
-      color: #fff;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
-      text-align: center;
+    .cluster-icon-wrap {
+      background: transparent;
+      border: none;
     }
-    .poi-cluster-inner {
-      width: 100%;
-      height: 100%;
+    .cluster-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background: rgba(90, 90, 90, 0.9);
+      border: 2px solid rgba(40, 40, 40, 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 0.2px;
     }
-    .poi-cluster-small { background: linear-gradient(145deg, rgba(107, 114, 128, 0.95), rgba(75, 85, 99, 0.95)); }
-    .poi-cluster-medium { background: linear-gradient(145deg, rgba(75, 85, 99, 0.95), rgba(55, 65, 81, 0.95)); }
-    .poi-cluster-large { background: linear-gradient(145deg, rgba(55, 65, 81, 0.95), rgba(31, 41, 55, 0.95)); }
+    .cluster-icon span {
+      color: #fff;
+      font-weight: 700;
+    }
 
     /* Map controls */
     .leaflet-bar a,
@@ -366,27 +356,6 @@
             <button type="button" id="catSelectNone">Keine auswählen</button>
           </div>
           <div class="checklist" id="catList"></div>
-        </div>
-      </div>
-      <div class="section" id="clusterSection">
-        <div class="accordion-header" data-target="clusterBody" aria-expanded="false" role="button" tabindex="0">
-          <span>Cluster</span>
-          <span class="chevron">⌄</span>
-        </div>
-        <div class="accordion-body" id="clusterBody">
-          <div class="cluster-row">
-            <label for="clusterRadiusInput">Clustergröße (px)</label>
-            <input type="number" id="clusterRadiusInput" min="10" max="200" step="1" />
-          </div>
-          <div class="cluster-row">
-            <label for="minClusterSizeInput">Mindest-Clustergröße</label>
-            <input type="number" id="minClusterSizeInput" min="2" max="999" step="1" value="21" />
-          </div>
-          <div class="action-row cluster-actions">
-            <button type="button" class="cluster-apply" id="clusterRadiusApplyBtn">Anwenden</button>
-            <button type="button" class="cluster-apply" id="minClusterSizeApplyBtn">Anwenden</button>
-          </div>
-          <div class="cluster-help">Größer = mehr Punkte pro Cluster. Kleine Cluster werden ab der Mindestgröße aufgelöst.</div>
         </div>
       </div>
       <div class="section" id="gpxSection">
@@ -547,48 +516,6 @@
       bundeslaender: new Set(),
       kategorien: new Set()
     };
-
-    const CLUSTER_RADIUS_KEY = 'clusterRadiusPx';
-    const CLUSTER_RADIUS_MIN = 10;
-    const CLUSTER_RADIUS_MAX = 200;
-    const DEFAULT_CLUSTER_RADIUS = 60;
-    const FALLBACK_CLUSTER_RADIUS = 50;
-
-    const MIN_CLUSTER_KEY = 'minClusterSize';
-    const MIN_CLUSTER_SIZE_MIN = 2;
-    const MIN_CLUSTER_SIZE_MAX = 999;
-    const DEFAULT_MIN_CLUSTER_SIZE = 21;
-
-    function clampClusterRadius(value) {
-      const parsed = Number.parseInt(value, 10);
-      if (!Number.isFinite(parsed)) return null;
-      return Math.min(CLUSTER_RADIUS_MAX, Math.max(CLUSTER_RADIUS_MIN, parsed));
-    }
-
-    function getInitialClusterRadius() {
-      const stored = clampClusterRadius(localStorage.getItem(CLUSTER_RADIUS_KEY));
-      if (stored != null) return stored;
-      const defaultVal = clampClusterRadius(DEFAULT_CLUSTER_RADIUS);
-      if (defaultVal != null) return defaultVal;
-      const fallback = clampClusterRadius(FALLBACK_CLUSTER_RADIUS);
-      return fallback != null ? fallback : CLUSTER_RADIUS_MIN;
-    }
-
-    function clampMinClusterSize(value) {
-      const parsed = Number.parseInt(value, 10);
-      if (!Number.isFinite(parsed)) return null;
-      return Math.min(MIN_CLUSTER_SIZE_MAX, Math.max(MIN_CLUSTER_SIZE_MIN, parsed));
-    }
-
-    function getInitialMinClusterSize() {
-      const stored = clampMinClusterSize(localStorage.getItem(MIN_CLUSTER_KEY));
-      if (stored != null) return stored;
-      const fallback = clampMinClusterSize(DEFAULT_MIN_CLUSTER_SIZE);
-      return fallback != null ? fallback : MIN_CLUSTER_SIZE_MIN;
-    }
-
-    let clusterRadiusPx = getInitialClusterRadius();
-    let minClusterSize = getInitialMinClusterSize();
 
     const DEFAULT_GPX_RADIUS_KM = 5;
     const gpxState = {
@@ -972,28 +899,10 @@
 
     function createClusterIcon(cluster) {
       const count = cluster.getChildCount();
-      let size = 40;
-      let sizeClass = 'small';
-      if (count >= 50) {
-        size = 56;
-        sizeClass = 'large';
-      } else if (count >= 15) {
-        size = 48;
-        sizeClass = 'medium';
-      }
-
       return L.divIcon({
-        html: `<div class="poi-cluster-inner">${count}</div>`,
-        className: `poi-cluster poi-cluster-${sizeClass}`,
-        iconSize: [size, size],
-        iconAnchor: [size / 2, size / 2]
-      });
-    }
-
-    function createPoiCluster(radiusPx) {
-      return L.markerClusterGroup({
-        maxClusterRadius: radiusPx,
-        iconCreateFunction: createClusterIcon
+        html: `<div class="cluster-icon"><span>${count}</span></div>`,
+        className: 'cluster-icon-wrap',
+        iconSize: L.point(40, 40)
       });
     }
 
@@ -1009,10 +918,13 @@
       return marker;
     }
 
-    const poiCluster = createPoiCluster(clusterRadiusPx);
-    const poiPlain = L.layerGroup();
+    const poiCluster = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      spiderfyOnMaxZoom: true,
+      disableClusteringAtZoom: 18,
+      iconCreateFunction: createClusterIcon
+    });
     map.addLayer(poiCluster);
-    map.addLayer(poiPlain);
 
     async function loadGeoJSON(url) {
       const r = await fetch(url, { cache: 'no-store' });
@@ -1076,7 +988,6 @@
 
       if (!combos.length) {
         poiCluster.clearLayers();
-        poiPlain.clearLayers();
         currentMarkers = [];
         return;
       }
@@ -1100,33 +1011,7 @@
       currentMarkers = markers;
 
       poiCluster.clearLayers();
-      poiPlain.clearLayers();
-
-      const postProcessClusters = () => {
-        if (runId !== filterRunId) return;
-        let flattenedCount = 0;
-        poiCluster.eachLayer((layer) => {
-          if (layer && typeof layer.getChildCount === 'function') {
-            const childCount = layer.getChildCount();
-            if (childCount < minClusterSize) {
-              const children = layer.getAllChildMarkers();
-              children.forEach((marker) => {
-                poiCluster.removeLayer(marker);
-                poiPlain.addLayer(marker);
-                flattenedCount += 1;
-              });
-            }
-          }
-        });
-        if (typeof poiCluster.refreshClusters === 'function') {
-          poiCluster.refreshClusters();
-        }
-        console.log('Flattened markers:', flattenedCount, 'minClusterSize:', minClusterSize);
-      };
-
       if (markers.length) {
-        poiCluster.once('clusteringend', postProcessClusters);
-        setTimeout(postProcessClusters, 0);
         poiCluster.addLayers(markers);
       }
     }
@@ -1282,55 +1167,6 @@
       document.getElementById('blSelectNone').addEventListener('click', () => selectNone(filterState.bundeslaender, 'blList', 'bl', manifestData.bundeslaender));
       document.getElementById('catSelectAll').addEventListener('click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
       document.getElementById('catSelectNone').addEventListener('click', () => selectNone(filterState.kategorien, 'catList', 'cat', manifestData.categories));
-
-      const clusterRadiusInput = document.getElementById('clusterRadiusInput');
-      if (clusterRadiusInput) {
-        clusterRadiusInput.value = String(clusterRadiusPx);
-        clusterRadiusInput.addEventListener('change', () => {
-          const clamped = clampClusterRadius(clusterRadiusInput.value);
-          const next = clamped != null ? clamped : clusterRadiusPx;
-          clusterRadiusInput.value = String(next);
-        });
-      }
-
-      const clusterApplyBtn = document.getElementById('clusterRadiusApplyBtn');
-      if (clusterApplyBtn) {
-        clusterApplyBtn.addEventListener('click', () => {
-          const rawValue = clusterRadiusInput ? clusterRadiusInput.value : clusterRadiusPx;
-          const clamped = clampClusterRadius(rawValue);
-          const nextRadius = clamped != null ? clamped : clusterRadiusPx;
-          if (clusterRadiusInput) clusterRadiusInput.value = String(nextRadius);
-          if (nextRadius === clusterRadiusPx) return;
-          clusterRadiusPx = nextRadius;
-          localStorage.setItem(CLUSTER_RADIUS_KEY, String(clusterRadiusPx));
-          poiCluster.options.maxClusterRadius = clusterRadiusPx;
-          applyFilters().catch(err => console.error(err));
-        });
-      }
-
-      const minClusterSizeInput = document.getElementById('minClusterSizeInput');
-      if (minClusterSizeInput) {
-        minClusterSizeInput.value = String(minClusterSize);
-        minClusterSizeInput.addEventListener('change', () => {
-          const clamped = clampMinClusterSize(minClusterSizeInput.value);
-          const next = clamped != null ? clamped : minClusterSize;
-          minClusterSizeInput.value = String(next);
-        });
-      }
-
-      const minClusterSizeApplyBtn = document.getElementById('minClusterSizeApplyBtn');
-      if (minClusterSizeApplyBtn) {
-        minClusterSizeApplyBtn.addEventListener('click', () => {
-          const rawValue = minClusterSizeInput ? minClusterSizeInput.value : minClusterSize;
-          const clamped = clampMinClusterSize(rawValue);
-          const nextSize = clamped != null ? clamped : minClusterSize;
-          if (minClusterSizeInput) minClusterSizeInput.value = String(nextSize);
-          minClusterSize = nextSize;
-          localStorage.setItem(MIN_CLUSTER_KEY, String(minClusterSize));
-          console.log('minClusterSize applied:', minClusterSize);
-          applyFilters().catch(err => console.error(err));
-        });
-      }
 
       const radiusInput = document.getElementById('gpxRadiusKm');
       if (radiusInput) {
