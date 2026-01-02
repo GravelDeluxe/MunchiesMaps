@@ -259,9 +259,9 @@
       width: var(--cluster-size);
       height: var(--cluster-size);
       border-radius: 999px;
-      background: linear-gradient(135deg, #6b7280, #4b5563);
-      border: 2px solid rgba(31, 41, 55, 0.8);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+      background: linear-gradient(135deg, #e5e7eb, #9ca3af);
+      border: 2px solid rgba(75, 85, 99, 0.85);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -543,7 +543,13 @@
 
     let filterRunId = 0;
     let applyFiltersTimer = null;
-    let currentMarkers = [];
+    const VIEWPORT_CLUSTER_THRESHOLD = 100;
+    const CLUSTER_DEBOUNCE_MS = 200;
+
+    let activeMarkers = [];
+    let activeMarkersRevision = 0;
+    let lastRenderedRevision = -1;
+    let currentMode = null;
 
     function comboKey(bundeslandId, categoryId) {
       return `${bundeslandId}__${categoryId}`;
@@ -591,6 +597,14 @@
       set.clear();
       renderChecklist(containerId, items, set, setName);
       triggerApplyFilters();
+    }
+
+    function debounce(fn, delay) {
+      let t = null;
+      return (...args) => {
+        if (t) clearTimeout(t);
+        t = setTimeout(() => fn(...args), delay);
+      };
     }
 
     function clampRadiusKm(value) {
@@ -940,32 +954,65 @@
       map.addLayer(poiPlain);
       map.addLayer(poiCluster);
 
-    function shouldUsePlainMarkers(markers) {
-      return markers.length <= 20;
+    function countVisibleMarkers(markers, bounds) {
+      if (!bounds) return 0;
+      let count = 0;
+      for (const marker of markers) {
+        if (marker && bounds.contains(marker.getLatLng())) {
+          count++;
+        }
+      }
+      return count;
     }
 
-      function renderPois(markersArray) {
-        const markers = Array.isArray(markersArray) ? markersArray.filter(Boolean) : [];
+    function renderWithMode(mode, forceRender = false) {
+      const normalizedMode = mode === 'cluster' ? 'cluster' : 'plain';
+      const markers = activeMarkers;
 
-        poiCluster.clearLayers();
-        poiPlain.clearLayers();
+      if (!forceRender && normalizedMode === currentMode && activeMarkersRevision === lastRenderedRevision) {
+        return;
+      }
 
-        if (!markers.length) {
-          return;
-        }
+      poiCluster.clearLayers();
+      poiPlain.clearLayers();
 
-      const usePlain = shouldUsePlainMarkers(markers);
+      if (!markers.length) {
+        currentMode = normalizedMode;
+        lastRenderedRevision = activeMarkersRevision;
+        return;
+      }
 
-      if (usePlain) {
+      if (normalizedMode === 'cluster') {
+        poiCluster.addLayers(markers);
+        if (!map.hasLayer(poiCluster)) map.addLayer(poiCluster);
+        if (map.hasLayer(poiPlain)) map.removeLayer(poiPlain);
+      } else {
         markers.forEach((marker) => poiPlain.addLayer(marker));
         if (!map.hasLayer(poiPlain)) map.addLayer(poiPlain);
         if (map.hasLayer(poiCluster)) map.removeLayer(poiCluster);
-      } else {
-        poiCluster.addLayers(markers);
-        if (!map.hasLayer(poiCluster)) map.addLayer(poiCluster);
-          if (map.hasLayer(poiPlain)) map.removeLayer(poiPlain);
-        }
       }
+
+      currentMode = normalizedMode;
+      lastRenderedRevision = activeMarkersRevision;
+    }
+
+      function renderPois(markersArray) {
+        activeMarkers = Array.isArray(markersArray) ? markersArray.filter(Boolean) : [];
+        activeMarkersRevision++;
+        updateClusteringForViewport(true);
+      }
+
+    function updateClusteringForViewport(forceRender = false) {
+      if (!map) return;
+      const bounds = map.getBounds();
+      const visibleCount = countVisibleMarkers(activeMarkers, bounds);
+      const nextMode = visibleCount > VIEWPORT_CLUSTER_THRESHOLD ? 'cluster' : 'plain';
+      renderWithMode(nextMode, forceRender);
+    }
+
+    const debouncedViewportUpdate = debounce(() => updateClusteringForViewport(false), CLUSTER_DEBOUNCE_MS);
+    map.on('moveend', debouncedViewportUpdate);
+    map.on('zoomend', debouncedViewportUpdate);
 
     async function loadGeoJSON(url) {
       const r = await fetch(url, { cache: 'no-store' });
@@ -1028,7 +1075,6 @@
       });
 
         if (!combos.length) {
-          currentMarkers = [];
           renderPois([]);
           return;
         }
@@ -1047,7 +1093,6 @@
       });
 
         if (runId !== filterRunId) return; // stale run, abort rendering
-        currentMarkers = markers;
 
         renderPois(markers);
       }
