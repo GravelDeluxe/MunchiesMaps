@@ -545,7 +545,10 @@
     let applyFiltersTimer = null;
     const VIEWPORT_CLUSTER_THRESHOLD = 100;
     const CLUSTER_DEBOUNCE_MS = 200;
+    const GRID_CELL_SIZE = 0.05; // ~5km cells for viewport counting
 
+    let activePoints = [];
+    let gridIndex = new Map();
     let activeMarkers = [];
     let activeMarkersRevision = 0;
     let lastRenderedRevision = -1;
@@ -949,20 +952,69 @@
         showCoverageOnHover: false,
         spiderfyOnMaxZoom: true,
         disableClusteringAtZoom: 18,
+        chunkedLoading: true,
+        chunkInterval: 50,
+        chunkDelay: 25,
+        removeOutsideVisibleBounds: true,
         iconCreateFunction: createClusterIcon
       });
       map.addLayer(poiPlain);
       map.addLayer(poiCluster);
 
-    function countVisibleMarkers(markers, bounds) {
-      if (!bounds) return 0;
+    function gridKey(lng, lat) {
+      const x = Math.floor(lng / GRID_CELL_SIZE);
+      const y = Math.floor(lat / GRID_CELL_SIZE);
+      return `${x}:${y}`;
+    }
+
+    function rebuildGridIndex(points) {
+      const index = new Map();
+      points.forEach((pt, idx) => {
+        const key = gridKey(pt.lng, pt.lat);
+        if (!index.has(key)) index.set(key, []);
+        index.get(key).push(idx);
+      });
+      gridIndex = index;
+    }
+
+    function countPointsInSegment(south, north, west, east) {
+      const minX = Math.floor(west / GRID_CELL_SIZE);
+      const maxX = Math.floor(east / GRID_CELL_SIZE);
+      const minY = Math.floor(south / GRID_CELL_SIZE);
+      const maxY = Math.floor(north / GRID_CELL_SIZE);
       let count = 0;
-      for (const marker of markers) {
-        if (marker && bounds.contains(marker.getLatLng())) {
-          count++;
+      for (let x = minX; x <= maxX; x++) {
+        for (let y = minY; y <= maxY; y++) {
+          const pts = gridIndex.get(`${x}:${y}`);
+          if (!pts) continue;
+          for (const idx of pts) {
+            const pt = activePoints[idx];
+            if (!pt) continue;
+            if (pt.lat >= south && pt.lat <= north && pt.lng >= west && pt.lng <= east) {
+              count++;
+            }
+          }
         }
       }
       return count;
+    }
+
+    function countVisibleInBounds(bounds) {
+      if (!bounds) return 0;
+      const south = bounds.getSouth();
+      const north = bounds.getNorth();
+      const west = bounds.getWest();
+      const east = bounds.getEast();
+
+      if (west <= east) {
+        return countPointsInSegment(south, north, west, east);
+      }
+
+      // Handle world-wrap by splitting into two segments
+      return (
+        countPointsInSegment(south, north, west, 180) +
+        countPointsInSegment(south, north, -180, east)
+      );
     }
 
     function renderWithMode(mode, forceRender = false) {
@@ -996,16 +1048,18 @@
       lastRenderedRevision = activeMarkersRevision;
     }
 
-      function renderPois(markersArray) {
-        activeMarkers = Array.isArray(markersArray) ? markersArray.filter(Boolean) : [];
-        activeMarkersRevision++;
-        updateClusteringForViewport(true);
-      }
+    function renderPois(pointsArray, markersArray) {
+      activePoints = Array.isArray(pointsArray) ? pointsArray : [];
+      activeMarkers = Array.isArray(markersArray) ? markersArray.filter(Boolean) : [];
+      rebuildGridIndex(activePoints);
+      activeMarkersRevision++;
+      updateClusteringForViewport(true);
+    }
 
     function updateClusteringForViewport(forceRender = false) {
       if (!map) return;
       const bounds = map.getBounds();
-      const visibleCount = countVisibleMarkers(activeMarkers, bounds);
+      const visibleCount = countVisibleInBounds(bounds);
       const nextMode = visibleCount > VIEWPORT_CLUSTER_THRESHOLD ? 'cluster' : 'plain';
       renderWithMode(nextMode, forceRender);
     }
@@ -1075,18 +1129,26 @@
       });
 
         if (!combos.length) {
-          renderPois([]);
+          renderPois([], []);
           return;
         }
 
       await Promise.all(combos.map(({ bundeslandId, categoryId }) => ensureDataset(bundeslandId, categoryId)));
 
       const markers = [];
+      const points = [];
       combos.forEach(({ key }) => {
         const entry = datasetCache.get(key);
         if (!entry || entry.status !== 'ready') return;
+        const entryKey = key;
         const feats = filteredFeatures(entry);
-        feats.forEach((f) => {
+        feats.forEach((f, idx) => {
+          const coords = f.geometry?.coordinates || [];
+          const lon = Number(coords[0]);
+          const lat = Number(coords[1]);
+          if (Number.isFinite(lat) && Number.isFinite(lon)) {
+            points.push({ id: f.id || `${entryKey}-${idx}`, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
+          }
           const marker = createPoiMarker(f);
           if (marker) markers.push(marker);
         });
@@ -1094,7 +1156,7 @@
 
         if (runId !== filterRunId) return; // stale run, abort rendering
 
-        renderPois(markers);
+        renderPois(points, markers);
       }
 
     function resetGpxState() {
