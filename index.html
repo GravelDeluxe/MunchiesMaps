@@ -249,6 +249,8 @@
     .cluster-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
     .cluster-row label { font-weight: 650; color: var(--text); }
     .cluster-row input[type="number"] { width: 120px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+    .cluster-actions { align-items: stretch; }
+    .cluster-actions .cluster-apply { flex: 1; text-align: center; }
     .cluster-help { margin-top: 8px; font-size: 12px; color: var(--muted); }
     .gpx-error { color: #dc2626; font-size: 13px; }
 
@@ -376,8 +378,15 @@
             <label for="clusterRadiusInput">Clustergröße (px)</label>
             <input type="number" id="clusterRadiusInput" min="10" max="200" step="1" />
           </div>
-          <button type="button" class="cluster-apply" id="clusterRadiusApplyBtn">Anwenden</button>
-          <div class="cluster-help">Größer = mehr Punkte pro Cluster</div>
+          <div class="cluster-row">
+            <label for="minClusterSizeInput">Mindest-Clustergröße</label>
+            <input type="number" id="minClusterSizeInput" min="2" max="999" step="1" value="21" />
+          </div>
+          <div class="action-row cluster-actions">
+            <button type="button" class="cluster-apply" id="clusterRadiusApplyBtn">Anwenden</button>
+            <button type="button" class="cluster-apply" id="minClusterSizeApplyBtn">Anwenden</button>
+          </div>
+          <div class="cluster-help">Größer = mehr Punkte pro Cluster. Kleine Cluster werden ab der Mindestgröße aufgelöst.</div>
         </div>
       </div>
       <div class="section" id="gpxSection">
@@ -547,6 +556,11 @@
     const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
     const CLUSTER_THRESHOLD_DEFAULT = 20;
 
+    const MIN_CLUSTER_SIZE_KEY = 'minClusterSize';
+    const MIN_CLUSTER_SIZE_MIN = 2;
+    const MIN_CLUSTER_SIZE_MAX = 999;
+    const DEFAULT_MIN_CLUSTER_SIZE = 21;
+
     function clampClusterRadius(value) {
       const parsed = Number.parseInt(value, 10);
       if (!Number.isFinite(parsed)) return null;
@@ -562,12 +576,26 @@
       return fallback != null ? fallback : CLUSTER_RADIUS_MIN;
     }
 
+    function clampMinClusterSize(value) {
+      const parsed = Number.parseInt(value, 10);
+      if (!Number.isFinite(parsed)) return null;
+      return Math.min(MIN_CLUSTER_SIZE_MAX, Math.max(MIN_CLUSTER_SIZE_MIN, parsed));
+    }
+
+    function getInitialMinClusterSize() {
+      const stored = clampMinClusterSize(localStorage.getItem(MIN_CLUSTER_SIZE_KEY));
+      if (stored != null) return stored;
+      const fallback = clampMinClusterSize(DEFAULT_MIN_CLUSTER_SIZE);
+      return fallback != null ? fallback : MIN_CLUSTER_SIZE_MIN;
+    }
+
     let clusterRadiusPx = getInitialClusterRadius();
     let clusterThreshold = (() => {
       const parsed = Number.parseInt(localStorage.getItem(CLUSTER_THRESHOLD_KEY), 10);
       if (Number.isFinite(parsed) && parsed >= 0) return parsed;
       return CLUSTER_THRESHOLD_DEFAULT;
     })();
+    let minClusterSize = getInitialMinClusterSize();
 
     const DEFAULT_GPX_RADIUS_KM = 5;
     const gpxState = {
@@ -1096,17 +1124,34 @@
         if (poiCluster) {
           poiCluster.clearLayers();
           if (markers.length) {
+            const currentRunId = runId;
+            poiCluster.once('clusteringend', () => {
+              if (currentRunId !== filterRunId) return;
+              const layers = poiCluster.getLayers();
+              layers
+                .filter(layer => typeof layer.getChildCount === 'function')
+                .forEach((cluster) => {
+                  const childCount = cluster.getChildCount();
+                  if (childCount < minClusterSize) {
+                    const children = cluster.getAllChildMarkers();
+                    if (poiPlain) {
+                      children.forEach(marker => poiPlain.addLayer(marker));
+                    }
+                    poiCluster.removeLayers(children);
+                  }
+                });
+            });
             poiCluster.addLayers(markers);
           }
         }
         if (poiCluster && !map.hasLayer(poiCluster)) map.addLayer(poiCluster);
-        if (poiPlain && map.hasLayer(poiPlain)) map.removeLayer(poiPlain);
+        if (poiPlain && !map.hasLayer(poiPlain)) map.addLayer(poiPlain);
       } else {
         if (poiCluster) poiCluster.clearLayers();
         if (poiPlain) {
           poiPlain.clearLayers();
           if (markers.length) {
-            poiPlain.addLayers(markers);
+            markers.forEach(marker => poiPlain.addLayer(marker));
           }
         }
         if (poiPlain && !map.hasLayer(poiPlain)) map.addLayer(poiPlain);
@@ -1287,6 +1332,30 @@
           clusterRadiusPx = nextRadius;
           localStorage.setItem(CLUSTER_RADIUS_KEY, String(clusterRadiusPx));
           recreatePoiCluster(clusterRadiusPx);
+          applyFilters().catch(err => console.error(err));
+        });
+      }
+
+      const minClusterSizeInput = document.getElementById('minClusterSizeInput');
+      if (minClusterSizeInput) {
+        minClusterSizeInput.value = String(minClusterSize);
+        minClusterSizeInput.addEventListener('change', () => {
+          const clamped = clampMinClusterSize(minClusterSizeInput.value);
+          const next = clamped != null ? clamped : minClusterSize;
+          minClusterSizeInput.value = String(next);
+        });
+      }
+
+      const minClusterSizeApplyBtn = document.getElementById('minClusterSizeApplyBtn');
+      if (minClusterSizeApplyBtn) {
+        minClusterSizeApplyBtn.addEventListener('click', () => {
+          const rawValue = minClusterSizeInput ? minClusterSizeInput.value : minClusterSize;
+          const clamped = clampMinClusterSize(rawValue);
+          const nextSize = clamped != null ? clamped : minClusterSize;
+          if (minClusterSizeInput) minClusterSizeInput.value = String(nextSize);
+          if (nextSize === minClusterSize) return;
+          minClusterSize = nextSize;
+          localStorage.setItem(MIN_CLUSTER_SIZE_KEY, String(minClusterSize));
           applyFilters().catch(err => console.error(err));
         });
       }
