@@ -958,6 +958,33 @@
       target.addLayer(marker);
     }
 
+    function shouldUsePlainMarkers(markers) {
+      // Placeholder for future clustering threshold logic
+      return false;
+    }
+
+    function renderPois(markersArray) {
+      const markers = Array.isArray(markersArray) ? markersArray.filter(Boolean) : [];
+
+      if (DEBUG) debugLog('renderPois: clearing existing POI layers');
+      poiCluster.clearLayers();
+      poiPlain.clearLayers();
+
+      if (!markers.length) {
+        debugLog('renderPois: no markers to render');
+        return;
+      }
+
+      const usePlain = shouldUsePlainMarkers(markers);
+
+      markers.forEach((marker) => addPoiMarker(marker, { usePlain }));
+
+      debugLog('renderPois: rendered markers', {
+        count: markers.length,
+        target: usePlain ? 'poiPlain' : 'poiCluster'
+      });
+    }
+
     async function loadGeoJSON(url) {
       const r = await fetch(url, { cache: 'no-store' });
       if (!r.ok) throw new Error(`Fetch failed for ${url}: HTTP ${r.status}`);
@@ -1020,8 +1047,8 @@
 
       if (!combos.length) {
         debugLog('applyFilters: no filter combos; clearing cluster');
-        poiCluster.clearLayers();
         currentMarkers = [];
+        renderPois([]);
         return;
       }
 
@@ -1045,13 +1072,7 @@
 
       debugLog('applyFilters: marker count', markers.length, 'cluster attached?', map.hasLayer(poiCluster));
 
-      if (DEBUG) debugLog('applyFilters: clearing cluster for new markers');
-      poiCluster.clearLayers();
-      if (markers.length) {
-        markers.forEach((marker) => addPoiMarker(marker));
-      }
-
-      debugLog('applyFilters: cluster now has markers', poiCluster.getLayers().length);
+      renderPois(markers);
     }
 
     function resetGpxState() {
