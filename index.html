@@ -488,8 +488,26 @@
       });
     }
 
+    const DEBUG = true;
+
+    function debugLog(...args) {
+      if (DEBUG) console.log('[DEBUG]', ...args);
+    }
+
+    let clusterGroupCount = 0;
+
     const map = L.map('map', { zoomControl: true, preferCanvas: true });
     window.map = map;
+
+    if (DEBUG) {
+      const originalAddLayer = map.addLayer.bind(map);
+      map.addLayer = function patchedAddLayer(layer, ...rest) {
+        if (layer instanceof L.Marker) {
+          debugLog('map.addLayer called directly for marker; prefer addPoiMarker');
+        }
+        return originalAddLayer(layer, ...rest);
+      };
+    }
 
     const FALLBACK_VIEW = { center: [52.52, 13.405], zoom: 11 };
     // Ensure the map has an initial view before any custom layers render.
@@ -906,6 +924,8 @@
       });
     }
 
+    const poiPlain = L.layerGroup();
+
     function createPoiMarker(feature) {
       if (!feature || !feature.geometry || feature.geometry.type !== 'Point') return null;
       const coords = feature.geometry.coordinates || [];
@@ -924,7 +944,19 @@
       disableClusteringAtZoom: 18,
       iconCreateFunction: createClusterIcon
     });
+    debugLog('POI CLUSTER GROUP CREATED', { count: ++clusterGroupCount, createdAt: new Error().stack });
+    map.addLayer(poiPlain);
     map.addLayer(poiCluster);
+
+    function addPoiMarker(marker, { usePlain = false } = {}) {
+      if (!marker) return;
+      const target = usePlain ? poiPlain : poiCluster;
+      if (DEBUG && marker._map === map) {
+        debugLog('Attempted to add POI marker directly to map; rerouting to cluster');
+        map.removeLayer(marker);
+      }
+      target.addLayer(marker);
+    }
 
     async function loadGeoJSON(url) {
       const r = await fetch(url, { cache: 'no-store' });
@@ -987,6 +1019,7 @@
       });
 
       if (!combos.length) {
+        debugLog('applyFilters: no filter combos; clearing cluster');
         poiCluster.clearLayers();
         currentMarkers = [];
         return;
@@ -1010,10 +1043,15 @@
       if (runId !== filterRunId) return;
       currentMarkers = markers;
 
+      debugLog('applyFilters: marker count', markers.length, 'cluster attached?', map.hasLayer(poiCluster));
+
+      if (DEBUG) debugLog('applyFilters: clearing cluster for new markers');
       poiCluster.clearLayers();
       if (markers.length) {
-        poiCluster.addLayers(markers);
+        markers.forEach((marker) => addPoiMarker(marker));
       }
+
+      debugLog('applyFilters: cluster now has markers', poiCluster.getLayers().length);
     }
 
     function resetGpxState() {
