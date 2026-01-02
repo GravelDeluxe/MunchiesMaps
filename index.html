@@ -496,28 +496,10 @@
       });
     }
 
-    const DEBUG = true;
+      const map = L.map('map', { zoomControl: true, preferCanvas: true });
+      window.map = map;
 
-    function debugLog(...args) {
-      if (DEBUG) console.log('[DEBUG]', ...args);
-    }
-
-    let clusterGroupCount = 0;
-
-    const map = L.map('map', { zoomControl: true, preferCanvas: true });
-    window.map = map;
-
-    if (DEBUG) {
-      const originalAddLayer = map.addLayer.bind(map);
-      map.addLayer = function patchedAddLayer(layer, ...rest) {
-        if (layer instanceof L.Marker) {
-          debugLog('map.addLayer called directly for marker; prefer renderPois-managed layers');
-        }
-        return originalAddLayer(layer, ...rest);
-      };
-    }
-
-    const FALLBACK_VIEW = { center: [52.52, 13.405], zoom: 11 };
+      const FALLBACK_VIEW = { center: [52.52, 13.405], zoom: 11 };
     // Ensure the map has an initial view before any custom layers render.
     map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom);
 
@@ -949,31 +931,28 @@
       return marker;
     }
 
-    const poiCluster = L.markerClusterGroup({
-      showCoverageOnHover: false,
-      spiderfyOnMaxZoom: true,
-      disableClusteringAtZoom: 18,
-      iconCreateFunction: createClusterIcon
-    });
-    debugLog('POI CLUSTER GROUP CREATED', { count: ++clusterGroupCount, createdAt: new Error().stack });
-    map.addLayer(poiPlain);
-    map.addLayer(poiCluster);
+      const poiCluster = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        spiderfyOnMaxZoom: true,
+        disableClusteringAtZoom: 18,
+        iconCreateFunction: createClusterIcon
+      });
+      map.addLayer(poiPlain);
+      map.addLayer(poiCluster);
 
     function shouldUsePlainMarkers(markers) {
       return markers.length <= 20;
     }
 
-    function renderPois(markersArray) {
-      const markers = Array.isArray(markersArray) ? markersArray.filter(Boolean) : [];
+      function renderPois(markersArray) {
+        const markers = Array.isArray(markersArray) ? markersArray.filter(Boolean) : [];
 
-      if (DEBUG) debugLog('renderPois: clearing existing POI layers');
-      poiCluster.clearLayers();
-      poiPlain.clearLayers();
+        poiCluster.clearLayers();
+        poiPlain.clearLayers();
 
-      if (!markers.length) {
-        debugLog('renderPois: no markers to render');
-        return;
-      }
+        if (!markers.length) {
+          return;
+        }
 
       const usePlain = shouldUsePlainMarkers(markers);
 
@@ -984,14 +963,9 @@
       } else {
         poiCluster.addLayers(markers);
         if (!map.hasLayer(poiCluster)) map.addLayer(poiCluster);
-        if (map.hasLayer(poiPlain)) map.removeLayer(poiPlain);
+          if (map.hasLayer(poiPlain)) map.removeLayer(poiPlain);
+        }
       }
-
-      debugLog('renderPois: rendered markers', {
-        count: markers.length,
-        target: usePlain ? 'poiPlain' : 'poiCluster'
-      });
-    }
 
     async function loadGeoJSON(url) {
       const r = await fetch(url, { cache: 'no-store' });
@@ -1053,12 +1027,11 @@
         });
       });
 
-      if (!combos.length) {
-        debugLog('applyFilters: no filter combos; clearing cluster');
-        currentMarkers = [];
-        renderPois([]);
-        return;
-      }
+        if (!combos.length) {
+          currentMarkers = [];
+          renderPois([]);
+          return;
+        }
 
       await Promise.all(combos.map(({ bundeslandId, categoryId }) => ensureDataset(bundeslandId, categoryId)));
 
@@ -1073,13 +1046,11 @@
         });
       });
 
-      if (runId !== filterRunId) return; // stale run, abort rendering
-      currentMarkers = markers;
+        if (runId !== filterRunId) return; // stale run, abort rendering
+        currentMarkers = markers;
 
-      debugLog('applyFilters: marker count', markers.length, 'cluster attached?', map.hasLayer(poiCluster));
-
-      renderPois(markers);
-    }
+        renderPois(markers);
+      }
 
     function resetGpxState() {
       gpxState.points = [];
