@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
   <style>
     :root {
       --bg: #f6f7fb;
@@ -253,20 +255,27 @@
     .drawer-reset-btn { width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 750; color: var(--text); }
 
     /* Cluster icon */
-    .cluster-badge {
+    .poi-cluster {
+      background: linear-gradient(145deg, rgba(75, 85, 99, 0.92), rgba(55, 65, 81, 0.92));
+      border: 2px solid rgba(255, 255, 255, 0.9);
       border-radius: 999px;
-      padding: 6px 10px;
-      font-weight: 750;
-      border: 1px solid rgba(0,0,0,0.25);
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 1px 6px rgba(0,0,0,0.15);
-      min-width: 34px;
+      color: #fff;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
       text-align: center;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
-    .cluster-badge .cat-icon--cluster { flex: 0 0 auto; }
+    .poi-cluster-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+    }
+    .poi-cluster-small { background: linear-gradient(145deg, rgba(107, 114, 128, 0.95), rgba(75, 85, 99, 0.95)); }
+    .poi-cluster-medium { background: linear-gradient(145deg, rgba(75, 85, 99, 0.95), rgba(55, 65, 81, 0.95)); }
+    .poi-cluster-large { background: linear-gradient(145deg, rgba(55, 65, 81, 0.95), rgba(31, 41, 55, 0.95)); }
 
     /* Map controls */
     .leaflet-bar a,
@@ -404,7 +413,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="https://unpkg.com/supercluster@8.0.1/dist/supercluster.min.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
   <script>
     const THEME_KEY = 'theme';
@@ -569,7 +578,8 @@
     const missingCache = new Set();
     let manifestData = { bundeslaender: [], categories: [] };
 
-    let aggregatedLayer = null;
+    let poiCluster = null;
+    let filterRunId = 0;
     let applyFiltersTimer = null;
 
     function comboKey(bundeslandId, categoryId) {
@@ -915,7 +925,6 @@
     }
 
     const ICON_CACHE = {};
-    const CLUSTER_GLYPH_CACHE = {};
 
     function iconForCategory(categoryId) {
       const key = categoryId || 'default';
@@ -933,129 +942,55 @@
       return ICON_CACHE[key];
     }
 
-    function clusterGlyphForCategory(categoryId) {
-      const key = categoryId || 'default';
-      if (!CLUSTER_GLYPH_CACHE[key]) {
-        const html = categoryIconHtml(categoryId, 22, 'cat-icon--cluster');
-        CLUSTER_GLYPH_CACHE[key] = html;
-      }
-      return CLUSTER_GLYPH_CACHE[key];
-    }
-
-    class SuperclusterLayer extends L.Layer {
-      constructor(geojson, options) {
-        super();
-        this.options = options || {};
-        this._index = new Supercluster({
-          radius: this.options.radius ?? 60,
-          maxZoom: this.options.maxZoom ?? 18,
-          minPoints: this.options.minPoints ?? 10
-        });
-        this._points = [];
-        this.updateDataFromFeatures(geojson.features || []);
-        this._render = this._render.bind(this);
+    function createClusterIcon(cluster) {
+      const count = cluster.getChildCount();
+      let size = 40;
+      let sizeClass = 'small';
+      if (count >= 50) {
+        size = 56;
+        sizeClass = 'large';
+      } else if (count >= 15) {
+        size = 48;
+        sizeClass = 'medium';
       }
 
-      onAdd(map) {
-        this._map = map;
-        this._group = L.layerGroup().addTo(map);
-        map.on('moveend zoomend', this._render);
-        this._render();
-      }
-
-      onRemove(map) {
-        map.off('moveend zoomend', this._render);
-        map.removeLayer(this._group);
-        this._group = null;
-        this._map = null;
-      }
-
-      getBounds() {
-        const coords = this._points.map(p => p.geometry.coordinates);
-        if (!coords.length) return null;
-        let minX=coords[0][0], minY=coords[0][1], maxX=coords[0][0], maxY=coords[0][1];
-        for (const [x,y] of coords) {
-          if (x < minX) minX = x;
-          if (y < minY) minY = y;
-          if (x > maxX) maxX = x;
-          if (y > maxY) maxY = y;
-        }
-        return L.latLngBounds([minY, minX], [maxY, maxX]);
-      }
-
-      updateDataFromFeatures(features) {
-        this._points = (features || []).map(f => ({
-          type: 'Feature',
-          geometry: f.geometry,
-          properties: f.properties || {}
-        }));
-        this._index.load(this._points);
-        if (this._group) {
-          this._render();
-        }
-      }
-
-      _render() {
-        if (!this._map || !this._group) return;
-        const b = this._map.getBounds();
-        const zoom = this._map.getZoom();
-        const bbox = [b.getWest(), b.getSouth(), b.getEast(), b.getNorth()];
-        const items = this._index.getClusters(bbox, zoom);
-
-        this._group.clearLayers();
-
-        for (const it of items) {
-          const [lon, lat] = it.geometry.coordinates;
-          const ll = L.latLng(lat, lon);
-
-          if (it.properties && it.properties.cluster) {
-            const count = it.properties.point_count;
-            const glyph = this.options.clusterGlyphHtml || '';
-            const marker = L.marker(ll, {
-              icon: L.divIcon({
-                className: '',
-                html: `<div class="cluster-badge">${glyph}${count}</div>`,
-                iconSize: [44, 34],
-                iconAnchor: [22, 17]
-              })
-            });
-            marker.on('click', () => {
-              const expansionZoom = Math.min(this._index.getClusterExpansionZoom(it.properties.cluster_id), 19);
-              this._map.setView(ll, expansionZoom, { animate: true });
-            });
-            this._group.addLayer(marker);
-          } else {
-            const categoryId = it.properties?.categoryId;
-            const m = L.marker(ll, { icon: iconForCategory(categoryId) });
-            m.bindPopup(popupHtml(it.properties, categoryId));
-            this._group.addLayer(m);
-          }
-        }
-      }
-    }
-
-    const aggregatedGeojson = { type: 'FeatureCollection', features: [] };
-
-    function createAggregatedLayer(radius) {
-      return new SuperclusterLayer(aggregatedGeojson, {
-        minPoints: 10,
-        radius,
-        clusterGlyphHtml: clusterGlyphForCategory(null)
+      return L.divIcon({
+        html: `<div class="poi-cluster-inner">${count}</div>`,
+        className: `poi-cluster poi-cluster-${sizeClass}`,
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size / 2]
       });
     }
 
-    function recreateAggregatedLayer(radius) {
-      const currentFeatures = aggregatedGeojson.features || [];
-      if (aggregatedLayer) {
-        map.removeLayer(aggregatedLayer);
-      }
-      aggregatedLayer = createAggregatedLayer(radius);
-      aggregatedLayer.addTo(map);
-      aggregatedLayer.updateDataFromFeatures(currentFeatures);
+    function createPoiCluster(radiusPx) {
+      return L.markerClusterGroup({
+        maxClusterRadius: radiusPx,
+        iconCreateFunction: createClusterIcon
+      });
     }
 
-    aggregatedLayer = createAggregatedLayer(clusterRadiusPx);
-    aggregatedLayer.addTo(map);
+    function createPoiMarker(feature) {
+      if (!feature || !feature.geometry || feature.geometry.type !== 'Point') return null;
+      const coords = feature.geometry.coordinates || [];
+      const lon = Number(coords[0]);
+      const lat = Number(coords[1]);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+      const categoryId = feature.properties?.categoryId;
+      const marker = L.marker([lat, lon], { icon: iconForCategory(categoryId) });
+      marker.bindPopup(popupHtml(feature.properties, categoryId));
+      return marker;
+    }
+
+    poiCluster = createPoiCluster(clusterRadiusPx);
+    poiCluster.addTo(map);
+
+    function recreatePoiCluster(radiusPx) {
+      if (poiCluster) {
+        map.removeLayer(poiCluster);
+      }
+      poiCluster = createPoiCluster(radiusPx);
+      poiCluster.addTo(map);
+    }
 
     async function loadGeoJSON(url) {
       const r = await fetch(url, { cache: 'no-store' });
@@ -1083,13 +1018,20 @@
       try {
         const geojson = await loadGeoJSON(url);
         const features = Array.isArray(geojson.features) ? geojson.features : [];
+        const normalized = [];
         features.forEach((f) => {
+          if (!f || !f.geometry || f.geometry.type !== 'Point') return;
+          const coords = f.geometry.coordinates || [];
+          const lon = Number(coords[0]);
+          const lat = Number(coords[1]);
+          if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
           f.properties = f.properties || {};
           f.properties.bundeslandId = bundeslandId;
           f.properties.categoryId = categoryId;
           f.properties.categoryLabel = categoryLabelMap[categoryId];
+          normalized.push(f);
         });
-        const entry = { status: 'ready', originalFeatures: features };
+        const entry = { status: 'ready', originalFeatures: normalized };
         datasetCache.set(key, entry);
         return entry;
       } catch (err) {
@@ -1101,18 +1043,8 @@
       }
     }
 
-    function buildVisibleFeatures(combos) {
-      const merged = [];
-      combos.forEach(({ key }) => {
-        const entry = datasetCache.get(key);
-        if (!entry || entry.status !== 'ready') return;
-        const feats = filteredFeatures(entry);
-        merged.push(...feats);
-      });
-      return merged;
-    }
-
     async function applyFilters() {
+      const runId = ++filterRunId;
       const combos = [];
       filterState.bundeslaender.forEach((bundeslandId) => {
         filterState.kategorien.forEach((categoryId) => {
@@ -1120,12 +1052,33 @@
         });
       });
 
+      if (!combos.length) {
+        if (poiCluster) poiCluster.clearLayers();
+        return;
+      }
+
       await Promise.all(combos.map(({ bundeslandId, categoryId }) => ensureDataset(bundeslandId, categoryId)));
 
-      if (aggregatedLayer) {
-        const mergedFeatures = buildVisibleFeatures(combos);
-        aggregatedGeojson.features = mergedFeatures;
-        aggregatedLayer.updateDataFromFeatures(mergedFeatures);
+      if (runId !== filterRunId) return;
+
+      const markers = [];
+      combos.forEach(({ key }) => {
+        const entry = datasetCache.get(key);
+        if (!entry || entry.status !== 'ready') return;
+        const feats = filteredFeatures(entry);
+        feats.forEach((f) => {
+          const marker = createPoiMarker(f);
+          if (marker) markers.push(marker);
+        });
+      });
+
+      if (runId !== filterRunId) return;
+
+      if (poiCluster) {
+        poiCluster.clearLayers();
+        if (markers.length) {
+          poiCluster.addLayers(markers);
+        }
       }
     }
 
@@ -1301,7 +1254,8 @@
           if (nextRadius === clusterRadiusPx) return;
           clusterRadiusPx = nextRadius;
           localStorage.setItem(CLUSTER_RADIUS_KEY, String(clusterRadiusPx));
-          recreateAggregatedLayer(clusterRadiusPx);
+          recreatePoiCluster(clusterRadiusPx);
+          applyFilters().catch(err => console.error(err));
         });
       }
 
