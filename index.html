@@ -544,6 +544,8 @@
     const CLUSTER_RADIUS_MAX = 200;
     const DEFAULT_CLUSTER_RADIUS = 60;
     const FALLBACK_CLUSTER_RADIUS = 50;
+    const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
+    const CLUSTER_THRESHOLD_DEFAULT = 20;
 
     function clampClusterRadius(value) {
       const parsed = Number.parseInt(value, 10);
@@ -561,6 +563,11 @@
     }
 
     let clusterRadiusPx = getInitialClusterRadius();
+    let clusterThreshold = (() => {
+      const parsed = Number.parseInt(localStorage.getItem(CLUSTER_THRESHOLD_KEY), 10);
+      if (Number.isFinite(parsed) && parsed >= 0) return parsed;
+      return CLUSTER_THRESHOLD_DEFAULT;
+    })();
 
     const DEFAULT_GPX_RADIUS_KM = 5;
     const gpxState = {
@@ -579,6 +586,7 @@
     let manifestData = { bundeslaender: [], categories: [] };
 
     let poiCluster = null;
+    let poiPlain = null;
     let filterRunId = 0;
     let applyFiltersTimer = null;
 
@@ -982,14 +990,19 @@
     }
 
     poiCluster = createPoiCluster(clusterRadiusPx);
+    poiPlain = L.layerGroup();
     poiCluster.addTo(map);
+    poiPlain.addTo(map);
 
     function recreatePoiCluster(radiusPx) {
+      const wasActive = poiCluster && map.hasLayer(poiCluster);
       if (poiCluster) {
         map.removeLayer(poiCluster);
       }
       poiCluster = createPoiCluster(radiusPx);
-      poiCluster.addTo(map);
+      if (wasActive) {
+        poiCluster.addTo(map);
+      }
     }
 
     async function loadGeoJSON(url) {
@@ -1054,6 +1067,9 @@
 
       if (!combos.length) {
         if (poiCluster) poiCluster.clearLayers();
+        if (poiPlain) poiPlain.clearLayers();
+        if (poiCluster && map.hasLayer(poiCluster)) map.removeLayer(poiCluster);
+        if (poiPlain && !map.hasLayer(poiPlain)) map.addLayer(poiPlain);
         return;
       }
 
@@ -1073,12 +1089,28 @@
       });
 
       if (runId !== filterRunId) return;
+      const useCluster = markers.length > clusterThreshold;
 
-      if (poiCluster) {
-        poiCluster.clearLayers();
-        if (markers.length) {
-          poiCluster.addLayers(markers);
+      if (useCluster) {
+        if (poiPlain) poiPlain.clearLayers();
+        if (poiCluster) {
+          poiCluster.clearLayers();
+          if (markers.length) {
+            poiCluster.addLayers(markers);
+          }
         }
+        if (poiCluster && !map.hasLayer(poiCluster)) map.addLayer(poiCluster);
+        if (poiPlain && map.hasLayer(poiPlain)) map.removeLayer(poiPlain);
+      } else {
+        if (poiCluster) poiCluster.clearLayers();
+        if (poiPlain) {
+          poiPlain.clearLayers();
+          if (markers.length) {
+            poiPlain.addLayers(markers);
+          }
+        }
+        if (poiPlain && !map.hasLayer(poiPlain)) map.addLayer(poiPlain);
+        if (poiCluster && map.hasLayer(poiCluster)) map.removeLayer(poiCluster);
       }
     }
 
