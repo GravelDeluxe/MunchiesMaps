@@ -255,18 +255,26 @@
       border: none;
     }
     .cluster-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 20px;
-      background: rgba(90, 90, 90, 0.9);
-      border: 2px solid rgba(40, 40, 40, 0.9);
+      --cluster-size: 40px;
+      width: var(--cluster-size);
+      height: var(--cluster-size);
+      border-radius: 999px;
+      background: linear-gradient(135deg, #6b7280, #4b5563);
+      border: 2px solid rgba(31, 41, 55, 0.8);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .cluster-icon span {
       color: #fff;
-      font-weight: 700;
+    }
+    .cluster-icon--small { --cluster-size: 34px; }
+    .cluster-icon--medium { --cluster-size: 40px; }
+    .cluster-icon--large { --cluster-size: 48px; }
+    .cluster-icon span {
+      color: inherit;
+      font-weight: 800;
+      font-size: 14px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
     }
 
     /* Map controls */
@@ -917,10 +925,13 @@
 
     function createClusterIcon(cluster) {
       const count = cluster.getChildCount();
+      const sizeClass =
+        count >= 100 ? 'cluster-icon--large' : count >= 25 ? 'cluster-icon--medium' : 'cluster-icon--small';
+      const size = sizeClass === 'cluster-icon--large' ? 48 : sizeClass === 'cluster-icon--medium' ? 40 : 34;
       return L.divIcon({
-        html: `<div class="cluster-icon"><span>${count}</span></div>`,
+        html: `<div class="cluster-icon ${sizeClass}"><span>${count}</span></div>`,
         className: 'cluster-icon-wrap',
-        iconSize: L.point(40, 40)
+        iconSize: L.point(size, size)
       });
     }
 
