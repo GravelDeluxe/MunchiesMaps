@@ -658,20 +658,37 @@
       });
     }
 
+    function getElementsByLocalName(xml, name) {
+      const byNs = xml.getElementsByTagNameNS ? xml.getElementsByTagNameNS('*', name) : [];
+      if (byNs && byNs.length) return Array.from(byNs);
+      return Array.from(xml.getElementsByTagName(name));
+    }
+
     function parseGpxText(text) {
       try {
         const parser = new DOMParser();
         const xml = parser.parseFromString(text, 'application/xml');
-        const pts = Array.from(xml.querySelectorAll('trkpt, rtept'))
-          .map((el) => {
-            const lat = parseFloat(el.getAttribute('lat'));
-            const lon = parseFloat(el.getAttribute('lon'));
-            if (Number.isFinite(lat) && Number.isFinite(lon)) {
-              return { lat, lon };
-            }
-            return null;
-          })
-          .filter(Boolean);
+        if (xml.getElementsByTagName('parsererror').length) {
+          return { points: [], xml: null };
+        }
+
+        const extractPoints = (tagName) => {
+          return getElementsByLocalName(xml, tagName)
+            .map((el) => {
+              const lat = parseFloat(el.getAttribute('lat'));
+              const lon = parseFloat(el.getAttribute('lon'));
+              if (Number.isFinite(lat) && Number.isFinite(lon)) {
+                return { lat, lon };
+              }
+              return null;
+            })
+            .filter(Boolean);
+        };
+
+        let pts = extractPoints('trkpt');
+        if (!pts.length) pts = extractPoints('rtept');
+        if (!pts.length) pts = extractPoints('wpt');
+
         return { points: pts, xml };
       } catch (err) {
         console.error('GPX parse error', err);
@@ -697,9 +714,9 @@
           .filter(Boolean);
       };
 
-      const trackSegments = Array.from(xmlDoc.querySelectorAll('trkseg'));
+      const trackSegments = getElementsByLocalName(xmlDoc, 'trkseg');
       trackSegments.forEach((seg) => {
-        const coords = extractCoords(seg.querySelectorAll('trkpt'));
+        const coords = extractCoords(getElementsByLocalName(seg, 'trkpt'));
         if (coords.length >= 2) {
           lineFeatures.push({
             type: 'Feature',
@@ -710,7 +727,7 @@
       });
 
       if (!lineFeatures.length) {
-        const rteCoords = extractCoords(xmlDoc.querySelectorAll('rtept'));
+        const rteCoords = extractCoords(getElementsByLocalName(xmlDoc, 'rtept'));
         if (rteCoords.length >= 2) {
           lineFeatures.push({
             type: 'Feature',
@@ -1263,11 +1280,11 @@
     }
 
     function resetGpxState() {
+      gpxState.active = false;
       gpxState.points = [];
       gpxState.sampledPoints = [];
       gpxState.radiusMeters = DEFAULT_GPX_RADIUS_KM * 1000;
       gpxState.bbox = null;
-      gpxState.active = false;
       gpxState.geoJson = null;
       const fileInput = document.getElementById('gpxFileInput');
       const radiusInput = document.getElementById('gpxRadiusKm');
@@ -1301,6 +1318,9 @@
           if (errorEl) errorEl.textContent = 'Datei konnte nicht gelesen werden.';
           return;
         }
+      } else if (!trackPoints || !trackPoints.length) {
+        if (errorEl) errorEl.textContent = 'Bitte eine gültige GPX-Datei auswählen.';
+        return;
       }
 
       if (!trackPoints || !trackPoints.length) {
@@ -1320,6 +1340,8 @@
       gpxState.bbox = computeExpandedBBox(sampled, radiusMeters);
       gpxState.geoJson = gpxGeoJson;
       gpxState.active = true;
+
+      console.log('GPX points:', trackPoints.length, 'sampled:', sampled.length, 'radiusMeters:', radiusMeters);
 
       renderGpxTrack(gpxGeoJson);
 
