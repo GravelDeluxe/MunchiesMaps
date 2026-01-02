@@ -490,9 +490,12 @@
 
     let gpxTrackLayer = null;
 
-    const comboRegistry = new Map();
-    const missingWarnings = new Set();
+    const datasetCache = new Map();
+    const missingCache = new Set();
     let manifestData = { bundeslaender: [], categories: [] };
+
+    let aggregatedLayer = null;
+    let applyFiltersTimer = null;
 
     function comboKey(bundeslandId, categoryId) {
       return `${bundeslandId}__${categoryId}`;
@@ -724,7 +727,8 @@
     }
 
     function triggerApplyFilters() {
-      applyFilters().catch(err => console.error(err));
+      clearTimeout(applyFiltersTimer);
+      applyFiltersTimer = setTimeout(() => applyFilters().catch(err => console.error(err)), 150);
     }
 
     function measureDrawerWidth() {
@@ -985,13 +989,22 @@
             });
             this._group.addLayer(marker);
           } else {
-            const m = L.marker(ll, { icon: this.options.pointIcon });
-            m.bindPopup(popupHtml(it.properties, this.options.categoryId));
+            const categoryId = it.properties?.categoryId;
+            const m = L.marker(ll, { icon: iconForCategory(categoryId) });
+            m.bindPopup(popupHtml(it.properties, categoryId));
             this._group.addLayer(m);
           }
         }
       }
     }
+
+    const aggregatedGeojson = { type: 'FeatureCollection', features: [] };
+    aggregatedLayer = new SuperclusterLayer(aggregatedGeojson, {
+      minPoints: 10,
+      radius: 60,
+      clusterGlyphSvg: clusterGlyphForCategory(null)
+    });
+    aggregatedLayer.addTo(map);
 
     async function loadGeoJSON(url) {
       const r = await fetch(url, { cache: 'no-store' });
@@ -1009,35 +1022,43 @@
       return { bundeslaender, categories };
     }
 
-    async function ensureLayer(bundeslandId, categoryId) {
+    async function ensureDataset(bundeslandId, categoryId) {
       const key = comboKey(bundeslandId, categoryId);
-      const existing = comboRegistry.get(key);
-      if (existing) return existing;
+      if (datasetCache.has(key)) return datasetCache.get(key);
+      if (missingCache.has(key)) return null;
 
       const url = `resources/geojson/${bundeslandId}/${categoryId}.geojson`;
 
       try {
         const geojson = await loadGeoJSON(url);
-        const layer = new SuperclusterLayer(geojson, {
-          minPoints: 10,
-          radius: 60,
-          pointIcon: iconForCategory(categoryId),
-          clusterGlyphSvg: clusterGlyphForCategory(categoryId),
-          categoryId,
-          categoryLabel: categoryLabelMap[categoryId]
+        const features = Array.isArray(geojson.features) ? geojson.features : [];
+        features.forEach((f) => {
+          f.properties = f.properties || {};
+          f.properties.bundeslandId = bundeslandId;
+          f.properties.categoryId = categoryId;
+          f.properties.categoryLabel = categoryLabelMap[categoryId];
         });
-        const entry = { status: 'ready', layer, visible: false, originalFeatures: geojson.features || [] };
-        comboRegistry.set(key, entry);
+        const entry = { status: 'ready', originalFeatures: features };
+        datasetCache.set(key, entry);
         return entry;
       } catch (err) {
-        if (!missingWarnings.has(key)) {
+        if (!missingCache.has(key)) {
           console.warn(`GeoJSON fehlt für ${bundeslandId}/${categoryId}:`, err);
-          missingWarnings.add(key);
+          missingCache.add(key);
         }
-        const entry = { status: 'missing', visible: false };
-        comboRegistry.set(key, entry);
-        return entry;
+        return null;
       }
+    }
+
+    function buildVisibleFeatures(combos) {
+      const merged = [];
+      combos.forEach(({ key }) => {
+        const entry = datasetCache.get(key);
+        if (!entry || entry.status !== 'ready') return;
+        const feats = filteredFeatures(entry);
+        merged.push(...feats);
+      });
+      return merged;
     }
 
     async function applyFilters() {
@@ -1048,25 +1069,12 @@
         });
       });
 
-      const targetKeys = new Set(combos.map(c => c.key));
+      await Promise.all(combos.map(({ bundeslandId, categoryId }) => ensureDataset(bundeslandId, categoryId)));
 
-      comboRegistry.forEach((entry, key) => {
-        if (!targetKeys.has(key) && entry?.layer && entry.visible) {
-          map.removeLayer(entry.layer);
-          entry.visible = false;
-        }
-      });
-
-      await Promise.all(combos.map(async ({ key, bundeslandId, categoryId }) => {
-        const entry = await ensureLayer(bundeslandId, categoryId);
-        if (!entry || entry.status !== 'ready') return;
-        const feats = filteredFeatures(entry);
-        entry.layer.updateDataFromFeatures(feats);
-        if (!entry.visible) {
-          entry.layer.addTo(map);
-          entry.visible = true;
-        }
-      }));
+      if (aggregatedLayer) {
+        const mergedFeatures = buildVisibleFeatures(combos);
+        aggregatedLayer.updateDataFromFeatures(mergedFeatures);
+      }
     }
 
     function resetGpxState() {
