@@ -503,7 +503,7 @@
       const originalAddLayer = map.addLayer.bind(map);
       map.addLayer = function patchedAddLayer(layer, ...rest) {
         if (layer instanceof L.Marker) {
-          debugLog('map.addLayer called directly for marker; prefer addPoiMarker');
+          debugLog('map.addLayer called directly for marker; prefer renderPois-managed layers');
         }
         return originalAddLayer(layer, ...rest);
       };
@@ -948,19 +948,8 @@
     map.addLayer(poiPlain);
     map.addLayer(poiCluster);
 
-    function addPoiMarker(marker, { usePlain = false } = {}) {
-      if (!marker) return;
-      const target = usePlain ? poiPlain : poiCluster;
-      if (DEBUG && marker._map === map) {
-        debugLog('Attempted to add POI marker directly to map; rerouting to cluster');
-        map.removeLayer(marker);
-      }
-      target.addLayer(marker);
-    }
-
     function shouldUsePlainMarkers(markers) {
-      // Placeholder for future clustering threshold logic
-      return false;
+      return markers.length <= 20;
     }
 
     function renderPois(markersArray) {
@@ -977,7 +966,15 @@
 
       const usePlain = shouldUsePlainMarkers(markers);
 
-      markers.forEach((marker) => addPoiMarker(marker, { usePlain }));
+      if (usePlain) {
+        markers.forEach((marker) => poiPlain.addLayer(marker));
+        if (!map.hasLayer(poiPlain)) map.addLayer(poiPlain);
+        if (map.hasLayer(poiCluster)) map.removeLayer(poiCluster);
+      } else {
+        poiCluster.addLayers(markers);
+        if (!map.hasLayer(poiCluster)) map.addLayer(poiCluster);
+        if (map.hasLayer(poiPlain)) map.removeLayer(poiPlain);
+      }
 
       debugLog('renderPois: rendered markers', {
         count: markers.length,
