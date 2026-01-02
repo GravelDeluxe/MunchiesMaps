@@ -553,10 +553,8 @@
     const CLUSTER_RADIUS_MAX = 200;
     const DEFAULT_CLUSTER_RADIUS = 60;
     const FALLBACK_CLUSTER_RADIUS = 50;
-    const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
-    const CLUSTER_THRESHOLD_DEFAULT = 20;
 
-    const MIN_CLUSTER_SIZE_KEY = 'minClusterSize';
+    const MIN_CLUSTER_KEY = 'minClusterSize';
     const MIN_CLUSTER_SIZE_MIN = 2;
     const MIN_CLUSTER_SIZE_MAX = 999;
     const DEFAULT_MIN_CLUSTER_SIZE = 21;
@@ -583,18 +581,13 @@
     }
 
     function getInitialMinClusterSize() {
-      const stored = clampMinClusterSize(localStorage.getItem(MIN_CLUSTER_SIZE_KEY));
+      const stored = clampMinClusterSize(localStorage.getItem(MIN_CLUSTER_KEY));
       if (stored != null) return stored;
       const fallback = clampMinClusterSize(DEFAULT_MIN_CLUSTER_SIZE);
       return fallback != null ? fallback : MIN_CLUSTER_SIZE_MIN;
     }
 
     let clusterRadiusPx = getInitialClusterRadius();
-    let clusterThreshold = (() => {
-      const parsed = Number.parseInt(localStorage.getItem(CLUSTER_THRESHOLD_KEY), 10);
-      if (Number.isFinite(parsed) && parsed >= 0) return parsed;
-      return CLUSTER_THRESHOLD_DEFAULT;
-    })();
     let minClusterSize = getInitialMinClusterSize();
 
     const DEFAULT_GPX_RADIUS_KM = 5;
@@ -613,10 +606,9 @@
     const missingCache = new Set();
     let manifestData = { bundeslaender: [], categories: [] };
 
-    let poiCluster = null;
-    let poiPlain = null;
     let filterRunId = 0;
     let applyFiltersTimer = null;
+    let currentMarkers = [];
 
     function comboKey(bundeslandId, categoryId) {
       return `${bundeslandId}__${categoryId}`;
@@ -1017,21 +1009,10 @@
       return marker;
     }
 
-    poiCluster = createPoiCluster(clusterRadiusPx);
-    poiPlain = L.layerGroup();
-    poiCluster.addTo(map);
-    poiPlain.addTo(map);
-
-    function recreatePoiCluster(radiusPx) {
-      const wasActive = poiCluster && map.hasLayer(poiCluster);
-      if (poiCluster) {
-        map.removeLayer(poiCluster);
-      }
-      poiCluster = createPoiCluster(radiusPx);
-      if (wasActive) {
-        poiCluster.addTo(map);
-      }
-    }
+    const poiCluster = createPoiCluster(clusterRadiusPx);
+    const poiPlain = L.layerGroup();
+    map.addLayer(poiCluster);
+    map.addLayer(poiPlain);
 
     async function loadGeoJSON(url) {
       const r = await fetch(url, { cache: 'no-store' });
@@ -1094,10 +1075,9 @@
       });
 
       if (!combos.length) {
-        if (poiCluster) poiCluster.clearLayers();
-        if (poiPlain) poiPlain.clearLayers();
-        if (poiCluster && map.hasLayer(poiCluster)) map.removeLayer(poiCluster);
-        if (poiPlain && !map.hasLayer(poiPlain)) map.addLayer(poiPlain);
+        poiCluster.clearLayers();
+        poiPlain.clearLayers();
+        currentMarkers = [];
         return;
       }
 
@@ -1117,45 +1097,37 @@
       });
 
       if (runId !== filterRunId) return;
-      const useCluster = markers.length > clusterThreshold;
+      currentMarkers = markers;
 
-      if (useCluster) {
-        if (poiPlain) poiPlain.clearLayers();
-        if (poiCluster) {
-          poiCluster.clearLayers();
-          if (markers.length) {
-            const currentRunId = runId;
-            poiCluster.once('clusteringend', () => {
-              if (currentRunId !== filterRunId) return;
-              const layers = poiCluster.getLayers();
-              layers
-                .filter(layer => typeof layer.getChildCount === 'function')
-                .forEach((cluster) => {
-                  const childCount = cluster.getChildCount();
-                  if (childCount < minClusterSize) {
-                    const children = cluster.getAllChildMarkers();
-                    if (poiPlain) {
-                      children.forEach(marker => poiPlain.addLayer(marker));
-                    }
-                    poiCluster.removeLayers(children);
-                  }
-                });
-            });
-            poiCluster.addLayers(markers);
+      poiCluster.clearLayers();
+      poiPlain.clearLayers();
+
+      const postProcessClusters = () => {
+        if (runId !== filterRunId) return;
+        let flattenedCount = 0;
+        poiCluster.eachLayer((layer) => {
+          if (layer && typeof layer.getChildCount === 'function') {
+            const childCount = layer.getChildCount();
+            if (childCount < minClusterSize) {
+              const children = layer.getAllChildMarkers();
+              children.forEach((marker) => {
+                poiCluster.removeLayer(marker);
+                poiPlain.addLayer(marker);
+                flattenedCount += 1;
+              });
+            }
           }
+        });
+        if (typeof poiCluster.refreshClusters === 'function') {
+          poiCluster.refreshClusters();
         }
-        if (poiCluster && !map.hasLayer(poiCluster)) map.addLayer(poiCluster);
-        if (poiPlain && !map.hasLayer(poiPlain)) map.addLayer(poiPlain);
-      } else {
-        if (poiCluster) poiCluster.clearLayers();
-        if (poiPlain) {
-          poiPlain.clearLayers();
-          if (markers.length) {
-            markers.forEach(marker => poiPlain.addLayer(marker));
-          }
-        }
-        if (poiPlain && !map.hasLayer(poiPlain)) map.addLayer(poiPlain);
-        if (poiCluster && map.hasLayer(poiCluster)) map.removeLayer(poiCluster);
+        console.log('Flattened markers:', flattenedCount, 'minClusterSize:', minClusterSize);
+      };
+
+      if (markers.length) {
+        poiCluster.once('clusteringend', postProcessClusters);
+        setTimeout(postProcessClusters, 0);
+        poiCluster.addLayers(markers);
       }
     }
 
@@ -1331,7 +1303,7 @@
           if (nextRadius === clusterRadiusPx) return;
           clusterRadiusPx = nextRadius;
           localStorage.setItem(CLUSTER_RADIUS_KEY, String(clusterRadiusPx));
-          recreatePoiCluster(clusterRadiusPx);
+          poiCluster.options.maxClusterRadius = clusterRadiusPx;
           applyFilters().catch(err => console.error(err));
         });
       }
@@ -1353,9 +1325,9 @@
           const clamped = clampMinClusterSize(rawValue);
           const nextSize = clamped != null ? clamped : minClusterSize;
           if (minClusterSizeInput) minClusterSizeInput.value = String(nextSize);
-          if (nextSize === minClusterSize) return;
           minClusterSize = nextSize;
-          localStorage.setItem(MIN_CLUSTER_SIZE_KEY, String(minClusterSize));
+          localStorage.setItem(MIN_CLUSTER_KEY, String(minClusterSize));
+          console.log('minClusterSize applied:', minClusterSize);
           applyFilters().catch(err => console.error(err));
         });
       }
