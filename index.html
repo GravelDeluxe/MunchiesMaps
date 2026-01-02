@@ -1051,8 +1051,6 @@
 
       await Promise.all(combos.map(({ bundeslandId, categoryId }) => ensureDataset(bundeslandId, categoryId)));
 
-      if (runId !== filterRunId) return;
-
       const markers = [];
       combos.forEach(({ key }) => {
         const entry = datasetCache.get(key);
@@ -1064,7 +1062,7 @@
         });
       });
 
-      if (runId !== filterRunId) return;
+      if (runId !== filterRunId) return; // stale run, abort rendering
       currentMarkers = markers;
 
       debugLog('applyFilters: marker count', markers.length, 'cluster attached?', map.hasLayer(poiCluster));
