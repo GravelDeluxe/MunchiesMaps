@@ -546,13 +546,13 @@
     const VIEWPORT_CLUSTER_THRESHOLD = 100;
     const CLUSTER_DEBOUNCE_MS = 200;
     const GRID_CELL_SIZE = 0.05; // ~5km cells for viewport counting
+    const MARKER_CACHE_LIMIT = 5000;
 
     let activePoints = [];
     let gridIndex = new Map();
-    let activeMarkers = [];
-    let activeMarkersRevision = 0;
-    let lastRenderedRevision = -1;
     let currentMode = null;
+    let renderCounter = 0;
+    const markerCache = new Map();
 
     function comboKey(bundeslandId, categoryId) {
       return `${bundeslandId}__${categoryId}`;
@@ -936,30 +936,40 @@
 
     const poiPlain = L.layerGroup();
 
-    function createPoiMarker(feature) {
-      if (!feature || !feature.geometry || feature.geometry.type !== 'Point') return null;
-      const coords = feature.geometry.coordinates || [];
-      const lon = Number(coords[0]);
-      const lat = Number(coords[1]);
-      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
-      const categoryId = feature.properties?.categoryId;
-      const marker = L.marker([lat, lon], { icon: iconForCategory(categoryId) });
-      marker.bindPopup(popupHtml(feature.properties, categoryId));
-      return marker;
+    const poiCluster = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      spiderfyOnMaxZoom: true,
+      disableClusteringAtZoom: 18,
+      chunkedLoading: true,
+      chunkInterval: 50,
+      chunkDelay: 25,
+      removeOutsideVisibleBounds: true,
+      iconCreateFunction: createClusterIcon
+    });
+
+    function pruneMarkerCache() {
+      if (markerCache.size <= MARKER_CACHE_LIMIT) return;
+      const entries = Array.from(markerCache.entries()).sort((a, b) => a[1].lastUsed - b[1].lastUsed);
+      const excess = markerCache.size - MARKER_CACHE_LIMIT;
+      for (let i = 0; i < excess; i++) {
+        markerCache.delete(entries[i][0]);
+      }
     }
 
-      const poiCluster = L.markerClusterGroup({
-        showCoverageOnHover: false,
-        spiderfyOnMaxZoom: true,
-        disableClusteringAtZoom: 18,
-        chunkedLoading: true,
-        chunkInterval: 50,
-        chunkDelay: 25,
-        removeOutsideVisibleBounds: true,
-        iconCreateFunction: createClusterIcon
-      });
-      map.addLayer(poiPlain);
-      map.addLayer(poiCluster);
+    function markerFromPoint(point) {
+      if (!point) return null;
+      const { id, lat, lng, categoryId, propsRef } = point;
+      if (id == null) return null;
+      const cached = markerCache.get(id);
+      if (cached) {
+        cached.lastUsed = renderCounter;
+        return cached.marker;
+      }
+      const marker = L.marker([lat, lng], { icon: iconForCategory(categoryId) });
+      marker.bindPopup(popupHtml(propsRef, categoryId));
+      markerCache.set(id, { marker, lastUsed: renderCounter });
+      return marker;
+    }
 
     function gridKey(lng, lat) {
       const x = Math.floor(lng / GRID_CELL_SIZE);
@@ -977,12 +987,12 @@
       gridIndex = index;
     }
 
-    function countPointsInSegment(south, north, west, east) {
+    function collectIndicesInSegment(south, north, west, east) {
       const minX = Math.floor(west / GRID_CELL_SIZE);
       const maxX = Math.floor(east / GRID_CELL_SIZE);
       const minY = Math.floor(south / GRID_CELL_SIZE);
       const maxY = Math.floor(north / GRID_CELL_SIZE);
-      let count = 0;
+      const indices = [];
       for (let x = minX; x <= maxX; x++) {
         for (let y = minY; y <= maxY; y++) {
           const pts = gridIndex.get(`${x}:${y}`);
@@ -991,12 +1001,16 @@
             const pt = activePoints[idx];
             if (!pt) continue;
             if (pt.lat >= south && pt.lat <= north && pt.lng >= west && pt.lng <= east) {
-              count++;
+              indices.push(idx);
             }
           }
         }
       }
-      return count;
+      return indices;
+    }
+
+    function countPointsInSegment(south, north, west, east) {
+      return collectIndicesInSegment(south, north, west, east).length;
     }
 
     function countVisibleInBounds(bounds) {
@@ -1017,42 +1031,79 @@
       );
     }
 
+    function getPaddedBounds(bounds, paddingPx = 0) {
+      if (!map || !bounds || !paddingPx) return bounds;
+      const size = map.getSize();
+      const topLeft = map.containerPointToLatLng(L.point(-paddingPx, -paddingPx));
+      const bottomRight = map.containerPointToLatLng(L.point(size.x + paddingPx, size.y + paddingPx));
+      return L.latLngBounds(topLeft, bottomRight);
+    }
+
+    function getVisiblePointIndices(bounds, paddingPx = 0) {
+      const padded = paddingPx ? getPaddedBounds(bounds, paddingPx) : bounds;
+      if (!padded) return [];
+      const south = padded.getSouth();
+      const north = padded.getNorth();
+      const west = padded.getWest();
+      const east = padded.getEast();
+
+      if (west <= east) {
+        return collectIndicesInSegment(south, north, west, east);
+      }
+
+      const left = collectIndicesInSegment(south, north, west, 180);
+      const right = collectIndicesInSegment(south, north, -180, east);
+      return left.concat(right);
+    }
+
+    function getVisiblePoints(bounds, paddingPx = 0) {
+      return getVisiblePointIndices(bounds, paddingPx)
+        .map((idx) => activePoints[idx])
+        .filter(Boolean);
+    }
+
     function renderWithMode(mode, forceRender = false) {
       const normalizedMode = mode === 'cluster' ? 'cluster' : 'plain';
-      const markers = activeMarkers;
+      if (!map) return;
 
-      if (!forceRender && normalizedMode === currentMode && activeMarkersRevision === lastRenderedRevision) {
-        return;
-      }
+      const bounds = map.getBounds();
+      const paddingPx = normalizedMode === 'cluster' ? 300 : 0;
+      renderCounter++;
+
+      const visiblePoints = getVisiblePoints(bounds, paddingPx);
 
       poiCluster.clearLayers();
       poiPlain.clearLayers();
 
-      if (!markers.length) {
+      if (!visiblePoints.length) {
+        if (map.hasLayer(poiPlain)) map.removeLayer(poiPlain);
+        if (map.hasLayer(poiCluster)) map.removeLayer(poiCluster);
         currentMode = normalizedMode;
-        lastRenderedRevision = activeMarkersRevision;
+        pruneMarkerCache();
         return;
       }
 
       if (normalizedMode === 'cluster') {
+        const markers = visiblePoints.map((pt) => markerFromPoint(pt)).filter(Boolean);
         poiCluster.addLayers(markers);
         if (!map.hasLayer(poiCluster)) map.addLayer(poiCluster);
         if (map.hasLayer(poiPlain)) map.removeLayer(poiPlain);
       } else {
-        markers.forEach((marker) => poiPlain.addLayer(marker));
+        visiblePoints.forEach((pt) => {
+          const marker = markerFromPoint(pt);
+          if (marker) poiPlain.addLayer(marker);
+        });
         if (!map.hasLayer(poiPlain)) map.addLayer(poiPlain);
         if (map.hasLayer(poiCluster)) map.removeLayer(poiCluster);
       }
 
+      pruneMarkerCache();
       currentMode = normalizedMode;
-      lastRenderedRevision = activeMarkersRevision;
     }
 
-    function renderPois(pointsArray, markersArray) {
+    function renderPois(pointsArray) {
       activePoints = Array.isArray(pointsArray) ? pointsArray : [];
-      activeMarkers = Array.isArray(markersArray) ? markersArray.filter(Boolean) : [];
       rebuildGridIndex(activePoints);
-      activeMarkersRevision++;
       updateClusteringForViewport(true);
     }
 
@@ -1128,14 +1179,13 @@
         });
       });
 
-        if (!combos.length) {
-          renderPois([], []);
-          return;
-        }
+      if (!combos.length) {
+        renderPois([]);
+        return;
+      }
 
       await Promise.all(combos.map(({ bundeslandId, categoryId }) => ensureDataset(bundeslandId, categoryId)));
 
-      const markers = [];
       const points = [];
       combos.forEach(({ key }) => {
         const entry = datasetCache.get(key);
@@ -1149,15 +1199,13 @@
           if (Number.isFinite(lat) && Number.isFinite(lon)) {
             points.push({ id: f.id || `${entryKey}-${idx}`, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
           }
-          const marker = createPoiMarker(f);
-          if (marker) markers.push(marker);
         });
       });
 
-        if (runId !== filterRunId) return; // stale run, abort rendering
+      if (runId !== filterRunId) return; // stale run, abort rendering
 
-        renderPois(points, markers);
-      }
+      renderPois(points);
+    }
 
     function resetGpxState() {
       gpxState.points = [];
