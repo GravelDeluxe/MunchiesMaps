@@ -14,6 +14,7 @@
       --text: #111827;
       --muted: #4b5563;
       --border: rgba(0,0,0,0.12);
+      --icon-border: rgba(0,0,0,0.18);
       --btn-bg: rgba(255,255,255,0.95);
       --btn-text: #0f172a;
       --btn-border: rgba(0,0,0,0.18);
@@ -37,6 +38,7 @@
       --text: #e5e7eb;
       --muted: #cbd5e1;
       --border: rgba(255,255,255,0.14);
+      --icon-border: rgba(255,255,255,0.36);
       --btn-bg: rgba(30,41,59,0.92);
       --btn-text: #e5e7eb;
       --btn-border: rgba(255,255,255,0.18);
@@ -169,14 +171,13 @@
     .checklist { display: flex; flex-direction: column; gap: 8px; }
     .checklist .checkrow { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
     .checklist input[type="checkbox"] { width: 16px; height: 16px; }
-    .cat-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      flex: 0 0 10px;
-      border: 1px solid var(--border);
-      box-sizing: border-box;
-    }
+    .cat-icon { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; overflow: hidden; flex: 0 0 auto; background: transparent; border: 1px solid transparent; box-sizing: border-box; }
+    .cat-icon img { width: 100%; height: 100%; display: block; }
+    .cat-icon--list { width: 22px; height: 22px; }
+    .cat-icon--popup { width: 20px; height: 20px; }
+    .cat-icon--map { width: 34px; height: 34px; }
+    .cat-icon--cluster { width: 22px; height: 22px; }
+    .cat-icon--water { border-color: var(--icon-border); }
     /* Custom controls */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
@@ -260,7 +261,7 @@
       align-items: center;
       gap: 6px;
     }
-    .cluster-badge svg { width: 14px; height: 14px; display:block; }
+    .cluster-badge .cat-icon--cluster { flex: 0 0 auto; }
 
     /* Map controls */
     .leaflet-bar a,
@@ -297,7 +298,6 @@
     .popup-content { font: 13px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 320px; color: var(--popup-text); }
     .popup-title { font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
     .popup-cat { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--muted); padding: 2px 8px; border-radius: 999px; border: 1px solid var(--popup-border); background: rgba(0,0,0,0.03); }
-    .popup-cat .cat-dot { border-color: var(--popup-border); }
     .theme-dark .popup-cat { background: rgba(255,255,255,0.06); }
     .popup-desc { margin-bottom: 8px; }
     .popup-extra { border-top: 1px solid var(--popup-border); padding-top: 8px; }
@@ -391,17 +391,50 @@
     const THEME_KEY = 'theme';
 
     const CATEGORY_STYLE = {
-      fuel: { color: '#f97316' },
-      supermarkets: { color: '#22c55e' },
-      drinking_water: { color: '#0ea5e9' },
-      burger_king: { color: '#a855f7' },
-      mcdonalds: { color: '#ef4444' },
-      toilets_public: { color: '#06b6d4' },
-      vending_snacks: { color: '#eab308' }
+      fuel: { color: '#1d4ed8', icon: 'resources/icons/fuel.svg' },
+      supermarkets: { color: '#2e7d32', icon: 'resources/icons/supermarkets.svg' },
+      drinking_water: { color: '#ffffff', icon: 'resources/icons/drinking_water.svg' },
+      burger_king: { color: '#f97316', icon: 'resources/icons/burger_king.svg' },
+      mcdonalds: { color: '#facc15', icon: 'resources/icons/mcdonalds.svg' },
+      toilets_public: { color: '#38bdf8', icon: 'resources/icons/toilets_public.svg' },
+      vending_snacks: { color: '#eab308', icon: 'resources/icons/vending_snacks.svg' },
+      default: { color: '#6b7280', icon: 'resources/icons/default.svg' }
     };
 
+    function categoryStyle(categoryId) {
+      return CATEGORY_STYLE[categoryId] || CATEGORY_STYLE.default;
+    }
+
     function categoryColor(categoryId) {
-      return CATEGORY_STYLE[categoryId]?.color || '#6b7280';
+      return categoryStyle(categoryId).color;
+    }
+
+    function categoryIconPath(categoryId) {
+      const style = categoryStyle(categoryId);
+      return style.icon || CATEGORY_STYLE.default.icon;
+    }
+
+    function createCategoryIconElement(categoryId, size = 22, extraClass = '') {
+      const el = document.createElement('span');
+      el.className = ['cat-icon', extraClass].filter(Boolean).join(' ');
+      if (categoryId === 'drinking_water') el.classList.add('cat-icon--water');
+      el.style.width = `${size}px`;
+      el.style.height = `${size}px`;
+      const img = document.createElement('img');
+      img.src = categoryIconPath(categoryId);
+      img.alt = '';
+      img.setAttribute('aria-hidden', 'true');
+      img.loading = 'lazy';
+      el.appendChild(img);
+      return el;
+    }
+
+    function categoryIconHtml(categoryId, size = 22, extraClass = '') {
+      const classes = ['cat-icon', extraClass];
+      if (categoryId === 'drinking_water') classes.push('cat-icon--water');
+      const cls = classes.filter(Boolean).join(' ');
+      const dim = `${size}px`;
+      return `<span class="${cls}" style="width:${dim};height:${dim};"><img src="${categoryIconPath(categoryId)}" alt="" aria-hidden="true" loading="lazy" /></span>`;
     }
 
     let categoryLabelMap = {};
@@ -522,10 +555,7 @@
         });
         let dot = null;
         if (setName === 'cat') {
-          dot = document.createElement('span');
-          dot.className = 'cat-dot';
-          dot.dataset.catId = item.id;
-          dot.style.backgroundColor = categoryColor(item.id);
+          dot = createCategoryIconElement(item.id, 22, 'cat-icon--list');
         }
         const text = document.createElement('span');
         text.textContent = item.label;
@@ -826,8 +856,7 @@
       const name = p.name || '(ohne Name)';
       const desc = p.description ? p.description : '';
       const catLabel = categoryId ? categoryLabelMap[categoryId] : null;
-      const catColor = categoryId ? categoryColor(categoryId) : null;
-      const categoryBadge = catLabel ? `<span class="popup-cat"><span class="cat-dot" aria-hidden="true" style="background:${catColor};"></span><span>${catLabel}</span></span>` : '';
+      const categoryBadge = catLabel ? `<span class="popup-cat">${categoryIconHtml(categoryId, 20, 'cat-icon--popup')}<span>${catLabel}</span></span>` : '';
       const other = Object.keys(p)
         .filter(k => !['name','description','cluster','cluster_id','point_count','point_count_abbreviated'].includes(k))
         .filter(k => p[k] != null && String(p[k]).trim() !== '')
@@ -843,57 +872,21 @@
       `;
     }
 
-    // Simple SVG icons (circle + glyph)
-    function svgIcon(glyphSvgPathD, fillColor) {
-      const circleFill = fillColor || 'white';
-      const strokeColor = 'var(--control-border, rgba(0,0,0,0.18))';
-      const glyphColor = 'var(--btn-text, #0f172a)';
-      const svg = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
-          <circle cx="14" cy="14" r="12" fill="${circleFill}" stroke="${strokeColor}" stroke-width="1.5"/>
-          <path d="${glyphSvgPathD}" fill="${glyphColor}"/>
-        </svg>
-      `.trim();
-      return L.divIcon({
-        className: '',
-        html: svg,
-        iconSize: [28, 28],
-        iconAnchor: [14, 14],
-        popupAnchor: [0, -14]
-      });
-    }
-
-    const defaultPinPath = "M14 4a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z";
-    // Water drop glyph (simple)
-    const waterDropPath = "M14 6 C11 10,9 12,9 15 a5 5 0 0 0 10 0 c0-3-2-5-5-9 z";
-    // Vending machine glyph (simplified rectangle + slots)
-    const vendingPath = "M10 7 h8 a1 1 0 0 1 1 1 v12 a1 1 0 0 1-1 1 h-8 a1 1 0 0 1-1-1 v-12 a1 1 0 0 1 1-1 z M11.5 9.2 h5 v2.2 h-5 z M11.5 12.3 h5 v1.3 h-5 z M11.5 14.4 h5 v1.3 h-5 z M12 17.2 h4 v2 h-4 z";
-
-    function clusterGlyph(glyphPathD, fillColor) {
-      const circleFill = fillColor || 'white';
-      const strokeColor = 'var(--control-border, rgba(0,0,0,0.18))';
-      const glyphColor = 'var(--btn-text, #0f172a)';
-      return `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" aria-hidden="true">
-          <circle cx="14" cy="14" r="10" fill="${circleFill}" stroke="${strokeColor}" stroke-width="1.5"/>
-          <path d="${glyphPathD}" fill="${glyphColor}"/>
-        </svg>
-      `.trim();
-    }
-
-    function glyphPathForCategory(categoryId) {
-      if (categoryId === 'drinking_water') return waterDropPath;
-      if (categoryId === 'vending_snacks') return vendingPath;
-      return defaultPinPath;
-    }
-
     const ICON_CACHE = {};
     const CLUSTER_GLYPH_CACHE = {};
 
     function iconForCategory(categoryId) {
       const key = categoryId || 'default';
       if (!ICON_CACHE[key]) {
-        ICON_CACHE[key] = svgIcon(glyphPathForCategory(categoryId), categoryColor(categoryId));
+        const size = 34;
+        const html = categoryIconHtml(categoryId, size, 'cat-icon--map');
+        ICON_CACHE[key] = L.divIcon({
+          className: '',
+          html,
+          iconSize: [size, size],
+          iconAnchor: [size / 2, size / 2],
+          popupAnchor: [0, -size / 2]
+        });
       }
       return ICON_CACHE[key];
     }
@@ -901,7 +894,8 @@
     function clusterGlyphForCategory(categoryId) {
       const key = categoryId || 'default';
       if (!CLUSTER_GLYPH_CACHE[key]) {
-        CLUSTER_GLYPH_CACHE[key] = clusterGlyph(glyphPathForCategory(categoryId), categoryColor(categoryId));
+        const html = categoryIconHtml(categoryId, 22, 'cat-icon--cluster');
+        CLUSTER_GLYPH_CACHE[key] = html;
       }
       return CLUSTER_GLYPH_CACHE[key];
     }
@@ -974,7 +968,7 @@
 
           if (it.properties && it.properties.cluster) {
             const count = it.properties.point_count;
-            const glyph = this.options.clusterGlyphSvg || '';
+            const glyph = this.options.clusterGlyphHtml || '';
             const marker = L.marker(ll, {
               icon: L.divIcon({
                 className: '',
@@ -1002,7 +996,7 @@
     aggregatedLayer = new SuperclusterLayer(aggregatedGeojson, {
       minPoints: 10,
       radius: 60,
-      clusterGlyphSvg: clusterGlyphForCategory(null)
+      clusterGlyphHtml: clusterGlyphForCategory(null)
     });
     aggregatedLayer.addTo(map);
 
