@@ -4641,7 +4641,7 @@
         "brand": "ALDI Süd",
         "brand:wikidata": "Q41171672",
         "name": "ALDI Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su, PH Off",
         "shop": "supermarket",
         "toilets:wheelchair": "no",
         "website": "https://filialen.aldi-sued.de/bayern/merkendorf/am-wiesengrund-99",
@@ -4733,15 +4733,21 @@
         "id": 279343777,
         "osm_type": "node",
         "addr:city": "München",
+        "addr:floor": "0",
         "addr:housenumber": "134",
         "addr:postcode": "81373",
         "addr:street": "Hansastraße",
         "brand": "REWE",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "de:Rewe",
+        "check_date": "2026-01-04",
         "internet_access": "wlan",
+        "level": "0",
         "name": "Rewe City",
         "opening_hours": "Mo-Sa 07:00-20:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
         "phone": "+4989 74373863",
         "shop": "supermarket",
         "website": "https://www.rewe.de/",
@@ -14958,7 +14964,7 @@
         "brand": "EDEKA",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
-        "check_date:opening_hours": "2022-03-14",
+        "check_date:opening_hours": "2026-01-04",
         "contact:fax": "+49 951 67546",
         "contact:phone": "+49 951 67375",
         "name": "Edeka Stadter",
@@ -46520,7 +46526,7 @@
         "brand": "Denns BioMarkt",
         "brand:wikidata": "Q48883773",
         "brand:wikipedia": "de:Denns Biomarkt",
-        "check_date:opening_hours": "2024-11-18",
+        "check_date:opening_hours": "2026-01-03",
         "contact:email": "info@denns.de",
         "contact:fax": "+49 89 62000119",
         "contact:phone": "+49 89 62000180",
@@ -47299,17 +47305,13 @@
       "properties": {
         "id": 3608353017,
         "osm_type": "node",
+        "addr:housenumber": "2",
         "brand": "REWE",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "en:REWE",
-        "name": "Rewe",
+        "name": "REWE Anna Matzke",
         "opening_hours": "Mo-Sa 07:00-20:00; PH off",
-        "phone": "+49952195480",
-        "post_office": "post_partner",
-        "post_office:brand": "DHL Paketshop",
-        "post_office:service_provider": "Deutsche Post",
-        "post_office:service_provider:wikidata": "Q157645",
-        "ref:DeutschePost": "825",
+        "phone": "+49 9521 95480",
         "shop": "supermarket",
         "website": "https://www.rewe.de/marktseite/hassfurt/1469188/rewe-markt-schweinfurter-str-2/",
         "wheelchair": "yes"
@@ -54114,6 +54116,8 @@
       "properties": {
         "id": 5092842052,
         "osm_type": "node",
+        "addr:city": "Neuhaus am Inn",
+        "addr:country": "DE",
         "addr:postcode": "94152",
         "brand": "Nahkauf",
         "brand:wikidata": "Q57515238",
@@ -80611,6 +80615,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.958336,
+          50.014944
+        ]
+      },
+      "properties": {
+        "id": 13430067535,
+        "osm_type": "node",
+        "brand": "Edeka",
+        "brand:wikidata": "Q701755",
+        "name": "Edeka",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.7760226,
           48.4520856
         ]
@@ -81123,6 +81145,7 @@
         "brand:wikipedia": "de:Rewe",
         "building": "retail",
         "building:levels": "1",
+        "check_date:opening_hours": "2026-01-02",
         "name": "REWE",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "roof:levels": "1",
@@ -82749,9 +82772,11 @@
         "addr:street": "Wagnerbreite",
         "building": "commercial",
         "name": "Bio-Terra Markt",
+        "opening_hours": "Mo,Tu,Th,Fr 09:00-19:00; We 08:00-19:00; Sa 08:00-16:00",
         "organic": "only",
         "roof:shape": "gabled",
         "shop": "supermarket",
+        "website": "www.bio-terra.eu",
         "wheelchair": "yes"
       }
     },
@@ -84403,7 +84428,7 @@
         "brand:wikipedia": "en:REWE",
         "building": "supermarket",
         "building:levels": "1",
-        "check_date:opening_hours": "2021-09-26",
+        "check_date:opening_hours": "2026-01-03",
         "name": "Rewe",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "operator": "Fröhlich oHG",
@@ -84671,7 +84696,7 @@
         "brand:wikidata": "Q41171672",
         "building": "retail",
         "name": "ALDI Süd",
-        "opening_hours": "Mo-Sa 07:00-20:00",
+        "opening_hours": "Mo-Sa 07:00-20:00; Su, PH off",
         "shop": "supermarket",
         "website": "https://filialen.aldi-sued.de/bayern/eckental/orchideenstrasse-35",
         "wheelchair": "yes"
@@ -87206,7 +87231,7 @@
         "contact:website": "https://filiale.kaufland.de/?cid=F3183B02C1200K01000W01030000D1000E1000F1000G1000H1000",
         "internet_access": "wlan",
         "name": "Kaufland",
-        "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off",
+        "opening_hours": "Mo-Sa 07:00-20:00",
         "payment:coins": "yes",
         "payment:contactless": "yes",
         "payment:girocard": "yes",
@@ -89985,7 +90010,8 @@
       "properties": {
         "id": 35917207,
         "osm_type": "way",
-        "addr:city": "Neunkirchen a. Brand",
+        "addr:city": "Neunkirchen am Brand",
+        "addr:country": "DE",
         "addr:housenumber": "14",
         "addr:postcode": "91077",
         "addr:street": "Zum Neuntagwerk",
@@ -90062,7 +90088,7 @@
         "brand:wikipedia": "en:Aldi",
         "building": "retail",
         "name": "ALDI Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su, PH Off",
         "shop": "supermarket",
         "website": "https://filialen.aldi-sued.de/bayern/ansbach/feuerbachstrasse-24",
         "wheelchair": "yes"
@@ -93702,7 +93728,7 @@
         "check_date": "2025-12-27",
         "contact:website": "https://filialen.aldi-sued.de/bayern/scheinfeld/suedring-11",
         "name": "Aldi Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00; PH off",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su, PH off",
         "shop": "supermarket"
       }
     },
@@ -95330,7 +95356,7 @@
         "check_date": "2025-12-26",
         "contact:website": "https://filialen.aldi-sued.de/bayern/fuerth/erlanger-str-200",
         "name": "Aldi Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00; PH off",
+        "opening_hours": "Mo-Sa 08:00-20:00; PH off; Su off",
         "roof:levels": "0",
         "shop": "supermarket"
       }
@@ -96738,7 +96764,7 @@
         "building": "supermarket",
         "name": "ALDI Süd",
         "note": "wurde im Sommer 2022 modernisiert und am 7. Juli 2022 wiedereröffnet",
-        "opening_hours": "Mo-Sa 08:00-20:00",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su, PH Off",
         "payment:maestro": "yes",
         "payment:mastercard": "yes",
         "payment:visa": "yes",
@@ -96796,6 +96822,7 @@
         "building": "retail",
         "building:levels": "1",
         "building:use": "retail",
+        "check_date:opening_hours": "2026-01-04",
         "name": "Lidl",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "shop": "supermarket",
@@ -97950,7 +97977,7 @@
       "properties": {
         "id": 71027691,
         "osm_type": "way",
-        "addr:city": "Neunkirchen a.Brand",
+        "addr:city": "Neunkirchen am Brand",
         "addr:country": "DE",
         "addr:housenumber": "9",
         "addr:postcode": "91077",
@@ -99860,7 +99887,7 @@
         "building": "commercial",
         "building:levels": "1",
         "name": "Aldi Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su, PH Off",
         "operator": "Aldi Süd",
         "roof:levels": "1",
         "roof:shape": "gabled",
@@ -103847,7 +103874,7 @@
         "brand:wikipedia": "en:Aldi",
         "building": "supermarket",
         "name": "ALDI Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su, PH off;",
         "operator": "ALDI SE & Co. KG",
         "shop": "supermarket",
         "website": "https://filialen.aldi-sued.de/bayern/nuernberg/katzwanger-strasse-140",
@@ -112564,7 +112591,7 @@
         "brand:wikidata": "Q41171672",
         "building": "retail",
         "name": "Aldi Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su, PH Off",
         "shop": "supermarket",
         "website": "https://filialen.aldi-sued.de/bayern/burgebrach/bamberger-strasse-32"
       }
@@ -116915,6 +116942,7 @@
         "brand": "ALDI Süd",
         "brand:wikidata": "Q41171672",
         "building": "yes",
+        "check_date:opening_hours": "2026-01-03",
         "name": "ALDI Süd",
         "opening_hours": "Mo-Sa 08:00-20:00",
         "roof:colour": "grey",
@@ -128302,7 +128330,7 @@
         "building": "yes",
         "demolished:building": "yes",
         "name": "Aldi",
-        "opening_hours": "Mo-Sa 08:00-20:00",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su, PH Off",
         "shop": "supermarket",
         "website": "https://filialen.aldi-sued.de/bayern/gunzenhausen/nuernberger-strasse-58",
         "wheelchair": "yes"
@@ -133923,6 +133951,7 @@
         "id": 300580882,
         "osm_type": "way",
         "addr:city": "Tittmoning",
+        "addr:country": "DE",
         "addr:housenumber": "22c",
         "addr:postcode": "84529",
         "addr:street": "Laufener Straße",
@@ -133949,6 +133978,7 @@
         "id": 300580883,
         "osm_type": "way",
         "addr:city": "Tittmoning",
+        "addr:country": "DE",
         "addr:housenumber": "22b",
         "addr:postcode": "84529",
         "addr:street": "Laufener Straße",
@@ -135119,8 +135149,10 @@
         "brand:wikipedia": "en:Lidl",
         "building": "retail",
         "building:levels": "1",
-        "check_date": "2025-12-16",
+        "check_date": "2026-01-02",
+        "check_date:diet:gluten_free": "2026-01-02",
         "check_date:opening_hours": "2023-10-13",
+        "diet:gluten_free": "no",
         "name": "Lidl",
         "opening_hours": "Mo-Sa 07:00-20:00, Su,PH off",
         "payment:cash": "yes",
@@ -141362,7 +141394,8 @@
       "properties": {
         "id": 471708989,
         "osm_type": "way",
-        "addr:city": "Neunkirchen a.Brand",
+        "addr:city": "Neunkirchen am Brand",
+        "addr:country": "DE",
         "addr:housenumber": "1",
         "addr:postcode": "91077",
         "addr:street": "Henkerstegstraße",
@@ -142630,7 +142663,7 @@
         "addr:housenumber": "1",
         "addr:postcode": "90518",
         "addr:street": "Im See",
-        "branch": "Hobl",
+        "branch": "Schätz",
         "brand": "EDEKA",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
@@ -142639,7 +142672,7 @@
         "contact:phone": "+49 9187 4091961",
         "name": "EDEKA",
         "opening_hours": "Mo-Sa 07:00-20:00",
-        "operator": "Edeka Markt Hobl e.K.",
+        "operator": "Edeka Markt Schätz e.K.",
         "payment:mastercard": "yes",
         "roof:shape": "flat",
         "shop": "supermarket"
@@ -147309,7 +147342,7 @@
         "brand:wikipedia": "de:Netto Marken-Discount",
         "building": "supermarket",
         "building:colour": "white",
-        "check_date:opening_hours": "2024-03-03",
+        "check_date:opening_hours": "2026-01-04",
         "name": "Netto Marken-Discount",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "shop": "supermarket",
@@ -151066,7 +151099,7 @@
         "check_date": "2025-12-24",
         "contact:website": "https://filialen.aldi-sued.de/bayern/bad-windsheim/im-haespelein-9",
         "name": "Aldi Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00; PH off",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su, PH off",
         "shop": "supermarket"
       }
     },
@@ -154278,8 +154311,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.5944126,
-          48.019481
+          10.5944111,
+          48.019498
         ]
       },
       "properties": {

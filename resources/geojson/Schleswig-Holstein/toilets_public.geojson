@@ -16004,8 +16004,10 @@
       "properties": {
         "id": 5912346318,
         "osm_type": "node",
+        "access": "yes",
         "amenity": "toilets",
         "changing_table": "yes",
+        "check_date": "2026-01-03",
         "fee": "yes",
         "unisex": "yes"
       }
@@ -16406,8 +16408,10 @@
       "properties": {
         "id": 6279572054,
         "osm_type": "node",
+        "access": "yes",
         "amenity": "toilets",
         "changing_table": "no",
+        "fee": "no",
         "male": "yes",
         "toilets:disposal": "flush"
       }
@@ -26787,6 +26791,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.500577,
+          53.6900975
+        ]
+      },
+      "properties": {
+        "id": 13429264571,
+        "osm_type": "node",
+        "amenity": "toilets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.178285,
           54.329955
         ]
@@ -26915,14 +26934,23 @@
         "osm_type": "way",
         "access": "yes",
         "amenity": "toilets",
+        "bottle": "no",
         "building": "yes",
         "check_date": "2023-04-28",
+        "cold_water": "no",
+        "drinking_water": "yes",
         "fee": "no",
+        "fountain": "water_tap",
+        "hot_water": "no",
+        "iced_water": "no",
         "level": "0",
+        "room_temperature_water": "yes",
+        "seasonal": "spring;summer;autumn",
         "source": "survey",
         "toilets:disposal": "flush",
         "toilets:handwashing": "yes",
         "toilets:position": "seated;urinal",
+        "warm_water": "no",
         "wheelchair": "yes"
       }
     },
@@ -33349,7 +33377,9 @@
         "osm_type": "way",
         "access": "yes",
         "amenity": "toilets",
-        "building": "yes"
+        "building": "yes",
+        "fee": "yes",
+        "wheelchair": "yes"
       }
     },
     {

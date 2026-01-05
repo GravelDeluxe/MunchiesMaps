@@ -29190,6 +29190,7 @@
         "id": 2534907223,
         "osm_type": "node",
         "addr:city": "Bassum",
+        "addr:country": "DE",
         "addr:housenumber": "14",
         "addr:postcode": "27211",
         "addr:street": "Industriestraße",
@@ -31515,6 +31516,7 @@
         "id": 3947238024,
         "osm_type": "node",
         "addr:city": "Asendorf",
+        "addr:country": "DE",
         "addr:housenumber": "67",
         "addr:postcode": "27330",
         "addr:street": "Alte Heerstraße",
@@ -40009,6 +40011,50 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.6827741,
+          53.8593829
+        ]
+      },
+      "properties": {
+        "id": 13427632629,
+        "osm_type": "node",
+        "addr:city": "Cuxhaven",
+        "addr:housenumber": "103",
+        "addr:postcode": "27474",
+        "addr:street": "Westerwischweg",
+        "amenity": "fuel",
+        "brand": "JET",
+        "brand:wikidata": "Q568940",
+        "fuel:adblue:canister": "yes",
+        "fuel:diesel": "yes",
+        "fuel:e10": "yes",
+        "fuel:octane_95": "yes",
+        "fuel:octane_98": "yes",
+        "name": "JET",
+        "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-22:00;",
+        "payment:apple_pay": "yes",
+        "payment:cash": "yes",
+        "payment:connected_fueling": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:dkv": "yes",
+        "payment:google_pay": "yes",
+        "payment:jet_card": "yes",
+        "payment:logpay": "yes",
+        "payment:novofleet": "yes",
+        "payment:samsung_pay": "yes",
+        "payment:uta": "yes",
+        "self_service": "yes",
+        "website": "https://www.jet.de/tankstellen/cuxhaven/westerwischweg-103",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.7935014,
           52.3973953
         ]
@@ -41470,8 +41516,7 @@
         "fax": "+49 4241 5607",
         "name": "Star",
         "operator": "star",
-        "phone": "+49 4241 2000",
-        "source": "yahoo; local knowledge"
+        "phone": "+49 4241 2000"
       }
     },
     {
@@ -48725,7 +48770,10 @@
       "properties": {
         "id": 210622557,
         "osm_type": "way",
+        "addr:city": "Seesen",
+        "addr:country": "DE",
         "addr:housenumber": "40",
+        "addr:postcode": "38723",
         "addr:street": "Braunschweiger Straße",
         "amenity": "fuel",
         "brand": "star",
@@ -62589,52 +62637,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6827846,
-          53.8593701
-        ]
-      },
-      "properties": {
-        "id": 1426469582,
-        "osm_type": "way",
-        "addr:city": "Cuxhaven",
-        "addr:housenumber": "103",
-        "addr:postcode": "27474",
-        "addr:street": "Westerwischweg",
-        "amenity": "fuel",
-        "brand": "JET",
-        "brand:wikidata": "Q568940",
-        "fuel:adblue:canister": "yes",
-        "fuel:diesel": "yes",
-        "fuel:e10": "yes",
-        "fuel:octane_95": "yes",
-        "fuel:octane_98": "yes",
-        "name": "JET",
-        "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-22:00; ",
-        "operator": "Manfred Grube",
-        "payment:apple_pay": "yes",
-        "payment:cash": "yes",
-        "payment:connected_fueling": "yes",
-        "payment:contactless": "yes",
-        "payment:credit_cards": "yes",
-        "payment:debit_cards": "yes",
-        "payment:dkv": "yes",
-        "payment:google_pay": "yes",
-        "payment:jet_card": "yes",
-        "payment:logpay": "yes",
-        "payment:novofleet": "yes",
-        "payment:samsung_pay": "yes",
-        "payment:uta": "yes",
-        "phone": "+49 4721 6641932",
-        "self_service": "yes",
-        "website": "https://www.jet.de/tankstellen/cuxhaven/westerwischweg-103",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.5572095,
           52.3165027
         ]
@@ -62817,6 +62819,27 @@
         "opening_hours": "24/7",
         "shop": "no",
         "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0220271,
+          52.3992925
+        ]
+      },
+      "properties": {
+        "id": 1463969490,
+        "osm_type": "way",
+        "amenity": "fuel",
+        "building": "roof",
+        "fuel:electricity": "yes",
+        "name": "EnBW HyperNetz",
+        "operator": "EnBW Energie Baden-Württemberg AG",
+        "operator:wikidata": "Q644304",
+        "self_service": "yes"
       }
     },
     {

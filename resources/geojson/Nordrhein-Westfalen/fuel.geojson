@@ -6187,7 +6187,7 @@
         "brand:wikipedia": "en:Esso",
         "car_wash": "yes",
         "ele": "29",
-        "name": "Esso Tankstelle",
+        "name": "Esso Tankstelle & Rewe Express",
         "operator": "Esso",
         "website": "https://www.esso.de",
         "wheelchair": "yes"
@@ -11391,35 +11391,6 @@
         "payment:visa": "yes",
         "self_service": "yes",
         "toilets:wheelchair": "no",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.6424626,
-          51.353279
-        ]
-      },
-      "properties": {
-        "id": 291896709,
-        "osm_type": "node",
-        "addr:city": "Krefeld",
-        "addr:country": "DE",
-        "addr:housenumber": "6",
-        "addr:postcode": "47829",
-        "addr:street": "Wüstrathstraße",
-        "amenity": "fuel",
-        "brand": "Aral",
-        "brand:wikidata": "Q565734",
-        "brand:wikipedia": "en:Aral AG",
-        "name": "Aral",
-        "opening_hours": "24/7",
-        "operator": "Aral",
-        "phone": "+49 2151 46632",
-        "ref": "0141466110",
         "wheelchair": "yes"
       }
     },
@@ -22866,8 +22837,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9257889,
-          51.1771001
+          6.9254508,
+          51.1770606
         ]
       },
       "properties": {
@@ -33041,6 +33012,7 @@
         "osm_type": "node",
         "amenity": "fuel",
         "brand": "Orosol",
+        "compressed_air": "yes",
         "contact:email": "info@orosol.de",
         "contact:phone": "+49 2334 4444545",
         "contact:website": "https://orosol.de/tankstelle/orosol-tankstelle-hohenlimburg/",
@@ -35669,9 +35641,9 @@
         "fuel:octane_95": "no",
         "fuel:octane_98": "no",
         "note": "2 Tankplätze: 1x ACME + 1x Dish +++ Überdacht",
-        "opening_hours": "Mo-Fr 07:00-19:00;Sa 09:00-14:00; Su 10:00-12:00",
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa 09:00-14:00; Su 10:00-12:00",
         "operator": "ASG Auto & Service Greshake",
-        "phone": "+49 2841 987-00",
+        "phone": "+49 2841 98700",
         "toilets:wheelchair": "no",
         "website": "https://www.asg.de/betrieb-2/lpg-tankstelle/",
         "wheelchair": "yes"
@@ -53745,7 +53717,7 @@
         "brand:wikidata": "Q110716465",
         "brand:wikipedia": "en:Royal Dutch Shell",
         "compressed_air": "yes",
-        "fax": "+49 2841 5068-21",
+        "fax": "+49 2841 506821",
         "fuel:GTL_diesel": "yes",
         "fuel:cng": "no",
         "fuel:diesel": "yes",
@@ -73953,6 +73925,7 @@
         "osm_type": "way",
         "amenity": "fuel",
         "brand": "Shell",
+        "compressed_air": "yes",
         "wheelchair": "limited"
       }
     },
@@ -79870,11 +79843,11 @@
         "addr:street": "Bünder Straße",
         "amenity": "fuel",
         "building": "yes",
-        "fuel:Erdgas_CNG": "yes",
         "fuel:HGV_diesel": "yes",
-        "fuel:HVO_100_Diesel": "yes",
         "fuel:adblue": "yes",
         "fuel:adblue:canister": "yes",
+        "fuel:biodiesel": "yes",
+        "fuel:cng": "yes",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
         "fuel:octane_95": "yes",
@@ -99782,6 +99755,35 @@
         "fuel:octane_91": "yes",
         "fuel:octane_95": "yes",
         "layer": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.6425105,
+          51.3533841
+        ]
+      },
+      "properties": {
+        "id": 1464088172,
+        "osm_type": "way",
+        "addr:city": "Krefeld",
+        "addr:country": "DE",
+        "addr:housenumber": "6",
+        "addr:postcode": "47829",
+        "addr:street": "Wüstrathstraße",
+        "amenity": "fuel",
+        "brand": "Aral",
+        "brand:wikidata": "Q565734",
+        "brand:wikipedia": "en:Aral AG",
+        "name": "Aral",
+        "opening_hours": "24/7",
+        "operator": "Aral",
+        "phone": "+49 2151 46632",
+        "ref": "0141466110",
+        "wheelchair": "yes"
       }
     },
     {

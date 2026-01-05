@@ -2152,7 +2152,7 @@
         "brand": "ALDI Süd",
         "brand:wikidata": "Q41171672",
         "brand:wikipedia": "en:Aldi",
-        "check_date": "2023-04-04",
+        "check_date": "2026-01-04",
         "internet_access": "wlan",
         "internet_access:fee": "customers",
         "name": "Aldi Süd",
@@ -4517,23 +4517,6 @@
         "opening_hours": "Mo-Sa 07:00-20:00",
         "shop": "supermarket",
         "website": "https://www.netto-online.de/filialen/woellstein/ernst-ludwig-str-83/3535"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.4794799,
-          50.4885568
-        ]
-      },
-      "properties": {
-        "id": 1422847304,
-        "osm_type": "node",
-        "name": "Ihre Kette",
-        "shop": "supermarket",
-        "wheelchair": "limited"
       }
     },
     {
@@ -8912,8 +8895,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4408068,
-          50.0716505
+          7.4407987,
+          50.0716967
         ]
       },
       "properties": {
@@ -15317,6 +15300,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.1223778,
+          49.8510482
+        ]
+      },
+      "properties": {
+        "id": 13429167991,
+        "osm_type": "node",
+        "name": "BIN1 Türkischer Lebensmittelmarkt",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.6773366,
           49.7492203
         ]
@@ -16233,8 +16232,9 @@
         "brand:wikipedia": "en:Lidl",
         "building": "yes",
         "name": "Lidl",
-        "opening_hours": "Mo-Fr 07:00-22:00; PH off",
+        "opening_hours": "Mo-Sa 07:00-21:00; PH off",
         "shop": "supermarket",
+        "website": "https://www.lidl.de/s/de-DE/filialen/trier/matthiasstr-7-9/",
         "wheelchair": "yes"
       }
     },
@@ -17957,9 +17957,13 @@
       "properties": {
         "id": 52469331,
         "osm_type": "way",
+        "addr:city": "Kastellaun",
+        "addr:housenumber": "8",
+        "addr:postcode": "56288",
+        "addr:street": "Südstraße",
         "brand": "ALDI Süd",
         "brand:wikidata": "Q41171672",
-        "building": "yes",
+        "building": "supermarket",
         "check_date": "2025-12-20",
         "contact:website": "https://filialen.aldi-sued.de/rheinland-pfalz/kastellaun/suedstrasse-8",
         "name": "ALDI Süd",
@@ -19980,8 +19984,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0833471,
-          49.5625741
+          8.0833458,
+          49.5625749
         ]
       },
       "properties": {
@@ -24704,6 +24708,26 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.3523765,
+          49.5424194
+        ]
+      },
+      "properties": {
+        "id": 166429154,
+        "osm_type": "way",
+        "addr:city": "Frankenthal (Pfalz)",
+        "addr:housenumber": "93",
+        "addr:postcode": "67227",
+        "addr:street": "Wormser Straße",
+        "building": "yes",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.8031075,
           50.3115687
         ]
@@ -24831,6 +24855,8 @@
       "properties": {
         "id": 169963206,
         "osm_type": "way",
+        "addr:city": "Bad Kreuznach",
+        "addr:country": "DE",
         "addr:housenumber": "135",
         "addr:postcode": "55543",
         "addr:street": "Alzeyer Straße",
@@ -27644,6 +27670,8 @@
       "properties": {
         "id": 208097221,
         "osm_type": "way",
+        "addr:city": "Bad Kreuznach",
+        "addr:country": "DE",
         "addr:housenumber": "77",
         "addr:postcode": "55543",
         "addr:street": "Alzeyer Straße",
@@ -30151,8 +30179,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0392641,
-          49.5949038
+          8.0392246,
+          49.5949387
         ]
       },
       "properties": {
@@ -30913,7 +30941,7 @@
         "brand": "REWE",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "de:Rewe",
-        "building": "yes",
+        "building": "supermarket",
         "name": "REWE",
         "opening_hours": "Mo-Sa 07:00-22:00",
         "shop": "supermarket",
@@ -35984,8 +36012,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5223293,
-          49.9794606
+          7.5222974,
+          49.9794344
         ]
       },
       "properties": {
@@ -36700,16 +36728,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6330369,
-          49.3721471
+          7.633035,
+          49.372164
         ]
       },
       "properties": {
         "id": 525243333,
         "osm_type": "way",
+        "addr:city": "Queidersbach",
+        "addr:country": "DE",
+        "addr:housenumber": "75",
+        "addr:postcode": "66851",
+        "addr:street": "Hauptstraße",
         "building": "yes",
         "name": "Wasgau",
-        "shop": "supermarket"
+        "shop": "supermarket",
+        "source:building": "OpenData Rheinland-Pfalz"
       }
     },
     {
@@ -39246,44 +39280,6 @@
         "toilets:wheelchair": "no",
         "website": "https://www.netto-online.de/filialen/Idar-Oberstein/Schoenlautenbach-1/3539/",
         "wheelchair": "limited"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.268309,
-          50.0011275
-        ]
-      },
-      "properties": {
-        "id": 868798001,
-        "osm_type": "way",
-        "addr:city": "Mainz",
-        "addr:country": "DE",
-        "addr:housename": "Römerpassage",
-        "addr:housenumber": "2",
-        "addr:postcode": "55116",
-        "addr:street": "Adolf-Kolping-Straße",
-        "brand": "Netto Marken-Discount",
-        "brand:wikidata": "Q879858",
-        "brand:wikipedia": "de:Netto Marken-Discount",
-        "check_date": "2025-01-07",
-        "contact:website": "https://www.netto-online.de/filialen/mainz/adolf-kolping-str-2/8153",
-        "indoor": "room",
-        "internet_access": "wlan",
-        "internet_access:fee": "customers",
-        "level": "-1",
-        "name": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-20:00",
-        "payment:girocard": "yes",
-        "payment:mastercard": "yes",
-        "payment:visa": "yes",
-        "room": "shop",
-        "shop": "supermarket",
-        "website": "https://www.netto-online.de/filialen/Mainz/Adolf-Kolping-Str-2/8153/",
-        "wheelchair": "yes"
       }
     },
     {

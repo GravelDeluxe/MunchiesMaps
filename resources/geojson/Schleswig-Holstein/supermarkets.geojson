@@ -4724,7 +4724,7 @@
         "addr:housenumber": "119",
         "addr:postcode": "21509",
         "addr:street": "Möllner Landstraße",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
         "check_date": "2024-09-26",
@@ -7245,27 +7245,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.1306994,
-          54.3187393
-        ]
-      },
-      "properties": {
-        "id": 1420130679,
-        "osm_type": "node",
-        "addr:city": "Kiel",
-        "addr:country": "DE",
-        "addr:housenumber": "71",
-        "addr:postcode": "24103",
-        "addr:street": "Hopfenstraße",
-        "name": "Alhasan Market",
-        "shop": "supermarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.1302706,
           54.3180823
         ]
@@ -8706,8 +8685,6 @@
       "properties": {
         "id": 1991916607,
         "osm_type": "node",
-        "addr:city": "Lübeck",
-        "addr:postcode": "23558",
         "brand": "Edeka",
         "brand:wikidata": "Q701755",
         "check_date": "2023-03-11",
@@ -15812,6 +15789,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.6577602,
+          53.7543101
+        ]
+      },
+      "properties": {
+        "id": 13429076760,
+        "osm_type": "node",
+        "name": "Rasol-Markt",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.8429624,
           53.6090712
         ]
@@ -17266,13 +17260,18 @@
         "addr:housenumber": "1a",
         "addr:postcode": "22941",
         "addr:street": "Zu den Fischteichen",
+        "air_conditioning": "yes",
         "brand": "Lidl",
         "brand:wikidata": "Q151954",
         "brand:wikipedia": "en:Lidl",
-        "building": "yes",
+        "building": "retail",
+        "check_date": "2026-01-02",
         "check_date:opening_hours": "2025-08-11",
         "name": "Lidl",
         "opening_hours": "Mo-Sa 07:00-21:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -23114,7 +23113,7 @@
         "brand:wikidata": "Q1395108",
         "brand:wikipedia": "de:Famila",
         "building": "retail",
-        "check_date:opening_hours": "2024-06-26",
+        "check_date:opening_hours": "2025-11-16",
         "currency:EUR": "yes",
         "fax": "+49 4331 433699",
         "internet_access": "wlan",
@@ -27936,11 +27935,12 @@
         "addr:housenumber": "4",
         "addr:postcode": "24589",
         "addr:street": "Timmasper Weg",
+        "branch": "Nortorf",
         "brand": "famila",
         "brand:wikidata": "Q1395108",
         "building": "retail",
         "check_date:opening_hours": "2021-03-06",
-        "name": "famila Nortorf",
+        "name": "famila",
         "opening_hours": "Mo-Sa 07:00-21:00",
         "phone": "+49 4392 916700",
         "shop": "supermarket",
@@ -27967,7 +27967,7 @@
         "addr:housenumber": "19-23",
         "addr:postcode": "24589",
         "addr:street": "Lohkamp",
-        "brand": "PENNY",
+        "brand": "Penny",
         "brand:wikidata": "Q284688",
         "brand:wikipedia": "en:Penny (supermarket)",
         "building": "retail",
@@ -31476,6 +31476,7 @@
         "building": "yes",
         "building:levels": "2",
         "name": "Erden Market",
+        "opening_hours": "Mo-Sa 07:00-19:00",
         "roof:levels": "1",
         "roof:shape": "hipped",
         "shop": "supermarket"
@@ -32411,8 +32412,11 @@
         "brand:wikidata": "Q284688",
         "brand:wikipedia": "en:Penny (supermarket)",
         "building": "retail",
+        "building:levels": "1",
+        "diet:gluten_free": "yes",
         "name": "Penny",
         "opening_hours": "Mo-Sa 07:30-22:00",
+        "roof:levels": "0",
         "shop": "supermarket"
       }
     },

@@ -23957,6 +23957,48 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.2804262,
+          51.313528
+        ]
+      },
+      "properties": {
+        "id": 13430193492,
+        "osm_type": "node",
+        "amenity": "toilets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4677614,
+          51.1597369
+        ]
+      },
+      "properties": {
+        "id": 13430910249,
+        "osm_type": "node",
+        "access": "yes",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "child": "yes",
+        "fee": "no",
+        "supervised": "no",
+        "toilets:disposal": "bucket",
+        "toilets:handwashing": "no",
+        "toilets:menstrual_products": "no",
+        "toilets:number": "2",
+        "toilets:paper_supplied": "yes",
+        "toilets:position": "seated",
+        "unisex": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.8673784,
           51.0098639
         ]
@@ -24974,7 +25016,10 @@
         "id": 168641219,
         "osm_type": "way",
         "amenity": "toilets",
-        "building": "yes",
+        "building": "toilets",
+        "building:colour": "orange",
+        "building:material": "plaster",
+        "fee": "no",
         "wheelchair": "yes"
       }
     },
@@ -25191,6 +25236,7 @@
         "fee": "yes",
         "female": "yes",
         "male": "yes",
+        "opening_hours": "24/7",
         "wheelchair": "yes"
       }
     },

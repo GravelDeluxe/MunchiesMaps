@@ -6892,7 +6892,7 @@
         "id": 5976094309,
         "osm_type": "node",
         "amenity": "vending_machine",
-        "check_date": "2022-02-06",
+        "check_date": "2025-12-31",
         "operator": "Schoko Lädchen",
         "vending": "sweets"
       }
@@ -9506,7 +9506,7 @@
         "id": 9221709562,
         "osm_type": "node",
         "amenity": "vending_machine",
-        "check_date": "2023-11-26",
+        "check_date": "2025-12-29",
         "vending": "sweets"
       }
     },
@@ -11542,6 +11542,7 @@
         "id": 11270852338,
         "osm_type": "node",
         "amenity": "vending_machine",
+        "check_date": "2026-01-04",
         "vending": "sweets"
       }
     },
@@ -11574,6 +11575,7 @@
         "id": 11278193484,
         "osm_type": "node",
         "amenity": "vending_machine",
+        "check_date": "2026-01-02",
         "currency:EUR": "yes",
         "payment:cash": "yes",
         "vending": "drinks;sweets"
@@ -12042,6 +12044,14 @@
         "id": 11602235500,
         "osm_type": "node",
         "amenity": "vending_machine",
+        "currency:EUR": "yes",
+        "operator": "Snackautomat Sommer",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:mastercard": "yes",
+        "payment:notes": "yes",
+        "payment:visa": "yes",
         "vending": "drinks;sweets;cigarettes"
       }
     },
@@ -17725,6 +17735,62 @@
         "osm_type": "node",
         "amenity": "vending_machine",
         "vending": "snacks;drinks;sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.9696292,
+          48.0522992
+        ]
+      },
+      "properties": {
+        "id": 13427070589,
+        "osm_type": "node",
+        "amenity": "vending_machine",
+        "currency:EUR": "yes",
+        "payment:cash": "yes",
+        "payment:notes": "yes",
+        "vending": "sweets;drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.9713417,
+          48.3952476
+        ]
+      },
+      "properties": {
+        "id": 13428681437,
+        "osm_type": "node",
+        "amenity": "vending_machine",
+        "covered": "yes",
+        "indoor": "no",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:coins": "yes",
+        "vending": "drinks;food;sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6697167,
+          48.9166065
+        ]
+      },
+      "properties": {
+        "id": 13430822982,
+        "osm_type": "node",
+        "amenity": "vending_machine",
+        "vending": "sweets;drinks"
       }
     },
     {

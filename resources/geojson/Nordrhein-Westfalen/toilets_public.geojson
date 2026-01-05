@@ -21441,7 +21441,7 @@
         "access": "yes",
         "amenity": "toilets",
         "centralkey": "no",
-        "check_date:opening_hours": "2024-11-28",
+        "check_date:opening_hours": "2026-01-03",
         "fee": "no",
         "level": "0",
         "opening_hours": "Mo-Su 05:00-22:00",
@@ -22926,7 +22926,7 @@
         "amenity": "toilets",
         "changing_table": "yes",
         "charge": "1.00 EUR",
-        "check_date:opening_hours": "2024-06-01",
+        "check_date:opening_hours": "2026-01-03",
         "description": "zwischen Gleis 7 und 9",
         "fee": "yes",
         "name": "WC-Center",
@@ -45483,11 +45483,17 @@
       "properties": {
         "id": 9170073298,
         "osm_type": "node",
+        "access": "yes",
+        "addr:floor": "0",
         "amenity": "toilets",
+        "changing_table": "no",
+        "check_date": "2026-01-04",
         "fee": "no",
         "female": "yes",
         "indoor": "yes",
+        "level": "0",
         "male": "yes",
+        "toilets:disposal": "flush",
         "wheelchair": "yes"
       }
     },
@@ -56330,6 +56336,7 @@
         "model": "Modultoilettenanlage",
         "model:start_date": "2023",
         "name": "City Toilet",
+        "opening_hours": "Mo-Su,PH 00:00-23:59",
         "operator": "Hering Sanikonzept GmbH",
         "payment:coins": "yes",
         "payment:coins:denominations": "0.10 EUR;0.20 EUR;0.50 EUR;1 EUR",
@@ -57860,7 +57867,8 @@
         "access": "yes",
         "amenity": "toilets",
         "changing_table": "yes",
-        "fee": "no"
+        "fee": "no",
+        "wheelchair": "no"
       }
     },
     {
@@ -66836,6 +66844,7 @@
         "building": "yes",
         "fee": "yes",
         "note": "Kosten: 0,50 €",
+        "opening_hours": "24/7",
         "wheelchair": "yes"
       }
     },
@@ -74930,6 +74939,7 @@
         "layer": "-1",
         "level": "-1",
         "male": "yes",
+        "opening_hours": "24/7",
         "operator": "rail & fresh",
         "toilets:disposal": "flush",
         "toilets:position": "seated;urinal",
@@ -74981,6 +74991,7 @@
         "fee": "yes",
         "level": "0",
         "name": "Essen Hbf",
+        "opening_hours": "24/7",
         "wheelchair": "yes",
         "wheelchair:description": "Behindertentoilette mit Schlüssel an derDB-Info zu bekommen. Zugang über die Bahnhofhalle."
       }
@@ -81669,9 +81680,11 @@
         "level": "-2",
         "male": "yes",
         "name": "WC",
+        "opening_hours": "Mo-Th 09:00-20:00; Fr,Sa 09:00-22:00; Su 10:00-20:00",
         "room": "toilet",
         "start_date": "2024-09-01",
-        "toilets:disposal": "flush"
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
       }
     },
     {

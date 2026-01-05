@@ -254,7 +254,7 @@
         "addr:housenumber": "6",
         "addr:postcode": "35435",
         "addr:street": "Ludwig-Rinn-Straße",
-        "brand": "REWE",
+        "brand": "Rewe",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "de:Rewe",
         "name": "REWE",
@@ -4353,7 +4353,7 @@
         "brand": "Aldi Süd",
         "brand:wikidata": "Q41171672",
         "brand:wikipedia": "hu:Aldi Süd",
-        "check_date": "2025-03-02",
+        "check_date": "2026-01-03",
         "check_date:opening_hours": "2025-03-02",
         "internet_access": "wlan",
         "internet_access:fee": "no",
@@ -4367,7 +4367,7 @@
         "payment:maestro": "yes",
         "payment:mastercard": "yes",
         "payment:visa": "yes",
-        "phone": "08008002534",
+        "phone": "+49 800 8002534",
         "self_checkout": "yes",
         "self_checkout:handheld": "no",
         "self_checkout:self_scan": "yes",
@@ -4485,7 +4485,7 @@
         "addr:postcode": "35080",
         "addr:street": "Am Bewegungsbad",
         "alt_name": "REWE Markt Familie Studer",
-        "brand": "REWE",
+        "brand": "Rewe",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "de:Rewe Group",
         "contact:phone": "+49 2776 92190",
@@ -6766,6 +6766,7 @@
         "id": 521541199,
         "osm_type": "node",
         "addr:city": "Hanau",
+        "addr:country": "DE",
         "addr:housenumber": "44",
         "addr:postcode": "63452",
         "addr:street": "Frankfurter Landstraße",
@@ -14130,6 +14131,7 @@
         "addr:street": "Marktplatz",
         "brand": "Netto Marken-Discount",
         "brand:wikidata": "Q879858",
+        "mapillary": "853409376611120",
         "name": "Netto Marken-Discount",
         "opening_hours": "Mo-Sa 07:00-20:00; Su, PH off",
         "shop": "supermarket",
@@ -27396,7 +27398,7 @@
         "brand": "Rewe",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "de:Rewe",
-        "check_date:opening_hours": "2024-10-12",
+        "check_date:opening_hours": "2026-01-03",
         "name": "REWE",
         "opening_hours": "Mo-Sa 07:00-22:00",
         "payment:american_express": "yes",
@@ -28481,9 +28483,11 @@
         "addr:housenumber": "13",
         "addr:postcode": "61200",
         "addr:street": "Biedrichstraße",
-        "brand": "Tegut",
-        "name": "Tegut Wölfersheim",
+        "brand": "tegut",
+        "brand:wikidata": "Q1547993",
+        "name": "tegut",
         "opening_hours": "Mo-Sa 07:00-21:00",
+        "phone": "+49 6036 983080",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -28567,7 +28571,9 @@
         "addr:postcode": "61200",
         "addr:street": "Biedrichstraße",
         "brand": "Penny",
-        "name": "Penny-Markt",
+        "brand:wikidata": "Q284688",
+        "name": "Penny Wölfersheim",
+        "opening_hours": "Mo-Sa 07:00-21:00",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -30493,7 +30499,7 @@
         "addr:housenumber": "134",
         "addr:postcode": "60385",
         "addr:street": "Berger Straße",
-        "check_date:opening_hours": "2024-10-12",
+        "check_date:opening_hours": "2026-01-03",
         "name": "Asian River",
         "opening_hours": "Mo-Sa 09:30-20:00; Su off",
         "opening_hours:signed": "yes",
@@ -33809,6 +33815,53 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.9082462,
+          50.1473976
+        ]
+      },
+      "properties": {
+        "id": 13427211553,
+        "osm_type": "node",
+        "addr:city": "Hanau",
+        "brand": "Aldi Süd",
+        "brand:wikidata": "Q41171672",
+        "brand:wikipedia": "en:Aldi",
+        "name": "Aldi Süd",
+        "opening_hours": "Mo-Sa 08:00-21:00",
+        "phone": "08008002534",
+        "shop": "supermarket",
+        "website": "https://filialen.aldi-sued.de/hessen/hanau/heldenbergener-strasse-1",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.9080043,
+          50.1486252
+        ]
+      },
+      "properties": {
+        "id": 13427211555,
+        "osm_type": "node",
+        "branch": "gute Lebensmittel",
+        "brand": "tegut",
+        "brand:wikidata": "Q1547993",
+        "name": "tegut",
+        "opening_hours": "Mo-Sa 07:00-22:00",
+        "phone": "+49 6181 5799690",
+        "shop": "supermarket",
+        "toilets:wheelchair": "yes",
+        "website": "https://www.tegut.com/maerkte/markt/tegut-hanau-heldenbergener-str-4.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.5162021,
           50.0543835
         ]
@@ -36273,64 +36326,6 @@
         "opening_hours": "Mo-Sa 07:00-21:00",
         "roof:shape": "flat",
         "shop": "supermarket",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.9080049,
-          50.1487173
-        ]
-      },
-      "properties": {
-        "id": 28920776,
-        "osm_type": "way",
-        "addr:city": "Hanau",
-        "addr:country": "DE",
-        "addr:housenumber": "4",
-        "addr:postcode": "63452",
-        "addr:street": "Heldenbergener Straße",
-        "branch": "gute Lebensmittel",
-        "brand": "tegut",
-        "brand:wikidata": "Q1547993",
-        "building": "retail",
-        "name": "tegut",
-        "opening_hours": "Mo-Sa 07:00-22:00",
-        "phone": "+49 6181 5799690",
-        "shop": "supermarket",
-        "toilets:wheelchair": "yes",
-        "website": "https://www.tegut.com/maerkte/markt/tegut-hanau-heldenbergener-str-4.html"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.9079291,
-          50.1472878
-        ]
-      },
-      "properties": {
-        "id": 28920777,
-        "osm_type": "way",
-        "addr:city": "Hanau",
-        "addr:country": "DE",
-        "addr:housenumber": "1",
-        "addr:postcode": "63452",
-        "addr:street": "Heldenbergener Straße",
-        "brand": "Aldi Süd",
-        "brand:wikidata": "Q41171672",
-        "brand:wikipedia": "en:Aldi",
-        "building": "retail",
-        "name": "Aldi Süd",
-        "opening_hours": "Mo-Sa 08:00-21:00",
-        "phone": "08008002534",
-        "shop": "supermarket",
-        "website": "https://filialen.aldi-sued.de/hessen/hanau/heldenbergener-strasse-1",
         "wheelchair": "yes"
       }
     },
@@ -41078,6 +41073,9 @@
         "name": "Edeka",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "panoramax": "849f7e7b-3499-4919-99b9-9aa71a4ae386",
+        "post_office": "post_partner",
+        "post_office:brand:wikidata": "Q105702843",
+        "post_office:opening_hours": "Mo-Sa 07:00-20:00",
         "roof:levels": "0",
         "roof:shape": "flat",
         "shop": "supermarket",
@@ -43322,32 +43320,6 @@
         "roof:shape": "flat",
         "shop": "supermarket",
         "website": "https://filialen.aldi-sued.de/hessen/giessen/krofdorfer-strasse-89",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.3209552,
-          50.9732309
-        ]
-      },
-      "properties": {
-        "id": 89723469,
-        "osm_type": "way",
-        "addr:city": "Frielendorf",
-        "addr:housenumber": "8",
-        "addr:postcode": "34621",
-        "addr:street": "Kirchfeldstraße",
-        "brand": "Rewe",
-        "brand:wikidata": "Q16968817",
-        "brand:wikipedia": "en:REWE",
-        "building": "retail",
-        "name": "Rewe",
-        "opening_hours": "Mo-Sa 07:00-21:00",
-        "shop": "supermarket",
         "wheelchair": "yes"
       }
     },
@@ -48243,6 +48215,9 @@
         "check_date:opening_hours": "2025-08-07",
         "name": "tegut",
         "opening_hours": "Mo-Sa 07:00-20:00; PH off",
+        "post_office": "post_partner",
+        "post_office:brand:wikidata": "Q157645",
+        "post_office:opening_hours": "Mo-Sa 09:00-19:00",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -53652,7 +53627,7 @@
         "addr:housenumber": "13",
         "addr:postcode": "63329",
         "addr:street": "Kurt-Schumacher-Ring",
-        "brand": "ALDI Süd",
+        "brand": "Aldi Süd",
         "brand:wikidata": "Q41171672",
         "brand:wikipedia": "en:Aldi",
         "building": "retail",

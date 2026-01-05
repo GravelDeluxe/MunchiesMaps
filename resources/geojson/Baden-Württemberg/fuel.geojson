@@ -13808,13 +13808,16 @@
         "addr:street": "Friesenstraße",
         "addr:suburb": "Oßweil",
         "amenity": "fuel",
+        "brand": "Eni",
+        "brand:wikidata": "Q565594",
         "compressed_air": "yes",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
-        "name": "Agip",
+        "name": "Agip Eni",
         "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00",
+        "operator": "Schwedt",
         "payment:dkv": "yes",
         "payment:uta": "yes",
         "self_service": "yes",
@@ -14846,6 +14849,7 @@
         "id": 365816237,
         "osm_type": "node",
         "amenity": "fuel",
+        "check_date": "2026-01-04",
         "name": "BAG"
       }
     },
@@ -27419,8 +27423,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.7956682,
-          48.0917238
+          9.7953778,
+          48.091549
         ]
       },
       "properties": {
@@ -27432,6 +27436,7 @@
         "addr:street": "Hans-Liebherr-Straße",
         "amenity": "fuel",
         "brand": "RAN",
+        "compressed_air": "yes",
         "email": "biberach@ran-tankstellen.de",
         "fuel:biogas": "yes",
         "fuel:diesel": "yes",
@@ -30521,8 +30526,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.9483677,
-          48.0726452
+          9.947978,
+          48.0725953
         ]
       },
       "properties": {
@@ -30534,6 +30539,7 @@
         "addr:street": "Biberacher Straße",
         "amenity": "fuel",
         "brand": "Independent",
+        "compressed_air": "yes",
         "fax": "+49 7352 93258",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
@@ -30554,8 +30560,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.9484238,
-          48.0724322
+          9.9480502,
+          48.0724037
         ]
       },
       "properties": {
@@ -30567,6 +30573,7 @@
         "addr:street": "Biberacher Straße",
         "amenity": "fuel",
         "brand": "RAN",
+        "compressed_air": "yes",
         "email": "ochsenhausen@ran-tankstellen.de",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
@@ -38749,6 +38756,7 @@
         "amenity": "fuel",
         "brand": "Eni",
         "brand:wikidata": "Q565594",
+        "fuel:adblue": "yes",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
         "fuel:octane_91": "no",
@@ -39568,7 +39576,6 @@
         "name": "JET",
         "opening_hours": "Mo-Fr 05:00-23:00; Sa 06:00-23:00; Su 08:00-22:00",
         "operator": "ConocoPhillips Germany GmbH",
-        "payment:cash": "yes",
         "payment:coins": "yes",
         "payment:credit_cards": "yes",
         "payment:debit_cards": "yes",
@@ -43066,6 +43073,7 @@
         "fuel:octane_91": "yes",
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
+        "layer": "1",
         "name": "TotalEnergies",
         "opening_hours": "24/7",
         "operator": "Autohaus Braun",
@@ -43589,8 +43597,9 @@
         "addr:country": "DE",
         "addr:postcode": "97947",
         "amenity": "fuel",
-        "brand": "Shell",
+        "brand": "Aral",
         "building": "yes",
+        "contact:phone": "+49 9346 92170",
         "fuel:HGV_diesel": "yes",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
@@ -43598,10 +43607,9 @@
         "fuel:octane_100": "yes",
         "fuel:octane_95": "yes",
         "opening_hours": "24/7",
-        "operator": "Shell",
+        "operator": "Aral",
         "payment:cash": "yes",
         "payment:credit_cards": "yes",
-        "phone": "+49 9346 92170",
         "shop": "yes",
         "wheelchair": "limited"
       }
@@ -43941,6 +43949,7 @@
         "payment:novofleet": "yes",
         "payment:uta": "yes",
         "phone": "+49 761 442532",
+        "toilets": "customers",
         "website": "https://www.jet-tankstellen.de/tankstellen/freiburg/basler-str-100/",
         "wheelchair": "yes"
       }
@@ -44200,8 +44209,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7925183,
-          47.9891849
+          8.7926054,
+          47.9892559
         ]
       },
       "properties": {
@@ -45870,6 +45879,7 @@
         "brand:wikidata": "Q377915",
         "brand:wikipedia": "en:Agip",
         "building": "yes",
+        "compressed_air": "yes",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
         "fuel:lpg": "yes",
@@ -50202,8 +50212,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5710286,
-          48.9531895
+          8.5710186,
+          48.9531813
         ]
       },
       "properties": {
@@ -55657,7 +55667,7 @@
         "addr:street": "Erlachseeweg",
         "addr:suburb": "Durlach",
         "amenity": "fuel",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "brand:wikidata": "Q154037",
         "compressed_air": "yes",
         "fuel:GTL_diesel": "yes",
@@ -55675,7 +55685,8 @@
         "opening_hours": "24/7",
         "operator": "Total Deutschland GmbH",
         "payment:maestro": "yes",
-        "start_date": "2016-09"
+        "start_date": "2016-09",
+        "wheelchair": "yes"
       }
     },
     {
@@ -64664,8 +64675,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.0156374,
-          48.2103438
+          9.0155825,
+          48.210329
         ]
       },
       "properties": {

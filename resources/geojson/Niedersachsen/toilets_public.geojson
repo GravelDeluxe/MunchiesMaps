@@ -2851,8 +2851,7 @@
         "check_date": "2025-09-04",
         "fee": "no",
         "level": "0",
-        "note": "08.00-18.30 Uhr",
-        "opening_hours": "08:00-18:30",
+        "opening_hours": "Mo-Su, PH 08:00-18:30",
         "portable": "no",
         "toilets:disposal": "flush",
         "toilets:handwashing": "yes",
@@ -23656,8 +23655,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5139631,
-          53.3621986
+          7.51397,
+          53.3622093
         ]
       },
       "properties": {
@@ -31714,30 +31713,6 @@
         "toilets:disposal": "flush",
         "unisex": "yes",
         "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.9095929,
-          51.4154356
-        ]
-      },
-      "properties": {
-        "id": 9989314717,
-        "osm_type": "node",
-        "amenity": "toilets",
-        "capacity": "2",
-        "fee": "no",
-        "gender_segregated": "no",
-        "model": "Dixi",
-        "survey:date": "2022-08-29",
-        "toilets:changing_table": "no",
-        "toilets:disposal": "chemical",
-        "toilets:handwashing": "no",
-        "toilets:position": "seated"
       }
     },
     {
@@ -42071,6 +42046,40 @@
         "toilets:position": "seated;urinal",
         "unisex": "yes",
         "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.4195954,
+          53.2494298
+        ]
+      },
+      "properties": {
+        "id": 13426440828,
+        "osm_type": "node",
+        "amenity": "toilets",
+        "fee": "yes",
+        "opening_hours": "Mo-Su,PH 05:00-23:00",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.3866863,
+          53.2122182
+        ]
+      },
+      "properties": {
+        "id": 13430561474,
+        "osm_type": "node",
+        "amenity": "toilets",
+        "portable": "yes"
       }
     },
     {
@@ -55259,6 +55268,30 @@
         "building": "yes",
         "changing_table": "no",
         "fee": "yes",
+        "toilets:disposal": "flush",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0218164,
+          52.3989882
+        ]
+      },
+      "properties": {
+        "id": 1463969494,
+        "osm_type": "way",
+        "access": "weelchair",
+        "amenity": "toilets",
+        "building": "yes",
+        "centralkey": "eurokey",
+        "description": "eine reine Behindertentoilette",
+        "fee": "no",
+        "operator:wikidata": "Q644304",
         "toilets:disposal": "flush",
         "unisex": "yes",
         "wheelchair": "yes"

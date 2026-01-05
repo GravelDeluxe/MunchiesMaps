@@ -216,7 +216,8 @@
         "addr:housenumber": "4",
         "addr:postcode": "29690",
         "addr:street": "Mönkeberg",
-        "brand": "REWE",
+        "brand": "Rewe",
+        "brand:wikidata": "Q16968817",
         "name": "REWE",
         "opening_hours": "Mo-Sa 07:00-22:00; PH,Su off",
         "payment:credit_cards": "yes",
@@ -2354,6 +2355,8 @@
         "addr:housenumber": "3",
         "addr:postcode": "29690",
         "addr:street": "Mönkeberg",
+        "brand": "Lidl",
+        "brand:wikidata": "Q151954",
         "name": "Lidl",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "payment:credit_cards": "yes",
@@ -2891,45 +2894,6 @@
         "name": "Penny",
         "opening_hours": "Mo-Sa 07:00-21:00",
         "shop": "supermarket",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.3428583,
-          52.1168211
-        ]
-      },
-      "properties": {
-        "id": 265769846,
-        "osm_type": "node",
-        "addr:city": "Hameln",
-        "addr:country": "DE",
-        "addr:housenumber": "86",
-        "addr:postcode": "31787",
-        "addr:street": "Fischbecker Landstraße",
-        "brand": "ALDI Nord",
-        "brand:wikidata": "Q41171373",
-        "brand:wikipedia": "hu:Aldi Nord",
-        "building:levels": "1",
-        "check_date": "2022-12-16",
-        "contact:website": "https://www.aldi-nord.de/tools/filialen-und-oeffnungszeiten/niedersachsen/hameln/fischbecker-landstrasse-86.html",
-        "currency:EUR": "yes",
-        "name": "ALDI Nord",
-        "opening_hours": "Mo-Sa 08:00-20:00; PH off",
-        "organic": "yes",
-        "payment:cash": "yes",
-        "payment:coins": "yes",
-        "payment:credit_cards": "yes",
-        "payment:mastercard": "yes",
-        "payment:visa": "yes",
-        "second_hand": "no",
-        "shop": "supermarket",
-        "source": "survey;local knowledge",
-        "stroller": "yes",
         "wheelchair": "yes"
       }
     },
@@ -5248,6 +5212,7 @@
         "id": 290783842,
         "osm_type": "node",
         "addr:city": "Bad Laer",
+        "addr:country": "DE",
         "addr:housenumber": "15",
         "addr:postcode": "49196",
         "addr:street": "Glandorfer Straße",
@@ -11084,6 +11049,7 @@
         "addr:postcode": "28870",
         "addr:street": "Grüne Straße",
         "branch": "Ottersberg",
+        "check_date:opening_hours": "2026-01-04",
         "name": "ALECO",
         "opening_hours": "Mo-Sa 08:00-20:00; PH off",
         "operator": "ALECO GmbH",
@@ -18968,7 +18934,7 @@
         "brand": "EDEKA",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
-        "check_date:opening_hours": "2024-02-11",
+        "check_date:opening_hours": "2026-01-03",
         "name": "EDEKA E-Center Cramer",
         "opening_hours": "Mo-Sa 07:00-21:00",
         "operator": "Wilhelm Cramer GmbH",
@@ -27743,34 +27709,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6305023,
-          53.0485936
-        ]
-      },
-      "properties": {
-        "id": 3767480042,
-        "osm_type": "node",
-        "addr:city": "Delmenhorst",
-        "addr:country": "DE",
-        "addr:housenumber": "98",
-        "addr:postcode": "27749",
-        "addr:street": "Lange Straße",
-        "check_date:opening_hours": "2024-04-27",
-        "contact:phone": "+49 4221 9819760",
-        "contact:website": "https://koopje.de/",
-        "level": "0",
-        "name": "koopje Citymarkt",
-        "opening_hours": "Mo-Fr 07:30-19:00; Sa 07:30-18:00; Su,PH off",
-        "operator": "inkoop Verbrauchermärkte GmbH",
-        "shop": "supermarket",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.6909903,
           53.1117297
         ]
@@ -28013,8 +27951,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5469913,
-          52.4868037
+          7.5456658,
+          52.4838941
         ]
       },
       "properties": {
@@ -30527,6 +30465,7 @@
         "addr:street": "Kiebitzkamp",
         "brand": "Netto Marken-Discount",
         "brand:wikidata": "Q879858",
+        "check_date:opening_hours": "2026-01-03",
         "name": "Netto Marken-Discount",
         "old_name": "Penny",
         "opening_hours": "Mo-Sa 07:00-21:00; PH off",
@@ -40395,8 +40334,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6909349,
-          52.6309578
+          8.6909423,
+          52.6309354
         ]
       },
       "properties": {
@@ -41197,6 +41136,24 @@
         "self_service": "only",
         "shop": "supermarket",
         "surveillance": "indoor"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.4201187,
+          51.912751
+        ]
+      },
+      "properties": {
+        "id": 13426683101,
+        "osm_type": "node",
+        "addr:housenumber": "52A",
+        "addr:street": "Hildesheimer Straße",
+        "name": "Edeka",
+        "shop": "supermarket"
       }
     },
     {
@@ -42031,36 +41988,6 @@
         "contact:phone": "+49 4161 554354",
         "contact:website": "https://www.rewe.de/marktseite/buxtehude/540610/rewe-markt-westmoor-2-d/",
         "name": "Rewe",
-        "opening_hours": "Mo-Sa 07:00-22:00; PH off",
-        "shop": "supermarket",
-        "toilets:wheelchair": "no",
-        "wheelchair": "limited"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.6966646,
-          53.4816379
-        ]
-      },
-      "properties": {
-        "id": 24859035,
-        "osm_type": "way",
-        "addr:city": "Buxtehude",
-        "addr:country": "DE",
-        "addr:housenumber": "2c",
-        "addr:postcode": "21614",
-        "addr:street": "Westmoor",
-        "brand": "ALDI Nord",
-        "brand:wikidata": "Q41171373",
-        "building": "supermarket",
-        "check_date:opening_hours": "2025-08-03",
-        "contact:phone": "+49 4161 554354",
-        "contact:website": "https://www.aldi-nord.de/filialen-und-oeffnungszeiten.html/l/buxtehude/westmoor-2-c/3181208",
-        "name": "Rewe Getränkemarkt",
         "opening_hours": "Mo-Sa 07:00-22:00; PH off",
         "shop": "supermarket",
         "toilets:wheelchair": "no",
@@ -45150,6 +45077,7 @@
         "id": 32083981,
         "osm_type": "way",
         "addr:city": "Asendorf",
+        "addr:country": "DE",
         "addr:housenumber": "9-11",
         "addr:postcode": "27330",
         "addr:street": "Altenfelder Weg",
@@ -45350,6 +45278,9 @@
         "addr:housenumber": "1",
         "addr:street": "Ostfriesenstraße",
         "brand": "Lidl",
+        "brand:wikidata": "Q151954",
+        "brand:wikipedia": "en:Lidl",
+        "building": "retail",
         "name": "Lidl",
         "opening_hours": "Mo-Sa 08:00-21:00; Su 09:00-16:00",
         "operator": "Lidl Vertriebs-GmbH & Co. KG",
@@ -46970,14 +46901,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7280477,
-          52.8522856
+          8.7279762,
+          52.8522877
         ]
       },
       "properties": {
         "id": 38362779,
         "osm_type": "way",
         "addr:city": "Bassum",
+        "addr:country": "DE",
         "addr:housenumber": "42",
         "addr:postcode": "27211",
         "addr:street": "Bremer Straße",
@@ -47002,7 +46934,10 @@
       "properties": {
         "id": 38381905,
         "osm_type": "way",
+        "addr:city": "Bassum",
+        "addr:country": "DE",
         "addr:housenumber": "9",
+        "addr:postcode": "27211",
         "addr:street": "Syker Straße",
         "brand": "REWE",
         "brand:wikidata": "Q16968817",
@@ -53619,8 +53554,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2966203,
-          52.3920398
+          7.296624,
+          52.3920295
         ]
       },
       "properties": {
@@ -53646,6 +53581,7 @@
         "roof:shape": "gabled",
         "shop": "supermarket",
         "smoking": "no",
+        "source:building": "OpenData LGLN Niedersachsen",
         "toilets:wheelchair": "yes",
         "website": "https://www.combi.de/",
         "wheelchair": "yes"
@@ -54117,8 +54053,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9191474,
-          53.2602595
+          7.9191548,
+          53.2602706
         ]
       },
       "properties": {
@@ -68069,7 +68005,10 @@
       "properties": {
         "id": 184483776,
         "osm_type": "way",
+        "addr:city": "Seesen",
+        "addr:country": "DE",
         "addr:housenumber": "5",
+        "addr:postcode": "38723",
         "addr:street": "Bornhäuser Straße",
         "brand": "PENNY",
         "brand:wikidata": "Q284688",
@@ -95370,7 +95309,7 @@
         "brand:wikidata": "Q41171373",
         "brand:wikipedia": "en:Aldi",
         "building": "supermarket",
-        "contact:website": "https://www.aldi-nord.de/tools/filialen-und-oeffnungszeiten/niedersachsen/buxtehude/westmoor-2-c.html",
+        "contact:website": "https://www.aldi-nord.de/filialen-und-oeffnungszeiten.html/l/buxtehude/westmoor-2h/3181208",
         "name": "Aldi",
         "opening_hours": "Mo-Sa 07:00-21:00; PH off",
         "opening_hours:lastcheck": "2016-04-11",

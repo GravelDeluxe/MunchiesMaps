@@ -539,6 +539,7 @@
         "addr:street": "Dresdner Straße",
         "amenity": "fuel",
         "brand": "Shell",
+        "brand:wikidata": "Q110716465",
         "contact:fax": "+49 3523 74192",
         "contact:phone": "+49 3523 74191",
         "fuel:diesel": "yes",
@@ -3921,7 +3922,7 @@
         "addr:street": "Dresdner Straße",
         "alt_name": "Total Dresdner Straße",
         "amenity": "fuel",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "brand:wikidata": "Q154037",
         "check_date": "2024-09-15",
         "fuel:GTL_diesel": "yes",
@@ -6713,7 +6714,7 @@
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
         "name": "Total",
-        "opening_hours": "Mo-Fr 05:30-21:00; Sa,Su,PH 07:00-21:00",
+        "opening_hours": "Mo-Fr 05:30-21:00; Sa 07:00-21:00; Su 07:00-22:00",
         "operator": "HKD"
       }
     },
@@ -12608,6 +12609,8 @@
         "id": 61011848,
         "osm_type": "way",
         "amenity": "fuel",
+        "brand": "JET",
+        "brand:wikidata": "Q568940",
         "compressed_air": "yes",
         "name": "JET SB Tankstelle"
       }
@@ -13678,7 +13681,7 @@
         "addr:street": "Leipziger Straße",
         "amenity": "fuel",
         "brand": "star",
-        "brand:wikidata": "Q109930371",
+        "brand:wikidata": "Q89432390",
         "brand:wikipedia": "de:Orlen Deutschland",
         "building": "yes",
         "check_date": "2025-01-21",
@@ -17470,7 +17473,7 @@
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
         "name": "Q1 Tankstelle",
-        "opening_hours": "Mo-Fr 06:00-20:00, Sa- Su 08:00-18:00",
+        "opening_hours": "Mo-Fr 06:00-20:00, Sa-Su 08:00-18:00",
         "operator": "Dennis Decker",
         "payment:american_express": "yes",
         "payment:coins": "yes",
@@ -18331,8 +18334,12 @@
         "brand": "Q1",
         "brand:wikidata": "Q62086498",
         "building": "yes",
-        "check_date": "2025-12-02",
+        "check_date": "2025-12-30",
+        "check_date:compressed_air": "2025-12-30",
+        "check_date:opening_hours": "2025-12-30",
+        "compressed_air": "yes",
         "name": "Q1",
+        "opening_hours": "Mo-Su,PH 02:30-02:00",
         "operator": "Q1 Tankstellenvertrieb"
       }
     },

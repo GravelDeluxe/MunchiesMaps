@@ -5421,6 +5421,8 @@
         "brand": "famila",
         "brand:wikidata": "Q1395108",
         "brand:wikipedia": "de:Famila",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
         "name": "famila",
         "old_name": "sky",
         "shop": "supermarket",
@@ -8515,6 +8517,7 @@
         "brand:wikidata": "Q41171373",
         "brand:wikipedia": "en:Aldi",
         "currency:EUR": "yes",
+        "diet:gluten_free": "yes",
         "diet:halal": "yes",
         "diet:kosher": "yes",
         "name": "Aldi",
@@ -13151,7 +13154,7 @@
         "addr:street": "Ratzeburger Straße",
         "brand": "Netto",
         "brand:wikidata": "Q552652",
-        "building": "yes",
+        "building": "retail",
         "building:levels": "1",
         "name": "Netto",
         "opening_hours": "Mo-Sa 07:00-20:00",
@@ -14154,37 +14157,6 @@
         "name": "EDEKA",
         "opening_hours": "Mo-Sa 08:00-20:00",
         "shop": "supermarket",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.2480216,
-          54.2498377
-        ]
-      },
-      "properties": {
-        "id": 108878201,
-        "osm_type": "way",
-        "addr:city": "Graal-Müritz",
-        "addr:housenumber": "12",
-        "addr:postcode": "18181",
-        "addr:street": "Bahnhofstraße",
-        "brand": "Aldi",
-        "brand:wikidata": "Q41171373",
-        "brand:wikipedia": "en:Aldi",
-        "building": "retail",
-        "building:levels": "1",
-        "name": "Aldi",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su 12:00-18:00",
-        "operator": "ALDI Nord",
-        "roof:levels": "1",
-        "roof:shape": "gabled",
-        "shop": "supermarket",
-        "website": "https://www.aldi-nord.de/filialen-und-oeffnungszeiten.html/l/graal-muritz/bahnhofstrasse-12/3182382",
         "wheelchair": "yes"
       }
     },
@@ -18674,6 +18646,7 @@
         "brand:wikidata": "Q879858",
         "brand:wikipedia": "de:Netto Marken-Discount",
         "building": "yes",
+        "check_date:opening_hours": "2026-01-04",
         "name": "Netto Marken-Discount",
         "opening_hours": "Mo-Sa 07:00-21:00",
         "shop": "supermarket",

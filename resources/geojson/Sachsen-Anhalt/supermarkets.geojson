@@ -2126,30 +2126,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.9605091,
-          51.7449207
-        ]
-      },
-      "properties": {
-        "id": 440688692,
-        "osm_type": "node",
-        "addr:city": "Köthen (Anhalt)",
-        "addr:housenumber": "21",
-        "addr:postcode": "06366",
-        "addr:street": "Friedrich-Ludwig-Jahn-Straße",
-        "brand": "PENNY",
-        "brand:wikidata": "Q284688",
-        "brand:wikipedia": "en:Penny (supermarket)",
-        "name": "PENNY",
-        "opening_hours": "Mo-Sa 07:00-20:00",
-        "shop": "supermarket"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.402953,
           52.5163994
         ]
@@ -5099,15 +5075,20 @@
         "addr:housenumber": "51",
         "addr:postcode": "06366",
         "addr:street": "Am Wasserturm",
-        "brand": "EDEKA",
-        "brand:wikidata": "Q701755",
-        "brand:wikipedia": "de:Edeka",
-        "fax": "+49 3496 212935",
-        "name": "EDEKA",
-        "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:00-18:00",
-        "operator": "Noack",
-        "phone": "+49 3496 212934",
+        "brand": "Penny",
+        "brand:wikidata": "Q284688",
+        "name": "Penny",
+        "old_name": "EDEKA",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "payment:american_express": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:girocard": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "phone": "+49 221 20199959",
         "shop": "supermarket",
+        "website": "https://www.penny.de/markt/koethen/1766218/penny-am-wasserturm-am-wasserturm-51",
         "wheelchair": "yes"
       }
     },
@@ -7475,6 +7456,7 @@
         "brand:wikidata": "Q685967",
         "brand:wikipedia": "en:Kaufland",
         "name": "Kaufland",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa 07:00-20:00; Su,PH off",
         "shop": "supermarket",
         "website": "https://filiale.kaufland.de/service/filiale/lutherstadt-eisleben-6230.html"
       }
@@ -25496,13 +25478,13 @@
         "addr:postcode": "06526",
         "addr:street": "Am Mittelfeld",
         "addr:suburb": "Oberröblingen",
-        "brand": "NORMA",
+        "brand": "Norma",
         "brand:wikidata": "Q450180",
         "brand:wikipedia": "de:Norma (Supermarkt)",
         "building": "yes",
         "check_date": "2025-12-17",
         "fixme": "Hausnummer laut Liegenschaftskataster LSA ist \"Am Mittelfeld 2\" auf der NORM-Internetseite wird für den Standort die Hausnummer \"1\" angegeben. Bei OSM hat die Hausnummer \"1\" McDonalds. Im Liegenschaftskataster ist kein Eintrag vorhanden.",
-        "name": "NORMA",
+        "name": "Norma",
         "opening_hours": "Mo-Fr 07:00-21:00, Sa 07:00-20:00; PH off",
         "shop": "supermarket",
         "website": "https://www.norma-online.de"

@@ -5230,8 +5230,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.5505492,
-          48.5947713
+          13.5509144,
+          48.5948706
         ]
       },
       "properties": {
@@ -7611,8 +7611,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.0038548,
-          47.634601
+          13.0038517,
+          47.6345957
         ]
       },
       "properties": {
@@ -12287,6 +12287,7 @@
         "osm_type": "node",
         "access": "yes",
         "amenity": "toilets",
+        "check_date": "2026-01-03",
         "fee": "no",
         "toilets:disposal": "flush",
         "unisex": "yes",
@@ -19192,6 +19193,7 @@
         "id": 1939986225,
         "osm_type": "node",
         "amenity": "toilets",
+        "check_date": "2026-01-03",
         "wheelchair": "limited"
       }
     },
@@ -27903,7 +27905,7 @@
         "osm_type": "node",
         "amenity": "toilets",
         "changing_table": "yes",
-        "check_date": "2021-07-17",
+        "check_date": "2026-01-04",
         "fee": "no",
         "wheelchair": "yes"
       }
@@ -36895,7 +36897,7 @@
         "osm_type": "node",
         "access": "permissive",
         "amenity": "toilets",
-        "check_date:opening_hours": "2023-02-15",
+        "check_date:opening_hours": "2026-01-02",
         "fee": "no",
         "opening_hours": "Mo-Sa 08:00-20:00",
         "wheelchair": "yes"
@@ -94705,6 +94707,7 @@
         "id": 13373018992,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "indoor": "yes",
         "level": "0",
         "toilets": "yes",
@@ -94724,6 +94727,7 @@
         "id": 13373018993,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "indoor": "yes",
         "level": "0",
         "toilets": "yes",
@@ -94743,6 +94747,7 @@
         "id": 13373018998,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "indoor": "yes",
         "level": "0",
         "toilets": "yes",
@@ -94762,6 +94767,7 @@
         "id": 13373019100,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "indoor": "yes",
         "level": "0",
         "toilets": "yes",
@@ -94781,6 +94787,7 @@
         "id": 13373019101,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "indoor": "yes",
         "level": "0",
         "node": "0",
@@ -94801,6 +94808,7 @@
         "id": 13373019106,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "indoor": "yes",
         "level": "0",
         "toilets": "yes",
@@ -94820,6 +94828,7 @@
         "id": 13373066563,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "indoor": "yes",
         "level": "1",
         "toilets": "yes",
@@ -94839,6 +94848,7 @@
         "id": 13373066564,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "indoor": "yes",
         "level": "1",
         "toilets": "yes",
@@ -94858,6 +94868,7 @@
         "id": 13373066566,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "indoor": "yes",
         "level": "1",
         "toilets": "yes",
@@ -95223,6 +95234,55 @@
         "osm_type": "node",
         "amenity": "toilets",
         "portable": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9662331,
+          47.7640305
+        ]
+      },
+      "properties": {
+        "id": 13427009573,
+        "osm_type": "node",
+        "amenity": "toilets",
+        "female": "yes",
+        "male": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.29938,
+          50.0239017
+        ]
+      },
+      "properties": {
+        "id": 13427398370,
+        "osm_type": "node",
+        "amenity": "toilets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.3241432,
+          50.0078988
+        ]
+      },
+      "properties": {
+        "id": 13427559962,
+        "osm_type": "node",
+        "amenity": "toilets",
+        "female": "yes",
+        "male": "yes"
       }
     },
     {
@@ -117033,6 +117093,25 @@
         "building": "yes",
         "description": "Umkleiden/WC",
         "portable": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.5812672,
+          49.7586515
+        ]
+      },
+      "properties": {
+        "id": 1463913222,
+        "osm_type": "way",
+        "access": "no",
+        "amenity": "toilets",
+        "building": "yes",
+        "fee": "no",
+        "wheelchair": "yes"
       }
     },
     {

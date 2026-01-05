@@ -15533,12 +15533,16 @@
         "brand": "Aral",
         "brand:wikidata": "Q565734",
         "brand:wikipedia": "de:Aral",
+        "check_date": "2026-01-02",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
         "fuel:octane_91": "yes",
         "fuel:octane_95": "yes",
         "name": "Aral",
-        "operator": "BP Europa SE"
+        "operator": "BP Europa SE",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes"
       }
     },
     {
@@ -18837,40 +18841,6 @@
         "operator": "TotalEnergies",
         "phone": "+49 481 69881555",
         "website": "https://store.totalenergies.de/de_DE/ND040089"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.0442967,
-          54.4728137
-        ]
-      },
-      "properties": {
-        "id": 501945154,
-        "osm_type": "way",
-        "access": "customers",
-        "addr:city": "Husum",
-        "addr:housenumber": "3",
-        "addr:postcode": "25813",
-        "addr:street": "Andreas-Clausen-Straße",
-        "amenity": "fuel",
-        "brand": "eFarm Husum",
-        "building": "yes",
-        "fuel:LH2": "no",
-        "fuel:h35": "yes",
-        "fuel:h70": "yes",
-        "name": "H2 Tankstelle",
-        "opening_hours": "24/7",
-        "operator": "eFarming GmbH & Co. KG",
-        "payment:H2.LIVE.App": "yes",
-        "payment:H2_Delivery": "yes",
-        "payment:HyLane": "yes",
-        "payment:h2_mobility_card": "yes",
-        "phone": "+498006647265",
-        "self_service": "yes"
       }
     },
     {

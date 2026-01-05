@@ -119,7 +119,7 @@
         "amenity": "toilets",
         "centralkey": "eurokey",
         "changing_table": "yes",
-        "check_date:opening_hours": "2024-08-30",
+        "check_date:opening_hours": "2026-01-02",
         "fee": "no",
         "opening_hours": "Mo-Su 09:00-23:00",
         "source:opening_hours": "entrance",
@@ -13570,11 +13570,16 @@
       "properties": {
         "id": 2184900649,
         "osm_type": "node",
+        "access": "yes",
         "amenity": "toilets",
         "centralkey": "eurokey",
-        "check_date": "2023-09-21",
+        "changing_table": "no",
+        "charge": "0.50 EUR",
+        "check_date": "2026-01-04",
         "description": "Benutzungsgebühr 50 Cent",
         "fee": "yes",
+        "natural": "yes",
+        "payment:cash": "only",
         "source": "survey",
         "source:geo": "HiRes aerial imagery",
         "wheelchair": "yes"
@@ -28121,7 +28126,8 @@
         "id": 4975019719,
         "osm_type": "node",
         "access": "yes",
-        "amenity": "toilets"
+        "amenity": "toilets",
+        "check_date": "2026-01-04"
       }
     },
     {
@@ -36936,6 +36942,7 @@
         "id": 6668059759,
         "osm_type": "node",
         "amenity": "toilets",
+        "check_date": "2026-01-04",
         "fee": "no",
         "female": "yes",
         "male": "yes",
@@ -64103,8 +64110,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5601925,
-          47.7860921
+          8.5601348,
+          47.785965
         ]
       },
       "properties": {
@@ -64704,6 +64711,80 @@
         "changing_table": "yes",
         "toilets:disposal": "flush",
         "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.9692644,
+          48.051994
+        ]
+      },
+      "properties": {
+        "id": 13427042697,
+        "osm_type": "node",
+        "access": "yes",
+        "amenity": "toilets",
+        "fee": "no",
+        "female": "yes",
+        "male": "yes",
+        "operator": "Tourismus Buck",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "toilets:position": "urinal;seated",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.1765464,
+          47.8929066
+        ]
+      },
+      "properties": {
+        "id": 13428658401,
+        "osm_type": "node",
+        "addr:housenumber": "4",
+        "addr:street": "Dorfplatz",
+        "amenity": "toilets",
+        "opening_hours": "Mo-Su 09:00-18:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.2511597,
+          48.6172533
+        ]
+      },
+      "properties": {
+        "id": 13430299394,
+        "osm_type": "node",
+        "amenity": "toilets",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.2513796,
+          48.6165759
+        ]
+      },
+      "properties": {
+        "id": 13430299400,
+        "osm_type": "node",
+        "amenity": "toilets",
+        "wheelchair": "no"
       }
     },
     {
@@ -65393,8 +65474,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2534968,
-          49.1685857
+          9.2534851,
+          49.1685643
         ]
       },
       "properties": {
@@ -67666,7 +67747,11 @@
         "access": "yes",
         "amenity": "toilets",
         "building": "service",
+        "changing_table": "no",
         "fee": "no",
+        "female": "yes",
+        "male": "yes",
+        "operator": "Stadt Maulbronn",
         "wheelchair": "yes"
       }
     },
@@ -92647,7 +92732,7 @@
         "type": "Point",
         "coordinates": [
           9.2314979,
-          48.7170935
+          48.7170937
         ]
       },
       "properties": {
@@ -92898,6 +92983,36 @@
         "osm_type": "way",
         "amenity": "toilets",
         "building": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2891974,
+          48.5397727
+        ]
+      },
+      "properties": {
+        "id": 1463955737,
+        "osm_type": "way",
+        "access": "yes",
+        "amenity": "toilets",
+        "building": "container",
+        "building:colour": "white",
+        "building:levels": "1",
+        "building:material": "metal",
+        "fee": "no",
+        "female": "yes",
+        "inscription": "WC",
+        "level": "0",
+        "male": "yes",
+        "roof:shape": "flat",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "toilets:paper_supplied": "yes",
+        "toilets:position": "seated;urinal"
       }
     },
     {

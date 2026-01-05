@@ -18841,6 +18841,7 @@
         "brand": "EDEKA",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
+        "check_date:opening_hours": "2026-01-03",
         "name": "Edeka",
         "opening_hours": "Mo-Fr 07:30-20:00, Sa 07:30-18:00",
         "operator": "Uwe Politt",
@@ -26283,6 +26284,7 @@
         "osm_type": "node",
         "brand": "Nahkauf",
         "brand:wikidata": "Q57515238",
+        "check_date:opening_hours": "2026-01-01",
         "contact:phone": "+49 2242 6272",
         "contact:website": "https://www.nahkauf.de/maerkte/hennef-43612024-nahkauf-sommer-geistinger-strasse-2",
         "name": "Nahkauf",
@@ -41027,8 +41029,8 @@
         "addr:housenumber": "25",
         "addr:postcode": "33803",
         "addr:street": "Bahnhofstraße",
-        "brand": "Aldi",
-        "brand:wikidata": "Q125054",
+        "brand": "Aldi Nord",
+        "brand:wikidata": "Q41171373",
         "brand:wikipedia": "en:Aldi",
         "name": "Aldi",
         "opening_hours": "Mo-Sa 07:00-21:00",
@@ -43286,6 +43288,7 @@
         "brand:wikidata": "Q685967",
         "brand:wikipedia": "en:Kaufland",
         "name": "Kaufland",
+        "opening_hours": "Mo-Sa 07:00-22:00; Su, PH off",
         "shop": "supermarket",
         "toilets:wheelchair": "yes",
         "website": "https://filiale.kaufland.de/service/filiale/geilenkirchen-8740.html",
@@ -53460,7 +53463,7 @@
       "properties": {
         "id": 3741587806,
         "osm_type": "node",
-        "check_date": "2023-09",
+        "check_date": "2026-01-02",
         "contact:facebook": "https://www.facebook.com/Soanh.de/",
         "contact:instagram": "https://www.instagram.com/soanh_store/",
         "name": "Soanh Asia Supermarkt",
@@ -57437,6 +57440,7 @@
         "brand:wikidata": "Q41171373",
         "brand:wikipedia": "en:Aldi",
         "name": "ALDI Nord",
+        "opening_hours": "Mo-Sa 07:00-21:00; Su, PH off",
         "shop": "supermarket",
         "website": "https://www.aldi-nord.de/filialen-und-oeffnungszeiten.html/l/wuppertal/kaiserstrasse-33/3182267",
         "wheelchair": "yes"
@@ -60537,7 +60541,7 @@
         "id": 4867604901,
         "osm_type": "node",
         "check_date": "2024-10-02",
-        "name": "Al-Tawfeer",
+        "name": "Al-Akram Markt",
         "shop": "supermarket"
       }
     },
@@ -60929,6 +60933,11 @@
       "properties": {
         "id": 4925175224,
         "osm_type": "node",
+        "addr:city": "Bad Driburg",
+        "addr:country": "DE",
+        "addr:housenumber": "77",
+        "addr:postcode": "33014",
+        "addr:street": "Lange Straße",
         "name": "Natürlich Der Bioladen",
         "organic": "only",
         "shop": "supermarket",
@@ -62721,12 +62730,19 @@
         "brand": "REWE",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "de:Rewe",
+        "check_date": "2026-01-04",
         "check_date:opening_hours": "2025-02-24",
+        "contact:website": "https://www.rewe.de/marktseite/duesseldorf-benrath/1940119/rewe-markt-hauptstr-6-8",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "level": "0",
         "name": "REWE",
         "opening_hours": "Mo-Sa 07:00-24:00; Su,PH off",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
         "phone": "+49 211 995172",
         "shop": "supermarket",
-        "website": "https://www.rewe.de/",
         "wheelchair": "yes"
       }
     },
@@ -73518,7 +73534,7 @@
         "check_date:opening_hours": "2024-10-12",
         "name": "Edeka",
         "opening_hours": "Mo-Sa 07:00-22:00",
-        "phone": "+4920375988474",
+        "phone": "+49 203 75988474",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -74913,7 +74929,7 @@
         "addr:street": "Fischerstraße",
         "name": "Merhaba Market",
         "opening_hours": "Mo-Sa 08:00-18:00",
-        "phone": "+492037398127",
+        "phone": "+49 203 7398127",
         "shop": "supermarket"
       }
     },
@@ -86756,6 +86772,26 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.9616696,
+          50.9901076
+        ]
+      },
+      "properties": {
+        "id": 13427523412,
+        "osm_type": "node",
+        "addr:housenumber": "186",
+        "addr:street": "Sebastianstraße",
+        "check_date": "2026-01-02",
+        "name": "Nahkauf",
+        "shop": "supermarket",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.3848179,
           51.570407
         ]
@@ -90462,8 +90498,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0452063,
-          50.7144118
+          7.0451919,
+          50.714402
         ]
       },
       "properties": {
@@ -96538,7 +96574,7 @@
         "addr:housenumber": "64",
         "addr:postcode": "51379",
         "addr:street": "Gerhart-Hauptmann-Straße",
-        "brand": "REWE",
+        "brand": "Rewe",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "de:Rewe",
         "building": "retail",
@@ -101297,6 +101333,7 @@
         "building": "supermarket",
         "building:levels": "1",
         "building:use:retail": "yes",
+        "check_date:opening_hours": "2026-01-03",
         "name": "Lidl",
         "opening_hours": "Mo-Sa 07:00-21:00",
         "roof:shape": "gabled",
@@ -116095,6 +116132,7 @@
         "brand:wikipedia": "en:Aldi",
         "building": "retail",
         "building:levels": "1",
+        "check_date:opening_hours": "2026-01-02",
         "name": "ALDI Süd",
         "opening_hours": "Mo-Sa 08:00-20:00",
         "shop": "supermarket",
@@ -118470,6 +118508,7 @@
         "brand:wikipedia": "de:Netto Marken-Discount",
         "building": "retail",
         "building:levels": "1",
+        "check_date:opening_hours": "2026-01-03",
         "name": "Netto Marken-Discount",
         "opening_hours": "Mo-Sa 07:00-22:00",
         "roof:levels": "0",
@@ -133244,6 +133283,7 @@
         "brand:wikipedia": "en:Aldi",
         "building": "retail",
         "name": "ALDI Nord",
+        "opening_hours": "Mo-Sa 07:00-21:00; Su, PH off",
         "shop": "supermarket",
         "website": "https://www.aldi-nord.de/filialen-und-oeffnungszeiten.html/l/dulmen/huttenweg-5/3182374"
       }
@@ -143601,6 +143641,9 @@
         "name": "ALDI Nord",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "phone": "+49 800 7234870",
+        "roof:colour": "red",
+        "roof:material": "roof_tiles",
+        "roof:shape": "gabled",
         "shop": "supermarket",
         "website": "https://www.aldi-nord.de/filialen-und-oeffnungszeiten.html/l/bad-driburg/am-siedlerplatz-18/3181468",
         "wheelchair": "yes"
@@ -159474,6 +159517,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.6113064,
+          52.3838686
+        ]
+      },
+      "properties": {
+        "id": 316267445,
+        "osm_type": "way",
+        "addr:city": "Espelkamp",
+        "addr:country": "DE",
+        "addr:housenumber": "34",
+        "addr:postcode": "32339",
+        "addr:street": "Gabelhorst",
+        "building": "yes",
+        "name": "AKAY",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.0982379,
           51.237876
         ]
@@ -163082,6 +163147,7 @@
         "brand:wikipedia": "en:Aldi",
         "building": "yes",
         "name": "Aldi",
+        "opening_hours": "Mo-Sa 07:00-21:00; Su, PH off",
         "shop": "supermarket",
         "website": "https://www.aldi-nord.de/filialen-und-oeffnungszeiten.html/l/solingen/beethovenstrasse-131/3181825",
         "wheelchair": "yes"
@@ -166578,6 +166644,7 @@
         "brand:wikipedia": "en:Aldi",
         "building": "yes",
         "name": "ALDI Nord",
+        "opening_hours": "Mo-Sa 07:00-21:00; Su, PH off",
         "operator": "Aldi Nord",
         "shop": "supermarket",
         "website": "https://www.aldi-nord.de/filialen-und-oeffnungszeiten.html/l/remscheid/burger-strasse-85a/3180588"
@@ -172455,6 +172522,7 @@
         "brand:wikidata": "Q16968817",
         "building": "yes",
         "check_date:opening_hours": "2025-03-20",
+        "description": "Anleitung zu Handscannern und SB-Kassen für diese Filiale: https://osm.memg.eu/Anleitungen/AnleitungScannerSBKassenReweOLX.html",
         "email": "D80@rewe-rahmati.de",
         "fax": "+49 212 23540929",
         "internet_access": "wlan",
@@ -173848,12 +173916,12 @@
         "addr:housenumber": "15a",
         "addr:postcode": "47574",
         "addr:street": "Weezer Straße",
-        "brand": "ALDI Süd",
+        "brand": "Aldi Süd",
         "brand:wikidata": "Q41171672",
         "brand:wikipedia": "en:Aldi",
         "building": "retail",
         "contact:website": "https://filialen.aldi-sued.de/nordrhein-westfalen/goch/weezer-strasse-15a",
-        "name": "ALDI Süd",
+        "name": "Aldi Süd",
         "opening_hours": "Mo-Sa 08:00-20:00; PH off",
         "shop": "supermarket",
         "source:outline": "ALKIS NRW",

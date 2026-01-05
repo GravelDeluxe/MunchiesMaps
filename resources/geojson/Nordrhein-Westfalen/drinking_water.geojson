@@ -10229,8 +10229,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.6362912,
-          51.334838
+          6.6362556,
+          51.3348125
         ]
       },
       "properties": {
@@ -10238,26 +10238,6 @@
         "osm_type": "node",
         "amenity": "drinking_water",
         "man_made": "water_tap"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.6362821,
-          51.3348515
-        ]
-      },
-      "properties": {
-        "id": 12297695938,
-        "osm_type": "node",
-        "access": "yes",
-        "amenity": "drinking_water",
-        "description": "Es ist laut eigenen Angaben im Winter außer Betrieb.",
-        "name": "Trinkwasser",
-        "note": "Mehr Details, siehe Hinweis #5101163",
-        "seasonal": "yes"
       }
     },
     {
@@ -12148,7 +12128,8 @@
         "osm_type": "node",
         "amenity": "drinking_water",
         "indoor": "yes",
-        "level": "1"
+        "level": "1",
+        "man_made": "water_tap"
       }
     },
     {

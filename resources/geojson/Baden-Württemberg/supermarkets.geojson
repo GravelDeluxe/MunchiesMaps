@@ -423,7 +423,6 @@
         "name": "EDEKA",
         "opening_hours": "Mo-Sa 08:00-21:00; PH off",
         "payment:cards": "yes",
-        "payment:cash": "yes",
         "payment:coins": "yes",
         "payment:girocard": "yes",
         "payment:maestro": "yes",
@@ -2961,8 +2960,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6409884,
-          47.9245076
+          8.6404171,
+          47.9247332
         ]
       },
       "properties": {
@@ -2977,12 +2976,14 @@
         "brand": "EDEKA",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
+        "email": "geisingen@e-milkau.de",
         "name": "EDEKA",
         "opening_hours": "Mo-Sa 07:00-21:00; PH off",
         "operator": "EDEKA Handelsgesellschaft Südwest mbH",
         "operator:wikidata": "Q1283188",
         "phone": "+49 7704 923890",
         "shop": "supermarket",
+        "start_date": "2024-07-03",
         "wheelchair": "limited"
       }
     },
@@ -12734,7 +12735,8 @@
         "name": "Norma",
         "opening_hours": "Mo-Sa 07:00-21:00",
         "shop": "supermarket",
-        "website": "http://www.norma-online.de"
+        "website": "http://www.norma-online.de",
+        "wheelchair": "yes"
       }
     },
     {
@@ -31504,6 +31506,7 @@
         "id": 3407394939,
         "osm_type": "node",
         "name": "Penny Markt",
+        "opening_hours": "Mo-Sa 07:30-20:00",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -33694,8 +33697,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2172375,
-          48.8037012
+          9.2173724,
+          48.8036305
         ]
       },
       "properties": {
@@ -33703,6 +33706,7 @@
         "osm_type": "node",
         "check_date:opening_hours": "2024-03-04",
         "layer": "-1",
+        "level": "-1",
         "name": "Aydin Markt",
         "opening_hours:signed": "no",
         "shop": "supermarket"
@@ -34167,10 +34171,12 @@
         "addr:street": "Bahnhofplatz",
         "addr:suburb": "Südstadt",
         "bulk_purchase": "yes",
-        "check_date": "2024-08-02",
+        "check_date": "2026-01-03",
+        "check_date:diet:gluten_free": "2026-01-03",
         "contact:email": "info@unverpackt.de",
         "contact:website": "http://www.unverpackt.de/",
         "description": "Bedarfsgerechtes, nachhaltiges und verpackungsarmes Einkaufen in Karlsruhe",
+        "diet:gluten_free": "yes",
         "drinking_water:refill": "yes",
         "drinking_water:refill:network": "Refill Deutschland",
         "drinking_water:refill:network:wikidata": "Q50302201",
@@ -44341,7 +44347,7 @@
         "brand": "ALDI Süd",
         "brand:wikidata": "Q41171672",
         "brand:wikipedia": "en:Aldi",
-        "check_date": "2023-05-26",
+        "check_date": "2026-01-03",
         "internet_access": "no",
         "name": "ALDI Süd",
         "opening_hours": "Mo-Sa 08:00-21:00; Su,PH off",
@@ -46421,37 +46427,6 @@
         "opening_hours": "Mo-Sa 08:00-20:00",
         "shop": "supermarket",
         "website": "https://filialen.aldi-sued.de/baden-wuerttemberg/aalen-wasseralfingen/auguste-kessler-strasse-3"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.9328843,
-          48.7749749
-        ]
-      },
-      "properties": {
-        "id": 8455587469,
-        "osm_type": "node",
-        "addr:city": "Renningen",
-        "addr:housenumber": "1",
-        "addr:place": "Am Bahnhof 1",
-        "addr:postcode": "71272",
-        "brand": "Edeka 24/7",
-        "brand:wikidata": "Q701755",
-        "brand:wikipedia": "de:Edeka",
-        "check_date": "2024-02-29",
-        "name": "E 24/7 Karow & Sommer",
-        "note": "selfservice only",
-        "opening_hours": "24/7",
-        "payment:app": "yes",
-        "payment:cash": "no",
-        "payment:mastercard": "yes",
-        "payment:visa": "yes",
-        "shop": "supermarket",
-        "start_date": "2021-02-23"
       }
     },
     {
@@ -51830,7 +51805,8 @@
         "check_date:opening_hours": "2025-12-24",
         "name": "REWE",
         "opening_hours": "Mo-Sa 07:00-22:00; Su,PH off",
-        "shop": "supermarket"
+        "shop": "supermarket",
+        "wheelchair": "yes"
       }
     },
     {
@@ -55824,6 +55800,59 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.6391306,
+          48.9283462
+        ]
+      },
+      "properties": {
+        "id": 13424671108,
+        "osm_type": "node",
+        "addr:city": "Kaisersbach",
+        "addr:housenumber": "19",
+        "addr:postcode": "73667",
+        "addr:street": "Forststraße",
+        "name": "ORTkauf 24/7",
+        "opening_hours": "24/7",
+        "operator": "ORTkauf GMBH",
+        "payment:app": "yes",
+        "payment:cards": "yes",
+        "payment:cash": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:electronic_purses": "yes",
+        "payment:visa": "yes",
+        "shop": "supermarket",
+        "stroller": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.167273,
+          48.7795928
+        ]
+      },
+      "properties": {
+        "id": 13427405501,
+        "osm_type": "node",
+        "addr:housenumber": "12",
+        "addr:postcode": "70174",
+        "addr:street": "Breitscheidstraße",
+        "internet_access": "wlan",
+        "level": "-1",
+        "name": "Penny",
+        "opening_hours": "Mo-Sa 07:30-22:00",
+        "shop": "supermarket",
+        "website": "https://penny.de"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.3790583,
           49.0100795
         ]
@@ -58356,6 +58385,7 @@
         "check_date": "2023-09-15",
         "internet_access": "wlan",
         "internet_access:fee": "no",
+        "level": "0",
         "name": "Lidl",
         "opening_hours": "Mo-Sa 07:00-21:00",
         "payment:mastercard": "yes",
@@ -60423,8 +60453,8 @@
         "brand": "EDEKA",
         "brand:wikidata": "Q701755",
         "building": "supermarket",
-        "check_date": "2025-11-23",
-        "check_date:opening_hours": "2024-11-25",
+        "check_date": "2026-01-02",
+        "check_date:opening_hours": "2026-01-02",
         "diet:halal": "yes",
         "diet:kosher": "yes",
         "internet_access": "wlan",
@@ -72916,8 +72946,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6914031,
-          48.6617995
+          8.6914069,
+          48.6618007
         ]
       },
       "properties": {
@@ -74929,7 +74959,7 @@
         "brand:wikidata": "Q701755",
         "building": "commercial",
         "building:levels": "3",
-        "check_date:opening_hours": "2024-12-29",
+        "check_date:opening_hours": "2025-12-31",
         "diet:gluten_free": "yes",
         "name": "EDEKA Baur",
         "opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-18:00",
@@ -83321,8 +83351,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1590447,
-          48.4950156
+          9.1590452,
+          48.4950129
         ]
       },
       "properties": {
@@ -83343,6 +83373,8 @@
         "opening_hours": "Mo-Fr 08:00-21:00; Sa 08:00-21:00; Su off; PH off",
         "operator": "ALDI GmbH & Co. KG",
         "roof:levels": "1",
+        "roof:material": "roof_tiles",
+        "roof:orientation": "along",
         "roof:shape": "gabled",
         "shop": "supermarket",
         "website": "https://filialen.aldi-sued.de/baden-wuerttemberg/reutlingen/karl-henschel-strasse-2",
@@ -86845,8 +86877,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2442097,
-          47.9274573
+          9.24422,
+          47.9274631
         ]
       },
       "properties": {
@@ -88620,8 +88652,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7901891,
-          49.3938424
+          8.7901432,
+          49.3938343
         ]
       },
       "properties": {
@@ -91969,8 +92001,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.3908604,
-          48.4934952
+          9.3908695,
+          48.493522
         ]
       },
       "properties": {
@@ -91984,9 +92016,14 @@
         "brand": "ALDI Süd",
         "brand:wikidata": "Q41171672",
         "brand:wikipedia": "en:Aldi",
-        "building": "yes",
+        "building": "retail",
+        "building:levels": "1",
         "name": "Aldi Süd",
         "opening_hours": "Mo-Sa 08:00-20:00",
+        "roof:levels": "1",
+        "roof:material": "roof_tiles",
+        "roof:orientation": "along",
+        "roof:shape": "gabled",
         "shop": "supermarket",
         "website": "https://filialen.aldi-sued.de/baden-wuerttemberg/bad-urach/im-unterwaesser-3",
         "wheelchair": "yes"
@@ -95445,16 +95482,11 @@
         "addr:suburb": "Büchig",
         "brand": "Edeka",
         "brand:wikidata": "Q701755",
-        "brand:wikipedia": "de:Edeka",
         "building": "retail",
         "building:levels": "1",
-        "name": "EDEKA Behrens",
-        "old_name": "E aktiv markt Steimer",
-        "opening_hours": "Mo-Sa 08:00-20:00; Su,Ph off",
-        "operator": "Familie Behrens Büchig KG",
+        "name": "Behrens",
         "roof:shape": "flat",
-        "shop": "supermarket",
-        "wheelchair": "yes"
+        "shop": "supermarket"
       }
     },
     {
@@ -99597,8 +99629,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.8303499,
-          47.9948806
+          8.8303482,
+          47.994878
         ]
       },
       "properties": {
@@ -107542,8 +107574,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1170277,
-          47.9973057
+          9.1170076,
+          47.9973101
         ]
       },
       "properties": {
@@ -117000,23 +117032,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5844512,
+          8.5844533,
           47.6311612
         ]
       },
       "properties": {
         "id": 1327809162,
         "osm_type": "way",
+        "addr:city": "Lottstetten",
+        "addr:housenumber": "1",
+        "addr:postcode": "79807",
+        "addr:street": "Gewerbestraße",
         "brand": "Edeka",
         "brand:wikidata": "Q701755",
         "building": "yes",
         "name": "Edeka",
-        "opening_hours": "Mo-Sa 07:00-21:00",
+        "opening_hours": "Mo-Sa 07:00-21:00; PH off",
         "payment:cash": "yes",
         "payment:contactless": "yes",
         "payment:credit_cards": "yes",
         "payment:debit_cards": "yes",
-        "shop": "supermarket"
+        "phone": "+49 7745 32299000",
+        "shop": "supermarket",
+        "website": "https://www.edeka.de/eh/s%C3%BCdwest/edeka-lottstetten-gewerbestr.-1-3/index.jsp"
       }
     },
     {

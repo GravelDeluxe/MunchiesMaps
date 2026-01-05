@@ -2602,8 +2602,9 @@
         "fuel:e10": "yes",
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
-        "name": "MHT Tankstelle Sürth",
-        "opening_hours": "Mo-Fr 07:00-19:00; Sa 09:00-18:00; Su,PH 12:00-17:00; Jan01,Dec25 off",
+        "name": "Raiffeisen-Tankstelle",
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-16:00",
+        "operator": "https://www.raiffeisen.com",
         "payment:american_express": "yes",
         "payment:app": "yes",
         "payment:apple_pay": "yes",
@@ -2619,7 +2620,7 @@
         "payment:notes": "yes",
         "payment:visa": "yes",
         "self_service": "yes",
-        "website": "http://www.mht-mayen.com/",
+        "website": "https://www.raiffeisen.com",
         "wheelchair": "no"
       }
     },
@@ -8088,11 +8089,17 @@
         "amenity": "fuel",
         "brand": "Shell",
         "brand:wikidata": "Q154950",
-        "brand:wikipedia": "en:Royal Dutch Shell",
+        "brand:wikipedia": "de:Shell plc",
         "compressed_air": "yes",
+        "fuel:HGV_diesel": "yes",
+        "fuel:diesel": "yes",
+        "fuel:e10": "yes",
+        "fuel:octane_95": "yes",
         "name": "Shell",
-        "wheelchair": "limited",
-        "wikidata": "Q124339351"
+        "opening_hours": "Mo-Fr 06:15-22:00; Sa 07:00-21:00; Su,PH 08:00-21:00",
+        "shop": "yes",
+        "website": "https://find.shell.com/de/fuel/10025509-ludwigshafen-mannheimer-str",
+        "wheelchair": "limited"
       }
     },
     {
@@ -9249,21 +9256,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4141214,
-          49.4948961
+          8.4142119,
+          49.4948786
         ]
       },
       "properties": {
         "id": 1692101328,
         "osm_type": "node",
-        "addr:city": "Ludwigshafen am Rhein",
-        "addr:housenumber": "101",
-        "addr:postcode": "67063",
-        "addr:street": "Sternstraße",
         "amenity": "fuel",
         "brand": "Shell",
         "brand:wikidata": "Q154950",
-        "brand:wikipedia": "en:Royal Dutch Shell",
+        "brand:wikipedia": "de:Shell plc",
         "compressed_air": "yes",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
@@ -9271,8 +9274,11 @@
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
         "name": "Shell",
-        "opening_hours": "24/7",
-        "self_service": "yes"
+        "opening_hours": "Mo-Fr 05:00-22:00; Sa 06:00-22:00; Su 08:00-22:00",
+        "phone": "+49 621 698609",
+        "self_service": "yes",
+        "shop": "yes",
+        "website": "https://find.shell.com/de/fuel/10026471-ludwigshafen-sternstr-101"
       }
     },
     {
@@ -11810,6 +11816,7 @@
         "osm_type": "node",
         "amenity": "fuel",
         "brand": "Raiffeisen",
+        "compressed_air": "yes",
         "fuel:HGV_diesel": "yes",
         "fuel:adblue": "yes",
         "fuel:diesel": "yes",
@@ -12829,26 +12836,6 @@
         "name": "Esso",
         "opening_hours": "Mo-Fr 05:30-22:00; Sa-Su 07:00-22:00",
         "source": "http://www.gas-tankstellen.de"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.0815243,
-          49.5635818
-        ]
-      },
-      "properties": {
-        "id": 7141525178,
-        "osm_type": "node",
-        "amenity": "fuel",
-        "brand": "Shell",
-        "brand:wikidata": "Q154950",
-        "brand:wikipedia": "en:Royal Dutch Shell",
-        "name": "Shell",
-        "source": "bing"
       }
     },
     {
@@ -15494,6 +15481,69 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.3842755,
+          49.4892187
+        ]
+      },
+      "properties": {
+        "id": 13427575676,
+        "osm_type": "node",
+        "amenity": "fuel",
+        "brand": "JET",
+        "brand:wikidata": "Q568940",
+        "brand:wikipedia": "en:Jet (brand)",
+        "compressed_air": "yes",
+        "fuel:diesel": "yes",
+        "fuel:e10": "yes",
+        "fuel:octane_95": "yes",
+        "fuel:octane_98": "yes",
+        "name": "Jet",
+        "opening_hours": "Mo-Fr 05:00-23:00; Sa 07:00-23:00; Su 08:00-23:00",
+        "operator": "David Wojtalla",
+        "payment:dkv": "yes",
+        "payment:uta": "yes",
+        "phone": "+49 621 68590447",
+        "self_service": "yes",
+        "shop": "yes",
+        "website": "https://www.jet.de/tankstellen/ludwigshafen/mannheimer-stasse-61"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4122714,
+          49.5034725
+        ]
+      },
+      "properties": {
+        "id": 13427653502,
+        "osm_type": "node",
+        "amenity": "fuel",
+        "brand": "OIL!",
+        "brand:wikidata": "Q2007561",
+        "brand:wikipedia": "de:OIL! Tankstellen",
+        "compressed_air": "yes",
+        "fuel:HGV_diesel": "yes",
+        "fuel:adblue": "yes",
+        "fuel:diesel": "yes",
+        "fuel:e10": "yes",
+        "fuel:lpg": "yes",
+        "fuel:octane_95": "yes",
+        "fuel:octane_98": "yes",
+        "name": "OIL!",
+        "opening_hours": "Mo-Fr 05:00-22:00; Sa 07:00-22:00; Su,PH 08:00-22:00",
+        "phone": "+49 621 695753",
+        "shop": "yes",
+        "website": "https://www.oil-tankstellen.de/tankstellen-tankstationen/tankstellenfinder-kraftstoffpreise-benzinpreise/tankstelle/brunckstrasse-101-67063-ludwigshafen/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.4266008,
           49.4793792
         ]
@@ -17526,28 +17576,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4141714,
-          49.4948903
-        ]
-      },
-      "properties": {
-        "id": 185275502,
-        "osm_type": "way",
-        "addr:housenumber": "101",
-        "addr:street": "Sternstraße",
-        "amenity": "fuel",
-        "brand": "Shell",
-        "brand:wikidata": "Q110716465",
-        "building": "yes",
-        "compressed_air": "yes",
-        "name": "Shell"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.643411,
           50.2239289
         ]
@@ -18279,6 +18307,8 @@
       "properties": {
         "id": 208111243,
         "osm_type": "way",
+        "addr:city": "Bad Kreuznach",
+        "addr:country": "DE",
         "addr:housenumber": "73",
         "addr:postcode": "55543",
         "addr:street": "Alzeyer Straße",
@@ -18624,6 +18654,26 @@
         "opening_hours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00",
         "shop": "car",
         "source": "http://www.gas-tankstellen.de"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0816867,
+          49.5636293
+        ]
+      },
+      "properties": {
+        "id": 221446116,
+        "osm_type": "way",
+        "amenity": "fuel",
+        "brand": "Shell",
+        "brand:wikidata": "Q154950",
+        "brand:wikipedia": "en:Royal Dutch Shell",
+        "name": "Shell",
+        "source": "bing"
       }
     },
     {
@@ -20905,33 +20955,6 @@
         "fuel:octane_98": "yes",
         "layer": "1",
         "name": "Aral"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4124233,
-          49.503473
-        ]
-      },
-      "properties": {
-        "id": 394492509,
-        "osm_type": "way",
-        "addr:city": "Ludwigshafen am Rhein",
-        "addr:country": "DE",
-        "addr:housenumber": "101",
-        "addr:postcode": "67063",
-        "addr:street": "Brunckstraße",
-        "amenity": "fuel",
-        "brand": "OIL!",
-        "brand:wikidata": "Q2007561",
-        "brand:wikipedia": "de:OIL! Tankstellen",
-        "compressed_air": "yes",
-        "fuel:lpg": "yes",
-        "name": "OIL!",
-        "phone": "+49 621 695753"
       }
     },
     {
@@ -24018,32 +24041,6 @@
         "smoking": "no",
         "website": "https://www.hem-tankstelle.de/partner/HEM/Gau-Algesheim/Rheinstr-13",
         "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.384262,
-          49.4891793
-        ]
-      },
-      "properties": {
-        "id": 984561987,
-        "osm_type": "way",
-        "addr:city": "Ludwigshafen am Rhein",
-        "addr:housenumber": "61",
-        "addr:postcode": "67071",
-        "addr:street": "Mannheimer Straße",
-        "amenity": "fuel",
-        "brand": "JET",
-        "brand:wikidata": "Q568940",
-        "brand:wikipedia": "en:Jet (brand)",
-        "compressed_air": "yes",
-        "name": "Jet",
-        "self_service": "yes",
-        "website": "https://www.jet-tankstellen.de/tankstellen/ludwigshafen/mannheimer-str-61/"
       }
     },
     {

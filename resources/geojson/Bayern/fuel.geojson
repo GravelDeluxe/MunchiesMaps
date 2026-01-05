@@ -4828,18 +4828,19 @@
         "amenity": "fuel",
         "brand": "Shell",
         "brand:wikidata": "Q154950",
+        "check_date": "2026-01-04",
+        "check_date:opening_hours": "2026-01-04",
         "compressed_air": "yes",
         "fuel:diesel": "yes",
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
         "mapillary": "1167849450309863",
         "name": "Shell",
-        "opening_hours": "Mo-Fr 06:00-22:00; Sa-Su 07:00-22:00",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00",
         "operator": "Schell",
         "payment:dkv": "yes",
         "phone": "+49 931 92100",
         "shop": "kiosk",
-        "survey:date": "2022-07-30",
         "website": "https://find.shell.com/de/fuel/10026707-veitshoechheim-scheffelstr",
         "wheelchair": "yes"
       }
@@ -19960,7 +19961,7 @@
         "addr:street": "Hauptstraße",
         "amenity": "fuel",
         "name": "BFT Bader",
-        "operator": "BFT",
+        "operator": "Reinhold Bader",
         "phone": "+49 8281 2587"
       }
     },
@@ -22183,6 +22184,10 @@
       "properties": {
         "id": 600077738,
         "osm_type": "node",
+        "addr:city": "Tittmoning",
+        "addr:country": "DE",
+        "addr:postcode": "84529",
+        "addr:street": "Waginger Straße",
         "amenity": "fuel",
         "name": "Schechtl",
         "operator": "Schechtl"
@@ -23586,6 +23591,8 @@
       "properties": {
         "id": 717607611,
         "osm_type": "node",
+        "addr:city": "Neuhaus am Inn",
+        "addr:country": "DE",
         "addr:housenumber": "2",
         "addr:postcode": "94152",
         "addr:street": "Strassfeld",
@@ -45252,8 +45259,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.0042595,
-          47.6303784
+          13.0042733,
+          47.6303971
         ]
       },
       "properties": {
@@ -50401,13 +50408,13 @@
         "addr:postcode": "89312",
         "addr:street": "Schlachthausstraße",
         "amenity": "fuel",
-        "fixme": "lpg?",
+        "contact:phone": "+49 8221 2039255",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
+        "fuel:lpg": "no",
         "fuel:octane_95": "yes",
         "name": "Access",
-        "operator": "Frank Hlawatschke",
-        "phone": "+49 8221 2039255"
+        "operator": "Frank Hlawatschke"
       }
     },
     {
@@ -70457,8 +70464,8 @@
         "addr:street": "Logistikring",
         "addr:suburb": "Langenbruck",
         "amenity": "fuel",
-        "brand": "OMV",
-        "brand:wikidata": "Q168238",
+        "brand": "Esso",
+        "brand:wikidata": "Q867662",
         "building": "yes",
         "fax": "+49 8453 3367274",
         "fuel:1_25": "fixme",
@@ -70480,7 +70487,7 @@
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
         "fuel:svo": "fixme",
-        "name": "OMV Reichertshofen",
+        "name": "ESSO Reichertshofen",
         "opening_hours": "24/7",
         "payment:account_cards": "yes",
         "payment:coins": "yes",
@@ -84099,6 +84106,7 @@
         "addr:postcode": "89423",
         "addr:street": "Lauinger Straße",
         "amenity": "fuel",
+        "compressed_air": "yes",
         "drink:coffee:togo": "yes",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",

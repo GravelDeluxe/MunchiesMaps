@@ -17758,8 +17758,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4749894,
-          50.0880088
+          8.4749716,
+          50.088022
         ]
       },
       "properties": {
@@ -30534,6 +30534,7 @@
         "amenity": "toilets",
         "changing_table": "no",
         "fee": "no",
+        "opening_hours": "24/7",
         "toilets:disposal": "flush",
         "unisex": "yes",
         "wheelchair": "yes"
@@ -30567,8 +30568,10 @@
         "id": 13418323119,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "toilets:disposal": "chemical",
-        "unisex": "yes"
+        "unisex": "yes",
+        "wheelchair": "no"
       }
     },
     {
@@ -30585,7 +30588,29 @@
         "osm_type": "node",
         "amenity": "toilets",
         "changing_table": "yes",
+        "fee": "no",
         "toilets:disposal": "chemical",
+        "unisex": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6340154,
+          49.6249474
+        ]
+      },
+      "properties": {
+        "id": 13429261939,
+        "osm_type": "node",
+        "access": "yes",
+        "amenity": "toilets",
+        "charge": "0,50 €",
+        "fee": "yes",
+        "toilets:disposal": "flush",
         "unisex": "yes",
         "wheelchair": "yes"
       }
@@ -39209,8 +39234,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4749532,
-          50.0822975
+          8.4749553,
+          50.082299
         ]
       },
       "properties": {

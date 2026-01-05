@@ -1462,15 +1462,15 @@
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
         "brand:wikipedia": "en:McDonald's",
-        "check_date": "2025-07-10",
-        "check_date:opening_hours": "2023-12-07",
+        "check_date": "2026-01-04",
+        "check_date:opening_hours": "2026-01-04",
         "check_date:smoking": "2025-07-10",
         "cuisine": "burger",
         "fixme": "position",
         "indoor_seating": "yes",
         "level": "0",
         "name": "McDonald's",
-        "opening_hours:signed": "no",
+        "opening_hours": "Mo-Su 00:00-00:00",
         "outdoor_seating": "no",
         "smoking": "no",
         "takeaway": "yes",
@@ -9738,9 +9738,11 @@
         "building:levels": "1",
         "check_date": "2023-06-07",
         "cuisine": "burger",
+        "indoor_seating": "yes",
         "internet_access": "wlan",
         "name": "McDonald's",
         "opening_hours": "Mo-Th,Su 07:00-01:00; Fr-Sa 07:00-03:00",
+        "outdoor_seating": "yes",
         "roof:levels": "0",
         "smoking": "no",
         "takeaway": "yes",
@@ -9850,6 +9852,28 @@
         "payment:visa": "yes",
         "takeaway": "yes",
         "website": "https://www.mcdonalds.com/de/de-de/restaurant-suche.html/s?q=McDonald%27s%20-%20Zum%20Heidhof%206b%2C%2034414%20Warburg#!/l/warburg/zum-heidhof-6/1883"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1802936,
+          51.7080278
+        ]
+      },
+      "properties": {
+        "id": 1448659788,
+        "osm_type": "way",
+        "amenity": "fast_food",
+        "brand": "McDonald's",
+        "brand:wikidata": "Q38076",
+        "building": "restaurant",
+        "cuisine": "burger",
+        "name": "McDonald's",
+        "start_date": "2025-12-16",
+        "takeaway": "yes"
       }
     },
     {

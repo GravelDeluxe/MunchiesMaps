@@ -18750,6 +18750,7 @@
       "properties": {
         "id": 12103055427,
         "osm_type": "node",
+        "access": "customers",
         "amenity": "toilets",
         "fee": "no",
         "female": "yes",
@@ -21224,6 +21225,7 @@
       "properties": {
         "id": 12874781762,
         "osm_type": "node",
+        "access": "permit",
         "amenity": "toilets"
       }
     },
@@ -23253,8 +23255,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0697573,
-          49.5585055
+          8.0697456,
+          49.5585065
         ]
       },
       "properties": {
@@ -26771,7 +26773,8 @@
         "id": 761714527,
         "osm_type": "way",
         "amenity": "toilets",
-        "building": "yes"
+        "building": "yes",
+        "wheelchair": "yes"
       }
     },
     {

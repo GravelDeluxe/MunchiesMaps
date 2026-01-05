@@ -855,6 +855,7 @@
         "brand": "ALDI Nord",
         "brand:wikidata": "Q41171373",
         "brand:wikipedia": "hu:Aldi Nord",
+        "check_date:opening_hours": "2026-01-02",
         "contact:website": "https://www.aldi-nord.de/",
         "name": "ALDI Nord",
         "opening_hours": "Mo-Sa 07:00-20:00; PH off",
@@ -1034,7 +1035,7 @@
         "brand": "tegut",
         "brand:wikidata": "Q1547993",
         "brand:wikipedia": "en:Tegut",
-        "check_date:opening_hours": "2024-10-09",
+        "check_date:opening_hours": "2026-01-03",
         "diet:halal": "no",
         "diet:kosher": "no",
         "name": "tegut",
@@ -5594,6 +5595,7 @@
         "addr:postcode": "99084",
         "addr:street": "Andreasstraße",
         "alt_name": "Naturkost am Dom",
+        "check_date:opening_hours": "2026-01-03",
         "diet:halal": "no",
         "diet:vegan": "yes",
         "name": "organics",
@@ -8208,6 +8210,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.0323318,
+          50.974411
+        ]
+      },
+      "properties": {
+        "id": 6777712418,
+        "osm_type": "node",
+        "shop": "supermarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.0320857,
           50.9745728
         ]
@@ -9694,7 +9711,7 @@
         "brand": "Lidl",
         "brand:wikidata": "Q151954",
         "brand:wikipedia": "en:Lidl",
-        "check_date:opening_hours": "2024-08-21",
+        "check_date:opening_hours": "2026-01-04",
         "contact:email": "kontakt@lidl.de",
         "contact:facebook": "https://www.facebook.com/lidl",
         "contact:instagram": "https://www.instagram.com/lidlde",
@@ -14656,8 +14673,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.6763015,
-          50.6026044
+          10.6762762,
+          50.6025993
         ]
       },
       "properties": {
@@ -17765,33 +17782,6 @@
         "opening_hours": "Mo-Sa 07:00-20:00",
         "shop": "supermarket",
         "website": "https://www.netto-online.de/filialen/Arnstadt/Rehestaedter-Weg-2/1626/",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.3219342,
-          51.3767523
-        ]
-      },
-      "properties": {
-        "id": 121095920,
-        "osm_type": "way",
-        "addr:city": "Leinefelde-Worbis",
-        "addr:country": "DE",
-        "addr:housenumber": "4",
-        "addr:postcode": "37327",
-        "addr:street": "Bonifatiusplatz",
-        "addr:suburb": "Leinefelde",
-        "building": "retail",
-        "building:levels": "2",
-        "name": "Edeka",
-        "opening_hours": "Mo-Sa 07:00-20:00",
-        "roof:levels": "0",
-        "shop": "supermarket",
         "wheelchair": "yes"
       }
     },

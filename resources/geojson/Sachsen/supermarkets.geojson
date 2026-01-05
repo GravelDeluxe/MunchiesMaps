@@ -1401,7 +1401,7 @@
         "addr:postcode": "09306",
         "addr:street": "Poststraße",
         "branch": "Bellmann",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
         "check_date:opening_hours": "2022-12-27",
@@ -3261,7 +3261,7 @@
         "brand": "Norma",
         "brand:wikidata": "Q450180",
         "brand:wikipedia": "de:Norma (Supermarkt)",
-        "name": "NORMA",
+        "name": "Norma",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "shop": "supermarket",
         "wheelchair": "limited"
@@ -6921,34 +6921,6 @@
         "payment:debit_cards": "yes",
         "shop": "supermarket",
         "website": "https://www.aldi-nord.de/filialen-und-oeffnungszeiten.html/l/dresden/prager-strasse-11/4399026",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.1310575,
-          51.2239629
-        ]
-      },
-      "properties": {
-        "id": 746457476,
-        "osm_type": "node",
-        "addr:city": "Elstra",
-        "addr:housenumber": "2",
-        "addr:postcode": "01920",
-        "addr:street": "Stadtring",
-        "brand": "Netto",
-        "brand:wikidata": "Q552652",
-        "brand:wikipedia": "en:Netto (store)",
-        "email": "service@netto.de",
-        "name": "Netto",
-        "opening_hours": "Mo-Sa 07:00-20:00",
-        "operator": "NETTO ApS & Co. KG",
-        "shop": "supermarket",
-        "website": "https://netto.de/",
         "wheelchair": "yes"
       }
     },
@@ -13114,6 +13086,7 @@
         "check_date": "2025-11-07",
         "check_date:opening_hours": "2023-10-10",
         "email": "info@bio-mare.com",
+        "handwashing:soap": "yes",
         "level": "0",
         "name": "Biomare Plagwitz",
         "opening_hours": "Mo-Sa 08:00-20:00",
@@ -13125,8 +13098,12 @@
         "phone": "+49 341 30816910",
         "shop": "supermarket",
         "toilets": "yes",
-        "toilets:access": "customers",
+        "toilets:access": "key",
+        "toilets:disposal": "flush",
+        "toilets:gender_segregated": "yes",
+        "toilets:handwashing": "yes",
         "toilets:menstrual_products": "yes",
+        "toilets:paper_supplied": "yes",
         "toilets:wheelchair": "no",
         "website": "https://bio-mare.com/",
         "wheelchair": "yes"
@@ -13446,15 +13423,17 @@
         "id": 3808295129,
         "osm_type": "node",
         "addr:city": "Oelsnitz/Vogtl.",
-        "addr:housenumber": "7",
+        "addr:housenumber": "9",
         "addr:postcode": "08606",
         "addr:street": "Alte Bahnhofstraße",
-        "brand": "REWE",
+        "brand": "Rewe",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "de:Rewe",
         "check_date:opening_hours": "2024-10-15",
+        "contact:phone": "+49 37421 723598",
+        "contact:website": "https://www.rewe.de/marktseite/oelsnitz-vogtland/4040469/rewe-markt-alte-bahnhofstr-9",
         "name": "REWE",
-        "opening_hours": "Mo-Sa 06:00-21:30",
+        "opening_hours": "Mo-Sa 06:00-21:30; Su,PH off",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -23104,7 +23083,7 @@
         "brand:wikipedia": "en:Kaufland",
         "building": "retail",
         "building:levels": "1",
-        "check_date:opening_hours": "2023-06-07",
+        "check_date:opening_hours": "2026-01-04",
         "name": "Kaufland",
         "opening_hours": "Mo-Sa 06:00-22:00; Su off",
         "operator": "Kaufland Warenhandel GmbH & Co. KG",
@@ -26096,9 +26075,13 @@
         "addr:housenumber": "28",
         "addr:postcode": "08645",
         "addr:street": "Hagerstraße",
+        "brand": "Edeka",
+        "brand:wikidata": "Q701755",
         "building": "retail",
+        "contact:phone": "+49 37437 531034",
+        "contact:website": "https://www.edeka.de/eh/nordbayern-sachsen-th%C3%BCringen/nah-gut-kadelke-hagerstra%C3%9Fe-28/index.jsp",
         "name": "nah & gut",
-        "opening_hours": "Mo-Sa 07:00-20:00",
+        "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -26242,6 +26225,7 @@
         "brand:wikidata": "Q879858",
         "brand:wikipedia": "de:Netto Marken-Discount",
         "building": "yes",
+        "check_date:opening_hours": "2026-01-02",
         "name": "Netto Marken-Discount",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "shop": "supermarket",
@@ -27441,6 +27425,7 @@
         "brand:wikidata": "Q284688",
         "brand:wikipedia": "en:Penny (supermarket)",
         "building": "yes",
+        "check_date:opening_hours": "2026-01-03",
         "name": "PENNY. Rothenburger Straße",
         "opening_hours": "Mo-Sa 07:00-20:00; PH off",
         "shop": "supermarket"
@@ -31507,38 +31492,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.8669746,
-          50.7783656
-        ]
-      },
-      "properties": {
-        "id": 105327114,
-        "osm_type": "way",
-        "addr:city": "Neukirchen/Erzgebirge",
-        "addr:country": "DE",
-        "addr:housenumber": "3",
-        "addr:postcode": "09221",
-        "addr:street": "Am Marktplatz",
-        "brand": "PENNY",
-        "brand:wikidata": "Q284688",
-        "brand:wikipedia": "en:Penny (supermarket)",
-        "building": "yes",
-        "contact:email": "kontakt@penny.de",
-        "contact:facebook": "https://www.facebook.com/PennyDeutschland",
-        "contact:instagram": "https://www.instagram.com/pennydeutschland",
-        "contact:website": "https://www.penny.de",
-        "name": "PENNY",
-        "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off",
-        "operator": "Penny Markt GmbH",
-        "shop": "supermarket",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.1281277,
           50.5080797
         ]
@@ -35104,13 +35057,26 @@
         "building:levels": "4",
         "check_date": "2024-07-12",
         "check_date:opening_hours": "2024-07-12",
+        "email": "kundenmanagement@kaufland.de",
+        "handwashing:soap": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
         "name": "Kaufland",
         "opening_hours": "Mo-Sa 07:00-22:00",
         "operator": "Kaufland",
+        "organic": "yes",
         "roof:levels": "2",
         "roof:shape": "many",
         "shop": "supermarket",
-        "toilets:wheelchair": "yes",
+        "toilets": "yes",
+        "toilets:disposal": "flush",
+        "toilets:fee": "no",
+        "toilets:gender_segregated": "yes",
+        "toilets:hands_drying": "electric_hand_dryer",
+        "toilets:handwashing": "yes",
+        "toilets:paper_supplied": "yes",
+        "toilets:position": "seated;urinal",
+        "toilets:supervised": "no",
         "website": "https://www.kaufland.de/",
         "wheelchair": "yes"
       }
@@ -38719,8 +38685,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.1700358,
-          50.4158515
+          12.1701122,
+          50.4158934
         ]
       },
       "properties": {
@@ -38730,11 +38696,14 @@
         "addr:housenumber": "26",
         "addr:postcode": "08606",
         "addr:street": "Grabenstraße",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
         "building": "yes",
+        "contact:phone": "+49 37421 29510",
+        "contact:website": "https://www.edeka.de/eh/nordbayern-sachsen-th%C3%BCringen/edeka-kadelke-grabenstra%C3%9Fe-26/index.jsp",
         "name": "Edeka",
+        "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -41829,7 +41798,7 @@
         "addr:housenumber": "1e",
         "addr:postcode": "04720",
         "addr:street": "Mastener Straße",
-        "brand": "PENNY",
+        "brand": "Penny",
         "brand:wikidata": "Q284688",
         "brand:wikipedia": "en:Penny (supermarket)",
         "building": "yes",
@@ -44477,8 +44446,9 @@
         "contact:instagram": "https://www.instagram.com/netto_marken_discount/",
         "contact:website": "https://www.netto-online.de/filialen/Reichenbach-Oberlausitz/Loebauer-Str-3/4963/",
         "name": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su,PH off",
+        "opening_hours": "Mo-Sa 07:00-21:00; PH off",
         "operator": "Netto Marken-Discount Stiftung & Co. KG",
+        "ref": "101",
         "roof:levels": "0",
         "shop": "supermarket",
         "wheelchair": "yes"
@@ -44824,14 +44794,23 @@
         "addr:housenumber": "2",
         "addr:postcode": "01920",
         "addr:street": "Stadtring",
+        "brand": "Netto",
+        "brand:wikidata": "Q552652",
+        "brand:wikipedia": "en:Netto (store)",
         "building": "retail",
         "building:colour": "darkgrey",
         "building:levels": "1",
+        "email": "service@netto.de",
+        "name": "Netto",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "operator": "NETTO ApS & Co. KG",
         "roof:colour": "#e66947",
         "roof:material": "brick",
         "roof:shape": "hipped",
         "shop": "supermarket",
-        "source": "bing"
+        "source": "bing",
+        "website": "https://netto.de/",
+        "wheelchair": "yes"
       }
     },
     {

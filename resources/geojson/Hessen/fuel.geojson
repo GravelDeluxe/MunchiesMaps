@@ -2032,6 +2032,7 @@
         "brand": "Aral",
         "brand:wikidata": "Q565734",
         "brand:wikipedia": "de:Aral",
+        "check_date": "2026-01-04",
         "compressed_air": "yes",
         "fax": "+49 69 94139323",
         "fuel:diesel": "yes",
@@ -26807,6 +26808,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.7059083,
+          50.1339112
+        ]
+      },
+      "properties": {
+        "id": 113272323,
+        "osm_type": "way",
+        "amenity": "fuel",
+        "building": "roof",
+        "layer": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.2742606,
           50.0182428
         ]
@@ -31872,7 +31890,8 @@
         "addr:postcode": "35075",
         "addr:street": "Marburger Straße",
         "amenity": "fuel",
-        "brand": "Agip",
+        "brand": "Eni",
+        "brand:wikidata": "Q565594",
         "building": "yes",
         "fuel:GTL_diesel": "no",
         "fuel:HGV_diesel": "no",

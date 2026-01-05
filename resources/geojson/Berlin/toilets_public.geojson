@@ -1737,7 +1737,8 @@
         "osm_type": "node",
         "amenity": "toilets",
         "fee": "yes",
-        "name": "WC in Bau",
+        "female": "yes",
+        "male": "yes",
         "opening_hours": "24/7",
         "wheelchair": "yes"
       }
@@ -9993,13 +9994,15 @@
         "access": "permissive",
         "amenity": "toilets",
         "changing_table": "yes",
+        "check_date": "2026-01-02",
         "fee": "no",
         "female": "yes",
         "level": "-1",
         "male": "yes",
         "toilets:disposal": "flush",
+        "toilets:menstrual_products": "yes",
         "unisex": "yes",
-        "wheelchair": "no"
+        "wheelchair": "yes"
       }
     },
     {
@@ -19903,9 +19906,14 @@
         "access": "yes",
         "amenity": "toilets",
         "building": "yes",
-        "fee": "yes",
+        "fee": "no",
+        "gender_segregated": "yes",
+        "handwashing:soap": "yes",
+        "supervised": "no",
         "toilets:disposal": "flush",
         "toilets:handwashing": "yes",
+        "toilets:paper_supplied": "yes",
+        "toilets:position": "seated;urinal",
         "unisex": "yes",
         "wheelchair": "yes"
       }
