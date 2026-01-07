@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Testkarte – Clustering ab 10 + Layer Dropdown + Standort</title>
+  <title>Test map – clustering from 10 + layer dropdown + my location</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -335,81 +335,81 @@
 <body>
     <div id="map"></div>
     <div class="map-controls-br">
-      <button id="locateButton" type="button" aria-label="Standort zentrieren">Standort</button>
-      <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Filter öffnen">Filter</button>
+      <button id="locateButton" type="button" aria-label="Center my location">My location</button>
+      <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open filters">Filters</button>
     </div>
     <div id="layerDrawerBackdrop" aria-hidden="true"></div>
-  <aside id="layerDrawer" aria-hidden="true" aria-label="Filter">
+  <aside id="layerDrawer" aria-hidden="true" aria-label="Filters">
     <header>
-      <h2>Filter</h2>
-      <button type="button" id="layerDrawerClose" aria-label="Schließen">×</button>
+      <h2>Filters</h2>
+      <button type="button" id="layerDrawerClose" aria-label="Close">×</button>
     </header>
     <div class="drawer-body">
       <div class="section" id="bundeslandSection">
         <div class="accordion-header" data-target="blSection" aria-expanded="false" role="button" tabindex="0">
-          <span>Bundesland</span>
+          <span>State</span>
           <span class="chevron">⌄</span>
         </div>
         <div class="accordion-body" id="blSection">
           <div class="action-row">
-            <button type="button" id="blSelectAll">Alle auswählen</button>
-            <button type="button" id="blSelectNone">Keine auswählen</button>
+            <button type="button" id="blSelectAll">Select all</button>
+            <button type="button" id="blSelectNone">Select none</button>
           </div>
           <div class="checklist" id="blList"></div>
         </div>
       </div>
       <div class="section" id="kategorieSection">
         <div class="accordion-header" data-target="catSection" aria-expanded="false" role="button" tabindex="0">
-          <span>Kategorie</span>
+          <span>Category</span>
           <span class="chevron">⌄</span>
         </div>
         <div class="accordion-body" id="catSection">
           <div class="action-row">
-            <button type="button" id="catSelectAll">Alle auswählen</button>
-            <button type="button" id="catSelectNone">Keine auswählen</button>
+            <button type="button" id="catSelectAll">Select all</button>
+            <button type="button" id="catSelectNone">Select none</button>
           </div>
           <div class="checklist" id="catList"></div>
         </div>
       </div>
       <div class="section" id="clusterSection">
         <div class="accordion-header" data-target="clusterBody" aria-expanded="false" role="button" tabindex="0">
-          <span>Cluster</span>
+          <span>Clustering</span>
           <span class="chevron">⌄</span>
         </div>
         <div class="accordion-body" id="clusterBody">
           <div class="cluster-row">
-            <label for="clusterThresholdInput">Clustering ab (sichtbare Punkte)</label>
+            <label for="clusterThresholdInput">Enable clustering above (visible POIs)</label>
             <input type="number" id="clusterThresholdInput" min="0" step="1" />
-            <p class="cluster-helper">Cluster werden erst angezeigt, wenn mehr als X Punkte im sichtbaren Kartenausschnitt liegen.</p>
+            <p class="cluster-helper">Clusters appear only when more than X POIs are visible in the current map view.</p>
           </div>
         </div>
       </div>
       <div class="section" id="gpxSection">
         <div class="accordion-header" data-target="gpxBody" aria-expanded="false" role="button" tabindex="0">
-          <span>GPX-Import</span>
+          <span>GPX import</span>
           <span class="chevron">⌄</span>
         </div>
         <div class="accordion-body" id="gpxBody">
           <div class="gpx-inputs">
             <div class="gpx-row">
-              <label for="gpxFileInput">GPX-Datei</label>
+              <label for="gpxFileInput">GPX file</label>
               <input type="file" id="gpxFileInput" accept=".gpx" />
             </div>
             <div class="gpx-row">
-              <label for="gpxRadiusKm">Umkreis (km)</label>
+              <label for="gpxRadiusKm">Radius (km)</label>
               <input type="number" id="gpxRadiusKm" min="0" step="1" value="5" />
             </div>
-            <button type="button" class="gpx-apply" id="gpxApplyBtn">Anwenden</button>
+            <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
             <div class="gpx-error" id="gpxError" aria-live="polite"></div>
           </div>
         </div>
       </div>
     </div>
     <div class="drawer-bottom">
-      <button type="button" id="resetAllBtn" class="drawer-reset-btn">Zurücksetzen</button>
+      <button type="button" id="resetAllBtn" class="drawer-reset-btn">Reset</button>
       <label class="theme-toggle" for="darkModeToggle">
-        <span>Darkmode</span>
-        <input type="checkbox" id="darkModeToggle" aria-label="Darkmode umschalten" />
+        <span>Dark mode</span>
+        <input type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode" />
         <span class="toggle-switch" aria-hidden="true"></span>
       </label>
     </div>
@@ -526,12 +526,12 @@
 
     const LIGHT_TILES = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
-      attribution: '&copy; OpenStreetMap-Mitwirkende'
+      attribution: '&copy; OpenStreetMap contributors'
     });
     const DARK_TILES = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 19,
       subdomains: 'abcd',
-      attribution: '&copy; OpenStreetMap-Mitwirkende, &copy; <a href="https://carto.com/attributions">CARTO</a>'
+      attribution: '&copy; OpenStreetMap contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
     });
 
     baseLayers = { light: LIGHT_TILES, dark: DARK_TILES };
@@ -577,6 +577,28 @@
 
     function comboKey(bundeslandId, categoryId) {
       return `${bundeslandId}__${categoryId}`;
+    }
+
+    function stablePoiId(feature, datasetKey) {
+      if (!feature || !datasetKey) return null;
+      const props = feature.properties || {};
+      const candidates = [
+        feature.id,
+        props.osm_id,
+        props['@id'],
+        props.id
+      ];
+      const stableSource = candidates.find((value) => value !== undefined && value !== null && String(value).trim() !== '');
+      if (stableSource != null) {
+        return `${datasetKey}-${String(stableSource)}`;
+      }
+      const coords = feature.geometry?.coordinates || [];
+      const lon = Number(coords[0]);
+      const lat = Number(coords[1]);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+      const normLon = lon.toFixed(6);
+      const normLat = lat.toFixed(6);
+      return `${datasetKey}-${normLon}-${normLat}`;
     }
 
     function renderChecklist(containerId, items, selectedSet, setName) {
@@ -653,7 +675,7 @@
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = () => resolve(reader.result);
-        reader.onerror = () => reject(reader.error || new Error('Datei konnte nicht gelesen werden'));
+        reader.onerror = () => reject(reader.error || new Error('Could not read the file.'));
         reader.readAsText(file);
       });
     }
@@ -958,7 +980,7 @@
 
     function popupHtml(props, categoryId) {
       const p = props || {};
-      const name = p.name || '(ohne Name)';
+      const name = p.name || '(unnamed)';
       const desc = p.description ? p.description : '';
       const catLabel = categoryId ? categoryLabelMap[categoryId] : null;
       const categoryBadge = catLabel ? `<span class="popup-cat">${categoryIconHtml(categoryId, 20, 'cat-icon--popup')}<span>${catLabel}</span></span>` : '';
@@ -1204,7 +1226,7 @@
 
     async function loadManifest() {
       const r = await fetch(MANIFEST_URL, { cache: 'no-store' });
-      if (!r.ok) throw new Error(`Manifest konnte nicht geladen werden (HTTP ${r.status})`);
+      if (!r.ok) throw new Error(`Manifest could not be loaded (HTTP ${r.status})`);
       const data = await r.json();
       const bundeslaender = Array.isArray(data.bundeslaender) ? data.bundeslaender : [];
       const categories = Array.isArray(data.categories) ? data.categories : [];
@@ -1239,7 +1261,7 @@
         return entry;
       } catch (err) {
         if (!missingCache.has(key)) {
-          console.warn(`GeoJSON fehlt für ${bundeslandId}/${categoryId}:`, err);
+          console.warn(`GeoJSON missing for ${bundeslandId}/${categoryId}:`, err);
           missingCache.add(key);
         }
         return null;
@@ -1268,13 +1290,14 @@
         if (!entry || entry.status !== 'ready') return;
         const entryKey = key;
         const feats = filteredFeatures(entry);
-        feats.forEach((f, idx) => {
+        feats.forEach((f) => {
           const coords = f.geometry?.coordinates || [];
           const lon = Number(coords[0]);
           const lat = Number(coords[1]);
           if (Number.isFinite(lat) && Number.isFinite(lon)) {
-            const uniqueId = `${entryKey}-${idx}`;
-            points.push({ id: uniqueId, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
+            const poiId = stablePoiId(f, entryKey);
+            if (!poiId) return;
+            points.push({ id: poiId, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
           }
         });
       });
@@ -1320,22 +1343,22 @@
           trackPoints = parsed.points;
           gpxGeoJson = buildGpxGeoJson(parsed.xml);
         } catch (err) {
-          if (errorEl) errorEl.textContent = 'Datei konnte nicht gelesen werden.';
+          if (errorEl) errorEl.textContent = 'Could not read the file.';
           return;
         }
       } else if (!trackPoints || !trackPoints.length) {
-        if (errorEl) errorEl.textContent = 'Bitte eine gültige GPX-Datei auswählen.';
+        if (errorEl) errorEl.textContent = 'Please select a valid GPX file.';
         return;
       }
 
       if (!trackPoints || !trackPoints.length) {
-        if (errorEl) errorEl.textContent = 'Bitte eine gültige GPX-Datei auswählen.';
+        if (errorEl) errorEl.textContent = 'Please select a valid GPX file.';
         return;
       }
 
       const sampled = downsamplePoints(trackPoints);
       if (!sampled.length) {
-        if (errorEl) errorEl.textContent = 'Keine Punkte in der GPX-Datei gefunden.';
+        if (errorEl) errorEl.textContent = 'No points found in the GPX file.';
         return;
       }
 
@@ -1375,7 +1398,7 @@
     function goToUserLocation({ centerOnFix = true, suppressErrorAlert = false } = {}) {
       if (!navigator.geolocation) {
         if (!suppressErrorAlert) {
-          alert("Geolocation wird von diesem Browser nicht unterstützt.");
+          alert("Geolocation is not supported by this browser.");
         }
         return;
       }
@@ -1391,7 +1414,7 @@
 
             if (!userMarker) {
               userMarker = L.circleMarker(ll, { radius: 8, weight: 2, opacity: 0.95, fillOpacity: 0.8 }).addTo(map);
-              userMarker.bindPopup("Deine Position");
+              userMarker.bindPopup("Your location");
             } else {
               userMarker.setLatLng(ll);
             }
@@ -1410,7 +1433,7 @@
           },
           (err) => {
             if (!suppressErrorAlert) {
-              alert("Standort konnte nicht ermittelt werden: " + err.message);
+              alert("Could not determine location: " + err.message);
             }
           },
           { enableHighAccuracy: true, maximumAge: 10000, timeout: 15000 }
@@ -1465,7 +1488,7 @@
       goToUserLocation({ centerOnFix: true, suppressErrorAlert: true });
     })().catch(err => {
       console.error(err);
-      alert("Fehler beim Laden: " + (err.message || err));
+      alert("Loading error: " + (err.message || err));
       map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom);
     });
   </script>
