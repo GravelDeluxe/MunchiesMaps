@@ -397,7 +397,7 @@
             </div>
             <div class="gpx-row">
               <label for="gpxRadiusKm">Radius (km)</label>
-              <input type="number" id="gpxRadiusKm" min="0" step="1" value="5" />
+              <input type="number" id="gpxRadiusKm" min="0" step="0.1" value="0.3" />
             </div>
             <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
             <div class="gpx-error" id="gpxError" aria-live="polite"></div>
@@ -546,7 +546,7 @@
       kategorien: new Set()
     };
 
-    const DEFAULT_GPX_RADIUS_KM = 5;
+    const DEFAULT_GPX_RADIUS_KM = 0.3;
     const gpxState = {
       points: [],
       sampledPoints: [],
@@ -654,8 +654,14 @@
     }
 
     function clampRadiusKm(value) {
-      const km = Math.max(0, Math.floor(Number(value)) || 0);
-      return km;
+      const numeric = Number(value);
+      if (!Number.isFinite(numeric)) return 0;
+      const clamped = Math.max(0, numeric);
+      return Math.round(clamped * 10) / 10;
+    }
+
+    function formatRadiusKm(value) {
+      return clampRadiusKm(value).toFixed(1);
     }
 
     function parseClusterThreshold(value) {
@@ -1319,7 +1325,7 @@
       const err = document.getElementById('gpxError');
       clearGpxTrack();
       if (fileInput) fileInput.value = '';
-      if (radiusInput) radiusInput.value = String(DEFAULT_GPX_RADIUS_KM);
+      if (radiusInput) radiusInput.value = DEFAULT_GPX_RADIUS_KM.toFixed(1);
       if (err) err.textContent = '';
     }
 
@@ -1330,7 +1336,7 @@
       if (errorEl) errorEl.textContent = '';
 
       const clampedKm = clampRadiusKm(radiusInput ? radiusInput.value : DEFAULT_GPX_RADIUS_KM);
-      if (radiusInput) radiusInput.value = String(clampedKm);
+      if (radiusInput) radiusInput.value = clampedKm.toFixed(1);
       const radiusMeters = clampedKm * 1000;
 
       let trackPoints = gpxState.points;
@@ -1473,7 +1479,10 @@
       const radiusInput = document.getElementById('gpxRadiusKm');
       if (radiusInput) {
         radiusInput.addEventListener('change', () => {
-          radiusInput.value = String(clampRadiusKm(radiusInput.value));
+          radiusInput.value = formatRadiusKm(radiusInput.value);
+        });
+        radiusInput.addEventListener('blur', () => {
+          radiusInput.value = formatRadiusKm(radiusInput.value);
         });
       }
       const gpxApplyBtn = document.getElementById('gpxApplyBtn');
