@@ -835,7 +835,8 @@
 
     function filteredFeatures(entry) {
       if (!entry || !Array.isArray(entry.originalFeatures)) return [];
-      if (!gpxState.active || !gpxState.sampledPoints.length) return entry.originalFeatures;
+      if (!gpxState.active) return entry.originalFeatures;
+      if (!gpxState.sampledPoints || !gpxState.sampledPoints.length) return [];
       return entry.originalFeatures.filter((f) => isFeatureNearGpx(f));
     }
 
@@ -1035,6 +1036,9 @@
       const cached = markerCache.get(id);
       if (cached) {
         cached.lastUsed = renderCounter;
+        cached.marker.setLatLng([lat, lng]);
+        cached.marker.setIcon(iconForCategory(categoryId));
+        cached.marker.setPopupContent(popupHtml(propsRef, categoryId));
         return cached.marker;
       }
       const marker = L.marker([lat, lng], { icon: iconForCategory(categoryId) });
@@ -1269,7 +1273,8 @@
           const lon = Number(coords[0]);
           const lat = Number(coords[1]);
           if (Number.isFinite(lat) && Number.isFinite(lon)) {
-            points.push({ id: f.id || `${entryKey}-${idx}`, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
+            const uniqueId = `${entryKey}-${idx}`;
+            points.push({ id: uniqueId, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
           }
         });
       });
