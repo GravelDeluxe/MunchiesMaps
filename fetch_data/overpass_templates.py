@@ -53,7 +53,12 @@ def burger_king() -> str:
     """Return Overpass body for Burger King locations."""
     return dedent(
         f"""
-        nwr["amenity"="fast_food"][~"brand|name"~"Burger\\s*King",i]({AREA_ALIAS});
+        (
+          nwr["amenity"="fast_food"][~"brand|name|operator"~"Burger\\s*King|BurgerKing",i]({AREA_ALIAS});
+          nwr["amenity"="restaurant"][~"brand|name|operator"~"Burger\\s*King|BurgerKing",i]({AREA_ALIAS});
+          nwr["amenity"="fast_food"]["brand:wikidata"="Q177054"]({AREA_ALIAS});
+          nwr["amenity"="restaurant"]["brand:wikidata"="Q177054"]({AREA_ALIAS});
+        );
         """
     ).strip()
 
