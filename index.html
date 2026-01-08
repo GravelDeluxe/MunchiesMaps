@@ -853,6 +853,13 @@
       }
     }
 
+    function fitMapToGpxTrack({ padding = 28, maxZoom = 16 } = {}) {
+      if (!map || !gpxTrackLayer) return;
+      const bounds = gpxTrackLayer.getBounds?.();
+      if (!bounds || !bounds.isValid || !bounds.isValid()) return;
+      map.fitBounds(bounds, { padding: [padding, padding], maxZoom, animate: true });
+    }
+
     function downsamplePoints(points, maxPoints = 2000) {
       if (!Array.isArray(points) || !points.length) return [];
       const step = Math.max(1, Math.ceil(points.length / maxPoints));
@@ -1443,6 +1450,7 @@
       let trackPoints = gpxState.points;
       let gpxGeoJson = gpxState.geoJson;
       const file = fileInput?.files?.[0];
+      const hasNewFile = Boolean(file);
       if (file) {
         try {
           const text = await readFileAsText(file);
@@ -1479,6 +1487,9 @@
       console.log('GPX points:', trackPoints.length, 'sampled:', sampled.length, 'radiusMeters:', radiusMeters);
 
       renderGpxTrack(gpxGeoJson);
+      if (hasNewFile) {
+        fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
+      }
 
       await applyFilters();
     }
