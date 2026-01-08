@@ -9846,6 +9846,7 @@
         "brand": "EDEKA",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
+        "check_date": "2026-01-05",
         "contact:fax": "+49 89 33029721",
         "contact:phone": "+49 89 33029700",
         "contact:website": "https://www.edeka.de/eh/s%C3%BCdbayern/edeka-schlieker-herzogstra%C3%9Fe-43/index.jsp",
@@ -12182,6 +12183,7 @@
         "addr:street": "Leopoldstraße",
         "brand": "REWE",
         "brand:wikidata": "Q16968817",
+        "check_date": "2026-01-05",
         "contact:phone": "+49 89 3899 8849",
         "contact:website": "https://www.rewe.de/marktseite/muenchen/431042/rewe-markt-leopoldstrasse-53/",
         "description": "Gemeinsamer Eingang mit Vinzenzmurr.",
@@ -12553,8 +12555,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.2334385,
-          49.7547382
+          10.2333914,
+          49.7547461
         ]
       },
       "properties": {
@@ -15086,7 +15088,7 @@
         "addr:housenumber": "2",
         "addr:postcode": "80803",
         "addr:street": "Herzogstraße",
-        "check_date": "2023-03-01",
+        "check_date": "2026-01-05",
         "contact:phone": "+49 89 3899 9978",
         "name": "Shanghai Markt",
         "name:de": "Shanghai Market",
@@ -20622,6 +20624,7 @@
         "brand": "Netto Marken-Discount",
         "brand:wikidata": "Q879858",
         "brand:wikipedia": "de:Netto Marken-Discount",
+        "check_date:opening_hours": "2026-01-07",
         "name": "Netto Marken-Discount",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "payment:american_express": "yes",
@@ -34740,7 +34743,8 @@
         "level": "-1",
         "name": "Edeka Jusić",
         "opening_hours": "Mo-Sa 08:00-20:00",
-        "shop": "supermarket"
+        "shop": "supermarket",
+        "wheelchair": "yes"
       }
     },
     {
@@ -36181,6 +36185,10 @@
       "properties": {
         "id": 1874917422,
         "osm_type": "node",
+        "addr:city": "Kirchehrenbach",
+        "addr:housenumber": "1",
+        "addr:postcode": "91356",
+        "addr:street": "Pretzfelder Straße",
         "brand": "Norma",
         "brand:wikidata": "Q450180",
         "brand:wikipedia": "de:Norma (Supermarkt)",
@@ -37246,8 +37254,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6899622,
-          48.1322264
+          11.6898206,
+          48.1322286
         ]
       },
       "properties": {
@@ -51337,8 +51345,12 @@
         "addr:housenumber": "5",
         "addr:postcode": "80339",
         "addr:street": "Heimeranplatz",
-        "name": "Saison Quan",
+        "cuisine": "vietnamese",
+        "name": "Saigon Quan",
         "opening_hours": "Mo-Fr 11:00-19:30; Sa 11:00-15:00",
+        "payment:app": "yes",
+        "payment:cash": "yes",
+        "payment:visa": "yes",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -53860,6 +53872,7 @@
         "addr:housenumber": "53",
         "addr:postcode": "80802",
         "addr:street": "Leopoldstraße",
+        "check_date": "2026-01-05",
         "name": "REWE Leo 53",
         "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off",
         "shop": "supermarket"
@@ -54344,6 +54357,7 @@
         "id": 5191732589,
         "osm_type": "node",
         "addr:city": "Eichendorf",
+        "addr:country": "DE",
         "addr:housenumber": "3",
         "addr:postcode": "94428",
         "addr:street": "Vilshofener Straße",
@@ -54374,6 +54388,7 @@
         "id": 5191732590,
         "osm_type": "node",
         "addr:city": "Eichendorf",
+        "addr:country": "DE",
         "addr:housenumber": "5",
         "addr:postcode": "94428",
         "addr:street": "Vilshofener Straße",
@@ -61115,6 +61130,7 @@
         "brand": "REWE",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "de:Rewe",
+        "check_date:opening_hours": "2026-01-07",
         "internet_access": "wlan",
         "name": "REWE",
         "opening_hours": "Mo-Sa 07:00-20:00; Su off; PH off",
@@ -69298,14 +69314,10 @@
       "properties": {
         "id": 9264600093,
         "osm_type": "node",
-        "addr:city": "Reichertshausen",
-        "addr:country": "DE",
-        "addr:housenumber": "8a",
-        "addr:postcode": "85293",
-        "addr:street": "Pfaffenhofener Straße",
         "brand": "PENNY",
         "brand:wikidata": "Q284688",
         "brand:wikipedia": "en:Penny (supermarket)",
+        "check_date:opening_hours": "2026-01-05",
         "name": "Penny",
         "opening_hours": "Mo-Sa 07:30-20:00",
         "shop": "supermarket"
@@ -69533,10 +69545,13 @@
         "brand:wikidata": "Q450180",
         "brand:wikipedia": "de:Norma (Supermarkt)",
         "check_date:opening_hours": "2025-09-20",
+        "level": "0",
         "name": "NORMA",
         "opening_hours": "Mo-Sa 07:00-20:00",
+        "phone": "+49911 23734733",
         "shop": "supermarket",
-        "start_date": "2021-11-15"
+        "start_date": "2021-11-15",
+        "website": "http://norma-online.de"
       }
     },
     {
@@ -70168,7 +70183,7 @@
         "brand": "Edeka",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
-        "check_date:opening_hours": "2024-01-10",
+        "check_date:opening_hours": "2026-01-07",
         "level": "1",
         "name": "Edeka",
         "opening_hours": "Mo-Sa 07:00-20:00",
@@ -104067,7 +104082,7 @@
         "addr:housenumber": "46",
         "addr:postcode": "83334",
         "addr:street": "Adlgasser Straße",
-        "brand": "PENNY",
+        "brand": "Penny",
         "brand:wikidata": "Q284688",
         "building": "retail",
         "check_date": "2023-08-20",
@@ -109040,7 +109055,7 @@
         "addr:housenumber": "1",
         "addr:postcode": "83334",
         "addr:street": "Bichlstraße",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
         "building": "retail",
@@ -110847,7 +110862,7 @@
         "brand:wikipedia": "en:Kaufland",
         "building": "yes",
         "changing_table": "yes",
-        "check_date": "2018-06-28",
+        "check_date": "2026-01-07",
         "kids_area": "no",
         "kids_area:fee": "no",
         "kids_area:indoor": "no",
@@ -115625,6 +115640,8 @@
         "brand:wikipedia": "en:Kaufland",
         "building": "yes",
         "name": "Kaufland",
+        "opening_hours": "Mo-Sa 07:00-20:00; Su off",
+        "phone": "+49 9071 70570",
         "shop": "supermarket",
         "toilets:wheelchair": "yes",
         "website": "https://filiale.kaufland.de/service/filiale/dillingen-a-d-donau-2100.html",
@@ -124012,7 +124029,7 @@
         "brand:wikidata": "Q151954",
         "brand:wikipedia": "en:Lidl",
         "building": "supermarket",
-        "check_date": "2018-02-03",
+        "check_date": "2026-01-03",
         "name": "Lidl",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "shop": "supermarket",
@@ -128061,7 +128078,7 @@
         "brand:wikipedia": "de:Edeka",
         "building": "retail",
         "building:levels": "1",
-        "check_date": "2022-12-23",
+        "check_date": "2026-01-07",
         "check_date:opening_hours": "2024-01-26",
         "name": "Edeka",
         "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off",
@@ -144585,7 +144602,7 @@
         "addr:housenumber": "5",
         "addr:postcode": "93152",
         "addr:street": "Regensburger Straße",
-        "brand": "REWE",
+        "brand": "Rewe",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "en:REWE",
         "building": "retail",
@@ -147011,7 +147028,10 @@
       "properties": {
         "id": 744725780,
         "osm_type": "way",
+        "addr:city": "Icking",
+        "addr:country": "DE",
         "addr:housenumber": "10",
+        "addr:postcode": "82057",
         "addr:street": "Mittenwalder Straße",
         "brand": "REWE",
         "building": "retail",
@@ -150599,7 +150619,7 @@
       "properties": {
         "id": 1012478655,
         "osm_type": "way",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
         "building": "yes",

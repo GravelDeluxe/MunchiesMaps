@@ -10996,6 +10996,7 @@
         "addr:street": "Elbestraße",
         "brand": "ALDI Nord",
         "brand:wikidata": "Q41171373",
+        "diet:gluten_free": "no",
         "name": "Aldi",
         "opening_hours": "Mo-Sa 07:00-21:00",
         "shop": "supermarket",
@@ -11511,41 +11512,6 @@
         "phone": "+49 5543 3032902",
         "shop": "supermarket",
         "website": "https://www.nahkauf.de/maerkte/staufenberg-uschlag-41615555-kr-nahversorgungs-gmbh-niestetalstr-4"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.0250135,
-          52.3340199
-        ]
-      },
-      "properties": {
-        "id": 471120698,
-        "osm_type": "node",
-        "addr:city": "Wallenhorst",
-        "addr:country": "DE",
-        "addr:housenumber": "13",
-        "addr:postcode": "49134",
-        "addr:street": "Osnabrücker Straße",
-        "brand": "ALDI Nord",
-        "brand:wikidata": "Q41171373",
-        "brand:wikipedia": "en:Aldi",
-        "check_date": "2024-12-10",
-        "name": "ALDI Nord",
-        "opening_hours": "Mo-Sa 08:00-21:00",
-        "operator": "Aldi Nord",
-        "payment:cash": "yes",
-        "payment:girocard": "yes",
-        "payment:maestro": "yes",
-        "payment:mastercard": "yes",
-        "payment:v_pay": "yes",
-        "payment:visa": "yes",
-        "shop": "supermarket",
-        "website": "https://www.aldi-nord.de/tools/filialen-und-oeffnungszeiten/niedersachsen/wallenhorst/osnabruecker-strasse-13-15.html",
-        "wheelchair": "limited"
       }
     },
     {
@@ -20129,13 +20095,12 @@
         "id": 1681524347,
         "osm_type": "node",
         "addr:city": "Wunstorf",
-        "addr:housenumber": "66",
+        "addr:housenumber": "66-68",
         "addr:postcode": "31515",
         "addr:street": "Lange Straße",
-        "name": "NaturGenuss bei Marleen",
-        "opening_hours": "Mo-Sa 09:00-16:00",
+        "name": "Bio Supermarkt Wunstorf",
+        "operator": "Uwe Reinefeld",
         "organic": "only",
-        "phone": "+49 5031 12425",
         "shop": "supermarket"
       }
     },
@@ -34555,28 +34520,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.2041322,
-          53.145052
-        ]
-      },
-      "properties": {
-        "id": 8318636322,
-        "osm_type": "node",
-        "bulk_purchase": "only",
-        "contact:facebook": "https://www.facebook.com/rubiounverpackt",
-        "contact:phone": "+49 441 30417729",
-        "name": "Rubio Unverpackt",
-        "opening_hours": "Tu,Th 12:00-18:00; Sa 10:00-14:00",
-        "organic": "only",
-        "shop": "supermarket",
-        "wheelchair": "limited"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.3969247,
           53.5216254
         ]
@@ -36827,6 +36770,7 @@
         "brand": "REWE",
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "de:Rewe",
+        "check_date": "2026-01-06",
         "name": "REWE",
         "opening_hours": "Mo-Sa 07:00-23:00; PH off",
         "operator": "Achim Huss oHG",
@@ -37404,6 +37348,33 @@
         "shop": "supermarket",
         "website": "https://www.rewe.de/marktseite/lingen/241079/rewe-markt-josefstr-29/",
         "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.6960327,
+          52.8656931
+        ]
+      },
+      "properties": {
+        "id": 10313781637,
+        "osm_type": "node",
+        "addr:city": "Bad Fallingbostel",
+        "addr:housenumber": "6",
+        "addr:postcode": "29683",
+        "addr:street": "Vogteistraße",
+        "brand": "bioladen",
+        "check_date": "2025-10-14",
+        "check_date:opening_hours": "2025-10-14",
+        "name": "Tante Emma",
+        "opening_hours": "Mo-Fr 09:00-18:00; Sa 09:00-14:00",
+        "organic": "only",
+        "phone": "+49 5162 9857663",
+        "shop": "supermarket",
+        "website": "https://www.bio-tante-emma.de/"
       }
     },
     {
@@ -41161,6 +41132,27 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.8235681,
+          51.9833064
+        ]
+      },
+      "properties": {
+        "id": 13433673601,
+        "osm_type": "node",
+        "addr:housenumber": "5",
+        "addr:postcode": "31061",
+        "addr:street": "Bahnhofstraße",
+        "name": "REWE",
+        "opening_hours": "Mo-Sa 07:00-22:00",
+        "shop": "supermarket",
+        "website": "http://rewe.de"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.8712411,
           52.9857255
         ]
@@ -43949,7 +43941,7 @@
         "brand:wikipedia": "de:Rewe",
         "building": "retail",
         "name": "REWE",
-        "opening_hours": "Mo-Sa 07:00-23:00",
+        "opening_hours": "Mo-Sa 07:00-22:00",
         "shop": "supermarket",
         "wheelchair": "yes"
       }
@@ -50707,8 +50699,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.4488009,
-          51.916695
+          10.4491993,
+          51.9167088
         ]
       },
       "properties": {
@@ -50723,7 +50715,6 @@
         "brand": "MARKTKAUF",
         "brand:wikidata": "Q1533254",
         "building": "yes",
-        "building:levels": "2",
         "check_date": "2025-08-23",
         "check_date:opening_hours": "2025-08-23",
         "contact:facebook": "https://www.facebook.com/marktkauf.goslar",
@@ -67526,6 +67517,7 @@
         "building": "yes",
         "contact:website": "http://www.penny.de",
         "name": "PENNY",
+        "opening_hours": "Mo-Sa 07:00-21:00",
         "operator": "Penny-Markt GmbH",
         "shop": "supermarket",
         "surveillance": "indoor",
@@ -86140,8 +86132,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0329704,
-          52.8548353
+          8.0329746,
+          52.8548278
         ]
       },
       "properties": {

@@ -859,6 +859,7 @@
         "amenity": "toilets",
         "changing_table": "no",
         "fee": "yes",
+        "opening_hours": "24/7",
         "operator": "Stadt Schwerte",
         "toilets:disposal": "flush",
         "toilets:position": "seated;urinal",
@@ -42225,7 +42226,8 @@
         "level": "2",
         "opening_hours": "Mo,Fr 11:00-13:00,14:00-17:00; Tu,Th 11:00-13:00,14:00-19:00; We 11:00-13:00,14:00-17:15; Sa 10:00-13:00",
         "toilets:access": "public",
-        "toilets:wheelchair": "yes"
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes"
       }
     },
     {
@@ -62872,7 +62874,9 @@
         "osm_type": "node",
         "amenity": "toilets",
         "entrance": "yes",
-        "fixme": "Bitte Öffnz. ermitte!n. Und Zugang auch."
+        "fee": "no",
+        "fixme": "Bitte Öffnz. ermitte!n. Und Zugang auch.",
+        "wheelchair": "no"
       }
     },
     {

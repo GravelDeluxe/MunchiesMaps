@@ -11675,34 +11675,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.6544978,
-          50.9928293
-        ]
-      },
-      "properties": {
-        "id": 10001476695,
-        "osm_type": "node",
-        "addr:city": "Nessetal",
-        "addr:housenumber": "33",
-        "addr:postcode": "99869",
-        "addr:street": "Sonneborner Straße",
-        "brand": "REWE",
-        "brand:wikidata": "Q16968817",
-        "brand:wikipedia": "de:Rewe",
-        "internet_access": "wlan",
-        "name": "REWE",
-        "opening_hours": "Mo-Fr 06:00-22:00; Sa 06:00-20:00",
-        "phone": "+49 36255 82500",
-        "shop": "supermarket",
-        "website": "https://www.rewe.de/marktseite/goldbach/1469510/rewe-markt-sonneborner-strasse-33/",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.9456434,
           51.0478678
         ]
@@ -14648,8 +14620,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.6789254,
-          50.6044212
+          10.6789615,
+          50.6044517
         ]
       },
       "properties": {
@@ -16463,22 +16435,6 @@
         "operator": "Lidl Vertriebs-GmbH & Co. KG (Gera)",
         "shop": "supermarket",
         "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.6792101,
-          50.6045496
-        ]
-      },
-      "properties": {
-        "id": 79917811,
-        "osm_type": "way",
-        "building": "yes",
-        "shop": "supermarket"
       }
     },
     {
@@ -25616,18 +25572,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.6549785,
-          50.9935316
+          10.6550111,
+          50.9935246
         ]
       },
       "properties": {
         "id": 1292302250,
         "osm_type": "way",
+        "addr:city": "Nessetal",
+        "addr:housenumber": "33",
+        "addr:postcode": "99869",
+        "addr:street": "Sonneborner Straße",
         "brand": "REWE",
         "brand:wikidata": "Q16968817",
+        "brand:wikipedia": "de:Rewe",
         "building": "yes",
+        "contact:phone": "+40 36255 169000",
+        "contact:website": "https://www.rewe.de/marktseite/nessetal-ot-goldbach/433222/rewe-markt-sonneborner-str-33/",
+        "internet_access": "wlan",
         "name": "REWE",
-        "shop": "supermarket"
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 06:00-20:00; Su, PH off",
+        "operator": "REWE Nils Stiem oHG",
+        "shop": "supermarket",
+        "wheelchair": "yes"
       }
     },
     {
@@ -26035,6 +26002,23 @@
         "operator": "Edeka Maik Fiedler",
         "shop": "supermarket",
         "website": "https://www.edeka.de/eh/hessenring/maik-fiedler-hohnsteinerstr.-1/index.jsp"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.6793351,
+          50.6044294
+        ]
+      },
+      "properties": {
+        "id": 1464599223,
+        "osm_type": "way",
+        "building": "yes",
+        "layer": "-2",
+        "shop": "supermarket"
       }
     },
     {

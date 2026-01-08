@@ -6874,8 +6874,10 @@
         "osm_type": "node",
         "amenity": "toilets",
         "changing_table": "no",
-        "check_date": "2023-07-30",
+        "check_date": "2025-12-29",
+        "check_date:opening_hours": "2025-12-29",
         "fee": "no",
+        "opening_hours": "Nov 01-Mar 15 09:00-18:00;Mar 16-Apr 30 08:00-20:00;May-Jun 08:00-22:00;Jul-Aug 08:00-23:30;Sep 08:00-22:00;Oct 08:00-18:00",
         "wheelchair": "limited"
       }
     },
@@ -8034,23 +8036,6 @@
         "id": 3733412160,
         "osm_type": "node",
         "amenity": "toilets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.9986035,
-          54.058676
-        ]
-      },
-      "properties": {
-        "id": 3739980625,
-        "osm_type": "node",
-        "amenity": "toilets",
-        "fee": "no",
-        "wheelchair": "yes"
       }
     },
     {
@@ -15031,8 +15016,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.7136697,
-          54.2933436
+          13.7135785,
+          54.2933874
         ]
       },
       "properties": {
@@ -15443,6 +15428,8 @@
         "osm_type": "node",
         "access": "yes",
         "amenity": "toilets",
+        "check_date:opening_hours": "2025-12-28",
+        "opening_hours": "Nov-Mar 09:00-18:00;Apr-Oct 08:00-20:00",
         "toilets:disposal": "flush",
         "unisex": "yes"
       }
@@ -18804,6 +18791,42 @@
         "check_date": "2025-12-27",
         "fee": "yes",
         "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4247751,
+          53.482139
+        ]
+      },
+      "properties": {
+        "id": 13432235106,
+        "osm_type": "node",
+        "amenity": "toilets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7138307,
+          54.2971542
+        ]
+      },
+      "properties": {
+        "id": 13432423661,
+        "osm_type": "node",
+        "access": "yes",
+        "amenity": "toilets",
+        "description": "Eco Toilette",
+        "name": "EcoToilette",
+        "toilets:disposal": "bucket",
+        "unisex": "yes",
+        "wheelchair": "limited"
       }
     },
     {
@@ -23064,6 +23087,25 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.9986044,
+          54.0586843
+        ]
+      },
+      "properties": {
+        "id": 313465427,
+        "osm_type": "way",
+        "amenity": "toilets",
+        "building": "yes",
+        "building:levels": "0",
+        "fee": "no",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.8538823,
           53.9510844
         ]
@@ -23484,7 +23526,7 @@
         "drinking_water": "yes",
         "fee": "yes",
         "height": "3",
-        "operator": "Gemeinde",
+        "operator": "Gemeinde Kletzin",
         "toilets:disposal": "flush",
         "toilets:position": "seated;urinal",
         "wheelchair": "no"

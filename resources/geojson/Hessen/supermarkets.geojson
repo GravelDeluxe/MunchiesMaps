@@ -12382,6 +12382,8 @@
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "en:REWE",
         "check_date:opening_hours": "2022-03-31",
+        "contact:phone": "+49 6172 6813299",
+        "contact:website": "https://www.rewe.de/marktseite/bad-homburg-ober-eschbach/230517/rewe-markt-im-atzelnest-12/",
         "name": "REWE",
         "opening_hours": "Mo-Sa 07:00-21:30",
         "shop": "supermarket",
@@ -13046,6 +13048,7 @@
         "id": 1684753287,
         "osm_type": "node",
         "addr:city": "Hanau",
+        "addr:country": "DE",
         "addr:housenumber": "3",
         "addr:postcode": "63450",
         "addr:street": "Am Steinheimer Tor",
@@ -14640,6 +14643,7 @@
         "id": 2040398310,
         "osm_type": "node",
         "addr:city": "Hanau",
+        "addr:country": "DE",
         "addr:housenumber": "8",
         "addr:postcode": "63452",
         "addr:street": "Kinzigbogen",
@@ -14667,6 +14671,7 @@
         "id": 2040398402,
         "osm_type": "node",
         "addr:city": "Hanau",
+        "addr:country": "DE",
         "addr:housenumber": "6",
         "addr:postcode": "63452",
         "addr:street": "Kinzigbogen",
@@ -21664,28 +21669,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6497667,
-          50.2136284
-        ]
-      },
-      "properties": {
-        "id": 4809503205,
-        "osm_type": "node",
-        "branch": "Getränkemarkt",
-        "brand": "REWE",
-        "brand:wikidata": "Q16968817",
-        "check_date:opening_hours": "2022-03-31",
-        "name": "REWE",
-        "opening_hours": "Mo-Sa 07:00-21:30",
-        "shop": "supermarket",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.7781263,
           49.6852001
         ]
@@ -28346,11 +28329,11 @@
         "addr:housenumber": "35",
         "addr:postcode": "35519",
         "addr:street": "Siemensstraße",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "brand:wikidata": "Q701755",
-        "name": "EDEKA",
+        "name": "Edeka",
         "opening_hours": "Mo-Sa 08:00-20:00; PH off",
-        "operator": "Søren Rørup e.K.",
+        "operator": "Marcel Uhrig e.K.",
         "phone": "+49 6033 970000",
         "shop": "supermarket"
       }
@@ -31009,18 +30992,6 @@
         "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off",
         "operator": "Kuhn RWI GmbH Lebensmittelhandel",
         "phone": "+49 6185 81060",
-        "post_office": "post_partner",
-        "post_office:brand": "Deutsche Post;Postbank",
-        "post_office:brand:wikidata": "Q5266289;Q708835",
-        "post_office:id_check": "Deutsche Post",
-        "post_office:letter_from": "Deutsche Post",
-        "post_office:parcel_from": "Deutsche Post",
-        "post_office:parcel_pickup": "Deutsche Post",
-        "post_office:parcel_to": "Deutsche Post",
-        "post_office:post_bank": "Postbank",
-        "post_office:service_provider": "Deutsche Post;Postbank",
-        "post_office:stamps": "Deutsche Post",
-        "ref:deutsche_post": "557",
         "shop": "supermarket",
         "website": "https://www.rewe.de/marktseite/hammersbach/1465104/rewe-markt-hanauer-str-78/",
         "wheelchair": "yes"
@@ -33803,6 +33774,7 @@
         "id": 13381249845,
         "osm_type": "node",
         "addr:city": "Hanau",
+        "addr:country": "DE",
         "addr:housenumber": "46",
         "addr:postcode": "63450",
         "addr:street": "Langstraße",
@@ -33855,6 +33827,28 @@
         "shop": "supermarket",
         "toilets:wheelchair": "yes",
         "website": "https://www.tegut.com/maerkte/markt/tegut-hanau-heldenbergener-str-4.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.9223388,
+          50.1442458
+        ]
+      },
+      "properties": {
+        "id": 13432916320,
+        "osm_type": "node",
+        "brand": "Netto Marken-Discount",
+        "brand:wikidata": "Q879858",
+        "brand:wikipedia": "de:Netto Marken-Discount",
+        "name": "Netto Marken-Discount",
+        "opening_hours": "Mo-Sa 07:00-21:00; PH off",
+        "shop": "supermarket",
+        "website": "https://www.netto-online.de/filialen/Hanau/Martin-Luther-King-Str-2/4336/",
+        "wheelchair": "yes"
       }
     },
     {
@@ -47299,7 +47293,7 @@
         "addr:postcode": "34127",
         "addr:street": "Quellhofstraße",
         "building": "retail",
-        "name": "WL Markt",
+        "name": "ELVAN Market",
         "opening_hours": "Mo-Sa 08:00-20:00",
         "shop": "supermarket"
       }
@@ -50481,6 +50475,7 @@
         "brand:wikidata": "Q284688",
         "brand:wikipedia": "en:Penny (supermarket)",
         "building": "retail",
+        "check_date": "2026-01-05",
         "name": "PENNY",
         "shop": "supermarket",
         "wheelchair": "yes"
@@ -55127,6 +55122,7 @@
         "id": 198965644,
         "osm_type": "way",
         "addr:city": "Hanau",
+        "addr:country": "DE",
         "addr:housenumber": "9",
         "addr:postcode": "63450",
         "addr:street": "Am Frankfurter Tor",
@@ -58905,7 +58901,8 @@
         "opening_hours": "Mo-Sa 08:00-20:00; Su off",
         "operator": "ALDI GmbH & Co. KG",
         "shop": "supermarket",
-        "website": "https://filialen.aldi-sued.de/hessen/seeheim-jugenheim/friedrich-ebert-strasse-55"
+        "website": "https://filialen.aldi-sued.de/hessen/seeheim-jugenheim/friedrich-ebert-strasse-55",
+        "wheelchair": "yes"
       }
     },
     {
@@ -59220,35 +59217,6 @@
         "phone": "+4961247261377",
         "shop": "supermarket",
         "website": "https://www.rewe.de/marktseite/heidenrod-kemel/240818/rewe-markt-baederstrasse-2-c/"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.9224355,
-          50.1443587
-        ]
-      },
-      "properties": {
-        "id": 241762082,
-        "osm_type": "way",
-        "addr:city": "Hanau",
-        "addr:country": "DE",
-        "addr:housenumber": "2",
-        "addr:postcode": "63452",
-        "addr:street": "Martin-Luther-King-Straße",
-        "brand": "Netto Marken-Discount",
-        "brand:wikidata": "Q879858",
-        "brand:wikipedia": "de:Netto Marken-Discount",
-        "building": "retail",
-        "building:levels": "1",
-        "name": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-21:00; PH off",
-        "shop": "supermarket",
-        "website": "https://www.netto-online.de/filialen/Hanau/Martin-Luther-King-Str-2/4336/",
-        "wheelchair": "yes"
       }
     },
     {
@@ -59908,6 +59876,7 @@
         "brand:wikidata": "Q16968817",
         "brand:wikipedia": "en:REWE",
         "building": "retail",
+        "check_date:opening_hours": "2026-01-03",
         "level": "0",
         "name": "REWE",
         "opening_hours": "Mo-Sa 07:00-21:30; Su off",
@@ -60140,7 +60109,7 @@
         "building": "retail",
         "level": "0",
         "name": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su off",
+        "opening_hours": "Mo-Sa 07:00-20:00; Su off",
         "shop": "supermarket",
         "website": "https://www.netto-online.de/filialen/Seeheim-Jugenheim/Friedrich-Ebert-Str-35/3567/",
         "wheelchair": "yes"
@@ -68274,6 +68243,7 @@
         "brand:wikidata": "Q151954",
         "brand:wikipedia": "en:Lidl",
         "building": "retail",
+        "check_date": "2026-01-05",
         "name": "Lidl",
         "opening_hours": "Mo-Sa 07:00-21:00",
         "shop": "supermarket"
@@ -68994,11 +68964,10 @@
         "addr:postcode": "63589",
         "addr:street": "Am Sandacker",
         "addr:suburb": "Altenhaßlau",
-        "brand": "Aldi",
+        "brand": "Aldi Süd",
         "brand:wikidata": "Q41171672",
         "building": "commercial",
-        "fixme": "Grob nach Maxar eingezeichnet.",
-        "name": "Aldi",
+        "name": "Aldi Süd",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "organic": "yes",
         "shop": "supermarket",
@@ -69062,6 +69031,7 @@
         "phone": "+49 6142 301177",
         "shop": "supermarket",
         "start_date": "2022-03-09",
+        "toilets:wheelchair": "yes",
         "website": "https://www.edeka-bossler.de/koenigstaedten.html",
         "wheelchair": "yes"
       }

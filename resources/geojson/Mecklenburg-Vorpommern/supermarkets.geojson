@@ -2470,8 +2470,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.4244832,
-          53.481034
+          12.4244245,
+          53.4809889
         ]
       },
       "properties": {
@@ -4036,56 +4036,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.9385405,
-          53.824039
-        ]
-      },
-      "properties": {
-        "id": 1279078593,
-        "osm_type": "node",
-        "historic": "monastery",
-        "name": "Kloster Rühn Kontor",
-        "organic": "only",
-        "shop": "supermarket",
-        "website": "https://kloster-ruehn-kontor.de/",
-        "wikidata": "Q1775877",
-        "wikipedia": "de:Kloster Rühn"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.0799243,
-          53.5064006
-        ]
-      },
-      "properties": {
-        "id": 1281648057,
-        "osm_type": "node",
-        "addr:city": "Wittenburg",
-        "addr:country": "DE",
-        "addr:housenumber": "3",
-        "addr:postcode": "19243",
-        "addr:street": "Mühlenring",
-        "brand": "Rewe",
-        "brand:wikidata": "Q16968817",
-        "brand:wikipedia": "en:REWE",
-        "name": "Rewe",
-        "old_name": "sky",
-        "opening_hours": "Mo-Sa 07:00-22:00;PH closed",
-        "operator": "Supermärkte Nord Vertriebs GmbH & Co. KG",
-        "phone": "+49 38852 2369330",
-        "shop": "supermarket",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.7188376,
           53.3246998
         ]
@@ -5090,9 +5040,12 @@
         "brand": "Penny",
         "brand:wikidata": "Q284688",
         "brand:wikipedia": "en:Penny (supermarket)",
-        "check_date": "2023-08-27",
+        "check_date": "2026-01-06",
+        "check_date:opening_hours": "2026-01-06",
         "name": "Penny",
-        "shop": "supermarket"
+        "opening_hours": "Mo-Sa 07:00-21:00; Su,PH off",
+        "shop": "supermarket",
+        "wheelchair": "yes"
       }
     },
     {
@@ -5284,9 +5237,10 @@
         "addr:housenumber": "3",
         "addr:postcode": "19294",
         "addr:street": "Fritz-Reuter-Platz",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "brand:wikidata": "Q701755",
-        "name": "E aktiv markt Brandt",
+        "name": "Edeka Brandt",
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa 08:00-12:00",
         "operator": "EDEKA",
         "postal_code": "19294",
         "shop": "supermarket"
@@ -10212,31 +10166,6 @@
         "roof:shape": "many",
         "shop": "supermarket",
         "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.4541184,
-          54.2421057
-        ]
-      },
-      "properties": {
-        "id": 27174176,
-        "osm_type": "way",
-        "addr:city": "Ribnitz-Damgarten",
-        "addr:country": "DE",
-        "addr:housenumber": "61c",
-        "addr:postcode": "18311",
-        "addr:street": "Damgartener Chaussee",
-        "brand": "Norma",
-        "brand:wikidata": "Q450180",
-        "brand:wikipedia": "de:Norma (Handelskette)",
-        "building": "retail",
-        "name": "Norma",
-        "shop": "supermarket"
       }
     },
     {
@@ -21441,9 +21370,8 @@
         "addr:street": "Roggenfelder Straße",
         "brand": "Penny",
         "brand:wikidata": "Q284688",
-        "brand:wikipedia": "en:Penny (supermarket)",
         "building": "yes",
-        "name": "PENNY",
+        "name": "Penny",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "shop": "supermarket",
         "wheelchair": "yes"
@@ -23395,18 +23323,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.0802422,
-          53.5065644
+          11.0802518,
+          53.5065695
         ]
       },
       "properties": {
         "id": 1259696949,
         "osm_type": "way",
-        "brand": "REWE",
+        "addr:city": "Wittenburg",
+        "addr:country": "DE",
+        "addr:housenumber": "13",
+        "addr:postcode": "19243",
+        "addr:street": "Hagenower Chaussee",
+        "brand": "Rewe",
         "brand:wikidata": "Q16968817",
+        "brand:wikipedia": "en:REWE",
         "building": "retail",
-        "name": "REWE",
-        "shop": "supermarket"
+        "contact:phone": "+49 38852 258010",
+        "contact:website": "https://www.rewe.de/marktseite/wittenburg/8543521/rewe-markt-hagenower-chaussee-13/",
+        "name": "Rewe",
+        "opening_hours": "Mo-Sa 07:00-22:00; Su, PH off",
+        "operator": "REWE Markt GmbH",
+        "shop": "supermarket",
+        "wheelchair": "yes"
       }
     },
     {
@@ -23978,6 +23917,31 @@
         "shop": "supermarket",
         "website": "https://www.netto-online.de/filialen/Ostseebad-Karlshagen/Hauptstrasse-87/5878/",
         "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4554968,
+          54.2427558
+        ]
+      },
+      "properties": {
+        "id": 1465194931,
+        "osm_type": "way",
+        "addr:country": "DE",
+        "addr:housenumber": "1",
+        "addr:postcode": "18311",
+        "addr:street": "Erich-Kästner-Straße",
+        "brand": "Norma",
+        "brand:wikidata": "Q450180",
+        "brand:wikipedia": "de:Norma (Handelskette)",
+        "building": "retail",
+        "name": "Norma",
+        "note": "Lage angenähert",
+        "shop": "supermarket"
       }
     }
   ]

@@ -6650,11 +6650,16 @@
       "properties": {
         "id": 259825488,
         "osm_type": "node",
+        "addr:city": "Bayreuth",
+        "addr:housenumber": "1",
+        "addr:postcode": "95448",
+        "addr:street": "Albrecht-Dürer-Straße",
         "amenity": "fuel",
-        "brand": "OMV",
-        "brand:wikidata": "Q168238",
+        "brand": "Esso",
+        "brand:wikidata": "Q867662",
         "compressed_air": "yes",
-        "name": "OMV",
+        "name": "Esso",
+        "self_service": "yes",
         "wheelchair": "yes"
       }
     },
@@ -10255,6 +10260,7 @@
         "id": 286570984,
         "osm_type": "node",
         "addr:city": "Oberhaching",
+        "addr:country": "DE",
         "addr:housenumber": "7",
         "addr:postcode": "82041",
         "addr:street": "Raiffeisenallee",
@@ -10272,7 +10278,6 @@
         "fuel:octane_95": "yes",
         "name": "Avia",
         "opening_hours": "24/7",
-        "payment:cash": "yes",
         "payment:coins": "yes",
         "payment:credit_cards": "yes",
         "payment:debit_cards": "yes",
@@ -13177,6 +13182,7 @@
         "brand": "Jet",
         "brand:wikidata": "Q568940",
         "brand:wikipedia": "en:Jet (brand)",
+        "compressed_air": "yes",
         "name": "Jet",
         "opening_hours": "Mo-Fr 05:00-22:00; Sa,Su 06:00-22:00"
       }
@@ -22569,15 +22575,15 @@
         "id": 639281369,
         "osm_type": "node",
         "amenity": "fuel",
-        "brand": "OMV",
-        "brand:wikidata": "Q168238",
+        "brand": "Esso",
+        "brand:wikidata": "Q867662",
         "check_date:opening_hours": "2024-04-28",
         "compressed_air": "yes",
         "fuel:diesel": "yes",
         "fuel:octane_100": "yes",
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
-        "name": "OMV",
+        "name": "Esso",
         "opening_hours": "Mo-Su 06:00-22:00",
         "operator": "F. Schiller",
         "phone": "+49 9602 1496",
@@ -31377,8 +31383,14 @@
       "properties": {
         "id": 1235832010,
         "osm_type": "node",
+        "addr:city": "Pörnbach",
+        "addr:housenumber": "22",
+        "addr:postcode": "85309",
+        "addr:street": "Ingolstädter Straße",
         "amenity": "fuel",
-        "operator": "Zieglmeier"
+        "automated": "yes",
+        "operator": "Zieglmeier",
+        "self_service": "yes"
       }
     },
     {
@@ -43193,7 +43205,9 @@
         "addr:postcode": "84307",
         "addr:street": "Lindhofstraße",
         "amenity": "fuel",
-        "check_date": "2019-02-05",
+        "check_date": "2026-01-07",
+        "check_date:compressed_air": "2026-01-07",
+        "compressed_air": "yes",
         "fax": "+49 8721 506618",
         "fuel:adblue": "yes",
         "fuel:diesel": "yes",
@@ -57727,6 +57741,10 @@
       "properties": {
         "id": 13275791188,
         "osm_type": "node",
+        "addr:city": "Ebermannstadt",
+        "addr:housenumber": "36",
+        "addr:postcode": "91320",
+        "addr:street": "Friedhofstraße",
         "amenity": "fuel",
         "brand": "Tank- und Waschheld",
         "contact:website": "https://www.tankundwaschheld.de/",
@@ -65389,22 +65407,6 @@
         "name": "Autopark Hofmann",
         "opening_hours": "Mo-Fr 07:45-18:00; Sa 09:30-14:00",
         "source": "http://www.gas-tankstellen.de"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.5832913,
-          49.9461972
-        ]
-      },
-      "properties": {
-        "id": 117912519,
-        "osm_type": "way",
-        "amenity": "fuel",
-        "building": "yes"
       }
     },
     {

@@ -2485,10 +2485,13 @@
         "addr:postcode": "65812",
         "addr:street": "Königsteiner Straße",
         "amenity": "fuel",
-        "brand": "Independent",
+        "brand": "Reifen-Diehl",
+        "check_date": "2024-09-24",
         "check_date:opening_hours": "2024-09-24",
         "compressed_air": "yes",
-        "contact:website": "http://www.reifen-diehl.de",
+        "contact:email": "info@diehlbadsoden.de",
+        "contact:phone": "+49 6196 27124",
+        "contact:website": "https://www.diehlbadsoden.de/ueber-uns/tankstelle",
         "fuel:1_25": "no",
         "fuel:1_50": "no",
         "fuel:GTL_diesel": "no",
@@ -2503,8 +2506,9 @@
         "fuel:octane_91": "no",
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
+        "mapillary": "194379795837611",
         "name": "Reifen-Diehl",
-        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-19:00; Su 09:00-19:00",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 09:00-19:00",
         "self_service": "yes"
       }
     },
@@ -7484,6 +7488,7 @@
         "opening_hours": "24/7",
         "phone": "+49 5694 1688",
         "self_service": "yes",
+        "shop": "yes",
         "source:website": "https://store.totalenergies.de/de_DE/ND042077"
       }
     },
@@ -14474,7 +14479,9 @@
         "name": "bft",
         "opening_hours": "24/7",
         "operator": "Christian Libudzic",
-        "phone": "+49 5609 315"
+        "phone": "+49 5609 315",
+        "post_office": "post_partner",
+        "post_office:brand": "Hermes PaketShop"
       }
     },
     {
@@ -19472,6 +19479,7 @@
         "id": 6606342873,
         "osm_type": "node",
         "addr:city": "Hanau",
+        "addr:country": "DE",
         "addr:housenumber": "7",
         "addr:postcode": "63450",
         "addr:street": "Friedrich-Ebert-Anlage",
@@ -20352,7 +20360,8 @@
         "brand:wikipedia": "en:Aral AG",
         "check_date": "2023-09-04",
         "name": "Aral",
-        "operator": "Jörg Seyfer"
+        "operator": "Jörg Seyfer",
+        "wheelchair": "yes"
       }
     },
     {
@@ -33402,22 +33411,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5066525,
-          50.1386589
+          8.5052562,
+          50.139851
         ]
       },
       "properties": {
-        "id": 363224806,
+        "id": 363295646,
         "osm_type": "way",
+        "addr:city": "Bad Soden am Taunus",
+        "addr:country": "DE",
+        "addr:housenumber": "21",
+        "addr:postcode": "65812",
+        "addr:street": "Königsteiner Straße",
         "amenity": "fuel",
-        "brand": "Reifen-Diehl",
-        "building": "yes",
-        "check_date": "2024-09-24",
-        "check_date:opening_hours": "2024-09-24",
-        "compressed_air": "yes",
-        "mapillary": "194379795837611",
-        "name": "Reifen Diehl",
-        "opening_hours": "Mo-Fr 08:00-17:00; Sa 09:00-13:00"
+        "building": "yes"
       }
     },
     {
@@ -35866,6 +35873,7 @@
         "brand:wikipedia": "en:Agip",
         "building": "yes",
         "car_wash": "yes",
+        "compressed_air": "yes",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
         "fuel:octane_95": "yes",
@@ -35878,7 +35886,8 @@
         "payment:visa": "yes",
         "phone": "+49 6257 962909",
         "toilets": "yes",
-        "website": "https://www.agipstation.de"
+        "website": "https://www.agipstation.de",
+        "wheelchair": "yes"
       }
     },
     {
@@ -38334,18 +38343,33 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.6724285,
+          9.6724284,
           50.6609438
         ]
       },
       "properties": {
         "id": 1452556236,
         "osm_type": "way",
+        "addr:city": "Hünfeld",
+        "addr:country": "DE",
+        "addr:housenumber": "2",
+        "addr:postcode": "36088",
+        "addr:street": "Europastraße",
+        "addr:suburb": "Michelsrombach",
         "amenity": "fuel",
+        "brand": "ABO Energy",
         "building": "roof",
+        "description": "Wasserstofftankstelle",
         "fuel:h35": "yes",
+        "layer": "1",
         "name": "H2",
-        "operator": "ABO Energy"
+        "opening_hours": "24/7",
+        "operator": "ABO Wind Wasserstoff Michelsrombach GmbH & Co KG",
+        "payment:credit_cards": "yes",
+        "payment:dkv": "yes",
+        "payment:girocard": "yes",
+        "payment:h2_mobility_card": "yes",
+        "website": "www.aboenergy.com"
       }
     },
     {

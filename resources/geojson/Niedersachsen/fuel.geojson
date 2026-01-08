@@ -7062,7 +7062,7 @@
         "opening_hours": "Mo-Su 07:00-22:00",
         "operator": "Aral",
         "phone": "+49 5933 1341",
-        "website": "http://tankstelle.aral.de",
+        "website": "https://tankstelle.aral.de/",
         "wheelchair": "yes"
       }
     },
@@ -12887,29 +12887,6 @@
         "amenity": "fuel",
         "compressed_air": "no",
         "name": "Altländer Obst eG"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.1172951,
-          52.8289399
-        ]
-      },
-      "properties": {
-        "id": 365376316,
-        "osm_type": "node",
-        "addr:city": "Emstek",
-        "addr:housenumber": "5",
-        "addr:postcode": "49685",
-        "addr:street": "Otto-Hahn-Straße",
-        "amenity": "fuel",
-        "fuel:cng": "yes",
-        "fuel:lpg": "yes",
-        "name": "K1",
-        "operator": "Knoop"
       }
     },
     {
@@ -62840,6 +62817,37 @@
         "operator": "EnBW Energie Baden-Württemberg AG",
         "operator:wikidata": "Q644304",
         "self_service": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.117335,
+          52.8287278
+        ]
+      },
+      "properties": {
+        "id": 1464469554,
+        "osm_type": "way",
+        "addr:city": "Emstek",
+        "addr:housenumber": "5",
+        "addr:postcode": "49685",
+        "addr:street": "Otto-Hahn-Straße",
+        "amenity": "fuel",
+        "building": "yes",
+        "fuel:adblue": "yes",
+        "fuel:adblue:canister": "yes",
+        "fuel:cng": "yes",
+        "fuel:diesel": "yes",
+        "fuel:e10": "yes",
+        "fuel:lpg": "yes",
+        "fuel:octane_95": "yes",
+        "fuel:octane_98": "yes",
+        "name": "K1",
+        "operator": "Knoop",
+        "shop": "fuel"
       }
     },
     {

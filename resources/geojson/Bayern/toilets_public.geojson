@@ -9581,6 +9581,7 @@
         "id": 851221293,
         "osm_type": "node",
         "amenity": "toilets",
+        "fee": "no",
         "opening_hours": "Mo-Su 07:00-20:00",
         "operator": "Markt Markt Schwaben",
         "toilets:wheelchair": "yes",
@@ -19588,9 +19589,10 @@
         "osm_type": "node",
         "access": "yes",
         "amenity": "toilets",
+        "changing_table": "yes",
         "fee": "no",
         "toilets:disposal": "pitlatrine",
-        "wheelchair": "no"
+        "wheelchair": "yes"
       }
     },
     {
@@ -47124,8 +47126,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.7737408,
-          47.7441335
+          11.7737412,
+          47.7441532
         ]
       },
       "properties": {
@@ -95290,6 +95292,95 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.634223,
+          48.1498833
+        ]
+      },
+      "properties": {
+        "id": 13432163257,
+        "osm_type": "node",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "fee": "no",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.6342098,
+          48.1499025
+        ]
+      },
+      "properties": {
+        "id": 13432183359,
+        "osm_type": "node",
+        "amenity": "toilets",
+        "changing_table": "no",
+        "fee": "no",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8867142,
+          48.3744829
+        ]
+      },
+      "properties": {
+        "id": 13436140803,
+        "osm_type": "node",
+        "amenity": "toilets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8992267,
+          49.9006157
+        ]
+      },
+      "properties": {
+        "id": 13436222581,
+        "osm_type": "node",
+        "amenity": "toilets",
+        "check_date": "2026-01-06",
+        "opening_hours": "06:00-22:00",
+        "operator": "Sanifair",
+        "toilets:disposal": "flush",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9500593,
+          48.8316513
+        ]
+      },
+      "properties": {
+        "id": 13438293906,
+        "osm_type": "node",
+        "access": "permit",
+        "amenity": "toilets",
+        "description": "geöffnet nur bei Veranstaltungen",
+        "panoramax": "4e1199e6-82b5-470d-8952-90383541666b"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.6297904,
           47.8900615
         ]
@@ -98109,25 +98200,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.950095,
-          48.8316527
-        ]
-      },
-      "properties": {
-        "id": 157388040,
-        "osm_type": "way",
-        "access": "permit",
-        "amenity": "toilets",
-        "building": "yes",
-        "description": "geöffnet nur bei Veranstaltungen",
-        "panoramax": "4e1199e6-82b5-470d-8952-90383541666b"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.957198,
           49.7368652
         ]
@@ -98325,7 +98397,8 @@
         "id": 165828616,
         "osm_type": "way",
         "amenity": "toilets",
-        "building": "yes"
+        "building": "yes",
+        "fee": "no"
       }
     },
     {
@@ -104777,8 +104850,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.908758,
-          48.9614311
+          10.9087606,
+          48.9615176
         ]
       },
       "properties": {
@@ -117112,6 +117185,29 @@
         "building": "yes",
         "fee": "no",
         "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.081242,
+          49.4471576
+        ]
+      },
+      "properties": {
+        "id": 1465020810,
+        "osm_type": "way",
+        "access": "yes",
+        "amenity": "toilets",
+        "description": "Dixieklo",
+        "fee": "no",
+        "operator": "WC",
+        "toilets:disposal": "chemical",
+        "toilets:position": "seated;urinal",
+        "unisex": "yes",
+        "wheelchair": "no"
       }
     },
     {

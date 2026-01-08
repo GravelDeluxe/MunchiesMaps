@@ -8217,8 +8217,10 @@
         "access": "yes",
         "amenity": "toilets",
         "changing_table": "yes",
-        "check_date": "2023-10-07",
+        "check_date": "2026-01-07",
+        "check_date:opening_hours": "2026-01-07",
         "fee": "no",
+        "opening_hours:signed": "no",
         "toilets:disposal": "flush",
         "unisex": "yes",
         "wheelchair": "yes"
@@ -8278,10 +8280,12 @@
         "centralkey": "eurokey",
         "charge": "0.5 Euro",
         "check_date": "2024-10-17",
+        "door": "hinged",
         "entrance": "yes",
         "fee": "yes",
         "indoor": "no",
         "kerb": "no",
+        "open": "no",
         "opening_hours": "24/7",
         "payment:coins": "yes",
         "toilets:access": "yes",
@@ -51014,7 +51018,8 @@
         "osm_type": "node",
         "access": "yes",
         "amenity": "toilets",
-        "fee": "yes"
+        "fee": "yes",
+        "opening_hours": "Mo-Su,PH 08:00-20:00"
       }
     },
     {
@@ -90882,7 +90887,7 @@
         "type": "Point",
         "coordinates": [
           8.8556495,
-          48.2811136
+          48.2811137
         ]
       },
       "properties": {

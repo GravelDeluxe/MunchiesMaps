@@ -3699,47 +3699,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.2014532,
-          50.8566417
-        ]
-      },
-      "properties": {
-        "id": 248212730,
-        "osm_type": "node",
-        "addr:country": "DE",
-        "addr:housenumber": "26",
-        "addr:postcode": "52477",
-        "addr:street": "Aachener Straße",
-        "amenity": "fuel",
-        "name": "bft",
-        "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.2021577,
-          50.8570143
-        ]
-      },
-      "properties": {
-        "id": 248212731,
-        "osm_type": "node",
-        "addr:country": "DE",
-        "addr:housenumber": "51",
-        "addr:postcode": "52477",
-        "addr:street": "Aachener Straße",
-        "amenity": "fuel",
-        "name": "bft"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.8820802,
           52.3128698
         ]
@@ -20533,6 +20492,7 @@
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
         "name": "Shell",
+        "opening_hours": "Mo-Su,PH 00:00-00:00",
         "operator": "Shell",
         "toilets:wheelchair": "no",
         "wheelchair": "limited"
@@ -30160,6 +30120,7 @@
         "osm_type": "node",
         "access": "private",
         "amenity": "fuel",
+        "compressed_air": "yes",
         "fuel:diesel": "yes",
         "fuel:octane_91": "no",
         "name": "Werkstankstelle SMS group",
@@ -31962,6 +31923,7 @@
         "addr:postcode": "48153",
         "addr:street": "Hafenstraße",
         "amenity": "fuel",
+        "check_date:opening_hours": "2026-01-06",
         "compressed_air": "no",
         "fuel:diesel": "yes",
         "fuel:e10": "yes",
@@ -33075,7 +33037,7 @@
         "id": 1488817808,
         "osm_type": "node",
         "amenity": "fuel",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "brand:wikidata": "Q154037",
         "brand:wikipedia": "fr:Total (entreprise)",
         "name": "Total",
@@ -44700,7 +44662,7 @@
         "addr:street": "Siegburger Straße",
         "amenity": "fuel",
         "brand": "Shell",
-        "brand:wikidata": "Q154950",
+        "brand:wikidata": "Q110716465",
         "brand:wikipedia": "en:Royal Dutch Shell",
         "car_wash": "yes",
         "name": "Shell",
@@ -54292,6 +54254,7 @@
         "brand": "Shell",
         "brand:wikidata": "Q110716465",
         "brand:wikipedia": "en:Royal Dutch Shell",
+        "compressed_air": "yes",
         "name": "Shell"
       }
     },
@@ -54315,6 +54278,7 @@
         "brand": "HEM",
         "brand:wikidata": "Q109930239",
         "brand:wikipedia": "de:Deutsche Tamoil",
+        "compressed_air": "yes",
         "name": "HEM"
       }
     },
@@ -56315,6 +56279,24 @@
         "brand": "HEM",
         "brand:wikidata": "Q109930239",
         "name": "HEM"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5537389,
+          51.3643007
+        ]
+      },
+      "properties": {
+        "id": 13435639664,
+        "osm_type": "node",
+        "amenity": "fuel",
+        "brand": "Aral",
+        "brand:wikidata": "Q565734",
+        "name": "Aral"
       }
     },
     {
@@ -72977,7 +72959,7 @@
         "addr:street": "Kölner Straße",
         "amenity": "fuel",
         "brand": "Shell",
-        "brand:wikidata": "Q154950",
+        "brand:wikidata": "Q110716465",
         "brand:wikipedia": "en:Royal Dutch Shell",
         "building": "yes",
         "name": "Shell"
@@ -73909,24 +73891,6 @@
         "layer": "1",
         "name": "Blüggel Spedition",
         "wheelchair": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.5538493,
-          51.3642498
-        ]
-      },
-      "properties": {
-        "id": 176813925,
-        "osm_type": "way",
-        "amenity": "fuel",
-        "brand": "Shell",
-        "compressed_air": "yes",
-        "wheelchair": "limited"
       }
     },
     {
@@ -78670,6 +78634,7 @@
         "addr:street": "Niederbergheimer Straße",
         "amenity": "fuel",
         "brand": "Shell",
+        "brand:wikidata": "Q110716465",
         "building": "yes",
         "compressed_air": "yes",
         "fuel:HGV_diesel": "yes",
@@ -83993,8 +83958,10 @@
         "amenity": "fuel",
         "brand": "Deltin",
         "building": "retail",
+        "check_date": "2026-01-08",
         "compressed_air": "yes",
         "compressed_air:fee": "no",
+        "description": "Darüber hinaus Nachtautomat",
         "fuel:HGV_diesel": "yes",
         "fuel:adblue": "yes",
         "fuel:diesel": "yes",
@@ -84003,6 +83970,10 @@
         "fuel:octane_95": "yes",
         "fuel:octane_98": "yes",
         "name": "Deltin",
+        "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:00-19:00; Su,PH 09:00-18:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
         "payment:dkv": "yes",
         "payment:roadrunner": "yes",
         "payment:uta": "yes",
@@ -95973,6 +95944,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.2013034,
+          50.8566601
+        ]
+      },
+      "properties": {
+        "id": 952006012,
+        "osm_type": "way",
+        "addr:country": "DE",
+        "addr:housenumber": "26",
+        "addr:postcode": "52477",
+        "addr:street": "Aachener Straße",
+        "amenity": "fuel",
+        "brand": "bft",
+        "brand:wikidata": "Q1009104",
+        "landuse": "retail",
+        "name": "bft",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.8414256,
           50.9898283
         ]
@@ -99784,6 +99779,29 @@
         "phone": "+49 2151 46632",
         "ref": "0141466110",
         "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.20225,
+          50.8569818
+        ]
+      },
+      "properties": {
+        "id": 1464590486,
+        "osm_type": "way",
+        "addr:country": "DE",
+        "addr:housenumber": "51",
+        "addr:postcode": "52477",
+        "addr:street": "Aachener Straße",
+        "amenity": "fuel",
+        "brand": "bft",
+        "brand:wikidata": "Q1009104",
+        "landuse": "retail",
+        "name": "bft"
       }
     },
     {

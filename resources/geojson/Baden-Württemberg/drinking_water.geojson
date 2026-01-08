@@ -3972,6 +3972,7 @@
         "osm_type": "node",
         "access": "yes",
         "amenity": "drinking_water",
+        "fountain": "bubbler",
         "operator": "SWP",
         "wheelchair": "yes"
       }
@@ -14978,14 +14979,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.7083427,
-          49.3833024
+          9.708296,
+          49.3832994
         ]
       },
       "properties": {
         "id": 3748535327,
         "osm_type": "node",
-        "amenity": "drinking_water"
+        "access": "yes",
+        "amenity": "drinking_water",
+        "fee": "no"
       }
     },
     {
@@ -25278,21 +25281,6 @@
         "osm_type": "node",
         "amenity": "drinking_water",
         "fountain": "bubbler"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.6633916,
-          47.6130425
-        ]
-      },
-      "properties": {
-        "id": 9452240581,
-        "osm_type": "node",
-        "amenity": "drinking_water"
       }
     },
     {
@@ -35605,6 +35593,7 @@
         "osm_type": "node",
         "amenity": "drinking_water",
         "fee": "no",
+        "fountain": "bottle_refill",
         "indoor": "yes",
         "level": "0",
         "wheelchair": "yes"

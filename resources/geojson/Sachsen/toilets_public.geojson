@@ -7795,7 +7795,14 @@
       "properties": {
         "id": 3907800889,
         "osm_type": "node",
+        "access": "customers",
         "amenity": "toilets",
+        "drinking_water": "yes",
+        "fee": "no",
+        "female": "yes",
+        "male": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated;urinal",
         "wheelchair": "yes"
       }
     },
@@ -11368,6 +11375,10 @@
         "id": 5656467666,
         "osm_type": "node",
         "amenity": "toilets",
+        "object:city": "Bautzen",
+        "object:housenumber": "7",
+        "object:postcode": "02625",
+        "object:street": "Kornmarkt",
         "operator": "Kornmarkt-Center Bautzen"
       }
     },
@@ -14616,8 +14627,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.5969732,
-          50.4902839
+          12.596987,
+          50.4902791
         ]
       },
       "properties": {
@@ -23992,6 +24003,41 @@
         "toilets:paper_supplied": "yes",
         "toilets:position": "seated",
         "unisex": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.7424838,
+          50.6146028
+        ]
+      },
+      "properties": {
+        "id": 13432176419,
+        "osm_type": "node",
+        "amenity": "toilets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.3288488,
+          51.5235946
+        ]
+      },
+      "properties": {
+        "id": 13432850592,
+        "osm_type": "node",
+        "access": "yes",
+        "amenity": "toilets",
+        "check_date": "2026-01-02",
+        "fee": "no",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes"
       }
     },
     {

@@ -10333,6 +10333,7 @@
         "indoor": "yes",
         "level": "4",
         "male": "yes",
+        "unisex": "yes",
         "wheelchair": "yes"
       }
     },
@@ -30568,7 +30569,9 @@
         "id": 13418323119,
         "osm_type": "node",
         "amenity": "toilets",
+        "check_date": "2026-01-04",
         "fee": "no",
+        "portable": "yes",
         "toilets:disposal": "chemical",
         "unisex": "yes",
         "wheelchair": "no"
@@ -30588,7 +30591,9 @@
         "osm_type": "node",
         "amenity": "toilets",
         "changing_table": "yes",
+        "check_date": "2026-01-04",
         "fee": "no",
+        "portable": "yes",
         "toilets:disposal": "chemical",
         "unisex": "yes",
         "wheelchair": "yes"
@@ -34631,6 +34636,7 @@
         "osm_type": "way",
         "amenity": "toilets",
         "fee": "yes",
+        "opening_hours": "24/7",
         "wheelchair": "yes"
       }
     },
@@ -34827,7 +34833,7 @@
         "amenity": "toilets",
         "changing_table": "yes",
         "check_date:opening_hours": "2022-05-28",
-        "fee": "yes",
+        "fee": "no",
         "indoor": "room",
         "level": "0",
         "opening_hours": "Mo-Su 07:00-21:00",

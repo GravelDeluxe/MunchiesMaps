@@ -3663,8 +3663,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1310148,
-          49.2057148
+          8.1313849,
+          49.2056394
         ]
       },
       "properties": {
@@ -8245,7 +8245,7 @@
         "addr:housenumber": "1 A",
         "addr:postcode": "56759",
         "addr:street": "Koblenzer Straße",
-        "brand": "ALDI Süd",
+        "brand": "Aldi Süd",
         "brand:wikidata": "Q41171672",
         "check_date:opening_hours": "2023-09-17",
         "name": "Aldi Süd",
@@ -8272,7 +8272,7 @@
         "addr:housenumber": "1;3",
         "addr:postcode": "56759",
         "addr:street": "Koblenzer Straße",
-        "brand": "REWE",
+        "brand": "Rewe",
         "brand:wikidata": "Q16968817",
         "contact:phone": "+49 2653 99050",
         "contact:website": "https://www.rewe.de/marktseite/rewe-markt-kaisersesch-koblenzer-str.-16",
@@ -9005,7 +9005,7 @@
         "addr:postcode": "56759",
         "addr:street": "August-Horch-Straße",
         "branch": "Ziegler",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
         "email": "edeka.ziegler-kaisersesch@gmx.de",
@@ -12727,8 +12727,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9366197,
-          50.4193287
+          7.9365996,
+          50.4193043
         ]
       },
       "properties": {
@@ -23107,6 +23107,7 @@
         "brand:wikidata": "Q2536857",
         "brand:wikipedia": "de:Wasgau Produktions & Handels AG",
         "building": "retail",
+        "check_date:opening_hours": "2026-01-06",
         "name": "Wasgau",
         "opening_hours": "Mo-Sa 08:00-22:00",
         "shop": "supermarket",
@@ -24571,7 +24572,7 @@
         "brand": "Mix Markt",
         "brand:wikidata": "Q327854",
         "brand:wikipedia": "de:Mix Markt",
-        "building": "yes",
+        "building": "retail",
         "building:levels": "1",
         "name": "Mix Markt",
         "opening_hours": "Mo-Fr 09:00-20:00; Sa 08:00-18:00",
@@ -25042,6 +25043,8 @@
       "properties": {
         "id": 174741088,
         "osm_type": "way",
+        "addr:city": "Bad Kreuznach",
+        "addr:country": "DE",
         "addr:housenumber": "65",
         "addr:street": "Alzeyer Straße",
         "building": "yes",
@@ -25602,7 +25605,7 @@
         "addr:housenumber": "2",
         "addr:postcode": "76768",
         "addr:street": "Mühläcker",
-        "brand": "PENNY",
+        "brand": "Penny",
         "brand:wikidata": "Q284688",
         "brand:wikipedia": "en:Penny (supermarket)",
         "building": "retail",
@@ -28223,6 +28226,7 @@
         "brand:wikidata": "Q879858",
         "brand:wikipedia": "de:Netto Marken-Discount",
         "building": "supermarket",
+        "check_date:opening_hours": "2026-01-05",
         "name": "Netto Marken-Discount",
         "opening_hours": "Mo-Sa 07:00-21:00; PH off",
         "shop": "supermarket",
@@ -29373,7 +29377,7 @@
         "addr:postcode": "57562",
         "addr:street": "Schneiderstraße",
         "branch": "am besten PETZ",
-        "brand": "REWE",
+        "brand": "Rewe",
         "brand:wikidata": "Q16968817",
         "building": "yes",
         "check_date:opening_hours": "2025-02-23",
@@ -35593,8 +35597,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9221766,
-          50.3868721
+          6.922163,
+          50.3868855
         ]
       },
       "properties": {
@@ -35612,6 +35616,7 @@
         "opening_hours": "Mo-Sa 07:00-21:00",
         "operator": "Netto Marken-Discount",
         "shop": "supermarket",
+        "source:building": "OpenData Rheinland-Pfalz",
         "website": "https://www.netto-online.de/filialen/Adenau/Bahnhofstr-6/6983/"
       }
     },
@@ -35620,13 +35625,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9316203,
-          50.3830036
+          6.9316005,
+          50.383001
         ]
       },
       "properties": {
         "id": 436879586,
         "osm_type": "way",
+        "addr:city": "Adenau",
+        "addr:housenumber": "18",
+        "addr:postcode": "53518",
+        "addr:street": "Dr.-Creutz-Platz",
         "brand": "Edeka",
         "brand:wikidata": "Q701755",
         "brand:wikipedia": "de:Edeka",
@@ -35635,6 +35644,7 @@
         "name": "EDEKA",
         "opening_hours": "Mo-Sa 08:00-21:00",
         "shop": "supermarket",
+        "source:building": "OpenData Rheinland-Pfalz",
         "wheelchair": "yes"
       }
     },
@@ -39155,7 +39165,8 @@
         "shop": "supermarket",
         "toilets:access": "customers",
         "toilets:wheelchair": "yes",
-        "website": "https://www.edeka.de/eh/s%C3%BCdwest/edeka-diewald-auf-dem-acker-15/index.jsp"
+        "website": "https://www.edeka.de/eh/s%C3%BCdwest/edeka-diewald-auf-dem-acker-15/index.jsp",
+        "wheelchair": "yes"
       }
     },
     {
@@ -39174,11 +39185,11 @@
         "addr:housenumber": "111",
         "addr:postcode": "57562",
         "addr:street": "Schneiderstraße",
-        "brand": "ALDI Süd",
+        "brand": "Aldi Süd",
         "brand:wikidata": "Q41171672",
         "brand:wikipedia": "en:Aldi",
         "building": "retail",
-        "name": "ALDI Süd",
+        "name": "Aldi Süd",
         "opening_hours": "Mo-Sa 08:00-20:00",
         "shop": "supermarket",
         "website": "https://filialen.aldi-sued.de/rheinland-pfalz/herdorf/schneiderstrasse-11"

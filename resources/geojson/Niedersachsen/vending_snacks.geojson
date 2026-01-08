@@ -4452,6 +4452,7 @@
         "id": 11238317356,
         "osm_type": "node",
         "amenity": "vending_machine",
+        "check_date": "2026-01-04",
         "covered": "yes",
         "currency:EUR": "yes",
         "indoor": "no",
@@ -7021,6 +7022,22 @@
         "payment:electronic_purses": "no",
         "payment:notes": "no",
         "vending": "sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.1552767,
+          53.6188069
+        ]
+      },
+      "properties": {
+        "id": 13437332045,
+        "osm_type": "node",
+        "amenity": "vending_machine",
+        "vending": "drinks;sweets"
       }
     }
   ]
