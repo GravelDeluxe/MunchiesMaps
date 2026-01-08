@@ -98,3 +98,56 @@ def vending_snacks() -> str:
         nwr["amenity"="vending_machine"]({AREA_ALIAS});
         """
     ).strip()
+
+
+def shelters_nightride() -> str:
+    """Return Overpass body for night ride shelters and wilderness huts."""
+    return dedent(
+        f"""
+        (
+          nwr
+            ["amenity"="shelter"]
+            ["shelter_type"~"lean_to|basic_hut|weather_shelter",i]
+            ["access"!="private"]
+            ["shelter_type"!="public_transport"]
+            ["highway"!="bus_stop"]
+            ["public_transport"!="platform"]
+            ({AREA_ALIAS});
+
+          nwr
+            ["tourism"="wilderness_hut"]
+            ["access"!="private"]
+            ({AREA_ALIAS});
+        );
+        """
+    ).strip()
+
+
+def bakeries() -> str:
+    """Return Overpass body for bakeries."""
+    return dedent(
+        f"""
+        nwr["shop"="bakery"]({AREA_ALIAS});
+        """
+    ).strip()
+
+
+def cafes() -> str:
+    """Return Overpass body for cafes."""
+    return dedent(
+        f"""
+        nwr["amenity"="cafe"]({AREA_ALIAS});
+        """
+    ).strip()
+
+
+def kiosks() -> str:
+    """Return Overpass body for kiosks and convenience stores."""
+    return dedent(
+        f"""
+        (
+          nwr["shop"="convenience"]({AREA_ALIAS});
+          nwr["shop"="kiosk"]({AREA_ALIAS});
+        );
+        """
+    ).strip()
