@@ -548,17 +548,36 @@
           const appUrl = googleMapsIOSSchemeUrl(lat, lng);
           const webUrl = googleMapsWebUrl(lat, lng);
 
-          let didHide = false;
-          const onVisChange = () => {
-            if (document.hidden) didHide = true;
+          let didLeavePage = false;
+          let fallbackTimer = null;
+
+          const cancelFallback = () => {
+            didLeavePage = true;
+            if (fallbackTimer) clearTimeout(fallbackTimer);
+            fallbackTimer = null;
           };
-          document.addEventListener('visibilitychange', onVisChange, { once: true });
+
+          const onVis = () => {
+            if (document.visibilityState === 'hidden') cancelFallback();
+          };
+          const onPageHide = () => cancelFallback();
+          const onBlur = () => cancelFallback();
+
+          document.addEventListener('visibilitychange', onVis, { passive: true });
+          window.addEventListener('pagehide', onPageHide, { passive: true });
+          window.addEventListener('blur', onBlur, { passive: true });
 
           window.location.href = appUrl;
 
-          setTimeout(() => {
-            if (!didHide) window.location.href = webUrl;
-          }, 900);
+          fallbackTimer = setTimeout(() => {
+            document.removeEventListener('visibilitychange', onVis);
+            window.removeEventListener('pagehide', onPageHide);
+            window.removeEventListener('blur', onBlur);
+
+            if (!didLeavePage && document.visibilityState === 'visible') {
+              window.location.assign(webUrl);
+            }
+          }, 1200);
         }
       }, { passive: false });
     });
