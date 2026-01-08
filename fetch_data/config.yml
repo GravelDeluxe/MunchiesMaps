@@ -1,6 +1,10 @@
 overpass:
-  endpoint: "https://overpass-api.de/api/interpreter"
+  endpoints:
+    - "https://overpass.kumi.systems/api/interpreter"
+    - "https://overpass-api.de/api/interpreter"
+    - "https://overpass.openstreetmap.ru/api/interpreter"
   timeout: 180
+  fail_on_error: false
 states:
   - Baden-Württemberg
   - Bayern
