@@ -988,15 +988,8 @@
       });
     }
 
-    function mapHrefForCoordinates(lat, lng) {
-      const coords = `${lat},${lng}`;
-      const encoded = encodeURIComponent(coords);
-      const ua = navigator.userAgent || '';
-      const isIOS = /iPad|iPhone|iPod/.test(ua) || (ua.includes('Mac') && 'ontouchend' in document);
-      const isAndroid = /Android/.test(ua);
-      if (isIOS) return `maps://?q=${encoded}`;
-      if (isAndroid) return `geo:${coords}?q=${encoded}`;
-      return `https://www.google.com/maps/search/?api=1&query=${encoded}`;
+    function mapsHref(lat, lon) {
+      return `https://www.google.com/maps?q=${lat},${lon}`;
     }
 
     function popupHtml(props, categoryId, lat, lng) {
@@ -1011,7 +1004,7 @@
         .slice(0, 20)
         .map(k => `<div><b>${k}</b>: ${String(p[k])}</div>`)
         .join('');
-      const mapHref = mapHrefForCoordinates(lat, lng);
+      const mapHref = mapsHref(lat, lng);
       return `
         <div class="popup-content">
           <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${name}</span></div>
