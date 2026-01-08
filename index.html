@@ -320,6 +320,10 @@
     .theme-dark .popup-cat { background: rgba(255,255,255,0.06); }
     .popup-desc { margin-bottom: 8px; }
     .popup-extra { border-top: 1px solid var(--popup-border); padding-top: 8px; }
+    .popup-footer { border-top: 1px solid var(--popup-border); margin-top: 8px; padding-top: 8px; }
+    .popup-footer a { font-weight: 600; text-decoration: none; }
+    .popup-footer a:hover,
+    .popup-footer a:focus { text-decoration: underline; }
   </style>
   <script>
     (function() {
@@ -984,7 +988,18 @@
       });
     }
 
-    function popupHtml(props, categoryId) {
+    function mapHrefForCoordinates(lat, lng) {
+      const coords = `${lat},${lng}`;
+      const encoded = encodeURIComponent(coords);
+      const ua = navigator.userAgent || '';
+      const isIOS = /iPad|iPhone|iPod/.test(ua) || (ua.includes('Mac') && 'ontouchend' in document);
+      const isAndroid = /Android/.test(ua);
+      if (isIOS) return `maps://?q=${encoded}`;
+      if (isAndroid) return `geo:${coords}?q=${encoded}`;
+      return `https://www.google.com/maps/search/?api=1&query=${encoded}`;
+    }
+
+    function popupHtml(props, categoryId, lat, lng) {
       const p = props || {};
       const name = p.name || '(unnamed)';
       const desc = p.description ? p.description : '';
@@ -996,11 +1011,13 @@
         .slice(0, 20)
         .map(k => `<div><b>${k}</b>: ${String(p[k])}</div>`)
         .join('');
+      const mapHref = mapHrefForCoordinates(lat, lng);
       return `
         <div class="popup-content">
           <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${name}</span></div>
           ${desc ? `<div class="popup-desc">${desc}</div>` : ''}
           ${other ? `<div class="popup-extra">${other}</div>` : ''}
+          <div class="popup-footer"><a href="${mapHref}" target="_blank" rel="noopener noreferrer">Open in Maps</a></div>
         </div>
       `;
     }
@@ -1066,11 +1083,11 @@
         cached.lastUsed = renderCounter;
         cached.marker.setLatLng([lat, lng]);
         cached.marker.setIcon(iconForCategory(categoryId));
-        cached.marker.setPopupContent(popupHtml(propsRef, categoryId));
+        cached.marker.setPopupContent(popupHtml(propsRef, categoryId, lat, lng));
         return cached.marker;
       }
       const marker = L.marker([lat, lng], { icon: iconForCategory(categoryId) });
-      marker.bindPopup(popupHtml(propsRef, categoryId));
+      marker.bindPopup(popupHtml(propsRef, categoryId, lat, lng));
       markerCache.set(id, { marker, lastUsed: renderCounter });
       return marker;
     }
