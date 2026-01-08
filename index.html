@@ -524,9 +524,44 @@
       const map = L.map('map', { zoomControl: true, preferCanvas: true });
       window.map = map;
 
-      const FALLBACK_VIEW = { center: [52.52, 13.405], zoom: 11 };
+    const FALLBACK_VIEW = { center: [52.52, 13.405], zoom: 11 };
     // Ensure the map has an initial view before any custom layers render.
     map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom);
+
+    map.on('popupopen', (e) => {
+      const popupEl = e.popup && e.popup.getElement ? e.popup.getElement() : null;
+      if (!popupEl) return;
+      const link = popupEl.querySelector('a.open-gmaps');
+      if (!link) return;
+
+      if (link.__gmapsBound) return;
+      link.__gmapsBound = true;
+
+      link.addEventListener('click', (evt) => {
+        const lat = link.dataset.lat;
+        const lng = link.dataset.lng;
+        if (!lat || !lng) return;
+
+        if (isIOS()) {
+          evt.preventDefault();
+
+          const appUrl = googleMapsIOSSchemeUrl(lat, lng);
+          const webUrl = googleMapsWebUrl(lat, lng);
+
+          let didHide = false;
+          const onVisChange = () => {
+            if (document.hidden) didHide = true;
+          };
+          document.addEventListener('visibilitychange', onVisChange, { once: true });
+
+          window.location.href = appUrl;
+
+          setTimeout(() => {
+            if (!didHide) window.location.href = webUrl;
+          }, 900);
+        }
+      }, { passive: false });
+    });
 
     const LIGHT_TILES = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -988,8 +1023,36 @@
       });
     }
 
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+
+    function isAndroid() {
+      return /Android/i.test(navigator.userAgent);
+    }
+
+    function isMobile() {
+      return isIOS() || isAndroid();
+    }
+
+    function googleMapsWebUrl(lat, lon) {
+      return `https://www.google.com/maps?q=${encodeURIComponent(lat + ',' + lon)}`;
+    }
+
+    function googleMapsAndroidIntentUrl(lat, lon) {
+      const q = encodeURIComponent(lat + ',' + lon);
+      const fallback = encodeURIComponent(googleMapsWebUrl(lat, lon));
+      return `intent://maps.google.com/maps?q=${q}#Intent;scheme=https;package=com.google.android.apps.maps;S.browser_fallback_url=${fallback};end`;
+    }
+
+    function googleMapsIOSSchemeUrl(lat, lon) {
+      const q = encodeURIComponent(lat + ',' + lon);
+      return `comgooglemaps://?q=${q}`;
+    }
+
     function mapsHref(lat, lon) {
-      return `https://www.google.com/maps?q=${lat},${lon}`;
+      if (isAndroid()) return googleMapsAndroidIntentUrl(lat, lon);
+      return googleMapsWebUrl(lat, lon);
     }
 
     function popupHtml(props, categoryId, lat, lng) {
@@ -1010,7 +1073,16 @@
           <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${name}</span></div>
           ${desc ? `<div class="popup-desc">${desc}</div>` : ''}
           ${other ? `<div class="popup-extra">${other}</div>` : ''}
-          <div class="popup-footer"><a href="${mapHref}" target="_blank" rel="noopener noreferrer">Open in Maps</a></div>
+          <div class="popup-footer">
+            <a
+              class="open-gmaps"
+              href="${mapHref}"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-lat="${lat}"
+              data-lng="${lng}"
+            >Open in Google Maps</a>
+          </div>
         </div>
       `;
     }
