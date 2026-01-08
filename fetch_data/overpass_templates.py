@@ -26,7 +26,11 @@ def toilets_public() -> str:
     """Return Overpass body for public toilets."""
     return dedent(
         f"""
-        nwr["amenity"="toilets"]({AREA_ALIAS});
+        nwr
+          ["amenity"="toilets"]
+          ["access"!="private"]
+          ["toilets:access"!="private"]
+          ({AREA_ALIAS});
         """
     ).strip()
 
@@ -35,7 +39,10 @@ def drinking_water() -> str:
     """Return Overpass body for drinking water points."""
     return dedent(
         f"""
-        nwr["amenity"="drinking_water"]({AREA_ALIAS});
+        nwr
+          ["amenity"="drinking_water"]
+          ["access"!="private"]
+          ({AREA_ALIAS});
         """
     ).strip()
 
@@ -63,10 +70,27 @@ def burger_king() -> str:
     ).strip()
 
 
-def vending_snacks() -> str:
-    """Return Overpass body for snack vending machines."""
+def vending_all() -> str:
+    """Return Overpass body for all vending machines."""
     return dedent(
         f"""
-        nwr["amenity"="vending_machine"]["vending"~"snack|snacks|sweets|candy|chocolate",i]({AREA_ALIAS});
+        nwr["amenity"="vending_machine"]({AREA_ALIAS});
         """
     ).strip()
+
+
+def vending_food_and_drinks() -> str:
+    """Return Overpass body for food and drink vending machines."""
+    return dedent(
+        f"""
+        nwr
+          ["amenity"="vending_machine"]
+          ["vending"~"food|snack|snacks|sweets|candy|chocolate|drink|drinks|soft_drinks|beverages|coffee|hot_drinks|ice_cream|milk|bread|pizza|water",i]
+          ({AREA_ALIAS});
+        """
+    ).strip()
+
+
+def vending_snacks() -> str:
+    """Return Overpass body for food and drink vending machines."""
+    return vending_food_and_drinks()
