@@ -28,6 +28,22 @@ TAG_WHITELIST: Dict[str, List[str]] = {
     "mcdonalds": ["name", "brand", "opening_hours", "phone", "website"],
     "burger_king": ["name", "brand", "opening_hours", "phone", "website"],
     "vending_snacks": ["name", "opening_hours", "vending", "products", "brand", "operator"],
+    "shelters": [
+        "name",
+        "access",
+        "shelter_type",
+        "covered",
+        "bench",
+        "table",
+        "capacity",
+        "fee",
+        "operator",
+        "description",
+        "url",
+    ],
+    "bakeries": ["name", "brand", "opening_hours"],
+    "cafes": ["name", "opening_hours", "takeaway", "outdoor_seating"],
+    "kiosks": ["name", "brand", "opening_hours"],
 }
 
 
