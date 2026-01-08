@@ -92,5 +92,9 @@ def vending_food_and_drinks() -> str:
 
 
 def vending_snacks() -> str:
-    """Return Overpass body for food and drink vending machines."""
-    return vending_food_and_drinks()
+    """Return Overpass body for vending machines."""
+    return dedent(
+        f"""
+        nwr["amenity"="vending_machine"]({AREA_ALIAS});
+        """
+    ).strip()

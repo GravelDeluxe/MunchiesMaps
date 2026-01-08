@@ -20,6 +20,15 @@ RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 MAX_RETRIES = 5
 INITIAL_BACKOFF = 1.0
 BACKOFF_FACTOR = 2
+TAG_WHITELIST: Dict[str, List[str]] = {
+    "fuel": ["name", "brand", "opening_hours"],
+    "supermarkets": ["name", "brand", "opening_hours"],
+    "toilets_public": ["name", "opening_hours", "access"],
+    "drinking_water": ["name", "access", "opening_hours", "fee", "seasonal", "operator", "indoor"],
+    "mcdonalds": ["name", "brand", "opening_hours", "phone", "website"],
+    "burger_king": ["name", "brand", "opening_hours", "phone", "website"],
+    "vending_snacks": ["name", "opening_hours", "vending", "products", "brand", "operator"],
+}
 
 
 def load_config() -> Dict[str, Any]:
@@ -79,10 +88,19 @@ def request_with_retry(endpoint: str, query: str, timeout: int) -> Dict[str, Any
         return response.json()
 
 
-def element_to_feature(element: Dict[str, Any]) -> Dict[str, Any] | None:
+def filter_tags_for_category(tags: Dict[str, Any], category: str) -> Dict[str, Any]:
+    """Filter tags based on allowed list for a category."""
+    allowed = TAG_WHITELIST.get(category)
+    if not allowed:
+        return {}
+    return {k: tags[k] for k in allowed if k in tags}
+
+
+def element_to_feature(element: Dict[str, Any], category: str) -> Dict[str, Any] | None:
     """Convert a single Overpass element to a GeoJSON feature."""
     properties = {"id": element.get("id"), "osm_type": element.get("type")}
-    properties.update(element.get("tags", {}))
+    all_tags = element.get("tags") or {}
+    properties.update(filter_tags_for_category(all_tags, category))
 
     geometry = None
     if element.get("type") == "node" and {"lat", "lon"}.issubset(element):
@@ -113,11 +131,11 @@ def element_to_feature(element: Dict[str, Any]) -> Dict[str, Any] | None:
     }
 
 
-def convert_to_geojson(elements: Iterable[Dict[str, Any]]) -> Dict[str, Any]:
+def convert_to_geojson(elements: Iterable[Dict[str, Any]], category: str) -> Dict[str, Any]:
     """Convert Overpass elements list into a GeoJSON FeatureCollection."""
     features: List[Dict[str, Any]] = []
     for element in elements:
-        feature = element_to_feature(element)
+        feature = element_to_feature(element, category)
         if feature:
             features.append(feature)
     return {"type": "FeatureCollection", "features": features}
@@ -165,7 +183,7 @@ def run() -> None:
             print(f"[info] Requesting {category} in {state}")
             response_json = request_with_retry(endpoint, query, timeout)
             elements = response_json.get("elements", [])
-            geojson = convert_to_geojson(elements)
+            geojson = convert_to_geojson(elements, category)
             save_geojson(geojson, state, category)
 
 
