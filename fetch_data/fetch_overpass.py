@@ -70,38 +70,53 @@ def build_query(state: str, body: str, timeout: int) -> str:
     ).strip()
 
 
-def request_with_retry(endpoint: str, query: str, timeout: int) -> Dict[str, Any]:
-    """Send POST request to Overpass API with exponential backoff."""
-    attempt = 0
-    while True:
-        attempt += 1
-        try:
-            response = requests.post(
-                endpoint,
-                data={"data": query},
-                timeout=timeout + 30,
-            )
-        except requests.RequestException as exc:
-            if attempt > MAX_RETRIES:
-                raise RuntimeError(f"Request failed after {attempt - 1} retries: {exc}") from exc
-            backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
-            print(f"[warn] Request error '{exc}', retrying in {backoff:.1f}s (attempt {attempt}/{MAX_RETRIES})")
-            time.sleep(backoff)
-            continue
+def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[str, Any]:
+    """Send POST request to Overpass API with exponential backoff and failover."""
+    last_exc: Exception | None = None
+    for endpoint in endpoints:
+        attempt = 0
+        while True:
+            attempt += 1
+            try:
+                response = requests.post(
+                    endpoint,
+                    data={"data": query},
+                    timeout=timeout + 30,
+                )
+            except requests.RequestException as exc:
+                last_exc = exc
+                if attempt > MAX_RETRIES:
+                    break
+                backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
+                print(
+                    f"[warn] Request error '{exc}', retrying in {backoff:.1f}s "
+                    f"(attempt {attempt}/{MAX_RETRIES})"
+                )
+                time.sleep(backoff)
+                continue
 
-        if response.status_code in RETRYABLE_STATUS_CODES:
-            if attempt > MAX_RETRIES:
-                response.raise_for_status()
-            backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
-            print(
-                f"[warn] Overpass returned status {response.status_code}, retrying in {backoff:.1f}s "
-                f"(attempt {attempt}/{MAX_RETRIES})"
-            )
-            time.sleep(backoff)
-            continue
+            if response.status_code in RETRYABLE_STATUS_CODES:
+                if attempt > MAX_RETRIES:
+                    last_exc = requests.HTTPError(
+                        f"Overpass returned status {response.status_code} after {MAX_RETRIES} retries."
+                    )
+                    break
+                backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
+                print(
+                    f"[warn] Overpass returned status {response.status_code}, retrying in {backoff:.1f}s "
+                    f"(attempt {attempt}/{MAX_RETRIES})"
+                )
+                time.sleep(backoff)
+                continue
 
-        response.raise_for_status()
-        return response.json()
+            response.raise_for_status()
+            return response.json()
+
+        print(f"[warn] Endpoint {endpoint} failed after {MAX_RETRIES} retries; trying next endpoint...")
+
+    if last_exc is None:
+        raise RuntimeError("All Overpass endpoints failed. Last error: unknown.")
+    raise RuntimeError(f"All Overpass endpoints failed. Last error: {last_exc}") from last_exc
 
 
 def filter_tags_for_category(tags: Dict[str, Any], category: str) -> Dict[str, Any]:
@@ -184,12 +199,25 @@ def run() -> None:
     """Run the fetch process for all configured states and categories."""
     config = load_config()
     overpass_cfg = config.get("overpass", {})
-    endpoint = overpass_cfg.get("endpoint")
+    endpoints = overpass_cfg.get("endpoints") or overpass_cfg.get("endpoint")
+    if isinstance(endpoints, str):
+        endpoints = [endpoints]
+    if (
+        not isinstance(endpoints, list)
+        or not endpoints
+        or not all(isinstance(endpoint, str) and endpoint.strip() for endpoint in endpoints)
+    ):
+        raise ValueError(
+            "Config error: overpass.endpoints must be a non-empty list of URLs (or legacy overpass.endpoint string)."
+        )
     timeout = int(overpass_cfg.get("timeout", 180))
+    fail_on_error = bool(overpass_cfg.get("fail_on_error", False))
     states = config.get("states", [])
     categories = config.get("categories", {})
 
     ensure_directory(RESOURCE_DIR)
+
+    failures: List[str] = []
 
     for state in states:
         for category, func_name in categories.items():
@@ -197,10 +225,24 @@ def run() -> None:
             body = template_func()
             query = build_query(state, body, timeout)
             print(f"[info] Requesting {category} in {state}")
-            response_json = request_with_retry(endpoint, query, timeout)
-            elements = response_json.get("elements", [])
-            geojson = convert_to_geojson(elements, category)
-            save_geojson(geojson, state, category)
+            try:
+                response_json = request_with_retry(endpoints, query, timeout)
+                elements = response_json.get("elements", [])
+                geojson = convert_to_geojson(elements, category)
+                save_geojson(geojson, state, category)
+            except Exception as exc:  # noqa: BLE001
+                msg = f"{state} / {category}: {exc}"
+                print(f"[error] {msg}")
+                failures.append(msg)
+                continue
+
+    if failures:
+        print(f"[warn] Completed with {len(failures)} failures:")
+        for failure in failures:
+            print(f"  - {failure}")
+        if fail_on_error:
+            raise RuntimeError("Fetch completed with failures; see log summary.")
+        print("[info] Best-effort mode: continuing despite failures (fail_on_error=false).")
 
 
 def main() -> None:
