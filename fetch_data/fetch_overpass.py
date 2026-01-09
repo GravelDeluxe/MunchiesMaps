@@ -139,7 +139,7 @@ def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[s
                     "Failed to decode JSON from "
                     f"{endpoint}: status={response.status_code}, content-type={content_type}, "
                     f"body_prefix={text[:200]!r}"
-                ) from exc
+                )
                 if attempt > MAX_RETRIES:
                     break
                 backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
