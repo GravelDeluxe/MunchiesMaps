@@ -18,3 +18,8 @@ The map is intended as a foundation for bicycle travel. It was initially designe
 ## Data and contributions
 - Data is imported automatically from Overpass Turbo and stored as GeoJSON under `resources/geojson/` using the manifest in that folder.
 - Contributions that improve data quality, categories, or presentation are welcome; workflows and formats may evolve quickly while in alpha.
+
+## Adding a new layer icon
+- Open `index.html` and locate the `LAYER_ICON_CONFIG` object.
+- Add a new entry keyed by the layer/category ID from the manifest (for example `bike_repair`), and set `iconClass` (Font Awesome class), `color` (hex), and optional `label`/`size` overrides.
+- The new entry is automatically picked up by `getLayerMarkerIcon(...)` for map markers and by the list/popup category badges.
