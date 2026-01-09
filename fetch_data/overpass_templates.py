@@ -66,34 +66,13 @@ def fast_food() -> str:
     ).strip()
 
 
-def vending_all() -> str:
-    """Return Overpass body for all vending machines."""
-    return dedent(
-        f"""
-        nwr["amenity"="vending_machine"]({AREA_ALIAS});
-        """
-    ).strip()
-
-
-def vending_food_and_drinks() -> str:
-    """Return Overpass body for food and drink vending machines."""
-    return dedent(
-        f"""
-        nwr
-          ["amenity"="vending_machine"]
-          ["vending"~"food|snack|snacks|sweets|candy|chocolate|drink|drinks|soft_drinks|beverages|coffee|hot_drinks|ice_cream|milk|bread|pizza|water",i]
-          ({AREA_ALIAS});
-        """
-    ).strip()
-
-
 def vending_snacks() -> str:
-    """Return Overpass body for vending machines."""
+    """Return Overpass body for vending machines offering food and drinks (semicolon-safe)."""
     return dedent(
         f"""
         nwr
           ["amenity"="vending_machine"]
-          ["vending"~"food|snack|snacks|sweets|candy|chocolate|drink|drinks|soft_drinks|beverages|coffee|hot_drinks|ice_cream|milk|bread|pizza|water",i]
+          ["vending"~"(^|;)(food|snack|snacks|drinks?|soft_drinks|beverages|coffee|hot_drinks|ice_cream|milk|bread|pizza|water)(;|$)",i]
           ({AREA_ALIAS});
         """
     ).strip()
