@@ -154,7 +154,7 @@ def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[s
 
     if last_exc is None:
         raise RuntimeError("All Overpass endpoints failed. Last error: unknown.")
-    raise RuntimeError(f"All Overpass endpoints failed. Last error: {last_exc}") from last_exc
+    raise RuntimeError(f"All Overpass endpoints failed. Last error: {last_exc}")
 
 
 def filter_tags_for_category(tags: Dict[str, Any], category: str) -> Dict[str, Any]:
