@@ -18,6 +18,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Configure git and workflow permissions notice
+        run: |
+          git config --global core.quotepath false
+          echo "To allow this workflow to create PRs, ensure the repo setting is enabled:"
+          echo "Settings → Actions → General → Workflow permissions → Read and write"
+          echo "and enable “Allow GitHub Actions to create and approve pull requests”."
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
