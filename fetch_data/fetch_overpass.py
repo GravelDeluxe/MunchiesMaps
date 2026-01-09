@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -25,8 +26,7 @@ TAG_WHITELIST: Dict[str, List[str]] = {
     "supermarkets": ["name", "brand", "opening_hours"],
     "toilets_public": ["name", "opening_hours", "access"],
     "drinking_water": ["name", "access", "opening_hours", "fee", "seasonal", "operator", "indoor"],
-    "mcdonalds": ["name", "brand", "opening_hours", "phone", "website"],
-    "burger_king": ["name", "brand", "opening_hours", "phone", "website"],
+    "fast_food": ["name", "brand", "opening_hours", "phone", "website", "operator", "brand:wikidata"],
     "vending_snacks": ["name", "opening_hours", "vending", "products", "brand", "operator"],
     "shelters": [
         "name",
@@ -44,6 +44,36 @@ TAG_WHITELIST: Dict[str, List[str]] = {
     "bakerys_cafes": ["name", "brand", "opening_hours", "takeaway", "outdoor_seating"],
     "kiosks": ["name", "brand", "opening_hours"],
 }
+
+
+def normalize_text(value: Any) -> str:
+    """Normalize text for comparisons."""
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
+def detect_fast_food_chain(tags: Dict[str, Any]) -> str:
+    """Determine fast-food chain for supported brands."""
+    wikidata = normalize_text(tags.get("brand:wikidata"))
+    if wikidata == "Q38076":
+        return "mcdonalds"
+    if wikidata == "Q177054":
+        return "burger_king"
+
+    candidates = [
+        normalize_text(tags.get("brand")),
+        normalize_text(tags.get("operator")),
+        normalize_text(tags.get("name")),
+    ]
+    for value in candidates:
+        if not value:
+            continue
+        if re.search(r"\bMcDonald'?s\b", value, re.IGNORECASE):
+            return "mcdonalds"
+        if re.search(r"\bBurger\s*King\b|\bBurgerKing\b", value, re.IGNORECASE):
+            return "burger_king"
+    return "unknown"
 
 
 def load_config() -> Dict[str, Any]:
@@ -64,7 +94,7 @@ def build_query(state: str, body: str, timeout: int) -> str:
         (
         {indent(body, '  ')}
         );
-        out center;
+        out center qt;
         """
     ).strip()
 
@@ -170,6 +200,8 @@ def element_to_feature(element: Dict[str, Any], category: str) -> Dict[str, Any]
     properties = {"id": element.get("id"), "osm_type": element.get("type")}
     all_tags = element.get("tags") or {}
     properties.update(filter_tags_for_category(all_tags, category))
+    if category == "fast_food":
+        properties["chain"] = detect_fast_food_chain(all_tags)
 
     geometry = None
     if element.get("type") == "node" and {"lat", "lon"}.issubset(element):
