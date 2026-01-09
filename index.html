@@ -9,6 +9,8 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --bg: #f6f7fb;
@@ -173,8 +175,9 @@
     .checklist { display: flex; flex-direction: column; gap: 8px; }
     .checklist .checkrow { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
     .checklist input[type="checkbox"] { width: 16px; height: 16px; }
-    .cat-icon { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; overflow: hidden; flex: 0 0 auto; background: transparent; border: 1px solid transparent; box-sizing: border-box; }
+    .cat-icon { display: inline-grid; place-items: center; border-radius: 999px; overflow: hidden; flex: 0 0 auto; background: transparent; border: 1px solid transparent; box-sizing: border-box; }
     .cat-icon img { width: 100%; height: 100%; display: block; }
+    .cat-icon i { color: currentColor; line-height: 1; }
     .cat-icon--list { width: 22px; height: 22px; }
     .cat-icon--popup { width: 20px; height: 20px; }
     .cat-icon--map { width: 34px; height: 34px; }
@@ -324,6 +327,31 @@
     .popup-footer a { font-weight: 600; text-decoration: none; }
     .popup-footer a:hover,
     .popup-footer a:focus { text-decoration: underline; }
+
+    /* Minimalist layer markers */
+    .mm-marker-wrap { background: transparent; border: none; }
+    .mm-marker {
+      width: var(--marker-size, 30px);
+      height: var(--marker-size, 30px);
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--marker-color, #6b7280);
+      border: 2px solid rgba(255,255,255,0.25);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-sizing: border-box;
+    }
+    .mm-marker i {
+      color: #fff;
+      font-size: var(--marker-icon-size, 15px);
+      line-height: 1;
+    }
+    .mm-marker:hover,
+    .mm-marker:focus {
+      transform: scale(1.05);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.35);
+    }
   </style>
   <script>
     (function() {
@@ -429,55 +457,74 @@
 
     const DEFAULT_CLUSTER_THRESHOLD = 200;
 
-    const CATEGORY_STYLE = {
-      fuel: { color: '#1d4ed8', icon: 'resources/icons/fuel.svg' },
-      supermarkets: { color: '#2e7d32', icon: 'resources/icons/supermarkets.svg' },
-      drinking_water: { color: '#ffffff', icon: 'resources/icons/drinking_water.svg' },
-      shelters: { color: '#0f766e', icon: 'resources/icons/shelters.svg' },
-      bakerys_cafes: { color: '#f59e0b', icon: 'resources/icons/bakeries.svg' },
-      kiosks: { color: '#10b981', icon: 'resources/icons/kiosks.svg' },
-      fast_food: { color: '#f97316', icon: 'resources/icons/default.svg' },
-      burger_king: { color: '#f97316', icon: 'resources/icons/burger_king.svg' },
-      mcdonalds: { color: '#facc15', icon: 'resources/icons/mcdonalds.svg' },
-      toilets_public: { color: '#38bdf8', icon: 'resources/icons/toilets_public.svg' },
-      vending_snacks: { color: '#eab308', icon: 'resources/icons/vending_snacks.svg' },
-      default: { color: '#6b7280', icon: 'resources/icons/default.svg' }
+    const DEFAULT_MARKER_SIZE = 30;
+    const DEFAULT_MARKER_ICON_SIZE = 15;
+
+    const LAYER_ICON_CONFIG = {
+      fast_food: { iconClass: 'fa-solid fa-burger', color: '#E5533D', label: 'Fast Food' },
+      burger_king: { iconClass: 'fa-solid fa-burger', color: '#E5533D', label: 'Burger King' },
+      mcdonalds: { iconClass: 'fa-solid fa-utensils', color: '#F2C94C', label: "McDonald's" },
+      toilets_public: { iconClass: 'fa-solid fa-toilet', color: '#2F80ED', label: 'Toilets' },
+      drinking_water: { iconClass: 'fa-solid fa-droplet', color: '#56CCF2', label: 'Drinking Water' },
+      shelters: { iconClass: 'fa-solid fa-campground', color: '#6FCF97', label: 'Shelter' },
+      fuel: { iconClass: 'fa-solid fa-gas-pump', color: '#F2C94C', label: 'Fuel' },
+      supermarkets: { iconClass: 'fa-solid fa-cart-shopping', color: '#9B51E0', label: 'Supermarkets' },
+      vending_snacks: { iconClass: 'fa-solid fa-cookie-bite', color: '#EB5757', label: 'Vending' },
+      bakerys_cafes: { iconClass: 'fa-solid fa-mug-saucer', color: '#F2994A', label: 'Bakeries & Cafes' },
+      kiosks: { iconClass: 'fa-solid fa-store', color: '#27AE60', label: 'Kiosks' },
+      default: { iconClass: 'fa-solid fa-location-dot', color: '#6b7280', label: 'Points of Interest' }
     };
 
-    function categoryStyle(categoryId) {
-      return CATEGORY_STYLE[categoryId] || CATEGORY_STYLE.default;
+    function resolveLayerKey(layerKey, featureProps) {
+      if (layerKey === 'fast_food') {
+        const chain = (featureProps && featureProps.chain ? featureProps.chain : '').toString().toLowerCase();
+        if (chain === 'mcdonalds') return 'mcdonalds';
+        if (chain === 'burger_king') return 'burger_king';
+      }
+      return layerKey || 'default';
     }
 
-    function categoryColor(categoryId) {
-      return categoryStyle(categoryId).color;
+    function getLayerIconConfig(layerKey, featureProps) {
+      const resolvedKey = resolveLayerKey(layerKey, featureProps);
+      return {
+        key: resolvedKey,
+        config: LAYER_ICON_CONFIG[resolvedKey] || LAYER_ICON_CONFIG.default
+      };
     }
 
-    function categoryIconPath(categoryId) {
-      const style = categoryStyle(categoryId);
-      return style.icon || CATEGORY_STYLE.default.icon;
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
     }
 
     function createCategoryIconElement(categoryId, size = 22, extraClass = '') {
+      const { key, config } = getLayerIconConfig(categoryId);
       const el = document.createElement('span');
       el.className = ['cat-icon', extraClass].filter(Boolean).join(' ');
-      if (categoryId === 'drinking_water') el.classList.add('cat-icon--water');
+      if (key === 'drinking_water') el.classList.add('cat-icon--water');
       el.style.width = `${size}px`;
       el.style.height = `${size}px`;
-      const img = document.createElement('img');
-      img.src = categoryIconPath(categoryId);
-      img.alt = '';
-      img.setAttribute('aria-hidden', 'true');
-      img.loading = 'lazy';
-      el.appendChild(img);
+      el.style.color = config.color;
+      el.style.fontSize = `${Math.round(size * 0.65)}px`;
+      const icon = document.createElement('i');
+      icon.className = config.iconClass;
+      icon.setAttribute('aria-hidden', 'true');
+      el.appendChild(icon);
       return el;
     }
 
     function categoryIconHtml(categoryId, size = 22, extraClass = '') {
+      const { key, config } = getLayerIconConfig(categoryId);
       const classes = ['cat-icon', extraClass];
-      if (categoryId === 'drinking_water') classes.push('cat-icon--water');
+      if (key === 'drinking_water') classes.push('cat-icon--water');
       const cls = classes.filter(Boolean).join(' ');
       const dim = `${size}px`;
-      return `<span class="${cls}" style="width:${dim};height:${dim};"><img src="${categoryIconPath(categoryId)}" alt="" aria-hidden="true" loading="lazy" /></span>`;
+      const fontSize = Math.round(size * 0.65);
+      return `<span class="${cls}" style="width:${dim};height:${dim};color:${config.color};font-size:${fontSize}px;"><i class="${config.iconClass}" aria-hidden="true"></i></span>`;
     }
 
     let categoryLabelMap = {};
@@ -1136,30 +1183,38 @@
       `;
     }
 
-    const ICON_CACHE = {};
+    const MARKER_ICON_CACHE = new Map();
 
-    function iconForCategory(categoryId) {
-      const key = categoryId || 'default';
-      if (!ICON_CACHE[key]) {
-        const size = 34;
-        const html = categoryIconHtml(categoryId, size, 'cat-icon--map');
-        ICON_CACHE[key] = L.divIcon({
-          className: '',
-          html,
-          iconSize: [size, size],
-          iconAnchor: [size / 2, size / 2],
-          popupAnchor: [0, -size / 2]
-        });
-      }
-      return ICON_CACHE[key];
+    function markerLabel(layerKey, featureProps) {
+      const { key, config } = getLayerIconConfig(layerKey, featureProps);
+      return config.label || categoryLabelMap[key] || layerKey || 'Location';
     }
 
-    function iconForPoint(categoryId, propsRef) {
-      if (categoryId !== 'fast_food') return iconForCategory(categoryId);
-      const chain = (propsRef && propsRef.chain ? propsRef.chain : '').toString().toLowerCase();
-      if (chain === 'mcdonalds') return iconForCategory('mcdonalds');
-      if (chain === 'burger_king') return iconForCategory('burger_king');
-      return iconForCategory('fast_food');
+    function getLayerMarkerIcon(layerKey, featureProps = {}) {
+      const { key, config } = getLayerIconConfig(layerKey, featureProps);
+      const size = config.size || DEFAULT_MARKER_SIZE;
+      const iconSize = config.iconSize || DEFAULT_MARKER_ICON_SIZE;
+      const cacheKey = `${key}-${size}-${iconSize}`;
+      if (MARKER_ICON_CACHE.has(cacheKey)) return MARKER_ICON_CACHE.get(cacheKey);
+      const label = markerLabel(key, featureProps);
+      const html = `
+        <span class="mm-marker"
+              style="--marker-color:${config.color};--marker-size:${size}px;--marker-icon-size:${iconSize}px;"
+              role="img"
+              aria-label="${escapeHtml(label)} marker"
+              title="${escapeHtml(label)}">
+          <i class="${config.iconClass}" aria-hidden="true"></i>
+        </span>
+      `;
+      const icon = L.divIcon({
+        className: 'mm-marker-wrap',
+        html,
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size / 2],
+        popupAnchor: [0, -size / 2]
+      });
+      MARKER_ICON_CACHE.set(cacheKey, icon);
+      return icon;
     }
 
     function createClusterIcon(cluster) {
@@ -1204,11 +1259,11 @@
       if (cached) {
         cached.lastUsed = renderCounter;
         cached.marker.setLatLng([lat, lng]);
-        cached.marker.setIcon(iconForPoint(categoryId, propsRef));
+        cached.marker.setIcon(getLayerMarkerIcon(categoryId, propsRef));
         cached.marker.setPopupContent(popupHtml(propsRef, categoryId, lat, lng));
         return cached.marker;
       }
-      const marker = L.marker([lat, lng], { icon: iconForPoint(categoryId, propsRef) });
+      const marker = L.marker([lat, lng], { icon: getLayerMarkerIcon(categoryId, propsRef) });
       marker.bindPopup(popupHtml(propsRef, categoryId, lat, lng));
       markerCache.set(id, { marker, lastUsed: renderCounter });
       return marker;
