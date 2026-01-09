@@ -6,12 +6,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6680288,
-          53.170748
+          8.7491485,
+          53.0394294
         ]
       },
       "properties": {
-        "id": 1478020489,
+        "id": 8795921227,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
       }
@@ -81,6 +81,36 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.6680288,
+          53.170748
+        ]
+      },
+      "properties": {
+        "id": 1478020489,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7745209,
+          53.0991721
+        ]
+      },
+      "properties": {
+        "id": 10605777852,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.7157162,
           53.1489086
         ]
@@ -112,66 +142,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7491485,
-          53.0394294
-        ]
-      },
-      "properties": {
-        "id": 8795921227,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.7745209,
-          53.0991721
-        ]
-      },
-      "properties": {
-        "id": 10605777852,
-        "osm_type": "node",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8371454,
-          53.1028417
-        ]
-      },
-      "properties": {
-        "id": 207463079,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8285407,
-          53.1063839
-        ]
-      },
-      "properties": {
-        "id": 226286260,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.7570283,
           53.0484263
         ]
@@ -189,42 +159,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9292159,
-          53.0819628
+          8.7679828,
+          53.1062199
         ]
       },
       "properties": {
-        "id": 572552964,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.9239048,
-          53.0825682
-        ]
-      },
-      "properties": {
-        "id": 572552966,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8976887,
-          53.1082018
-        ]
-      },
-      "properties": {
-        "id": 658215188,
+        "id": 1017383366,
         "osm_type": "way",
         "shelter_type": "weather_shelter",
         "bench": "yes"
@@ -235,15 +175,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.8774672,
-          53.1149603
+          8.7886696,
+          53.1074014
         ]
       },
       "properties": {
-        "id": 664906094,
+        "id": 1097443259,
         "osm_type": "way",
         "shelter_type": "weather_shelter",
-        "bench": "no"
+        "bench": "yes",
+        "table": "no"
       }
     },
     {
@@ -251,12 +192,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.8835122,
-          53.121128
+          8.7206306,
+          53.1458031
         ]
       },
       "properties": {
-        "id": 664906095,
+        "id": 1112307728,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7208417,
+          53.1459374
+        ]
+      },
+      "properties": {
+        "id": 1112307729,
         "osm_type": "way",
         "shelter_type": "weather_shelter",
         "bench": "yes"
@@ -300,15 +257,108 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7679828,
-          53.1062199
+          8.8285407,
+          53.1063839
         ]
       },
       "properties": {
-        "id": 1017383366,
+        "id": 226286260,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8371454,
+          53.1028417
+        ]
+      },
+      "properties": {
+        "id": 207463079,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8774672,
+          53.1149603
+        ]
+      },
+      "properties": {
+        "id": 664906094,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter",
+        "bench": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8835122,
+          53.121128
+        ]
+      },
+      "properties": {
+        "id": 664906095,
         "osm_type": "way",
         "shelter_type": "weather_shelter",
         "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8976887,
+          53.1082018
+        ]
+      },
+      "properties": {
+        "id": 658215188,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8948378,
+          53.1312078
+        ]
+      },
+      "properties": {
+        "id": 1099668241,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.9239048,
+          53.0825682
+        ]
+      },
+      "properties": {
+        "id": 572552966,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -322,21 +372,6 @@
       },
       "properties": {
         "id": 1051894487,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.9268086,
-          53.0854981
-        ]
-      },
-      "properties": {
-        "id": 1051894491,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
       }
@@ -361,16 +396,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7886696,
-          53.1074014
+          8.9292159,
+          53.0819628
         ]
       },
       "properties": {
-        "id": 1097443259,
+        "id": 572552964,
         "osm_type": "way",
-        "shelter_type": "weather_shelter",
-        "bench": "yes",
-        "table": "no"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -378,47 +411,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.8948378,
-          53.1312078
+          8.9268086,
+          53.0854981
         ]
       },
       "properties": {
-        "id": 1099668241,
+        "id": 1051894491,
         "osm_type": "way",
-        "shelter_type": "weather_shelter",
-        "bench": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.7206306,
-          53.1458031
-        ]
-      },
-      "properties": {
-        "id": 1112307728,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter",
-        "bench": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.7208417,
-          53.1459374
-        ]
-      },
-      "properties": {
-        "id": 1112307729,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter",
-        "bench": "yes"
+        "shelter_type": "weather_shelter"
       }
     }
   ]
