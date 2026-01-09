@@ -95,7 +95,10 @@ def vending_snacks() -> str:
     """Return Overpass body for vending machines."""
     return dedent(
         f"""
-        nwr["amenity"="vending_machine"]({AREA_ALIAS});
+        nwr
+          ["amenity"="vending_machine"]
+          ["vending"~"food|snack|snacks|sweets|candy|chocolate|drink|drinks|soft_drinks|beverages|coffee|hot_drinks|ice_cream|milk|bread|pizza|water",i]
+          ({AREA_ALIAS});
         """
     ).strip()
 
@@ -123,20 +126,14 @@ def shelters_nightride() -> str:
     ).strip()
 
 
-def bakeries() -> str:
-    """Return Overpass body for bakeries."""
+def bakerys_cafes() -> str:
+    """Return Overpass body for bakeries and cafes."""
     return dedent(
         f"""
-        nwr["shop"="bakery"]({AREA_ALIAS});
-        """
-    ).strip()
-
-
-def cafes() -> str:
-    """Return Overpass body for cafes."""
-    return dedent(
-        f"""
-        nwr["amenity"="cafe"]({AREA_ALIAS});
+        (
+          nwr["shop"="bakery"]({AREA_ALIAS});
+          nwr["amenity"="cafe"]({AREA_ALIAS});
+        );
         """
     ).strip()
 
