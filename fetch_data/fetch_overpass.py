@@ -102,12 +102,17 @@ def build_query(state: str, body: str, timeout: int) -> str:
 def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[str, Any]:
     """Send POST request to Overpass API with exponential backoff and failover."""
     last_exc: Exception | None = None
+    last_endpoint: str | None = None
+    last_attempt: int | None = None
     for endpoint in endpoints:
         attempt = 0
         connect_timeout = 10
         read_timeout = min(120, timeout + 30)
         while True:
             attempt += 1
+            last_endpoint = endpoint
+            last_attempt = attempt
+            print(f"[req] Endpoint={endpoint} | Attempt={attempt}/{MAX_RETRIES}")
             try:
                 response = requests.post(
                     endpoint,
@@ -119,10 +124,7 @@ def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[s
                 if attempt > MAX_RETRIES:
                     break
                 backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
-                print(
-                    f"[warn] Request error '{exc}', retrying in {backoff:.1f}s "
-                    f"(attempt {attempt}/{MAX_RETRIES})"
-                )
+                print(f"[req] Exception={type(exc).__name__} | retry in {backoff:.1f}s")
                 time.sleep(backoff)
                 continue
 
@@ -133,10 +135,7 @@ def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[s
                     )
                     break
                 backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
-                print(
-                    f"[warn] Overpass returned status {response.status_code}, retrying in {backoff:.1f}s "
-                    f"(attempt {attempt}/{MAX_RETRIES})"
-                )
+                print(f"[req] Status={response.status_code} | retry in {backoff:.1f}s")
                 time.sleep(backoff)
                 continue
 
@@ -156,14 +155,16 @@ def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[s
                 if attempt > MAX_RETRIES:
                     break
                 backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
-                print(
-                    f"[warn] Non-JSON response, retrying in {backoff:.1f}s "
-                    f"(attempt {attempt}/{MAX_RETRIES})"
-                )
+                print(f"[req] Exception=NonJsonResponse | retry in {backoff:.1f}s")
                 time.sleep(backoff)
                 continue
             try:
-                return response.json()
+                response_json = response.json()
+                bytes_len = len(response.content or b"")
+                print(f"[req] Success | endpoint={endpoint} | bytes={bytes_len}")
+                elements = response_json.get("elements", [])
+                print(f"[data] Received elements={len(elements)}")
+                return response_json
             except ValueError as exc:
                 last_exc = ValueError(
                     "Failed to decode JSON from "
@@ -173,10 +174,7 @@ def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[s
                 if attempt > MAX_RETRIES:
                     break
                 backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
-                print(
-                    f"[warn] JSON decode failed, retrying in {backoff:.1f}s "
-                    f"(attempt {attempt}/{MAX_RETRIES})"
-                )
+                print(f"[req] Exception={type(exc).__name__} | retry in {backoff:.1f}s")
                 time.sleep(backoff)
                 continue
 
@@ -184,7 +182,10 @@ def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[s
 
     if last_exc is None:
         raise RuntimeError("All Overpass endpoints failed. Last error: unknown.")
-    raise RuntimeError(f"All Overpass endpoints failed. Last error: {last_exc}")
+    error = RuntimeError(f"All Overpass endpoints failed. Last error: {last_exc}")
+    setattr(error, "endpoint", last_endpoint)
+    setattr(error, "attempt", last_attempt)
+    raise error
 
 
 def filter_tags_for_category(tags: Dict[str, Any], category: str) -> Dict[str, Any]:
@@ -236,7 +237,10 @@ def convert_to_geojson(elements: Iterable[Dict[str, Any]], category: str) -> Dic
     """Convert Overpass elements list into a GeoJSON FeatureCollection."""
     features: List[Dict[str, Any]] = []
     seen: set[tuple[str, int]] = set()
+    element_count = 0
+    chain_counts = {"mcdonalds": 0, "burger_king": 0, "unknown": 0}
     for element in elements:
+        element_count += 1
         if category == "bakerys_cafes":
             osm_type = element.get("type")
             osm_id = element.get("id")
@@ -248,6 +252,21 @@ def convert_to_geojson(elements: Iterable[Dict[str, Any]], category: str) -> Dic
         feature = element_to_feature(element, category)
         if feature:
             features.append(feature)
+            if category == "fast_food":
+                chain = feature["properties"].get("chain", "unknown")
+                if chain in chain_counts:
+                    chain_counts[chain] += 1
+                else:
+                    chain_counts["unknown"] += 1
+    if category == "fast_food":
+        print(
+            "[geo] Converted elements="
+            f"{element_count} -> features={len(features)} "
+            f"(mcd={chain_counts['mcdonalds']}, bk={chain_counts['burger_king']}, "
+            f"unknown={chain_counts['unknown']})"
+        )
+    else:
+        print(f"[geo] Converted elements={element_count} -> features={len(features)}")
     return {"type": "FeatureCollection", "features": features}
 
 
@@ -261,9 +280,11 @@ def save_geojson(content: Dict[str, Any], state: str, category: str) -> None:
     target_dir = RESOURCE_DIR / state
     ensure_directory(target_dir)
     target_path = target_dir / f"{category}.geojson"
+    print(f"[file] Writing {target_path.relative_to(ROOT_DIR)}")
     with target_path.open("w", encoding="utf-8") as geojson_file:
         json.dump(content, geojson_file, ensure_ascii=False, indent=2)
-    print(f"[info] Saved {category} for {state} -> {target_path.relative_to(ROOT_DIR)}")
+    size_bytes = target_path.stat().st_size
+    print(f"[file] Saved (size={size_bytes} bytes)")
 
 
 def get_category_function(name: str):
@@ -298,13 +319,23 @@ def run() -> None:
     ensure_directory(RESOURCE_DIR)
 
     failures: List[str] = []
+    endpoints_display = ", ".join(endpoints)
+    print(
+        "[run] "
+        f"States={len(states)} | Categories={len(categories)} | Endpoints={len(endpoints)} "
+        f"| Timeout={timeout}s | Delay={request_delay_seconds}s"
+    )
+    print(f"[run] Endpoints: {endpoints_display}")
 
-    for state in states:
-        for category, func_name in categories.items():
+    for state_index, state in enumerate(states, start=1):
+        print(f"[state] ({state_index}/{len(states)}) Processing state: {state}")
+        category_items = list(categories.items())
+        for category_index, (category, func_name) in enumerate(category_items, start=1):
             template_func = get_category_function(func_name)
+            print(f"[cat]   ({category_index}/{len(category_items)}) Category={category} | Template={func_name}")
             body = template_func()
             query = build_query(state, body, timeout)
-            print(f"[info] Requesting {category} in {state}")
+            print(f"[query] Built query (chars={len(query)}, timeout={timeout}s)")
             try:
                 response_json = request_with_retry(endpoints, query, timeout)
                 elements = response_json.get("elements", [])
@@ -312,19 +343,26 @@ def run() -> None:
                 save_geojson(geojson, state, category)
                 if request_delay_seconds > 0:
                     time.sleep(request_delay_seconds)
+                    print(f"[sleep] {request_delay_seconds}s before next request")
             except Exception as exc:  # noqa: BLE001
-                msg = f"{state} / {category}: {exc}"
-                print(f"[error] {msg}")
+                endpoint = getattr(exc, "endpoint", None)
+                attempt = getattr(exc, "attempt", None)
+                context_parts = [state, category]
+                context = " / ".join(context_parts)
+                endpoint_text = f" | endpoint={endpoint}" if endpoint else ""
+                attempt_text = f" | attempt={attempt}" if attempt else ""
+                print(f"[error] {context}{endpoint_text}{attempt_text} | {exc}")
+                msg = f"{context}{endpoint_text}{attempt_text} | {exc}"
                 failures.append(msg)
                 continue
 
     if failures:
         print(f"[warn] Completed with {len(failures)} failures:")
         for failure in failures:
-            print(f"  - {failure}")
+            print(f"[warn] {failure}")
         if fail_on_error:
             raise RuntimeError("Fetch completed with failures; see log summary.")
-        print("[info] Best-effort mode: continuing despite failures (fail_on_error=false).")
+        print("[warn] Best-effort mode: continuing despite failures (fail_on_error=false).")
 
 
 def main() -> None:
