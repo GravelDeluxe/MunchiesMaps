@@ -41,8 +41,7 @@ TAG_WHITELIST: Dict[str, List[str]] = {
         "description",
         "url",
     ],
-    "bakeries": ["name", "brand", "opening_hours"],
-    "cafes": ["name", "opening_hours", "takeaway", "outdoor_seating"],
+    "bakerys_cafes": ["name", "brand", "opening_hours", "takeaway", "outdoor_seating"],
     "kiosks": ["name", "brand", "opening_hours"],
 }
 
@@ -165,7 +164,16 @@ def element_to_feature(element: Dict[str, Any], category: str) -> Dict[str, Any]
 def convert_to_geojson(elements: Iterable[Dict[str, Any]], category: str) -> Dict[str, Any]:
     """Convert Overpass elements list into a GeoJSON FeatureCollection."""
     features: List[Dict[str, Any]] = []
+    seen: set[tuple[str, int]] = set()
     for element in elements:
+        if category == "bakerys_cafes":
+            osm_type = element.get("type")
+            osm_id = element.get("id")
+            if osm_type and osm_id is not None:
+                key = (str(osm_type), int(osm_id))
+                if key in seen:
+                    continue
+                seen.add(key)
         feature = element_to_feature(element, category)
         if feature:
             features.append(feature)
