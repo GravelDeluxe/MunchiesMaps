@@ -436,6 +436,7 @@
       shelters: { color: '#0f766e', icon: 'resources/icons/shelters.svg' },
       bakerys_cafes: { color: '#f59e0b', icon: 'resources/icons/bakeries.svg' },
       kiosks: { color: '#10b981', icon: 'resources/icons/kiosks.svg' },
+      fast_food: { color: '#f97316', icon: 'resources/icons/default.svg' },
       burger_king: { color: '#f97316', icon: 'resources/icons/burger_king.svg' },
       mcdonalds: { color: '#facc15', icon: 'resources/icons/mcdonalds.svg' },
       toilets_public: { color: '#38bdf8', icon: 'resources/icons/toilets_public.svg' },
@@ -1084,18 +1085,37 @@
       return googleMapsWebUrl(lat, lon);
     }
 
+    function formatFastFoodChain(chain) {
+      const normalized = (chain || '').toString().toLowerCase();
+      if (normalized === 'mcdonalds') return "McDonald's";
+      if (normalized === 'burger_king') return 'Burger King';
+      return normalized ? 'Unknown' : '';
+    }
+
     function popupHtml(props, categoryId, lat, lng) {
       const p = props || {};
       const name = p.name || '(unnamed)';
       const desc = p.description ? p.description : '';
       const catLabel = categoryId ? categoryLabelMap[categoryId] : null;
       const categoryBadge = catLabel ? `<span class="popup-cat">${categoryIconHtml(categoryId, 20, 'cat-icon--popup')}<span>${catLabel}</span></span>` : '';
-      const other = Object.keys(p)
-        .filter(k => !['name','description','cluster','cluster_id','point_count','point_count_abbreviated'].includes(k))
-        .filter(k => p[k] != null && String(p[k]).trim() !== '')
-        .slice(0, 20)
-        .map(k => `<div><b>${k}</b>: ${String(p[k])}</div>`)
-        .join('');
+      const renderField = (label, value) => {
+        if (value == null || String(value).trim() === '') return '';
+        return `<div><b>${label}</b>: ${String(value)}</div>`;
+      };
+      const other = categoryId === 'fast_food'
+        ? [
+            renderField('Brand', p.brand),
+            renderField('Opening hours', p.opening_hours),
+            renderField('Phone', p.phone),
+            renderField('Website', p.website),
+            renderField('Chain', formatFastFoodChain(p.chain))
+          ].filter(Boolean).join('')
+        : Object.keys(p)
+          .filter(k => !['name','description','cluster','cluster_id','point_count','point_count_abbreviated'].includes(k))
+          .filter(k => p[k] != null && String(p[k]).trim() !== '')
+          .slice(0, 20)
+          .map(k => `<div><b>${k}</b>: ${String(p[k])}</div>`)
+          .join('');
       const mapHref = mapsHref(lat, lng);
       return `
         <div class="popup-content">
@@ -1132,6 +1152,14 @@
         });
       }
       return ICON_CACHE[key];
+    }
+
+    function iconForPoint(categoryId, propsRef) {
+      if (categoryId !== 'fast_food') return iconForCategory(categoryId);
+      const chain = (propsRef && propsRef.chain ? propsRef.chain : '').toString().toLowerCase();
+      if (chain === 'mcdonalds') return iconForCategory('mcdonalds');
+      if (chain === 'burger_king') return iconForCategory('burger_king');
+      return iconForCategory('fast_food');
     }
 
     function createClusterIcon(cluster) {
@@ -1176,11 +1204,11 @@
       if (cached) {
         cached.lastUsed = renderCounter;
         cached.marker.setLatLng([lat, lng]);
-        cached.marker.setIcon(iconForCategory(categoryId));
+        cached.marker.setIcon(iconForPoint(categoryId, propsRef));
         cached.marker.setPopupContent(popupHtml(propsRef, categoryId, lat, lng));
         return cached.marker;
       }
-      const marker = L.marker([lat, lng], { icon: iconForCategory(categoryId) });
+      const marker = L.marker([lat, lng], { icon: iconForPoint(categoryId, propsRef) });
       marker.bindPopup(popupHtml(propsRef, categoryId, lat, lng));
       markerCache.set(id, { marker, lastUsed: renderCounter });
       return marker;

@@ -47,24 +47,20 @@ def drinking_water() -> str:
     ).strip()
 
 
-def mcdonalds() -> str:
-    """Return Overpass body for McDonald's locations."""
-    return dedent(
-        f"""
-        nwr["amenity"="fast_food"][~"brand|name"~"McDonald",i]({AREA_ALIAS});
-        """
-    ).strip()
-
-
-def burger_king() -> str:
-    """Return Overpass body for Burger King locations."""
+def fast_food() -> str:
+    """Return Overpass body for McDonald's and Burger King locations."""
     return dedent(
         f"""
         (
-          nwr["amenity"="fast_food"][~"brand|name|operator"~"Burger\\s*King|BurgerKing",i]({AREA_ALIAS});
-          nwr["amenity"="restaurant"][~"brand|name|operator"~"Burger\\s*King|BurgerKing",i]({AREA_ALIAS});
-          nwr["amenity"="fast_food"]["brand:wikidata"="Q177054"]({AREA_ALIAS});
-          nwr["amenity"="restaurant"]["brand:wikidata"="Q177054"]({AREA_ALIAS});
+          nwr["amenity"~"fast_food|restaurant"]["brand:wikidata"="Q38076"]({AREA_ALIAS});
+          nwr["amenity"~"fast_food|restaurant"]["brand"="McDonald's"]({AREA_ALIAS});
+          nwr["amenity"~"fast_food|restaurant"]["operator"="McDonald's"]({AREA_ALIAS});
+          nwr["amenity"~"fast_food|restaurant"]["name"~"\\bMcDonald'?s\\b",i]({AREA_ALIAS});
+
+          nwr["amenity"~"fast_food|restaurant"]["brand:wikidata"="Q177054"]({AREA_ALIAS});
+          nwr["amenity"~"fast_food|restaurant"]["brand"="Burger King"]({AREA_ALIAS});
+          nwr["amenity"~"fast_food|restaurant"]["operator"="Burger King"]({AREA_ALIAS});
+          nwr["amenity"~"fast_food|restaurant"]["name"~"\\bBurger\\s*King\\b|\\bBurgerKing\\b",i]({AREA_ALIAS});
         );
         """
     ).strip()
