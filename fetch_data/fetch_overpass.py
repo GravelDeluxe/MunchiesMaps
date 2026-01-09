@@ -74,13 +74,15 @@ def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[s
     last_exc: Exception | None = None
     for endpoint in endpoints:
         attempt = 0
+        connect_timeout = 10
+        read_timeout = min(120, timeout + 30)
         while True:
             attempt += 1
             try:
                 response = requests.post(
                     endpoint,
                     data={"data": query},
-                    timeout=timeout + 30,
+                    timeout=(connect_timeout, read_timeout),
                 )
             except requests.RequestException as exc:
                 last_exc = exc
@@ -109,7 +111,44 @@ def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[s
                 continue
 
             response.raise_for_status()
-            return response.json()
+            text = response.text or ""
+            stripped = text.lstrip()
+            content_type = response.headers.get("Content-Type", "")
+            is_json = stripped.startswith("{") or stripped.startswith("[")
+            if not is_json and "application/json" in content_type.lower() and stripped:
+                is_json = True
+            if not is_json:
+                last_exc = ValueError(
+                    "Non-JSON response from "
+                    f"{endpoint}: status={response.status_code}, content-type={content_type}, "
+                    f"body_prefix={text[:200]!r}"
+                )
+                if attempt > MAX_RETRIES:
+                    break
+                backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
+                print(
+                    f"[warn] Non-JSON response, retrying in {backoff:.1f}s "
+                    f"(attempt {attempt}/{MAX_RETRIES})"
+                )
+                time.sleep(backoff)
+                continue
+            try:
+                return response.json()
+            except ValueError as exc:
+                last_exc = ValueError(
+                    "Failed to decode JSON from "
+                    f"{endpoint}: status={response.status_code}, content-type={content_type}, "
+                    f"body_prefix={text[:200]!r}"
+                ) from exc
+                if attempt > MAX_RETRIES:
+                    break
+                backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
+                print(
+                    f"[warn] JSON decode failed, retrying in {backoff:.1f}s "
+                    f"(attempt {attempt}/{MAX_RETRIES})"
+                )
+                time.sleep(backoff)
+                continue
 
         print(f"[warn] Endpoint {endpoint} failed after {MAX_RETRIES} retries; trying next endpoint...")
 
@@ -220,6 +259,7 @@ def run() -> None:
         )
     timeout = int(overpass_cfg.get("timeout", 180))
     fail_on_error = bool(overpass_cfg.get("fail_on_error", False))
+    request_delay_seconds = float(overpass_cfg.get("request_delay_seconds", 0.3))
     states = config.get("states", [])
     categories = config.get("categories", {})
 
@@ -238,6 +278,8 @@ def run() -> None:
                 elements = response_json.get("elements", [])
                 geojson = convert_to_geojson(elements, category)
                 save_geojson(geojson, state, category)
+                if request_delay_seconds > 0:
+                    time.sleep(request_delay_seconds)
             except Exception as exc:  # noqa: BLE001
                 msg = f"{state} / {category}: {exc}"
                 print(f"[error] {msg}")
