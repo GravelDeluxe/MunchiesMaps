@@ -469,8 +469,6 @@
         outlineColor: '#FF6F60',
         label: 'Fast Food'
       },
-      burger_king: { iconClass: 'fa-solid fa-burger', color: '#E5533D', label: 'Burger King' },
-      mcdonalds: { iconClass: 'fa-solid fa-utensils', color: '#F2C94C', label: "McDonald's" },
       toilets_public: { iconClass: 'fa-solid fa-toilet', color: '#2F80ED', label: 'Toilets' },
       drinking_water: { iconClass: 'fa-solid fa-droplet', color: '#56CCF2', label: 'Drinking Water' },
       shelters: { iconClass: 'fa-solid fa-campground', color: '#6FCF97', label: 'Shelter' },
@@ -489,12 +487,7 @@
       default: { iconClass: 'fa-solid fa-location-dot', color: '#6b7280', label: 'Points of Interest' }
     };
 
-    function resolveLayerKey(layerKey, featureProps) {
-      if (layerKey === 'fast_food') {
-        const chain = (featureProps && featureProps.chain ? featureProps.chain : '').toString().toLowerCase();
-        if (chain === 'mcdonalds') return 'mcdonalds';
-        if (chain === 'burger_king') return 'burger_king';
-      }
+    function resolveLayerKey(layerKey) {
       return layerKey || 'default';
     }
 
