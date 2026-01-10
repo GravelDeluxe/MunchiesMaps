@@ -327,18 +327,11 @@
     .popup-footer a { font-weight: 600; text-decoration: none; }
     .popup-footer a:hover,
     .popup-footer a:focus { text-decoration: underline; }
-    .mm-debug-oh {
-      font-size: 11px;
-      line-height: 1.3;
-      background: rgba(15, 23, 42, 0.08);
-      color: var(--popup-text);
-      padding: 4px 6px;
-      border-radius: 6px;
-      margin-bottom: 6px;
-    }
-    .theme-dark .mm-debug-oh {
-      background: rgba(148, 163, 184, 0.18);
-    }
+    .checkrow-group { display: flex; flex-direction: column; gap: 4px; }
+    .checkrow-helper { font-size: 12px; color: var(--muted); margin-left: 26px; }
+    .checkrow--nested { margin-left: 22px; }
+    .checkrow.is-disabled { opacity: 0.55; cursor: not-allowed; }
+    .checkrow.is-disabled input { cursor: not-allowed; }
 
     /* Minimalist layer markers */
     .mm-marker-wrap { background: transparent; border: none; }
@@ -458,18 +451,25 @@
       </div>
       <div class="section" id="badgesSection">
         <div class="accordion-header" data-target="badgesBody" aria-expanded="false" role="button" tabindex="0">
-          <span>Status-Badges</span>
+          <span>Night-Badges</span>
           <span class="chevron">⌄</span>
         </div>
         <div class="accordion-body" id="badgesBody">
           <div class="checklist">
-            <label class="checkrow" for="toggleBadges">
-              <input type="checkbox" id="toggleBadges" />
-              <span>Badges anzeigen (🌙 nach 21 Uhr / 24h)</span>
+            <div class="checkrow-group">
+              <label class="checkrow" for="toggleBadges">
+                <input type="checkbox" id="toggleBadges" />
+                <span>Show Badges</span>
+              </label>
+              <div class="checkrow-helper">Shows 🌙 for places open after 21:00 and 24h for places open all day.</div>
+            </div>
+            <label class="checkrow checkrow--nested" for="toggleHideNoBadges">
+              <input type="checkbox" id="toggleHideNoBadges" />
+              <span>Hide entries without badges</span>
             </label>
-            <label class="checkrow" for="toggleDebugOH">
-              <input type="checkbox" id="toggleDebugOH" />
-              <span>Debug mode (opening_hours)</span>
+            <label class="checkrow checkrow--nested" for="toggleIncludeMissingOH">
+              <input type="checkbox" id="toggleIncludeMissingOH" />
+              <span>Include entries with missing data</span>
             </label>
           </div>
         </div>
@@ -721,7 +721,8 @@
     };
     const appState = {
       showBadges: false,
-      debugOH: false
+      hideNoBadges: false,
+      includeMissingData: false
     };
     const DEBUG_BADGES = false;
 
@@ -1129,17 +1130,48 @@
       toggle.checked = appState.showBadges;
       toggle.addEventListener('change', () => {
         appState.showBadges = toggle.checked;
+        updateBadgeDependentToggles(toggle.checked, true);
+        updateClusteringForViewport(true);
+      });
+      updateBadgeDependentToggles(toggle.checked, false);
+    }
+
+    function setupHideNoBadgesToggle() {
+      const toggle = document.getElementById('toggleHideNoBadges');
+      if (!toggle) return;
+      toggle.checked = appState.hideNoBadges;
+      toggle.addEventListener('change', () => {
+        appState.hideNoBadges = toggle.checked;
         updateClusteringForViewport(true);
       });
     }
 
-    function setupOpeningHoursDebugToggle() {
-      const toggle = document.getElementById('toggleDebugOH');
+    function setupIncludeMissingToggle() {
+      const toggle = document.getElementById('toggleIncludeMissingOH');
       if (!toggle) return;
-      toggle.checked = appState.debugOH;
+      toggle.checked = appState.includeMissingData;
       toggle.addEventListener('change', () => {
-        appState.debugOH = toggle.checked;
+        appState.includeMissingData = toggle.checked;
+        updateClusteringForViewport(true);
       });
+    }
+
+    function updateBadgeDependentToggles(enabled, resetState) {
+      const hideToggle = document.getElementById('toggleHideNoBadges');
+      const includeToggle = document.getElementById('toggleIncludeMissingOH');
+      if (!hideToggle || !includeToggle) return;
+      hideToggle.disabled = !enabled;
+      includeToggle.disabled = !enabled;
+      const hideRow = hideToggle.closest('.checkrow');
+      const includeRow = includeToggle.closest('.checkrow');
+      if (hideRow) hideRow.classList.toggle('is-disabled', !enabled);
+      if (includeRow) includeRow.classList.toggle('is-disabled', !enabled);
+      if (!enabled && resetState) {
+        hideToggle.checked = false;
+        includeToggle.checked = false;
+        appState.hideNoBadges = false;
+        appState.includeMissingData = false;
+      }
     }
 
     function setAccordionHandlers() {
@@ -1242,7 +1274,6 @@
       const desc = p.description ? p.description : '';
       const catLabel = categoryId ? categoryLabelMap[categoryId] : null;
       const categoryBadge = catLabel ? `<span class="popup-cat">${categoryIconHtml(categoryId, 20, 'cat-icon--popup')}<span>${catLabel}</span></span>` : '';
-      const debugLine = appState.debugOH ? `<div class="mm-debug-oh">${getOpeningHoursDebugText(categoryId, p)}</div>` : '';
       const renderField = (label, value) => {
         if (value == null || String(value).trim() === '') return '';
         return `<div><b>${label}</b>: ${String(value)}</div>`;
@@ -1264,7 +1295,6 @@
       const mapHref = mapsHref(lat, lng);
       return `
         <div class="popup-content">
-          ${debugLine}
           <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${name}</span></div>
           ${desc ? `<div class="popup-desc">${desc}</div>` : ''}
           ${other ? `<div class="popup-extra">${other}</div>` : ''}
@@ -1471,19 +1501,6 @@
       return badgeType;
     }
 
-    function getOpeningHoursDebugText(layerKey, props = {}) {
-      const badge = getBadgeType(layerKey, props);
-      const openingHoursRaw = normalizeOpeningHours(props.opening_hours);
-      const openingHoursText = openingHoursRaw ? escapeHtml(openingHoursRaw) : 'missing';
-      let badgeText = 'none';
-      if (badge === 'twentyfour') {
-        badgeText = '24h';
-      } else if (badge === 'moon') {
-        badgeText = '🌙 (open after 21:00)';
-      }
-      return `Detected: ${badgeText} | opening_hours: ${openingHoursText}`;
-    }
-
     function getLayerMarkerIcon(layerKey, featureProps = {}) {
       const { key, config } = getLayerIconConfig(layerKey, featureProps);
       const size = config.size || DEFAULT_MARKER_SIZE;
@@ -1658,9 +1675,28 @@
     }
 
     function getVisiblePoints(bounds, paddingPx = 0) {
-      return getVisiblePointIndices(bounds, paddingPx)
+      const points = getVisiblePointIndices(bounds, paddingPx)
         .map((idx) => activePoints[idx])
         .filter(Boolean);
+      if (!appState.showBadges || !appState.hideNoBadges) {
+        return points;
+      }
+      const badgeMemo = new Map();
+      return points.filter((point) => {
+        if (!point) return false;
+        if (!badgeMemo.has(point.id)) {
+          badgeMemo.set(point.id, getBadgeType(point.categoryId, point.propsRef));
+        }
+        const badgeType = badgeMemo.get(point.id);
+        if (badgeType === 'twentyfour' || badgeType === 'moon') {
+          return true;
+        }
+        if (appState.includeMissingData) {
+          const openingHoursRaw = normalizeOpeningHours(point.propsRef?.opening_hours);
+          return !openingHoursRaw;
+        }
+        return false;
+      });
     }
 
     function renderWithMode(mode, forceRender = false) {
@@ -1890,11 +1926,15 @@
       renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
       resetGpxState();
       appState.showBadges = false;
+      appState.hideNoBadges = false;
+      appState.includeMissingData = false;
       const badgeToggle = document.getElementById('toggleBadges');
       if (badgeToggle) badgeToggle.checked = false;
-      appState.debugOH = false;
-      const debugToggle = document.getElementById('toggleDebugOH');
-      if (debugToggle) debugToggle.checked = false;
+      const hideToggle = document.getElementById('toggleHideNoBadges');
+      const includeToggle = document.getElementById('toggleIncludeMissingOH');
+      if (hideToggle) hideToggle.checked = false;
+      if (includeToggle) includeToggle.checked = false;
+      updateBadgeDependentToggles(false, false);
       viewportClusterThreshold = DEFAULT_CLUSTER_THRESHOLD;
       const clusterInput = document.getElementById('clusterThresholdInput');
       if (clusterInput) clusterInput.value = String(viewportClusterThreshold);
@@ -1974,7 +2014,8 @@
       setupThemeToggle();
       setupClusterThresholdControl();
       setupBadgeToggle();
-      setupOpeningHoursDebugToggle();
+      setupHideNoBadgesToggle();
+      setupIncludeMissingToggle();
 
       await applyFilters();
 
