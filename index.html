@@ -1334,7 +1334,8 @@
       const props = point.propsRef || {};
       const categoryLabel = props.categoryLabel || categoryLabelMap[point.categoryId] || markerLabel(point.categoryId, props);
       const name = (props.name || categoryLabel || 'POI').trim();
-      const { sym, type } = getGpxSymAndType(point.categoryId, props);
+      const type = point.categoryId || categoryLabel || 'poi';
+      const cmt = cmtKeywordForCategory(point.categoryId);
       const descParts = [];
       if (props.opening_hours) descParts.push(`opening_hours=${props.opening_hours}`);
       if (props.access) descParts.push(`access=${props.access}`);
@@ -1347,36 +1348,25 @@
         lon: point.lng,
         name,
         desc,
-        sym,
+        cmt,
         type
       };
     }
 
-    function getGpxSymAndType(category, tags) {
-      // Keep the mapping tight and recognizable across GPX viewers.
+    function cmtKeywordForCategory(category) {
       const safeCategory = category || '';
-      const fallback = { sym: 'Pin', type: 'poi' };
       const byCategory = {
-        drinking_water: { sym: 'Water', type: 'drinking_water' },
-        toilets_public: { sym: 'Restroom', type: 'toilets' },
-        fuel: { sym: 'Gas Station', type: 'fuel' },
-        supermarkets: { sym: 'Grocery Store', type: 'supermarket' },
-        bakerys_cafes: { sym: 'Cafe', type: 'cafe' },
-        fast_food: { sym: 'Restaurant', type: 'fast_food' },
-        kiosks: { sym: 'Convenience Store', type: 'kiosk' },
-        shelters: { sym: 'Lodging', type: 'shelter' },
-        vending_snacks: { sym: 'Store', type: 'vending' }
+        supermarkets: 'convenience_store',
+        kiosks: 'convenience_store',
+        vending_snacks: 'control',
+        shelters: 'camping',
+        bakerys_cafes: 'coffee',
+        drinking_water: 'water',
+        toilets_public: 'restroom',
+        fuel: 'gas',
+        fast_food: 'food'
       };
-      const mapped = byCategory[safeCategory];
-      if (mapped) return mapped;
-      if (tags?.amenity === 'drinking_water') return byCategory.drinking_water;
-      if (tags?.amenity === 'toilets') return byCategory.toilets_public;
-      if (tags?.amenity === 'fuel') return byCategory.fuel;
-      if (tags?.shop === 'supermarket') return byCategory.supermarkets;
-      if (tags?.amenity === 'fast_food') return byCategory.fast_food;
-      if (tags?.amenity === 'cafe') return byCategory.bakerys_cafes;
-      if (tags?.shop === 'kiosk') return byCategory.kiosks;
-      return fallback;
+      return byCategory[safeCategory] || 'dot';
     }
 
     function collectVisiblePoisForExport() {
@@ -1417,10 +1407,13 @@
         if (poi.name) {
           lines.push(`<name>${escapeXml(poi.name)}</name>`);
         }
+        if (poi.cmt) {
+          lines.push(`<cmt>${escapeXml(poi.cmt)}</cmt>`);
+        }
         if (poi.desc) {
           lines.push(`<desc>${escapeXml(poi.desc)}</desc>`);
         }
-        lines.push(`<sym>${escapeXml(poi.sym)}</sym>`);
+        lines.push('<sym>Dot</sym>');
         lines.push(`<type>${escapeXml(poi.type)}</type>`);
         lines.push('</wpt>');
       });
