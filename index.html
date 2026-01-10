@@ -1946,6 +1946,9 @@
           .map(k => `<div><b>${k}</b>: ${String(p[k])}</div>`)
           .join('');
       const mapHref = mapsHref(lat, lng);
+      const mapyHref = categoryId === 'shelters'
+        ? `https://mapy.cz/zakladni?x=${encodeURIComponent(lng)}&y=${encodeURIComponent(lat)}&z=17`
+        : '';
       return `
         <div class="popup-content">
           <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${name}</span></div>
@@ -1960,6 +1963,15 @@
               data-lat="${lat}"
               data-lng="${lng}"
             >Open in Google Maps</a>
+            ${mapyHref ? `
+              <div>
+                <a
+                  href="${mapyHref}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >Open in Mapy.cz</a>
+              </div>
+            ` : ''}
           </div>
         </div>
       `;
