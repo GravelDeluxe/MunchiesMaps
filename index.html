@@ -448,10 +448,76 @@
     <div id="layerDrawerBackdrop" aria-hidden="true"></div>
   <aside id="layerDrawer" aria-hidden="true" aria-label="Filters">
     <header>
-      <h2>Filters</h2>
+      <h2>Munchies Maps</h2>
       <button type="button" id="layerDrawerClose" aria-label="Close">×</button>
     </header>
     <div class="drawer-body">
+      <div class="section" id="kategorieSection">
+        <div class="accordion-header" data-target="catSection" aria-expanded="false" role="button" tabindex="0">
+          <span>Category</span>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="accordion-body" id="catSection">
+          <div class="action-row">
+            <button type="button" id="catSelectAll">Select all</button>
+            <button type="button" id="catSelectNone">Select none</button>
+          </div>
+          <div class="checklist" id="catList"></div>
+        </div>
+      </div>
+      <div class="section" id="badgesSection">
+        <div class="accordion-header" data-target="badgesBody" aria-expanded="false" role="button" tabindex="0">
+          <span>Night-Features</span>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="accordion-body" id="badgesBody">
+          <div class="checklist">
+            <div class="checkrow-group">
+              <label class="checkrow" for="toggleBadges">
+                <input type="checkbox" id="toggleBadges" />
+                <span>Show Badges</span>
+              </label>
+              <div class="checkrow-helper">Shows 🌙 for places open after 21:00 and 24h for places open all day.</div>
+            </div>
+            <label class="checkrow checkrow--nested" for="toggleHideNoBadges">
+              <input type="checkbox" id="toggleHideNoBadges" />
+              <span>Hide entries without badges</span>
+            </label>
+            <label class="checkrow checkrow--nested" for="toggleIncludeMissingOH">
+              <input type="checkbox" id="toggleIncludeMissingOH" />
+              <span>Include entries with missing data</span>
+            </label>
+          </div>
+          <div class="section" id="darkModeSection">
+            <label class="theme-toggle" for="darkModeToggle">
+              <span>Dark mode</span>
+              <input type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode" />
+              <span class="toggle-switch" aria-hidden="true"></span>
+            </label>
+            <p class="option-helper">Reduces screen brightness for night use.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="gpxSection">
+        <div class="accordion-header" data-target="gpxBody" aria-expanded="false" role="button" tabindex="0">
+          <span>GPX import</span>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="accordion-body" id="gpxBody">
+          <div class="gpx-inputs">
+            <div class="gpx-row">
+              <label for="gpxFileInput">GPX file</label>
+              <input type="file" id="gpxFileInput" accept=".gpx" />
+            </div>
+            <div class="gpx-row">
+              <label for="gpxRadiusKm">Radius (km)</label>
+              <input type="number" id="gpxRadiusKm" min="0" step="0.1" value="0.3" />
+            </div>
+            <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
+            <div class="gpx-error" id="gpxError" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
       <div class="section" id="optionsSection">
         <div class="accordion-header" data-target="optionsBody" aria-expanded="false" role="button" tabindex="0">
           <span>Options</span>
@@ -484,72 +550,6 @@
                 <p class="cluster-helper">Clusters appear only when more than X POIs are visible in the current map view.</p>
               </div>
             </div>
-          </div>
-          <div class="section" id="darkModeSection">
-            <label class="theme-toggle" for="darkModeToggle">
-              <span>Dark mode</span>
-              <input type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode" />
-              <span class="toggle-switch" aria-hidden="true"></span>
-            </label>
-            <p class="option-helper">Reduces screen brightness for night use.</p>
-          </div>
-        </div>
-      </div>
-      <div class="section" id="kategorieSection">
-        <div class="accordion-header" data-target="catSection" aria-expanded="false" role="button" tabindex="0">
-          <span>Category</span>
-          <span class="chevron">⌄</span>
-        </div>
-        <div class="accordion-body" id="catSection">
-          <div class="action-row">
-            <button type="button" id="catSelectAll">Select all</button>
-            <button type="button" id="catSelectNone">Select none</button>
-          </div>
-          <div class="checklist" id="catList"></div>
-        </div>
-      </div>
-      <div class="section" id="badgesSection">
-        <div class="accordion-header" data-target="badgesBody" aria-expanded="false" role="button" tabindex="0">
-          <span>Night-Badges</span>
-          <span class="chevron">⌄</span>
-        </div>
-        <div class="accordion-body" id="badgesBody">
-          <div class="checklist">
-            <div class="checkrow-group">
-              <label class="checkrow" for="toggleBadges">
-                <input type="checkbox" id="toggleBadges" />
-                <span>Show Badges</span>
-              </label>
-              <div class="checkrow-helper">Shows 🌙 for places open after 21:00 and 24h for places open all day.</div>
-            </div>
-            <label class="checkrow checkrow--nested" for="toggleHideNoBadges">
-              <input type="checkbox" id="toggleHideNoBadges" />
-              <span>Hide entries without badges</span>
-            </label>
-            <label class="checkrow checkrow--nested" for="toggleIncludeMissingOH">
-              <input type="checkbox" id="toggleIncludeMissingOH" />
-              <span>Include entries with missing data</span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="section" id="gpxSection">
-        <div class="accordion-header" data-target="gpxBody" aria-expanded="false" role="button" tabindex="0">
-          <span>GPX import</span>
-          <span class="chevron">⌄</span>
-        </div>
-        <div class="accordion-body" id="gpxBody">
-          <div class="gpx-inputs">
-            <div class="gpx-row">
-              <label for="gpxFileInput">GPX file</label>
-              <input type="file" id="gpxFileInput" accept=".gpx" />
-            </div>
-            <div class="gpx-row">
-              <label for="gpxRadiusKm">Radius (km)</label>
-              <input type="number" id="gpxRadiusKm" min="0" step="0.1" value="0.3" />
-            </div>
-            <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
-            <div class="gpx-error" id="gpxError" aria-live="polite"></div>
           </div>
         </div>
       </div>
