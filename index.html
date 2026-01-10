@@ -75,18 +75,24 @@
     }
     #layerDrawerToggle,
     #locateButton {
-      padding: 10px 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
       border: 1px solid var(--btn-border);
       border-radius: 12px;
       background: var(--btn-bg);
       box-shadow: var(--btn-shadow);
       color: var(--btn-text);
-      font: 14px/1.3 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font: 16px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       font-weight: 700;
       cursor: pointer;
     }
     #layerDrawerToggle:active,
     #locateButton:active { transform: translateY(1px); }
+    .map-controls-br i { font-size: 16px; }
 
     #layerDrawerBackdrop {
       position: fixed;
@@ -171,6 +177,12 @@
       cursor: pointer;
       font-weight: 650;
       color: var(--text);
+    }
+    .option-helper {
+      margin: 6px 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
     }
     .checklist { display: flex; flex-direction: column; gap: 8px; }
     .checklist .checkrow { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
@@ -400,8 +412,12 @@
 <body>
     <div id="map"></div>
     <div class="map-controls-br">
-      <button id="locateButton" type="button" aria-label="Center my location">My location</button>
-      <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open filters">Filters</button>
+      <button id="locateButton" type="button" aria-label="Center map on my location">
+        <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+      </button>
+      <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open map options and filters">
+        <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+      </button>
     </div>
     <div id="layerDrawerBackdrop" aria-hidden="true"></div>
   <aside id="layerDrawer" aria-hidden="true" aria-label="Filters">
@@ -410,17 +426,47 @@
       <button type="button" id="layerDrawerClose" aria-label="Close">×</button>
     </header>
     <div class="drawer-body">
-      <div class="section" id="bundeslandSection">
-        <div class="accordion-header" data-target="blSection" aria-expanded="false" role="button" tabindex="0">
-          <span>State</span>
+      <div class="section" id="optionsSection">
+        <div class="accordion-header" data-target="optionsBody" aria-expanded="false" role="button" tabindex="0">
+          <span>Options</span>
           <span class="chevron">⌄</span>
         </div>
-        <div class="accordion-body" id="blSection">
-          <div class="action-row">
-            <button type="button" id="blSelectAll">Select all</button>
-            <button type="button" id="blSelectNone">Select none</button>
+        <div class="accordion-body" id="optionsBody">
+          <div class="section" id="bundeslandSection">
+            <div class="accordion-header" data-target="blSection" aria-expanded="false" role="button" tabindex="0">
+              <span>State</span>
+              <span class="chevron">⌄</span>
+            </div>
+            <div class="accordion-body" id="blSection">
+              <p class="option-helper">Try to hide for better performance</p>
+              <div class="action-row">
+                <button type="button" id="blSelectAll">Select all</button>
+                <button type="button" id="blSelectNone">Select none</button>
+              </div>
+              <div class="checklist" id="blList"></div>
+            </div>
           </div>
-          <div class="checklist" id="blList"></div>
+          <div class="section" id="clusterSection">
+            <div class="accordion-header" data-target="clusterBody" aria-expanded="false" role="button" tabindex="0">
+              <span>Clustering</span>
+              <span class="chevron">⌄</span>
+            </div>
+            <div class="accordion-body" id="clusterBody">
+              <div class="cluster-row">
+                <label for="clusterThresholdInput">Enable clustering above (visible POIs)</label>
+                <input type="number" id="clusterThresholdInput" min="0" step="1" />
+                <p class="cluster-helper">Clusters appear only when more than X POIs are visible in the current map view.</p>
+              </div>
+            </div>
+          </div>
+          <div class="section" id="darkModeSection">
+            <label class="theme-toggle" for="darkModeToggle">
+              <span>Dark mode</span>
+              <input type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode" />
+              <span class="toggle-switch" aria-hidden="true"></span>
+            </label>
+            <p class="option-helper">Reduces screen brightness for night use.</p>
+          </div>
         </div>
       </div>
       <div class="section" id="kategorieSection">
@@ -434,19 +480,6 @@
             <button type="button" id="catSelectNone">Select none</button>
           </div>
           <div class="checklist" id="catList"></div>
-        </div>
-      </div>
-      <div class="section" id="clusterSection">
-        <div class="accordion-header" data-target="clusterBody" aria-expanded="false" role="button" tabindex="0">
-          <span>Clustering</span>
-          <span class="chevron">⌄</span>
-        </div>
-        <div class="accordion-body" id="clusterBody">
-          <div class="cluster-row">
-            <label for="clusterThresholdInput">Enable clustering above (visible POIs)</label>
-            <input type="number" id="clusterThresholdInput" min="0" step="1" />
-            <p class="cluster-helper">Clusters appear only when more than X POIs are visible in the current map view.</p>
-          </div>
         </div>
       </div>
       <div class="section" id="badgesSection">
@@ -497,11 +530,6 @@
     </div>
     <div class="drawer-bottom">
       <button type="button" id="resetAllBtn" class="drawer-reset-btn">Reset</button>
-      <label class="theme-toggle" for="darkModeToggle">
-        <span>Dark mode</span>
-        <input type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode" />
-        <span class="toggle-switch" aria-hidden="true"></span>
-      </label>
     </div>
   </aside>
 
