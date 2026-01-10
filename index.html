@@ -62,6 +62,75 @@
 
     html, body { height: 100%; margin: 0; background: var(--bg); color: var(--text); }
     #map { height: 100%; width: 100%; }
+    .intro-backdrop {
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1100;
+    }
+    .intro-modal {
+      width: min(92vw, 520px);
+      max-height: min(80vh, 720px);
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+      display: flex;
+      flex-direction: column;
+      font: 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .intro-modal h2 {
+      margin: 0;
+      padding: 20px 20px 8px;
+      font-size: 20px;
+    }
+    .intro-modal .intro-body {
+      padding: 0 20px 16px;
+      color: var(--text);
+      overflow: auto;
+    }
+    .intro-modal p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+    .intro-modal .intro-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px 20px;
+      border-top: 1px solid var(--border);
+    }
+    .intro-modal .intro-actions label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .intro-modal .intro-actions button {
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--btn-border);
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .intro-modal .intro-actions button:focus,
+    .intro-modal .intro-actions input:focus {
+      outline: 2px solid #38bdf8;
+      outline-offset: 2px;
+    }
+    .intro-hidden {
+      display: none;
+    }
     #mapTitleOverlay {
       position: fixed;
       left: 12px;
@@ -668,6 +737,132 @@
     const QUICK_FEEDBACK_ENDPOINT = "<PUT_YOUR_ENDPOINT_HERE>";
     const QUICK_FEEDBACK_RATE_LIMIT_MS = 60000;
     const QUICK_FEEDBACK_STORAGE_KEY = 'quickFeedbackLastSubmit';
+    const INTRO_HIDE_KEY = 'munchiesMapsHideIntro';
+
+    const INTRO_SUMMARY_TEXT = [
+      'MunchiesMaps is a lightweight, community-driven web map highlighting practical points of interest for cyclists across Germany. The map emphasizes essentials such as food, water, toilets, and other services that keep rides moving.',
+      'The map is intended as a foundation for bicycle travel and planning adventures on the bike. It was initially designed around nightrides and late-hour availability, but it is equally useful for daytime cycling, touring, and bikepacking.',
+      'Browse an interactive map with colored markers per category. Filter points by Bundesland and Kategorie. Toggle dark mode for low-light use and a mobile-friendly layout for phones. Optionally filter markers by proximity to a GPX track. Rely on a manifest-driven data structure that keeps layers and categories organized.',
+      'This project is currently in an early ALPHA stage. Features, data structures, and the user interface may change at any time.'
+    ];
+
+    function shouldShowIntro() {
+      return localStorage.getItem(INTRO_HIDE_KEY) !== 'true';
+    }
+
+    function buildIntroPopup() {
+      const backdrop = document.createElement('div');
+      backdrop.className = 'intro-backdrop';
+      backdrop.setAttribute('role', 'presentation');
+
+      const modal = document.createElement('div');
+      modal.className = 'intro-modal';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-labelledby', 'introTitle');
+
+      const title = document.createElement('h2');
+      title.id = 'introTitle';
+      title.textContent = 'Munchies Maps – Alpha Release';
+
+      const body = document.createElement('div');
+      body.className = 'intro-body';
+
+      INTRO_SUMMARY_TEXT.forEach((paragraph) => {
+        const p = document.createElement('p');
+        p.textContent = paragraph;
+        body.appendChild(p);
+      });
+
+      const actions = document.createElement('div');
+      actions.className = 'intro-actions';
+
+      const checkboxLabel = document.createElement('label');
+      checkboxLabel.setAttribute('for', 'introDoNotShow');
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = 'introDoNotShow';
+      checkboxLabel.appendChild(checkbox);
+      checkboxLabel.appendChild(document.createTextNode('Do not show this again'));
+
+      const closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.textContent = 'Close';
+
+      actions.appendChild(checkboxLabel);
+      actions.appendChild(closeBtn);
+
+      modal.appendChild(title);
+      modal.appendChild(body);
+      modal.appendChild(actions);
+      backdrop.appendChild(modal);
+
+      return { backdrop, modal, checkbox, closeBtn };
+    }
+
+    function setupIntroPopup() {
+      if (!shouldShowIntro()) return;
+      const { backdrop, modal, checkbox, closeBtn } = buildIntroPopup();
+      const previousFocus = document.activeElement;
+
+      const focusableElements = () => {
+        return Array.from(modal.querySelectorAll('button, input, [href], [tabindex]:not([tabindex="-1"])'))
+          .filter((el) => !el.hasAttribute('disabled'));
+      };
+
+      const trapFocus = (event) => {
+        if (event.key !== 'Tab') return;
+        const items = focusableElements();
+        if (!items.length) return;
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      };
+
+      const closePopup = (storePreference) => {
+        if (storePreference && checkbox.checked) {
+          localStorage.setItem(INTRO_HIDE_KEY, 'true');
+        }
+        document.removeEventListener('keydown', handleKeydown);
+        backdrop.remove();
+        if (previousFocus && typeof previousFocus.focus === 'function') {
+          previousFocus.focus();
+        }
+      };
+
+      const handleKeydown = (event) => {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closePopup(false);
+          return;
+        }
+        trapFocus(event);
+      };
+
+      closeBtn.addEventListener('click', () => closePopup(true));
+      backdrop.addEventListener('click', (event) => {
+        if (event.target === backdrop) {
+          closePopup(true);
+        }
+      });
+      modal.addEventListener('click', (event) => event.stopPropagation());
+      document.addEventListener('keydown', handleKeydown);
+
+      document.body.appendChild(backdrop);
+      const focusables = focusableElements();
+      if (focusables.length) {
+        focusables[0].focus();
+      } else {
+        modal.focus();
+      }
+    }
 
     const DEFAULT_CLUSTER_THRESHOLD = 200;
 
@@ -2495,6 +2690,8 @@
         map.setView(userMarker.getLatLng(), Math.max(map.getZoom(), 15), { animate: true });
       }
     }
+
+    setupIntroPopup();
 
     (async () => {
       manifestData = await loadManifest();
