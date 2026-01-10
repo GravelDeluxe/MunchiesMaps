@@ -752,18 +752,19 @@
     const INTRO_HIDE_KEY = 'munchiesMapsHideIntro';
 
     const INTRO_SUMMARY_TEXT = [
-      'MunchiesMaps is a lightweight, community-driven web map highlighting practical points of interest for cyclists across Germany. The map emphasizes essentials such as food, water, toilets, and other services that keep rides moving.',
-      'The map is intended as a foundation for bicycle travel and planning adventures on the bike. It was initially designed around nightrides and late-hour availability, but it is equally useful for daytime cycling, touring, and bikepacking.',
-      'Browse an interactive map with colored markers per category. Filter points by Bundesland and Kategorie. Toggle dark mode for low-light use and a mobile-friendly layout for phones. Optionally filter markers by proximity to a GPX track. Rely on a manifest-driven data structure that keeps layers and categories organized.',
-      'This project is currently in an early ALPHA stage. Features, data structures, and the user interface may change at any time.'
+      'Munchies Maps is a lightweight, community-driven web map that highlights practical points of interest for cyclists across Germany. It focuses on essentials such as food, water, toilets, and other services that help keep rides going.',
+      'Originally designed with night rides and late-hour availability in mind, the map is equally useful for daytime cycling, touring, and bikepacking. It serves as a foundation for planning and navigating bike adventures.'
     ];
 
     const INTRO_TODAY_BULLETS = [
-      'Browse an interactive map with colored markers per category.',
-      'Filter points by Bundesland and Kategorie.',
-      'Toggle dark mode for low-light use and a mobile-friendly layout for phones.',
-      'Optionally filter markers by proximity to a GPX track and export them to new *.gpx-file'
+      'Browse an interactive map with color-coded markers per category',
+      'Filter points by Bundesland and category',
+      'Highlight places with late-night availability',
+      'Toggle dark mode for low-light conditions and use a mobile-friendly layout',
+      'Filter markers by proximity to a GPX track and export them to a new *.gpx file'
     ];
+
+    const INTRO_FOOTER_TEXT = 'This project is currently in an early ALPHA stage. Features, data structures, and the user interface may change at any time.';
 
     function shouldShowIntro() {
       return localStorage.getItem(INTRO_HIDE_KEY) !== 'true';
@@ -794,7 +795,7 @@
       });
 
       const todayTitle = document.createElement('h3');
-      todayTitle.textContent = 'What you can do today';
+      todayTitle.textContent = 'What you can do';
       body.appendChild(todayTitle);
 
       const todayList = document.createElement('ul');
@@ -804,6 +805,10 @@
         todayList.appendChild(li);
       });
       body.appendChild(todayList);
+
+      const footer = document.createElement('p');
+      footer.textContent = INTRO_FOOTER_TEXT;
+      body.appendChild(footer);
 
       const actions = document.createElement('div');
       actions.className = 'intro-actions';
