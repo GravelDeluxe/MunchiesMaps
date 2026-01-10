@@ -91,9 +91,15 @@ async function main() {
   }
 
   const unique = Array.from(counts.keys()).sort((a, b) => a.localeCompare(b));
-  const top = Array.from(counts.entries())
+
+  const sortedByFreq = Array.from(counts.entries()).sort((a, b) => {
+    const countDiff = b[1] - a[1];
+    if (countDiff !== 0) return countDiff;
+    return a[0].localeCompare(b[0]);
+  });
+
+  const top = sortedByFreq
     .map(([value, count]) => ({ value, count }))
-    .sort((a, b) => (b.count - a.count) || a.value.localeCompare(b.value))
     .slice(0, 50);
 
   const outputJson = {
@@ -103,9 +109,15 @@ async function main() {
     top,
   };
 
+  const txtLines = sortedByFreq.map(([value, count]) => `${count};${value}`);
+
   try {
-    await fs.promises.writeFile(OUTPUT_TXT, `${unique.join("\n")}\n`, "utf8");
-    await fs.promises.writeFile(OUTPUT_JSON, `${JSON.stringify(outputJson, null, 2)}\n`, "utf8");
+    await fs.promises.writeFile(OUTPUT_TXT, `${txtLines.join("\n")}\n`, "utf8");
+    await fs.promises.writeFile(
+      OUTPUT_JSON,
+      `${JSON.stringify(outputJson, null, 2)}\n`,
+      "utf8"
+    );
   } catch (error) {
     console.error(`Error: unable to write output files: ${error.message}`);
     process.exitCode = 1;
@@ -116,9 +128,9 @@ async function main() {
   console.log(`GeoJSON files scanned: ${geojsonFiles.length}`);
   console.log(`Total occurrences: ${totalOccurrences}`);
   console.log(`Unique values: ${unique.length}`);
-  console.log(`First ${Math.min(EXAMPLE_LIMIT, unique.length)} unique values:`);
-  for (const value of unique.slice(0, EXAMPLE_LIMIT)) {
-    console.log(`- ${value}`);
+  console.log(`Top ${Math.min(EXAMPLE_LIMIT, top.length)} values:`);
+  for (const entry of top.slice(0, EXAMPLE_LIMIT)) {
+    console.log(`- ${entry.count};${entry.value}`);
   }
 }
 
