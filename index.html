@@ -387,9 +387,9 @@
       font-size: 9px;
     }
     .mm-badge--247 {
-      width: 14px;
-      height: 14px;
-      font-size: 7px;
+      width: 15px;
+      height: 15px;
+      font-size: 6.5px;
       letter-spacing: -0.3px;
     }
   </style>
@@ -1332,6 +1332,27 @@
       return true;
     }
 
+    function isOpenAtTimeAnyDay(openingHours, hour, minute = 0) {
+      if (!openingHours || typeof openingHours.getState !== 'function') return null;
+      const base = new Date();
+      base.setHours(12, 0, 0, 0);
+      let sawUnknown = false;
+      for (let dayOffset = 0; dayOffset < 7; dayOffset += 1) {
+        const sample = new Date(base);
+        sample.setDate(base.getDate() + dayOffset);
+        sample.setHours(hour, minute, 0, 0);
+        const state = safeGetState(openingHours, sample);
+        if (state === true) return true;
+        if (state === null) sawUnknown = true;
+      }
+      if (sawUnknown) return null;
+      return false;
+    }
+
+    function isOpenAfter21FromEvaluator(openingHours) {
+      return isOpenAtTimeAnyDay(openingHours, 21, 0);
+    }
+
     function isOpenAfter21(openingHoursString) {
       if (typeof openingHoursString !== 'string') return false;
       const normalized = openingHoursString
@@ -1409,15 +1430,8 @@
       }
 
       const parsed = parseOpeningHours(openingHoursRaw);
-      if (!parsed) {
-        badgeType = null;
-        if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
-          console.log('Badge check', { layerKey: normalizedLayer, opening_hours: openingHoursRaw, badgeType });
-        }
-        return null;
-      }
+      const alwaysOpen = parsed ? isAlwaysOpen(parsed) : null;
 
-      const alwaysOpen = isAlwaysOpen(parsed);
       if (alwaysOpen === true) {
         badgeType = 'twentyfour';
         if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
@@ -1425,9 +1439,30 @@
         }
         return badgeType;
       }
-      if (alwaysOpen === null) return null;
+      if (!isNightLayer) {
+        if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
+          console.log('Badge check', { layerKey: normalizedLayer, opening_hours: openingHoursRaw, badgeType });
+        }
+        return null;
+      }
 
-      if (!isNightLayer) return null;
+      if (parsed) {
+        const openAt21 = isOpenAfter21FromEvaluator(parsed);
+        if (openAt21 === true) {
+          badgeType = 'moon';
+          if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
+            console.log('Badge check', { layerKey: normalizedLayer, opening_hours: openingHoursRaw, badgeType });
+          }
+          return badgeType;
+        }
+        if (openAt21 === false) {
+          if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
+            console.log('Badge check', { layerKey: normalizedLayer, opening_hours: openingHoursRaw, badgeType });
+          }
+          return null;
+        }
+      }
+
       const openLate = isOpenAfter21(openingHoursRaw);
       badgeType = openLate ? 'moon' : null;
       if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
