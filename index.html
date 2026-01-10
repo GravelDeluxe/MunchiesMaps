@@ -743,6 +743,10 @@
   <script src="https://cdn.jsdelivr.net/npm/opening_hours@3.6.0/opening_hours.min.js"></script>
 
   <script>
+    const qs = (selector, root = document) => root.querySelector(selector);
+    const qsa = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+    const on = (el, event, handler, options) => el && el.addEventListener(event, handler, options);
+
     const THEME_KEY = 'theme';
     const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
     const APP_VERSION = "0.1.0";
@@ -943,23 +947,17 @@
       };
     }
 
-    function escapeHtml(value) {
+    function escapeText(value, { xml = false } = {}) {
       return String(value)
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
+        .replace(/'/g, xml ? '&apos;' : '&#39;');
     }
 
-    function escapeXml(value) {
-      return String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&apos;');
-    }
+    const escapeHtml = (value) => escapeText(value);
+    const escapeXml = (value) => escapeText(value, { xml: true });
 
     function createCategoryIconElement(categoryId, size = 22, extraClass = '') {
       const { key, config } = getLayerIconConfig(categoryId);
@@ -1864,16 +1862,16 @@
     }
 
     function setAccordionHandlers() {
-      document.querySelectorAll('.accordion-header').forEach(header => {
+      qsa('.accordion-header[data-target]').forEach((header) => {
         const targetId = header.getAttribute('data-target');
-        const body = document.getElementById(targetId);
+        const body = qs(`#${targetId}`);
         const toggle = () => {
           const next = !body.classList.contains('open');
           body.classList.toggle('open', next);
           header.setAttribute('aria-expanded', next ? 'true' : 'false');
         };
-        header.addEventListener('click', toggle);
-        header.addEventListener('keydown', (e) => {
+        on(header, 'click', toggle);
+        on(header, 'keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             toggle();
@@ -1883,37 +1881,32 @@
     }
 
     function setupDrawer() {
-      const drawer = document.getElementById('layerDrawer');
-      const backdrop = document.getElementById('layerDrawerBackdrop');
-      const toggleBtn = document.getElementById('layerDrawerToggle');
-      const closeBtn = document.getElementById('layerDrawerClose');
+      const drawer = qs('#layerDrawer');
+      const backdrop = qs('#layerDrawerBackdrop');
+      const toggleBtn = qs('#layerDrawerToggle');
+      const closeBtn = qs('#layerDrawerClose');
 
-      const openDrawer = () => {
-        drawer.classList.add('open');
-        drawer.setAttribute('aria-hidden', 'false');
-        backdrop.classList.add('open');
-        backdrop.setAttribute('aria-hidden', 'false');
-        toggleBtn.setAttribute('aria-expanded', 'true');
+      const setDrawerState = (isOpen) => {
+        drawer.classList.toggle('open', isOpen);
+        drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        backdrop.classList.toggle('open', isOpen);
+        backdrop.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       };
 
-      const closeDrawer = () => {
-        drawer.classList.remove('open');
-        drawer.setAttribute('aria-hidden', 'true');
-        backdrop.classList.remove('open');
-        backdrop.setAttribute('aria-hidden', 'true');
-        toggleBtn.setAttribute('aria-expanded', 'false');
-      };
+      const openDrawer = () => setDrawerState(true);
+      const closeDrawer = () => setDrawerState(false);
 
-      toggleBtn.addEventListener('click', () => {
+      on(toggleBtn, 'click', () => {
         if (drawer.classList.contains('open')) {
           closeDrawer();
         } else {
           openDrawer();
         }
       });
-      closeBtn.addEventListener('click', closeDrawer);
-      backdrop.addEventListener('click', closeDrawer);
-      document.addEventListener('keydown', (e) => {
+      on(closeBtn, 'click', closeDrawer);
+      on(backdrop, 'click', closeDrawer);
+      on(document, 'keydown', (e) => {
         if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
       });
     }
@@ -2768,30 +2761,24 @@
 
       await applyFilters();
 
-      document.getElementById('locateButton').addEventListener('click', () => goToUserLocation({ centerOnFix: true }));
+      on(qs('#locateButton'), 'click', () => goToUserLocation({ centerOnFix: true }));
 
-      document.getElementById('blSelectAll').addEventListener('click', () => selectAll(manifestData.bundeslaender, filterState.bundeslaender, 'blList', 'bl'));
-      document.getElementById('blSelectNone').addEventListener('click', () => selectNone(filterState.bundeslaender, 'blList', 'bl', manifestData.bundeslaender));
-      document.getElementById('catSelectAll').addEventListener('click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
-      document.getElementById('catSelectNone').addEventListener('click', () => selectNone(filterState.kategorien, 'catList', 'cat', manifestData.categories));
+      on(qs('#blSelectAll'), 'click', () => selectAll(manifestData.bundeslaender, filterState.bundeslaender, 'blList', 'bl'));
+      on(qs('#blSelectNone'), 'click', () => selectNone(filterState.bundeslaender, 'blList', 'bl', manifestData.bundeslaender));
+      on(qs('#catSelectAll'), 'click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
+      on(qs('#catSelectNone'), 'click', () => selectNone(filterState.kategorien, 'catList', 'cat', manifestData.categories));
 
-      const radiusInput = document.getElementById('gpxRadiusKm');
+      const radiusInput = qs('#gpxRadiusKm');
       if (radiusInput) {
-        radiusInput.addEventListener('change', () => {
+        on(radiusInput, 'change', () => {
           radiusInput.value = formatRadiusKm(radiusInput.value);
         });
-        radiusInput.addEventListener('blur', () => {
+        on(radiusInput, 'blur', () => {
           radiusInput.value = formatRadiusKm(radiusInput.value);
         });
       }
-      const gpxApplyBtn = document.getElementById('gpxApplyBtn');
-      if (gpxApplyBtn) {
-        gpxApplyBtn.addEventListener('click', () => { handleGpxApply().catch(err => console.error(err)); });
-      }
-      const resetBtn = document.getElementById('resetAllBtn');
-      if (resetBtn) {
-        resetBtn.addEventListener('click', resetAllFilters);
-      }
+      on(qs('#gpxApplyBtn'), 'click', () => { handleGpxApply().catch(err => console.error(err)); });
+      on(qs('#resetAllBtn'), 'click', resetAllFilters);
 
       goToUserLocation({ centerOnFix: true, suppressErrorAlert: true });
     })().catch(err => {
