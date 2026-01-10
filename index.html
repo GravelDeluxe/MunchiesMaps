@@ -220,6 +220,32 @@
       flex-direction: column;
       gap: 12px;
     }
+    .drawer-about {
+      border-top: 1px solid var(--border);
+      padding: 12px 16px 16px;
+      background: var(--panel);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .drawer-about h3 {
+      margin: 0;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .drawer-about a {
+      color: inherit;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .drawer-about a:hover,
+    .drawer-about a:focus {
+      text-decoration: underline;
+    }
     .theme-toggle {
       display: flex;
       align-items: center;
@@ -531,6 +557,13 @@
     <div class="drawer-bottom">
       <button type="button" id="resetAllBtn" class="drawer-reset-btn">Reset</button>
     </div>
+    <div class="drawer-about" aria-label="About">
+      <h3>About</h3>
+      <div>MunchiesMaps (alpha)</div>
+      <div>Version: <span id="appVersion"></span></div>
+      <div>by nightrides.cc <a href="https://www.instagram.com/nightrides.cc/" target="_blank" rel="noopener noreferrer">@nightrides.cc</a></div>
+      <div>maintained by Markus <a href="https://www.instagram.com/markuscoucho/" target="_blank" rel="noopener noreferrer">@markuscoucho</a></div>
+    </div>
   </aside>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -541,6 +574,7 @@
   <script>
     const THEME_KEY = 'theme';
     const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
+    const APP_VERSION = "0.1.0";
 
     const DEFAULT_CLUSTER_THRESHOLD = 200;
 
@@ -663,6 +697,11 @@
         applyTheme(isDark);
         localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
       });
+    }
+
+    function setAppVersion() {
+      const versionEl = document.getElementById('appVersion');
+      if (versionEl) versionEl.textContent = APP_VERSION;
     }
 
       const map = L.map('map', { zoomControl: true, preferCanvas: true });
@@ -2090,6 +2129,7 @@
       setAccordionHandlers();
       setupDrawer();
       setupDrawerWidthMeasurement();
+      setAppVersion();
       setupThemeToggle();
       setupClusterThresholdControl();
       setupBadgeToggle();
