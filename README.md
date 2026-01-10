@@ -23,3 +23,11 @@ The map is intended as a foundation for bicycle travel. It was initially designe
 - Open `index.html` and locate the `LAYER_ICON_CONFIG` object.
 - Add a new entry keyed by the layer/category ID from the manifest (for example `bike_repair`), and set `iconClass` (Font Awesome class), `color` (hex), and optional `label`/`size` overrides.
 - The new entry is automatically picked up by `getLayerMarkerIcon(...)` for map markers and by the list/popup category badges.
+
+## Utilities
+### Extract unique opening hours
+Run the utility to scan all GeoJSON files for `properties.opening_hours` values and produce unique outputs:
+
+```sh
+node tools/extract_opening_hours.js
+```
