@@ -759,9 +759,43 @@
     const NIGHT_OPEN_LAYERS = new Set(['supermarkets', 'kiosks', 'fuel', 'bakerys_cafes']);
     const OPEN_24H_PATTERNS = [
       /24\s*\/\s*7/i,
-      /00\s*:\s*00\s*-\s*24\s*:\s*00/i,
+      /24\s*\/\s*24/i,
+      /\b24\s*h\b/i,
+      /24\s*stunden/i,
+      /(^|[^\d])0?\s*:\s*00\s*-\s*24\s*:\s*00/i,
       /00\s*:\s*00\s*-\s*00\s*:\s*00/i
     ];
+
+    function runBadgeDiagnostics() {
+      if (!DEBUG_BADGES) return;
+      const samples = [
+        'Mo-Su,PH 08:00-01:00',
+        'Mo-Sa,PH 08:00-22:00',
+        '09:30-24:30',
+        '08:00+',
+        '24/24',
+        '24h',
+        '24 Stunden offen',
+        '0:00-24:00'
+      ];
+
+      samples.forEach((value) => {
+        const normalized = normalizeOpeningHours(value);
+        const parsed = parseOpeningHours(normalized);
+        const open24Match = OPEN_24H_PATTERNS.some((pattern) => pattern.test(normalized));
+        const alwaysOpen = parsed ? isAlwaysOpen(parsed) : null;
+        const openAt21ViaLib = parsed ? isOpenAfter21ViaLib(parsed) : null;
+        const openAt21Fallback = isOpenAfter21(normalized);
+        console.log('Badge diagnostics', {
+          opening_hours: value,
+          open24Match,
+          parsed: Boolean(parsed),
+          alwaysOpen,
+          openAt21ViaLib,
+          openAt21Fallback
+        });
+      });
+    }
 
     function comboKey(bundeslandId, categoryId) {
       return `${bundeslandId}__${categoryId}`;
@@ -1379,7 +1413,7 @@
       return false;
     }
 
-    function isOpenAfter21FromEvaluator(openingHours) {
+    function isOpenAfter21ViaLib(openingHours) {
       return isOpenAtTimeAnyDay(openingHours, 21, 0);
     }
 
@@ -1394,6 +1428,8 @@
 
       const rules = normalized.split(';').map((rule) => rule.trim()).filter(Boolean);
       const timeRangeRegex = /(\d{1,2}:\d{2})-(\d{1,2}:\d{2})/g;
+      const openEndedRegex = /(\d{1,2}:\d{2})\s*\+/g;
+      const openEndedRangeRegex = /(\d{1,2}:\d{2})-(\d{1,2}:\d{2})\s*\+/g;
       const targetMinutes = 21 * 60;
 
       const parseMinutes = (time) => {
@@ -1401,15 +1437,30 @@
         const hour = Number.parseInt(hourStr, 10);
         const minute = Number.parseInt(minuteStr, 10);
         if (!Number.isFinite(hour) || !Number.isFinite(minute)) return null;
-        if (hour === 24 && minute === 0) return 24 * 60;
+        if (hour === 24 && minute >= 0 && minute <= 59) return 24 * 60 + minute;
         if (hour < 0 || hour > 23 || minute < 0 || minute > 59) return null;
         return hour * 60 + minute;
       };
 
       for (const rule of rules) {
         timeRangeRegex.lastIndex = 0;
+        openEndedRegex.lastIndex = 0;
+        openEndedRangeRegex.lastIndex = 0;
         let match;
         let foundRange = false;
+
+        while ((match = openEndedRangeRegex.exec(rule)) !== null) {
+          const start = parseMinutes(match[1]);
+          if (start === null) continue;
+          if (targetMinutes >= start) return true;
+        }
+
+        while ((match = openEndedRegex.exec(rule)) !== null) {
+          const start = parseMinutes(match[1]);
+          if (start === null) continue;
+          if (targetMinutes >= start) return true;
+        }
+
         while ((match = timeRangeRegex.exec(rule)) !== null) {
           foundRange = true;
           const start = parseMinutes(match[1]);
@@ -1477,7 +1528,7 @@
       }
 
       if (parsed) {
-        const openAt21 = isOpenAfter21FromEvaluator(parsed);
+        const openAt21 = isOpenAfter21ViaLib(parsed);
         if (openAt21 === true) {
           badgeType = 'moon';
           if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
@@ -2016,6 +2067,7 @@
       setupBadgeToggle();
       setupHideNoBadgesToggle();
       setupIncludeMissingToggle();
+      runBadgeDiagnostics();
 
       await applyFilters();
 
