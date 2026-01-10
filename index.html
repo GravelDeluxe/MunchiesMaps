@@ -94,9 +94,21 @@
       color: var(--text);
       overflow: auto;
     }
+    .intro-modal h3 {
+      margin: 12px 0 8px;
+      font-size: 16px;
+    }
     .intro-modal p {
       margin: 0 0 12px;
       color: var(--muted);
+    }
+    .intro-modal ul {
+      margin: 0 0 12px 18px;
+      padding: 0;
+      color: var(--muted);
+    }
+    .intro-modal li {
+      margin-bottom: 6px;
     }
     .intro-modal .intro-actions {
       display: flex;
@@ -746,6 +758,13 @@
       'This project is currently in an early ALPHA stage. Features, data structures, and the user interface may change at any time.'
     ];
 
+    const INTRO_TODAY_BULLETS = [
+      'Browse an interactive map with colored markers per category.',
+      'Filter points by Bundesland and Kategorie.',
+      'Toggle dark mode for low-light use and a mobile-friendly layout for phones.',
+      'Optionally filter markers by proximity to a GPX track and export them to new *.gpx-file'
+    ];
+
     function shouldShowIntro() {
       return localStorage.getItem(INTRO_HIDE_KEY) !== 'true';
     }
@@ -773,6 +792,18 @@
         p.textContent = paragraph;
         body.appendChild(p);
       });
+
+      const todayTitle = document.createElement('h3');
+      todayTitle.textContent = 'What you can do today';
+      body.appendChild(todayTitle);
+
+      const todayList = document.createElement('ul');
+      INTRO_TODAY_BULLETS.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        todayList.appendChild(li);
+      });
+      body.appendChild(todayList);
 
       const actions = document.createElement('div');
       actions.className = 'intro-actions';
