@@ -309,6 +309,54 @@
     .gpx-apply { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); }
     .gpx-error { color: #dc2626; font-size: 13px; }
 
+    .feedback-form { display: flex; flex-direction: column; gap: 8px; position: relative; }
+    .feedback-label { font-weight: 700; color: var(--text); }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 96px;
+      max-height: 140px;
+      resize: vertical;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      font: 13px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      box-sizing: border-box;
+    }
+    .feedback-send {
+      align-self: flex-start;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--btn-border);
+      background: var(--action-bg);
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .feedback-send:disabled { opacity: 0.6; cursor: not-allowed; }
+    .feedback-helper { font-size: 12px; color: var(--muted); line-height: 1.4; }
+    .feedback-status { font-size: 12px; color: var(--muted); display: none; }
+    .feedback-status.is-visible { display: block; }
+    .feedback-status[data-status="error"] { color: #dc2626; }
+    .feedback-status[data-status="success"] { color: #16a34a; }
+    .feedback-link a {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .feedback-link a:hover,
+    .feedback-link a:focus { text-decoration: underline; }
+    .feedback-honeypot {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
     .drawer-reset-btn { width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 750; color: var(--text); }
 
     /* Cluster icon */
@@ -573,6 +621,25 @@
           </div>
         </div>
       </div>
+      <div class="section" id="feedbackSection">
+        <div class="accordion-header" data-target="feedbackBody" aria-expanded="false" role="button" tabindex="0">
+          <span>Feedback</span>
+          <span class="chevron">⌄</span>
+        </div>
+        <div class="accordion-body" id="feedbackBody">
+          <form class="feedback-form" id="quickFeedbackForm">
+            <label class="feedback-label" for="quickFeedbackMessage">Quick feedback (no account)</label>
+            <textarea id="quickFeedbackMessage" class="feedback-textarea" placeholder="What didn’t work or felt confusing?"></textarea>
+            <input type="text" id="quickFeedbackHoneypot" name="website" class="feedback-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <button type="submit" class="feedback-send" id="quickFeedbackSend">Send</button>
+            <div class="feedback-helper">For quick thoughts. Bugs &amp; data issues belong on GitHub.</div>
+            <div class="feedback-status" id="quickFeedbackStatus" aria-live="polite"></div>
+          </form>
+          <div class="feedback-link">
+            <a href="https://github.com/nightridescc/MunchiesMaps/issues" target="_blank" rel="noopener noreferrer">Report issue (GitHub)</a>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="drawer-bottom">
       <button type="button" id="resetAllBtn" class="drawer-reset-btn">Reset</button>
@@ -595,6 +662,9 @@
     const THEME_KEY = 'theme';
     const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
     const APP_VERSION = "0.1.0";
+    const QUICK_FEEDBACK_ENDPOINT = "<PUT_YOUR_ENDPOINT_HERE>";
+    const QUICK_FEEDBACK_RATE_LIMIT_MS = 60000;
+    const QUICK_FEEDBACK_STORAGE_KEY = 'quickFeedbackLastSubmit';
 
     const DEFAULT_CLUSTER_THRESHOLD = 200;
 
@@ -722,6 +792,128 @@
     function setAppVersion() {
       const versionEl = document.getElementById('appVersion');
       if (versionEl) versionEl.textContent = APP_VERSION;
+    }
+
+    function getMapState() {
+      if (!window.map || typeof window.map.getCenter !== 'function') return null;
+      const center = window.map.getCenter();
+      if (!center) return null;
+      return {
+        zoom: window.map.getZoom(),
+        center: { lat: center.lat, lng: center.lng }
+      };
+    }
+
+    function setQuickFeedbackStatus(statusEl, message, tone) {
+      if (!statusEl) return;
+      statusEl.textContent = message || '';
+      statusEl.classList.toggle('is-visible', Boolean(message));
+      if (tone) {
+        statusEl.dataset.status = tone;
+      } else {
+        delete statusEl.dataset.status;
+      }
+    }
+
+    function payloadToFormData(payload) {
+      const flattened = {
+        message: payload.message || '',
+        page_url: payload.page_url || '',
+        timestamp_iso: payload.timestamp_iso || '',
+        user_agent: payload.user_agent || '',
+        map_state: payload.map_state ? JSON.stringify(payload.map_state) : ''
+      };
+      return new URLSearchParams(flattened).toString();
+    }
+
+    async function sendQuickFeedback(payload, asJson) {
+      if (!QUICK_FEEDBACK_ENDPOINT || QUICK_FEEDBACK_ENDPOINT.includes('<PUT_YOUR_ENDPOINT_HERE>')) {
+        throw new Error('Feedback endpoint not configured.');
+      }
+      const options = {
+        method: 'POST',
+        headers: {},
+        mode: asJson ? 'cors' : 'no-cors'
+      };
+      if (asJson) {
+        options.headers['Content-Type'] = 'application/json';
+        options.body = JSON.stringify(payload);
+      } else {
+        options.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+        options.body = payloadToFormData(payload);
+      }
+      const response = await fetch(QUICK_FEEDBACK_ENDPOINT, options);
+      if (response.type === 'opaque') return true;
+      return response.ok;
+    }
+
+    function setupQuickFeedbackForm() {
+      const form = document.getElementById('quickFeedbackForm');
+      if (!form) return;
+      const messageEl = document.getElementById('quickFeedbackMessage');
+      const statusEl = document.getElementById('quickFeedbackStatus');
+      const sendBtn = document.getElementById('quickFeedbackSend');
+      const honeypotEl = document.getElementById('quickFeedbackHoneypot');
+
+      const setStatus = (message, tone) => setQuickFeedbackStatus(statusEl, message, tone);
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (honeypotEl && honeypotEl.value.trim()) {
+          return;
+        }
+
+        const message = (messageEl?.value || '').trim();
+        if (!message) {
+          setStatus('Please enter feedback.', 'error');
+          return;
+        }
+
+        const lastSubmit = Number(localStorage.getItem(QUICK_FEEDBACK_STORAGE_KEY) || 0);
+        const now = Date.now();
+        if (now - lastSubmit < QUICK_FEEDBACK_RATE_LIMIT_MS) {
+          setStatus('Please wait a minute before sending more feedback.', 'error');
+          return;
+        }
+
+        const payload = {
+          message,
+          page_url: window.location.href,
+          timestamp_iso: new Date().toISOString(),
+          user_agent: navigator.userAgent,
+          map_state: getMapState()
+        };
+
+        if (sendBtn) sendBtn.disabled = true;
+        setStatus('', '');
+
+        let success = false;
+        try {
+          success = await sendQuickFeedback(payload, true);
+          if (!success) {
+            success = await sendQuickFeedback(payload, false);
+          }
+        } catch (err) {
+          try {
+            success = await sendQuickFeedback(payload, false);
+          } catch (errFallback) {
+            success = false;
+          }
+        }
+
+        if (success) {
+          localStorage.setItem(QUICK_FEEDBACK_STORAGE_KEY, String(Date.now()));
+          if (messageEl) messageEl.value = '';
+          setStatus('Thanks — feedback received.', 'success');
+          setTimeout(() => {
+            if (sendBtn) sendBtn.disabled = false;
+          }, 1200);
+        } else {
+          setStatus('Could not send. Please try again or use GitHub Issues.', 'error');
+          if (sendBtn) sendBtn.disabled = false;
+        }
+      });
     }
 
       const map = L.map('map', { zoomControl: true, preferCanvas: true });
@@ -2155,6 +2347,7 @@
       setupBadgeToggle();
       setupHideNoBadgesToggle();
       setupIncludeMissingToggle();
+      setupQuickFeedbackForm();
       runBadgeDiagnostics();
 
       await applyFilters();
