@@ -375,8 +375,10 @@
       font-size: 9px;
     }
     .mm-badge--247 {
+      width: 14px;
+      height: 14px;
       font-size: 7px;
-      letter-spacing: -0.2px;
+      letter-spacing: -0.3px;
     }
   </style>
   <script>
@@ -704,6 +706,7 @@
     const appState = {
       showBadges: false
     };
+    const DEBUG_BADGES = false;
 
     const DEFAULT_GPX_RADIUS_KM = 0.3;
     const gpxState = {
@@ -1301,23 +1304,46 @@
       return true;
     }
 
-    function isOpenAfterNine(openingHours) {
-      if (!openingHours || typeof openingHours.getState !== 'function') return null;
-      const base = new Date();
-      base.setHours(12, 0, 0, 0);
-      const hours = [21, 22, 23];
-      let sawUnknown = false;
-      for (let dayOffset = 0; dayOffset < 7; dayOffset += 1) {
-        for (const hour of hours) {
-          const sample = new Date(base);
-          sample.setDate(base.getDate() + dayOffset);
-          sample.setHours(hour, 0, 0, 0);
-          const state = safeGetState(openingHours, sample);
-          if (state === true) return true;
-          if (state === null) sawUnknown = true;
+    function isOpenAfter21(openingHoursString) {
+      if (typeof openingHoursString !== 'string') return false;
+      const normalized = openingHoursString
+        .replace(/^opening_hours\s*:\s*/i, '')
+        .trim()
+        .replace(/\s*([,;])\s*/g, '$1')
+        .replace(/\s*-\s*/g, '-');
+      if (!normalized) return false;
+
+      const rules = normalized.split(';').map((rule) => rule.trim()).filter(Boolean);
+      const timeRangeRegex = /(\d{1,2}:\d{2})-(\d{1,2}:\d{2})/g;
+      const targetMinutes = 21 * 60;
+
+      const parseMinutes = (time) => {
+        const [hourStr, minuteStr] = time.split(':');
+        const hour = Number.parseInt(hourStr, 10);
+        const minute = Number.parseInt(minuteStr, 10);
+        if (!Number.isFinite(hour) || !Number.isFinite(minute)) return null;
+        if (hour === 24 && minute === 0) return 24 * 60;
+        if (hour < 0 || hour > 23 || minute < 0 || minute > 59) return null;
+        return hour * 60 + minute;
+      };
+
+      for (const rule of rules) {
+        timeRangeRegex.lastIndex = 0;
+        let match;
+        let foundRange = false;
+        while ((match = timeRangeRegex.exec(rule)) !== null) {
+          foundRange = true;
+          const start = parseMinutes(match[1]);
+          const end = parseMinutes(match[2]);
+          if (start === null || end === null) continue;
+          if (end >= start) {
+            if (targetMinutes >= start && targetMinutes < end) return true;
+          } else {
+            if (targetMinutes >= start || targetMinutes < end) return true;
+          }
         }
+        if (!foundRange) continue;
       }
-      if (sawUnknown) return null;
       return false;
     }
 
@@ -1336,26 +1362,50 @@
       const openingHoursRaw = normalizeOpeningHours(props.opening_hours);
       const assumes24h = ASSUME_24H_LAYERS.has(normalizedLayer);
       const isNightLayer = NIGHT_OPEN_LAYERS.has(normalizedLayer);
+      let badgeType = null;
 
       if (!openingHoursRaw) {
-        return assumes24h ? 'twentyfour' : null;
+        badgeType = assumes24h ? 'twentyfour' : null;
+        if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
+          console.log('Badge check', { layerKey: normalizedLayer, opening_hours: openingHoursRaw, badgeType });
+        }
+        return badgeType;
       }
 
       if (OPEN_24H_PATTERNS.some((pattern) => pattern.test(openingHoursRaw))) {
-        return 'twentyfour';
+        badgeType = 'twentyfour';
+        if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
+          console.log('Badge check', { layerKey: normalizedLayer, opening_hours: openingHoursRaw, badgeType });
+        }
+        return badgeType;
       }
 
       const parsed = parseOpeningHours(openingHoursRaw);
-      if (!parsed) return null;
+      if (!parsed) {
+        badgeType = null;
+        if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
+          console.log('Badge check', { layerKey: normalizedLayer, opening_hours: openingHoursRaw, badgeType });
+        }
+        return null;
+      }
 
       const alwaysOpen = isAlwaysOpen(parsed);
-      if (alwaysOpen === true) return 'twentyfour';
+      if (alwaysOpen === true) {
+        badgeType = 'twentyfour';
+        if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
+          console.log('Badge check', { layerKey: normalizedLayer, opening_hours: openingHoursRaw, badgeType });
+        }
+        return badgeType;
+      }
       if (alwaysOpen === null) return null;
 
       if (!isNightLayer) return null;
-      const openLate = isOpenAfterNine(parsed);
-      if (openLate === true) return 'moon';
-      return null;
+      const openLate = isOpenAfter21(openingHoursRaw);
+      badgeType = openLate ? 'moon' : null;
+      if (DEBUG_BADGES && (assumes24h || isNightLayer)) {
+        console.log('Badge check', { layerKey: normalizedLayer, opening_hours: openingHoursRaw, badgeType });
+      }
+      return badgeType;
     }
 
     function getLayerMarkerIcon(layerKey, featureProps = {}) {
@@ -1370,7 +1420,7 @@
       const outlineColor = config.outlineColor || 'rgba(255,255,255,0.25)';
       const badgeHtml = appState.showBadges && badgeType
         ? badgeType === 'twentyfour'
-          ? '<span class="mm-badge mm-badge--247" title="Durchgehend geöffnet">24</span>'
+          ? '<span class="mm-badge mm-badge--247" title="Durchgehend geöffnet">24h</span>'
           : '<span class="mm-badge mm-badge--moon" title="Nach 21 Uhr geöffnet">🌙</span>'
         : '';
       const html = `
