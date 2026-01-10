@@ -307,6 +307,8 @@
     .cluster-row input[type="number"] { width: 160px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
     .cluster-helper { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.4; }
     .gpx-apply { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); }
+    .gpx-export { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); display: none; }
+    .gpx-export.is-visible { display: inline-flex; }
     .gpx-error { color: #dc2626; font-size: 13px; }
 
     .feedback-form { display: flex; flex-direction: column; gap: 8px; position: relative; }
@@ -582,6 +584,7 @@
               <input type="number" id="gpxRadiusKm" min="0" step="0.1" value="0.3" />
             </div>
             <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
+            <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
             <div class="gpx-error" id="gpxError" aria-live="polite"></div>
           </div>
         </div>
@@ -716,6 +719,15 @@
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
+    }
+
+    function escapeXml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
     }
 
     function createCategoryIconElement(categoryId, size = 22, extraClass = '') {
@@ -998,11 +1010,15 @@
       bundeslaender: new Set(),
       kategorien: new Set()
     };
-    const appState = {
-      showBadges: false,
-      hideNoBadges: false,
-      includeMissingData: false
-    };
+    const appState = window.appState = window.appState || {};
+    Object.assign(appState, {
+      showBadges: appState.showBadges ?? false,
+      hideNoBadges: appState.hideNoBadges ?? false,
+      includeMissingData: appState.includeMissingData ?? false,
+      hasImportedGpx: appState.hasImportedGpx ?? false,
+      gpxTrackLatLngs: appState.gpxTrackLatLngs ?? [],
+      gpxLayer: appState.gpxLayer ?? null
+    });
     const DEBUG_BADGES = false;
 
     const DEFAULT_GPX_RADIUS_KM = 0.3;
@@ -1278,6 +1294,7 @@
       if (gpxTrackLayer) {
         map.removeLayer(gpxTrackLayer);
         gpxTrackLayer = null;
+        appState.gpxLayer = null;
       }
     }
 
@@ -1291,6 +1308,7 @@
           opacity: 0.9
         }
       }).addTo(map);
+      appState.gpxLayer = gpxTrackLayer;
       if (gpxTrackLayer.bringToBack) {
         gpxTrackLayer.bringToBack();
       }
@@ -1301,6 +1319,112 @@
       const bounds = gpxTrackLayer.getBounds?.();
       if (!bounds || !bounds.isValid || !bounds.isValid()) return;
       map.fitBounds(bounds, { padding: [padding, padding], maxZoom, animate: true });
+    }
+
+    function updateExportGpxVisibility() {
+      const exportBtn = document.getElementById('gpxExportBtn');
+      if (!exportBtn) return;
+      const isVisible = Boolean(appState.hasImportedGpx);
+      exportBtn.classList.toggle('is-visible', isVisible);
+      exportBtn.disabled = !isVisible;
+    }
+
+    function buildPoiExportData(point) {
+      if (!point) return null;
+      const props = point.propsRef || {};
+      const categoryLabel = props.categoryLabel || categoryLabelMap[point.categoryId] || markerLabel(point.categoryId, props);
+      const name = (props.name || categoryLabel || 'POI').trim();
+      const descParts = [];
+      if (props.opening_hours) descParts.push(`opening_hours=${props.opening_hours}`);
+      if (props.access) descParts.push(`access=${props.access}`);
+      if (props.operator) descParts.push(`operator=${props.operator}`);
+      if (props.fee) descParts.push(`fee=${props.fee}`);
+      if (props.url) descParts.push(`url=${props.url}`);
+      const desc = descParts.length ? descParts.join('; ') : '';
+      return {
+        lat: point.lat,
+        lon: point.lng,
+        name,
+        desc,
+        type: categoryLabel || ''
+      };
+    }
+
+    function collectVisiblePoisForExport() {
+      if (!map) return [];
+      const bounds = map.getBounds();
+      const visiblePoints = getVisiblePoints(bounds, 0);
+      const unique = new Set();
+      const result = [];
+      visiblePoints.forEach((point) => {
+        const data = buildPoiExportData(point);
+        if (!data) return;
+        const key = `${Number(data.lat).toFixed(6)}|${Number(data.lon).toFixed(6)}|${data.name}`;
+        if (unique.has(key)) return;
+        unique.add(key);
+        result.push(data);
+      });
+      return result;
+    }
+
+    function buildGpxExport(trackLatLngs, visiblePois) {
+      const trackPoints = Array.isArray(trackLatLngs) ? trackLatLngs : [];
+      const pois = Array.isArray(visiblePois) ? visiblePois : [];
+      const lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<gpx version="1.1" creator="Munchies Maps" xmlns="http://www.topografix.com/GPX/1/1">',
+        '<trk><name>Imported route + POIs</name><trkseg>'
+      ];
+      trackPoints.forEach((latlng) => {
+        const lat = latlng.lat ?? latlng[0];
+        const lon = latlng.lng ?? latlng[1];
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+        lines.push(`<trkpt lat="${lat}" lon="${lon}"></trkpt>`);
+      });
+      lines.push('</trkseg></trk>');
+      pois.forEach((poi) => {
+        if (!Number.isFinite(poi.lat) || !Number.isFinite(poi.lon)) return;
+        lines.push(`<wpt lat="${poi.lat}" lon="${poi.lon}">`);
+        if (poi.name) {
+          lines.push(`<name>${escapeXml(poi.name)}</name>`);
+        }
+        if (poi.desc) {
+          lines.push(`<desc>${escapeXml(poi.desc)}</desc>`);
+        }
+        if (poi.type) {
+          lines.push(`<type>${escapeXml(poi.type)}</type>`);
+        }
+        lines.push('</wpt>');
+      });
+      lines.push('</gpx>');
+      return lines.join('');
+    }
+
+    function downloadGpxExport(xml) {
+      const blob = new Blob([xml], { type: 'application/gpx+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = 'munchiesmaps_route_with_pois.gpx';
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+      URL.revokeObjectURL(url);
+    }
+
+    function setupGpxExportButton() {
+      const exportBtn = document.getElementById('gpxExportBtn');
+      if (!exportBtn) return;
+      updateExportGpxVisibility();
+      exportBtn.addEventListener('click', () => {
+        if (!appState.hasImportedGpx) return;
+        const visiblePois = collectVisiblePoisForExport();
+        const xml = buildGpxExport(appState.gpxTrackLatLngs, visiblePois);
+        downloadGpxExport(xml);
+        if (!visiblePois.length) {
+          alert('No visible POIs to export (route exported).');
+        }
+      });
     }
 
     function downsamplePoints(points, maxPoints = 2000) {
@@ -1911,10 +2035,28 @@
         cached.marker.setLatLng([lat, lng]);
         cached.marker.setIcon(getLayerMarkerIcon(categoryId, propsRef));
         cached.marker.setPopupContent(() => popupHtml(propsRef, categoryId, lat, lng));
+        cached.marker.options.poiData = {
+          name: propsRef?.name,
+          category: categoryId,
+          opening_hours: propsRef?.opening_hours,
+          access: propsRef?.access,
+          operator: propsRef?.operator,
+          fee: propsRef?.fee,
+          url: propsRef?.url
+        };
         return cached.marker;
       }
       const marker = L.marker([lat, lng], { icon: getLayerMarkerIcon(categoryId, propsRef) });
       marker.bindPopup(() => popupHtml(propsRef, categoryId, lat, lng));
+      marker.options.poiData = {
+        name: propsRef?.name,
+        category: categoryId,
+        opening_hours: propsRef?.opening_hours,
+        access: propsRef?.access,
+        operator: propsRef?.operator,
+        fee: propsRef?.fee,
+        url: propsRef?.url
+      };
       markerCache.set(id, { marker, lastUsed: renderCounter });
       return marker;
     }
@@ -2183,6 +2325,9 @@
       gpxState.radiusMeters = DEFAULT_GPX_RADIUS_KM * 1000;
       gpxState.bbox = null;
       gpxState.geoJson = null;
+      appState.hasImportedGpx = false;
+      appState.gpxTrackLatLngs = [];
+      appState.gpxLayer = null;
       const fileInput = document.getElementById('gpxFileInput');
       const radiusInput = document.getElementById('gpxRadiusKm');
       const err = document.getElementById('gpxError');
@@ -2190,6 +2335,7 @@
       if (fileInput) fileInput.value = '';
       if (radiusInput) radiusInput.value = DEFAULT_GPX_RADIUS_KM.toFixed(1);
       if (err) err.textContent = '';
+      updateExportGpxVisibility();
     }
 
     async function handleGpxApply() {
@@ -2238,6 +2384,8 @@
       gpxState.bbox = computeExpandedBBox(sampled, radiusMeters);
       gpxState.geoJson = gpxGeoJson;
       gpxState.active = true;
+      appState.hasImportedGpx = true;
+      appState.gpxTrackLatLngs = trackPoints.map((pt) => L.latLng(pt.lat, pt.lon));
 
       console.log('GPX points:', trackPoints.length, 'sampled:', sampled.length, 'radiusMeters:', radiusMeters);
 
@@ -2245,6 +2393,7 @@
       if (hasNewFile) {
         fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
       }
+      updateExportGpxVisibility();
 
       await applyFilters();
     }
@@ -2347,6 +2496,7 @@
       setupBadgeToggle();
       setupHideNoBadgesToggle();
       setupIncludeMissingToggle();
+      setupGpxExportButton();
       setupQuickFeedbackForm();
       runBadgeDiagnostics();
 
