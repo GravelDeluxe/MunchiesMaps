@@ -720,7 +720,7 @@
             <div class="feedback-status" id="quickFeedbackStatus" aria-live="polite"></div>
           </form>
           <div class="feedback-link">
-            <a href="https://github.com/nightridescc/MunchiesMaps/issues" target="_blank" rel="noopener noreferrer">Report issue (GitHub)</a>
+            <a href="https://github.com/MarkusCouch/MunchiesMaps/issues" target="_blank" rel="noopener noreferrer">Report issue (GitHub)</a>
           </div>
         </div>
       </div>
@@ -750,7 +750,7 @@
     const THEME_KEY = 'theme';
     const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
     const APP_VERSION = "0.1.0";
-    const QUICK_FEEDBACK_ENDPOINT = "<PUT_YOUR_ENDPOINT_HERE>";
+    const QUICK_FEEDBACK_ENDPOINT = "https://script.google.com/macros/s/AKfycbzewIElOyqoS0xeGWab6MWoCZq67qs9uKEEAVwJzMRWJDE5ebxZlNwESaZQnNP_pAKVAA/exec";
     const QUICK_FEEDBACK_RATE_LIMIT_MS = 60000;
     const QUICK_FEEDBACK_STORAGE_KEY = 'quickFeedbackLastSubmit';
     const INTRO_HIDE_KEY = 'munchiesMapsHideIntro';
@@ -1062,30 +1062,26 @@
         page_url: payload.page_url || '',
         timestamp_iso: payload.timestamp_iso || '',
         user_agent: payload.user_agent || '',
-        map_state: payload.map_state ? JSON.stringify(payload.map_state) : ''
+        map_state: payload.map_state ? JSON.stringify(payload.map_state) : '',
+        app_version: payload.app_version || ''
       };
       return new URLSearchParams(flattened).toString();
     }
 
-    async function sendQuickFeedback(payload, asJson) {
+    async function sendQuickFeedback(payload) {
       if (!QUICK_FEEDBACK_ENDPOINT || QUICK_FEEDBACK_ENDPOINT.includes('<PUT_YOUR_ENDPOINT_HERE>')) {
         throw new Error('Feedback endpoint not configured.');
       }
-      const options = {
+
+      await fetch(QUICK_FEEDBACK_ENDPOINT, {
         method: 'POST',
-        headers: {},
-        mode: asJson ? 'cors' : 'no-cors'
-      };
-      if (asJson) {
-        options.headers['Content-Type'] = 'application/json';
-        options.body = JSON.stringify(payload);
-      } else {
-        options.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-        options.body = payloadToFormData(payload);
-      }
-      const response = await fetch(QUICK_FEEDBACK_ENDPOINT, options);
-      if (response.type === 'opaque') return true;
-      return response.ok;
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: payloadToFormData(payload)
+      });
+
+      // With no-cors the response is opaque; treat "no exception thrown" as success.
+      return true;
     }
 
     function setupQuickFeedbackForm() {
@@ -1123,7 +1119,8 @@
           page_url: window.location.href,
           timestamp_iso: new Date().toISOString(),
           user_agent: navigator.userAgent,
-          map_state: getMapState()
+          map_state: getMapState(),
+          app_version: APP_VERSION
         };
 
         if (sendBtn) sendBtn.disabled = true;
@@ -1131,16 +1128,10 @@
 
         let success = false;
         try {
-          success = await sendQuickFeedback(payload, true);
-          if (!success) {
-            success = await sendQuickFeedback(payload, false);
-          }
+          await sendQuickFeedback(payload);
+          success = true;
         } catch (err) {
-          try {
-            success = await sendQuickFeedback(payload, false);
-          } catch (errFallback) {
-            success = false;
-          }
+          success = false;
         }
 
         if (success) {
