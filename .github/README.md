@@ -31,8 +31,13 @@ If something really matters for your ride, it’s always a good idea to double-c
 This is an **Alpha release**.
 Your feedback helps improve data quality, usability and future features.
 
-## Try it
-- https://<username>.github.io/<repo>/
+## Data sources & license
+Munchies Maps uses data from **OpenStreetMap** and other community-maintained sources.  
+Map data is © OpenStreetMap contributors and licensed under the  
+**Open Database License (ODbL)**.
+
+The accuracy, completeness and freshness of individual points of interest  
+depend on local contributions and tagging practices.
 
 ## Feedback wanted
 - Report bugs or request features via [GitHub Issues](/issues)
