@@ -1,4 +1,4 @@
-# Munchies Maps – Night-friendly stops for long rides
+# Munchies Maps – Night-friendly stops for your ride
 
 Munchies Maps is an early-stage, community-driven map for cyclists, focused on **night-friendly stops for long rides**.
 While it was originally designed with night rides in mind, **it is equally useful during daytime rides, touring and bikepacking**.
