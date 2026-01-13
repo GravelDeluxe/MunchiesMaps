@@ -756,19 +756,43 @@
     const INTRO_HIDE_KEY = 'munchiesMapsHideIntro';
 
     const INTRO_SUMMARY_TEXT = [
-      'Munchies Maps is a lightweight, community-driven web map that highlights practical points of interest for cyclists across Germany. It focuses on essentials such as food, water, toilets, and other services that help keep rides going.',
-      'Originally designed with night rides and late-hour availability in mind, the map is equally useful for daytime cycling, touring, and bikepacking. It serves as a foundation for planning and navigating bike adventures.'
+      'Munchies Maps is an early-stage, community-driven map for cyclists, focused on **night-friendly stops for long rides**.',
+      'While it was originally designed with night rides in mind, **it is equally useful during daytime rides, touring and bikepacking**.',
+      'The project is designed as a practical reference tool rather than a routing or navigation app. It is actively developed and already usable, but **data completeness and accuracy can vary** depending on region and source.'
     ];
 
+    const INTRO_WHO_TITLE = 'Who this project is for:';
+    const INTRO_WHO_BULLETS = [
+      'Night riders and long-distance cyclists',
+      'Brevet, randonneuring and ultra-distance riders',
+      'Bikepacking and touring cyclists',
+      'Anyone riding outside regular opening hours and looking for basic infrastructure'
+    ];
+
+    const INTRO_TODAY_TITLE = 'What works today:';
     const INTRO_TODAY_BULLETS = [
-      'Browse an interactive map with color-coded markers per category',
-      'Filter points by Bundesland and category',
-      'Highlight places with late-night availability',
-      'Toggle dark mode for low-light conditions and use a mobile-friendly layout',
-      'Filter markers by proximity to a GPX track and export them to a new *.gpx file'
+      'Night-friendly points of interest such as food, fuel, water, toilets, shelters and vending',
+      'Filters for categories, regions and night availability',
+      'Option to include POIs with missing or unknown opening hours',
+      'GPX import and export for common bike computers and ride apps',
+      'Open any POI directly in Google Maps for navigation',
+      'Open shelters in Mapy.cz for additional details and direct routing',
+      'Dark mode and mobile-friendly interface',
+      'Community feedback via GitHub or feedback form'
     ];
 
-    const INTRO_FOOTER_TEXT = 'This project is currently in an early ALPHA stage. Features, data structures, and the user interface may change at any time.';
+    const INTRO_DATA_TITLE = 'A quick note on the data:';
+    const INTRO_DATA_TEXT = [
+      'All information comes from OpenStreetMap and other community-maintained sources.',
+      'Some details might be missing, outdated or simply wrong.'
+    ];
+
+    const INTRO_FOOTER_TEXT = [
+      'Please treat this map as a **helpful guide, not a guarantee** — especially at night.',
+      'If something really matters for your ride, it’s always a good idea to double-check.',
+      'This is an **Alpha release**.',
+      'Your feedback helps improve data quality, usability and future features.'
+    ];
 
     function shouldShowIntro() {
       return localStorage.getItem(INTRO_HIDE_KEY) !== 'true';
@@ -787,32 +811,63 @@
 
       const title = document.createElement('h2');
       title.id = 'introTitle';
-      title.textContent = 'Munchies Maps – Alpha Release';
+      title.textContent = 'Munchies Maps — Alpha Version';
 
       const body = document.createElement('div');
       body.className = 'intro-body';
 
-      INTRO_SUMMARY_TEXT.forEach((paragraph) => {
+      const appendMarkdownText = (container, text) => {
+        const parts = text.split(/(\*\*[^*]+\*\*)/g);
+        parts.forEach((part) => {
+          if (!part) return;
+          if (part.startsWith('**') && part.endsWith('**')) {
+            const strong = document.createElement('strong');
+            strong.textContent = part.slice(2, -2);
+            container.appendChild(strong);
+          } else {
+            container.appendChild(document.createTextNode(part));
+          }
+        });
+      };
+
+      const appendParagraph = (text) => {
         const p = document.createElement('p');
-        p.textContent = paragraph;
+        appendMarkdownText(p, text);
         body.appendChild(p);
+      };
+
+      const appendStrongLine = (text) => {
+        const p = document.createElement('p');
+        const strong = document.createElement('strong');
+        strong.textContent = text;
+        p.appendChild(strong);
+        body.appendChild(p);
+      };
+
+      INTRO_SUMMARY_TEXT.forEach((paragraph) => appendParagraph(paragraph));
+
+      appendStrongLine(INTRO_WHO_TITLE);
+      const whoList = document.createElement('ul');
+      INTRO_WHO_BULLETS.forEach((item) => {
+        const li = document.createElement('li');
+        appendMarkdownText(li, item);
+        whoList.appendChild(li);
       });
+      body.appendChild(whoList);
 
-      const todayTitle = document.createElement('h3');
-      todayTitle.textContent = 'What you can do';
-      body.appendChild(todayTitle);
-
+      appendStrongLine(INTRO_TODAY_TITLE);
       const todayList = document.createElement('ul');
       INTRO_TODAY_BULLETS.forEach((item) => {
         const li = document.createElement('li');
-        li.textContent = item;
+        appendMarkdownText(li, item);
         todayList.appendChild(li);
       });
       body.appendChild(todayList);
 
-      const footer = document.createElement('p');
-      footer.textContent = INTRO_FOOTER_TEXT;
-      body.appendChild(footer);
+      appendStrongLine(INTRO_DATA_TITLE);
+      INTRO_DATA_TEXT.forEach((paragraph) => appendParagraph(paragraph));
+
+      INTRO_FOOTER_TEXT.forEach((paragraph) => appendParagraph(paragraph));
 
       const actions = document.createElement('div');
       actions.className = 'intro-actions';
