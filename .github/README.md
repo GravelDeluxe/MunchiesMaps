@@ -20,16 +20,19 @@ The project is designed as a practical reference tool rather than a routing or n
 - Dark mode and mobile-friendly interface
 - Community feedback via GitHub or feedback form
 
+## Alpha status & feedback
+Munchies Maps is currently in an **Alpha stage**.  
+Features, data coverage and behavior may change at any time.
+
+Feedback from real-world use is highly appreciated and helps improve  
+data quality, usability and future features.
+
 ## A quick note on the data
 All information comes from OpenStreetMap and other community-maintained sources.
 Some details might be missing, outdated or simply wrong.
 
 Please treat this map as a **helpful guide, not a guarantee** — especially at night.
 If something really matters for your ride, it’s always a good idea to double-check.
-
-## Alpha status
-This is an **Alpha release**.
-Your feedback helps improve data quality, usability and future features.
 
 ## Data sources & license
 Munchies Maps uses data from **OpenStreetMap** and other community-maintained sources.  
@@ -38,7 +41,3 @@ Map data is © OpenStreetMap contributors and licensed under the
 
 The accuracy, completeness and freshness of individual points of interest  
 depend on local contributions and tagging practices.
-
-## Feedback wanted
-- Report bugs or request features via [GitHub Issues](/issues)
-- In-app feedback form (in the map UI)
