@@ -781,6 +781,14 @@
       'Community feedback via GitHub or feedback form'
     ];
 
+    const INTRO_ALPHA_TITLE = 'Alpha status & feedback';
+    const INTRO_ALPHA_TEXT = [
+      'This project is currently in an **Alpha stage**.',
+      'Features, data coverage and behavior may change at any time.',
+      'Feedback from real-world use is highly appreciated and helps improve',
+      'data quality, usability and future features.'
+    ];
+
     const INTRO_DATA_TITLE = 'A quick note on the data:';
     const INTRO_DATA_TEXT = [
       'All information comes from OpenStreetMap and other community-maintained sources.',
@@ -796,9 +804,7 @@
 
     const INTRO_FOOTER_TEXT = [
       'Please treat this map as a **helpful guide, not a guarantee** — especially at night.',
-      'If something really matters for your ride, it’s always a good idea to double-check.',
-      'This is an **Alpha release**.',
-      'Your feedback helps improve data quality, usability and future features.'
+      'If something really matters for your ride, it’s always a good idea to double-check.'
     ];
 
     function shouldShowIntro() {
@@ -870,6 +876,9 @@
         todayList.appendChild(li);
       });
       body.appendChild(todayList);
+
+      appendStrongLine(INTRO_ALPHA_TITLE);
+      INTRO_ALPHA_TEXT.forEach((paragraph) => appendParagraph(paragraph));
 
       appendStrongLine(INTRO_DATA_TITLE);
       INTRO_DATA_TEXT.forEach((paragraph) => appendParagraph(paragraph));
