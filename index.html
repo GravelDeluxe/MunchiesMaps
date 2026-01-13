@@ -787,6 +787,13 @@
       'Some details might be missing, outdated or simply wrong.'
     ];
 
+    const INTRO_LICENSE_TITLE = 'Data & license';
+    const INTRO_LICENSE_TEXT = [
+      'Map data is based on © OpenStreetMap contributors',
+      'and licensed under the Open Database License (ODbL).',
+      'Individual POI attributes depend on community tagging and local data quality.'
+    ];
+
     const INTRO_FOOTER_TEXT = [
       'Please treat this map as a **helpful guide, not a guarantee** — especially at night.',
       'If something really matters for your ride, it’s always a good idea to double-check.',
@@ -866,6 +873,9 @@
 
       appendStrongLine(INTRO_DATA_TITLE);
       INTRO_DATA_TEXT.forEach((paragraph) => appendParagraph(paragraph));
+
+      appendStrongLine(INTRO_LICENSE_TITLE);
+      INTRO_LICENSE_TEXT.forEach((paragraph) => appendParagraph(paragraph));
 
       INTRO_FOOTER_TEXT.forEach((paragraph) => appendParagraph(paragraph));
 
