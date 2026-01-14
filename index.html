@@ -711,6 +711,15 @@
           <span class="chevron">⌄</span>
         </div>
         <div class="accordion-body" id="feedbackBody">
+          <div id="sharedViewPrompt" style="display:none;">
+            <p class="feedback-helper" style="margin: 0 0 8px;">
+              This link includes a shared map view.
+            </p>
+            <div class="action-row">
+              <button type="button" id="goSharedViewBtn">Go to shared view</button>
+              <button type="button" id="dismissSharedViewBtn">Dismiss</button>
+            </div>
+          </div>
           <form class="feedback-form" id="quickFeedbackForm">
             <label class="feedback-label" for="quickFeedbackMessage">Quick feedback (no account)</label>
             <textarea id="quickFeedbackMessage" class="feedback-textarea" placeholder="What didn’t work or felt confusing?"></textarea>
@@ -1229,7 +1238,9 @@
       }
 
       if (Number.isFinite(state.lat) && Number.isFinite(state.lng) && Number.isFinite(state.z)) {
-        map.setView([state.lat, state.lng], state.z, { animate: false });
+        pendingSharedView = { lat: state.lat, lng: state.lng, z: state.z };
+      } else {
+        pendingSharedView = null;
       }
     }
 
@@ -1341,6 +1352,35 @@
         const body = buildIssueBody(deepLink);
         const url = buildGithubIssueUrl({ title, body, labels: GH_DEFAULT_LABELS });
         window.open(url, '_blank', 'noopener,noreferrer');
+      });
+    }
+
+    function updateSharedViewPromptVisibility() {
+      const promptEl = document.getElementById('sharedViewPrompt');
+      if (!promptEl) return;
+      if (pendingSharedView && !pendingSharedViewSeen) {
+        promptEl.style.display = 'block';
+      } else {
+        promptEl.style.display = 'none';
+      }
+    }
+
+    function setupSharedViewPrompt() {
+      const promptEl = document.getElementById('sharedViewPrompt');
+      const goBtn = document.getElementById('goSharedViewBtn');
+      const dismissBtn = document.getElementById('dismissSharedViewBtn');
+      if (!promptEl || !goBtn || !dismissBtn) return;
+
+      goBtn.addEventListener('click', () => {
+        if (!pendingSharedView || !map) return;
+        map.setView([pendingSharedView.lat, pendingSharedView.lng], pendingSharedView.z, { animate: true });
+        pendingSharedViewSeen = true;
+        updateSharedViewPromptVisibility();
+      });
+
+      dismissBtn.addEventListener('click', () => {
+        pendingSharedViewSeen = true;
+        updateSharedViewPromptVisibility();
       });
     }
 
@@ -1538,6 +1578,8 @@
       gpxTrackLatLngs: appState.gpxTrackLatLngs ?? [],
       gpxLayer: appState.gpxLayer ?? null
     });
+    let pendingSharedView = null;
+    let pendingSharedViewSeen = false;
     const DEBUG_BADGES = false;
 
     const DEFAULT_GPX_RADIUS_KM = 0.3;
@@ -3074,6 +3116,8 @@
       setupGpxExportButton();
       setupQuickFeedbackForm();
       setupShareAndReportButtons();
+      setupSharedViewPrompt();
+      updateSharedViewPromptVisibility();
       runBadgeDiagnostics();
 
       updateUrlFromCurrentState({ replace: true });
