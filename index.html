@@ -1681,7 +1681,7 @@
     const initialTheme = window.__isDarkTheme === true;
     applyTheme(initialTheme);
 
-    const MANIFEST_URL = 'resources/geojson/manifest.json';
+    const MANIFEST_URL = `resources/geojson/manifest.json?v=${APP_VERSION}`;
 
     const filterState = {
       bundeslaender: new Set(),
@@ -2271,7 +2271,7 @@
         } else {
           localStorage.setItem(CLUSTER_THRESHOLD_KEY, String(clamped));
         }
-        updateClusteringForViewport(true);
+        updateClusteringForViewport();
       };
 
       input.value = String(viewportClusterThreshold);
@@ -2286,7 +2286,7 @@
       toggle.addEventListener('change', () => {
         appState.showBadges = toggle.checked;
         updateBadgeDependentToggles(toggle.checked, true);
-        updateClusteringForViewport(true);
+        updateClusteringForViewport();
         if (typeof debouncedUrlUpdate === 'function') {
           debouncedUrlUpdate();
         }
@@ -2300,7 +2300,7 @@
       toggle.checked = appState.hideNoBadges;
       toggle.addEventListener('change', () => {
         appState.hideNoBadges = toggle.checked;
-        updateClusteringForViewport(true);
+        updateClusteringForViewport();
         if (typeof debouncedUrlUpdate === 'function') {
           debouncedUrlUpdate();
         }
@@ -2313,7 +2313,7 @@
       toggle.checked = appState.includeMissingData;
       toggle.addEventListener('change', () => {
         appState.includeMissingData = toggle.checked;
-        updateClusteringForViewport(true);
+        updateClusteringForViewport();
         if (typeof debouncedUrlUpdate === 'function') {
           debouncedUrlUpdate();
         }
@@ -2905,7 +2905,7 @@
       });
     }
 
-    function renderWithMode(mode, forceRender = false) {
+    function renderWithMode(mode) {
       const normalizedMode = mode === 'cluster' ? 'cluster' : 'plain';
       if (!map) return;
 
@@ -2947,18 +2947,18 @@
     function renderPois(pointsArray) {
       activePoints = Array.isArray(pointsArray) ? pointsArray : [];
       rebuildGridIndex(activePoints);
-      updateClusteringForViewport(true);
+      updateClusteringForViewport();
     }
 
-    function updateClusteringForViewport(forceRender = false) {
+    function updateClusteringForViewport() {
       if (!map) return;
       const bounds = map.getBounds();
       const visibleCount = countVisibleInBounds(bounds);
       const nextMode = visibleCount > viewportClusterThreshold ? 'cluster' : 'plain';
-      renderWithMode(nextMode, forceRender);
+      renderWithMode(nextMode);
     }
 
-    const debouncedViewportUpdate = debounce(() => updateClusteringForViewport(false), CLUSTER_DEBOUNCE_MS);
+    const debouncedViewportUpdate = debounce(() => updateClusteringForViewport(), CLUSTER_DEBOUNCE_MS);
     const debouncedUrlUpdate = debounce(() => updateUrlFromCurrentState({ replace: true }), SHARE_URL_UPDATE_DEBOUNCE_MS);
     map.on('moveend', debouncedViewportUpdate);
     map.on('zoomend', debouncedViewportUpdate);
@@ -2966,14 +2966,13 @@
     map.on('zoomend', debouncedUrlUpdate);
 
     async function loadGeoJSON(url) {
-      const r = await fetch(url, { cache: 'no-store' });
+      const r = await fetch(url);
       if (!r.ok) throw new Error(`Fetch failed for ${url}: HTTP ${r.status}`);
-      const txt = await r.text();
-      return JSON.parse(txt);
+      return await r.json();
     }
 
     async function loadManifest() {
-      const r = await fetch(MANIFEST_URL, { cache: 'no-store' });
+      const r = await fetch(MANIFEST_URL);
       if (!r.ok) throw new Error(`Manifest could not be loaded (HTTP ${r.status})`);
       const data = await r.json();
       const bundeslaender = Array.isArray(data.bundeslaender) ? data.bundeslaender : [];
@@ -2986,7 +2985,7 @@
       if (datasetCache.has(key)) return datasetCache.get(key);
       if (missingCache.has(key)) return null;
 
-      const url = `resources/geojson/${bundeslandId}/${categoryId}.geojson`;
+      const url = `resources/geojson/${bundeslandId}/${categoryId}.geojson?v=${APP_VERSION}`;
 
       try {
         const geojson = await loadGeoJSON(url);
@@ -3019,11 +3018,11 @@
     async function applyFilters() {
       const runId = ++filterRunId;
       const combos = [];
-      filterState.bundeslaender.forEach((bundeslandId) => {
-        filterState.kategorien.forEach((categoryId) => {
+      for (const bundeslandId of filterState.bundeslaender) {
+        for (const categoryId of filterState.kategorien) {
           combos.push({ key: comboKey(bundeslandId, categoryId), bundeslandId, categoryId });
-        });
-      });
+        }
+      }
 
       if (!combos.length) {
         renderPois([]);
@@ -3031,24 +3030,30 @@
       }
 
       await Promise.all(combos.map(({ bundeslandId, categoryId }) => ensureDataset(bundeslandId, categoryId)));
+      await new Promise(requestAnimationFrame);
+      if (runId !== filterRunId) return; // stale run, abort rendering
 
       const points = [];
-      combos.forEach(({ key }) => {
+      for (const { key } of combos) {
         const entry = datasetCache.get(key);
-        if (!entry || entry.status !== 'ready') return;
+        if (!entry || entry.status !== 'ready') continue;
         const entryKey = key;
         const feats = filteredFeatures(entry);
-        feats.forEach((f) => {
+        for (const f of feats) {
           const coords = f.geometry?.coordinates || [];
           const lon = Number(coords[0]);
           const lat = Number(coords[1]);
           if (Number.isFinite(lat) && Number.isFinite(lon)) {
             const poiId = stablePoiId(f, entryKey);
-            if (!poiId) return;
+            if (!poiId) continue;
             points.push({ id: poiId, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
+            if (points.length % 2000 === 0) {
+              await new Promise(requestAnimationFrame);
+              if (runId !== filterRunId) return; // stale run, abort rendering
+            }
           }
-        });
-      });
+        }
+      }
 
       if (runId !== filterRunId) return; // stale run, abort rendering
 
@@ -3155,7 +3160,7 @@
       const clusterInput = document.getElementById('clusterThresholdInput');
       if (clusterInput) clusterInput.value = String(viewportClusterThreshold);
       localStorage.removeItem(CLUSTER_THRESHOLD_KEY);
-      updateClusteringForViewport(true);
+      updateClusteringForViewport();
       triggerApplyFilters();
       if (typeof debouncedUrlUpdate === 'function') {
         debouncedUrlUpdate();
