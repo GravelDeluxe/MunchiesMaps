@@ -703,6 +703,10 @@
               </div>
             </div>
           </div>
+          <div class="section" id="resetSection">
+            <p class="option-helper">Reset all filters, GPX state, and options to defaults.</p>
+            <button type="button" id="resetAllBtn" class="drawer-reset-btn">Reset</button>
+          </div>
         </div>
       </div>
       <div class="section" id="feedbackSection">
@@ -730,11 +734,10 @@
           </form>
           <div class="action-row">
             <button type="button" id="shareLinkBtn">Share link</button>
-            <button type="button" id="reportBugBtn">Report bug (prefilled)</button>
           </div>
           <p class="feedback-helper" id="shareLinkStatus" aria-live="polite" style="margin-top:6px;"></p>
           <div class="feedback-link">
-            <a href="https://github.com/MarkusCouch/MunchiesMaps/issues/new" target="_blank" rel="noopener noreferrer">Report issue (GitHub)</a>
+            <a href="https://github.com/MarkusCouch/MunchiesMaps/issues/new" id="reportIssueLink" target="_blank" rel="noopener noreferrer">Report issue (GitHub)</a>
             <span aria-hidden="true"> · </span>
             <a href="https://github.com/MarkusCouch/MunchiesMaps/issues" target="_blank" rel="noopener noreferrer">View issues</a>
           </div>
@@ -742,7 +745,10 @@
       </div>
     </div>
     <div class="drawer-bottom">
-      <button type="button" id="resetAllBtn" class="drawer-reset-btn">Reset</button>
+      <button type="button" id="shareLinkBottomBtn" class="drawer-reset-btn" aria-label="Share link">
+        <i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true" style="margin-right:8px;"></i>
+        Share link
+      </button>
     </div>
     <div class="drawer-about" aria-label="About">
       <h3>About</h3>
@@ -1437,12 +1443,13 @@
 
     function setupShareAndReportButtons() {
       const shareBtn = document.getElementById('shareLinkBtn');
-      const reportBtn = document.getElementById('reportBugBtn');
+      const shareBottomBtn = document.getElementById('shareLinkBottomBtn');
+      const reportLink = document.getElementById('reportIssueLink');
       const statusEl = document.getElementById('shareLinkStatus');
-      if (!shareBtn || !reportBtn || !statusEl) return;
       let statusTimer = null;
 
       const setStatus = (message) => {
+        if (!statusEl) return;
         statusEl.textContent = message;
         if (statusTimer) clearTimeout(statusTimer);
         if (message) {
@@ -1452,7 +1459,7 @@
         }
       };
 
-      shareBtn.addEventListener('click', async () => {
+      const handleShareClick = async () => {
         try {
           const url = buildShareUrl();
           updateUrlFromCurrentState({ replace: true });
@@ -1461,16 +1468,23 @@
         } catch (err) {
           setStatus('Could not copy link.');
         }
-      });
+      };
 
-      reportBtn.addEventListener('click', () => {
-        const center = map.getCenter();
-        const deepLink = buildShareUrl();
-        const title = `Bug report: ${toFixedCoord(center.lat)}, ${toFixedCoord(center.lng)} (z${map.getZoom()})`;
-        const body = buildIssueBody(deepLink);
-        const url = buildGithubIssueUrl({ title, body, labels: GH_DEFAULT_LABELS });
-        window.open(url, '_blank', 'noopener,noreferrer');
-      });
+      if (shareBtn) shareBtn.addEventListener('click', handleShareClick);
+      if (shareBottomBtn) shareBottomBtn.addEventListener('click', handleShareClick);
+
+      if (reportLink) {
+        reportLink.addEventListener('click', (e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          e.preventDefault();
+          const center = map.getCenter();
+          const deepLink = buildShareUrl();
+          const title = `Bug report: ${toFixedCoord(center.lat)}, ${toFixedCoord(center.lng)} (z${map.getZoom()})`;
+          const body = buildIssueBody(deepLink);
+          const url = buildGithubIssueUrl({ title, body, labels: GH_DEFAULT_LABELS });
+          window.open(url, '_blank', 'noopener,noreferrer');
+        });
+      }
     }
 
     function updateSharedViewPromptVisibility() {
