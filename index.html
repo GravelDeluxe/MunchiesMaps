@@ -1876,6 +1876,15 @@
       return Math.max(0, Math.floor(numeric));
     }
 
+    function hasPendingSharedView() {
+      return Boolean(
+        pendingSharedView &&
+        Number.isFinite(pendingSharedView.lat) &&
+        Number.isFinite(pendingSharedView.lng) &&
+        Number.isFinite(pendingSharedView.z)
+      );
+    }
+
     function clampClusterThreshold(value) {
       const numeric = Number(value);
       if (!Number.isFinite(numeric) || numeric < 0) return 0;
@@ -3238,7 +3247,10 @@
       updateSharedViewPromptVisibility();
       runBadgeDiagnostics();
 
-      updateUrlFromCurrentState({ replace: true });
+      const hasShared = hasPendingSharedView();
+      if (!hasShared) {
+        updateUrlFromCurrentState({ replace: true });
+      }
       await applyFilters();
 
       on(qs('#locateButton'), 'click', () => goToUserLocation({ centerOnFix: true }));
@@ -3260,7 +3272,7 @@
       on(qs('#gpxApplyBtn'), 'click', () => { handleGpxApply().catch(err => console.error(err)); });
       on(qs('#resetAllBtn'), 'click', resetAllFilters);
 
-      goToUserLocation({ centerOnFix: true, suppressErrorAlert: true });
+      goToUserLocation({ centerOnFix: !hasShared, suppressErrorAlert: true });
     })().catch(err => {
       console.error(err);
       alert("Loading error: " + (err.message || err));
