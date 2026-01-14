@@ -777,6 +777,48 @@
     const GH_DEFAULT_LABELS = "bug,alpha";
     const SHARE_URL_UPDATE_DEBOUNCE_MS = 300;
 
+    const STATE_CODE_TO_ID = {
+      BW: 'Baden-Wuerttemberg',
+      BY: 'Bayern',
+      BE: 'Berlin',
+      BB: 'Brandenburg',
+      HB: 'Bremen',
+      HH: 'Hamburg',
+      HE: 'Hessen',
+      MV: 'Mecklenburg-Vorpommern',
+      NI: 'Niedersachsen',
+      NW: 'Nordrhein-Westfalen',
+      RP: 'Rheinland-Pfalz',
+      SL: 'Saarland',
+      SN: 'Sachsen',
+      ST: 'Sachsen-Anhalt',
+      SH: 'Schleswig-Holstein',
+      TH: 'Thueringen'
+    };
+
+    const CAT_CODE_TO_ID = {
+      ff: 'fast_food',
+      tp: 'toilets_public',
+      dw: 'drinking_water',
+      sh: 'shelters',
+      fu: 'fuel',
+      sm: 'supermarkets',
+      vc: 'vending_snacks',
+      bc: 'bakerys_cafes',
+      ki: 'kiosks'
+    };
+
+    const STATE_ID_TO_CODE = Object.entries(STATE_CODE_TO_ID)
+      .reduce((acc, [code, id]) => {
+        acc[id] = code;
+        return acc;
+      }, {});
+    const CAT_ID_TO_CODE = Object.entries(CAT_CODE_TO_ID)
+      .reduce((acc, [code, id]) => {
+        acc[id] = code;
+        return acc;
+      }, {});
+
     const INTRO_SUMMARY_TEXT = [
       'Munchies Maps is an early-stage, community-driven map for cyclists, focused on **night-friendly stops for your ride**.',
       'While it was originally designed with night rides in mind, **it is equally useful during daytime rides, touring and bikepacking**.',
@@ -1153,22 +1195,48 @@
       return Number(n).toFixed(digits);
     }
 
-    function parseCsvSet(value) {
-      return new Set(String(value || '').split(',').map((s) => s.trim()).filter(Boolean));
+    function parseCsv(value) {
+      return String(value || '').split(',').map((s) => s.trim()).filter(Boolean);
     }
 
-    function setToCsv(set) {
-      return Array.from(set || []).join(',');
+    function normalizeTheme(value) {
+      const normalized = String(value || '').toLowerCase();
+      if (normalized === 'd' || normalized === 'dark') return 'dark';
+      if (normalized === 'l' || normalized === 'light') return 'light';
+      return null;
+    }
+
+    function normalize01(value) {
+      if (value === '1' || value === 1 || value === true) return true;
+      if (value === '0' || value === 0 || value === false) return false;
+      return null;
+    }
+
+    function firstParam(params, keys) {
+      for (const key of keys) {
+        const value = params.get(key);
+        if (value != null && String(value).trim() !== '') {
+          return value;
+        }
+      }
+      return null;
+    }
+
+    function allIds(list) {
+      return new Set((Array.isArray(list) ? list : []).map((item) => item.id).filter(Boolean));
+    }
+
+    function setEquals(a, b) {
+      if (!(a instanceof Set) || !(b instanceof Set)) return false;
+      if (a.size !== b.size) return false;
+      for (const value of a) {
+        if (!b.has(value)) return false;
+      }
+      return true;
     }
 
     function boolTo01(value) {
       return value ? '1' : '0';
-    }
-
-    function parse01(value, fallback = false) {
-      if (value === '1') return true;
-      if (value === '0') return false;
-      return fallback;
     }
 
     function readShareStateFromUrl() {
@@ -1179,20 +1247,52 @@
       }
 
       const state = {};
-      if (params.has('lat')) state.lat = Number(params.get('lat'));
-      if (params.has('lng')) state.lng = Number(params.get('lng'));
-      if (params.has('z')) state.z = Number(params.get('z'));
-      if (params.has('theme')) state.theme = params.get('theme');
-      if (params.has('categories')) state.categories = parseCsvSet(params.get('categories'));
-      if (params.has('states')) state.states = parseCsvSet(params.get('states'));
-      if (params.has('badges')) state.badges = parse01(params.get('badges'));
-      if (params.has('hideNoBadges')) state.hideNoBadges = parse01(params.get('hideNoBadges'));
-      if (params.has('includeMissing')) state.includeMissing = parse01(params.get('includeMissing'));
+
+      const lat = firstParam(params, ['a', 'lat']);
+      const lng = firstParam(params, ['o', 'lng']);
+      const zoom = firstParam(params, ['z', 'zoom']);
+      if (lat !== null) state.lat = Number(lat);
+      if (lng !== null) state.lng = Number(lng);
+      if (zoom !== null) state.z = Number(zoom);
+
+      const theme = normalizeTheme(firstParam(params, ['t', 'theme']));
+      if (theme) state.theme = theme;
+
+      const badges = normalize01(firstParam(params, ['b', 'badges']));
+      if (badges !== null) state.b = badges;
+
+      const hideNoBadges = normalize01(firstParam(params, ['h', 'hideNoBadges']));
+      if (hideNoBadges !== null) state.h = hideNoBadges;
+
+      const includeMissing = normalize01(firstParam(params, ['m', 'includeMissing']));
+      if (includeMissing !== null) state.m = includeMissing;
+
+      const rawCategories = firstParam(params, ['c', 'categories']);
+      if (rawCategories == null) {
+        state.categories = null;
+      } else {
+        const tokens = parseCsv(rawCategories);
+        const ids = tokens.map((token) => CAT_CODE_TO_ID[token] || token);
+        state.categories = new Set(ids);
+      }
+
+      const rawStates = firstParam(params, ['s', 'states']);
+      if (rawStates == null) {
+        state.states = null;
+      } else {
+        const tokens = parseCsv(rawStates);
+        const ids = tokens.map((token) => STATE_CODE_TO_ID[token] || token);
+        state.states = new Set(ids);
+      }
+
       return state;
     }
 
     function applyShareStateFromUrl(data) {
       const state = readShareStateFromUrl();
+
+      filterState.bundeslaender = allIds(data.bundeslaender);
+      filterState.kategorien = allIds(data.categories);
 
       if (state.theme === 'light' || state.theme === 'dark') {
         const isDark = state.theme === 'dark';
@@ -1203,7 +1303,7 @@
       }
 
       if (state.categories instanceof Set) {
-        const validIds = new Set((data.categories || []).map((cat) => cat.id));
+        const validIds = allIds(data.categories);
         const nextSet = new Set(Array.from(state.categories).filter((id) => validIds.has(id)));
         if (nextSet.size > 0) {
           filterState.kategorien = nextSet;
@@ -1211,30 +1311,30 @@
       }
 
       if (state.states instanceof Set) {
-        const validIds = new Set((data.bundeslaender || []).map((bl) => bl.id));
+        const validIds = allIds(data.bundeslaender);
         const nextSet = new Set(Array.from(state.states).filter((id) => validIds.has(id)));
         if (nextSet.size > 0) {
           filterState.bundeslaender = nextSet;
         }
       }
 
-      if (typeof state.badges === 'boolean') {
-        appState.showBadges = state.badges;
+      if (typeof state.b === 'boolean') {
+        appState.showBadges = state.b;
         const toggle = document.getElementById('toggleBadges');
-        if (toggle) toggle.checked = state.badges;
-        updateBadgeDependentToggles(state.badges, false);
+        if (toggle) toggle.checked = state.b;
+        updateBadgeDependentToggles(state.b, false);
       }
 
-      if (typeof state.hideNoBadges === 'boolean') {
-        appState.hideNoBadges = state.hideNoBadges;
+      if (typeof state.h === 'boolean') {
+        appState.hideNoBadges = state.h;
         const toggle = document.getElementById('toggleHideNoBadges');
-        if (toggle) toggle.checked = state.hideNoBadges;
+        if (toggle) toggle.checked = state.h;
       }
 
-      if (typeof state.includeMissing === 'boolean') {
-        appState.includeMissingData = state.includeMissing;
+      if (typeof state.m === 'boolean') {
+        appState.includeMissingData = state.m;
         const toggle = document.getElementById('toggleIncludeMissingOH');
-        if (toggle) toggle.checked = state.includeMissing;
+        if (toggle) toggle.checked = state.m;
       }
 
       if (Number.isFinite(state.lat) && Number.isFinite(state.lng) && Number.isFinite(state.z)) {
@@ -1249,16 +1349,34 @@
       const center = map.getCenter();
       const params = new URLSearchParams();
       params.set('v', SHARE_SCHEMA_VERSION);
-      params.set('lat', toFixedCoord(center.lat));
-      params.set('lng', toFixedCoord(center.lng));
+      params.set('a', toFixedCoord(center.lat));
+      params.set('o', toFixedCoord(center.lng));
       params.set('z', String(map.getZoom()));
-      const theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
-      params.set('theme', theme);
-      params.set('categories', setToCsv(filterState.kategorien));
-      params.set('states', setToCsv(filterState.bundeslaender));
-      params.set('badges', boolTo01(appState.showBadges));
-      params.set('hideNoBadges', boolTo01(appState.hideNoBadges));
-      params.set('includeMissing', boolTo01(appState.includeMissingData));
+      const theme = document.documentElement.dataset.theme === 'dark' ? 'd' : 'l';
+      params.set('t', theme);
+      params.set('b', boolTo01(appState.showBadges));
+      params.set('h', boolTo01(appState.hideNoBadges));
+      params.set('m', boolTo01(appState.includeMissingData));
+
+      const allStates = allIds(manifestData.bundeslaender);
+      if (!setEquals(filterState.bundeslaender, allStates)) {
+        const tokens = Array.from(filterState.bundeslaender || [])
+          .map((id) => STATE_ID_TO_CODE[id] || id)
+          .sort();
+        if (tokens.length) {
+          params.set('s', tokens.join(','));
+        }
+      }
+
+      const allCategories = allIds(manifestData.categories);
+      if (!setEquals(filterState.kategorien, allCategories)) {
+        const tokens = Array.from(filterState.kategorien || [])
+          .map((id) => CAT_ID_TO_CODE[id] || id)
+          .sort();
+        if (tokens.length) {
+          params.set('c', tokens.join(','));
+        }
+      }
       const base = window.location.origin + window.location.pathname;
       const hash = includeHash ? window.location.hash : '';
       return `${base}?${params.toString()}${hash}`;
