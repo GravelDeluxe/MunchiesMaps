@@ -3244,11 +3244,17 @@
       setupQuickFeedbackForm();
       setupShareAndReportButtons();
       setupSharedViewPrompt();
-      updateSharedViewPromptVisibility();
       runBadgeDiagnostics();
 
       const hasShared = hasPendingSharedView();
-      if (!hasShared) {
+      if (hasShared) {
+        map.whenReady(() => {
+          map.setView([pendingSharedView.lat, pendingSharedView.lng], pendingSharedView.z, { animate: false });
+          map.invalidateSize();
+        });
+        pendingSharedViewSeen = true;
+        updateSharedViewPromptVisibility();
+      } else {
         updateUrlFromCurrentState({ replace: true });
       }
       await applyFilters();
