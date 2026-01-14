@@ -719,8 +719,15 @@
             <div class="feedback-helper">For quick thoughts. Bugs &amp; data issues belong on GitHub.</div>
             <div class="feedback-status" id="quickFeedbackStatus" aria-live="polite"></div>
           </form>
+          <div class="action-row">
+            <button type="button" id="shareLinkBtn">Share link</button>
+            <button type="button" id="reportBugBtn">Report bug (prefilled)</button>
+          </div>
+          <p class="feedback-helper" id="shareLinkStatus" aria-live="polite" style="margin-top:6px;"></p>
           <div class="feedback-link">
-            <a href="https://github.com/MarkusCouch/MunchiesMaps/issues" target="_blank" rel="noopener noreferrer">Report issue (GitHub)</a>
+            <a href="https://github.com/MarkusCouch/MunchiesMaps/issues/new" target="_blank" rel="noopener noreferrer">Report issue (GitHub)</a>
+            <span aria-hidden="true"> · </span>
+            <a href="https://github.com/MarkusCouch/MunchiesMaps/issues" target="_blank" rel="noopener noreferrer">View issues</a>
           </div>
         </div>
       </div>
@@ -754,6 +761,12 @@
     const QUICK_FEEDBACK_RATE_LIMIT_MS = 60000;
     const QUICK_FEEDBACK_STORAGE_KEY = 'quickFeedbackLastSubmit';
     const INTRO_HIDE_KEY = 'munchiesMapsHideIntro';
+    const SHARE_SCHEMA_VERSION = "1";
+    const GH_OWNER = "MarkusCouch";
+    const GH_REPO = "MunchiesMaps";
+    const GH_NEW_ISSUE_URL = `https://github.com/${GH_OWNER}/${GH_REPO}/issues/new`;
+    const GH_DEFAULT_LABELS = "bug,alpha";
+    const SHARE_URL_UPDATE_DEBOUNCE_MS = 300;
 
     const INTRO_SUMMARY_TEXT = [
       'Munchies Maps is an early-stage, community-driven map for cyclists, focused on **night-friendly stops for your ride**.',
@@ -1069,6 +1082,7 @@
       const next = nextIsDark ? 'dark' : 'light';
       document.documentElement.classList.toggle('theme-dark', nextIsDark);
       document.documentElement.dataset.theme = next;
+      window.__isDarkTheme = nextIsDark;
       updateMapTheme(next);
     }
 
@@ -1094,13 +1108,16 @@
     function setupThemeToggle() {
       const toggle = document.getElementById('darkModeToggle');
       if (!toggle) return;
-      const initial = window.__isDarkTheme === true;
+      const initial = document.documentElement.dataset.theme === 'dark';
       toggle.checked = initial;
 
       toggle.addEventListener('change', () => {
         const isDark = toggle.checked;
         applyTheme(isDark);
         localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+        if (typeof debouncedUrlUpdate === 'function') {
+          debouncedUrlUpdate();
+        }
       });
     }
 
@@ -1117,6 +1134,214 @@
         zoom: window.map.getZoom(),
         center: { lat: center.lat, lng: center.lng }
       };
+    }
+
+    function getUrlParams() {
+      return new URLSearchParams(window.location.search);
+    }
+
+    function toFixedCoord(n, digits = 5) {
+      return Number(n).toFixed(digits);
+    }
+
+    function parseCsvSet(value) {
+      return new Set(String(value || '').split(',').map((s) => s.trim()).filter(Boolean));
+    }
+
+    function setToCsv(set) {
+      return Array.from(set || []).join(',');
+    }
+
+    function boolTo01(value) {
+      return value ? '1' : '0';
+    }
+
+    function parse01(value, fallback = false) {
+      if (value === '1') return true;
+      if (value === '0') return false;
+      return fallback;
+    }
+
+    function readShareStateFromUrl() {
+      const params = getUrlParams();
+      const version = params.get('v');
+      if (version && version !== SHARE_SCHEMA_VERSION) {
+        return {};
+      }
+
+      const state = {};
+      if (params.has('lat')) state.lat = Number(params.get('lat'));
+      if (params.has('lng')) state.lng = Number(params.get('lng'));
+      if (params.has('z')) state.z = Number(params.get('z'));
+      if (params.has('theme')) state.theme = params.get('theme');
+      if (params.has('categories')) state.categories = parseCsvSet(params.get('categories'));
+      if (params.has('states')) state.states = parseCsvSet(params.get('states'));
+      if (params.has('badges')) state.badges = parse01(params.get('badges'));
+      if (params.has('hideNoBadges')) state.hideNoBadges = parse01(params.get('hideNoBadges'));
+      if (params.has('includeMissing')) state.includeMissing = parse01(params.get('includeMissing'));
+      return state;
+    }
+
+    function applyShareStateFromUrl(data) {
+      const state = readShareStateFromUrl();
+
+      if (state.theme === 'light' || state.theme === 'dark') {
+        const isDark = state.theme === 'dark';
+        applyTheme(isDark);
+        localStorage.setItem(THEME_KEY, state.theme);
+        const toggle = document.getElementById('darkModeToggle');
+        if (toggle) toggle.checked = isDark;
+      }
+
+      if (state.categories instanceof Set) {
+        const validIds = new Set((data.categories || []).map((cat) => cat.id));
+        const nextSet = new Set(Array.from(state.categories).filter((id) => validIds.has(id)));
+        if (nextSet.size > 0) {
+          filterState.kategorien = nextSet;
+        }
+      }
+
+      if (state.states instanceof Set) {
+        const validIds = new Set((data.bundeslaender || []).map((bl) => bl.id));
+        const nextSet = new Set(Array.from(state.states).filter((id) => validIds.has(id)));
+        if (nextSet.size > 0) {
+          filterState.bundeslaender = nextSet;
+        }
+      }
+
+      if (typeof state.badges === 'boolean') {
+        appState.showBadges = state.badges;
+        const toggle = document.getElementById('toggleBadges');
+        if (toggle) toggle.checked = state.badges;
+        updateBadgeDependentToggles(state.badges, false);
+      }
+
+      if (typeof state.hideNoBadges === 'boolean') {
+        appState.hideNoBadges = state.hideNoBadges;
+        const toggle = document.getElementById('toggleHideNoBadges');
+        if (toggle) toggle.checked = state.hideNoBadges;
+      }
+
+      if (typeof state.includeMissing === 'boolean') {
+        appState.includeMissingData = state.includeMissing;
+        const toggle = document.getElementById('toggleIncludeMissingOH');
+        if (toggle) toggle.checked = state.includeMissing;
+      }
+
+      if (Number.isFinite(state.lat) && Number.isFinite(state.lng) && Number.isFinite(state.z)) {
+        map.setView([state.lat, state.lng], state.z, { animate: false });
+      }
+    }
+
+    function buildShareUrl({ includeHash = false } = {}) {
+      if (!window.map || typeof map.getCenter !== 'function') return window.location.href;
+      const center = map.getCenter();
+      const params = new URLSearchParams();
+      params.set('v', SHARE_SCHEMA_VERSION);
+      params.set('lat', toFixedCoord(center.lat));
+      params.set('lng', toFixedCoord(center.lng));
+      params.set('z', String(map.getZoom()));
+      const theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      params.set('theme', theme);
+      params.set('categories', setToCsv(filterState.kategorien));
+      params.set('states', setToCsv(filterState.bundeslaender));
+      params.set('badges', boolTo01(appState.showBadges));
+      params.set('hideNoBadges', boolTo01(appState.hideNoBadges));
+      params.set('includeMissing', boolTo01(appState.includeMissingData));
+      const base = window.location.origin + window.location.pathname;
+      const hash = includeHash ? window.location.hash : '';
+      return `${base}?${params.toString()}${hash}`;
+    }
+
+    function updateUrlFromCurrentState({ replace = true } = {}) {
+      if (!window.map || typeof map.getCenter !== 'function') return;
+      const url = buildShareUrl();
+      if (replace) {
+        window.history.replaceState(null, '', url);
+      }
+    }
+
+    function buildIssueBody(deepLink) {
+      return [
+        '### What happened?',
+        '',
+        '### Expected behavior',
+        '',
+        '### Steps to reproduce',
+        '',
+        '### Map view (deep link)',
+        deepLink,
+        '',
+        '### App',
+        `Version: ${APP_VERSION}`,
+        `Theme: ${document.documentElement.dataset.theme || 'light'}`,
+        `Timestamp: ${new Date().toISOString()}`,
+        `User agent: ${navigator.userAgent}`
+      ].join('\n');
+    }
+
+    function buildGithubIssueUrl({ title, body, labels } = {}) {
+      const params = new URLSearchParams();
+      if (title) params.set('title', title);
+      if (body) params.set('body', body);
+      if (labels) params.set('labels', labels);
+      return `${GH_NEW_ISSUE_URL}?${params.toString()}`;
+    }
+
+    async function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.top = '-1000px';
+      textarea.style.left = '-1000px';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      document.execCommand('copy');
+      textarea.remove();
+    }
+
+    function setupShareAndReportButtons() {
+      const shareBtn = document.getElementById('shareLinkBtn');
+      const reportBtn = document.getElementById('reportBugBtn');
+      const statusEl = document.getElementById('shareLinkStatus');
+      if (!shareBtn || !reportBtn || !statusEl) return;
+      let statusTimer = null;
+
+      const setStatus = (message) => {
+        statusEl.textContent = message;
+        if (statusTimer) clearTimeout(statusTimer);
+        if (message) {
+          statusTimer = setTimeout(() => {
+            statusEl.textContent = '';
+          }, 3000);
+        }
+      };
+
+      shareBtn.addEventListener('click', async () => {
+        try {
+          const url = buildShareUrl();
+          updateUrlFromCurrentState({ replace: true });
+          await copyToClipboard(url);
+          setStatus('Link copied.');
+        } catch (err) {
+          setStatus('Could not copy link.');
+        }
+      });
+
+      reportBtn.addEventListener('click', () => {
+        const center = map.getCenter();
+        const deepLink = buildShareUrl();
+        const title = `Bug report: ${toFixedCoord(center.lat)}, ${toFixedCoord(center.lng)} (z${map.getZoom()})`;
+        const body = buildIssueBody(deepLink);
+        const url = buildGithubIssueUrl({ title, body, labels: GH_DEFAULT_LABELS });
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
     }
 
     function setQuickFeedbackStatus(statusEl, message, tone) {
@@ -1430,6 +1655,9 @@
             selectedSet.delete(item.id);
           }
           triggerApplyFilters();
+          if (typeof debouncedUrlUpdate === 'function') {
+            debouncedUrlUpdate();
+          }
         });
         let dot = null;
         if (setName === 'cat') {
@@ -1448,12 +1676,18 @@
       items.forEach(v => set.add(v.id));
       renderChecklist(containerId, items, set, setName);
       triggerApplyFilters();
+      if (typeof debouncedUrlUpdate === 'function') {
+        debouncedUrlUpdate();
+      }
     }
 
     function selectNone(set, containerId, setName, items) {
       set.clear();
       renderChecklist(containerId, items, set, setName);
       triggerApplyFilters();
+      if (typeof debouncedUrlUpdate === 'function') {
+        debouncedUrlUpdate();
+      }
     }
 
     function debounce(fn, delay) {
@@ -1884,6 +2118,9 @@
         appState.showBadges = toggle.checked;
         updateBadgeDependentToggles(toggle.checked, true);
         updateClusteringForViewport(true);
+        if (typeof debouncedUrlUpdate === 'function') {
+          debouncedUrlUpdate();
+        }
       });
       updateBadgeDependentToggles(toggle.checked, false);
     }
@@ -1895,6 +2132,9 @@
       toggle.addEventListener('change', () => {
         appState.hideNoBadges = toggle.checked;
         updateClusteringForViewport(true);
+        if (typeof debouncedUrlUpdate === 'function') {
+          debouncedUrlUpdate();
+        }
       });
     }
 
@@ -1905,6 +2145,9 @@
       toggle.addEventListener('change', () => {
         appState.includeMissingData = toggle.checked;
         updateClusteringForViewport(true);
+        if (typeof debouncedUrlUpdate === 'function') {
+          debouncedUrlUpdate();
+        }
       });
     }
 
@@ -2547,8 +2790,11 @@
     }
 
     const debouncedViewportUpdate = debounce(() => updateClusteringForViewport(false), CLUSTER_DEBOUNCE_MS);
+    const debouncedUrlUpdate = debounce(() => updateUrlFromCurrentState({ replace: true }), SHARE_URL_UPDATE_DEBOUNCE_MS);
     map.on('moveend', debouncedViewportUpdate);
     map.on('zoomend', debouncedViewportUpdate);
+    map.on('moveend', debouncedUrlUpdate);
+    map.on('zoomend', debouncedUrlUpdate);
 
     async function loadGeoJSON(url) {
       const r = await fetch(url, { cache: 'no-store' });
@@ -2742,6 +2988,9 @@
       localStorage.removeItem(CLUSTER_THRESHOLD_KEY);
       updateClusteringForViewport(true);
       triggerApplyFilters();
+      if (typeof debouncedUrlUpdate === 'function') {
+        debouncedUrlUpdate();
+      }
     }
 
     // User position marker + accuracy circle
@@ -2809,6 +3058,8 @@
       manifestData.bundeslaender.forEach(bl => filterState.bundeslaender.add(bl.id));
       manifestData.categories.forEach(cat => filterState.kategorien.add(cat.id));
 
+      applyShareStateFromUrl(manifestData);
+
       renderChecklist('blList', manifestData.bundeslaender, filterState.bundeslaender, 'bl');
       renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
       setAccordionHandlers();
@@ -2822,8 +3073,10 @@
       setupIncludeMissingToggle();
       setupGpxExportButton();
       setupQuickFeedbackForm();
+      setupShareAndReportButtons();
       runBadgeDiagnostics();
 
+      updateUrlFromCurrentState({ replace: true });
       await applyFilters();
 
       on(qs('#locateButton'), 'click', () => goToUserLocation({ centerOnFix: true }));
