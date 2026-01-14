@@ -1722,6 +1722,9 @@
     const CLUSTER_DEBOUNCE_MS = 200;
     const GRID_CELL_SIZE = 0.05; // ~5km cells for viewport counting
     const MARKER_CACHE_LIMIT = 5000;
+    const DATASET_LOAD_CONCURRENCY = 4;
+    const BACKGROUND_BATCH_SIZE_STATES = 2;
+    const BACKGROUND_RENDER_DEBOUNCE_MS = 250;
 
     let activePoints = [];
     let gridIndex = new Map();
@@ -1856,6 +1859,92 @@
         if (t) clearTimeout(t);
         t = setTimeout(() => fn(...args), delay);
       };
+    }
+
+    function getBoundsBbox(bounds) {
+      if (!bounds) return null;
+      return [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()];
+    }
+
+    function bboxIntersects(a, b) {
+      if (!a || !b) return false;
+      return !(a[2] < b[0] || a[0] > b[2] || a[3] < b[1] || a[1] > b[3]);
+    }
+
+    function getVisibleStateIds(mapBounds, selectedStateIds, data) {
+      const boundsBox = getBoundsBbox(mapBounds);
+      if (!boundsBox) return new Set();
+      const visible = new Set();
+      const items = Array.isArray(data?.bundeslaender) ? data.bundeslaender : [];
+      const byId = new Map(items.map((entry) => [entry.id, entry]));
+      selectedStateIds.forEach((stateId) => {
+        const entry = byId.get(stateId);
+        const bbox = entry?.bbox;
+        if (!Array.isArray(bbox) || bbox.length !== 4) return;
+        if (bboxIntersects(boundsBox, bbox)) {
+          visible.add(stateId);
+        }
+      });
+      return visible;
+    }
+
+    function buildCombosForStates(stateIdsSet, categoryIdsSet) {
+      const combos = [];
+      stateIdsSet.forEach((bundeslandId) => {
+        categoryIdsSet.forEach((categoryId) => {
+          combos.push({ key: comboKey(bundeslandId, categoryId), bundeslandId, categoryId });
+        });
+      });
+      return combos;
+    }
+
+    function idleYield(timeout = 1200) {
+      return new Promise((resolve) => {
+        if (typeof requestIdleCallback === 'function') {
+          requestIdleCallback(() => resolve(), { timeout });
+        } else {
+          setTimeout(resolve, 0);
+        }
+      });
+    }
+
+    async function runQueue(tasks, limit, runId) {
+      if (!Array.isArray(tasks) || !tasks.length) return;
+      return new Promise((resolve) => {
+        let index = 0;
+        let active = 0;
+        const next = () => {
+          if (runId !== filterRunId) {
+            resolve();
+            return;
+          }
+          if (index >= tasks.length && active === 0) {
+            resolve();
+            return;
+          }
+          while (active < limit && index < tasks.length) {
+            const task = tasks[index++];
+            active += 1;
+            Promise.resolve()
+              .then(task)
+              .catch((err) => console.error(err))
+              .finally(() => {
+                active -= 1;
+                next();
+              });
+          }
+        };
+        next();
+      });
+    }
+
+    function chunkArray(items, size) {
+      const chunks = [];
+      if (!Array.isArray(items) || size <= 0) return chunks;
+      for (let i = 0; i < items.length; i += size) {
+        chunks.push(items.slice(i, i + size));
+      }
+      return chunks;
     }
 
     function clampRadiusKm(value) {
@@ -3015,26 +3104,19 @@
       }
     }
 
-    async function applyFilters() {
-      const runId = ++filterRunId;
-      const combos = [];
-      for (const bundeslandId of filterState.bundeslaender) {
-        for (const categoryId of filterState.kategorien) {
-          combos.push({ key: comboKey(bundeslandId, categoryId), bundeslandId, categoryId });
-        }
-      }
+    async function loadDatasetsForCombos(combos, runId) {
+      if (!combos.length) return;
+      const tasks = combos.map(({ bundeslandId, categoryId }) => async () => {
+        if (runId !== filterRunId) return;
+        await ensureDataset(bundeslandId, categoryId);
+      });
+      await runQueue(tasks, DATASET_LOAD_CONCURRENCY, runId);
+    }
 
-      if (!combos.length) {
-        renderPois([]);
-        return;
-      }
-
-      await Promise.all(combos.map(({ bundeslandId, categoryId }) => ensureDataset(bundeslandId, categoryId)));
-      await new Promise(requestAnimationFrame);
-      if (runId !== filterRunId) return; // stale run, abort rendering
-
+    async function buildPointsFromCombos(combos, runId) {
       const points = [];
       for (const { key } of combos) {
+        if (runId !== filterRunId) return null;
         const entry = datasetCache.get(key);
         if (!entry || entry.status !== 'ready') continue;
         const entryKey = key;
@@ -3047,17 +3129,96 @@
             const poiId = stablePoiId(f, entryKey);
             if (!poiId) continue;
             points.push({ id: poiId, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
-            if (points.length % 2000 === 0) {
-              await new Promise(requestAnimationFrame);
-              if (runId !== filterRunId) return; // stale run, abort rendering
+          }
+        }
+        if (points.length % 2000 === 0) {
+          await new Promise(requestAnimationFrame);
+        }
+      }
+      return points;
+    }
+
+    async function buildPointsFromReadySelected(selectedStates, selectedCats, runId) {
+      const points = [];
+      const stateArray = Array.from(selectedStates || []);
+      const catArray = Array.from(selectedCats || []);
+      for (const bundeslandId of stateArray) {
+        for (const categoryId of catArray) {
+          if (runId !== filterRunId) return null;
+          const key = comboKey(bundeslandId, categoryId);
+          const entry = datasetCache.get(key);
+          if (!entry || entry.status !== 'ready') continue;
+          const feats = filteredFeatures(entry);
+          for (const f of feats) {
+            const coords = f.geometry?.coordinates || [];
+            const lon = Number(coords[0]);
+            const lat = Number(coords[1]);
+            if (Number.isFinite(lat) && Number.isFinite(lon)) {
+              const poiId = stablePoiId(f, key);
+              if (!poiId) continue;
+              points.push({ id: poiId, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
             }
           }
         }
+        if (points.length % 2000 === 0) {
+          await new Promise(requestAnimationFrame);
+        }
+      }
+      return points;
+    }
+
+    async function applyFilters() {
+      const runId = ++filterRunId;
+      const selectedStates = new Set(filterState.bundeslaender);
+      const selectedCats = new Set(filterState.kategorien);
+
+      if (!selectedStates.size || !selectedCats.size) {
+        renderPois([]);
+        return;
       }
 
-      if (runId !== filterRunId) return; // stale run, abort rendering
+      const visibleStates = getVisibleStateIds(map.getBounds(), selectedStates, manifestData);
+      if (!visibleStates.size) {
+        const fallbackState = Array.from(selectedStates)[0];
+        if (fallbackState) visibleStates.add(fallbackState);
+      }
 
-      renderPois(points);
+      const primaryCombos = buildCombosForStates(visibleStates, selectedCats);
+      await loadDatasetsForCombos(primaryCombos, runId);
+      await new Promise(requestAnimationFrame);
+      if (runId !== filterRunId) return;
+
+      const primaryPoints = await buildPointsFromCombos(primaryCombos, runId);
+      if (runId !== filterRunId || !primaryPoints) return;
+      renderPois(primaryPoints);
+
+      const remainingStates = Array.from(selectedStates).filter((id) => !visibleStates.has(id));
+      if (!remainingStates.length) return;
+
+      let lastRender = 0;
+      const renderReadyPoints = async () => {
+        const now = Date.now();
+        if (now - lastRender < BACKGROUND_RENDER_DEBOUNCE_MS) return;
+        lastRender = now;
+        const points = await buildPointsFromReadySelected(selectedStates, selectedCats, runId);
+        if (runId !== filterRunId || !points) return;
+        renderPois(points);
+      };
+
+      const batches = chunkArray(remainingStates, BACKGROUND_BATCH_SIZE_STATES);
+      for (const batch of batches) {
+        if (runId !== filterRunId) return;
+        await idleYield();
+        if (runId !== filterRunId) return;
+        const batchCombos = buildCombosForStates(new Set(batch), selectedCats);
+        await loadDatasetsForCombos(batchCombos, runId);
+        if (runId !== filterRunId) return;
+        await renderReadyPoints();
+      }
+
+      const finalPoints = await buildPointsFromReadySelected(selectedStates, selectedCats, runId);
+      if (runId !== filterRunId || !finalPoints) return;
+      renderPois(finalPoints);
     }
 
     function resetGpxState() {
@@ -3172,6 +3333,26 @@
     let userAccuracy = null;
     let watchId = null;
 
+    function tryGetInitialGeolocation(timeoutMs = 3500) {
+      if (!navigator.geolocation) return Promise.resolve(null);
+      return new Promise((resolve) => {
+        let settled = false;
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            if (settled) return;
+            settled = true;
+            resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+          },
+          () => {
+            if (settled) return;
+            settled = true;
+            resolve(null);
+          },
+          { enableHighAccuracy: false, maximumAge: 60000, timeout: timeoutMs }
+        );
+      });
+    }
+
     function goToUserLocation({ centerOnFix = true, suppressErrorAlert = false } = {}) {
       if (!navigator.geolocation) {
         if (!suppressErrorAlert) {
@@ -3255,13 +3436,19 @@
       if (hasShared) {
         map.whenReady(() => {
           map.setView([pendingSharedView.lat, pendingSharedView.lng], pendingSharedView.z, { animate: false });
-          map.invalidateSize();
         });
         pendingSharedViewSeen = true;
         updateSharedViewPromptVisibility();
       } else {
+        const initialFix = await tryGetInitialGeolocation();
+        if (initialFix) {
+          map.setView([initialFix.lat, initialFix.lng], Math.max(map.getZoom(), 15), { animate: false });
+        } else {
+          map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom, { animate: false });
+        }
         updateUrlFromCurrentState({ replace: true });
       }
+      map.whenReady(() => map.invalidateSize());
       await applyFilters();
 
       on(qs('#locateButton'), 'click', () => goToUserLocation({ centerOnFix: true }));
@@ -3282,8 +3469,6 @@
       }
       on(qs('#gpxApplyBtn'), 'click', () => { handleGpxApply().catch(err => console.error(err)); });
       on(qs('#resetAllBtn'), 'click', resetAllFilters);
-
-      goToUserLocation({ centerOnFix: !hasShared, suppressErrorAlert: true });
     })().catch(err => {
       console.error(err);
       alert("Loading error: " + (err.message || err));
