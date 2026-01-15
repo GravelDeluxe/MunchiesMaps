@@ -171,7 +171,8 @@
       gap: 10px;
     }
     #layerDrawerToggle,
-    #locateButton {
+    #locateButton,
+    #shareMainBtn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -188,8 +189,79 @@
       cursor: pointer;
     }
     #layerDrawerToggle:active,
-    #locateButton:active { transform: translateY(1px); }
+    #locateButton:active,
+    #shareMainBtn:active { transform: translateY(1px); }
     .map-controls-br i { font-size: 16px; }
+    .share-control {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #shareMainBtn .logo-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: currentColor;
+    }
+    .share-popover {
+      position: absolute;
+      right: 0;
+      bottom: calc(100% + 10px);
+      width: 220px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      box-shadow: var(--btn-shadow);
+      display: none;
+      z-index: 1060;
+    }
+    .share-popover.is-open { display: block; }
+    .share-popover-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .share-popover-action {
+      width: 100%;
+      text-align: left;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--btn-border);
+      background: var(--action-bg);
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .share-popover-action + .share-popover-action { margin-top: 8px; }
+    .share-popover-helper {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .share-popover-helper.is-hidden { display: none; }
+    .map-toast {
+      position: fixed;
+      right: 14px;
+      bottom: 80px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      box-shadow: var(--btn-shadow);
+      font: 13px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+      z-index: 1065;
+    }
+    .map-toast.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     #layerDrawerBackdrop {
       position: fixed;
@@ -612,10 +684,24 @@
       <button id="locateButton" type="button" aria-label="Center map on my location">
         <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
       </button>
+      <div class="share-control">
+        <button id="shareMainBtn" class="btn-share-main" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Share" title="Share">
+          <svg class="logo-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 18V6h4l4 6 4-6h4v12h-3V10l-5 7-5-7v8z"></path>
+          </svg>
+        </button>
+        <div id="sharePopover" class="share-popover" role="dialog" aria-label="Share / Export" aria-hidden="true">
+          <div class="share-popover-title">Share / Export</div>
+          <button type="button" id="shareLinkAction" class="share-popover-action">Share link</button>
+          <button type="button" id="exportGpxAction" class="share-popover-action">Export POIs with GPX</button>
+          <div class="share-popover-helper" id="shareGpxHelper">Requires an imported GPX track.</div>
+        </div>
+      </div>
       <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open map options and filters">
         <i class="fa-solid fa-sliders" aria-hidden="true"></i>
       </button>
     </div>
+    <div id="mapToast" class="map-toast" role="status" aria-live="polite"></div>
     <div id="layerDrawerBackdrop" aria-hidden="true"></div>
   <aside id="layerDrawer" class="menu" aria-hidden="true" aria-label="Filters">
     <div class="menu-header">
@@ -760,13 +846,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="drawer-bottom">
-        <button type="button" id="shareLinkBottomBtn" class="drawer-reset-btn" aria-label="Share link">
-          <i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true" style="margin-right:8px;"></i>
-          <span>Share link</span>
-        </button>
-        <p class="drawer-status" id="shareLinkStatusMain" aria-live="polite"></p>
       </div>
       <div class="drawer-about" aria-label="About">
         <h3>About</h3>
@@ -1460,48 +1539,133 @@
       textarea.remove();
     }
 
-    function setupShareAndReportButtons() {
-      const reportLink = document.getElementById('reportIssueLink');
-      if (reportLink) {
-        reportLink.addEventListener('click', (e) => {
-          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-          e.preventDefault();
-          const center = map.getCenter();
-          const deepLink = buildShareUrl();
-          const title = `Bug report: ${toFixedCoord(center.lat)}, ${toFixedCoord(center.lng)} (z${map.getZoom()})`;
-          const body = buildIssueBody(deepLink);
-          const url = buildGithubIssueUrl({ title, body, labels: GH_DEFAULT_LABELS });
-          window.open(url, '_blank', 'noopener,noreferrer');
-        });
+    function showMapToast(message) {
+      const toastEl = document.getElementById('mapToast');
+      if (!toastEl) return;
+      toastEl.textContent = message || '';
+      toastEl.classList.toggle('is-visible', Boolean(message));
+      if (toastEl._hideTimer) clearTimeout(toastEl._hideTimer);
+      if (message) {
+        toastEl._hideTimer = setTimeout(() => {
+          toastEl.textContent = '';
+          toastEl.classList.remove('is-visible');
+        }, 2000);
       }
+    }
 
-      const shareBtn = document.getElementById('shareLinkBottomBtn');
-      const statusEl = document.getElementById('shareLinkStatusMain');
-      if (!shareBtn || !statusEl) return;
-      let statusTimer = null;
+    function updateSharePopoverGpxState() {
+      const helper = document.getElementById('shareGpxHelper');
+      if (!helper) return;
+      const hasGpx = Boolean(appState.hasImportedGpx);
+      helper.classList.toggle('is-hidden', hasGpx);
+    }
 
-      const setStatus = (message) => {
-        statusEl.textContent = message;
-        if (statusTimer) clearTimeout(statusTimer);
-        if (message) {
-          statusTimer = setTimeout(() => {
-            statusEl.textContent = '';
-          }, 3000);
+    function setSharePopoverOpen(isOpen) {
+      const popover = document.getElementById('sharePopover');
+      const button = document.getElementById('shareMainBtn');
+      if (!popover || !button) return;
+      popover.classList.toggle('is-open', isOpen);
+      popover.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if (isOpen) updateSharePopoverGpxState();
+    }
+
+    async function handleShareLinkAction() {
+      try {
+        const url = buildShareUrl();
+        updateUrlFromCurrentState({ replace: true });
+        await copyToClipboard(url);
+        showMapToast('Link copied.');
+      } catch (err) {
+        showMapToast('Could not copy link.');
+      }
+    }
+
+    function exportPoisWithGpx() {
+      const visiblePois = collectVisiblePoisForExport();
+      const xml = buildGpxExport(appState.gpxTrackLatLngs, visiblePois);
+      downloadGpxExport(xml);
+      return visiblePois.length;
+    }
+
+    function handleExportPoisWithGpx() {
+      const hasGpx = Boolean(appState.hasImportedGpx);
+      if (!hasGpx) {
+        showMapToast('Import a GPX first.');
+        openGpxImportUI();
+        return;
+      }
+      const exportedCount = exportPoisWithGpx();
+      if (exportedCount > 0) {
+        showMapToast('POIs exported to GPX.');
+      } else {
+        showMapToast('Route exported without POIs.');
+      }
+    }
+
+    function openGpxImportUI() {
+      setDrawerState(true);
+      const gpxHeader = qs('.accordion-header[data-target="gpxBody"]');
+      const gpxBody = qs('#gpxBody');
+      if (gpxBody && gpxHeader) {
+        gpxBody.classList.add('open');
+        gpxHeader.setAttribute('aria-expanded', 'true');
+      }
+      const gpxSection = qs('#gpxSection');
+      if (gpxSection) {
+        gpxSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function setupSharePopover() {
+      const button = document.getElementById('shareMainBtn');
+      const popover = document.getElementById('sharePopover');
+      const shareAction = document.getElementById('shareLinkAction');
+      const exportAction = document.getElementById('exportGpxAction');
+      if (!button || !popover || !shareAction || !exportAction) return;
+
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const isOpen = popover.classList.contains('is-open');
+        setSharePopoverOpen(!isOpen);
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!popover.classList.contains('is-open')) return;
+        if (popover.contains(event.target) || button.contains(event.target)) return;
+        setSharePopoverOpen(false);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && popover.classList.contains('is-open')) {
+          setSharePopoverOpen(false);
         }
-      };
+      });
 
-      const handleShareClick = async () => {
-        try {
-          const url = buildShareUrl();
-          updateUrlFromCurrentState({ replace: true });
-          await copyToClipboard(url);
-          setStatus('Link copied.');
-        } catch (err) {
-          setStatus('Could not copy link.');
-        }
-      };
+      shareAction.addEventListener('click', async () => {
+        await handleShareLinkAction();
+        setSharePopoverOpen(false);
+      });
 
-      shareBtn.addEventListener('click', handleShareClick);
+      exportAction.addEventListener('click', () => {
+        handleExportPoisWithGpx();
+        setSharePopoverOpen(false);
+      });
+    }
+
+    function setupReportIssueLink() {
+      const reportLink = document.getElementById('reportIssueLink');
+      if (!reportLink) return;
+      reportLink.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        const center = map.getCenter();
+        const deepLink = buildShareUrl();
+        const title = `Bug report: ${toFixedCoord(center.lat)}, ${toFixedCoord(center.lng)} (z${map.getZoom()})`;
+        const body = buildIssueBody(deepLink);
+        const url = buildGithubIssueUrl({ title, body, labels: GH_DEFAULT_LABELS });
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
     }
 
     function updateSharedViewPromptVisibility() {
@@ -2144,6 +2308,7 @@
       const isVisible = Boolean(appState.hasImportedGpx);
       exportBtn.classList.toggle('is-visible', isVisible);
       exportBtn.disabled = !isVisible;
+      updateSharePopoverGpxState();
     }
 
     function buildPoiExportData(point) {
@@ -2256,11 +2421,11 @@
       updateExportGpxVisibility();
       exportBtn.addEventListener('click', () => {
         if (!appState.hasImportedGpx) return;
-        const visiblePois = collectVisiblePoisForExport();
-        const xml = buildGpxExport(appState.gpxTrackLatLngs, visiblePois);
-        downloadGpxExport(xml);
-        if (!visiblePois.length) {
-          alert('No visible POIs to export (route exported).');
+        const exportedCount = exportPoisWithGpx();
+        if (exportedCount > 0) {
+          showMapToast('POIs exported to GPX.');
+        } else {
+          showMapToast('Route exported without POIs.');
         }
       });
     }
@@ -2477,19 +2642,23 @@
       });
     }
 
+    function setDrawerState(isOpen) {
+      const drawer = qs('#layerDrawer');
+      const backdrop = qs('#layerDrawerBackdrop');
+      const toggleBtn = qs('#layerDrawerToggle');
+      if (!drawer || !backdrop || !toggleBtn) return;
+      drawer.classList.toggle('open', isOpen);
+      drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      backdrop.classList.toggle('open', isOpen);
+      backdrop.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
     function setupDrawer() {
       const drawer = qs('#layerDrawer');
       const backdrop = qs('#layerDrawerBackdrop');
       const toggleBtn = qs('#layerDrawerToggle');
       const closeBtn = qs('#layerDrawerClose');
-
-      const setDrawerState = (isOpen) => {
-        drawer.classList.toggle('open', isOpen);
-        drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-        backdrop.classList.toggle('open', isOpen);
-        backdrop.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-        toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      };
 
       const openDrawer = () => setDrawerState(true);
       const closeDrawer = () => setDrawerState(false);
@@ -3498,7 +3667,8 @@
       setupIncludeMissingToggle();
       setupGpxExportButton();
       setupQuickFeedbackForm();
-      setupShareAndReportButtons();
+      setupSharePopover();
+      setupReportIssueLink();
       setupSharedViewPrompt();
       runBadgeDiagnostics();
 
