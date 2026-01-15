@@ -198,30 +198,25 @@
       align-items: center;
       justify-content: center;
     }
-    #shareMainBtn .logo-icon {
-      width: 18px;
-      height: 18px;
-      display: block;
-      fill: currentColor;
-    }
     .share-popover {
       position: absolute;
       right: 0;
       bottom: calc(100% + 10px);
       width: 220px;
-      padding: 12px;
+      padding: 16px;
       border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--panel);
       color: var(--text);
       box-shadow: var(--btn-shadow);
+      font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       display: none;
       z-index: 1060;
     }
     .share-popover.is-open { display: block; }
     .share-popover-title {
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .share-popover-action {
       width: 100%;
@@ -231,16 +226,27 @@
       border: 1px solid var(--btn-border);
       background: var(--action-bg);
       color: var(--text);
-      font-weight: 700;
+      font-weight: 650;
       cursor: pointer;
     }
-    .share-popover-action + .share-popover-action { margin-top: 8px; }
+    .share-popover-action + .share-popover-action { margin-top: 10px; }
     .share-popover-helper {
       margin-top: 6px;
       font-size: 12px;
       color: var(--muted);
+      line-height: 1.4;
     }
     .share-popover-helper.is-hidden { display: none; }
+    .share-popover-status {
+      margin-top: 6px;
+      margin-bottom: 4px;
+    }
+    .share-popover-status[data-status="error"] {
+      color: #ef4444;
+    }
+    .share-popover-status + .share-popover-action {
+      margin-top: 8px;
+    }
     .map-toast {
       position: fixed;
       right: 14px;
@@ -686,13 +692,12 @@
       </button>
       <div class="share-control">
         <button id="shareMainBtn" class="btn-share-main" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Share" title="Share">
-          <svg class="logo-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 18V6h4l4 6 4-6h4v12h-3V10l-5 7-5-7v8z"></path>
-          </svg>
+          <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
         </button>
         <div id="sharePopover" class="share-popover" role="dialog" aria-label="Share / Export" aria-hidden="true">
           <div class="share-popover-title">Share / Export</div>
           <button type="button" id="shareLinkAction" class="share-popover-action">Share link</button>
+          <div id="shareLinkStatus" class="share-popover-helper share-popover-status is-hidden" role="status" aria-live="polite"></div>
           <button type="button" id="exportGpxAction" class="share-popover-action">Export POIs with GPX</button>
           <div class="share-popover-helper" id="shareGpxHelper">Requires an imported GPX track.</div>
         </div>
@@ -1553,6 +1558,49 @@
       }
     }
 
+    const sharePopoverState = {
+      copyStatus: 'idle',
+      copyMessage: '',
+      hideTimer: null
+    };
+
+    function clearSharePopoverStatus() {
+      const statusEl = document.getElementById('shareLinkStatus');
+      if (!statusEl) return;
+      if (sharePopoverState.hideTimer) {
+        clearTimeout(sharePopoverState.hideTimer);
+        sharePopoverState.hideTimer = null;
+      }
+      sharePopoverState.copyStatus = 'idle';
+      sharePopoverState.copyMessage = '';
+      statusEl.textContent = '';
+      statusEl.classList.add('is-hidden');
+      statusEl.removeAttribute('data-status');
+    }
+
+    function setSharePopoverStatus(status, message) {
+      const statusEl = document.getElementById('shareLinkStatus');
+      if (!statusEl) return;
+      if (sharePopoverState.hideTimer) {
+        clearTimeout(sharePopoverState.hideTimer);
+        sharePopoverState.hideTimer = null;
+      }
+      sharePopoverState.copyStatus = status;
+      sharePopoverState.copyMessage = message || '';
+      statusEl.textContent = sharePopoverState.copyMessage;
+      statusEl.classList.toggle('is-hidden', !sharePopoverState.copyMessage);
+      if (status && status !== 'idle') {
+        statusEl.dataset.status = status === 'error' ? 'error' : 'success';
+      } else {
+        statusEl.removeAttribute('data-status');
+      }
+      if (sharePopoverState.copyMessage) {
+        sharePopoverState.hideTimer = setTimeout(() => {
+          clearSharePopoverStatus();
+        }, 2000);
+      }
+    }
+
     function updateSharePopoverGpxState() {
       const helper = document.getElementById('shareGpxHelper');
       if (!helper) return;
@@ -1567,7 +1615,11 @@
       popover.classList.toggle('is-open', isOpen);
       popover.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
       button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      if (isOpen) updateSharePopoverGpxState();
+      if (isOpen) {
+        updateSharePopoverGpxState();
+      } else {
+        clearSharePopoverStatus();
+      }
     }
 
     async function handleShareLinkAction() {
@@ -1575,9 +1627,9 @@
         const url = buildShareUrl();
         updateUrlFromCurrentState({ replace: true });
         await copyToClipboard(url);
-        showMapToast('Link copied.');
+        setSharePopoverStatus('success', 'Link copied.');
       } catch (err) {
-        showMapToast('Could not copy link.');
+        setSharePopoverStatus('error', 'Copy failed.');
       }
     }
 
@@ -1644,7 +1696,6 @@
 
       shareAction.addEventListener('click', async () => {
         await handleShareLinkAction();
-        setSharePopoverOpen(false);
       });
 
       exportAction.addEventListener('click', () => {
