@@ -1911,6 +1911,7 @@
         "id": 3902559659,
         "osm_type": "node",
         "name": "SANIFAIR Bahnhofstoiletten",
+        "opening_hours": "Mo-Su 05:00-22:00",
         "access": "yes"
       }
     },
@@ -2401,14 +2402,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.7266904,
-          51.7703532
+          10.7266502,
+          51.770369
         ]
       },
       "properties": {
         "id": 1864602354,
         "osm_type": "node",
-        "access": "yes"
+        "access": "no"
       }
     },
     {
@@ -5317,8 +5318,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.1599931,
-          52.6283402
+          11.1600713,
+          52.6282661
         ]
       },
       "properties": {
@@ -5742,20 +5743,6 @@
         "id": 1394137052,
         "osm_type": "node",
         "opening_hours": "Mo-Su 06:30-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.978767,
-          51.7505201
-        ]
-      },
-      "properties": {
-        "id": 3455955770,
-        "osm_type": "node"
       }
     },
     {
@@ -9007,6 +8994,20 @@
       },
       "properties": {
         "id": 1289050770,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3497326,
+          51.6578101
+        ]
+      },
+      "properties": {
+        "id": 820406341,
         "osm_type": "way"
       }
     },

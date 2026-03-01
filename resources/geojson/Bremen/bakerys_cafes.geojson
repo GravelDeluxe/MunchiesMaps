@@ -505,7 +505,7 @@
       "properties": {
         "id": 2493720990,
         "osm_type": "node",
-        "name": "Café Furkan",
+        "name": "Zeyno Backhaus",
         "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-13:00; Su,PH 06:00-12:00",
         "outdoor_seating": "yes"
       }
@@ -1122,7 +1122,7 @@
         "id": 4356207292,
         "osm_type": "node",
         "name": "DEM-Café",
-        "opening_hours": "Mo-Sa 09:00-19:00",
+        "opening_hours": "Tu-Sa 09:00-19:00; Su 10:00-17:00",
         "outdoor_seating": "yes"
       }
     },
@@ -4208,6 +4208,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.8294092,
+          53.0729903
+        ]
+      },
+      "properties": {
+        "id": 1996743676,
+        "osm_type": "node",
+        "name": "Kaffee Krach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.8321634,
           53.0683508
         ]
@@ -4266,23 +4281,6 @@
         "osm_type": "node",
         "name": "Bar Tabac",
         "opening_hours": "Mo-Su 10:00-21:00",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8291655,
-          53.0728171
-        ]
-      },
-      "properties": {
-        "id": 8818475006,
-        "osm_type": "node",
-        "name": "Kaffee Krach",
-        "opening_hours": "Tu-Sa 10:00-19:00; Su 13:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -4789,6 +4787,21 @@
         "osm_type": "node",
         "name": "Müller-Egerer",
         "opening_hours": "Mo-Fr 06:30-18:30; Sa 07:00-17:30; Su 07:00-12:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8873346,
+          53.0625302
+        ]
+      },
+      "properties": {
+        "id": 13514099367,
+        "osm_type": "node",
+        "name": "Baba Bäckerei"
       }
     },
     {
@@ -5627,6 +5640,23 @@
         "osm_type": "node",
         "name": "Melali",
         "opening_hours": "Mo-Fr 09:00-18:00; Sa,Su 10:00-17:00",
+        "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.811054,
+          53.0773856
+        ]
+      },
+      "properties": {
+        "id": 13595521083,
+        "osm_type": "node",
+        "name": "Cafe Vinyl",
+        "opening_hours": "Tu-Su 11:00-",
         "outdoor_seating": "no"
       }
     },
@@ -7118,6 +7148,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.8387852,
+          53.154387
+        ]
+      },
+      "properties": {
+        "id": 431229077,
+        "osm_type": "node",
+        "name": "Snuten Lekker Biohof Kaemena",
+        "opening_hours": "Di bis So 12-18 Uhr von März bis Oktober",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.9028386,
           53.1269567
         ]
@@ -7208,7 +7255,8 @@
       "properties": {
         "id": 1262066042,
         "osm_type": "node",
-        "name": "Haferkamp"
+        "name": "Haferkamp",
+        "opening_hours": "Mo-Sa 07:00-20:00; PH off"
       }
     },
     {
@@ -7492,7 +7540,8 @@
       "properties": {
         "id": 9718669547,
         "osm_type": "node",
-        "name": "Haferkamp"
+        "name": "Haferkamp",
+        "opening_hours": "Mo-Sa 08:00-18:00; Su 08:00-17:00"
       }
     },
     {
@@ -8588,7 +8637,7 @@
         "id": 190416606,
         "osm_type": "way",
         "name": "Nilo's",
-        "opening_hours": "Mo,We-Th 09:00-18:00; Fr-Su 09:00-20:00"
+        "opening_hours": "Mo,We,Th 09:00-18:00; Fr,Sa 09:00-20:00; Su 10:00-19:00"
       }
     },
     {

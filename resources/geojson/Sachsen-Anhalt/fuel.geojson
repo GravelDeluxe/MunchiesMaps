@@ -352,7 +352,7 @@
         "id": 732712871,
         "osm_type": "node",
         "name": "Total",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "opening_hours": "24/7"
       }
     },
@@ -872,6 +872,22 @@
         "name": "Shell",
         "brand": "Esso",
         "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9878624,
+          51.3450672
+        ]
+      },
+      "properties": {
+        "id": 13530421434,
+        "osm_type": "node",
+        "name": "Total",
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -2077,6 +2093,23 @@
         "osm_type": "node",
         "name": "Kaufland Tankstelle",
         "brand": "Supermarkt Tankstelle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.620922,
+          51.8011379
+        ]
+      },
+      "properties": {
+        "id": 13532985476,
+        "osm_type": "node",
+        "name": "Aral",
+        "brand": "Aral",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4646,7 +4679,8 @@
         "id": 151681092,
         "osm_type": "way",
         "name": "Aral",
-        "brand": "Aral"
+        "brand": "Aral",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4663,21 +4697,6 @@
         "osm_type": "way",
         "name": "Star",
         "brand": "star"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9878402,
-          51.3450561
-        ]
-      },
-      "properties": {
-        "id": 263454765,
-        "osm_type": "way",
-        "name": "Total"
       }
     },
     {
@@ -5388,8 +5407,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.9489505,
-          51.799786
+          10.9489477,
+          51.7997863
         ]
       },
       "properties": {
@@ -5757,6 +5776,7 @@
         "id": 479575719,
         "osm_type": "way",
         "name": "Sprint",
+        "brand": "Sprint",
         "opening_hours": "Mo-Su 10:00-18:00"
       }
     },
@@ -5822,7 +5842,8 @@
       "properties": {
         "id": 206853938,
         "osm_type": "way",
-        "brand": "Total"
+        "name": "TotalEnergies",
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -6823,7 +6844,7 @@
         "id": 93914527,
         "osm_type": "way",
         "name": "Total",
-        "brand": "Total"
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -8871,8 +8892,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.8947597,
-          52.5871242
+          11.8948706,
+          52.5870178
         ]
       },
       "properties": {
@@ -9178,22 +9199,6 @@
         "osm_type": "way",
         "name": "VR PLUS Energie",
         "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; Su 08:00-21:00 || \"Tankautomat für Nachtbetrieb vorhanden\""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.6209555,
-          51.8011139
-        ]
-      },
-      "properties": {
-        "id": 15261242,
-        "osm_type": "relation",
-        "name": "Aral",
-        "brand": "Aral"
       }
     },
     {

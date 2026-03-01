@@ -364,8 +364,8 @@
       "properties": {
         "id": 2739855834,
         "osm_type": "node",
-        "name": "Elia Bäckerei",
-        "opening_hours": "Mo-Fr 06:30-16:30; Sa 07:00-14:30; Su 07:30-13:30"
+        "name": "Bäckerei Bistro Café Eifelsteig",
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa 07:00-15:00"
       }
     },
     {
@@ -595,7 +595,7 @@
         "id": 5572052497,
         "osm_type": "node",
         "name": "Moss",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-14:00; PH,Su 07:30-12:30",
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-13:00; PH,Su 07:30-12:30",
         "outdoor_seating": "yes"
       }
     },
@@ -844,22 +844,6 @@
         "id": 10768393500,
         "osm_type": "node",
         "name": "Leo"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.1791807,
-          50.7292461
-        ]
-      },
-      "properties": {
-        "id": 2506502028,
-        "osm_type": "node",
-        "name": "Leo",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 07:00-13:00; Su 08:00-11:00"
       }
     },
     {
@@ -3563,7 +3547,8 @@
         "id": 4882319362,
         "osm_type": "node",
         "name": "Drouven",
-        "opening_hours": "Mo-Fr 06:30-17:00; Sa 07:00-14:00; PH,Su 08:00-12:30"
+        "opening_hours": "Mo-Fr 06:30-17:00; Sa 07:00-14:00; PH,Su 08:00-12:30",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -3580,7 +3565,7 @@
         "osm_type": "node",
         "name": "Kaffee Erhard",
         "opening_hours": "Mo-Fr 10:00-18:00, Sa 10:00-16:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "sidewalk"
       }
     },
     {
@@ -3699,6 +3684,7 @@
         "osm_type": "node",
         "name": "Coffeelution",
         "opening_hours": "Mo-Fr 09:45-16:00; Feb,Mar,Aug,Sep Mo-Fr 11:30-16:30",
+        "takeaway": "only",
         "outdoor_seating": "no"
       }
     },
@@ -3750,7 +3736,7 @@
         "name": "Nobis",
         "brand": "Nobis",
         "opening_hours": "Mo-Fr 07:00-18:30; Sa 07:30-16:00; Su 08:00-12:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "pedestrian_zone"
       }
     },
     {
@@ -4848,7 +4834,9 @@
         "id": 11804770471,
         "osm_type": "node",
         "name": "Drouven",
-        "opening_hours": "Mo-Sa 06:30-18:30; Su,PH off"
+        "opening_hours": "Mo-Sa 06:30-18:30; Su,PH off",
+        "takeaway": "only",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -5524,21 +5512,6 @@
         "id": 5776680582,
         "osm_type": "node",
         "name": "Demet Pastanesi"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.1079366,
-          50.7741891
-        ]
-      },
-      "properties": {
-        "id": 10891376036,
-        "osm_type": "node",
-        "name": "Tamari Georgische Backwaren"
       }
     },
     {
@@ -6717,8 +6690,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.2139696,
-          50.817828
+          6.2149446,
+          50.8179322
         ]
       },
       "properties": {
@@ -9084,7 +9057,8 @@
       "properties": {
         "id": 8380659990,
         "osm_type": "node",
-        "name": "Brunnenbistro"
+        "name": "Brunnenbistro",
+        "opening_hours": "We,Th,Su 17:30-22:00; Fr,Sa 17:30-23:00; Mo,Tu off"
       }
     },
     {
@@ -9100,7 +9074,7 @@
         "id": 442921589,
         "osm_type": "node",
         "name": "Hinzen",
-        "opening_hours": "Mo, Tu, Th, Fr 06:00-18:00;Sa 06:00-13:00; Su 08:00-16:00; We off"
+        "opening_hours": "Mo, Tu, Th, Fr 06:00-18:00; Sa 06:00-13:00; Su 08:00-16:00; We off"
       }
     },
     {
@@ -9132,7 +9106,7 @@
         "id": 279307593,
         "osm_type": "node",
         "name": "BBC Café",
-        "opening_hours": "Tu-Fr 09:00-18:00; Sa,Su 09:00-14:00; Mo off"
+        "opening_hours": "Fr,Su-We 09:00-17:00; Sa 09:00-13:30; Th off"
       }
     },
     {
@@ -9149,7 +9123,7 @@
         "osm_type": "node",
         "name": "Stinges",
         "brand": "Stinges",
-        "opening_hours": "Mo-Fr 07:00-18:30; Sa 07:00-13:00; Su 08:00-11:00"
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa 07:00-13:00; Su,PH off"
       }
     },
     {
@@ -9778,8 +9752,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.4831951,
-          50.8027407
+          6.4832011,
+          50.8027314
         ]
       },
       "properties": {
@@ -9787,6 +9761,21 @@
         "osm_type": "node",
         "name": "Drouven",
         "opening_hours": "Mo-Fr 06:30-16:00; Sa 06:30-14:00; Su,PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.4824868,
+          50.802456
+        ]
+      },
+      "properties": {
+        "id": 13524175835,
+        "osm_type": "node",
+        "name": "Taqsim Patisserie"
       }
     },
     {
@@ -9923,8 +9912,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.4411744,
-          50.8318212
+          6.4411858,
+          50.8318021
         ]
       },
       "properties": {
@@ -9962,6 +9951,22 @@
         "id": 4626494570,
         "osm_type": "node",
         "name": "Karduck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.464522,
+          50.8202148
+        ]
+      },
+      "properties": {
+        "id": 13545556274,
+        "osm_type": "node",
+        "name": "Bäckerei Karduck",
+        "opening_hours": "Mo-Fr 06:00-12:00,14:00-18:30; Sa 06:00-12:00; Su 07:00-11:00"
       }
     },
     {
@@ -11606,7 +11611,7 @@
         "osm_type": "node",
         "name": "Büsch",
         "brand": "Büsch",
-        "opening_hours": "Mo-Sa 07:00-20:00; Su, PH 07:00-12:00"
+        "opening_hours": "Mo-Sa 07:00-20:00; Su 07:00-11:00; PH 07:00-11:00"
       }
     },
     {
@@ -11746,7 +11751,8 @@
       "properties": {
         "id": 2489099148,
         "osm_type": "node",
-        "name": "Stinges Backerei"
+        "name": "Stinges",
+        "brand": "Stinges"
       }
     },
     {
@@ -12151,23 +12157,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.4100545,
-          51.182565
-        ]
-      },
-      "properties": {
-        "id": 3039961895,
-        "osm_type": "node",
-        "name": "Schiffer"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.4117824,
-          51.1831963
+          6.4116532,
+          51.1831069
         ]
       },
       "properties": {
@@ -13393,21 +13384,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.571545,
-          51.0921033
-        ]
-      },
-      "properties": {
-        "id": 356681039,
-        "osm_type": "node",
-        "name": "Bistro & Cafe No. one"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.5892173,
           51.0883882
         ]
@@ -13888,6 +13864,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.6214248,
+          51.1296468
+        ]
+      },
+      "properties": {
+        "id": 13569727360,
+        "osm_type": "node",
+        "name": "Querbeet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.62763,
           51.1295315
         ]
@@ -14182,6 +14173,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.7074839,
+          51.1855292
+        ]
+      },
+      "properties": {
+        "id": 13552440723,
+        "osm_type": "node",
+        "name": "Kamps",
+        "brand": "Kamps"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.1668577,
           51.2108158
         ]
@@ -14412,7 +14419,7 @@
         "id": 477855584,
         "osm_type": "node",
         "name": "Mariandl",
-        "opening_hours": "Tu-Su 09:00-18:00"
+        "opening_hours": "We-Su 09:00-17:00"
       }
     },
     {
@@ -14708,15 +14715,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.194788,
-          51.2826295
+          6.1947736,
+          51.2826279
         ]
       },
       "properties": {
         "id": 5365967500,
         "osm_type": "node",
-        "name": "Café Bürgermeister=Amt",
-        "opening_hours": "Fr-Su 10:00-17:00"
+        "name": "Café Ponte",
+        "opening_hours": "We-Fr 11:00-18:00; Sa 09:00-18:00",
+        "takeaway": "yes"
       }
     },
     {
@@ -17378,8 +17386,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.4514956,
-          51.2238704
+          6.4514869,
+          51.2238823
         ]
       },
       "properties": {
@@ -17393,8 +17401,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.4678979,
-          51.2245162
+          6.4679236,
+          51.2245392
         ]
       },
       "properties": {
@@ -17408,14 +17416,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.4706783,
-          51.2250635
+          6.4706543,
+          51.2250793
         ]
       },
       "properties": {
         "id": 2707680594,
         "osm_type": "node",
         "name": "Stinges"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.470506,
+          51.2215993
+        ]
+      },
+      "properties": {
+        "id": 13531835607,
+        "osm_type": "node",
+        "name": "bunkercafe"
       }
     },
     {
@@ -18212,6 +18235,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.4171418,
+          51.3634227
+        ]
+      },
+      "properties": {
+        "id": 3104329629,
+        "osm_type": "node",
+        "name": "Paatidaa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.4173297,
           51.3635812
         ]
@@ -18220,7 +18258,7 @@
         "id": 6211643929,
         "osm_type": "node",
         "name": "greens",
-        "opening_hours": "Mo, We-Sa 10:00-17:00; Tu,Su,PH off"
+        "opening_hours": "Mo,We-Sa 10:00-17:00; Tu,Su,PH off"
       }
     },
     {
@@ -18385,8 +18423,8 @@
       "properties": {
         "id": 11300147225,
         "osm_type": "node",
-        "name": "Bäckerei Weidenfeld",
-        "opening_hours": "Th,Fr 06:00-18:00; Sa 06:00-13:00"
+        "name": "Kempener Backstübchen",
+        "opening_hours": "Mo-Th 07:00-18:00; Fr 06:00-18:00; Sa 07:00-15:00; Su 08:00-12:00"
       }
     },
     {
@@ -19246,7 +19284,7 @@
         "id": 1424966594,
         "osm_type": "node",
         "name": "Bäckerei & Cafe Vinusan",
-        "opening_hours": "Mo-Fr 06:00-15:00; Sa 06:00-13:00; Su 07:30-11:30"
+        "opening_hours": "Mo-Fr 06:00-15:00; Sa 06:00-12:00; Su 07:30-13:00"
       }
     },
     {
@@ -19379,7 +19417,8 @@
         "id": 9334533466,
         "osm_type": "node",
         "name": "Bäckerei Brinker",
-        "opening_hours": "Mo-Fr 06:00-17:30; Sa 06:00-15:00; Su 07:00-15:00"
+        "opening_hours": "Mo-Fr 06:00-17:30; Sa 06:00-15:00; Su 07:00-15:00",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -19397,22 +19436,6 @@
         "name": "Carles Bio-Kaffeerösterei",
         "opening_hours": "Fr 10:00-18:00, Sa 10:00-14:00",
         "outdoor_seating": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.6554245,
-          51.2176768
-        ]
-      },
-      "properties": {
-        "id": 427005294,
-        "osm_type": "node",
-        "name": "Cloeren",
-        "opening_hours": "Tu-Sa 06:30-12:00"
       }
     },
     {
@@ -19665,23 +19688,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.6891404,
-          51.1983444
-        ]
-      },
-      "properties": {
-        "id": 1442584130,
-        "osm_type": "node",
-        "name": "i-Tüpfelchen",
-        "opening_hours": "Tu-Sa 09:30-16:00; PH,Su off",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.6912056,
           51.198317
         ]
@@ -19750,8 +19756,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.6930715,
-          51.1978858
+          6.6929802,
+          51.1978731
         ]
       },
       "properties": {
@@ -19783,8 +19789,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.6956967,
-          51.1966675
+          6.6955193,
+          51.1965962
         ]
       },
       "properties": {
@@ -19944,6 +19950,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.6950094,
+          51.1969869
+        ]
+      },
+      "properties": {
+        "id": 13498819790,
+        "osm_type": "node",
+        "name": "Café Jedermann"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.6941798,
+          51.1971587
+        ]
+      },
+      "properties": {
+        "id": 13500658045,
+        "osm_type": "node",
+        "name": "Kamps",
+        "brand": "Kamps",
+        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-15:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.68713,
           51.2013248
         ]
@@ -20089,22 +20127,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.6873698,
-          51.200886
-        ]
-      },
-      "properties": {
-        "id": 7129438210,
-        "osm_type": "node",
-        "name": "Biobäckerei Schomaker",
-        "opening_hours": "Mo-Sa 07:00-18:00; Su 08:00-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.689099,
           51.200169
         ]
@@ -20145,6 +20167,23 @@
         "id": 12003357176,
         "osm_type": "node",
         "name": "Beyoğlu",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.6901647,
+          51.2012534
+        ]
+      },
+      "properties": {
+        "id": 13597445324,
+        "osm_type": "node",
+        "name": "Olympia",
+        "opening_hours": "Nov-Mar off",
         "outdoor_seating": "yes"
       }
     },
@@ -21370,7 +21409,7 @@
         "id": 12997409950,
         "osm_type": "node",
         "name": "Café Geschwisterherzen",
-        "opening_hours": "Mo-We,Fr-Su 09:30-18:00",
+        "opening_hours": "We-Mo,PH 09:30-18:00; Tu off",
         "outdoor_seating": "yes"
       }
     },
@@ -23606,7 +23645,8 @@
         "id": 2333093969,
         "osm_type": "node",
         "name": "Büsch",
-        "opening_hours": "Mo-Sa 07:00-20:00; PH,Su 07:00-12:00"
+        "opening_hours": "Mo-Sa 07:00-20:00; PH,Su 07:00-12:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -23638,7 +23678,8 @@
         "id": 2333093974,
         "osm_type": "node",
         "name": "Bäckerei Hoenen",
-        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-17:00; Su 08:00-17:00"
+        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-17:00; Su 08:00-17:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -24362,7 +24403,8 @@
       "properties": {
         "id": 10593284203,
         "osm_type": "node",
-        "name": "Perfetto"
+        "name": "Perfetto",
+        "opening_hours": "Mo-Sa 08:30-19:00; Su,PH 10:00-19:00"
       }
     },
     {
@@ -24393,7 +24435,9 @@
       "properties": {
         "id": 11148779016,
         "osm_type": "node",
-        "name": "Dilek's Bäkerei"
+        "name": "Dilek's Bäkerei",
+        "opening_hours": "Mo-Sa 06:00-18:00; Su,PH 08:00-13:00",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -24409,20 +24453,6 @@
         "id": 7056237127,
         "osm_type": "node",
         "name": "Bolten"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.6481822,
-          51.4498676
-        ]
-      },
-      "properties": {
-        "id": 26902509,
-        "osm_type": "node"
       }
     },
     {
@@ -24607,7 +24637,8 @@
       "properties": {
         "id": 1440241668,
         "osm_type": "node",
-        "name": "Bäckerei & Konditorei Bolten"
+        "name": "Bäckerei & Konditorei Bolten",
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-16:30; Su 07:00-16:00"
       }
     },
     {
@@ -24621,7 +24652,10 @@
       },
       "properties": {
         "id": 1443514735,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Bäckerei Bolten",
+        "opening_hours": "Mo-Fr 06:30-14:00; Sa 06:30-13:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -24637,6 +24671,7 @@
         "id": 7682795838,
         "osm_type": "node",
         "name": "Bäckerei Bolten",
+        "opening_hours": "Mo-Fr 06:30-14:00; Sa 06:30-13:00",
         "outdoor_seating": "yes"
       }
     },
@@ -24652,7 +24687,8 @@
       "properties": {
         "id": 1884778623,
         "osm_type": "node",
-        "name": "Cafeteria Schwimmbad"
+        "name": "Cafeteria Schwimmbad",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -24717,6 +24753,24 @@
         "osm_type": "node",
         "name": "Döbbe",
         "brand": "Döbbe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.5448984,
+          51.5037017
+        ]
+      },
+      "properties": {
+        "id": 1843787848,
+        "osm_type": "node",
+        "name": "Cafe Extrablatt",
+        "brand": "Cafe Extrablatt",
+        "opening_hours": "Mo-Sa 08:00-24:00; Su,PH 09:30-24:00",
+        "takeaway": "yes"
       }
     },
     {
@@ -24882,8 +24936,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.5132701,
-          51.5762811
+          6.5132374,
+          51.5762892
         ]
       },
       "properties": {
@@ -24914,8 +24968,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.512387,
-          51.5756343
+          6.512353,
+          51.5756273
         ]
       },
       "properties": {
@@ -24931,8 +24985,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.5117584,
-          51.5751534
+          6.5121032,
+          51.5750008
         ]
       },
       "properties": {
@@ -24940,6 +24994,21 @@
         "osm_type": "node",
         "name": "Bäckerei Schollin",
         "opening_hours": "Mo-Fr 06:30-17:00; Sa 06:00-13:00; Su 07:00-12:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.5144091,
+          51.5767063
+        ]
+      },
+      "properties": {
+        "id": 13516977003,
+        "osm_type": "node",
+        "name": "Amaliencafe"
       }
     },
     {
@@ -25828,7 +25897,9 @@
         "id": 5503749084,
         "osm_type": "node",
         "name": "Büsch",
-        "brand": "Büsch"
+        "brand": "Büsch",
+        "opening_hours": "Mo-Sa 07:00-22:00",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -25879,23 +25950,6 @@
         "osm_type": "node",
         "name": "Bäckerei Bolten",
         "opening_hours": "Mo-Su 08:00-15:00",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.1363346,
-          51.7864684
-        ]
-      },
-      "properties": {
-        "id": 5509155021,
-        "osm_type": "node",
-        "name": "Café Luna",
-        "opening_hours": "Mo 11:30-17:30; Tu-Fr 11:00-17:30; Sa 10:30-16:30",
         "outdoor_seating": "yes"
       }
     },
@@ -26123,7 +26177,8 @@
       "properties": {
         "id": 3297474869,
         "osm_type": "node",
-        "name": "Mühlencafé Elten"
+        "name": "Mühlencafé Elten",
+        "opening_hours": "We-Su,PH 12:00-09:00"
       }
     },
     {
@@ -26255,7 +26310,7 @@
         "id": 10302815930,
         "osm_type": "node",
         "name": "Café Grootmoeder",
-        "opening_hours": "Mo-Th off; Fr-Sa 10:00-18:30; Su 10:00-17:00",
+        "opening_hours": "Mo-Th off; Fr-Sa 10:00-17:30; Su 10:00-17:00",
         "outdoor_seating": "no"
       }
     },
@@ -27372,8 +27427,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.5557514,
-          51.6667374
+          6.5558053,
+          51.6667284
         ]
       },
       "properties": {
@@ -27664,23 +27719,6 @@
         "id": 3499305151,
         "osm_type": "node",
         "name": "Hertrampf",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.6136339,
-          51.6572649
-        ]
-      },
-      "properties": {
-        "id": 3499305156,
-        "osm_type": "node",
-        "name": "Lomber's Kaffeebar",
-        "opening_hours": "Mo-Fr 09:00-18:00, Sa 09:00-17:00",
         "outdoor_seating": "yes"
       }
     },
@@ -28553,8 +28591,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.6247769,
-          51.8150978
+          6.6245205,
+          51.8149857
         ]
       },
       "properties": {
@@ -28568,8 +28606,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.6245273,
-          51.8150216
+          6.6245877,
+          51.8150189
         ]
       },
       "properties": {
@@ -28940,8 +28978,8 @@
       "properties": {
         "id": 928074170,
         "osm_type": "node",
-        "name": "Schmitz",
-        "opening_hours": "Mo-Sa 07:30-19:00"
+        "name": "Bäckerei Ebbing",
+        "opening_hours": "Mo-Sa 09:00-20:00"
       }
     },
     {
@@ -28956,7 +28994,7 @@
       "properties": {
         "id": 1573179526,
         "osm_type": "node",
-        "name": "Ebbing",
+        "name": "Bäckerei Ebbing",
         "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-17:00; Su,PH off"
       }
     },
@@ -28991,22 +29029,6 @@
         "name": "Bio-Bistro",
         "opening_hours": "Mo-Fr 09:00-19:00; Sa 08:00-16:00",
         "takeaway": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.6158632,
-          51.8328438
-        ]
-      },
-      "properties": {
-        "id": 9922188219,
-        "osm_type": "node",
-        "name": "Bäckerei Lensing Eisenhütte",
-        "opening_hours": "Mo-Fr 03:45-11:00"
       }
     },
     {
@@ -29250,7 +29272,24 @@
       "properties": {
         "id": 11828876069,
         "osm_type": "node",
-        "name": "Hosselmann"
+        "name": "Hosselmann",
+        "brand": "Hosselmann"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.6301778,
+          51.8387283
+        ]
+      },
+      "properties": {
+        "id": 13507231237,
+        "osm_type": "node",
+        "name": "Bäckerei Ullrich",
+        "opening_hours": "Mo-Fr 06:00-18:00 Sa 06:00-13:00 Su 07:30-12:00"
       }
     },
     {
@@ -29781,36 +29820,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.7652292,
-          50.5585148
-        ]
-      },
-      "properties": {
-        "id": 847432132,
-        "osm_type": "node",
-        "name": "Café Rodert"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.7703482,
-          50.5814911
-        ]
-      },
-      "properties": {
-        "id": 706218820,
-        "osm_type": "node",
-        "name": "Bäckerei Prinz"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.7848109,
           50.5966002
         ]
@@ -30142,6 +30151,37 @@
         "osm_type": "node",
         "name": "Eiscafé La Luna Euskirchen",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7873398,
+          50.6601301
+        ]
+      },
+      "properties": {
+        "id": 13545530455,
+        "osm_type": "node",
+        "name": "Casa Café & Mode",
+        "opening_hours": "Mo-Sa 10:00-18:00; Su off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7872104,
+          50.6600599
+        ]
+      },
+      "properties": {
+        "id": 13605898051,
+        "osm_type": "node",
+        "name": "Balkan-Bäckerei"
       }
     },
     {
@@ -31414,7 +31454,7 @@
         "osm_type": "node",
         "name": "Gilgen's",
         "brand": "Gilgen's",
-        "opening_hours": "Mo-Fr 07:00-19:00; Sa-Su 07:00-18:00",
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa-Su 07:00-18:00, Do 07:00-16:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
       }
@@ -31546,6 +31586,23 @@
         "osm_type": "node",
         "name": "Casa del Gelato",
         "opening_hours": "Mo-Su 12:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0238019,
+          50.6928511
+        ]
+      },
+      "properties": {
+        "id": 13591500957,
+        "osm_type": "node",
+        "name": "Bär Bar",
+        "opening_hours": "Tu-Fr 11:30-18:00",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -32691,7 +32748,7 @@
       "properties": {
         "id": 9074446104,
         "osm_type": "node",
-        "name": "Penkert",
+        "name": "Cafè bei Steffi",
         "opening_hours": "Mo-Fr 07:00-19:00; Sa 07:00-17:00; Su,PH 07:30-17:00"
       }
     },
@@ -33001,7 +33058,8 @@
         "id": 478703826,
         "osm_type": "node",
         "name": "Schneider",
-        "opening_hours": "Mo-Sa 06:00-19:00; Su,PH 07:30-15:00"
+        "opening_hours": "Mo-Sa 06:00-19:00; Su 07:30-13:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -33354,7 +33412,8 @@
       "properties": {
         "id": 12974309252,
         "osm_type": "node",
-        "name": "Cofi Loco"
+        "name": "Cofi Loco",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -33581,7 +33640,7 @@
         "id": 806025615,
         "osm_type": "node",
         "name": "epi",
-        "opening_hours": "Mo-Sa 07:00-18:00; Su 09:00-16:00",
+        "opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-21:00",
         "takeaway": "only",
         "outdoor_seating": "no"
       }
@@ -33616,7 +33675,7 @@
         "id": 5314957021,
         "osm_type": "node",
         "name": "Frau Kreuzberg",
-        "opening_hours": "Th-Su 14:00-19:00",
+        "opening_hours": "We-Su 14:00-19:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
       }
@@ -33697,6 +33756,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.0943637,
+          50.7318811
+        ]
+      },
+      "properties": {
+        "id": 6488938531,
+        "osm_type": "node",
+        "name": "Kudos – Coffee, Cycling, Culture"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.0956529,
           50.7330301
         ]
@@ -33742,6 +33816,21 @@
         "osm_type": "node",
         "name": "Café Rabinstraße",
         "opening_hours": "Mo-Fr 08:00-16:00, Mo-Fr 11:30-14:30 open \"Mittagessen\"; Sa,Su,PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0943639,
+          50.7318835
+        ]
+      },
+      "properties": {
+        "id": 13590667601,
+        "osm_type": "node",
+        "name": "kudos"
       }
     },
     {
@@ -33862,7 +33951,7 @@
         "osm_type": "node",
         "name": "Backwerk",
         "brand": "BackWerk",
-        "opening_hours": "Mo-Su,PH 06:30-20:00",
+        "opening_hours": "Mo-Fr 06:30-20:00; Sa 08:00-21:00; Su,PH 08:00-18:00",
         "outdoor_seating": "pedestrian_zone"
       }
     },
@@ -34101,7 +34190,8 @@
         "id": 318403215,
         "osm_type": "node",
         "name": "Coffee Max",
-        "opening_hours": "Mo,We-Sa 11:00-18:00; Tu,Su off"
+        "opening_hours": "Mo,We-Sa 11:00-18:00; Tu,Su off",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -34288,6 +34378,23 @@
         "name": "B.O.B Café",
         "opening_hours": "We-Fr 10:00-19:00; Sa 10:00-18:00",
         "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0950868,
+          50.7355937
+        ]
+      },
+      "properties": {
+        "id": 13471455867,
+        "osm_type": "node",
+        "name": "Café by Chawan",
+        "opening_hours": "Mo-Fr 08:30-17:00; Sa-Su 09:00-17:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -34583,6 +34690,7 @@
         "osm_type": "node",
         "name": "Merzenich",
         "brand": "Merzenich",
+        "opening_hours": "Mo-Sa 08:00-18:30; Su off",
         "takeaway": "only",
         "outdoor_seating": "no"
       }
@@ -35308,6 +35416,7 @@
         "id": 1295392654,
         "osm_type": "node",
         "name": "Hardt",
+        "opening_hours": "Mo-Sa 07:00-20:00; Su 07:30-11:00",
         "outdoor_seating": "no"
       }
     },
@@ -35323,8 +35432,7 @@
       "properties": {
         "id": 3455406286,
         "osm_type": "node",
-        "name": "Café Flair",
-        "opening_hours": "Tu-Sa 08:30-14:00; Su,Mo off"
+        "name": "Astrid Kuth - Die Stadtköchin"
       }
     },
     {
@@ -35373,7 +35481,8 @@
         "id": 253063689,
         "osm_type": "node",
         "name": "Bäckerei Elmar Klein",
-        "opening_hours": "Mo-Fr 06:30-18:30; Sa 06:30-13:00; Su,PH 08:00-12:00 \"außer Weihnachten, Neujahr, Ostermontag, Pfingstmontag\""
+        "opening_hours": "Mo-Fr 06:30-18:30; Sa 06:30-13:00; Su,PH 08:00-12:00 \"außer Weihnachten, Neujahr, Ostermontag, Pfingstmontag\"",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -35489,7 +35598,7 @@
         "id": 270505541,
         "osm_type": "node",
         "name": "Café Mehr",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "no"
       }
     },
     {
@@ -35506,7 +35615,8 @@
         "osm_type": "node",
         "name": "Gilgen's",
         "brand": "Gilgen's",
-        "opening_hours": "Mo-Fr 06:30-19:00; Sa 06:30-18:00; Su 07:00-18:00"
+        "opening_hours": "Mo-Fr 06:30-19:00; Sa 06:30-18:00; Su 07:00-18:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -35733,7 +35843,7 @@
         "id": 422869597,
         "osm_type": "node",
         "name": "Backmanufaktur Nelles",
-        "opening_hours": "Mo-Fr 5:30-17:30; Sa 6:00-17:00; Su 8:00-17:00"
+        "opening_hours": "Mo-Fr 05:30-17:30; Sa 06:00-17:00; Su 08:00-17:00"
       }
     },
     {
@@ -36216,7 +36326,8 @@
       "properties": {
         "id": 1725122357,
         "osm_type": "node",
-        "name": "Bäckerei Mauel"
+        "name": "Bäckerei Mauel",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -36232,7 +36343,7 @@
         "id": 13271071229,
         "osm_type": "node",
         "name": "Majolie",
-        "opening_hours": "Mo-Fr 08:00-18:00, Sa-so 09:00-18:00,do off",
+        "opening_hours": "Di-So 10:00-20:00",
         "outdoor_seating": "yes"
       }
     },
@@ -36479,7 +36590,8 @@
         "id": 755829700,
         "osm_type": "node",
         "name": "Voigt",
-        "opening_hours": "Mo-Fr 06:30-18:30; Sa 07:00-17:00; Su 07:30-16:00"
+        "opening_hours": "Mo-Fr 06:30-18:00; Sa 07:00-17:00; Su 07:30-16:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -36627,7 +36739,8 @@
         "id": 7613332279,
         "osm_type": "node",
         "name": "Drachenfels",
-        "opening_hours": "\"variiert nach Wetter und Saison\""
+        "opening_hours": "\"variiert nach Wetter und Saison\"",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -36680,6 +36793,20 @@
         "opening_hours": "Mo-Su 13:00-18:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.2326855,
+          50.6960508
+        ]
+      },
+      "properties": {
+        "id": 8377722803,
+        "osm_type": "node"
       }
     },
     {
@@ -36776,7 +36903,8 @@
         "osm_type": "node",
         "name": "Gilgen's",
         "brand": "Gilgen's",
-        "opening_hours": "Mo-Fr 06:30-19:30; Sa 06:30-18:20; Su 07:00-18:30"
+        "opening_hours": "Mo-Fr 06:30-19:30; Sa 06:30-18:20; Su 07:00-18:30",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -39487,6 +39615,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.8236175,
+          50.9124559
+        ]
+      },
+      "properties": {
+        "id": 13525728726,
+        "osm_type": "node",
+        "name": "Backhaus Cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.849275,
           50.917209
         ]
@@ -40301,8 +40444,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8319321,
-          50.9659815
+          6.8319139,
+          50.965988
         ]
       },
       "properties": {
@@ -40380,6 +40523,39 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.8774644,
+          50.9488084
+        ]
+      },
+      "properties": {
+        "id": 13515664236,
+        "osm_type": "node",
+        "name": "Heilandt Kaffeerösterei",
+        "opening_hours": "Mo-Fr 08:00-16:00; PH off",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.8891942,
+          50.9408353
+        ]
+      },
+      "properties": {
+        "id": 2430181088,
+        "osm_type": "node",
+        "name": "Bäckerei Konditorei Voigt",
+        "opening_hours": "Mo-Fr 06:30-18:00; Sa 07:00-17:00; Su 07:30-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.8866003,
           50.9471359
         ]
@@ -40419,7 +40595,8 @@
       "properties": {
         "id": 1351794860,
         "osm_type": "node",
-        "name": "Café Yorck"
+        "name": "Café Yorck",
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa,Su 08:30-17:00"
       }
     },
     {
@@ -40515,7 +40692,7 @@
         "id": 7599880670,
         "osm_type": "node",
         "name": "Krauszeit",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa-Su 08:00-17:00"
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-17:00; Su 08:00-17:00"
       }
     },
     {
@@ -40896,7 +41073,7 @@
         "osm_type": "node",
         "name": "Merzenich",
         "brand": "Merzenich",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-14:00; PH,Su off"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-14:00; Su,PH off"
       }
     },
     {
@@ -41539,7 +41716,7 @@
         "osm_type": "node",
         "name": "von Dannen",
         "opening_hours": "Mo-Fr 08:00-17:00; Sa 10:00-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "no"
       }
     },
     {
@@ -41602,7 +41779,8 @@
       "properties": {
         "id": 2792558071,
         "osm_type": "node",
-        "name": "Kraus"
+        "name": "Kraus",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -42142,20 +42320,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9585569,
-          50.8589385
-        ]
-      },
-      "properties": {
-        "id": 2798977248,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.9727156,
           50.8588859
         ]
@@ -42164,7 +42328,8 @@
         "id": 11422708624,
         "osm_type": "node",
         "name": "Klein's Backstube",
-        "brand": "Klein's Backstube"
+        "brand": "Klein's Backstube",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -42396,7 +42561,7 @@
       "properties": {
         "id": 2792806212,
         "osm_type": "node",
-        "name": "Voosen"
+        "name": "Godorfer Bäckerei"
       }
     },
     {
@@ -43544,24 +43709,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9254311,
-          50.9168357
-        ]
-      },
-      "properties": {
-        "id": 6490635192,
-        "osm_type": "node",
-        "name": "Backwerk",
-        "brand": "BackWerk",
-        "opening_hours": "Mo-Fr 05:30-18:00; Sa,Su,PH 07:00-17:00",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.9246902,
           50.9173086
         ]
@@ -44063,6 +44210,7 @@
         "id": 7216623485,
         "osm_type": "node",
         "name": "Ernst",
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa-Su 10:00-18:00; PH 10:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -44195,7 +44343,7 @@
       "properties": {
         "id": 366958722,
         "osm_type": "node",
-        "name": "Wolff's Bioback",
+        "name": "Wolff's Backstube",
         "opening_hours": "Mo-Fr 06:30-18:30; Sa 06:30-13:00; Su 08:00-12:00"
       }
     },
@@ -44260,7 +44408,8 @@
       "properties": {
         "id": 13066501934,
         "osm_type": "node",
-        "name": "Café Lu"
+        "name": "Café Lu",
+        "opening_hours": "Th-Su 10:00-17:00"
       }
     },
     {
@@ -44707,6 +44856,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.9588716,
+          50.9236964
+        ]
+      },
+      "properties": {
+        "id": 5831949489,
+        "osm_type": "node",
+        "name": "K."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.9591499,
           50.9212721
         ]
@@ -44764,11 +44928,10 @@
       "properties": {
         "id": 7271584663,
         "osm_type": "node",
-        "name": "Espresso House",
-        "brand": "Espresso House",
-        "opening_hours": "Mo-Su 07:30-20:00",
+        "name": "Cotti Coffee",
+        "brand": "Cotti Coffee",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "no"
       }
     },
     {
@@ -45660,7 +45823,9 @@
       "properties": {
         "id": 12802319475,
         "osm_type": "node",
-        "name": "Nosh. - Deli & Café"
+        "name": "Nosh. - Deli & Café",
+        "takeaway": "yes",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -46460,6 +46625,21 @@
         "opening_hours": "Mo,Tu 09:00-00:30; We, Th 09:00-03:00; Fr 09:00-07:00; Sa 10:00-07:00; Su 10:00-00:30",
         "takeaway": "yes",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9402346,
+          50.9368027
+        ]
+      },
+      "properties": {
+        "id": 1681486419,
+        "osm_type": "node",
+        "name": "Miss Papki"
       }
     },
     {
@@ -47906,6 +48086,21 @@
         "brand": "BackWerk",
         "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-19:00",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9425718,
+          50.938611
+        ]
+      },
+      "properties": {
+        "id": 445355941,
+        "osm_type": "node",
+        "name": "Waffle Lab"
       }
     },
     {
@@ -49714,7 +49909,7 @@
       "properties": {
         "id": 530646507,
         "osm_type": "node",
-        "name": "T4"
+        "name": "Cotti Coffee"
       }
     },
     {
@@ -50764,9 +50959,8 @@
       "properties": {
         "id": 428574355,
         "osm_type": "node",
-        "name": "Aevvergreen",
-        "opening_hours": "Th,Fr 09:00-18:00; Sa,Su 10:00-18:00",
-        "outdoor_seating": "no"
+        "name": "Tiroler Stübchen",
+        "opening_hours": "Mo-Sa 10:00-17:00"
       }
     },
     {
@@ -51058,7 +51252,8 @@
         "id": 1141113102,
         "osm_type": "node",
         "name": "Pauline",
-        "opening_hours": "Mo-Fr 08:00-18:00"
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa-Su 10:00-18:00; PH 10:00-18:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -51225,23 +51420,6 @@
         "osm_type": "node",
         "name": "Grandé Toré",
         "opening_hours": "Th-Su 09:00-23:00, Fr,Sa 09:00-01:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.9572667,
-          50.9512961
-        ]
-      },
-      "properties": {
-        "id": 5699907831,
-        "osm_type": "node",
-        "name": "Espressino",
-        "opening_hours": "Mo-Fr 08:00-18:00; Sa,Su 09:00-18:00",
-        "outdoor_seating": "yes"
       }
     },
     {
@@ -52408,7 +52586,7 @@
         "id": 13347213857,
         "osm_type": "node",
         "name": "GuMo",
-        "opening_hours": "Mo-Th 06:00-21:00;Fr-Sa 07:00-21:00; Su 07:0 00:00-20:00"
+        "opening_hours": "Mo-Th 06:00-21:00; Fr-Sa 07:00-21:00; Su 07:00-00:00"
       }
     },
     {
@@ -52463,8 +52641,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.007768,
-          50.9257543
+          7.0078163,
+          50.9258456
         ]
       },
       "properties": {
@@ -53029,7 +53207,7 @@
         "id": 7834867685,
         "osm_type": "node",
         "name": "Café Rheinspaziert",
-        "opening_hours": "Tu-Th 09:00-19:00; Fr 09:00-21:00; Sa-Su 10:00-21:00; Mo off",
+        "opening_hours": "Tu-Sa 10:00-21:30; Su 10:00-19:00",
         "outdoor_seating": "yes"
       }
     },
@@ -53112,6 +53290,21 @@
         "id": 11266585866,
         "osm_type": "node",
         "name": "Schmitz & Nittenwilm"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9842284,
+          50.9681561
+        ]
+      },
+      "properties": {
+        "id": 13519031068,
+        "osm_type": "node",
+        "name": "Café Sabine"
       }
     },
     {
@@ -53437,22 +53630,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0049625,
-          50.9682777
-        ]
-      },
-      "properties": {
-        "id": 583434165,
-        "osm_type": "node",
-        "name": "Kohlenbeck",
-        "opening_hours": "Mo-Fr 07:00-14:00; Sa 06:00-14:00; Su 08:00-12:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.0000218,
           50.9642974
         ]
@@ -53601,7 +53778,7 @@
         "id": 9664286461,
         "osm_type": "node",
         "name": "Toré Café.Restaurant.Bar",
-        "opening_hours": "We-Th 10:00-21:00; Fr-Sa 10:00-22:00; Su 10:00-20:00",
+        "opening_hours": "Tu-Th 10:00-21:00; Fr-Sa 10:00-23:00; Su 10:00-20:00",
         "outdoor_seating": "yes"
       }
     },
@@ -54660,6 +54837,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.04713,
+          50.9704589
+        ]
+      },
+      "properties": {
+        "id": 13564440801,
+        "osm_type": "node",
+        "name": "Kamps",
+        "opening_hours": "Mo-Fr 05:30-17:00; Sa 05:30-13:00; Su 07:00-12:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.0488122,
           50.9731999
         ]
@@ -55067,6 +55260,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.7613333,
+          51.0200046
+        ]
+      },
+      "properties": {
+        "id": 13522881521,
+        "osm_type": "node",
+        "name": "Voosen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.7864988,
           50.9813787
         ]
@@ -55335,14 +55543,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8179287,
-          51.0224447
+          6.8179093,
+          51.0224468
         ]
       },
       "properties": {
         "id": 3081032712,
         "osm_type": "node",
-        "name": "Becher's Backhaus"
+        "name": "Bäckerei Voigt"
       }
     },
     {
@@ -55460,14 +55668,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8727084,
-          50.996407
+          6.8728801,
+          50.9963927
         ]
       },
       "properties": {
         "id": 6795483409,
         "osm_type": "node",
-        "name": "Bechers's Backhaus",
+        "name": "Merzenich",
         "outdoor_seating": "yes"
       }
     },
@@ -55483,7 +55691,7 @@
       "properties": {
         "id": 1602177040,
         "osm_type": "node",
-        "name": "Becher´s Backhaus"
+        "name": "Voigt"
       }
     },
     {
@@ -55631,8 +55839,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8862539,
-          51.0195914
+          6.8862874,
+          51.0195117
         ]
       },
       "properties": {
@@ -55682,7 +55890,8 @@
       },
       "properties": {
         "id": 8812920937,
-        "osm_type": "node"
+        "osm_type": "node",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -55779,7 +55988,8 @@
         "id": 1668098343,
         "osm_type": "node",
         "name": "Backwerk",
-        "brand": "BackWerk"
+        "brand": "BackWerk",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -55810,7 +56020,8 @@
       "properties": {
         "id": 1671128482,
         "osm_type": "node",
-        "name": "Le'zzet"
+        "name": "Le'zzet",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -55856,7 +56067,8 @@
         "id": 1668825780,
         "osm_type": "node",
         "name": "Newzella",
-        "opening_hours": "Mo-Fr 07:00-17:00; Sa 07:00-16:30; Su 08:00-16:30"
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa 07:00-16:30; Su 08:00-16:30",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -55886,7 +56098,8 @@
       "properties": {
         "id": 3295193608,
         "osm_type": "node",
-        "name": "Barış Bistro Café"
+        "name": "Barış Bistro Café",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -55894,14 +56107,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9027472,
-          51.0181313
+          6.9019563,
+          51.0185131
         ]
       },
       "properties": {
-        "id": 9740827449,
+        "id": 13595950837,
         "osm_type": "node",
-        "name": "Café Paris"
+        "name": "Istanbul"
       }
     },
     {
@@ -55948,7 +56161,8 @@
       "properties": {
         "id": 9874243782,
         "osm_type": "node",
-        "name": "Café Lyon"
+        "name": "Café Lyon",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -56217,6 +56431,7 @@
         "id": 2960687387,
         "osm_type": "node",
         "name": "Büsch",
+        "brand": "Büsch",
         "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:00-20:00; Su 07:00-11:00"
       }
     },
@@ -56660,23 +56875,6 @@
         "name": "Bellini",
         "opening_hours": "Mo-Sa 09:00-23:00; Su,PH 10:00-23:00",
         "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.8361761,
-          51.0922015
-        ]
-      },
-      "properties": {
-        "id": 519453156,
-        "osm_type": "node",
-        "name": "Bäckerei Schneider",
-        "brand": "Bäckerei Schneider",
-        "opening_hours": "Mo-Fr 05:30-17:00; Sa 05:30-12:00; Su 08:00-11:00"
       }
     },
     {
@@ -58151,23 +58349,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8746375,
-          51.161332
-        ]
-      },
-      "properties": {
-        "id": 11573560489,
-        "osm_type": "node",
-        "name": "Genussfreu(n)de",
-        "opening_hours": "closed",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.8737777,
           51.1629557
         ]
@@ -58486,7 +58667,8 @@
       "properties": {
         "id": 247388978,
         "osm_type": "node",
-        "name": "Eiscafe Dolomiti"
+        "name": "Eiscafe Dolomiti",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -58518,8 +58700,9 @@
       "properties": {
         "id": 469472289,
         "osm_type": "node",
-        "name": "Café Lichtblick",
-        "opening_hours": "Tu-Sa 09:30-13:00, 15:00-18:00; Su 15:00-18:00"
+        "name": "Lichtblick - Café + mehr",
+        "opening_hours": "Tu-Fr 09:30-13:00, 15:00-18:00; Sa 09:30-13:00; Su 14:00-17:00 (Nov.-Apr.)",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -58838,7 +59021,7 @@
       "properties": {
         "id": 3923572045,
         "osm_type": "node",
-        "name": "Balkanbäckerei Aurora",
+        "name": "Balkanbäckerei Buka",
         "outdoor_seating": "yes"
       }
     },
@@ -58866,14 +59049,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.983475,
-          51.0324211
+          6.9834549,
+          51.0324801
         ]
       },
       "properties": {
         "id": 7636053400,
         "osm_type": "node",
         "name": "Casa Ducale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9827774,
+          51.0314396
+        ]
+      },
+      "properties": {
+        "id": 13516476101,
+        "osm_type": "node",
+        "name": "Cafe de LEV"
       }
     },
     {
@@ -58914,8 +59112,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9872911,
-          51.0323269
+          6.987351,
+          51.0323375
         ]
       },
       "properties": {
@@ -58947,22 +59145,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9816334,
-          51.0469149
-        ]
-      },
-      "properties": {
-        "id": 559472473,
-        "osm_type": "node",
-        "name": "Bäckerei-Konditorei Kohlenbach",
-        "opening_hours": "Mo-Fr 05:30-18:30; Sa 05:30-13:00; Su 08:00-12:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.9785299,
           51.0525389
         ]
@@ -58972,6 +59154,21 @@
         "osm_type": "node",
         "name": "Backerei Paffrath",
         "opening_hours": "Mo-Fr 07:00-13:00,15:00-18:00; Sa 07:00-13:00; Su 14:00-16:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9944375,
+          51.045885
+        ]
+      },
+      "properties": {
+        "id": 13597262901,
+        "osm_type": "node",
+        "name": "Bistro To Go"
       }
     },
     {
@@ -59050,6 +59247,21 @@
         "id": 5826470062,
         "osm_type": "node",
         "name": "Café Herzhaft"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0058475,
+          51.0598604
+        ]
+      },
+      "properties": {
+        "id": 13458920815,
+        "osm_type": "node",
+        "name": "Casa Iberico"
       }
     },
     {
@@ -59959,7 +60171,7 @@
       "properties": {
         "id": 11359898769,
         "osm_type": "node",
-        "name": "Cafe Schmitz' Backes"
+        "name": "Cafe Schmitz Backes"
       }
     },
     {
@@ -59990,7 +60202,7 @@
       "properties": {
         "id": 2420256619,
         "osm_type": "node",
-        "name": "Voosen",
+        "name": "Bäckerei Voosen",
         "outdoor_seating": "no"
       }
     },
@@ -60436,7 +60648,9 @@
       },
       "properties": {
         "id": 262372894,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Bäckerei Langfort",
+        "opening_hours": "Mo-Sa 06:30-13:00"
       }
     },
     {
@@ -60682,7 +60896,8 @@
       "properties": {
         "id": 2892382550,
         "osm_type": "node",
-        "name": "Schneider"
+        "name": "Schneider",
+        "opening_hours": "Mo-Sa 07:00-20:00"
       }
     },
     {
@@ -61125,7 +61340,8 @@
       "properties": {
         "id": 1841369694,
         "osm_type": "node",
-        "name": "Eiscafé Lisboa"
+        "name": "Eiscafé Lisboa",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -61133,8 +61349,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9313434,
-          51.1674984
+          6.9313222,
+          51.1675017
         ]
       },
       "properties": {
@@ -61339,7 +61555,9 @@
       "properties": {
         "id": 4322034983,
         "osm_type": "node",
-        "name": "timeout"
+        "name": "timeout",
+        "opening_hours": "Tu-Fr 10:00-19:00; Sa 10:00-19:00; Su 10:00-16:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -61390,6 +61608,22 @@
         "id": 13288728302,
         "osm_type": "node",
         "name": "Café Extrablatt"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.939602,
+          51.1688051
+        ]
+      },
+      "properties": {
+        "id": 13528900201,
+        "osm_type": "node",
+        "name": "Snack Bladi",
+        "opening_hours": "Mo-Sa 07:00-19:00; Su 07:00-13:00"
       }
     },
     {
@@ -62924,7 +63158,7 @@
       "properties": {
         "id": 3490394497,
         "osm_type": "node",
-        "name": "Snack Campany",
+        "name": "Snack Company",
         "brand": "BackWerk",
         "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:00-18:00; Su 09:00-14:00",
         "outdoor_seating": "yes"
@@ -63250,22 +63484,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2146904,
-          50.7718507
-        ]
-      },
-      "properties": {
-        "id": 270539881,
-        "osm_type": "node",
-        "name": "Profittlich",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-12:30; Su 07:45-10:45"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.2121799,
           50.7722405
         ]
@@ -63547,9 +63765,8 @@
       "properties": {
         "id": 1564006681,
         "osm_type": "node",
-        "name": "Backwerk",
-        "brand": "BackWerk",
-        "opening_hours": "Mo-Fr 07:00-19:30; Sa 07:00-18:00",
+        "name": "Snack away",
+        "opening_hours": "Mo-Fr 06:30-18:30; Sa 07:00-18:00",
         "outdoor_seating": "no"
       }
     },
@@ -64207,22 +64424,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2832265,
-          50.7752252
-        ]
-      },
-      "properties": {
-        "id": 1417577668,
-        "osm_type": "node",
-        "name": "Café Omelett",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.2847394,
           50.7742431
         ]
@@ -64625,6 +64826,20 @@
         "name": "Segafredo",
         "brand": "Segafredo",
         "takeaway": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.1826067,
+          50.8974537
+        ]
+      },
+      "properties": {
+        "id": 2338616598,
+        "osm_type": "node"
       }
     },
     {
@@ -65208,8 +65423,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2577882,
-          50.9389348
+          7.2577883,
+          50.9388564
         ]
       },
       "properties": {
@@ -65552,23 +65767,6 @@
         "osm_type": "node",
         "name": "Café & Bäckerei Heimann",
         "opening_hours": "Mo-Fr 07:30-18:00; Sa 07:30-16:00; Su 07:30-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.4077508,
-          50.905142
-        ]
-      },
-      "properties": {
-        "id": 5181402802,
-        "osm_type": "node",
-        "name": "Descanso Café",
-        "opening_hours": "We-Sa 17:00-23:00; Su 14:00-20:00",
-        "outdoor_seating": "yes"
       }
     },
     {
@@ -66497,6 +66695,7 @@
         "id": 10311725292,
         "osm_type": "node",
         "name": "Hosselmann",
+        "brand": "Hosselmann",
         "outdoor_seating": "no"
       }
     },
@@ -67893,23 +68092,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3974441,
-          51.1173873
-        ]
-      },
-      "properties": {
-        "id": 761365782,
-        "osm_type": "node",
-        "name": "Katzencafé Schnurrpuccino",
-        "opening_hours": "Tu,We,Fr,Sa,Su 10:00-18:00",
-        "outdoor_seating": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.3934116,
           51.1160569
         ]
@@ -67926,8 +68108,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3954166,
-          51.1165736
+          7.3954227,
+          51.1165978
         ]
       },
       "properties": {
@@ -68320,7 +68502,7 @@
         "id": 4782903309,
         "osm_type": "node",
         "name": "Baristapas",
-        "opening_hours": "Mo-Fr 10:00-16:00; Sa-Su 10:00-17:00",
+        "opening_hours": "Tu-Su 08:00-16:00",
         "outdoor_seating": "no"
       }
     },
@@ -68362,8 +68544,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.7199012,
-          51.232104
+          6.7200156,
+          51.2314923
         ]
       },
       "properties": {
@@ -69175,7 +69357,6 @@
         "id": 12006316162,
         "osm_type": "node",
         "name": "Bunker Terasse",
-        "opening_hours": "opens ONLY during good weather: We-Fr 15:00-22:00,Sa 12:00-22:00,Su 12:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -69373,6 +69554,7 @@
         "id": 4776511973,
         "osm_type": "node",
         "name": "Eiscafé Milado",
+        "opening_hours": "Mo-Sa 10:00-20:00",
         "outdoor_seating": "yes"
       }
     },
@@ -69836,7 +70018,8 @@
       "properties": {
         "id": 3450853940,
         "osm_type": "node",
-        "name": "Cafeteria"
+        "name": "Cafeteria",
+        "opening_hours": "24/7 off"
       }
     },
     {
@@ -70104,7 +70287,7 @@
         "osm_type": "node",
         "name": "Kamps",
         "brand": "Kamps",
-        "opening_hours": "Mo-Sa 07:00-22:00",
+        "opening_hours": "Mo-Fr 07:00-19:00",
         "outdoor_seating": "no"
       }
     },
@@ -71450,21 +71633,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.7798812,
-          51.2253197
-        ]
-      },
-      "properties": {
-        "id": 5651613521,
-        "osm_type": "node",
-        "name": "Heinemann"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.7813074,
           51.2258798
         ]
@@ -72574,21 +72742,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.7956797,
-          51.2151029
-        ]
-      },
-      "properties": {
-        "id": 250069421,
-        "osm_type": "node",
-        "name": "Agadir"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.7949534,
           51.2191175
         ]
@@ -72741,21 +72894,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.7960397,
-          51.2148578
-        ]
-      },
-      "properties": {
-        "id": 2479438051,
-        "osm_type": "node",
-        "name": "Shisha-Café Tropicana"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.7940493,
           51.2167798
         ]
@@ -72885,21 +73023,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.7982662,
-          51.2153487
-        ]
-      },
-      "properties": {
-        "id": 250069419,
-        "osm_type": "node",
-        "name": "Eis Cafe Paris"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.8025424,
           51.2162175
         ]
@@ -72925,6 +73048,7 @@
         "id": 1876002516,
         "osm_type": "node",
         "name": "Cemil’s Manege",
+        "opening_hours": "Mo-Su,PH 15:00-18:00+",
         "outdoor_seating": "yes"
       }
     },
@@ -73627,7 +73751,7 @@
       "properties": {
         "id": 1587533665,
         "osm_type": "node",
-        "name": "Boho Brunch"
+        "name": "Boho Brunch Cafe"
       }
     },
     {
@@ -73642,7 +73766,7 @@
       "properties": {
         "id": 1587533689,
         "osm_type": "node",
-        "name": "Caramela"
+        "name": "Babou"
       }
     },
     {
@@ -75885,21 +76009,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8381521,
-          51.2085786
-        ]
-      },
-      "properties": {
-        "id": 298267681,
-        "osm_type": "node",
-        "name": "Bäckerei Konditorei Glomm"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.84453,
           51.1994581
         ]
@@ -77074,7 +77183,7 @@
         "id": 1248839639,
         "osm_type": "node",
         "name": "Bäckerei Bolten",
-        "opening_hours": "Mo-Fr 06:30-15:00; Sa 06:30-13:00,07:00-12:00"
+        "opening_hours": "Mo-Fr 06:30-17:00; Sa 06:30-13:00,07:00-12:00"
       }
     },
     {
@@ -77645,23 +77754,6 @@
         "osm_type": "node",
         "name": "Bolten",
         "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-14:00; Su 07:30-14:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.7648826,
-          51.3842267
-        ]
-      },
-      "properties": {
-        "id": 7279805712,
-        "osm_type": "node",
-        "name": "Kaffeerösterei RöstCult",
-        "opening_hours": "Mo,Su off; Tu-Fr 10:00-18:00; Sa 10:00-14:00",
-        "outdoor_seating": "no"
       }
     },
     {
@@ -79699,40 +79791,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0225924,
-          51.3325457
-        ]
-      },
-      "properties": {
-        "id": 1905722080,
-        "osm_type": "node",
-        "name": "Bäckerei Bär",
-        "opening_hours": "Mo-Fr 06:30-18:30; Sa 07:00-15:00; PH,Su 07:30-12:00",
-        "takeaway": "yes",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.0199418,
-          51.3386821
-        ]
-      },
-      "properties": {
-        "id": 1808453094,
-        "osm_type": "node",
-        "name": "Roth's Kaffee-Stübchen Backstube",
-        "opening_hours": "Tu-Fr 07:00-13:00;Sa 07:00-12:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.0196584,
           51.3394555
         ]
@@ -79937,9 +79995,9 @@
       "properties": {
         "id": 2499675702,
         "osm_type": "node",
-        "name": "Kamps",
-        "brand": "Kamps",
-        "opening_hours": "Mo-Sa 07:00-22:00; PH Su off",
+        "name": "Malzers",
+        "brand": "Malzers",
+        "opening_hours": "Mo-Sa 07:00-21:00; Su 07:30-12:00",
         "outdoor_seating": "no"
       }
     },
@@ -80213,7 +80271,9 @@
         "id": 6137427525,
         "osm_type": "node",
         "name": "Back Bord",
-        "opening_hours": "Mo-Fr 07:00-18:30; Sa 07:00-13:30"
+        "opening_hours": "Mo-Fr 07:00-18:30; Sa 07:00-13:30",
+        "takeaway": "only",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -80296,7 +80356,8 @@
         "osm_type": "node",
         "name": "Döbbe",
         "brand": "Döbbe",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-16:00; Su 07:00-13:00"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-16:00; Su 07:00-13:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -81140,7 +81201,7 @@
       "properties": {
         "id": 10911623192,
         "osm_type": "node",
-        "name": "Sonderkamp",
+        "name": "Müller's Bäckerladen",
         "opening_hours": "Mo-Sa 06:00-20:00; PH,Su 08:00-12:30"
       }
     },
@@ -81519,24 +81580,6 @@
         "osm_type": "node",
         "name": "Biobäckerei Schomaker",
         "opening_hours": "Mo-Fr 09:00-17:00, Sa 09:00-15:00; PH,Su closed"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.7631402,
-          51.4318029
-        ]
-      },
-      "properties": {
-        "id": 6547196910,
-        "osm_type": "node",
-        "name": "Café Evergreen",
-        "opening_hours": "Tu-Su 09:00-19:00",
-        "takeaway": "yes",
-        "outdoor_seating": "yes"
       }
     },
     {
@@ -82232,7 +82275,8 @@
       "properties": {
         "id": 10822175852,
         "osm_type": "node",
-        "name": "Edel Café - Veranstaltungen"
+        "name": "Edel Café - Veranstaltungen",
+        "opening_hours": "Mo-Th 12:00-21:00; Fr 12:00-22:00; Sa 10:00-22:00; Su 10:00-21:00"
       }
     },
     {
@@ -82602,6 +82646,22 @@
         "osm_type": "node",
         "name": "Schollin",
         "opening_hours": "Mo-Fr 05:00-18:00; Sa 05:00-14:00; Su 07:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7570851,
+          51.4625252
+        ]
+      },
+      "properties": {
+        "id": 13457645893,
+        "osm_type": "node",
+        "name": "Kabouter",
+        "opening_hours": "Tu 08:00-18:00; We 08:00-18:00; Th 08:00-14:00; Fr 08:00-18:00; Sa 08:00-12:00"
       }
     },
     {
@@ -83136,24 +83196,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8609548,
-          51.426639
-        ]
-      },
-      "properties": {
-        "id": 4239064493,
-        "osm_type": "node",
-        "name": "Cafe Einhorn",
-        "opening_hours": "Tu-Th 10:00-13:00; Fr 10:00-17:00; Sa 10:00-13:00; Su 10:00-17:00",
-        "takeaway": "no",
-        "outdoor_seating": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.8574769,
           51.4269953
         ]
@@ -83313,6 +83355,22 @@
         "name": "Büsch",
         "brand": "Büsch",
         "opening_hours": "Mo-Sa 7:00-21:00; PH, Su 07:30-14:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.8738907,
+          51.405958
+        ]
+      },
+      "properties": {
+        "id": 13563777721,
+        "osm_type": "node",
+        "name": "Heidrich",
+        "opening_hours": "Sa 09:00-15:00"
       }
     },
     {
@@ -83528,6 +83586,22 @@
         "osm_type": "node",
         "name": "Perfetto Deli",
         "opening_hours": "10:00-16:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.8812683,
+          51.4269166
+        ]
+      },
+      "properties": {
+        "id": 13534043592,
+        "osm_type": "node",
+        "name": "Café Eret",
+        "opening_hours": "Tu-Su,PH 10:00-17:00"
       }
     },
     {
@@ -83979,7 +84053,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8500185,
+          6.8500603,
           51.4676435
         ]
       },
@@ -84017,7 +84091,8 @@
       "properties": {
         "id": 9370117686,
         "osm_type": "node",
-        "name": "Back König"
+        "name": "Büsch",
+        "brand": "Büsch"
       }
     },
     {
@@ -84274,7 +84349,7 @@
       "properties": {
         "id": 12886439592,
         "osm_type": "node",
-        "name": "tropical cafe"
+        "name": "Tropical Café"
       }
     },
     {
@@ -84307,36 +84382,6 @@
         "osm_type": "node",
         "name": "Agethen",
         "opening_hours": "Mo-Fr 06:30-17:00; Sa 06:30-14:30; Su,PH 07:30-11:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.8592999,
-          51.4685167
-        ]
-      },
-      "properties": {
-        "id": 9179821940,
-        "osm_type": "node",
-        "name": "Neo"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.8611398,
-          51.4684137
-        ]
-      },
-      "properties": {
-        "id": 9179941065,
-        "osm_type": "node",
-        "name": "Emre Backstube"
       }
     },
     {
@@ -84734,6 +84779,36 @@
         "name": "Eiscafe Promenade",
         "takeaway": "yes",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.8826114,
+          51.5013782
+        ]
+      },
+      "properties": {
+        "id": 10648184504,
+        "osm_type": "node",
+        "name": "Bäckerei"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.8859639,
+          51.5013028
+        ]
+      },
+      "properties": {
+        "id": 13504460203,
+        "osm_type": "node",
+        "name": "Cafe Nova"
       }
     },
     {
@@ -86073,6 +86148,54 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.8846831,
+          51.5020842
+        ]
+      },
+      "properties": {
+        "id": 1576996928,
+        "osm_type": "node",
+        "name": "Bistro Jederman - Caritas Oberhausen e.V.",
+        "brand": "Caritas",
+        "opening_hours": "Mo,We-Th 08:00-18:00; Tu,Fr 07:00-18:00; Sa 09:00-15:00; Su 15:00-18:00",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.8850727,
+          51.5021142
+        ]
+      },
+      "properties": {
+        "id": 13504434701,
+        "osm_type": "node",
+        "name": "Brotwerk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.885364,
+          51.5017162
+        ]
+      },
+      "properties": {
+        "id": 13504434812,
+        "osm_type": "node",
+        "name": "Simit Palast"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.8839289,
           51.5104464
         ]
@@ -86218,7 +86341,8 @@
       "properties": {
         "id": 13266380089,
         "osm_type": "node",
-        "name": "Malzers"
+        "name": "Malzers",
+        "brand": "Malzers"
       }
     },
     {
@@ -87579,6 +87703,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.0090541,
+          51.4460823
+        ]
+      },
+      "properties": {
+        "id": 13531916401,
+        "osm_type": "node",
+        "name": "Ruebys",
+        "opening_hours": "Mo-Su 08:30-17:00",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.0176903,
           51.4424431
         ]
@@ -88195,7 +88336,8 @@
       },
       "properties": {
         "id": 457363280,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Bäckerei Kara"
       }
     },
     {
@@ -88249,7 +88391,8 @@
         "name": "Büsch",
         "brand": "Büsch",
         "opening_hours": "Mo-Fr 07:00-21:00; Sa 07:00-21:00",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -88357,7 +88500,7 @@
         "osm_type": "node",
         "name": "Starbucks",
         "brand": "Starbucks",
-        "opening_hours": "Mo-Sa 09:00-20:00; Su 12:00-20:00",
+        "opening_hours": "Mo-Sa 09:00-20:00",
         "takeaway": "yes",
         "outdoor_seating": "no"
       }
@@ -88896,8 +89039,24 @@
         "osm_type": "node",
         "name": "Backwerk",
         "brand": "BackWerk",
-        "opening_hours": "Mo-Fr 07:00-20:00; Sa 08:00-20:00; PH,Su 09:00-16:00",
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-20:00; Su,PH 09:00-15:00",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0131134,
+          51.4580747
+        ]
+      },
+      "properties": {
+        "id": 13479076700,
+        "osm_type": "node",
+        "name": "Back König",
+        "opening_hours": "07:00-16:00"
       }
     },
     {
@@ -89735,6 +89894,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.0760626,
+          51.448002
+        ]
+      },
+      "properties": {
+        "id": 305720895,
+        "osm_type": "node",
+        "name": "Bäcker Peter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.0760081,
           51.4445907
         ]
@@ -90127,7 +90301,8 @@
         "osm_type": "node",
         "name": "Döbbe",
         "brand": "Döbbe",
-        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:00-14:00; Su 07:00-13:00"
+        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:00-14:00; Su 07:00-13:00",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -90337,24 +90512,6 @@
         "name": "Döbbe",
         "brand": "Döbbe",
         "opening_hours": "Mo-Fr 05:00-18:30; Sa 05:30-18:00; Su 07:00-15:00",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.0380457,
-          51.4586728
-        ]
-      },
-      "properties": {
-        "id": 2084781217,
-        "osm_type": "node",
-        "name": "Döbbe",
-        "brand": "Döbbe",
-        "opening_hours": "Mo-Sa 07:00-16:00",
         "outdoor_seating": "yes"
       }
     },
@@ -90680,14 +90837,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0807508,
-          51.467439
+          7.0784596,
+          51.4662723
         ]
       },
       "properties": {
-        "id": 728301405,
+        "id": 340953136,
         "osm_type": "node",
-        "name": "Nefis Firin"
+        "name": "Café Merkez"
       }
     },
     {
@@ -90695,8 +90852,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0806177,
-          51.4669602
+          7.0807508,
+          51.467439
+        ]
+      },
+      "properties": {
+        "id": 728301405,
+        "osm_type": "node",
+        "name": "Nefis Firin",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su,PH 07:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0806264,
+          51.4669765
         ]
       },
       "properties": {
@@ -90712,8 +90885,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0808414,
-          51.468108
+          7.0808179,
+          51.4680593
         ]
       },
       "properties": {
@@ -90735,6 +90908,7 @@
         "id": 2416632408,
         "osm_type": "node",
         "name": "Bäckerei Döbbe",
+        "opening_hours": "Mo-Fr 06:00-17:00; Sa 06:00-14:00; Su 07:00-13:00",
         "outdoor_seating": "no"
       }
     },
@@ -90792,21 +90966,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0816691,
-          51.4687614
-        ]
-      },
-      "properties": {
-        "id": 2416577564,
-        "osm_type": "node",
-        "name": "Bistro"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.0825131,
           51.4695423
         ]
@@ -90830,8 +90989,55 @@
       "properties": {
         "id": 2524103395,
         "osm_type": "node",
-        "name": "Nefis Firin",
-        "opening_hours": "Mo-Su 06:00-20:00"
+        "name": "Emin eller"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0808987,
+          51.4688889
+        ]
+      },
+      "properties": {
+        "id": 13456399283,
+        "osm_type": "node",
+        "name": "Bistro Cafe 1",
+        "opening_hours": "Mo-Su 10:00-06:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0809547,
+          51.4688203
+        ]
+      },
+      "properties": {
+        "id": 13456441500,
+        "osm_type": "node",
+        "name": "Cafe Roma",
+        "opening_hours": "Mo-Th 10:30-00:30; Fr-Su 11:00-02:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0807456,
+          51.4688297
+        ]
+      },
+      "properties": {
+        "id": 13456492431,
+        "osm_type": "node",
+        "name": "Bistro Cafe 2",
+        "opening_hours": "Mo-Su 12:00-23:00"
       }
     },
     {
@@ -91709,6 +91915,7 @@
         "id": 12691154270,
         "osm_type": "node",
         "name": "Malzers",
+        "brand": "Malzers",
         "opening_hours": "Mo-Sa 07:00-21:00; PH Su 07:30-12:00"
       }
     },
@@ -91797,22 +92004,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9893201,
-          51.5734981
-        ]
-      },
-      "properties": {
-        "id": 739367440,
-        "osm_type": "node",
-        "name": "Kläsener",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-13:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.991414,
           51.5735321
         ]
@@ -91885,6 +92076,7 @@
         "id": 739461180,
         "osm_type": "node",
         "name": "Döbbe",
+        "brand": "Döbbe",
         "opening_hours": "Mo-Fr 07:30-18:00; Sa 07:30-14:00"
       }
     },
@@ -92114,22 +92306,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9871202,
-          51.5959971
-        ]
-      },
-      "properties": {
-        "id": 1203888867,
-        "osm_type": "node",
-        "name": "Gatenbröcker",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-13:00; Su 07:00-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.005098,
           51.5806595
         ]
@@ -92320,15 +92496,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0444125,
-          51.5513262
+          7.0444287,
+          51.5513157
         ]
       },
       "properties": {
         "id": 9126681165,
         "osm_type": "node",
-        "name": "Cafe Bistro Gatenbröcker",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-14:00; Su 08:00-17:00"
+        "name": "Stadtbäckerei Gatenbröcker",
+        "opening_hours": "Mo-Fr 06:00-16:00; Sa 06:00-13:00; Su 08:00-13:00"
       }
     },
     {
@@ -94435,6 +94611,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.1369935,
+          51.2550433
+        ]
+      },
+      "properties": {
+        "id": 1813669343,
+        "osm_type": "node",
+        "name": "Café Pergola"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.1374494,
           51.2566242
         ]
@@ -94666,7 +94857,7 @@
         "osm_type": "node",
         "name": "Cafe Extrablatt",
         "brand": "Cafe Extrablatt",
-        "opening_hours": "Mo-Sa 08:30-23:00+; Su,PH 09:30-24:00",
+        "opening_hours": "Mo-Sa 08:30-23:00+; Su,PH 09:30-23:00+",
         "takeaway": "yes",
         "outdoor_seating": "yes"
       }
@@ -94840,7 +95031,7 @@
         "osm_type": "node",
         "name": "Backwerk",
         "brand": "BackWerk",
-        "opening_hours": "Mo-Fr 05:45-20:00; Sa 07:00-19:30",
+        "opening_hours": "Mo-Fr 05:45-19:00; Sa 07:00-19:00; Su 09:00-16:00",
         "outdoor_seating": "pedestrian_zone"
       }
     },
@@ -95140,8 +95331,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.1510216,
-          51.257697
+          7.1509161,
+          51.2578058
         ]
       },
       "properties": {
@@ -95220,6 +95411,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.145473,
+          51.2600259
+        ]
+      },
+      "properties": {
+        "id": 13543569401,
+        "osm_type": "node",
+        "name": "Büsch",
+        "brand": "Büsch",
+        "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.1516719,
           51.2647914
         ]
@@ -95263,6 +95471,22 @@
         "osm_type": "node",
         "name": "Bäckerei Myska",
         "opening_hours": "Mo-Sa 06:00-14:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.1794399,
+          51.2638186
+        ]
+      },
+      "properties": {
+        "id": 3927313949,
+        "osm_type": "node",
+        "name": "Red Sea - Bistro und Habesha Shop",
+        "opening_hours": "Mo-Th off; Fr-Su 21:00-05:00"
       }
     },
     {
@@ -95651,7 +95875,7 @@
         "osm_type": "node",
         "name": "Cafe Extrablatt",
         "brand": "Cafe Extrablatt",
-        "opening_hours": "Mo-Sa 09:00-24:00; Su,PH 10:00-24:00",
+        "opening_hours": "Mo-Sa 09:00-24:00, Su,PH 09:30-24:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
       }
@@ -95669,7 +95893,7 @@
         "id": 5422334516,
         "osm_type": "node",
         "name": "Dahlmann",
-        "opening_hours": "Mo-Sa 07:00-18:00; Su 08:00-14:00",
+        "opening_hours": "Mo-Sa 07:00-18:00; Su,PH 08:00-14:00",
         "outdoor_seating": "yes"
       }
     },
@@ -96014,6 +96238,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.2208839,
+          51.2754808
+        ]
+      },
+      "properties": {
+        "id": 3669140266,
+        "osm_type": "node",
+        "name": "Berlin"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.2180898,
           51.274975
         ]
@@ -96087,6 +96326,22 @@
         "id": 11570749201,
         "osm_type": "node",
         "name": "Café Da Tano"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.2162661,
+          51.27464
+        ]
+      },
+      "properties": {
+        "id": 12285765114,
+        "osm_type": "node",
+        "name": "Offenes Café",
+        "opening_hours": "We 12:00-16:00"
       }
     },
     {
@@ -96970,21 +97225,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2956404,
-          51.2888842
-        ]
-      },
-      "properties": {
-        "id": 1499112928,
-        "osm_type": "node",
-        "name": "Bäckerei Kaiser"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.3021105,
           51.2889804
         ]
@@ -97174,23 +97414,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.137308,
-          51.3732342
-        ]
-      },
-      "properties": {
-        "id": 13009348821,
-        "osm_type": "node",
-        "name": "Cycle Cafe",
-        "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00",
-        "outdoor_seating": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.1727136,
           51.3906821
         ]
@@ -97269,6 +97492,22 @@
         "opening_hours": "Mo-Fr 09:00-15:00; Sa, Su, PH 12:00-16:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.2170191,
+          51.3945922
+        ]
+      },
+      "properties": {
+        "id": 13520966053,
+        "osm_type": "node",
+        "name": "Bäckerei Büsch",
+        "opening_hours": "Mo-Sa 07:00-20:00, ||\"Rosenmontag 07:00-13:00\"; Su off"
       }
     },
     {
@@ -97869,6 +98108,40 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.3568935,
+          51.2026957
+        ]
+      },
+      "properties": {
+        "id": 12324436152,
+        "osm_type": "node",
+        "name": "Jay's Café",
+        "opening_hours": "We-Fr 10:00-17:00; Sa 09:00-17:00; Su 12:00-17:00; Mo, Tu, PH off",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3554941,
+          51.2030917
+        ]
+      },
+      "properties": {
+        "id": 13604971035,
+        "osm_type": "node",
+        "name": "Tiki Taka Caffè",
+        "opening_hours": "Mo-Su 11:00-24:00; PH off",
+        "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.3617025,
           51.2013245
         ]
@@ -97925,6 +98198,23 @@
         "id": 747972415,
         "osm_type": "node",
         "name": "Bauern Cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4242507,
+          51.2585947
+        ]
+      },
+      "properties": {
+        "id": 2887213665,
+        "osm_type": "node",
+        "name": "Burgermühle",
+        "opening_hours": "Sa-Su",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -98115,6 +98405,22 @@
         "name": "Bäckerei Steinbrink",
         "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-13:00; Su 08:00-11:00",
         "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3511492,
+          51.2933016
+        ]
+      },
+      "properties": {
+        "id": 13606634801,
+        "osm_type": "node",
+        "name": "Bäckerei Kartenberg",
+        "opening_hours": "Mo, Sa 05:30-13:00; Tu-Fr 05:30-18:00"
       }
     },
     {
@@ -100217,14 +100523,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5128208,
-          51.3524681
+          7.5125827,
+          51.3524351
         ]
       },
       "properties": {
         "id": 1772763677,
         "osm_type": "node",
-        "name": "Kamp"
+        "name": "Stadtbäckerei Kamp",
+        "brand": "Stadtbäckerei Kamp"
       }
     },
     {
@@ -100727,7 +101034,7 @@
         "id": 6661435680,
         "osm_type": "node",
         "name": "Stadtbäckerei Gatenbröcker",
-        "opening_hours": "Mo-Fr 06:30-18:00; Sa 07:00-16:00; Su 08:00-16:00",
+        "opening_hours": "Mo-Fr 06:30-16:30; Sa 07:00-13:00; Su 08:00-14:00",
         "outdoor_seating": "yes"
       }
     },
@@ -101236,7 +101543,7 @@
         "osm_type": "node",
         "name": "Schmidtmeier",
         "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:00-17:00; Su 07:00-17:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -102209,8 +102516,8 @@
       "properties": {
         "id": 9049105130,
         "osm_type": "node",
-        "name": "Café Mascha",
-        "opening_hours": "We,Th 12:00-18:00; Fr 10:00-18:00; Sa,Su 10:00-17:30; PH off",
+        "name": "Kuchen Kollektiv",
+        "opening_hours": "We-Fr 12:00-18:00, Sa-Su 10:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -102312,7 +102619,8 @@
         "id": 5373883983,
         "osm_type": "node",
         "name": "Naber",
-        "opening_hours": "Mo-Fr 06:30-18:00, Sa 06:30-13:00, Su 08:00-11:00, PH,Su 14:00-16:00"
+        "opening_hours": "Mo-Fr 06:30-18:00, Sa 06:30-13:00, Su 08:00-11:00, PH,Su 14:00-16:00",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -102458,7 +102766,9 @@
         "id": 1607342181,
         "osm_type": "node",
         "name": "Bäckerei Kapadokya",
-        "opening_hours": "Mo-Su 07:00-20:00"
+        "opening_hours": "Mo-Su 07:00-20:00",
+        "takeaway": "only",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -102491,7 +102801,8 @@
         "id": 9788431901,
         "osm_type": "node",
         "name": "Oktober Café",
-        "opening_hours": "Mo-Su 09:00-19:00"
+        "opening_hours": "Mo-Su 09:00-19:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -102636,23 +102947,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2177897,
-          51.4782073
-        ]
-      },
-      "properties": {
-        "id": 306451553,
-        "osm_type": "node",
-        "name": "Café Zacher",
-        "opening_hours": "Mo-Th 17:00-24:00, Fr 17:00-02:30, Sa 15:00-02:30",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.220459,
           51.4792997
         ]
@@ -102696,6 +102990,23 @@
         "osm_type": "node",
         "name": "Brinker",
         "opening_hours": "Mo-Fr 06:30-18:00; Sa 08:00-16:00; Su 08:00-13:00",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.2173305,
+          51.4778998
+        ]
+      },
+      "properties": {
+        "id": 5013017212,
+        "osm_type": "node",
+        "name": "Japanisches Café Midori",
+        "opening_hours": "Tu-Su 10:00-18:00; Mo closed",
         "outdoor_seating": "yes"
       }
     },
@@ -102781,7 +103092,7 @@
         "osm_type": "node",
         "name": "Schmidtmeier",
         "opening_hours": "Mo-Sa 07:00-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "pedestrian_zone"
       }
     },
     {
@@ -102869,6 +103180,7 @@
         "id": 6382115515,
         "osm_type": "node",
         "name": "Rozana Café",
+        "opening_hours": "Mo-Th 10:00-20:00; Fr 15:30-23:00; Sa-Su 10:00-23:00",
         "outdoor_seating": "yes"
       }
     },
@@ -102927,8 +103239,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2206032,
-          51.481253
+          7.2206274,
+          51.4812578
         ]
       },
       "properties": {
@@ -103470,6 +103782,7 @@
         "id": 10034651499,
         "osm_type": "node",
         "name": "Kumpels",
+        "opening_hours": "Tu-Su 11:00-17:00",
         "takeaway": "no",
         "outdoor_seating": "yes"
       }
@@ -103504,7 +103817,7 @@
         "id": 6354052927,
         "osm_type": "node",
         "name": "Milchhäuschen",
-        "opening_hours": "We-Sa 16:00-22:00; Su 11:00-19:00",
+        "opening_hours": "We-Fr 15:00-21:00; Sa-Su 12:00-19:00",
         "outdoor_seating": "yes"
       }
     },
@@ -103984,7 +104297,7 @@
         "osm_type": "node",
         "name": "A_KAFFEE",
         "opening_hours": "Mo-Th 10:00-16:00; Fr 10:00-15:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -104502,7 +104815,7 @@
       "properties": {
         "id": 945911378,
         "osm_type": "node",
-        "name": "Beckmanns"
+        "name": "VZ"
       }
     },
     {
@@ -104521,22 +104834,6 @@
         "opening_hours": "Mo-Sa 08:00-21:00; Su 10:00-21:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.3357139,
-          51.4409969
-        ]
-      },
-      "properties": {
-        "id": 1674033491,
-        "osm_type": "node",
-        "name": "Café Grübchen",
-        "opening_hours": "Mo-Fr 07:00-16:00; Sa-Su 08:00-14:00"
       }
     },
     {
@@ -104738,7 +105035,9 @@
         "id": 9422433867,
         "osm_type": "node",
         "name": "Schmidtmeier",
-        "opening_hours": "Mo-Sa 07:00-20:00; PH off"
+        "opening_hours": "Mo-Sa 07:00-20:00; PH off",
+        "takeaway": "only",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -104887,7 +105186,7 @@
         "id": 505496255,
         "osm_type": "node",
         "name": "Back Treff",
-        "opening_hours": "Mo-Fr 06:30-17:00; Sa 07:30-12:00; Su 08:00-11:30"
+        "opening_hours": "Mo-Fr 06:30-16:30; Sa 07:30-12:00; Su 08:00-11:30"
       }
     },
     {
@@ -104932,7 +105231,8 @@
         "id": 5010084250,
         "osm_type": "node",
         "name": "Hutzel",
-        "opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-18:00; PH off"
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-18:00; PH off",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -105505,6 +105805,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.3364945,
+          51.5003811
+        ]
+      },
+      "properties": {
+        "id": 13574754965,
+        "osm_type": "node",
+        "name": "Café Blickpunkt"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.164835,
           51.5049672
         ]
@@ -106011,22 +106326,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2222759,
-          51.5402578
-        ]
-      },
-      "properties": {
-        "id": 2347876782,
-        "osm_type": "node",
-        "name": "Konditorei Café Wiacker",
-        "opening_hours": "Tu-Sa 09:00-17:00; Su 12:00-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.2248387,
           51.5383808
         ]
@@ -106043,8 +106342,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2225969,
-          51.540276
+          7.2225596,
+          51.5402838
         ]
       },
       "properties": {
@@ -106110,8 +106409,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2259624,
-          51.5366653
+          7.2259038,
+          51.5367266
         ]
       },
       "properties": {
@@ -106235,21 +106534,6 @@
         "name": "Tok Yat Bäckerei und Café",
         "opening_hours": "Mo-Su 05:00-24:00",
         "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.218159,
-          51.5441085
-        ]
-      },
-      "properties": {
-        "id": 3425889048,
-        "osm_type": "node",
-        "name": "Tok Yat Bäckerei & Café"
       }
     },
     {
@@ -106912,7 +107196,8 @@
       "properties": {
         "id": 12596170021,
         "osm_type": "node",
-        "name": "Blumen Risse Café"
+        "name": "Blumen Risse Café",
+        "opening_hours": "Mo-Fr 09:00-18:00; Sa 09:00-18:00; Su 11:00-15:30"
       }
     },
     {
@@ -107233,6 +107518,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.2794971,
+          51.5488186
+        ]
+      },
+      "properties": {
+        "id": 13532073921,
+        "osm_type": "node",
+        "name": "Bäckerei"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.3254797,
           51.5223931
         ]
@@ -107409,7 +107709,7 @@
         "name": "Malzers",
         "brand": "Malzers",
         "opening_hours": "Mo-Sa 07:00-18:00; PH,Su off",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "no"
       }
     },
     {
@@ -107473,7 +107773,8 @@
       "properties": {
         "id": 13439796759,
         "osm_type": "node",
-        "name": "BÜSCH"
+        "name": "BÜSCH",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -107801,8 +108102,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3476685,
-          51.3999105
+          7.3478294,
+          51.4003205
         ]
       },
       "properties": {
@@ -108424,7 +108725,7 @@
         "id": 9499774320,
         "osm_type": "node",
         "name": "Wiacker Gartencafé",
-        "opening_hours": "Mo-Sa 10:00-17:00; Su 11:00-16:00",
+        "opening_hours": "Su 11:00-15:45; Sa 09:00-17:45; Mo-Fr 09:00-18:00",
         "outdoor_seating": "no"
       }
     },
@@ -108726,8 +109027,7 @@
         "id": 2183070365,
         "osm_type": "node",
         "name": "Backwerk",
-        "brand": "BackWerk",
-        "opening_hours": "Mo-Fr 06:30-17:00; Sa 07:30-15:00; Su 08:30-12:30"
+        "brand": "BackWerk"
       }
     },
     {
@@ -109038,7 +109338,7 @@
         "id": 4315387284,
         "osm_type": "node",
         "name": "Mohr",
-        "opening_hours": "Mo-Fr 08:00-16:00; Sa 08:00-15:00; Su 08:00-16:00"
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa 07:00-15:00; Su 07:30-16:00"
       }
     },
     {
@@ -109485,7 +109785,7 @@
         "id": 12054146261,
         "osm_type": "node",
         "name": "café fleur",
-        "opening_hours": "Mo-Fr 09:00-18:00, Sa 10:00-19:00, Su 10:00-18:00",
+        "opening_hours": "Mo-Fr 09:00-19:00; Sa 10:00-19:00; Su 10:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -109502,7 +109802,7 @@
         "id": 2120714485,
         "osm_type": "node",
         "name": "LaLuna Eiscafé",
-        "opening_hours": "Mo-Su 09:00-19:00",
+        "opening_hours": "Mo-Su 12:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -109536,8 +109836,8 @@
       "properties": {
         "id": 4838995230,
         "osm_type": "node",
-        "name": "Espresso Perfecto",
-        "opening_hours": "Mo-Fr 09:30-18:00; Sa,Su 10:00-18:00",
+        "name": "Espresso Perfetto",
+        "opening_hours": "Su-Th 09:30-18:45; Fr-Sa 09:30-19:00",
         "outdoor_seating": "yes"
       }
     },
@@ -109554,7 +109854,7 @@
         "id": 4838995243,
         "osm_type": "node",
         "name": "City Bäcker",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-18:00; Su 08:00-18:00",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-18:00; Su 07:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -109590,7 +109890,7 @@
         "id": 6861242046,
         "osm_type": "node",
         "name": "GROBE BackCafé",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-16:00; Su 07:30-18:00",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-18:00; Su 07:30-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -109672,7 +109972,7 @@
         "id": 11110969082,
         "osm_type": "node",
         "name": "Bäckermeister Grobe",
-        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-16:30; Su 07:30-17:00"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-15:00; Su 07:30-17:00"
       }
     },
     {
@@ -110516,22 +110816,7 @@
         "id": 7258252817,
         "osm_type": "node",
         "name": "das küchlein",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.4512942,
-          51.503575
-        ]
-      },
-      "properties": {
-        "id": 11780406222,
-        "osm_type": "node",
-        "name": "Café Sonntag",
+        "opening_hours": "Mo-Su 09:00-18:30",
         "outdoor_seating": "yes"
       }
     },
@@ -110598,7 +110883,7 @@
         "id": 674781062,
         "osm_type": "node",
         "name": "Kieztörtchen",
-        "opening_hours": "Tu-Fr 09:00-18:00; Sa, Su 10:00-18:00",
+        "opening_hours": "We-Fr 09:00-17:00; Sa 10:00-17:00",
         "outdoor_seating": "yes"
       }
     },
@@ -110762,7 +111047,8 @@
       "properties": {
         "id": 4728098690,
         "osm_type": "node",
-        "name": "Dolce Vita Gelato & Caffè"
+        "name": "Dolce Vita Gelato & Caffè",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -111130,7 +111416,7 @@
         "osm_type": "node",
         "name": "Backwerk",
         "brand": "BackWerk",
-        "opening_hours": "Mo-Th 06:30-20:00; Fr 07:30-21:00; Sa 07:30-20:30; Su 09:00-14:00",
+        "opening_hours": "Mo-Fr 06:30-20:30; Sa 07:30-20:30; Su off",
         "outdoor_seating": "yes"
       }
     },
@@ -111147,7 +111433,8 @@
         "id": 4558762152,
         "osm_type": "node",
         "name": "Kamps",
-        "brand": "Kamps"
+        "brand": "Kamps",
+        "opening_hours": "Mo-Sa 10:00-20:00"
       }
     },
     {
@@ -111164,7 +111451,7 @@
         "osm_type": "node",
         "name": "Coffee Fellows",
         "brand": "Coffee Fellows",
-        "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:00-20:00; Su 10:00-18:00",
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-20:00; Su,PH 10:00-18:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
       }
@@ -111313,8 +111600,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4683837,
-          51.5131624
+          7.4684471,
+          51.5132435
         ]
       },
       "properties": {
@@ -111339,7 +111626,7 @@
         "osm_type": "node",
         "name": "Backwerk",
         "brand": "BackWerk",
-        "opening_hours": "Mo-Fr 06:00-20:00; Sa 07:30-20:00; Su off"
+        "opening_hours": "Mo-Fr 06:30-20:00; Sa 07:30-20:00; Su off"
       }
     },
     {
@@ -111347,8 +111634,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4684728,
-          51.5137006
+          7.4685223,
+          51.5136973
         ]
       },
       "properties": {
@@ -111364,6 +111651,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.4684943,
+          51.5135062
+        ]
+      },
+      "properties": {
+        "id": 12033761960,
+        "osm_type": "node",
+        "name": "Cafe de Lokma"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.4666826,
           51.5130954
         ]
@@ -111371,6 +111673,7 @@
       "properties": {
         "id": 12182926064,
         "osm_type": "node",
+        "name": "George",
         "outdoor_seating": "yes"
       }
     },
@@ -111387,7 +111690,8 @@
         "id": 2942093339,
         "osm_type": "node",
         "name": "Bäckerei Beckmann´s",
-        "opening_hours": "Mo-Fr 06:30-14:00; Sa 07:00-13:00; Su 08:00-12:00"
+        "opening_hours": "Mo-Fr 06:30-14:00; Sa 07:00-13:00; Su 08:00-12:00",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -111452,7 +111756,9 @@
         "id": 10555548350,
         "osm_type": "node",
         "name": "Malzers",
-        "brand": "Malzers"
+        "brand": "Malzers",
+        "opening_hours": "Mo-Sa 06:00-20:00; Su,PH 07:30-12:00",
+        "outdoor_seating": "pedestrian_zone"
       }
     },
     {
@@ -111468,7 +111774,9 @@
         "id": 3874579557,
         "osm_type": "node",
         "name": "Bäckerei Karasu",
-        "opening_hours": "Mo-Sa 06:00-20:00; PH,Su 08:00-14:00"
+        "opening_hours": "Mo-Sa 06:00-20:00; PH,Su 08:00-14:00",
+        "takeaway": "only",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -111484,7 +111792,8 @@
         "id": 4540676493,
         "osm_type": "node",
         "name": "Eiscafe Gamba",
-        "opening_hours": "We-Mo 10:00-21:00"
+        "opening_hours": "We-Mo 10:00-21:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -111531,7 +111840,7 @@
         "id": 357859038,
         "osm_type": "node",
         "name": "Kleimann",
-        "opening_hours": "Mo-Sa 09:00-19:00; Su 13:00-18:00",
+        "opening_hours": "Mo-Sa 11:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -111585,7 +111894,8 @@
         "name": "McCafé",
         "brand": "McCafé",
         "opening_hours": "Mo-Su 00:00-00:00",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -111620,7 +111930,7 @@
         "osm_type": "node",
         "name": "Coffee Fellows",
         "brand": "Coffee Fellows",
-        "opening_hours": "Mo-Fr 08:00-19:00; Sa,Su 09:00-19:00",
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa,Su,PH 09:00-19:00",
         "takeaway": "yes",
         "outdoor_seating": "no"
       }
@@ -111655,7 +111965,7 @@
         "id": 4471391417,
         "osm_type": "node",
         "name": "Café Bernstein",
-        "opening_hours": "Mo-Th 09:00-22:00; Fr-Su 09:30-24:00",
+        "opening_hours": "Mo-Th 09:00-22:00; Fr,Sa 09:30-24:00; Su 09:30-22:00",
         "outdoor_seating": "yes"
       }
     },
@@ -111674,7 +111984,7 @@
         "name": "Backwerk",
         "brand": "BackWerk",
         "opening_hours": "Mo-Fr 05:30-20:00; Sa 07:00-20:30; Su 08:00-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "pedestrian_zone"
       }
     },
     {
@@ -111705,8 +112015,9 @@
       "properties": {
         "id": 4557149393,
         "osm_type": "node",
-        "name": "Roast'n Berry",
-        "opening_hours": "Mo-Th 11:30-23:00, Fr 11:00-01:00, Sa,Su 10:00-01:00"
+        "name": "Bona Cafe",
+        "opening_hours": "Mo-Th 09:30-22:00; Fr 09:30-24:00; Su 09:30-22:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -111723,7 +112034,8 @@
         "osm_type": "node",
         "name": "Malzers",
         "brand": "Malzers",
-        "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-19:00"
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-19:00",
+        "outdoor_seating": "pedestrian_zone"
       }
     },
     {
@@ -111819,20 +112131,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4639203,
-          51.5174768
-        ]
-      },
-      "properties": {
-        "id": 12055540984,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.4628962,
           51.5211086
         ]
@@ -111913,8 +112211,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4673466,
-          51.5172044
+          7.4673075,
+          51.5172148
         ]
       },
       "properties": {
@@ -111924,6 +112222,21 @@
         "brand": "WonderWaffel",
         "opening_hours": "Mo-Th 12:00-22:30; Fr,Sa 12:00-23:30; PH,Su 12:00-22:30",
         "takeaway": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.469127,
+          51.5165896
+        ]
+      },
+      "properties": {
+        "id": 4881942721,
+        "osm_type": "node",
+        "name": "Helvaci Ali"
       }
     },
     {
@@ -111948,8 +112261,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4689264,
-          51.5158982
+          7.4689349,
+          51.5158896
         ]
       },
       "properties": {
@@ -112068,6 +112381,21 @@
         "id": 12629816281,
         "osm_type": "node",
         "name": "Ritrovo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4677149,
+          51.5163134
+        ]
+      },
+      "properties": {
+        "id": 13511060941,
+        "osm_type": "node",
+        "name": "Cloudy Coffee"
       }
     },
     {
@@ -112204,7 +112532,8 @@
       "properties": {
         "id": 10139282822,
         "osm_type": "node",
-        "name": "Black & White"
+        "name": "Black & White",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -112669,7 +112998,7 @@
         "id": 11243013932,
         "osm_type": "node",
         "name": "Café Rot",
-        "opening_hours": "Fr-Su 09:00-18:30",
+        "opening_hours": "We-Su 09:00-18:30",
         "outdoor_seating": "yes"
       }
     },
@@ -113237,7 +113566,8 @@
       "properties": {
         "id": 8726674595,
         "osm_type": "node",
-        "name": "Täglich Brackel"
+        "name": "Täglich Brackel",
+        "opening_hours": "Tu-Th 10:00-21:00; Fr,Sa 10:00-23:00"
       }
     },
     {
@@ -113611,7 +113941,7 @@
       "properties": {
         "id": 416892913,
         "osm_type": "node",
-        "name": "Backhaus Pieroth - Filiale Windeck Schladern",
+        "name": "Backhaus Pieroth",
         "opening_hours": "Mo-Fr 05:15-17:00; Sa 06:00-16:00; Su 07:00-17:00",
         "outdoor_seating": "yes"
       }
@@ -113628,7 +113958,8 @@
       "properties": {
         "id": 12492000090,
         "osm_type": "node",
-        "name": "Café zum Tiroler"
+        "name": "Café zum Tiroler",
+        "takeaway": "yes"
       }
     },
     {
@@ -114482,8 +114813,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6298718,
-          51.0110546
+          7.6298651,
+          51.0110647
         ]
       },
       "properties": {
@@ -114710,14 +115041,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6546325,
-          51.020139
+          7.6546768,
+          51.0200989
         ]
       },
       "properties": {
         "id": 781960694,
         "osm_type": "node",
-        "name": "Bäcker Kraus"
+        "name": "Sultan Bäckerei"
       }
     },
     {
@@ -115094,21 +115425,6 @@
         "osm_type": "node",
         "name": "Sondermann Brot",
         "opening_hours": "Mo-Sa 06:00-12:00; Su 08:00-11:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.779678,
-          51.065148
-        ]
-      },
-      "properties": {
-        "id": 10137400438,
-        "osm_type": "node",
-        "name": "Brot & Feinbäckerei van Richard Rath"
       }
     },
     {
@@ -116368,7 +116684,8 @@
         "id": 3256891152,
         "osm_type": "node",
         "name": "Schlüsselstelle",
-        "opening_hours": "Mo,Tu,Th 14:00-23:00; We,Fr,Sa 10:00-23:00; Su 10:00-22:00"
+        "opening_hours": "Mo,Tu,Th 14:00-23:00; We 10:00-23:00; Fr-Su 10:00-22:00; PH 10:00+ \"irregulär\"",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -116583,7 +116900,8 @@
       "properties": {
         "id": 439211214,
         "osm_type": "node",
-        "name": "Cafeteria AR"
+        "name": "Bistro",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -117525,7 +117843,7 @@
         "id": 3071703778,
         "osm_type": "node",
         "name": "Wisent-Hütte",
-        "opening_hours": "Tu-Sa 11:00-20:00; Su 10:00-20:00",
+        "opening_hours": "closed",
         "outdoor_seating": "yes"
       }
     },
@@ -118945,7 +119263,7 @@
         "id": 10276358364,
         "osm_type": "node",
         "name": "Bäckermeister Kamm",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-13:00; Su,PH 08:00-12:00",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-13:00; Su 08:00-12:00",
         "outdoor_seating": "no"
       }
     },
@@ -119521,7 +119839,9 @@
       },
       "properties": {
         "id": 11483953579,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Café Hereinspaziet",
+        "opening_hours": "Mo-Th 06:00-16:00; Fr 06:00-14:00"
       }
     },
     {
@@ -119554,7 +119874,7 @@
         "id": 691438543,
         "osm_type": "node",
         "name": "Fuchs und Hase",
-        "opening_hours": "Mo-Fr 12:00-19:00+; Sa 10:00-18:00+",
+        "opening_hours": "Mo-Fr 10:00-20:00+; Sa 10:00-19:00+; Su,PH off",
         "outdoor_seating": "yes"
       }
     },
@@ -119622,7 +119942,7 @@
         "id": 3430078445,
         "osm_type": "node",
         "name": "Bäckermeister Kamm",
-        "opening_hours": "Mo-Sa 08:00-18:00",
+        "opening_hours": "Mo-Fr 08:00-17:00; Sa 08:00-16:00",
         "outdoor_seating": "no"
       }
     },
@@ -119745,6 +120065,22 @@
         "name": "Vielhaber's Mühlen-Backstube",
         "opening_hours": "Mo-Fr 07:30-17:00; Sa 07:00-14:00",
         "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7019878,
+          51.3739941
+        ]
+      },
+      "properties": {
+        "id": 4455540139,
+        "osm_type": "node",
+        "name": "Sanat Art Bistrocafé",
+        "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-17:00"
       }
     },
     {
@@ -121316,21 +121652,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.653094,
-          51.4571641
-        ]
-      },
-      "properties": {
-        "id": 414054022,
-        "osm_type": "node",
-        "name": "Ohler Mühle -Bioladen-"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.6190004,
           51.4995119
         ]
@@ -122339,8 +122660,8 @@
       "properties": {
         "id": 1348140069,
         "osm_type": "node",
-        "name": "Backhaus Unna",
-        "opening_hours": "Mo-Fr 05:30-17:00; Sa 07:00-14:00; PH,Su off",
+        "name": "Landbäckerei Braune",
+        "opening_hours": "Mo-Fr 05:30-18:00; Sa 07:00-13:00",
         "outdoor_seating": "yes"
       }
     },
@@ -122851,6 +123172,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.7769067,
+          51.4041633
+        ]
+      },
+      "properties": {
+        "id": 13546863793,
+        "osm_type": "node",
+        "name": "Café Hof Mesterscheid",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.7683534,
           51.435176
         ]
@@ -123226,7 +123563,7 @@
         "id": 2361663043,
         "osm_type": "node",
         "name": "Niehaves",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-14:00; PH,Su 08:00-16:00",
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-14:00; Su,PH 07:00-16:00",
         "outdoor_seating": "yes"
       }
     },
@@ -123698,6 +124035,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.7751038,
+          51.5986411
+        ]
+      },
+      "properties": {
+        "id": 13590780533,
+        "osm_type": "node",
+        "name": "Bäckerei Pascham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.8284832,
           51.6015896
         ]
@@ -123957,7 +124309,8 @@
       "properties": {
         "id": 13369879449,
         "osm_type": "node",
-        "name": "Hosselmann"
+        "name": "Hosselmann",
+        "brand": "Hosselmann"
       }
     },
     {
@@ -123973,21 +124326,6 @@
         "id": 3324855035,
         "osm_type": "node",
         "name": "Vielhaber"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.9124464,
-          51.5571098
-        ]
-      },
-      "properties": {
-        "id": 966067130,
-        "osm_type": "node",
-        "name": "Bäckerei Humpert"
       }
     },
     {
@@ -125031,8 +125369,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9957033,
-          51.4031082
+          7.9982167,
+          51.4013765
         ]
       },
       "properties": {
@@ -125047,8 +125385,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9958227,
-          51.4031175
+          7.9981565,
+          51.4014217
         ]
       },
       "properties": {
@@ -127592,7 +127930,7 @@
         "osm_type": "node",
         "name": "Hosselmann",
         "brand": "Hosselmann",
-        "opening_hours": "Mo-Sa 07:00-20:00; Su 08:00-11:00"
+        "opening_hours": "Mo-Sa 07:00-20:00; Su 07:00-11:00"
       }
     },
     {
@@ -128263,7 +128601,7 @@
         "id": 5655564383,
         "osm_type": "node",
         "name": "Café im Hammerhof",
-        "opening_hours": ";o-Fr off; Sa 14:00-18:00; Su 12:00-18:00",
+        "opening_hours": "Sa 14:00+, Su 12:00+",
         "outdoor_seating": "yes"
       }
     },
@@ -129177,8 +129515,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.840877,
-          51.7690685
+          6.8407046,
+          51.7689184
         ]
       },
       "properties": {
@@ -129256,15 +129594,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.95538,
-          51.6514296
+          6.9580911,
+          51.651797
         ]
       },
       "properties": {
-        "id": 4080981877,
-        "osm_type": "node",
-        "name": "Bäckerei Imping",
-        "opening_hours": "Mo-Sa  07:00-21:00"
+        "id": 13569127837,
+        "osm_type": "node"
       }
     },
     {
@@ -130691,7 +131027,8 @@
       "properties": {
         "id": 603138706,
         "osm_type": "node",
-        "name": "Jägers - Bäckerei mit Café"
+        "name": "Jägers - Bäckerei mit Café",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -130706,7 +131043,8 @@
       "properties": {
         "id": 804395391,
         "osm_type": "node",
-        "name": "Ebbing"
+        "name": "Ebbing",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -130767,7 +131105,8 @@
       "properties": {
         "id": 1934838937,
         "osm_type": "node",
-        "name": "Eckmann"
+        "name": "Eckmann",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -130783,22 +131122,6 @@
         "id": 9794283888,
         "osm_type": "node",
         "name": "Bäckerei Mensing"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.8592291,
-          51.8451231
-        ]
-      },
-      "properties": {
-        "id": 298870416,
-        "osm_type": "node",
-        "name": "Schlüter",
-        "opening_hours": "Mo-Fr 07:00-18:00, Sa 07:00-13:00"
       }
     },
     {
@@ -130830,6 +131153,7 @@
         "id": 637776797,
         "osm_type": "node",
         "name": "Eiscafé Venezia",
+        "opening_hours": "Mo-Su,PH 11:00-21:00",
         "outdoor_seating": "yes"
       }
     },
@@ -130876,7 +131200,9 @@
       "properties": {
         "id": 804395403,
         "osm_type": "node",
-        "name": "Bäckerei Büsch"
+        "name": "Bäckerei Büsch",
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -132000,8 +132326,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.1257982,
-          52.0115457
+          7.1255836,
+          52.0114879
         ]
       },
       "properties": {
@@ -132420,21 +132746,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.1978721,
-          51.6163211
-        ]
-      },
-      "properties": {
-        "id": 805680416,
-        "osm_type": "node",
-        "name": "Hachmann's Backstube"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.1973106,
           51.6159107
         ]
@@ -132443,7 +132754,7 @@
         "id": 805680551,
         "osm_type": "node",
         "name": "Tante Emma",
-        "opening_hours": "Mo-Sa 09:00-19:00; Su 10:00-19:00"
+        "opening_hours": "\"Di–Fr 9:00–17:30, Sa 9:00–18:00, erster und dritter Sa im Monat 10:00–14:00, So 10:00–13:00, Mo geschlossen\""
       }
     },
     {
@@ -134671,8 +134982,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4673609,
-          51.6649978
+          7.4673917,
+          51.6649984
         ]
       },
       "properties": {
@@ -135075,22 +135386,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4442073,
-          51.770463
-        ]
-      },
-      "properties": {
-        "id": 1429780752,
-        "osm_type": "node",
-        "name": "Röst-Kunst",
-        "opening_hours": "Mo-Fr 10:00-15:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.4425257,
           51.7765046
         ]
@@ -135438,8 +135733,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2070317,
-          51.8496345
+          7.2070703,
+          51.8496293
         ]
       },
       "properties": {
@@ -135486,8 +135781,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.1910805,
-          51.8967007
+          7.1910853,
+          51.8966932
         ]
       },
       "properties": {
@@ -136946,7 +137241,24 @@
         "id": 6665174705,
         "osm_type": "node",
         "name": "Essmanns Backstube",
-        "opening_hours": "Mo-Sa 08:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-20:00; Su, PH 07:00-16:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3500698,
+          51.9308948
+        ]
+      },
+      "properties": {
+        "id": 13532362361,
+        "osm_type": "node",
+        "name": "Essmanns Backstube",
+        "opening_hours": "Mo-Sa 07:00-20:00; Su, PH 07:00-16:30",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -136977,7 +137289,24 @@
         "id": 4578730894,
         "osm_type": "node",
         "name": "Geiping",
-        "opening_hours": "Mo-Fr 06:00-18:00; SA 06:00-17:00; SO 07:00-17:00"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-17:00; Su, PH 07:00-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3642821,
+          51.9259148
+        ]
+      },
+      "properties": {
+        "id": 13532346291,
+        "osm_type": "node",
+        "name": "Geiping",
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-17:00; Su, PH 07:00-17:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -137039,7 +137368,25 @@
       "properties": {
         "id": 3950107238,
         "osm_type": "node",
-        "name": "Ebbing"
+        "name": "Ebbing",
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:30-18:30; Su 07:00-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3604678,
+          51.929594
+        ]
+      },
+      "properties": {
+        "id": 13532327849,
+        "osm_type": "node",
+        "name": "Ebbing",
+        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:30-17:30; Su 07:00-17:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -137563,21 +137910,6 @@
         "id": 8807020736,
         "osm_type": "node",
         "name": "Jugendcafe"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.8331846,
-          52.0357047
-        ]
-      },
-      "properties": {
-        "id": 1495654953,
-        "osm_type": "node",
-        "name": "Rawers"
       }
     },
     {
@@ -139269,21 +139601,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3377689,
-          52.1483857
-        ]
-      },
-      "properties": {
-        "id": 443123835,
-        "osm_type": "node",
-        "name": "SB Bäcker, Holly Back"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.3392342,
           52.1476809
         ]
@@ -139926,8 +140243,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5204184,
-          52.177188
+          7.5203675,
+          52.1771612
         ]
       },
       "properties": {
@@ -141306,7 +141623,8 @@
         "osm_type": "node",
         "name": "Hosselmann",
         "brand": "Hosselmann",
-        "opening_hours": "Mo-Sa 07:00-20:00 Su 08:00-17:00"
+        "opening_hours": "Mo-Sa 07:00-20:00 Su 08:00-17:00",
+        "outdoor_seating": "veranda"
       }
     },
     {
@@ -142577,24 +142895,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8156689,
-          51.6814879
-        ]
-      },
-      "properties": {
-        "id": 10207649145,
-        "osm_type": "node",
-        "name": "Yang Panda Bubble Tea",
-        "opening_hours": "Mo-Fr 13:30-19:00; Sa 12:00-19:00; Su 13:00-19:00",
-        "takeaway": "yes",
-        "outdoor_seating": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.8170598,
           51.6807501
         ]
@@ -142736,6 +143036,7 @@
         "id": 2398438624,
         "osm_type": "node",
         "name": "Hosselmann",
+        "brand": "Hosselmann",
         "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:00-16:00"
       }
     },
@@ -142864,6 +143165,22 @@
         "osm_type": "node",
         "name": "Hosselmann",
         "brand": "Hosselmann"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8466451,
+          51.6860001
+        ]
+      },
+      "properties": {
+        "id": 7525646258,
+        "osm_type": "node",
+        "name": "Loni",
+        "opening_hours": "Th-Su 10:00-18:00"
       }
     },
     {
@@ -143410,7 +143727,9 @@
         "id": 790820766,
         "osm_type": "node",
         "name": "Schrunz",
-        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:00-13:00; Su 08:00-16:00"
+        "brand": "Schrunz",
+        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:00-13:00; Su 08:00-16:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -143491,24 +143810,6 @@
         "osm_type": "node",
         "name": "Schrunz",
         "opening_hours": "Mo-Fr 06:30-19:00; Sa 06:30-18:00; Su 08:00-18:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.6402839,
-          51.8993168
-        ]
-      },
-      "properties": {
-        "id": 2578665463,
-        "osm_type": "node",
-        "name": "Hosselmann",
-        "opening_hours": "Mo-Sa 07:00-19:00",
-        "takeaway": "only",
-        "outdoor_seating": "no"
       }
     },
     {
@@ -144038,6 +144339,7 @@
         "id": 1795647752,
         "osm_type": "node",
         "name": "Hosselmann",
+        "brand": "Hosselmann",
         "takeaway": "only",
         "outdoor_seating": "no"
       }
@@ -144921,9 +145223,7 @@
       },
       "properties": {
         "id": 4752377852,
-        "osm_type": "node",
-        "name": "Schrunz",
-        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:30-17:00; Su 08:00-17:00"
+        "osm_type": "node"
       }
     },
     {
@@ -145175,8 +145475,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6213187,
-          51.96368
+          7.6214909,
+          51.9637247
         ]
       },
       "properties": {
@@ -145430,23 +145730,6 @@
         "opening_hours": "Mo-Sa 09:00+; Su,PH 09:30+",
         "takeaway": "yes",
         "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.6240668,
-          51.9662702
-        ]
-      },
-      "properties": {
-        "id": 1048366820,
-        "osm_type": "node",
-        "name": "Cafe Weltbühne",
-        "opening_hours": "closed \"Bis auf Weiteres geschlossen.\"",
-        "outdoor_seating": "no"
       }
     },
     {
@@ -145738,7 +146021,7 @@
         "id": 4730952696,
         "osm_type": "node",
         "name": "Supernormal",
-        "opening_hours": "Mo-Sa 10:00-19:00; Su,PH 10:00-18:00",
+        "opening_hours": "Mo-Sa 10:00-19:00; Su 10:00-18:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
       }
@@ -145908,7 +146191,7 @@
         "id": 11178225026,
         "osm_type": "node",
         "name": "Mönnig",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:30-17:30; Su 08:00-17:00"
+        "opening_hours": "Mo-Fr 07:00-17:30; Sa 08:00-17:30; Su 08:00-17:30"
       }
     },
     {
@@ -146017,23 +146300,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6381175,
-          51.9516852
-        ]
-      },
-      "properties": {
-        "id": 4122105863,
-        "osm_type": "node",
-        "name": "Café Unique",
-        "opening_hours": "Mo-Fr 09:00-20:00; Sa,Su 11:00-20:00",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.6410169,
           51.9533249
         ]
@@ -146057,7 +146323,7 @@
         "id": 10656238010,
         "osm_type": "node",
         "name": "Wilma",
-        "opening_hours": "Tu-Fr 09:00-17:00; Sa 10:00-17:00",
+        "opening_hours": "Tu-Fr 09:00-17:00; Sa-Su 10:00-17:00",
         "outdoor_seating": "yes"
       }
     },
@@ -146175,7 +146441,7 @@
       "properties": {
         "id": 3265872910,
         "osm_type": "node",
-        "name": "Back Paradies"
+        "name": "Landbäckerei Elshoff"
       }
     },
     {
@@ -146444,7 +146710,7 @@
         "id": 715332508,
         "osm_type": "node",
         "name": "Café Yolk",
-        "opening_hours": "Tu-Fr 14:00-22:00; Su 10:00-18:00",
+        "opening_hours": "Tu-Fr 14:00-22:00; Su 12:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -146477,6 +146743,7 @@
         "id": 1482117579,
         "osm_type": "node",
         "name": "Bäckerei Hosselmann",
+        "brand": "Hosselmann",
         "opening_hours": "Mo-Sa 07:00-20:00"
       }
     },
@@ -146748,8 +147015,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6304644,
-          51.9638264
+          7.630493,
+          51.9638306
         ]
       },
       "properties": {
@@ -146823,7 +147090,7 @@
         "id": 4363676689,
         "osm_type": "node",
         "name": "Gelateria Arte Bio",
-        "opening_hours": "Mo-Sa 11:00-20:00; Su,PH 12:00-20:00"
+        "opening_hours": "Mo-Sa 11:00-19:00; Su,PH 12:00-19:00"
       }
     },
     {
@@ -146921,7 +147188,7 @@
       "properties": {
         "id": 12772601302,
         "osm_type": "node",
-        "name": "Crem Lassé",
+        "name": "Crem Glassè",
         "opening_hours": "Mo-Sa 10:00-19:00; Su 12:00-19:00"
       }
     },
@@ -146986,7 +147253,7 @@
         "id": 7027350404,
         "osm_type": "node",
         "name": "Magnolia",
-        "opening_hours": "Mo-Fr 09:00-18:00; PH,Sa,Su 10:00-18:00",
+        "opening_hours": "Mo-Fr 09:00-18:00; Sa,Su,PH 10:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -147279,6 +147546,7 @@
         "id": 3470454126,
         "osm_type": "node",
         "name": "Bröker",
+        "opening_hours": "Mo-Fr 08:00-17:30; Sa 13:00-17:00; Su 12:00-17:00",
         "outdoor_seating": "yes"
       }
     },
@@ -147692,7 +147960,7 @@
         "id": 2613364547,
         "osm_type": "node",
         "name": "Schrunz",
-        "opening_hours": "Mo-Fr 06:30-18:30; Sa 06:00-17:00; Su 08:00-17:00"
+        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:00-17:00; Su 08:00-17:00"
       }
     },
     {
@@ -148163,6 +148431,21 @@
         "osm_type": "node",
         "name": "Kiepenkerl",
         "opening_hours": "Mo-Sa 07:00-19:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7744975,
+          51.9808506
+        ]
+      },
+      "properties": {
+        "id": 9733367845,
+        "osm_type": "node",
+        "name": "Geiping"
       }
     },
     {
@@ -149204,21 +149487,6 @@
         "osm_type": "node",
         "name": "Backstube Austerschmidt",
         "opening_hours": "Mo-Sa 07:00-20:00; Su 08:00-11:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.3609498,
-          51.6319009
-        ]
-      },
-      "properties": {
-        "id": 13134917436,
-        "osm_type": "node",
-        "name": "Dolce Vita Cafe - Trattoria"
       }
     },
     {
@@ -150379,23 +150647,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.141861,
-          51.842241
-        ]
-      },
-      "properties": {
-        "id": 410939745,
-        "osm_type": "node",
-        "name": "Hosselmann",
-        "brand": "Hosselmann",
-        "opening_hours": "Mo-Fr 06:00-15:00; Sa 06:00-13:00; Su off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.1449398,
           51.8387507
         ]
@@ -150894,21 +151145,6 @@
         "id": 1486021001,
         "osm_type": "node",
         "name": "Kulturcafé"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.2096504,
-          51.859616
-        ]
-      },
-      "properties": {
-        "id": 9104051666,
-        "osm_type": "node",
-        "outdoor_seating": "yes"
       }
     },
     {
@@ -151623,22 +151859,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.3669161,
-          51.8957462
-        ]
-      },
-      "properties": {
-        "id": 2081427996,
-        "osm_type": "node",
-        "name": "Schumachers Backstube",
-        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:30-13:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.36965,
           51.8962851
         ]
@@ -151821,22 +152041,6 @@
         "osm_type": "node",
         "name": "Glasenapp",
         "opening_hours": "Mo-Fr 07:30-18:00; Sa 07:30-16:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.3803855,
-          51.9066032
-        ]
-      },
-      "properties": {
-        "id": 3610403642,
-        "osm_type": "node",
-        "name": "Museums Cafe",
-        "opening_hours": "We-Fr 15:00-18:00; Sa,Su 10:45-18:00"
       }
     },
     {
@@ -152992,8 +153196,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5532979,
-          52.1570537
+          7.5533811,
+          52.1570841
         ]
       },
       "properties": {
@@ -153264,6 +153468,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.8404289,
+          52.0362015
+        ]
+      },
+      "properties": {
+        "id": 1396215279,
+        "osm_type": "node",
+        "name": "Bäckerei Kiepenkerl",
+        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:30-13:00; Su 07:30-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.8421648,
           52.0388083
         ]
@@ -153273,22 +153493,6 @@
         "osm_type": "node",
         "name": "Bäckerei Wolke",
         "opening_hours": "Mo-Sa 06:30-19:00; Su off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.8404308,
-          52.0362007
-        ]
-      },
-      "properties": {
-        "id": 13250214007,
-        "osm_type": "node",
-        "name": "Bäckerei Kiepenkerl",
-        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:30-13:00; Su 07:30-17:00"
       }
     },
     {
@@ -155960,20 +156164,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.555185,
-          51.7645055
-        ]
-      },
-      "properties": {
-        "id": 270208895,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.5613912,
           51.7668404
         ]
@@ -156044,7 +156234,7 @@
       "properties": {
         "id": 3453436623,
         "osm_type": "node",
-        "name": "Badip",
+        "name": "Opera",
         "outdoor_seating": "sidewalk"
       }
     },
@@ -156285,22 +156475,6 @@
         "name": "Goeken backen",
         "brand": "Goeken backen",
         "opening_hours": "Mo-Fr 07:00-19:00; Sa 07:00-19:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6041437,
-          51.6704296
-        ]
-      },
-      "properties": {
-        "id": 3180540226,
-        "osm_type": "node",
-        "name": "Eiscafé Am Markt",
-        "outdoor_seating": "yes"
       }
     },
     {
@@ -156928,7 +157102,8 @@
         "id": 12174456735,
         "osm_type": "node",
         "name": "Grundmann",
-        "opening_hours": "Mo-Sa 06:30-11:00; Su 07:30-10:00"
+        "opening_hours": "Mo,Th,Fr 07:00-18:00; Tu,We 07:00-13:00; Sa 07:00-12:30",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -157666,7 +157841,7 @@
         "id": 3353570597,
         "osm_type": "node",
         "name": "Lokma",
-        "opening_hours": "We-Su 9:00-17:00"
+        "opening_hours": "We-Mo 09:00-17:00"
       }
     },
     {
@@ -157717,7 +157892,7 @@
         "id": 7823529523,
         "osm_type": "node",
         "name": "Locker flockig - unverpacktes & café",
-        "opening_hours": "Tu-We, Fr 10:00-18:00; Th 10:00-20:00; Sa 10:00-15:00; Su-Mo off",
+        "opening_hours": "Tu-We,Fr 10:00-18:00; Th 10:00-19:00; Sa 09:30-14:30; Su-Mo off",
         "outdoor_seating": "yes"
       }
     },
@@ -157753,22 +157928,6 @@
         "brand": "Hosselmann",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "outdoor_seating": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.7454203,
-          51.7231723
-        ]
-      },
-      "properties": {
-        "id": 931614959,
-        "osm_type": "node",
-        "name": "Stiftscafé",
-        "opening_hours": "Mo-Su 14:00-17:30"
       }
     },
     {
@@ -158329,6 +158488,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.760339,
+          51.7233394
+        ]
+      },
+      "properties": {
+        "id": 1728508911,
+        "osm_type": "node",
+        "name": "Star Bites",
+        "opening_hours": "off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.7587924,
           51.7199287
         ]
@@ -158800,6 +158975,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.8040902,
+          51.785605
+        ]
+      },
+      "properties": {
+        "id": 13462749147,
+        "osm_type": "node",
+        "name": "Alpengold Bäckerei"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.4357387,
           51.8219305
         ]
@@ -158923,7 +159113,8 @@
         "id": 5157379265,
         "osm_type": "node",
         "name": "Thiesbrummel",
-        "opening_hours": "PH,Mo-Fr 07:00-19:00;Sa 07:00-16:00;PH,Su 07:00-11:00"
+        "opening_hours": "PH,Mo-Fr 07:00-19:00;Sa 07:00-16:00;PH,Su 07:00-11:00",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -159182,7 +159373,7 @@
         "id": 4056385294,
         "osm_type": "node",
         "name": "Schulke",
-        "opening_hours": "Th-Fr 07:00-18:00; Sa 07:00-13:00; Su 08:00-12:00; Mo-We,PH off",
+        "opening_hours": "Fr 07:00-18:00; Sa 07:00-13:00; Su 08:00-12:00; Mo-Th,PH off",
         "outdoor_seating": "terrace"
       }
     },
@@ -159663,8 +159854,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4118632,
-          52.0074415
+          8.4118603,
+          52.0074419
         ]
       },
       "properties": {
@@ -159940,22 +160131,6 @@
         "name": "Eiscafé Gelati",
         "takeaway": "yes",
         "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5213968,
-          51.9590874
-        ]
-      },
-      "properties": {
-        "id": 2620872563,
-        "osm_type": "node",
-        "name": "Middelberg",
-        "opening_hours": "Mo-Fr 06:00-17:00; Sa 07:00-15:00; Su,PH 07:30-12:30"
       }
     },
     {
@@ -160439,6 +160614,22 @@
         "id": 2657930961,
         "osm_type": "node",
         "name": "Cafe am Kirchplatz"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5133136,
+          51.9883157
+        ]
+      },
+      "properties": {
+        "id": 13512723980,
+        "osm_type": "node",
+        "name": "Olsson",
+        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-18:00; Su 07:00-18:00"
       }
     },
     {
@@ -162563,7 +162754,7 @@
         "id": 4153694840,
         "osm_type": "node",
         "name": "Lechtermann",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-17:00; PH,Su 08:00-12:00"
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-17:00; Su,PH 08:00-12:00"
       }
     },
     {
@@ -163120,7 +163311,7 @@
         "id": 1339502479,
         "osm_type": "node",
         "name": "Zieglerstuben",
-        "opening_hours": "PH,We-Su 11:00-17:00",
+        "opening_hours": "We-Su,PH 11:00-17:00",
         "outdoor_seating": "yes"
       }
     },
@@ -165125,22 +165316,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.8751497,
-          51.9384455
-        ]
-      },
-      "properties": {
-        "id": 2308696033,
-        "osm_type": "node",
-        "name": "Café Mocca",
-        "opening_hours": "Mo-Fr 05:00-18:00; Sa 07:00-14:00; Su 07:00-12:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.8773632,
           51.935447
         ]
@@ -165462,6 +165637,22 @@
         "osm_type": "node",
         "name": "Gutes vom Vortrag",
         "opening_hours": "Tu-Sa 09:00-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8748967,
+          51.9450079
+        ]
+      },
+      "properties": {
+        "id": 13447705410,
+        "osm_type": "node",
+        "name": "Karlchen’s Backstube",
+        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:30-13:00; Su 07:00-12:00"
       }
     },
     {
@@ -166335,6 +166526,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.4869902,
+          52.0436534
+        ]
+      },
+      "properties": {
+        "id": 12084041788,
+        "osm_type": "node",
+        "name": "Eiscafé Unikat",
+        "takeaway": "yes",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.4934534,
           52.0665812
         ]
@@ -166464,23 +166672,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5004913,
-          52.0482289
-        ]
-      },
-      "properties": {
-        "id": 11298247828,
-        "osm_type": "node",
-        "name": "Waschküche",
-        "opening_hours": "We-Fr 11:30-20:00; Sa 09:30-22:00; Su 09:30-18:00",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.5028031,
           52.049326
         ]
@@ -166489,7 +166680,24 @@
         "id": 11385436057,
         "osm_type": "node",
         "name": "Lamm",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su 08:00-11:30"
+        "opening_hours": "Mo-Sa 07:00-20:00; Su 08:00-11:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5248038,
+          52.0281178
+        ]
+      },
+      "properties": {
+        "id": 315281803,
+        "osm_type": "node",
+        "name": "615",
+        "opening_hours": "Mo-Su 09:30-18:30",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -167418,8 +167626,8 @@
       "properties": {
         "id": 5027844377,
         "osm_type": "node",
-        "name": "Rolf",
-        "opening_hours": "Mo-Sa 06:00-19:00; Su 07:30-11:00"
+        "name": "Lechtermann",
+        "opening_hours": "Mo-Sa 06:00-19:00; Su 08:00-13:00"
       }
     },
     {
@@ -167766,7 +167974,7 @@
         "id": 11832221470,
         "osm_type": "node",
         "name": "Café und Bäckerei Erdbrügger",
-        "opening_hours": "Mo-Fr 06:30-17:00; Sa 06:30-13:00; Su 08:00-11:00"
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa 06:30-13:00; Su 08:00-11:00"
       }
     },
     {
@@ -167821,21 +168029,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5755684,
-          52.2004635
-        ]
-      },
-      "properties": {
-        "id": 1848006961,
-        "osm_type": "node",
-        "name": "KIZ Café SoLero Bünde"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.5765725,
           52.1992972
         ]
@@ -167875,7 +168068,7 @@
         "id": 440964153,
         "osm_type": "node",
         "name": "Bäckerei Erdbrügger",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-13:00; Su 08:00-12:00,13:30-17:00"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-13:00; Su 08:00-12:00"
       }
     },
     {
@@ -167922,7 +168115,7 @@
         "id": 4171958668,
         "osm_type": "node",
         "name": "Bäckerei Erdbrügger",
-        "opening_hours": "Mo-Fr 06:30-18:30;Sa 6:30-13:00"
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 06:30-13:00"
       }
     },
     {
@@ -167938,7 +168131,7 @@
         "id": 11586527810,
         "osm_type": "node",
         "name": "Bäckerei Hensel",
-        "opening_hours": "Mo-Th 06:30-18:00; Fr 6:30-17:00; Sa,Su 08:00-16:00"
+        "opening_hours": "Mo-Th 06:30-18:00; Sa 06:00-14:00; Su 08:00-11:00"
       }
     },
     {
@@ -168603,22 +168796,6 @@
         "id": 2320433452,
         "osm_type": "node",
         "name": "Hudl Café"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6736256,
-          52.1123519
-        ]
-      },
-      "properties": {
-        "id": 4734949650,
-        "osm_type": "node",
-        "name": "Bäckerei Middelberg",
-        "opening_hours": "Mo-Fr 05:30-14:00, Sa 06:30-12:00, Su 07:00-12:00; PH 07:00-12:00"
       }
     },
     {
@@ -169775,7 +169952,7 @@
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
         "brand": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Sa 07:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -169898,7 +170075,8 @@
       "properties": {
         "id": 4075435073,
         "osm_type": "node",
-        "name": "Froböse Bäckerei"
+        "name": "Froböse Bäckerei",
+        "opening_hours": "Mo-Fr 05:30-15:00; Sa 05:30-12:00; Su 07:30-11:30"
       }
     },
     {
@@ -170118,7 +170296,7 @@
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
         "brand": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Fr 06:00-19:00, Sa 06:00-15:00"
+        "opening_hours": "Mo-Fr 05:30-18:00; Sa 06:00-14:00; Su 07:30-12:00"
       }
     },
     {
@@ -170774,6 +170952,7 @@
         "id": 3878284148,
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
+        "brand": "Bäckerei Schmidt",
         "opening_hours": "Mo-Fr 07:00-18:00, Sa 07:00-16:00; PH off"
       }
     },
@@ -170806,7 +170985,7 @@
         "id": 5550002730,
         "osm_type": "node",
         "name": "Bäckerei Konditorei Schröder",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-13:00; So 07:30-10:00"
+        "opening_hours": "Mo-Fr 06:00-18:00, Sa 06:00-13:00, Su 07:30-10:00"
       }
     },
     {
@@ -170872,7 +171051,7 @@
         "id": 5173186471,
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Sa 07:00-20:00; Su 07:30-12:00"
+        "opening_hours": "Mo-Sa 07:00-20:00; Su 07:30-11:00"
       }
     },
     {
@@ -170983,7 +171162,7 @@
         "id": 11760905410,
         "osm_type": "node",
         "name": "Lehrmann",
-        "opening_hours": "Mo,Th-Sa 07:00-18:00; Su 08:00-18:00"
+        "opening_hours": "Th-Mo 07:00-18:00"
       }
     },
     {
@@ -171111,7 +171290,7 @@
         "id": 3947846354,
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Fr 06:00-17:00; Sa 06:00-13:00; Su 07:30-12:00"
+        "opening_hours": "Mo-Fr 05:30-18:00; Sa 06:00-13:00; Su 07:30-12:00"
       }
     },
     {
@@ -171192,7 +171371,7 @@
         "id": 2206648356,
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Fr 07:30-18:30; Sa 07:00-16:00"
+        "opening_hours": "Mo-Fr 07:30-18:00; Sa 07:30-16:00"
       }
     },
     {
@@ -171226,7 +171405,7 @@
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
         "brand": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-13:00; Su 07:00-18:00"
+        "opening_hours": "Mo-Fr 05:30-18:00; Sa 06:00-16:00; Su 07:00-17:00"
       }
     },
     {
@@ -171322,7 +171501,7 @@
         "id": 2361263469,
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Fr 06:30-16:00; Sa 06:30-13:00; Su 07:30-12:00"
+        "opening_hours": "Mo-Fr 05:30-18:00; Sa 06:30-13:00; Su 07:30-12:00"
       }
     },
     {
@@ -171564,7 +171743,7 @@
         "id": 3950162398,
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Sa 08:00-18:00; Su 07:00-16:00"
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-15:00"
       }
     },
     {
@@ -171626,7 +171805,8 @@
       "properties": {
         "id": 3950164830,
         "osm_type": "node",
-        "name": "Bäckerei Schmidt",
+        "name": "Schäfer's",
+        "brand": "Schäfer's",
         "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
@@ -171643,7 +171823,7 @@
         "id": 445014235,
         "osm_type": "node",
         "name": "Bäckerei Schmidt, Brot und Kaffeehaus",
-        "opening_hours": "Mo-Su 07:00-17:30"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 07:00-16:00; Su 07:30-17:00"
       }
     },
     {
@@ -171659,7 +171839,7 @@
         "id": 3547807361,
         "osm_type": "node",
         "name": "Bäckerei Schmidt, das Gute von gestern",
-        "opening_hours": "Tu-Sa 08:30-13:00"
+        "opening_hours": "Tu-Fr 07:30-13:00; Sa 07:30-12:00"
       }
     },
     {
@@ -171675,7 +171855,7 @@
         "id": 3947865374,
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:30-12:30; Su 07:30-12:00"
+        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:30-12:30; Su 07:30-12:00"
       }
     },
     {
@@ -171722,7 +171902,7 @@
         "id": 3950285725,
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Fr 06:30-18:30, Sa 06:30-14:00"
+        "opening_hours": "Mo-Fr 05:30-18:00; Sa 06:00-15:00; Su 07:30-16:00"
       }
     },
     {
@@ -171857,8 +172037,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.8894656,
-          52.026637
+          8.8893948,
+          52.0266562
         ]
       },
       "properties": {
@@ -171949,7 +172129,7 @@
         "id": 5571152381,
         "osm_type": "node",
         "name": "Bäckerei Güttge",
-        "opening_hours": "Tu-Sa 06:00-13:00, Tu,Th,Fr 15:00-18:00; Mo off, Su 08:00-11:00"
+        "opening_hours": "Tu-Sa 05:30-13:00; Su 06:00-11:00; Mo off"
       }
     },
     {
@@ -172211,15 +172391,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9115627,
-          52.0313578
+          8.9044837,
+          52.0280538
         ]
       },
       "properties": {
-        "id": 5571152376,
+        "id": 13531914102,
         "osm_type": "node",
-        "name": "Filiale Hinter den Pösten",
-        "opening_hours": "Sa 06:30-11:00; Su,Mo,PH off; Tu-Fr 06:30-12:30"
+        "name": "Komplizen der Region",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -172832,8 +173012,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.0277804,
-          52.0303233
+          9.0274109,
+          52.0299159
         ]
       },
       "properties": {
@@ -173046,7 +173226,7 @@
         "id": 4292841100,
         "osm_type": "node",
         "name": "Schmidt",
-        "opening_hours": "Mo-Fr 06:00-19:00; Sa 07:00-18:00; Su 07:30-18:00"
+        "opening_hours": "Mo-Fr 05:30-18:00; Sa 07:00-18:00; Su 07:30-18:00"
       }
     },
     {
@@ -173092,7 +173272,8 @@
       "properties": {
         "id": 11897284774,
         "osm_type": "node",
-        "name": "Daniels"
+        "name": "Daniels",
+        "opening_hours": "Mo-Sa 07:00-18:00; Su 07:00-16:00"
       }
     },
     {
@@ -173188,7 +173369,7 @@
         "id": 7819685743,
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:00-18:00; Su 07:30-17:00",
+        "opening_hours": "Mo-Fr 05:30-18:00; Sa 06:00-17:00; Su 07:30-17:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
       }
@@ -174073,7 +174254,7 @@
         "osm_type": "node",
         "name": "Bäckerei Schmidt",
         "brand": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Sa 06:30-18:00; Su 08:00-17:00",
+        "opening_hours": "Mo-Sa 07:00-18:00; Su 08:00-14:00",
         "outdoor_seating": "yes"
       }
     },
@@ -174285,7 +174466,7 @@
         "id": 6067952151,
         "osm_type": "node",
         "name": "Karlchen's Backstube",
-        "opening_hours": "Mo-Fr 07:00-19:00; Sa 07:00-16:00; Su 07:00-11:00"
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-14:00; Su 07:00-11:00"
       }
     },
     {
@@ -174557,21 +174738,6 @@
         "osm_type": "node",
         "name": "Bielemeier",
         "opening_hours": "Mo-Sa 06:00-12:00, Fr 15:00-18:00;Su, PH 07:30-10:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.3045205,
-          51.7073989
-        ]
-      },
-      "properties": {
-        "id": 1419290637,
-        "osm_type": "node",
-        "name": "Bäckerei Knepper"
       }
     },
     {
@@ -174974,6 +175140,21 @@
         "id": 13006695079,
         "osm_type": "node",
         "name": "Auszeit"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.3811168,
+          51.774276
+        ]
+      },
+      "properties": {
+        "id": 13508674793,
+        "osm_type": "node",
+        "name": "Klingenberg"
       }
     },
     {
@@ -175678,7 +175859,8 @@
       "properties": {
         "id": 90123301,
         "osm_type": "way",
-        "name": "Breuer"
+        "name": "Breuer",
+        "opening_hours": "Mo-Fr 05:30-13:00, Sa 05:30-13:00, Mo-Fr 15:00-18:00"
       }
     },
     {
@@ -175972,7 +176154,7 @@
         "id": 219682111,
         "osm_type": "way",
         "name": "Moss",
-        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:30-14:00; Su 07:30-14:00",
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-14:30; Su 07:30-14:00",
         "outdoor_seating": "yes"
       }
     },
@@ -176646,15 +176828,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.4599335,
-          50.8237445
+          6.459933,
+          50.8237446
         ]
       },
       "properties": {
         "id": 408710963,
         "osm_type": "way",
         "name": "Bäckerei Claßen",
-        "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:30-15:00; Su 07:00-17:00"
+        "opening_hours": "Mo-Fr 06:00-17:00; Sa 06:30-14:15; Su 07:30-14:15"
       }
     },
     {
@@ -177698,7 +177880,8 @@
         "id": 160907406,
         "osm_type": "way",
         "name": "Eiscafe Laguna",
-        "opening_hours": "Mo-Su 10:00+ summer; Mo-Su 10:00-20:00 winter"
+        "opening_hours": "Jun-Aug Mo-Su 10:00-22:00; Sep-May Mo-Su 10:00-20:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -177779,38 +177962,6 @@
         "osm_type": "way",
         "name": "Jimmy's",
         "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.694956,
-          51.1969982
-        ]
-      },
-      "properties": {
-        "id": 148054074,
-        "osm_type": "way",
-        "name": "Café Jedermann"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.6942307,
-          51.1971898
-        ]
-      },
-      "properties": {
-        "id": 158559155,
-        "osm_type": "way",
-        "name": "Kamps",
-        "brand": "Kamps",
-        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-15:00"
       }
     },
     {
@@ -178657,24 +178808,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.1364135,
-          51.7857755
-        ]
-      },
-      "properties": {
-        "id": 89549635,
-        "osm_type": "way",
-        "name": "Tea House",
-        "opening_hours": "Mo-Sa 12:00-19:00",
-        "takeaway": "only",
-        "outdoor_seating": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.1369412,
           51.7864187
         ]
@@ -178718,22 +178851,6 @@
         "osm_type": "way",
         "name": "Casa Algarve",
         "opening_hours": "Mo-Sa 10:00-18:00; Su 11:00-16:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.1362287,
-          51.7864307
-        ]
-      },
-      "properties": {
-        "id": 244292910,
-        "osm_type": "way",
-        "name": "Café Luna",
-        "outdoor_seating": "yes"
       }
     },
     {
@@ -179637,7 +179754,7 @@
         "id": 563666087,
         "osm_type": "way",
         "name": "Café Campo",
-        "opening_hours": "Mo-Fr 08:00-16:30; PH off",
+        "opening_hours": "Mo-Fr 08:00-15:00; PH off",
         "outdoor_seating": "yes"
       }
     },
@@ -180116,7 +180233,8 @@
         "id": 1381475137,
         "osm_type": "way",
         "name": "Kamps",
-        "brand": "Kamps"
+        "brand": "Kamps",
+        "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
     {
@@ -180133,6 +180251,7 @@
         "osm_type": "way",
         "name": "Starbucks",
         "brand": "Starbucks",
+        "opening_hours": "Mo-Sa 09:30-20:00",
         "takeaway": "yes"
       }
     },
@@ -180149,7 +180268,8 @@
         "id": 1382067763,
         "osm_type": "way",
         "name": "Kamps",
-        "brand": "Kamps"
+        "brand": "Kamps",
+        "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
     {
@@ -180164,7 +180284,8 @@
       "properties": {
         "id": 1384440088,
         "osm_type": "way",
-        "name": "Wolff's Backstube"
+        "name": "Wolff's Backstube",
+        "opening_hours": "Mo-Sa 07:00-19:00"
       }
     },
     {
@@ -180676,8 +180797,7 @@
         "id": 553049240,
         "osm_type": "way",
         "name": "King Georg Büdchen",
-        "opening_hours": "\"variable\"",
-        "takeaway": "yes"
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa-Su 10:00-18:00; PH 10:00-18:00; Jun-Jul 08:00-15:30"
       }
     },
     {
@@ -180915,22 +181035,6 @@
         "id": 266936857,
         "osm_type": "way",
         "name": "Bäckerei Meuser"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.7724334,
-          51.1148888
-        ]
-      },
-      "properties": {
-        "id": 154248315,
-        "osm_type": "way",
-        "name": "Konditorei-Café Schierhorn",
-        "opening_hours": "Mo off; Tu-Su 09:00-18:30"
       }
     },
     {
@@ -181539,7 +181643,7 @@
         "id": 229108765,
         "osm_type": "way",
         "name": "Dorfinger",
-        "opening_hours": "Mo-Fr 05:30-17:00; Sa 06:00-12:30; Su 07:30-11:00"
+        "opening_hours": "Mo-Fr 05:30-17:00; Sa 06:00-12:30; Su 07:00-11:00"
       }
     },
     {
@@ -182672,8 +182776,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8473713,
-          51.4463954
+          6.8473715,
+          51.4463712
         ]
       },
       "properties": {
@@ -183669,7 +183773,9 @@
       },
       "properties": {
         "id": 232035556,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "Café an der Kirche",
+        "opening_hours": "Tu-Fr 08:30-13:00"
       }
     },
     {
@@ -184459,7 +184565,8 @@
       "properties": {
         "id": 1395047709,
         "osm_type": "way",
-        "name": "Café Piccolo"
+        "name": "Café Piccolo",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -184494,7 +184601,7 @@
         "osm_type": "way",
         "name": "Backwerk",
         "brand": "BackWerk",
-        "opening_hours": "Mo-Fr 05:00-20:00; Sa 06:00-19:00; Su 09:00-17:00",
+        "opening_hours": "Mo-Fr 05:00-20:00; Sa,Su 06:00-20:00",
         "takeaway": "only",
         "outdoor_seating": "no"
       }
@@ -184513,7 +184620,7 @@
         "osm_type": "way",
         "name": "Ditsch",
         "brand": "Ditsch",
-        "opening_hours": "Mo-Su 04:00-22:00",
+        "opening_hours": "Mo-Fr 05:30-22:00; Sa,Su 05:30-20:00",
         "takeaway": "only",
         "outdoor_seating": "no"
       }
@@ -184761,21 +184868,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3365106,
-          51.5003965
-        ]
-      },
-      "properties": {
-        "id": 55181069,
-        "osm_type": "way",
-        "name": "Café Blickpunkt"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.2251715,
           51.5373026
         ]
@@ -184875,8 +184967,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3109356,
-          51.549559
+          7.3109332,
+          51.5495557
         ]
       },
       "properties": {
@@ -185038,8 +185130,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4671489,
-          51.4799689
+          7.467155,
+          51.4799088
         ]
       },
       "properties": {
@@ -185224,7 +185316,7 @@
         "id": 55301655,
         "osm_type": "way",
         "name": "Grüner Salon",
-        "opening_hours": "Tu-Fr 10:00-22:00, Sa-Su09:30-22:00",
+        "opening_hours": "24/7 closed \"Wegen Wasserschaden geschlossen / closed due to water damage\"",
         "outdoor_seating": "pedestrian_zone"
       }
     },
@@ -185532,14 +185624,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6490851,
-          51.0222992
+          7.6500787,
+          51.0215937
         ]
       },
       "properties": {
-        "id": 107040530,
+        "id": 107040465,
         "osm_type": "way",
-        "name": "Alte Kaffeestube",
+        "name": "Altstadtcafé",
         "outdoor_seating": "yes"
       }
     },
@@ -185578,8 +185670,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6890468,
-          51.0288296
+          7.6890322,
+          51.0288367
         ]
       },
       "properties": {
@@ -185803,23 +185895,6 @@
         "id": 54045419,
         "osm_type": "way",
         "name": "Leuchtturm",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.964317,
-          51.1758088
-        ]
-      },
-      "properties": {
-        "id": 963405576,
-        "osm_type": "way",
-        "name": "Finnentroper Lokschuppen",
-        "opening_hours": "Mo-Fr 14:00-18:00; Sa-Su 09:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -186459,8 +186534,8 @@
       "properties": {
         "id": 180975995,
         "osm_type": "way",
-        "name": "Café Kännchen",
-        "opening_hours": "Mo-Fr 08:30 -17:00;Sa 09:00-14:00; Su,PH 09:30-17:00",
+        "name": "Café Kännchen Elsey",
+        "opening_hours": "Mo-Fr 08:30 -17:00; Sa 09:00-14:00; Su,PH 09:30-17:00",
         "outdoor_seating": "yes"
       }
     },
@@ -186808,6 +186883,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.7440141,
+          51.5967407
+        ]
+      },
+      "properties": {
+        "id": 182432594,
+        "osm_type": "way",
+        "name": "Bäckerei Pascham"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.7409381,
           51.5977442
         ]
@@ -186969,7 +187059,7 @@
       "properties": {
         "id": 313270044,
         "osm_type": "way",
-        "name": "Mühlen­­­bäckerei Schulte",
+        "name": "Mühlenbäckerei Schulte",
         "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-12:30; Su 07:30-10:30"
       }
     },
@@ -187197,24 +187287,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1065148,
-          51.5724295
-        ]
-      },
-      "properties": {
-        "id": 186837463,
-        "osm_type": "way",
-        "name": "Café Fromme",
-        "opening_hours": "Mo-Sa 09:00-18:00",
-        "takeaway": "yes",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.1055449,
           51.5726721
         ]
@@ -187276,7 +187348,8 @@
         "id": 231366151,
         "osm_type": "way",
         "name": "Café Schümer",
-        "opening_hours": "Th,Fr,Su 10:00-22:00; Sa 09:00-22:00"
+        "opening_hours": "Th,Fr,Su 10:00-22:00; Sa 09:00-22:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -187318,8 +187391,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1704833,
-          51.5909747
+          8.1704825,
+          51.590974
         ]
       },
       "properties": {
@@ -187936,6 +188009,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.9723102,
+          51.6789646
+        ]
+      },
+      "properties": {
+        "id": 249249218,
+        "osm_type": "way",
+        "name": "Bäckerei Spangemacher",
+        "opening_hours": "Mo-Fr 06:00-18:00 Sa 06:00-13:00 So 08:00-11:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.9810673,
           51.6698541
         ]
@@ -188005,7 +188094,7 @@
         "id": 253113138,
         "osm_type": "way",
         "name": "Cafe Sanders",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:30-13:00; Su,PH 07:30-12:30"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:30-13:00; Su 07:30-12:30"
       }
     },
     {
@@ -188521,15 +188610,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2809564,
-          51.7795752
+          7.2809646,
+          51.7795646
         ]
       },
       "properties": {
         "id": 28682487,
         "osm_type": "way",
         "name": "Flugplatz-Café Borkenberge",
-        "opening_hours": "Th-Su 12:00-17:00"
+        "opening_hours": "Fr-Sa 12:00-18:00"
       }
     },
     {
@@ -188578,7 +188667,7 @@
         "osm_type": "way",
         "name": "Hosselmann",
         "brand": "Hosselmann",
-        "opening_hours": "Mo-Sa 06:00-19:00; Su 08:00-17:00",
+        "opening_hours": "Mo-Sa 06:00-18:30; Su 08:00-17:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
       }
@@ -188588,16 +188677,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5391761,
-          51.6520423
+          7.5391683,
+          51.6520398
         ]
       },
       "properties": {
         "id": 436019085,
         "osm_type": "way",
-        "name": "Alte Kegelbahn",
+        "name": "Cafe Alte Kegelbahn",
         "opening_hours": "Fr-Su 12:00-19:00; PH 12:00-19:00",
-        "takeaway": "no"
+        "takeaway": "no",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -188827,8 +188917,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4239197,
-          51.8985636
+          7.423923,
+          51.8985541
         ]
       },
       "properties": {
@@ -189957,7 +190047,7 @@
         "id": 259607456,
         "osm_type": "way",
         "name": "Emscafe",
-        "opening_hours": "Mo-Fr 07:30-18:00; Sa 07:00-18:00; Su 08:00-18:00",
+        "opening_hours": "Mo-Sa 07:30-17:30; Su 08:00-17:30",
         "takeaway": "yes"
       }
     },
@@ -190151,8 +190241,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1451529,
-          51.767279
+          8.1451544,
+          51.7672781
         ]
       },
       "properties": {
@@ -190267,6 +190357,7 @@
         "id": 226362379,
         "osm_type": "way",
         "name": "Kurhotel Wall-Café",
+        "opening_hours": "Mo-Su 08:00-18:00",
         "outdoor_seating": "yes"
       }
     },
@@ -190283,6 +190374,7 @@
         "id": 224369956,
         "osm_type": "way",
         "name": "Birkholz",
+        "brand": "Birkholz",
         "opening_hours": "Mo-Fr 06:15-17:45; Sa 06:30-12:00; Su 08:00-16:00",
         "outdoor_seating": "yes"
       }
@@ -190435,8 +190527,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.2484633,
-          51.7342457
+          8.2484667,
+          51.7342532
         ]
       },
       "properties": {
@@ -190683,8 +190775,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.3057823,
-          51.8559398
+          8.3057825,
+          51.8559396
         ]
       },
       "properties": {
@@ -191152,21 +191244,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5123199,
-          51.7451148
-        ]
-      },
-      "properties": {
-        "id": 744397965,
-        "osm_type": "way",
-        "name": "Hofbäckerei Niermann"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.5632433,
           51.72867
         ]
@@ -191456,7 +191533,8 @@
         "id": 28834570,
         "osm_type": "way",
         "name": "Bürenkemper",
-        "opening_hours": "Mo 06:30-18:30; Sa 06:30-17:30; Su 08:00-17:00"
+        "opening_hours": "Mo 06:30-18:30; Sa 06:30-17:30; Su 08:00-17:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -191783,7 +191861,7 @@
         "id": 113895422,
         "osm_type": "way",
         "name": "Grabbe-Café",
-        "opening_hours": "off"
+        "opening_hours": "Tu-Fr 08:30-18:00; Sa 08:00-18:00; Su,PH 10:00-18:00"
       }
     },
     {
@@ -191861,7 +191939,8 @@
       },
       "properties": {
         "id": 303340636,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "Pyka"
       }
     },
     {
@@ -192130,8 +192209,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5200133,
-          52.1416025
+          8.520013,
+          52.1416029
         ]
       },
       "properties": {
@@ -192251,7 +192330,7 @@
         "osm_type": "way",
         "name": "Bäckerei Schmidt",
         "brand": "Bäckerei Schmidt",
-        "opening_hours": "Mo-Fr 07:00-18:00;Sa 07:00-14:00;Su 7:30-12:00"
+        "opening_hours": "Mo-Fr 06:00-17:00; Sa 07:00-13:00; Su 07:30-12:00"
       }
     },
     {
@@ -192683,7 +192762,7 @@
         "id": 366780143,
         "osm_type": "way",
         "name": "Carsten Holzmeyer Bäckerei und Lebensmittel",
-        "opening_hours": "Tu-Fr 05:30-17:00; Sa 05:30-12:30; Su 07:00-11:00"
+        "opening_hours": "Tu,We 06:00-14:00; Th,Fr 06:00-15:00; Sa 06:00-12:00; Su 07:00-11:00"
       }
     },
     {
@@ -192809,6 +192888,23 @@
         "id": 37132294,
         "osm_type": "way",
         "name": "Altes Fährhaus"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1222991,
+          52.0322068
+        ]
+      },
+      "properties": {
+        "id": 297599027,
+        "osm_type": "way",
+        "name": "SZimmer",
+        "opening_hours": "Fr 09:00-17:00, Sa-Su 14:00-17:00",
+        "outdoor_seating": "street"
       }
     },
     {

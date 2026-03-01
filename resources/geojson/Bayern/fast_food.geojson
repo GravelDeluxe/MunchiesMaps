@@ -689,7 +689,7 @@
         "osm_type": "node",
         "name": "McDonald's",
         "brand": "McDonald's",
-        "opening_hours": "Mo-Th,Su 10:00-02:00; Fr-Sa 10:00-04:00; PH 08:00-24:00",
+        "opening_hours": "Mo-Th 08:00-02:00, Fr,Sa 08:00-04:00, Su 08:00-02:00",
         "phone": "+49 89 69380366",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
@@ -720,8 +720,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.5480859,
-          48.1365771
+          11.5480229,
+          48.1365404
         ]
       },
       "properties": {
@@ -924,7 +924,7 @@
         "osm_type": "node",
         "name": "Burger King",
         "brand": "Burger King",
-        "opening_hours": "Mo-Fr 10:00-01:00; Sa 10:00-15:00",
+        "opening_hours": "Su-Th,PH 10:00-00:30, Fr,Sa 10:00-01:00",
         "phone": "+49 89 422626",
         "brand:wikidata": "Q177054",
         "chain": "burger_king"
@@ -1700,8 +1700,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.2497424,
-          49.4460424
+          10.2497679,
+          49.4459107
         ]
       },
       "properties": {
@@ -1863,27 +1863,6 @@
         "opening_hours": "Mo-Su 11:00-23:00",
         "brand:wikidata": "Q177054",
         "chain": "burger_king"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.0775306,
-          49.4501086
-        ]
-      },
-      "properties": {
-        "id": 621283727,
-        "osm_type": "node",
-        "name": "McDonald's",
-        "brand": "McDonald's",
-        "opening_hours": "Mo-Sa 08:00-00:00; Su,PH 09:00-00:00",
-        "phone": "+49 911 9928416",
-        "operator": "BW Restaurantbetrieb e.K.",
-        "brand:wikidata": "Q38076",
-        "chain": "mcdonalds"
       }
     },
     {
@@ -2080,6 +2059,25 @@
         "osm_type": "node",
         "name": "McDonald's",
         "brand": "McDonald's",
+        "brand:wikidata": "Q38076",
+        "chain": "mcdonalds"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.6025025,
+          49.2707695
+        ]
+      },
+      "properties": {
+        "id": 12039942757,
+        "osm_type": "node",
+        "name": "McDonald's",
+        "brand": "McDonald's",
+        "opening_hours": "Mo-Su 09:00-22:00",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
       }
@@ -2338,8 +2336,6 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "opening_hours": "Mo-Th,Su 07:00-24:00,00:00-02:00; Fr-Sa 07:00-24:00,00:00-04:00; PH 07:00-24:00,00:00-02:00",
-        "phone": "+49 9441 176006",
-        "website": "https://www.mcdonalds.com/de/de-de/restaurant-suche.html/l/kelheim/donaupark-1/1216",
         "operator": "Mosher Restaurants e.K.",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
@@ -2421,6 +2417,26 @@
         "brand": "McDonald's",
         "phone": "+49 8721 911088",
         "website": "https://www.mcdonalds.de/",
+        "brand:wikidata": "Q38076",
+        "chain": "mcdonalds"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.7423453,
+          48.7476125
+        ]
+      },
+      "properties": {
+        "id": 13546666885,
+        "osm_type": "node",
+        "name": "McDonald's",
+        "brand": "McDonald's",
+        "website": "https://www.mcdonalds.com/de/de-de/restaurant-suche.html/l/wallersdorf/am-gewerbepark-2325/1923",
+        "operator": "JH Gastro",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
       }
@@ -2566,8 +2582,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.5267063,
-          49.2045613
+          12.5272163,
+          49.2053108
         ]
       },
       "properties": {
@@ -4322,8 +4338,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.8650153,
-          48.4341191
+          10.8649648,
+          48.4341577
         ]
       },
       "properties": {
@@ -4381,12 +4397,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.3288109,
-          49.0679906
+          10.3288594,
+          49.0679969
         ]
       },
       "properties": {
-        "id": 141979080,
+        "id": 1482124457,
         "osm_type": "way",
         "name": "McDonald's",
         "brand": "McDonald's",
@@ -4674,7 +4690,7 @@
         "osm_type": "way",
         "name": "McDonald's",
         "brand": "McDonald's",
-        "opening_hours": "Mo-Su 07:00-01:00",
+        "opening_hours": "Mo-Su 06:00-02:00",
         "phone": "+49 8453 3347754",
         "website": "https://www.mcdonalds.de/",
         "operator": "McDonald's Deutschland Inc.",
@@ -4702,6 +4718,24 @@
         "operator": "McDonald's Deutschland Inc.",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5840403,
+          48.5079162
+        ]
+      },
+      "properties": {
+        "id": 45666509,
+        "osm_type": "way",
+        "name": "Burger King",
+        "brand": "Burger King",
+        "brand:wikidata": "Q177054",
+        "chain": "burger_king"
       }
     },
     {
@@ -5703,7 +5737,7 @@
         "osm_type": "way",
         "name": "Burger King",
         "brand": "Burger King",
-        "opening_hours": "Mo-Th 09:00-01:00, Fr-Sa 09:00-02:00, Su 09:00-01:00, PH 09:00-01:00",
+        "opening_hours": "Su-Th 10:00-24:00, Fr,Sa 10:00-01:00",
         "brand:wikidata": "Q177054",
         "chain": "burger_king"
       }
@@ -5758,7 +5792,7 @@
         "osm_type": "way",
         "name": "McDonald's",
         "brand": "McDonald's",
-        "opening_hours": "24/7",
+        "opening_hours": "05:00-24:00",
         "phone": "+49 89 97593140",
         "website": "https://mcdonalds.de",
         "operator": "Allresto Flughafen München Hotel und Gaststätten GmbH",
@@ -6093,24 +6127,6 @@
         "opening_hours": "Mo-Th, Su 07:00-24:00; Fr-Sa 07:00-01:00",
         "phone": "+49 89 78594413",
         "website": "https://www.mcdonalds.com/de/de-de/restaurant-suche.html/l/schierling/siemensstrasse-1/1849",
-        "brand:wikidata": "Q38076",
-        "chain": "mcdonalds"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.8713646,
-          48.9118532
-        ]
-      },
-      "properties": {
-        "id": 126097605,
-        "osm_type": "way",
-        "name": "McDonald's",
-        "brand": "McDonald's",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
       }
@@ -6951,6 +6967,25 @@
         "operator": "Fa. Desanto Gastro KG",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.2253716,
+          50.3317043
+        ]
+      },
+      "properties": {
+        "id": 1472107407,
+        "osm_type": "way",
+        "name": "Burger King",
+        "brand": "Burger King",
+        "opening_hours": "Mo-Su 10:00-23:00",
+        "brand:wikidata": "Q177054",
+        "chain": "burger_king"
       }
     },
     {

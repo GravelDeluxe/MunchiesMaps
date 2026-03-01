@@ -3892,21 +3892,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.9122093,
-          50.9912839
-        ]
-      },
-      "properties": {
-        "id": 11159851565,
-        "osm_type": "node",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.9900226,
           50.9992376
         ]
@@ -4080,6 +4065,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.0919288,
+          50.8042354
+        ]
+      },
+      "properties": {
+        "id": 1222941179,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.0934539,
           50.8063583
         ]
@@ -4088,20 +4087,6 @@
         "id": 4874812042,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.0918554,
-          50.8043023
-        ]
-      },
-      "properties": {
-        "id": 4887797731,
-        "osm_type": "node"
       }
     },
     {
@@ -4444,6 +4429,37 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.0107264,
+          51.0324752
+        ]
+      },
+      "properties": {
+        "id": 13288736501,
+        "osm_type": "node",
+        "name": "Seeblickhütte",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.0164768,
+          51.0299485
+        ]
+      },
+      "properties": {
+        "id": 11896731036,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.3580719,
           50.9968445
         ]
@@ -4497,6 +4513,21 @@
         "id": 9010837992,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9053182,
+          51.2752039
+        ]
+      },
+      "properties": {
+        "id": 13534577388,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -5720,14 +5751,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.7849725,
-          51.0582293
+          13.7849694,
+          51.0582264
         ]
       },
       "properties": {
         "id": 9234862257,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -6565,6 +6597,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.9737207,
+          51.2232871
+        ]
+      },
+      "properties": {
+        "id": 861752443,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           14.0380262,
           51.1914513
         ]
@@ -6632,7 +6679,6 @@
       "properties": {
         "id": 746479406,
         "osm_type": "node",
-        "name": "Schutzhütte",
         "shelter_type": "weather_shelter"
       }
     },
@@ -7061,7 +7107,7 @@
       "properties": {
         "id": 5602770317,
         "osm_type": "node",
-        "name": "Trautewalde - Blick",
+        "name": "Tautewalde - Blick",
         "shelter_type": "lean_to"
       }
     },
@@ -7223,8 +7269,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.5566557,
-          51.1728642
+          14.5566502,
+          51.1728841
         ]
       },
       "properties": {
@@ -9086,6 +9132,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.9121713,
+          50.9912407
+        ]
+      },
+      "properties": {
+        "id": 1469247457,
+        "osm_type": "way",
+        "name": "Dorfplatz Frankenau",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.8798319,
           51.0878506
         ]
@@ -9833,7 +9895,8 @@
         "name": "Trekkinghütte \"Kamphütte\"",
         "access": "yes",
         "fee": "yes",
-        "operator": "Sachsenforst"
+        "operator": "Sachsenforst",
+        "description": "opens from easter-november"
       }
     },
     {
@@ -10614,6 +10677,22 @@
         "id": 448855758,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.9861585,
+          51.3286471
+        ]
+      },
+      "properties": {
+        "id": 1467988412,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     }
   ]

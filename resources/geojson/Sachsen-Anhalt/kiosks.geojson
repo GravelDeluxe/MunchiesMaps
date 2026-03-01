@@ -614,15 +614,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.9890494,
-          51.3426465
+          11.988983,
+          51.342635
         ]
       },
       "properties": {
         "id": 12185772065,
         "osm_type": "node",
         "name": "REWE To Go",
-        "brand": "REWE To Go"
+        "brand": "REWE To Go",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -1038,7 +1039,7 @@
         "id": 12466933059,
         "osm_type": "node",
         "name": "Vietnam Imbiss",
-        "opening_hours": "Mo-Fr 10:00-20:30; Sa 10:00-20:30"
+        "opening_hours": "Mo-Fr 09:30-21:00; Sa 17:00-21:00; Su 17:00-21:00"
       }
     },
     {
@@ -1141,21 +1142,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.9792424,
-          51.4726241
-        ]
-      },
-      "properties": {
-        "id": 4912687022,
-        "osm_type": "node",
-        "name": "Lebensmittel-+DHL-Paketshop"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.9640022,
           51.4765374
         ]
@@ -1178,7 +1164,8 @@
       "properties": {
         "id": 4975006621,
         "osm_type": "node",
-        "name": "Moonlight"
+        "name": "Moonlight",
+        "opening_hours": "Mo-Th 11:00-23:00, Fr 11:00-02:00, Sa,Su 11:00-20:00"
       }
     },
     {
@@ -3096,22 +3083,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6126405,
-          52.1257902
-        ]
-      },
-      "properties": {
-        "id": 662687589,
-        "osm_type": "node",
-        "name": "Magdeburger Spätshop und Imbiss",
-        "opening_hours": "Mo-Th 18:00-24:00, Fr 18:00-02:00, PH,Su 12:00-24:00, Sa 18:00-02:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.6105822,
           52.1303542
         ]
@@ -3144,6 +3115,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.6125546,
+          52.1262218
+        ]
+      },
+      "properties": {
+        "id": 5208030622,
+        "osm_type": "node",
+        "name": "Magdeburger Spätshop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.6096923,
           52.1285
         ]
@@ -3152,7 +3138,7 @@
         "id": 8897648826,
         "osm_type": "node",
         "name": "Ernas LebensMittelPunkt",
-        "opening_hours": "Sa 10:00-16:00; Mo-Fr 10:00-18:30"
+        "opening_hours": "Sa 10:00-14:00; Mo-Fr 10:00-18:30"
       }
     },
     {
@@ -3288,14 +3274,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6296565,
-          52.1220506
+          11.6296546,
+          52.1220973
         ]
       },
       "properties": {
         "id": 817905379,
         "osm_type": "node",
-        "name": "Bioladen Am Hassel",
+        "name": "Brot und Käs - Der Feine Bioladen",
         "opening_hours": "Mo-Fr 08:00-18:00; Sa 08:00-14:00"
       }
     },
@@ -3421,8 +3407,7 @@
       "properties": {
         "id": 12469246741,
         "osm_type": "node",
-        "name": "Moa Beat Spätshop",
-        "opening_hours": "Mo-Th 12:00-24:00, Fr 18:00-02:00,12:00-15:00, Sa 15:00-02:00, Su 15:00-24:00"
+        "name": "Kiosk"
       }
     },
     {
@@ -3772,22 +3757,6 @@
         "osm_type": "node",
         "name": "Uni-Shop",
         "opening_hours": "Mo-Th 06:30-00:00, Fr 06:30-02:00, Sa 09:00-02:00, Su 09:00-00:00; PH 10:00-01:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.6383012,
-          52.1378281
-        ]
-      },
-      "properties": {
-        "id": 4149750691,
-        "osm_type": "node",
-        "name": "Al-Rahman",
-        "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
     {
@@ -4921,6 +4890,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.3948849,
+          51.6860868
+        ]
+      },
+      "properties": {
+        "id": 13594780946,
+        "osm_type": "node",
+        "name": "Dein Schopp"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.4524244,
           51.6892213
         ]
@@ -5099,6 +5083,21 @@
         "osm_type": "node",
         "name": "Media Imbiss",
         "opening_hours": "Mo-Sa 09:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.246046,
+          51.8412246
+        ]
+      },
+      "properties": {
+        "id": 13527315404,
+        "osm_type": "node",
+        "name": "Asia/Afrika Markt"
       }
     },
     {
@@ -5771,7 +5770,7 @@
         "id": 183559668,
         "osm_type": "way",
         "name": "Runder Kiosk am Bahnhof",
-        "opening_hours": "Mo,Tu,Th,Fr 06:00-16:00; We 06:00-14:00; Sa,Su off"
+        "opening_hours": "Mo-Fr 06:00-13:00; Sa,Su off"
       }
     },
     {
@@ -6411,7 +6410,8 @@
       "properties": {
         "id": 206853938,
         "osm_type": "way",
-        "brand": "Total"
+        "name": "TotalEnergies",
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -6613,9 +6613,9 @@
       "properties": {
         "id": 1232540934,
         "osm_type": "way",
-        "name": "ServiceStore DB",
-        "brand": "ServiceStore DB",
-        "opening_hours": "Mo-Su 06:00-21:00; PH 07:30-21:00"
+        "name": "Point",
+        "brand": "Point",
+        "opening_hours": "Mo-Th 06:00-21:00; Fr 06:00-21:30; Sa 06:30-21:30; Su 07:00-21:30"
       }
     },
     {
@@ -6825,8 +6825,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.7297781,
-          52.6570841
+          11.7297725,
+          52.657085
         ]
       },
       "properties": {
@@ -7141,9 +7141,8 @@
       "properties": {
         "id": 410250942,
         "osm_type": "way",
-        "name": "ServiceStore DB",
-        "brand": "ServiceStore DB",
-        "opening_hours": "Mo-Fr 05:00-20:00; Sa 08:00-20:00; Su 08:00-21:00"
+        "name": "Point",
+        "opening_hours": "Mo,Fr 05:00-20:00; Tu-Th 06:00-20:00; Sa,Su 08:00-20:00"
       }
     },
     {

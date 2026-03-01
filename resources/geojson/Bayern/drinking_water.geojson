@@ -143,20 +143,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.6907688,
-          47.5712489
-        ]
-      },
-      "properties": {
-        "id": 727347297,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.7025765,
           47.5849867
         ]
@@ -458,8 +444,7 @@
       },
       "properties": {
         "id": 11034237710,
-        "osm_type": "node",
-        "name": "Wasserspender"
+        "osm_type": "node"
       }
     },
     {
@@ -1110,20 +1095,6 @@
         "id": 11166458892,
         "osm_type": "node",
         "access": "customers"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.9280577,
-          49.7931772
-        ]
-      },
-      "properties": {
-        "id": 12078659470,
-        "osm_type": "node"
       }
     },
     {
@@ -2006,6 +1977,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.2078931,
+          47.5480752
+        ]
+      },
+      "properties": {
+        "id": 13245370713,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.2157904,
           47.5547171
         ]
@@ -2178,6 +2163,21 @@
       "properties": {
         "id": 5784888663,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.2372805,
+          47.5871426
+        ]
+      },
+      "properties": {
+        "id": 13481910108,
+        "osm_type": "node",
+        "access": "yes"
       }
     },
     {
@@ -4792,7 +4792,8 @@
       },
       "properties": {
         "id": 418803116,
-        "osm_type": "node"
+        "osm_type": "node",
+        "fee": "no"
       }
     },
     {
@@ -8857,7 +8858,7 @@
       "properties": {
         "id": 13275341154,
         "osm_type": "node",
-        "access": "public",
+        "access": "yes",
         "fee": "no",
         "indoor": "no"
       }
@@ -9707,6 +9708,20 @@
       },
       "properties": {
         "id": 656248108,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5391638,
+          48.1282875
+        ]
+      },
+      "properties": {
+        "id": 13534148042,
         "osm_type": "node"
       }
     },
@@ -10635,6 +10650,20 @@
       },
       "properties": {
         "id": 1470712698,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7690369,
+          47.663393
+        ]
+      },
+      "properties": {
+        "id": 13464176827,
         "osm_type": "node"
       }
     },
@@ -13472,13 +13501,70 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.1853795,
+          48.0613905
+        ]
+      },
+      "properties": {
+        "id": 13593728807,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "yes",
+        "operator": "Stadtwerke Wasserburg a. Inn"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2287792,
+          48.0576801
+        ]
+      },
+      "properties": {
+        "id": 13593715099,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "yes",
+        "operator": "Stadtwerke Wasserburg a. Inn"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2323368,
+          48.0601767
+        ]
+      },
+      "properties": {
+        "id": 11344866826,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.2324057,
           48.0624965
         ]
       },
       "properties": {
         "id": 364774355,
-        "osm_type": "node"
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "yes",
+        "operator": "Stadt Wasserburg a. Inn"
       }
     },
     {
@@ -13508,7 +13594,11 @@
       },
       "properties": {
         "id": 4394633193,
-        "osm_type": "node"
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "yes",
+        "operator": "Stadtwerke Wasserburg a. Inn"
       }
     },
     {
@@ -16133,8 +16223,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.8567495,
-          48.3789019
+          10.8566952,
+          48.3789068
         ]
       },
       "properties": {
@@ -19235,7 +19325,6 @@
       "properties": {
         "id": 9111440376,
         "osm_type": "node",
-        "name": "Trinkbrunnen Neufahrn Zentrum",
         "opening_hours": "24/7"
       }
     },
@@ -21885,20 +21974,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.9553533,
-          49.1027886
-        ]
-      },
-      "properties": {
-        "id": 1673169819,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.9372227,
           49.1187869
         ]
@@ -23220,6 +23295,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.3589854,
+          49.3858688
+        ]
+      },
+      "properties": {
+        "id": 13584299381,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.5062478,
           49.3207662
         ]
@@ -23637,7 +23726,8 @@
       "properties": {
         "id": 12824433957,
         "osm_type": "node",
-        "access": "yes"
+        "access": "yes",
+        "seasonal": "summer"
       }
     },
     {
@@ -23729,6 +23819,7 @@
         "access": "yes",
         "opening_hours": "Apr-Oct 00:00-24:00 open; Nov-Mar off",
         "fee": "no",
+        "seasonal": "yes",
         "operator": "Stadtwerke Forchheim"
       }
     },
@@ -24700,6 +24791,24 @@
         "id": 3654331838,
         "osm_type": "node",
         "fee": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9068541,
+          48.3062118
+        ]
+      },
+      "properties": {
+        "id": 13540522109,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "yes",
+        "operator": "Stadt Erding"
       }
     },
     {
@@ -28877,8 +28986,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.6464835,
-          50.1484234
+          9.6464337,
+          50.1484284
         ]
       },
       "properties": {
@@ -31214,20 +31323,6 @@
       },
       "properties": {
         "id": 12880946447,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9232562,
-          50.184422
-        ]
-      },
-      "properties": {
-        "id": 12184183543,
         "osm_type": "node"
       }
     },

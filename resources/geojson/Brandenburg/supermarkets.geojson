@@ -66,7 +66,7 @@
         "osm_type": "node",
         "name": "Aldi",
         "brand": "ALDI Nord",
-        "opening_hours": "Mo-Sa 08:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-20:00"
       }
     },
     {
@@ -99,7 +99,8 @@
         "id": 274061589,
         "osm_type": "node",
         "name": "Kaufland",
-        "brand": "Kaufland"
+        "brand": "Kaufland",
+        "opening_hours": "Mo-Sa 07:00-22:00; PH off"
       }
     },
     {
@@ -750,7 +751,8 @@
         "id": 5404648011,
         "osm_type": "node",
         "name": "Kaufland",
-        "brand": "Kaufland"
+        "brand": "Kaufland",
+        "opening_hours": "Mo-Sa 07:00-22:00; PH off"
       }
     },
     {
@@ -930,7 +932,7 @@
         "id": 2629486652,
         "osm_type": "node",
         "name": "Norma",
-        "opening_hours": "Mo-Sa 08:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-20:00"
       }
     },
     {
@@ -947,7 +949,7 @@
         "osm_type": "node",
         "name": "Rewe",
         "brand": "Rewe",
-        "opening_hours": "Mo-Sa 07:00-22:00;PH closed"
+        "opening_hours": "Mo-Sa 06:00-22:00; PH off"
       }
     },
     {
@@ -1603,7 +1605,7 @@
         "osm_type": "node",
         "name": "Edeka",
         "brand": "EDEKA",
-        "opening_hours": "Mo-We 08:00-20:00; Th-Sa 08:00-22:00; PH,Su off"
+        "opening_hours": "Mo-Sa 08:00-21:00; Su, PH off"
       }
     },
     {
@@ -2897,7 +2899,7 @@
         "osm_type": "node",
         "name": "Netto Marken-Discount",
         "brand": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-22:00; PH off"
+        "opening_hours": "Mo-Sa 07:00-21:00; PH off"
       }
     },
     {
@@ -3109,6 +3111,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.3547744,
+          53.286597
+        ]
+      },
+      "properties": {
+        "id": 13495960866,
+        "osm_type": "node",
+        "name": "Tante Enso Freyenstein"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.5099079,
           51.4627101
         ]
@@ -3200,6 +3217,23 @@
         "name": "Rewe",
         "brand": "REWE",
         "opening_hours": "Mo-Sa 07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.8693092,
+          51.4676519
+        ]
+      },
+      "properties": {
+        "id": 13461283692,
+        "osm_type": "node",
+        "name": "Aldi",
+        "brand": "Aldi Nord",
+        "opening_hours": "Mo-Sa 07:00-20:00"
       }
     },
     {
@@ -4332,7 +4366,7 @@
         "osm_type": "node",
         "name": "Edeka",
         "brand": "Edeka",
-        "opening_hours": "Mo-Sa 07:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-20:00"
       }
     },
     {
@@ -4395,7 +4429,8 @@
         "id": 8228466122,
         "osm_type": "node",
         "name": "Aldi Nord",
-        "brand": "Aldi Nord"
+        "brand": "Aldi Nord",
+        "opening_hours": "Mo-Sa 07:00-20:00; PH off"
       }
     },
     {
@@ -4825,7 +4860,8 @@
         "id": 1838653366,
         "osm_type": "node",
         "name": "Aldi",
-        "brand": "Aldi Nord"
+        "brand": "Aldi Nord",
+        "opening_hours": "Mo-Sa 08:00-20:00; PH off"
       }
     },
     {
@@ -4843,21 +4879,6 @@
         "name": "REWE",
         "brand": "Rewe",
         "opening_hours": "Mo-Sa 07:00-22:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.7193145,
-          51.9513559
-        ]
-      },
-      "properties": {
-        "id": 12160455366,
-        "osm_type": "node",
-        "name": "RINGFOTO HENTZSCHELs"
       }
     },
     {
@@ -5744,22 +5765,6 @@
         "osm_type": "node",
         "name": "Milchladen Lobetal",
         "opening_hours": "Mo-Fr 09:00-16:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.6302875,
-          52.7220405
-        ]
-      },
-      "properties": {
-        "id": 961401550,
-        "osm_type": "node",
-        "name": "Bürger-Bibliothek Rüdnitz",
-        "opening_hours": "Mo-Fr 16:00-18:30"
       }
     },
     {
@@ -6841,7 +6846,8 @@
         "id": 8208559201,
         "osm_type": "node",
         "name": "Kaufland",
-        "brand": "Kaufland"
+        "brand": "Kaufland",
+        "opening_hours": "Mo-Sa 07:00-22:00; PH off"
       }
     },
     {
@@ -6974,6 +6980,23 @@
         "name": "Norma",
         "brand": "Norma",
         "opening_hours": "Mo-Sa 07:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.8602735,
+          53.3172749
+        ]
+      },
+      "properties": {
+        "id": 13464335177,
+        "osm_type": "node",
+        "name": "Netto Marken-Discount",
+        "brand": "Netto Marken-Discount",
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -7293,6 +7316,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.2784855,
+          52.2668027
+        ]
+      },
+      "properties": {
+        "id": 1474339736,
+        "osm_type": "way",
+        "name": "EDEKA Matthews",
+        "brand": "Edeka",
+        "opening_hours": "Mo-Sa 07:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.2792269,
           52.2682703
         ]
@@ -7302,23 +7342,6 @@
         "osm_type": "way",
         "name": "Netto Marken-Discount",
         "brand": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.283968,
-          52.2682669
-        ]
-      },
-      "properties": {
-        "id": 242563191,
-        "osm_type": "way",
-        "name": "EDEKA",
-        "brand": "EDEKA",
         "opening_hours": "Mo-Sa 07:00-20:00"
       }
     },
@@ -7899,25 +7922,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7573844,
-          52.1825596
-        ]
-      },
-      "properties": {
-        "id": 185742885,
-        "osm_type": "way",
-        "name": "Penny",
-        "brand": "Penny",
-        "opening_hours": "Mo-Sa 07:00-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.7843583,
-          52.159028
+          12.7843855,
+          52.1590214
         ]
       },
       "properties": {
@@ -7926,6 +7932,23 @@
         "name": "Kaufland",
         "brand": "Kaufland",
         "opening_hours": "Mo-Sa 07:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.782966,
+          52.1581776
+        ]
+      },
+      "properties": {
+        "id": 552008610,
+        "osm_type": "way",
+        "name": "Penny",
+        "brand": "Penny",
+        "opening_hours": "Mo-Sa 07:00-21:00; Su,PH off"
       }
     },
     {
@@ -7959,7 +7982,7 @@
         "osm_type": "way",
         "name": "Netto Marken-Discount",
         "brand": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -8400,7 +8423,8 @@
         "id": 146870458,
         "osm_type": "way",
         "name": "Kaufland",
-        "brand": "Kaufland"
+        "brand": "Kaufland",
+        "opening_hours": "Mo-Sa 07:00-22:00; Su, PH off"
       }
     },
     {
@@ -8729,8 +8753,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.0916269,
-          52.3703642
+          13.0916376,
+          52.3703646
         ]
       },
       "properties": {
@@ -8797,8 +8821,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.0853421,
-          52.3924114
+          13.0853406,
+          52.3924132
         ]
       },
       "properties": {
@@ -8806,7 +8830,7 @@
         "osm_type": "way",
         "name": "Netto Marken-Discount",
         "brand": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-22:00; PH off"
+        "opening_hours": "Mo-Sa 06:30-22:00; PH,Su off"
       }
     },
     {
@@ -8865,8 +8889,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.0101114,
-          52.4057647
+          13.0101012,
+          52.4057799
         ]
       },
       "properties": {
@@ -9813,8 +9837,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.3377095,
-          52.6046668
+          12.3377061,
+          52.6046708
         ]
       },
       "properties": {
@@ -9847,8 +9871,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.3543953,
-          52.6029534
+          12.354401,
+          52.6029568
         ]
       },
       "properties": {
@@ -10128,15 +10152,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.745658,
-          53.1619661
+          11.7456594,
+          53.161966
         ]
       },
       "properties": {
         "id": 260276273,
         "osm_type": "way",
         "name": "ALDI Nord",
-        "brand": "ALDI Nord"
+        "brand": "ALDI Nord",
+        "opening_hours": "Mo-Sa 07:00-20:00; PH off"
       }
     },
     {
@@ -10212,8 +10237,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.1591456,
-          53.1485124
+          12.1592185,
+          53.1485255
         ]
       },
       "properties": {
@@ -11182,7 +11207,7 @@
       "properties": {
         "id": 27425140,
         "osm_type": "way",
-        "name": "famila",
+        "name": "Famila",
         "brand": "famila",
         "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off"
       }
@@ -11883,8 +11908,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2350455,
-          52.7441486
+          13.2350281,
+          52.7441493
         ]
       },
       "properties": {
@@ -12668,8 +12693,8 @@
         "id": 788119224,
         "osm_type": "way",
         "name": "REWE",
-        "brand": "REWE",
-        "opening_hours": "Mo-Sa 06:00-22:00"
+        "brand": "Rewe",
+        "opening_hours": "Mo-Sa 06:00-22:00; PH off"
       }
     },
     {
@@ -12720,7 +12745,7 @@
         "osm_type": "way",
         "name": "Netto",
         "brand": "Netto",
-        "opening_hours": "Mo-Sa 08:00-20:00"
+        "opening_hours": "Mo-Sa 08:00-20:00; PH off"
       }
     },
     {
@@ -12769,9 +12794,9 @@
       "properties": {
         "id": 211639522,
         "osm_type": "way",
-        "name": "PENNY",
-        "brand": "PENNY",
-        "opening_hours": "Mo-Sa 07:00-20:00; PH closed"
+        "name": "PENNY. Schwarzheide",
+        "brand": "Penny",
+        "opening_hours": "Mo-Sa 07:00-20:00; PH off"
       }
     },
     {
@@ -12788,7 +12813,7 @@
         "osm_type": "way",
         "name": "Netto Marken-Discount",
         "brand": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-20:00; Su, PH off"
+        "opening_hours": "Mo-Sa 07:00-20:00; PH off"
       }
     },
     {
@@ -13311,7 +13336,7 @@
         "osm_type": "way",
         "name": "Netto Marken-Discount",
         "brand": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -14091,15 +14116,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.4587333,
-          52.2951789
+          13.4587358,
+          52.2951811
         ]
       },
       "properties": {
         "id": 486170339,
         "osm_type": "way",
         "name": "Aldi",
-        "brand": "ALDI Nord",
+        "brand": "Aldi Nord",
         "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
@@ -15022,15 +15047,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.0772915,
-          52.3367312
+          14.0773045,
+          52.3367296
         ]
       },
       "properties": {
         "id": 247120727,
         "osm_type": "way",
         "name": "Aldi",
-        "brand": "Aldi Nord"
+        "brand": "Aldi Nord",
+        "opening_hours": "Mo-Sa 07:00-20:00; PH off"
       }
     },
     {
@@ -15270,8 +15296,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.3122571,
-          51.7448741
+          14.3122672,
+          51.7448762
         ]
       },
       "properties": {
@@ -17003,23 +17029,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.8058434,
-          52.5315192
-        ]
-      },
-      "properties": {
-        "id": 249605652,
-        "osm_type": "way",
-        "name": "Aldi",
-        "brand": "ALDI Nord",
-        "opening_hours": "Mo-Sa 07:00-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.8075208,
           52.5318254
         ]
@@ -17047,6 +17056,23 @@
         "name": "Norma",
         "brand": "Norma",
         "opening_hours": "Mo-Sa 07:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.8200467,
+          52.539721
+        ]
+      },
+      "properties": {
+        "id": 1466541666,
+        "osm_type": "way",
+        "name": "Aldi",
+        "brand": "Aldi Nord",
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -17703,7 +17729,8 @@
         "id": 1113475023,
         "osm_type": "way",
         "name": "ALDI Nord",
-        "brand": "ALDI Nord"
+        "brand": "ALDI Nord",
+        "opening_hours": "Mo-Sa 07:00-20:00; Su, PH off"
       }
     },
     {
@@ -18065,15 +18092,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.0342425,
-          52.7892703
+          14.0343124,
+          52.7892755
         ]
       },
       "properties": {
         "id": 666926616,
         "osm_type": "way",
-        "name": "NORMA",
-        "brand": "NORMA",
+        "name": "Norma",
+        "brand": "Norma",
         "opening_hours": "Mo-Sa 07:00-21:00; Su,PH off"
       }
     },
@@ -18579,23 +18606,6 @@
         "name": "Netto",
         "brand": "Netto",
         "opening_hours": "Mo-Sa 07:00-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.8600096,
-          53.3172548
-        ]
-      },
-      "properties": {
-        "id": 237766084,
-        "osm_type": "way",
-        "name": "Netto Marken-Discount",
-        "brand": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {

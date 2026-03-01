@@ -462,7 +462,7 @@
         "osm_type": "node",
         "name": "EDEKA",
         "brand": "EDEKA",
-        "opening_hours": "Mo-We 10:00-20:00, Th-Sa 08:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-20:00"
       }
     },
     {
@@ -496,7 +496,7 @@
         "osm_type": "node",
         "name": "Edeka",
         "brand": "EDEKA",
-        "opening_hours": "Mo-Sa 07:30-20:00"
+        "opening_hours": "Mo-Sa 07:00-20:00"
       }
     },
     {
@@ -859,6 +859,23 @@
         "name": "ALDI Süd",
         "brand": "ALDI Süd",
         "opening_hours": "Mo-Sa 08:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3950927,
+          49.2539419
+        ]
+      },
+      "properties": {
+        "id": 13542888331,
+        "osm_type": "node",
+        "name": "Lidl",
+        "brand": "Lidl",
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -1440,7 +1457,7 @@
         "osm_type": "node",
         "name": "Rewe",
         "brand": "Rewe",
-        "opening_hours": "Mo-Fr 09:30-18:30; Sa 09:30-16:00"
+        "opening_hours": "Mo-Sa 07:00-22:00"
       }
     },
     {
@@ -3277,7 +3294,8 @@
         "id": 6694042761,
         "osm_type": "node",
         "name": "REWE",
-        "brand": "REWE"
+        "brand": "REWE",
+        "opening_hours": "Mo-Sa 07:00-22:00"
       }
     },
     {
@@ -3368,8 +3386,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8611362,
-          49.8413409
+          7.8611687,
+          49.8413894
         ]
       },
       "properties": {
@@ -3635,7 +3653,8 @@
       "properties": {
         "id": 13338053553,
         "osm_type": "node",
-        "name": "Supermercato Pisano"
+        "name": "Supermercato Pisano",
+        "opening_hours": "Mo-Fr 08:00-18:00, Sa 08:00-16:00; PH off"
       }
     },
     {
@@ -3738,6 +3757,23 @@
         "name": "Rewe Rodriguez",
         "brand": "REWE",
         "opening_hours": "Mo-Sa 07:00-22:00; PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.351355,
+          49.6302482
+        ]
+      },
+      "properties": {
+        "id": 10656092999,
+        "osm_type": "node",
+        "name": "Lidl",
+        "brand": "Lidl",
+        "opening_hours": "Mo-Sa 07:00-21:00; Su off; PH off"
       }
     },
     {
@@ -3921,6 +3957,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.1208327,
+          49.7470546
+        ]
+      },
+      "properties": {
+        "id": 13594204633,
+        "osm_type": "node",
+        "name": "Visus Markt Russische Spezialitäten",
+        "opening_hours": "Mo-Fr 09:00-19:00, Sa 09:00-16:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.1216283,
           49.7522396
         ]
@@ -3946,7 +3998,8 @@
         "id": 9993147735,
         "osm_type": "node",
         "name": "Kaufland",
-        "brand": "Kaufland"
+        "brand": "Kaufland",
+        "opening_hours": "Mo-Sa 07:00-22:00; PH off"
       }
     },
     {
@@ -3980,22 +4033,6 @@
         "osm_type": "node",
         "name": "MischWerk einFach",
         "opening_hours": "Mo-Fr 09:00-18:00; Sa 09:00-14:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.0302525,
-          49.9000604
-        ]
-      },
-      "properties": {
-        "id": 1352809106,
-        "osm_type": "node",
-        "name": "unser dorfladen",
-        "opening_hours": "Tu,We,Fr,Sa 07:00-10:00"
       }
     },
     {
@@ -4673,21 +4710,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4171307,
-          49.4958993
-        ]
-      },
-      "properties": {
-        "id": 2631056268,
-        "osm_type": "node",
-        "name": "nah & gut U. Weis"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.4370207,
           49.4910555
         ]
@@ -4721,15 +4743,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4167544,
-          49.4991339
+          8.4167777,
+          49.4991549
         ]
       },
       "properties": {
         "id": 1770653188,
         "osm_type": "node",
-        "name": "PENNY",
-        "brand": "PENNY",
+        "name": "Penny",
+        "brand": "Penny",
         "opening_hours": "Mo-Sa 07:30-22:00; Su,PH off"
       }
     },
@@ -4761,7 +4783,8 @@
       "properties": {
         "id": 1233787791,
         "osm_type": "node",
-        "name": "E aktiv Markt",
+        "name": "Edeka Manambelona",
+        "brand": "Edeka",
         "opening_hours": "Mo-Sa 07:30-20:00"
       }
     },
@@ -5991,7 +6014,7 @@
         "id": 9287976817,
         "osm_type": "node",
         "name": "Gänseblümchen - Naturkost im Fachwerkhaus",
-        "opening_hours": "Mo off; Tu 09:00-13:00, 14:30-18:30; We 09:00-13:00; Th,Fr 09:00-13:00, 14:30-18:30; Sa 09:00-13:00; Su,PH off"
+        "opening_hours": "Tu 09:00-13:00; We 09:00-13:00; Th,Fr 09:00-13:00,14:30-18:30; Sa 09:00-13:00; Mo off; Su,PH off"
       }
     },
     {
@@ -6554,6 +6577,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.2887852,
+          50.5714639
+        ]
+      },
+      "properties": {
+        "id": 13456634273,
+        "osm_type": "node",
+        "name": "Rewe Florian Weller",
+        "brand": "REWE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.4204201,
           50.6591738
         ]
@@ -6726,23 +6765,6 @@
         "osm_type": "node",
         "name": "Asian Bazaar Lebensmittel",
         "opening_hours": "Mo-Sa 10:00-19:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.8928441,
-          49.9681379
-        ]
-      },
-      "properties": {
-        "id": 6247160930,
-        "osm_type": "node",
-        "name": "REWE",
-        "brand": "Rewe",
-        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -7687,6 +7709,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.264506,
+          50.0004893
+        ]
+      },
+      "properties": {
+        "id": 9865652517,
+        "osm_type": "node",
+        "name": "Omari Supermarkt",
+        "opening_hours": "Mo-Sa 09:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.2597165,
           50.0028821
         ]
@@ -7714,23 +7752,6 @@
         "name": "PENNY",
         "brand": "Penny",
         "opening_hours": "Mo-Sa 07:30-22:00; Su,PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.2586867,
-          50.0028202
-        ]
-      },
-      "properties": {
-        "id": 423422867,
-        "osm_type": "node",
-        "name": "Aldi Süd",
-        "brand": "ALDI Süd",
-        "opening_hours": "Mo-Sa 08:00-21:00"
       }
     },
     {
@@ -8014,7 +8035,7 @@
         "osm_type": "node",
         "name": "Aldi Süd",
         "brand": "ALDI Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00; Su,PH off"
+        "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
     {
@@ -8198,7 +8219,7 @@
       "properties": {
         "id": 13288567577,
         "osm_type": "node",
-        "name": "PENNY",
+        "name": "Penny",
         "brand": "Penny",
         "opening_hours": "Mo-Sa 07:00-22:00; PH off"
       }
@@ -8331,6 +8352,21 @@
         "id": 11494954709,
         "osm_type": "node",
         "name": "Naturkreis"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5924336,
+          50.3570501
+        ]
+      },
+      "properties": {
+        "id": 13587516056,
+        "osm_type": "node",
+        "name": "City Supermarkt"
       }
     },
     {
@@ -8538,15 +8574,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6295163,
-          50.3935836
+          7.629471,
+          50.3935392
         ]
       },
       "properties": {
         "id": 660660515,
         "osm_type": "node",
         "name": "nah und gut",
-        "brand": "EDEKA"
+        "brand": "Edeka"
       }
     },
     {
@@ -8631,21 +8667,6 @@
         "name": "Lidl",
         "brand": "Lidl",
         "opening_hours": "Mo-Sa 07:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.6704658,
-          50.4359683
-        ]
-      },
-      "properties": {
-        "id": 843124442,
-        "osm_type": "node",
-        "name": "Weyer"
       }
     },
     {
@@ -9141,8 +9162,8 @@
       "properties": {
         "id": 10558921600,
         "osm_type": "node",
-        "name": "ALDI Süd",
-        "brand": "ALDI Süd",
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
         "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
@@ -9178,23 +9199,6 @@
         "name": "PENNY",
         "brand": "Penny",
         "opening_hours": "Mo-Sa 07:00-21:45"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.7975678,
-          50.4700685
-        ]
-      },
-      "properties": {
-        "id": 10608099551,
-        "osm_type": "node",
-        "name": "Netto Marken-Discount",
-        "brand": "Netto Marken-Discount",
-        "opening_hours": "Mo-Sa 7:00-21:00; PH off"
       }
     },
     {
@@ -9243,8 +9247,25 @@
       "properties": {
         "id": 289543288,
         "osm_type": "node",
-        "name": "NORMA",
-        "brand": "NORMA"
+        "name": "Norma",
+        "brand": "Norma",
+        "opening_hours": "Mo-Sa 08:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7895309,
+          50.4763028
+        ]
+      },
+      "properties": {
+        "id": 290102710,
+        "osm_type": "node",
+        "name": "Jazzera",
+        "opening_hours": "Mo-Sa 09:00-20:00"
       }
     },
     {
@@ -9284,15 +9305,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7600013,
-          50.5365121
+          7.7599511,
+          50.5363568
         ]
       },
       "properties": {
         "id": 940094647,
         "osm_type": "node",
-        "name": "ALDI Süd",
-        "brand": "ALDI Süd",
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
         "opening_hours": "Mo-Sa 08:00-20:00; PH off"
       }
     },
@@ -9301,8 +9322,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7609298,
-          50.5377473
+          7.7609923,
+          50.5376263
         ]
       },
       "properties": {
@@ -9423,6 +9444,38 @@
         "id": 11766520114,
         "osm_type": "node",
         "name": "PENNY"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6457652,
+          50.688564
+        ]
+      },
+      "properties": {
+        "id": 13516997932,
+        "osm_type": "node",
+        "name": "Penny",
+        "brand": "Penny"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6459108,
+          50.6894233
+        ]
+      },
+      "properties": {
+        "id": 13516997927,
+        "osm_type": "node",
+        "name": "Rewe",
+        "brand": "Rewe"
       }
     },
     {
@@ -9781,7 +9834,7 @@
         "id": 2317510802,
         "osm_type": "node",
         "name": "Rewe",
-        "brand": "REWE",
+        "brand": "Rewe",
         "opening_hours": "Mo-Sa 07:00-22:00"
       }
     },
@@ -9800,23 +9853,6 @@
         "name": "Lidl",
         "brand": "Lidl",
         "opening_hours": "Mo-Sa 08:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.8635769,
-          50.8104447
-        ]
-      },
-      "properties": {
-        "id": 292768001,
-        "osm_type": "node",
-        "name": "Aldi Süd",
-        "brand": "Aldi Süd",
-        "opening_hours": "8:00-20:00"
       }
     },
     {
@@ -10227,6 +10263,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.6502719,
+          49.7565386
+        ]
+      },
+      "properties": {
+        "id": 27596575,
+        "osm_type": "way",
+        "name": "Kaufland",
+        "brand": "Kaufland",
+        "opening_hours": "Mo-Sa 07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.6572936,
           49.763029
         ]
@@ -10533,8 +10586,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1845879,
-          48.9815183
+          8.1845773,
+          48.9815218
         ]
       },
       "properties": {
@@ -10550,8 +10603,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1858144,
-          48.9800891
+          8.1858122,
+          48.9800868
         ]
       },
       "properties": {
@@ -10839,23 +10892,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3918502,
-          49.2535143
-        ]
-      },
-      "properties": {
-        "id": 99169302,
-        "osm_type": "way",
-        "name": "Lidl",
-        "brand": "Lidl",
-        "opening_hours": "Mo-Sa 07:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.3808536,
           49.255429
         ]
@@ -11122,14 +11158,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3790959,
-          49.410534
+          7.3790506,
+          49.4105378
         ]
       },
       "properties": {
         "id": 422406795,
         "osm_type": "way",
-        "name": "WASGAU Frischemarkt",
+        "name": "Wasgau",
         "brand": "Wasgau",
         "opening_hours": "Mo-Sa 08:00-21:00"
       }
@@ -12334,7 +12370,7 @@
         "id": 35894182,
         "osm_type": "way",
         "name": "Rewe",
-        "brand": "REWE",
+        "brand": "Rewe",
         "opening_hours": "Mo-Sa 07:00-22:00"
       }
     },
@@ -12353,6 +12389,20 @@
         "name": "ALDI Süd",
         "brand": "ALDI Süd",
         "opening_hours": "Mo-Sa 08:00-20:00; PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4586527,
+          49.7857943
+        ]
+      },
+      "properties": {
+        "id": 357209399,
+        "osm_type": "way"
       }
     },
     {
@@ -13693,7 +13743,7 @@
         "osm_type": "way",
         "name": "Lidl",
         "brand": "Lidl",
-        "opening_hours": "Mo-Sa 08:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -14113,8 +14163,8 @@
       "properties": {
         "id": 39475993,
         "osm_type": "way",
-        "name": "PENNY",
-        "brand": "PENNY",
+        "name": "Penny",
+        "brand": "Penny",
         "opening_hours": "Mo-Sa 07:30-20:00; Su,PH off"
       }
     },
@@ -14537,8 +14587,8 @@
       "properties": {
         "id": 254407965,
         "osm_type": "way",
-        "name": "PENNY",
-        "brand": "PENNY",
+        "name": "Penny",
+        "brand": "Penny",
         "opening_hours": "Mo-Sa 07:30-21:30; Su,PH off"
       }
     },
@@ -14631,15 +14681,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1493019,
-          49.3589375
+          8.1493193,
+          49.3589349
         ]
       },
       "properties": {
         "id": 249977339,
         "osm_type": "way",
-        "name": "NORMA",
-        "brand": "NORMA",
+        "name": "Norma",
+        "brand": "Norma",
         "opening_hours": "Mo-Sa 08:00-20:00; Su,PH off"
       }
     },
@@ -15652,8 +15702,8 @@
       "properties": {
         "id": 1338384762,
         "osm_type": "way",
-        "name": "ALDI Süd",
-        "brand": "ALDI Süd",
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
         "opening_hours": "Mo-Sa 07:00-21:00; Su,PH off"
       }
     },
@@ -15662,7 +15712,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6396662,
+          7.6396696,
           49.7863164
         ]
       },
@@ -15670,7 +15720,7 @@
         "id": 1338384765,
         "osm_type": "way",
         "name": "E-Center Strese",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "opening_hours": "Mo-Sa 07:00-21:00; Su,PH off"
       }
     },
@@ -15779,8 +15829,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8241562,
-          49.8466442
+          7.824159,
+          49.846655
         ]
       },
       "properties": {
@@ -15895,8 +15945,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8636919,
-          49.8503101
+          7.8636884,
+          49.8502989
         ]
       },
       "properties": {
@@ -15946,15 +15996,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8831489,
+          7.8831269,
           49.831188
         ]
       },
       "properties": {
         "id": 169963206,
         "osm_type": "way",
-        "name": "ALDI Süd",
-        "brand": "ALDI Süd",
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
         "opening_hours": "Mo-Sa 08:00-20:00; Su off"
       }
     },
@@ -15980,8 +16030,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8721614,
-          49.8413299
+          7.8721227,
+          49.8413317
         ]
       },
       "properties": {
@@ -15997,8 +16047,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8768342,
-          49.8382567
+          7.8768422,
+          49.8382687
         ]
       },
       "properties": {
@@ -16013,8 +16063,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8773818,
-          49.8477111
+          7.877399,
+          49.847737
         ]
       },
       "properties": {
@@ -16030,8 +16080,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8749464,
-          49.8444826
+          7.8749525,
+          49.8444805
         ]
       },
       "properties": {
@@ -16046,8 +16096,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8770007,
-          49.8451927
+          7.8770015,
+          49.8451661
         ]
       },
       "properties": {
@@ -16063,8 +16113,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8814852,
-          49.8471602
+          7.8814825,
+          49.847162
         ]
       },
       "properties": {
@@ -16080,8 +16130,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8860359,
-          49.8486116
+          7.886032,
+          49.848617
         ]
       },
       "properties": {
@@ -16097,8 +16147,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8924964,
-          49.8503669
+          7.892508,
+          49.850369
         ]
       },
       "properties": {
@@ -16114,8 +16164,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8665937,
-          49.8711379
+          7.8665839,
+          49.8711569
         ]
       },
       "properties": {
@@ -16180,8 +16230,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8910034,
-          49.8510687
+          7.8909682,
+          49.8510972
         ]
       },
       "properties": {
@@ -16197,8 +16247,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8986031,
-          49.8533934
+          7.8985829,
+          49.8533896
         ]
       },
       "properties": {
@@ -16230,8 +16280,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8944956,
-          49.8569877
+          7.8944909,
+          49.8569797
         ]
       },
       "properties": {
@@ -16692,8 +16742,8 @@
       "properties": {
         "id": 35287131,
         "osm_type": "way",
-        "name": "ALDI Süd",
-        "brand": "ALDI Süd",
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
         "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
@@ -17542,6 +17592,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.3345738,
+          49.6995274
+        ]
+      },
+      "properties": {
+        "id": 47275652,
+        "osm_type": "way",
+        "name": "Aldi Süd",
+        "brand": "ALDI Süd",
+        "opening_hours": "Mo-Sa 08:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.3337508,
           49.7007773
         ]
@@ -17552,23 +17619,6 @@
         "name": "Netto Marken-Discount",
         "brand": "Netto Marken-Discount",
         "opening_hours": "Mo-Sa 07:00-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.3345607,
-          49.699585
-        ]
-      },
-      "properties": {
-        "id": 47275652,
-        "osm_type": "way",
-        "name": "Aldi Süd",
-        "brand": "ALDI Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
     {
@@ -17746,8 +17796,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1414026,
-          49.7457203
+          8.1418291,
+          49.7459397
         ]
       },
       "properties": {
@@ -18810,15 +18860,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4127891,
-          49.4207456
+          8.4128035,
+          49.4207526
         ]
       },
       "properties": {
-        "id": 251301765,
+        "id": 1479053746,
         "osm_type": "way",
-        "name": "ALDI Süd",
-        "brand": "ALDI Süd",
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
         "opening_hours": "Mo-Sa 08:00-20:00; Su,PH off"
       }
     },
@@ -18827,15 +18877,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4357115,
-          49.4059628
+          8.43567,
+          49.4059295
         ]
       },
       "properties": {
         "id": 73062896,
         "osm_type": "way",
         "name": "PENNY",
-        "brand": "PENNY",
+        "brand": "Penny",
         "opening_hours": "Mo-Sa 07:30-21:00; Su,PH off"
       }
     },
@@ -18887,7 +18937,7 @@
         "osm_type": "way",
         "name": "ALDI Süd",
         "brand": "ALDI Süd",
-        "opening_hours": "Mo-Sa 08:00-21:00; Su,PH off"
+        "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off"
       }
     },
     {
@@ -19071,7 +19121,7 @@
         "osm_type": "way",
         "name": "ALDI Süd",
         "brand": "ALDI Süd",
-        "opening_hours": "Mo-Fr 08:00-20:00; Su,PH off"
+        "opening_hours": "Mo-Sa 08:00-20:00; Su,PH off"
       }
     },
     {
@@ -19096,8 +19146,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.3990635,
-          49.5264427
+          8.3990216,
+          49.5264199
         ]
       },
       "properties": {
@@ -19105,7 +19155,7 @@
         "osm_type": "way",
         "name": "PENNY",
         "brand": "PENNY",
-        "opening_hours": "Mo-Sa 7:30-21:30; Su,PH off"
+        "opening_hours": "Mo-Sa 07:30-21:00; Su,PH off"
       }
     },
     {
@@ -19296,8 +19346,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.6428543,
-          49.9372372
+          6.6428915,
+          49.937176
         ]
       },
       "properties": {
@@ -20697,15 +20747,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5463354,
-          50.1557678
+          7.5445938,
+          50.1563585
         ]
       },
       "properties": {
-        "id": 40455422,
+        "id": 107183614,
         "osm_type": "way",
-        "name": "Lidl",
-        "brand": "Lidl"
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
+        "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
     {
@@ -20713,16 +20764,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.544639,
-          50.1563681
+          7.5463105,
+          50.1557339
         ]
       },
       "properties": {
-        "id": 107183614,
+        "id": 1466659069,
         "osm_type": "way",
-        "name": "ALDI Süd",
-        "brand": "ALDI Süd",
-        "opening_hours": "Mo-Sa 08:00-20:00"
+        "name": "Lidl",
+        "brand": "Lidl",
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -20763,15 +20814,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4598113,
-          50.3079111
+          7.459809,
+          50.3078938
         ]
       },
       "properties": {
         "id": 1289618494,
         "osm_type": "way",
-        "name": "REWE",
-        "brand": "REWE",
+        "name": "Rewe",
+        "brand": "Rewe",
         "opening_hours": "Mo-Sa 07:00-21:30"
       }
     },
@@ -21388,6 +21439,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.2453548,
+          50.5552278
+        ]
+      },
+      "properties": {
+        "id": 148882446,
+        "osm_type": "way",
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su,PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.2585164,
           50.5474284
         ]
@@ -21504,8 +21572,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2967426,
-          50.5123852
+          7.2967745,
+          50.5124337
         ]
       },
       "properties": {
@@ -21875,7 +21943,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5453243,
+          7.5452981,
           50.4128726
         ]
       },
@@ -22176,8 +22244,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2176331,
-          50.5934731
+          7.2176301,
+          50.5934737
         ]
       },
       "properties": {
@@ -22193,8 +22261,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2174213,
-          50.5941442
+          7.2174347,
+          50.5941417
         ]
       },
       "properties": {
@@ -22409,8 +22477,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4329851,
-          50.6227554
+          7.4329781,
+          50.622783
         ]
       },
       "properties": {
@@ -22653,7 +22721,7 @@
         "id": 207800061,
         "osm_type": "way",
         "name": "Dorfladen Seibersbach",
-        "opening_hours": "Mo,We-Fr 08:00-12:30,15:00-18:00; Tu,Sa 08:00-12:30"
+        "opening_hours": "Mo-Sa 06:00-22:00"
       }
     },
     {
@@ -22882,8 +22950,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5556877,
-          50.156444
+          7.5557087,
+          50.1564622
         ]
       },
       "properties": {
@@ -22899,14 +22967,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5564061,
-          50.157357
+          7.5564003,
+          50.1573649
         ]
       },
       "properties": {
         "id": 208421673,
         "osm_type": "way",
-        "name": "PENNY",
+        "name": "Penny",
         "brand": "Penny",
         "opening_hours": "Mo-Sa 07:00-22:00; Su closed; PH closed"
       }
@@ -23812,6 +23880,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.2588552,
+          50.0029055
+        ]
+      },
+      "properties": {
+        "id": 1476159171,
+        "osm_type": "way",
+        "name": "Aldi Süd",
+        "brand": "ALDI Süd",
+        "opening_hours": "Mo-Sa 08:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.2621089,
           50.0103393
         ]
@@ -23820,6 +23905,7 @@
         "id": 1444675272,
         "osm_type": "way",
         "name": "Natürlich",
+        "brand": "Bioladen*",
         "opening_hours": "Mo-Fr 08:00-20:00, Sa 08:00-18:00"
       }
     },
@@ -23985,8 +24071,8 @@
       "properties": {
         "id": 120581357,
         "osm_type": "way",
-        "name": "ALDI Süd",
-        "brand": "ALDI Süd",
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
         "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
@@ -24003,7 +24089,7 @@
         "id": 500722089,
         "osm_type": "way",
         "name": "REWE Eric Buhlmann",
-        "brand": "REWE",
+        "brand": "Rewe",
         "opening_hours": "Mo-Sa 07:00-21:30"
       }
     },
@@ -24063,8 +24149,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5653552,
-          50.369974
+          7.5653738,
+          50.3699717
         ]
       },
       "properties": {
@@ -24266,8 +24352,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6128809,
-          50.3989522
+          7.6128729,
+          50.3989483
         ]
       },
       "properties": {
@@ -24349,12 +24435,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7051483,
-          50.3816853
+          7.7051671,
+          50.3816705
         ]
       },
       "properties": {
-        "id": 1329926798,
+        "id": 1476739766,
         "osm_type": "way",
         "name": "Penny",
         "brand": "Penny",
@@ -24417,21 +24503,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6745045,
-          50.440015
-        ]
-      },
-      "properties": {
-        "id": 128124691,
-        "osm_type": "way",
-        "name": "Fundgrube"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.6703243,
           50.4378576
         ]
@@ -24449,8 +24520,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6684903,
-          50.4394629
+          7.6684775,
+          50.4394415
         ]
       },
       "properties": {
@@ -24556,6 +24627,23 @@
         "id": 1257178075,
         "osm_type": "way",
         "name": "Rewe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7975228,
+          50.4696428
+        ]
+      },
+      "properties": {
+        "id": 1467613115,
+        "osm_type": "way",
+        "name": "Netto Marken-Discount",
+        "brand": "Netto Marken-Discount",
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -24730,8 +24818,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6847815,
-          50.7620563
+          7.6847953,
+          50.7620352
         ]
       },
       "properties": {
@@ -25224,7 +25312,8 @@
         "id": 113990738,
         "osm_type": "way",
         "name": "Rewe am Besten Petz",
-        "brand": "REWE"
+        "brand": "Rewe",
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -25239,8 +25328,8 @@
       "properties": {
         "id": 113990740,
         "osm_type": "way",
-        "name": "ALDI Süd",
-        "brand": "ALDI Süd",
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
         "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
@@ -25256,8 +25345,8 @@
       "properties": {
         "id": 498761959,
         "osm_type": "way",
-        "name": "NORMA",
-        "brand": "NORMA",
+        "name": "Norma",
+        "brand": "Norma",
         "opening_hours": "Mo-Sa 07:00-20:00"
       }
     },
@@ -25275,6 +25364,23 @@
         "osm_type": "way",
         "name": "Rewe",
         "brand": "Rewe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8634616,
+          50.8104697
+        ]
+      },
+      "properties": {
+        "id": 126665246,
+        "osm_type": "way",
+        "name": "Aldi Süd",
+        "brand": "Aldi Süd",
+        "opening_hours": "8:00-20:00"
       }
     },
     {

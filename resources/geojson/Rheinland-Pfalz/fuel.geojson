@@ -1999,7 +1999,24 @@
         "id": 2088647671,
         "osm_type": "node",
         "name": "Hornbach Tankstelle",
-        "opening_hours": "Mo-Sa 07:00-20:00; Su,PH off"
+        "opening_hours": "Mo-Sa 07:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.132661,
+          49.2596429
+        ]
+      },
+      "properties": {
+        "id": 13577907631,
+        "osm_type": "node",
+        "name": "Frühmesser GmbH",
+        "brand": "Independent",
+        "opening_hours": "06:00-20:00"
       }
     },
     {
@@ -2437,23 +2454,6 @@
         "osm_type": "node",
         "brand": "budget oil",
         "opening_hours": "Mo-Sa 06:00-22:00; Su 08:00-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.1514983,
-          49.3472847
-        ]
-      },
-      "properties": {
-        "id": 10982076275,
-        "osm_type": "node",
-        "name": "JET Tankstelle",
-        "brand": "JET",
-        "opening_hours": "Mo-Fr 05:00-24:00; Sa 07:00-24:00; Su 08:00-24:00"
       }
     },
     {
@@ -4433,8 +4433,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.3985114,
-          49.5488619
+          8.3983947,
+          49.5488053
         ]
       },
       "properties": {
@@ -6751,8 +6751,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2218265,
-          50.601882
+          7.2217152,
+          50.6019151
         ]
       },
       "properties": {
@@ -7055,22 +7055,6 @@
         "name": "ED-Tankstelle Tobias Querbach",
         "brand": "ED",
         "opening_hours": "Mo-Fr 07:00-20:00; Sa 09:00-19:00; Su 09:00-19:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.7646762,
-          49.9645986
-        ]
-      },
-      "properties": {
-        "id": 12302275925,
-        "osm_type": "node",
-        "name": "Aral",
-        "brand": "Aral"
       }
     },
     {
@@ -7837,7 +7821,8 @@
       "properties": {
         "id": 304339406,
         "osm_type": "node",
-        "name": "Freie Tankstelle Schlosser",
+        "name": "Shell Schwarz",
+        "brand": "Shell",
         "opening_hours": "24/7"
       }
     },
@@ -7974,8 +7959,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6168018,
-          50.3931887
+          7.6193193,
+          50.3802839
+        ]
+      },
+      "properties": {
+        "id": 13597583269,
+        "osm_type": "node",
+        "name": "Jet",
+        "brand": "JET"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6168053,
+          50.3931951
         ]
       },
       "properties": {
@@ -8349,14 +8350,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7577281,
-          50.5338695
+          7.7578069,
+          50.5338542
         ]
       },
       "properties": {
-        "id": 416562454,
+        "id": 13470323070,
         "osm_type": "node",
-        "name": "bft LPG Tankstelle",
+        "name": "bft",
+        "brand": "bft",
         "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-20:00; Su 08:00-19:00"
       }
     },
@@ -8365,8 +8367,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8232118,
-          50.4294183
+          7.82321,
+          50.4294371
         ]
       },
       "properties": {
@@ -8382,8 +8384,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8247037,
-          50.4297745
+          7.8246429,
+          50.4297968
         ]
       },
       "properties": {
@@ -8566,8 +8568,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.788624,
-          50.4758398
+          7.7885456,
+          50.4756939
         ]
       },
       "properties": {
@@ -8651,8 +8653,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7595233,
-          50.5377439
+          7.759567,
+          50.5376603
         ]
       },
       "properties": {
@@ -8684,8 +8686,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9278468,
-          50.5034126
+          7.9278574,
+          50.5034102
         ]
       },
       "properties": {
@@ -9714,7 +9716,7 @@
         "id": 398422308,
         "osm_type": "way",
         "name": "Total",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "opening_hours": "Mo-Fr 05:00-23:00, Sa 06:00-22:00; PH,Su 07:00-22:00"
       }
     },
@@ -10898,7 +10900,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1138091,
+          8.1139149,
           49.1854325
         ]
       },
@@ -10957,23 +10959,6 @@
         "osm_type": "way",
         "name": "TopTank",
         "opening_hours": "Mo-Th 05:30-23:00; Fr,Sa 05:30-24:00; Su 07:00-23:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.1326519,
-          49.2596546
-        ]
-      },
-      "properties": {
-        "id": 202842807,
-        "osm_type": "way",
-        "name": "Frühmesser GmbH",
-        "brand": "Independent",
-        "opening_hours": "24/7"
       }
     },
     {
@@ -11105,6 +11090,23 @@
         "name": "Aral",
         "brand": "Aral",
         "opening_hours": "Mo-Fr 06:00-22:00; Sa-Su 07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.1515815,
+          49.3473447
+        ]
+      },
+      "properties": {
+        "id": 253016033,
+        "osm_type": "way",
+        "name": "JET Tankstelle",
+        "brand": "JET",
+        "opening_hours": "Mo-Fr 05:00-24:00; Sa 07:00-24:00; Su 08:00-24:00"
       }
     },
     {
@@ -11479,8 +11481,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7214591,
-          49.8190484
+          7.7214712,
+          49.8190448
         ]
       },
       "properties": {
@@ -11528,8 +11530,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.839478,
-          49.8487791
+          7.8396172,
+          49.8487895
         ]
       },
       "properties": {
@@ -11592,8 +11594,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8671262,
-          49.842028
+          7.8671339,
+          49.8420279
         ]
       },
       "properties": {
@@ -11623,8 +11625,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8732163,
-          49.8482666
+          7.873219,
+          49.848248
         ]
       },
       "properties": {
@@ -11639,8 +11641,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8779421,
-          49.8463375
+          7.8779389,
+          49.8463321
         ]
       },
       "properties": {
@@ -11654,8 +11656,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8880162,
-          49.8474385
+          7.8880005,
+          49.847494
         ]
       },
       "properties": {
@@ -11680,6 +11682,23 @@
         "osm_type": "way",
         "name": "Shell",
         "brand": "Shell"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8929149,
+          49.8515367
+        ]
+      },
+      "properties": {
+        "id": 126063340,
+        "osm_type": "way",
+        "name": "Aral",
+        "brand": "Aral",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -13112,6 +13131,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.0587314,
+          50.1603659
+        ]
+      },
+      "properties": {
+        "id": 1477797812,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.9480381,
           50.3364249
         ]
@@ -13315,8 +13348,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5127184,
-          50.2664587
+          7.5126954,
+          50.26646
         ]
       },
       "properties": {
@@ -13964,12 +13997,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7649071,
-          49.9646812
+          7.7649041,
+          49.9646817
         ]
       },
       "properties": {
-        "id": 659914344,
+        "id": 1481442287,
         "osm_type": "way",
         "name": "Hunsrück West",
         "brand": "Aral"
@@ -14425,6 +14458,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.2534906,
+          49.9637951
+        ]
+      },
+      "properties": {
+        "id": 451131427,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.2698837,
           49.9682804
         ]
@@ -14639,22 +14686,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0642032,
-          50.3028699
-        ]
-      },
-      "properties": {
-        "id": 443051708,
-        "osm_type": "way",
-        "name": "Esso",
-        "brand": "Esso"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.0644366,
           50.3028515
         ]
@@ -14721,8 +14752,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5701584,
-          50.3701872
+          7.5701786,
+          50.3701839
         ]
       },
       "properties": {
@@ -14786,22 +14817,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6193197,
-          50.3802838
-        ]
-      },
-      "properties": {
-        "id": 313485981,
-        "osm_type": "way",
-        "name": "Jet",
-        "brand": "JET"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.5717223,
           50.4270789
         ]
@@ -14834,8 +14849,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7594124,
-          50.5269972
+          7.7594152,
+          50.5270144
         ]
       },
       "properties": {
@@ -15080,23 +15095,6 @@
         "osm_type": "relation",
         "name": "Autohof Waldlaubersheim",
         "brand": "Total",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.8928807,
-          49.8515998
-        ]
-      },
-      "properties": {
-        "id": 10127041,
-        "osm_type": "relation",
-        "name": "Aral",
-        "brand": "Aral",
         "opening_hours": "24/7"
       }
     },

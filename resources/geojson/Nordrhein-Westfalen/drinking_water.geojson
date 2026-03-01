@@ -692,6 +692,36 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.2234174,
+          51.0530357
+        ]
+      },
+      "properties": {
+        "id": 13537368842,
+        "osm_type": "node",
+        "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1568421,
+          51.0990874
+        ]
+      },
+      "properties": {
+        "id": 13465199814,
+        "osm_type": "node",
+        "seasonal": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.482785,
           50.8054303
         ]
@@ -2304,6 +2334,34 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.1621395,
+          50.6691052
+        ]
+      },
+      "properties": {
+        "id": 13529363069,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.1616019,
+          50.6690804
+        ]
+      },
+      "properties": {
+        "id": 13529363077,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.1676184,
           50.6663857
         ]
@@ -2332,12 +2390,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.1703345,
-          50.6797093
+          7.161265,
+          50.6693502
         ]
       },
       "properties": {
-        "id": 606085074,
+        "id": 13529358880,
         "osm_type": "node"
       }
     },
@@ -2346,12 +2404,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.1751742,
-          50.7104162
+          7.1703345,
+          50.6797093
         ]
       },
       "properties": {
-        "id": 581694731,
+        "id": 606085074,
         "osm_type": "node"
       }
     },
@@ -5633,13 +5691,49 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3998643,
-          51.3891804
+          7.3998442,
+          51.3892022
         ]
       },
       "properties": {
         "id": 12619066380,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4756037,
+          51.3566983
+        ]
+      },
+      "properties": {
+        "id": 13511644039,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "no",
+        "operator": "Mark-E"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4748424,
+          51.3588986
+        ]
+      },
+      "properties": {
+        "id": 13511616987,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "no",
+        "operator": "Mark-E"
       }
     },
     {
@@ -5917,7 +6011,8 @@
         "id": 10932360915,
         "osm_type": "node",
         "access": "yes",
-        "fee": "no"
+        "fee": "no",
+        "seasonal": "yes"
       }
     },
     {
@@ -7436,6 +7531,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.7649336,
+          51.472587
+        ]
+      },
+      "properties": {
+        "id": 13592300181,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.7677609,
           51.4724538
         ]
@@ -8642,7 +8751,10 @@
       },
       "properties": {
         "id": 12961314641,
-        "osm_type": "node"
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "operator": "Stadt Vreden"
       }
     },
     {
@@ -9222,20 +9334,6 @@
       },
       "properties": {
         "id": 13362253784,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.7428467,
-          52.2238685
-        ]
-      },
-      "properties": {
-        "id": 13001266001,
         "osm_type": "node"
       }
     },

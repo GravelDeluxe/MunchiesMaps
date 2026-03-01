@@ -565,6 +565,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.9403436,
+          52.052701
+        ]
+      },
+      "properties": {
+        "id": 13606298197,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.9377833,
           52.1810119
         ]
@@ -684,6 +699,23 @@
         "osm_type": "node",
         "name": "Haaseseehütte",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0854637,
+          52.1849608
+        ]
+      },
+      "properties": {
+        "id": 841798621,
+        "osm_type": "node",
+        "name": "Dröper-Hütte",
+        "shelter_type": "lean_to",
+        "bench": "yes"
       }
     },
     {
@@ -3588,13 +3620,45 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5683339,
-          53.1691711
+          7.5682731,
+          53.1691819
         ]
       },
       "properties": {
         "id": 3539490378,
         "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5847428,
+          53.1682138
+        ]
+      },
+      "properties": {
+        "id": 13590773107,
+        "osm_type": "node",
+        "access": "yes",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5993648,
+          53.1662384
+        ]
+      },
+      "properties": {
+        "id": 13589783398,
+        "osm_type": "node",
+        "access": "yes",
         "shelter_type": "weather_shelter"
       }
     },
@@ -3708,8 +3772,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6788056,
-          53.1685709
+          7.678791,
+          53.1685792
         ]
       },
       "properties": {
@@ -7704,14 +7768,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1692579,
-          53.1954412
+          9.1692819,
+          53.1954862
         ]
       },
       "properties": {
         "id": 9248217624,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -8392,14 +8457,31 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2319957,
-          53.2823116
+          9.2320102,
+          53.2822649
         ]
       },
       "properties": {
         "id": 3044104436,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2293212,
+          53.2806274
+        ]
+      },
+      "properties": {
+        "id": 13482399785,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -9056,6 +9138,7 @@
       "properties": {
         "id": 11033924562,
         "osm_type": "node",
+        "name": "Schutzhütte an der Boulebahn",
         "shelter_type": "weather_shelter",
         "bench": "yes",
         "operator": "Rentnergang",
@@ -9108,23 +9191,6 @@
         "osm_type": "node",
         "shelter_type": "weather_shelter",
         "bench": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.1061418,
-          51.5856734
-        ]
-      },
-      "properties": {
-        "id": 1225742180,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter",
-        "bench": "yes",
-        "operator": "Realgemeinde Krebeck"
       }
     },
     {
@@ -13968,14 +14034,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.420005,
-          53.4984949
+          8.4202085,
+          53.4983924
         ]
       },
       "properties": {
         "id": 9603801805,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -14269,6 +14336,118 @@
         "id": 5742264222,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2291749,
+          53.2856832
+        ]
+      },
+      "properties": {
+        "id": 13482399782,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2292265,
+          53.2854396
+        ]
+      },
+      "properties": {
+        "id": 13482399783,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.229413,
+          53.2853954
+        ]
+      },
+      "properties": {
+        "id": 13482399784,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2310947,
+          53.2887969
+        ]
+      },
+      "properties": {
+        "id": 13482416455,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2421189,
+          53.285252
+        ]
+      },
+      "properties": {
+        "id": 13482399786,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2424957,
+          53.2854802
+        ]
+      },
+      "properties": {
+        "id": 13482399787,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2421021,
+          53.2885307
+        ]
+      },
+      "properties": {
+        "id": 13482416456,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -17663,6 +17842,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.4043858,
+          51.6639079
+        ]
+      },
+      "properties": {
+        "id": 1480927815,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.5872729,
           51.6270457
         ]
@@ -17898,8 +18092,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.3434497,
-          51.9455406
+          9.343477,
+          51.9455235
         ]
       },
       "properties": {
@@ -20344,6 +20538,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.1060861,
+          51.5856374
+        ]
+      },
+      "properties": {
+        "id": 1481894175,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "operator": "Realgemeinde Krebeck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.1365288,
           51.5605901
         ]
@@ -20832,6 +21043,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.2966398,
+          51.8023464
+        ]
+      },
+      "properties": {
+        "id": 140725213,
+        "osm_type": "way",
+        "name": "Sepp-Ruf-Hütte",
+        "access": "customers",
+        "fee": "yes",
+        "operator": "DAV Hamburg-Niederelbe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.3104272,
           51.8010003
         ]
@@ -21166,7 +21395,6 @@
       "properties": {
         "id": 399057071,
         "osm_type": "way",
-        "name": "Keller",
         "shelter_type": "lean_to"
       }
     },
@@ -23661,21 +23889,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.1560023,
-          53.6119889
-        ]
-      },
-      "properties": {
-        "id": 478117373,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.4342176,
           53.6063289
         ]
@@ -24094,16 +24307,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.238721,
-          53.5572337
+          8.2388723,
+          53.5572855
         ]
       },
       "properties": {
-        "id": 1304496258,
+        "id": 1470059618,
         "osm_type": "way",
         "shelter_type": "weather_shelter",
         "bench": "yes",
         "table": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2788397,
+          53.5991674
+        ]
+      },
+      "properties": {
+        "id": 1470066245,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {

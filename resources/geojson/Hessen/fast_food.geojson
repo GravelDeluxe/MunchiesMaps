@@ -861,6 +861,9 @@
         "osm_type": "node",
         "name": "Burger King",
         "brand": "Burger King",
+        "opening_hours": "Su-Th 09:30-00:00; Fr-Sa 09:30-02:00",
+        "phone": "+496051968011",
+        "website": "https://www.burgerking.de/store-locator/store/restaurant_6657",
         "brand:wikidata": "Q177054",
         "chain": "burger_king"
       }
@@ -943,28 +946,6 @@
         "opening_hours": "Mo 09:00-22:00; Tu 09:00-22:00; We 09:00-22:00; Th 09:00-22:00; Fr 09:00-23:00; Sa 09:00-23:00; Su 10:00-23:00",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4897379,
-          50.5775528
-        ]
-      },
-      "properties": {
-        "id": 10204146920,
-        "osm_type": "node",
-        "name": "Burger King",
-        "brand": "Burger King",
-        "opening_hours": "Mo-Th 11:00-01:00; Fr,Sa 11:00-02:00; Su 11:00-00:00",
-        "phone": "+4915779872391",
-        "website": "https://www.burgerking.de/",
-        "operator": "Burger King",
-        "brand:wikidata": "Q177054",
-        "chain": "burger_king"
       }
     },
     {
@@ -2285,8 +2266,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9301161,
-          50.1213042
+          8.9301142,
+          50.1213031
         ]
       },
       "properties": {
@@ -2439,6 +2420,28 @@
         "name": "Burger King",
         "brand": "Burger King",
         "opening_hours": "Su-Th 09:00-24:00, Fr,Sa 09:00-01:00",
+        "brand:wikidata": "Q177054",
+        "chain": "burger_king"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.489759,
+          50.5775687
+        ]
+      },
+      "properties": {
+        "id": 1473676817,
+        "osm_type": "way",
+        "name": "Burger King",
+        "brand": "Burger King",
+        "opening_hours": "Mo-Su 11:30-00:00",
+        "phone": "+49 6441 3837807",
+        "website": "https://www.burgerking.de/store-locator/store/restaurant_90727",
+        "operator": "Burger King",
         "brand:wikidata": "Q177054",
         "chain": "burger_king"
       }
@@ -2635,8 +2638,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2463133,
-          50.737995
+          9.2463012,
+          50.7379998
         ]
       },
       "properties": {
@@ -2703,7 +2706,7 @@
         "osm_type": "way",
         "name": "Burger King",
         "brand": "Burger King",
-        "opening_hours": "Mo-We 09:00-24:00; Th 09:00-01:00, Fr-Sa 09:00-03:00, Su 10:00-24:00",
+        "opening_hours": "Su-Th 10:00-24:00, Fr,Sa 10:00-01:00",
         "brand:wikidata": "Q177054",
         "chain": "burger_king"
       }
@@ -2788,7 +2791,7 @@
         "osm_type": "way",
         "name": "McDonald's",
         "brand": "McDonald's",
-        "opening_hours": "Mo-Sa 09:00-23:00; Su 10:00-23:00",
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
         "website": "https://www.mcdonalds.de/",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
@@ -2963,8 +2966,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.5717949,
-          50.8324061
+          9.5718045,
+          50.8323928
         ]
       },
       "properties": {

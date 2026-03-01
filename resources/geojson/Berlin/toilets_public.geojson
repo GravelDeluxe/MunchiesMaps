@@ -1765,12 +1765,27 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2490977,
-          52.5148669
+          13.2490648,
+          52.5147136
         ]
       },
       "properties": {
-        "id": 11071058458,
+        "id": 13596606318,
+        "osm_type": "node",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2487979,
+          52.514668
+        ]
+      },
+      "properties": {
+        "id": 13596606319,
         "osm_type": "node",
         "access": "yes"
       }
@@ -3460,20 +3475,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3320816,
-          52.5071296
-        ]
-      },
-      "properties": {
-        "id": 976596829,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.3362793,
           52.5102553
         ]
@@ -3497,20 +3498,6 @@
         "id": 4569218978,
         "osm_type": "node",
         "access": "customers"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.3350525,
-          52.5059204
-        ]
-      },
-      "properties": {
-        "id": 5836061885,
-        "osm_type": "node"
       }
     },
     {
@@ -3617,7 +3604,7 @@
       "properties": {
         "id": 13381341059,
         "osm_type": "node",
-        "access": "customers"
+        "access": "yes"
       }
     },
     {
@@ -3957,7 +3944,8 @@
       },
       "properties": {
         "id": 5165014334,
-        "osm_type": "node"
+        "osm_type": "node",
+        "access": "customers"
       }
     },
     {
@@ -4018,6 +4006,21 @@
       "properties": {
         "id": 5165009582,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3539927,
+          52.5375983
+        ]
+      },
+      "properties": {
+        "id": 13584995438,
+        "osm_type": "node",
+        "access": "yes"
       }
     },
     {
@@ -4108,6 +4111,7 @@
         "id": 9587246062,
         "osm_type": "node",
         "name": "Berliner Toilette",
+        "opening_hours": "24/7",
         "access": "yes"
       }
     },
@@ -4387,21 +4391,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3738695,
-          52.5175448
-        ]
-      },
-      "properties": {
-        "id": 71180687,
-        "osm_type": "node",
-        "access": "permissive"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.3708178,
           52.5225436
         ]
@@ -4641,8 +4630,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.4040903,
-          52.5155378
+          13.4040411,
+          52.5157767
         ]
       },
       "properties": {
@@ -4706,6 +4695,7 @@
       "properties": {
         "id": 60240150,
         "osm_type": "node",
+        "name": "City WC",
         "access": "yes"
       }
     },
@@ -4826,6 +4816,20 @@
         "osm_type": "node",
         "name": "Sanifair",
         "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4158106,
+          52.5190897
+        ]
+      },
+      "properties": {
+        "id": 13481555234,
+        "osm_type": "node"
       }
     },
     {
@@ -5159,7 +5163,8 @@
       },
       "properties": {
         "id": 4903790021,
-        "osm_type": "node"
+        "osm_type": "node",
+        "access": "customers"
       }
     },
     {
@@ -5729,20 +5734,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3827697,
-          52.5557777
-        ]
-      },
-      "properties": {
-        "id": 4659477540,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.3836475,
           52.5592613
         ]
@@ -5874,21 +5865,6 @@
         "id": 8546162516,
         "osm_type": "node",
         "access": "customers"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4039238,
-          52.5778971
-        ]
-      },
-      "properties": {
-        "id": 9862733910,
-        "osm_type": "node",
-        "access": "yes"
       }
     },
     {
@@ -7325,8 +7301,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.4313166,
-          52.502353
+          13.4316057,
+          52.5023441
         ]
       },
       "properties": {
@@ -7584,8 +7560,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.433836,
-          52.528144
+          13.4338697,
+          52.5281763
         ]
       },
       "properties": {
@@ -7667,6 +7643,21 @@
         "id": 8992722510,
         "osm_type": "node",
         "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4537127,
+          52.529532
+        ]
+      },
+      "properties": {
+        "id": 13529806540,
+        "osm_type": "node",
+        "access": "permissive"
       }
     },
     {
@@ -8675,8 +8666,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.511022,
-          52.6313787
+          13.5109255,
+          52.6313318
         ]
       },
       "properties": {
@@ -8771,6 +8762,21 @@
       },
       "properties": {
         "id": 182703568,
+        "osm_type": "way",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1161342,
+          52.4241194
+        ]
+      },
+      "properties": {
+        "id": 94398224,
         "osm_type": "way",
         "access": "customers"
       }
@@ -10247,8 +10253,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3780639,
-          52.4873896
+          13.3780588,
+          52.4873931
         ]
       },
       "properties": {
@@ -10478,6 +10484,21 @@
         "osm_type": "way",
         "name": "Berliner Toilette",
         "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3319147,
+          52.5072143
+        ]
+      },
+      "properties": {
+        "id": 1047617426,
+        "osm_type": "way",
         "access": "yes"
       }
     },
@@ -12949,6 +12970,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.3860073,
+          52.5494121
+        ]
+      },
+      "properties": {
+        "id": 1475418320,
+        "osm_type": "way",
+        "name": "Berliner Toilette",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.4023746,
           52.531442
         ]
@@ -13541,22 +13579,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3720136,
-          52.5570918
-        ]
-      },
-      "properties": {
-        "id": 1184167494,
-        "osm_type": "way",
-        "opening_hours": "24/7",
-        "access": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.3834898,
           52.5560273
         ]
@@ -13896,6 +13918,7 @@
         "id": 1117717206,
         "osm_type": "way",
         "name": "Berliner Toilette",
+        "opening_hours": "24/7",
         "access": "yes"
       }
     },
@@ -13912,6 +13935,7 @@
         "id": 1393495446,
         "osm_type": "way",
         "name": "Berliner Toilette",
+        "opening_hours": "24/7",
         "access": "yes"
       }
     },
