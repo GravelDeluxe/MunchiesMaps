@@ -790,11 +790,11 @@
           <div class="accordion-body" id="optionsBody">
             <div class="section" id="bundeslandSection">
               <div class="accordion-header" data-target="blSection" aria-expanded="false" role="button" tabindex="0">
-                <span>State</span>
+                <span>Region</span>
                 <span class="chevron">⌄</span>
               </div>
               <div class="accordion-body" id="blSection">
-                <p class="option-helper">Try to hide for better performance</p>
+                <p class="option-helper">Hide regions to improve performance.</p>
                 <div class="action-row">
                   <button type="button" id="blSelectAll">Select all</button>
                   <button type="button" id="blSelectNone">Select none</button>
@@ -1400,7 +1400,7 @@
     function applyShareStateFromUrl(data) {
       const state = readShareStateFromUrl();
 
-      filterState.bundeslaender = allIds(data.bundeslaender);
+      filterState.bundeslaender = allIds(data.regions);
       filterState.kategorien = allIds(data.categories);
 
       if (state.theme === 'light' || state.theme === 'dark') {
@@ -1420,7 +1420,7 @@
       }
 
       if (state.states instanceof Set) {
-        const validIds = allIds(data.bundeslaender);
+        const validIds = allIds(data.regions);
         const nextSet = new Set(Array.from(state.states).filter((id) => validIds.has(id)));
         if (nextSet.size > 0) {
           filterState.bundeslaender = nextSet;
@@ -1467,7 +1467,7 @@
       params.set('h', boolTo01(appState.hideNoBadges));
       params.set('m', boolTo01(appState.includeMissingData));
 
-      const allStates = allIds(manifestData.bundeslaender);
+      const allStates = allIds(manifestData.regions);
       if (!setEquals(filterState.bundeslaender, allStates)) {
         const tokens = Array.from(filterState.bundeslaender || [])
           .map((id) => STATE_ID_TO_CODE[id] || id)
@@ -1960,7 +1960,7 @@
 
     const datasetCache = new Map();
     const missingCache = new Set();
-    let manifestData = { bundeslaender: [], categories: [] };
+    let manifestData = { regions: [], bundeslaender: [], categories: [] };
 
     let filterRunId = 0;
     let applyFiltersTimer = null;
@@ -2073,7 +2073,7 @@
           dot = createCategoryIconElement(item.id, 22, 'cat-icon--list');
         }
         const text = document.createElement('span');
-        text.textContent = item.label;
+        text.textContent = item.filterLabel || item.label;
         row.appendChild(cb);
         if (dot) { row.appendChild(dot); }
         row.appendChild(text);
@@ -2121,7 +2121,7 @@
       const boundsBox = getBoundsBbox(mapBounds);
       if (!boundsBox) return new Set();
       const visible = new Set();
-      const items = Array.isArray(data?.bundeslaender) ? data.bundeslaender : [];
+      const items = Array.isArray(data?.regions) ? data.regions : (Array.isArray(data?.bundeslaender) ? data.bundeslaender : []);
       const byId = new Map(items.map((entry) => [entry.id, entry]));
       selectedStateIds.forEach((stateId) => {
         const entry = byId.get(stateId);
@@ -2136,9 +2136,9 @@
 
     function buildCombosForStates(stateIdsSet, categoryIdsSet) {
       const combos = [];
-      stateIdsSet.forEach((bundeslandId) => {
+      stateIdsSet.forEach((regionId) => {
         categoryIdsSet.forEach((categoryId) => {
-          combos.push({ key: comboKey(bundeslandId, categoryId), bundeslandId, categoryId });
+          combos.push({ key: comboKey(regionId, categoryId), bundeslandId: regionId, categoryId });
         });
       });
       return combos;
@@ -3311,13 +3311,38 @@
       return await r.json();
     }
 
+    function sortRegions(a, b) {
+      const countryA = (a?.country_label || a?.country || '').toString();
+      const countryB = (b?.country_label || b?.country || '').toString();
+      const byCountry = countryA.localeCompare(countryB, undefined, { sensitivity: 'base' });
+      if (byCountry !== 0) return byCountry;
+      const labelA = (a?.label || a?.id || '').toString();
+      const labelB = (b?.label || b?.id || '').toString();
+      return labelA.localeCompare(labelB, undefined, { sensitivity: 'base' });
+    }
+
     async function loadManifest() {
       const r = await fetch(MANIFEST_URL);
       if (!r.ok) throw new Error(`Manifest could not be loaded (HTTP ${r.status})`);
       const data = await r.json();
-      const bundeslaender = Array.isArray(data.bundeslaender) ? data.bundeslaender : [];
+      const rawRegions = Array.isArray(data.regions)
+        ? data.regions
+        : (Array.isArray(data.bundeslaender) ? data.bundeslaender : []);
+      const regions = rawRegions
+        .map((region) => {
+          const label = region?.label || region?.id || '';
+          const countryLabel = region?.country_label || region?.country || '';
+          const filterLabel = countryLabel ? `${label} (${countryLabel})` : label;
+          return { ...region, filterLabel };
+        })
+        .sort(sortRegions);
       const categories = Array.isArray(data.categories) ? data.categories : [];
-      return { bundeslaender, categories };
+      return { regions, bundeslaender: regions, categories };
+    }
+
+    function getRegionById(regionId) {
+      const regions = Array.isArray(manifestData?.regions) ? manifestData.regions : [];
+      return regions.find((region) => region?.id === regionId) || null;
     }
 
     async function ensureDataset(bundeslandId, categoryId) {
@@ -3325,7 +3350,16 @@
       if (datasetCache.has(key)) return datasetCache.get(key);
       if (missingCache.has(key)) return null;
 
-      const url = `resources/geojson/${bundeslandId}/${categoryId}.geojson?v=${APP_VERSION}`;
+      const region = getRegionById(bundeslandId);
+      const regionPath = region?.path || bundeslandId;
+      const url = `resources/geojson/${regionPath}/${categoryId}.geojson?v=${APP_VERSION}`;
+
+      console.log('[dataset-load]', {
+        regionId: bundeslandId,
+        country: region?.country || region?.country_label || 'unknown',
+        path: regionPath,
+        category: categoryId
+      });
 
       try {
         const geojson = await loadGeoJSON(url);
@@ -3348,7 +3382,7 @@
         return entry;
       } catch (err) {
         if (!missingCache.has(key)) {
-          console.warn(`GeoJSON missing for ${bundeslandId}/${categoryId}:`, err);
+          console.warn(`GeoJSON missing for ${regionPath}/${categoryId} (region ${bundeslandId}):`, err);
           missingCache.add(key);
         }
         return null;
@@ -3553,9 +3587,9 @@
     }
 
     function resetAllFilters() {
-      filterState.bundeslaender = new Set((manifestData.bundeslaender || []).map((b) => b.id));
+      filterState.bundeslaender = new Set((manifestData.regions || []).map((b) => b.id));
       filterState.kategorien = new Set((manifestData.categories || []).map((c) => c.id));
-      renderChecklist('blList', manifestData.bundeslaender, filterState.bundeslaender, 'bl');
+      renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
       renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
       resetGpxState();
       appState.showBadges = false;
@@ -3700,12 +3734,12 @@
         return acc;
       }, {});
 
-      manifestData.bundeslaender.forEach(bl => filterState.bundeslaender.add(bl.id));
+      manifestData.regions.forEach(bl => filterState.bundeslaender.add(bl.id));
       manifestData.categories.forEach(cat => filterState.kategorien.add(cat.id));
 
       applyShareStateFromUrl(manifestData);
 
-      renderChecklist('blList', manifestData.bundeslaender, filterState.bundeslaender, 'bl');
+      renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
       renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
       setAccordionHandlers();
       setupDrawer();
@@ -3743,8 +3777,8 @@
       map.whenReady(() => map.invalidateSize());
       await applyFilters();
 
-      on(qs('#blSelectAll'), 'click', () => selectAll(manifestData.bundeslaender, filterState.bundeslaender, 'blList', 'bl'));
-      on(qs('#blSelectNone'), 'click', () => selectNone(filterState.bundeslaender, 'blList', 'bl', manifestData.bundeslaender));
+      on(qs('#blSelectAll'), 'click', () => selectAll(manifestData.regions, filterState.bundeslaender, 'blList', 'bl'));
+      on(qs('#blSelectNone'), 'click', () => selectNone(filterState.bundeslaender, 'blList', 'bl', manifestData.regions));
       on(qs('#catSelectAll'), 'click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
       on(qs('#catSelectNone'), 'click', () => selectNone(filterState.kategorien, 'catList', 'cat', manifestData.categories));
 
