@@ -153,13 +153,21 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
     return []
 
 
-def build_query(region: Dict[str, Any], body: str, timeout: int) -> str:
+def build_query(region: Dict[str, Any], body: str, timeout: int, use_legacy_area: bool = False) -> str:
     """Construct the full Overpass query for a region and category."""
     area_name = region["area_name"]
     admin_level = str(region["admin_level"])
-    region_area = (
-        f"area[\"name\"=\"{area_name}\"][\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]->.searchArea;"
-    )
+    if use_legacy_area:
+        region_area = (
+            f"area[\"name\"=\"{area_name}\"][\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]->.searchArea;"
+        )
+    else:
+        region_area = "\n".join(
+            [
+                f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"][\"name\"=\"{area_name}\"]->.regionRel;",
+                "map_to_area.regionRel->.searchArea;",
+            ]
+        )
     return dedent(
         f"""
         [out:json][timeout:{timeout}];
@@ -492,7 +500,12 @@ def parse_csv_filter(value: str | None) -> set[str]:
     return {item.strip() for item in value.split(",") if item.strip()}
 
 
-def run(region_filter: set[str] | None = None, category_filter: set[str] | None = None, country_filter: set[str] | None = None) -> None:
+def run(
+    region_filter: set[str] | None = None,
+    category_filter: set[str] | None = None,
+    country_filter: set[str] | None = None,
+    verbose_query: bool = False,
+) -> None:
     """Run the fetch process for all configured regions and categories."""
     region_filter = region_filter or set()
     category_filter = category_filter or set()
@@ -559,11 +572,34 @@ def run(region_filter: set[str] | None = None, category_filter: set[str] | None 
             )
             body = template_func()
             query = build_query(region, body, timeout)
+            print(
+                "[query] "
+                f"region={region['id']} | country={region['country']} | area={region['area_name']} "
+                f"| level={region['admin_level']} | category={category}"
+            )
             print(f"[query] Built query (chars={len(query)}, timeout={timeout}s)")
+            if verbose_query:
+                print(f"[query] Full query:\n{query}")
             try:
                 response_json = request_with_retry(endpoints, query, timeout)
                 elements = response_json.get("elements", [])
+                if len(elements) == 0:
+                    print(
+                        "No Overpass elements returned for "
+                        f"region={region['id']}, area_name={region['area_name']}, "
+                        f"admin_level={region['admin_level']}, category={category}"
+                    )
+                    fallback_query = build_query(region, body, timeout, use_legacy_area=True)
+                    print(
+                        "[query] Fallback to legacy area selector "
+                        f"for region={region['id']} | category={category}"
+                    )
+                    if verbose_query:
+                        print(f"[query] Full fallback query:\n{fallback_query}")
+                    response_json = request_with_retry(endpoints, fallback_query, timeout)
+                    elements = response_json.get("elements", [])
                 geojson = convert_to_geojson(elements, category)
+                print(f"[diag] elements={len(elements)} | features={len(geojson.get('features', []))}")
                 save_geojson(geojson, region, category)
                 if request_delay_seconds > 0:
                     time.sleep(request_delay_seconds)
@@ -609,6 +645,11 @@ def main() -> None:
         "--countries",
         help="Comma-separated country IDs (example: germany,czechia)",
     )
+    parser.add_argument(
+        "--verbose-query",
+        action="store_true",
+        help="Print full Overpass query text before each request.",
+    )
     args = parser.parse_args()
 
     try:
@@ -616,6 +657,7 @@ def main() -> None:
             region_filter=parse_csv_filter(args.regions),
             category_filter=parse_csv_filter(args.categories),
             country_filter=parse_csv_filter(args.countries),
+            verbose_query=args.verbose_query,
         )
     except Exception as exc:  # noqa: BLE001
         print(f"[error] {exc}")
