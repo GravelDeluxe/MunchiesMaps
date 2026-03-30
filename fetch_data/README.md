@@ -21,8 +21,18 @@ You can optionally limit a run:
 - `--regions` comma-separated region IDs
 - `--categories` comma-separated categories
 - `--countries` comma-separated country IDs
+- `--verbose-query` prints the full Overpass query before each request
 
 Examples:
 
 - `python fetch_overpass.py --regions de-berlin,cz-praha --categories fast_food`
 - `python fetch_overpass.py --countries czechia`
+- `python fetch_overpass.py --regions cz-praha --categories fuel --verbose-query`
+
+## Administrative boundary resolution
+
+- Region lookups are now built via administrative **relations** and converted to queryable areas through `map_to_area`.
+- Query prefix pattern:
+  - `rel["boundary"="administrative"]["admin_level"="..."]["name"="..."]->.regionRel;`
+  - `map_to_area.regionRel->.searchArea;`
+- Category templates continue to run unchanged against `(area.searchArea)`.
