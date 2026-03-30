@@ -1,7 +1,8 @@
 # GeoJSON structure
 
-This folder contains the GeoJSON datasets that back the map. Data is organized per Bundesland, with categories defined in `manifest.json` acting as the single source of truth.
+This folder contains the GeoJSON datasets that back the map. Data is organized per region, with `manifest.json` acting as the central source of truth for available regions and categories.
 
-- Structure: `<Bundesland>/<category>.geojson` (e.g., `Berlin/fuel.geojson`).
-- Available categories follow the manifest and include fuel, supermarkets, drinking_water, fast_food, toilets_public, and vending_snacks.
+- Structure: `<path>/<category>.geojson` (for example, `germany-berlin/fuel.geojson` or `Berlin/fuel.geojson` during transition).
+- `manifest.json` contains all region entries with `id`, `label`, `path`, `country`, `country_label`, and `bbox` so consumers can resolve the correct folders.
+- Available categories are derived from `fetch_data/config.yml` and written to `manifest.json`.
 - Files are generated automatically by the `fetch_data` scripts; regenerate rather than editing them manually.
