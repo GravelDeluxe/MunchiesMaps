@@ -1,10 +1,12 @@
 """Fetch GeoJSON data from Overpass for configured states and categories."""
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import sys
 import time
+import unicodedata
 from pathlib import Path
 from textwrap import dedent, indent
 from typing import Any, Dict, Iterable, List
@@ -82,15 +84,75 @@ def load_config() -> Dict[str, Any]:
         return yaml.safe_load(config_file)
 
 
-def build_query(state: str, body: str, timeout: int) -> str:
-    """Construct the full Overpass query for a state and category."""
-    state_area = (
-        f"area[\"name\"=\"{state}\"][\"boundary\"=\"administrative\"][\"admin_level\"=\"4\"]->.searchArea;"
+def slugify(value: str) -> str:
+    """Create a stable ASCII slug."""
+    normalized = unicodedata.normalize("NFKD", value)
+    ascii_only = normalized.encode("ascii", "ignore").decode("ascii")
+    slug = re.sub(r"[^a-zA-Z0-9]+", "-", ascii_only.lower()).strip("-")
+    return slug or "region"
+
+
+def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Read regions from modern config and keep compatibility with legacy states list."""
+    raw_regions = config.get("regions")
+    if isinstance(raw_regions, list) and raw_regions:
+        regions: List[Dict[str, Any]] = []
+        for raw_region in raw_regions:
+            if not isinstance(raw_region, dict):
+                raise ValueError("Config error: each item in regions must be an object.")
+            required_fields = [
+                "id",
+                "label",
+                "path",
+                "country",
+                "country_label",
+                "area_name",
+                "admin_level",
+            ]
+            missing = [field for field in required_fields if field not in raw_region]
+            if missing:
+                raise ValueError(
+                    f"Config error: region is missing required field(s): {', '.join(missing)}"
+                )
+            region = dict(raw_region)
+            region["admin_level"] = int(region["admin_level"])
+            regions.append(region)
+        return regions
+
+    raw_states = config.get("states", [])
+    if isinstance(raw_states, list) and raw_states:
+        regions = []
+        for state in raw_states:
+            if not isinstance(state, str) or not state.strip():
+                raise ValueError("Config error: each item in states must be a non-empty string.")
+            state_name = state.strip()
+            regions.append(
+                {
+                    "id": f"de-{slugify(state_name)}",
+                    "label": state_name,
+                    "path": state_name,
+                    "country": "germany",
+                    "country_label": "Germany",
+                    "area_name": state_name,
+                    "admin_level": 4,
+                }
+            )
+        return regions
+
+    return []
+
+
+def build_query(region: Dict[str, Any], body: str, timeout: int) -> str:
+    """Construct the full Overpass query for a region and category."""
+    area_name = region["area_name"]
+    admin_level = str(region["admin_level"])
+    region_area = (
+        f"area[\"name\"=\"{area_name}\"][\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]->.searchArea;"
     )
     return dedent(
         f"""
         [out:json][timeout:{timeout}];
-        {state_area}
+        {region_area}
         (
         {indent(body, '  ')}
         );
@@ -275,9 +337,9 @@ def ensure_directory(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
 
 
-def save_geojson(content: Dict[str, Any], state: str, category: str) -> None:
+def save_geojson(content: Dict[str, Any], region: Dict[str, Any], category: str) -> None:
     """Save GeoJSON content to the resources directory."""
-    target_dir = RESOURCE_DIR / state
+    target_dir = RESOURCE_DIR / str(region["path"])
     ensure_directory(target_dir)
     target_path = target_dir / f"{category}.geojson"
     print(f"[file] Writing {target_path.relative_to(ROOT_DIR)}")
@@ -295,8 +357,19 @@ def get_category_function(name: str):
     return func
 
 
-def run() -> None:
-    """Run the fetch process for all configured states and categories."""
+def parse_csv_filter(value: str | None) -> set[str]:
+    """Parse a comma-separated filter value."""
+    if value is None:
+        return set()
+    return {item.strip() for item in value.split(",") if item.strip()}
+
+
+def run(region_filter: set[str] | None = None, category_filter: set[str] | None = None, country_filter: set[str] | None = None) -> None:
+    """Run the fetch process for all configured regions and categories."""
+    region_filter = region_filter or set()
+    category_filter = category_filter or set()
+    country_filter = country_filter or set()
+
     config = load_config()
     overpass_cfg = config.get("overpass", {})
     endpoints = overpass_cfg.get("endpoints") or overpass_cfg.get("endpoint")
@@ -313,8 +386,25 @@ def run() -> None:
     timeout = int(overpass_cfg.get("timeout", 180))
     fail_on_error = bool(overpass_cfg.get("fail_on_error", False))
     request_delay_seconds = float(overpass_cfg.get("request_delay_seconds", 0.3))
-    states = config.get("states", [])
-    categories = config.get("categories", {})
+    regions = normalize_regions(config)
+    categories = config.get("categories", {}) or {}
+
+    if not regions:
+        raise ValueError("Config error: no regions configured (regions or legacy states required).")
+    if not isinstance(categories, dict) or not categories:
+        raise ValueError("Config error: categories must be a non-empty mapping.")
+
+    selected_regions = [
+        region
+        for region in regions
+        if (not region_filter or region["id"] in region_filter)
+        and (not country_filter or region["country"] in country_filter)
+    ]
+    selected_categories = [
+        (category, func_name)
+        for category, func_name in categories.items()
+        if not category_filter or category in category_filter
+    ]
 
     ensure_directory(RESOURCE_DIR)
 
@@ -322,32 +412,42 @@ def run() -> None:
     endpoints_display = ", ".join(endpoints)
     print(
         "[run] "
-        f"States={len(states)} | Categories={len(categories)} | Endpoints={len(endpoints)} "
+        f"Regions={len(selected_regions)}/{len(regions)} | Categories={len(selected_categories)}/{len(categories)} "
+        f"| Countries={len({region['country'] for region in selected_regions})} | Endpoints={len(endpoints)} "
         f"| Timeout={timeout}s | Delay={request_delay_seconds}s"
     )
     print(f"[run] Endpoints: {endpoints_display}")
 
-    for state_index, state in enumerate(states, start=1):
-        print(f"[state] ({state_index}/{len(states)}) Processing state: {state}")
-        category_items = list(categories.items())
-        for category_index, (category, func_name) in enumerate(category_items, start=1):
+    for region_index, region in enumerate(selected_regions, start=1):
+        print(
+            f"[region] ({region_index}/{len(selected_regions)}) "
+            f"id={region['id']} | country={region['country']} | label={region['label']}"
+        )
+        for category_index, (category, func_name) in enumerate(selected_categories, start=1):
             template_func = get_category_function(func_name)
-            print(f"[cat]   ({category_index}/{len(category_items)}) Category={category} | Template={func_name}")
+            print(
+                f"[cat]   ({category_index}/{len(selected_categories)}) "
+                f"Region={region['id']} | Country={region['country']} | Category={category} | Template={func_name}"
+            )
             body = template_func()
-            query = build_query(state, body, timeout)
+            query = build_query(region, body, timeout)
             print(f"[query] Built query (chars={len(query)}, timeout={timeout}s)")
             try:
                 response_json = request_with_retry(endpoints, query, timeout)
                 elements = response_json.get("elements", [])
                 geojson = convert_to_geojson(elements, category)
-                save_geojson(geojson, state, category)
+                save_geojson(geojson, region, category)
                 if request_delay_seconds > 0:
                     time.sleep(request_delay_seconds)
                     print(f"[sleep] {request_delay_seconds}s before next request")
             except Exception as exc:  # noqa: BLE001
                 endpoint = getattr(exc, "endpoint", None)
                 attempt = getattr(exc, "attempt", None)
-                context_parts = [state, category]
+                context_parts = [
+                    f"region={region['id']}",
+                    f"country={region['country']}",
+                    f"category={category}",
+                ]
                 context = " / ".join(context_parts)
                 endpoint_text = f" | endpoint={endpoint}" if endpoint else ""
                 attempt_text = f" | attempt={attempt}" if attempt else ""
@@ -366,8 +466,27 @@ def run() -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Fetch GeoJSON data from Overpass")
+    parser.add_argument(
+        "--regions",
+        help="Comma-separated region IDs (example: de-berlin,cz-praha)",
+    )
+    parser.add_argument(
+        "--categories",
+        help="Comma-separated categories (example: fast_food,supermarkets)",
+    )
+    parser.add_argument(
+        "--countries",
+        help="Comma-separated country IDs (example: germany,czechia)",
+    )
+    args = parser.parse_args()
+
     try:
-        run()
+        run(
+            region_filter=parse_csv_filter(args.regions),
+            category_filter=parse_csv_filter(args.categories),
+            country_filter=parse_csv_filter(args.countries),
+        )
     except Exception as exc:  # noqa: BLE001
         print(f"[error] {exc}")
         sys.exit(1)
