@@ -1273,7 +1273,8 @@
         "id": 6046627479,
         "osm_type": "node",
         "name": "Aral",
-        "brand": "Aral"
+        "brand": "Aral",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-21:00; Su 08:00-21:00"
       }
     },
     {
@@ -1509,7 +1510,7 @@
         "id": 10899649913,
         "osm_type": "node",
         "name": "Total",
-        "brand": "Total"
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -1574,7 +1575,7 @@
       "properties": {
         "id": 3574628193,
         "osm_type": "node",
-        "brand": "Independent",
+        "name": "Tankpool24",
         "opening_hours": "24/7"
       }
     },
@@ -2082,7 +2083,7 @@
       "properties": {
         "id": 5983793898,
         "osm_type": "node",
-        "name": "SB-Wilms"
+        "name": "mobilität & energie Mitte-West"
       }
     },
     {
@@ -3340,6 +3341,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.4602174,
+          51.1975615
+        ]
+      },
+      "properties": {
+        "id": 13502825716,
+        "osm_type": "node",
+        "name": "Autogas",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.4749133,
           51.2035846
         ]
@@ -4155,7 +4172,7 @@
         "id": 259248732,
         "osm_type": "node",
         "name": "Star",
-        "brand": "Star",
+        "brand": "star",
         "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
@@ -5804,6 +5821,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.2613279,
+          51.8327338
+        ]
+      },
+      "properties": {
+        "id": 13523482350,
+        "osm_type": "node",
+        "name": "Jet",
+        "brand": "JET",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.2742089,
           51.8284813
         ]
@@ -6105,8 +6139,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.5633098,
-          51.8153307
+          6.5632853,
+          51.8153446
         ]
       },
       "properties": {
@@ -6830,7 +6864,7 @@
         "osm_type": "node",
         "name": "Shell",
         "brand": "Shell",
-        "opening_hours": "Mo-Fr 06:00-23:00; Sa 07:00-23:00; Su 08:00-23:00"
+        "opening_hours": "24/7"
       }
     },
     {
@@ -9172,7 +9206,8 @@
       "properties": {
         "id": 8019266185,
         "osm_type": "node",
-        "name": "Thankpool24"
+        "name": "Thankpool24",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -12804,21 +12839,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9391968,
-          51.2209262
-        ]
-      },
-      "properties": {
-        "id": 245478407,
-        "osm_type": "node",
-        "name": "Tankstelle Neanderhöhe"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.0148882,
           51.1948394
         ]
@@ -15391,8 +15411,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0789597,
-          51.4620579
+          7.0789323,
+          51.4620774
         ]
       },
       "properties": {
@@ -15705,6 +15725,22 @@
         "name": "Aral",
         "brand": "Aral",
         "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0737134,
+          51.5484847
+        ]
+      },
+      "properties": {
+        "id": 13516875704,
+        "osm_type": "node",
+        "name": "Schalker Tanke",
+        "brand": "Shell"
       }
     },
     {
@@ -16162,7 +16198,8 @@
       "properties": {
         "id": 732716590,
         "osm_type": "node",
-        "name": "Tankhof"
+        "name": "Tankhof",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -17300,7 +17337,7 @@
         "osm_type": "node",
         "name": "SB Tank",
         "brand": "SB Tank",
-        "opening_hours": "Mo-Sa 05:00-22:00; PH,Su 06:00-22:00"
+        "opening_hours": "Mo-Sa 05:00-22:00; Su,PH 06:00-22:00"
       }
     },
     {
@@ -17439,6 +17476,7 @@
       "properties": {
         "id": 5522841906,
         "osm_type": "node",
+        "name": "Autogas",
         "opening_hours": "24/7"
       }
     },
@@ -18018,7 +18056,8 @@
       "properties": {
         "id": 393901398,
         "osm_type": "node",
-        "name": "AVEX"
+        "name": "AVEX",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa,Su 07:00-22:00"
       }
     },
     {
@@ -19201,23 +19240,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9888039,
-          50.9613524
-        ]
-      },
-      "properties": {
-        "id": 100946231,
-        "osm_type": "node",
-        "name": "Aral",
-        "brand": "Aral",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.0264107,
           50.9601315
         ]
@@ -19291,22 +19313,6 @@
         "osm_type": "node",
         "name": "Esso",
         "brand": "Esso"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.2001574,
-          50.8620174
-        ]
-      },
-      "properties": {
-        "id": 279119352,
-        "osm_type": "node",
-        "name": "Tankstelle Schmick",
-        "brand": "Aral"
       }
     },
     {
@@ -19456,14 +19462,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.31723,
-          50.9975
+          8.3187682,
+          50.9983795
         ]
       },
       "properties": {
         "id": 732714219,
-        "osm_type": "node",
-        "name": "KFZ-Service Born"
+        "osm_type": "node"
       }
     },
     {
@@ -22592,22 +22597,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8664563,
-          51.690359
-        ]
-      },
-      "properties": {
-        "id": 1764217875,
-        "osm_type": "node",
-        "name": "Shell-Tankstelle",
-        "brand": "Shell"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.8801852,
           51.6845692
         ]
@@ -23742,7 +23731,8 @@
       "properties": {
         "id": 1681441537,
         "osm_type": "node",
-        "name": "Flus"
+        "name": "Flus",
+        "opening_hours": "Mo-Fr 00:00-00:00, Sa 00:00-22:00, Su 06:00-24:00"
       }
     },
     {
@@ -24511,8 +24501,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2085578,
-          52.013809
+          7.2085917,
+          52.0137911
         ]
       },
       "properties": {
@@ -26287,7 +26277,7 @@
         "id": 268090179,
         "osm_type": "node",
         "name": "Oil",
-        "brand": "Oil!",
+        "brand": "OIL!",
         "opening_hours": "Mo-Sa 06:00-22:00; Su,PH 07:00-22:00"
       }
     },
@@ -26626,6 +26616,7 @@
         "id": 519472268,
         "osm_type": "node",
         "name": "Raiffeisen",
+        "brand": "Raiffeisen",
         "opening_hours": "24/7"
       }
     },
@@ -27736,6 +27727,7 @@
         "id": 3592092169,
         "osm_type": "node",
         "name": "Avia",
+        "brand": "Avia",
         "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
@@ -27771,20 +27763,6 @@
         "name": "Avia",
         "brand": "Avia",
         "opening_hours": "Mo-Fr 06:30-22:00; Sa 07:00-22:00; Su 08:00-22:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.3867399,
-          51.9055226
-        ]
-      },
-      "properties": {
-        "id": 4811528124,
-        "osm_type": "node"
       }
     },
     {
@@ -34091,8 +34069,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.0430066,
-          50.7321773
+          6.0429867,
+          50.7321909
         ]
       },
       "properties": {
@@ -34290,12 +34268,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.2109018,
-          50.731612
+          6.210935,
+          50.7316279
         ]
       },
       "properties": {
-        "id": 352956833,
+        "id": 134514355,
         "osm_type": "way",
         "name": "Esso",
         "brand": "Esso"
@@ -34867,15 +34845,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.1258437,
-          50.7778579
+          6.125862,
+          50.7779108
         ]
       },
       "properties": {
-        "id": 36903732,
+        "id": 1472438136,
         "osm_type": "way",
-        "name": "Caspar U. CO. KG",
-        "brand": "Caspar&Co",
+        "name": "Pfennings",
+        "brand": "Pfennings",
         "opening_hours": "Mo-Fr 06:00-20:00; Sa 07:00-20:00; Su 10:00-20:00"
       }
     },
@@ -35118,12 +35096,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.2155812,
-          50.818214
+          6.2157205,
+          50.818258
         ]
       },
       "properties": {
-        "id": 24588529,
+        "id": 429151766,
         "osm_type": "way",
         "name": "Shell",
         "brand": "Shell",
@@ -35135,12 +35113,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.2147441,
-          50.8166561
+          6.2145844,
+          50.8166253
         ]
       },
       "properties": {
-        "id": 24588677,
+        "id": 1484054706,
         "osm_type": "way",
         "name": "Shell",
         "brand": "Shell",
@@ -35567,8 +35545,8 @@
       "properties": {
         "id": 257701772,
         "osm_type": "way",
-        "name": "Shell",
-        "brand": "Shell"
+        "name": "PM",
+        "brand": "PM"
       }
     },
     {
@@ -36757,7 +36735,8 @@
         "id": 984392380,
         "osm_type": "way",
         "name": "Freie Tankstelle Neupert",
-        "brand": "Freie Tankstelle"
+        "brand": "Freie Tankstelle",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; Su 09:00-20:00"
       }
     },
     {
@@ -36772,8 +36751,8 @@
       "properties": {
         "id": 186693502,
         "osm_type": "way",
-        "name": "Total Oberschlesienstraße",
-        "brand": "Total",
+        "name": "TotalEnergies Oberschlesienstraße",
+        "brand": "TotalEnergies",
         "opening_hours": "24/7"
       }
     },
@@ -38000,23 +37979,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.2613323,
-          51.8327281
-        ]
-      },
-      "properties": {
-        "id": 239472722,
-        "osm_type": "way",
-        "name": "Jet",
-        "brand": "JET",
-        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.2404623,
           51.850375
         ]
@@ -38235,7 +38197,7 @@
         "id": 189099637,
         "osm_type": "way",
         "name": "Total",
-        "brand": "Total"
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -38410,6 +38372,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.7643818,
+          50.5669507
+        ]
+      },
+      "properties": {
+        "id": 1470028866,
+        "osm_type": "way",
+        "name": "Aral",
+        "brand": "Aral"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.7719702,
           50.6545756
         ]
@@ -38519,7 +38497,8 @@
       "properties": {
         "id": 154548266,
         "osm_type": "way",
-        "name": "ED"
+        "name": "ED",
+        "brand": "ED"
       }
     },
     {
@@ -40876,8 +40855,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0337887,
-          50.9669885
+          7.0337879,
+          50.9669891
         ]
       },
       "properties": {
@@ -41134,7 +41113,7 @@
       "properties": {
         "id": 137688314,
         "osm_type": "way",
-        "name": "Shell Station - Behler GmbH",
+        "name": "Shell",
         "brand": "Shell",
         "opening_hours": "24/7"
       }
@@ -41953,8 +41932,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9941294,
-          51.1616825
+          6.9941181,
+          51.161688
         ]
       },
       "properties": {
@@ -42443,7 +42422,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2176953,
+          7.2176955,
           50.9470501
         ]
       },
@@ -42451,7 +42430,7 @@
         "id": 163755795,
         "osm_type": "way",
         "name": "Total Station",
-        "brand": "Total"
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -42911,6 +42890,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.7357781,
+          51.2577325
+        ]
+      },
+      "properties": {
+        "id": 444281512,
+        "osm_type": "way",
+        "name": "Messe Düsseldorf Bus Fuel Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.7434278,
           51.2416444
         ]
@@ -43236,8 +43230,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9497907,
-          51.2155548
+          6.9497813,
+          51.2155552
         ]
       },
       "properties": {
@@ -44228,8 +44222,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8499676,
-          51.452139
+          6.849947,
+          51.4521367
         ]
       },
       "properties": {
@@ -45260,7 +45254,8 @@
       "properties": {
         "id": 295560611,
         "osm_type": "way",
-        "name": "Freie Tankstelle"
+        "name": "Freie Tankstelle",
+        "brand": "Freie Tankstelle"
       }
     },
     {
@@ -45375,6 +45370,21 @@
         "name": "Star",
         "brand": "Star",
         "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0740356,
+          51.5486119
+        ]
+      },
+      "properties": {
+        "id": 1473358829,
+        "osm_type": "way",
+        "name": "Schalker Tanke"
       }
     },
     {
@@ -46187,8 +46197,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4055111,
-          51.3413437
+          7.405511,
+          51.3413427
         ]
       },
       "properties": {
@@ -46196,7 +46206,7 @@
         "osm_type": "way",
         "name": "Shell Hagen-Haspe",
         "brand": "Shell",
-        "opening_hours": "Mo-Fr 05:00-23:00; Sa 06:00-23:00; Su 08:00-22:00"
+        "opening_hours": "Mo-Fr 066:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
     {
@@ -46228,7 +46238,8 @@
       "properties": {
         "id": 264789294,
         "osm_type": "way",
-        "brand": "Tankpool24",
+        "name": "tankpool24",
+        "brand": "tankpool24",
         "opening_hours": "24/7"
       }
     },
@@ -47665,8 +47676,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2205009,
-          51.5939002
+          7.2205036,
+          51.5938957
         ]
       },
       "properties": {
@@ -47681,8 +47692,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.214367,
-          51.6047791
+          7.2143651,
+          51.6047775
         ]
       },
       "properties": {
@@ -47856,12 +47867,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3137161,
-          51.6017439
+          7.3135071,
+          51.601677
         ]
       },
       "properties": {
-        "id": 138145827,
+        "id": 454466855,
         "osm_type": "way",
         "name": "Shell",
         "brand": "Shell",
@@ -48655,7 +48666,8 @@
         "id": 112553668,
         "osm_type": "way",
         "name": "Shell",
-        "brand": "Shell"
+        "brand": "Shell",
+        "opening_hours": "Mo-Su 00:00-00:00"
       }
     },
     {
@@ -48817,7 +48829,7 @@
         "osm_type": "way",
         "name": "Aral",
         "brand": "Aral",
-        "opening_hours": "Mo-Fr 06:00-22:00; Sa 06:00-23:59; Su 08:00-22:00"
+        "opening_hours": "Su 08:00-22:00; Mo-Sa 06:00-22:00"
       }
     },
     {
@@ -49296,8 +49308,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6589463,
-          51.0216207
+          7.6589459,
+          51.0216201
         ]
       },
       "properties": {
@@ -49463,7 +49475,8 @@
         "id": 275277839,
         "osm_type": "way",
         "name": "Total",
-        "brand": "Total"
+        "brand": "Total",
+        "opening_hours": "Mo-Fr 05:30-22:00; Sa 07:00-22:00; Su,PH 08:00-22:00"
       }
     },
     {
@@ -49694,8 +49707,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0269797,
-          50.8803274
+          8.0269766,
+          50.8803262
         ]
       },
       "properties": {
@@ -49771,6 +49784,23 @@
         "name": "Aral",
         "brand": "Aral",
         "opening_hours": "Mo-Sa 06:00-24:00, Su,PH 08:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.9888097,
+          50.9613129
+        ]
+      },
+      "properties": {
+        "id": 1480409377,
+        "osm_type": "way",
+        "name": "Aral",
+        "brand": "Aral",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -49906,7 +49936,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0638508,
+          8.0638275,
           51.1109682
         ]
       },
@@ -51475,9 +51505,9 @@
       "properties": {
         "id": 232831892,
         "osm_type": "way",
-        "name": "Aral Wisbyring",
+        "name": "Aral Tankstelle Wisbyring",
         "brand": "Aral",
-        "opening_hours": "Mo-Fr 05:00-23:00"
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
     {
@@ -51568,8 +51598,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1688858,
-          51.5847512
+          8.1688854,
+          51.584751
         ]
       },
       "properties": {
@@ -52330,8 +52360,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.011004,
-          51.7133144
+          7.0109926,
+          51.7133224
         ]
       },
       "properties": {
@@ -52422,8 +52452,8 @@
       "properties": {
         "id": 540478813,
         "osm_type": "way",
-        "name": "Aral",
-        "brand": "Aral"
+        "name": "Classic Wevag",
+        "opening_hours": "Mo-Fr 05:00-22:00; Sa 06:00-22:00; Su 07:00-21:00"
       }
     },
     {
@@ -52482,7 +52512,7 @@
       "properties": {
         "id": 1071314985,
         "osm_type": "way",
-        "name": "Freie SB- Tankstelle Bialdyga",
+        "name": "Freie SB- Tankstelle",
         "brand": "Independent"
       }
     },
@@ -54159,7 +54189,7 @@
         "id": 134677028,
         "osm_type": "way",
         "name": "Total",
-        "brand": "Total"
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -55186,7 +55216,7 @@
         "id": 150481900,
         "osm_type": "way",
         "name": "Total",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-24:00; Su 07:00-22:00"
       }
     },
@@ -57341,7 +57371,8 @@
       "properties": {
         "id": 199595693,
         "osm_type": "way",
-        "name": "Hüller Kreuz"
+        "name": "Hüller Kreuz",
+        "opening_hours": "Mo-Sa 05:00-23:00; Su 07:00-22:00"
       }
     },
     {
@@ -57559,7 +57590,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.906107,
+          8.9060984,
           52.0314122
         ]
       },
@@ -57583,8 +57614,7 @@
       "properties": {
         "id": 154665414,
         "osm_type": "way",
-        "name": "Westfalen",
-        "brand": "Westfalen",
+        "name": "Markant Automat",
         "opening_hours": "Mo-Su 06:00-22:00"
       }
     },

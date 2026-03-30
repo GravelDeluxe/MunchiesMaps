@@ -830,6 +830,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.00818,
+          52.3754526
+        ]
+      },
+      "properties": {
+        "id": 13585515747,
+        "osm_type": "node",
+        "name": "Total",
+        "brand": "TotalEnergies",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.0877708,
           52.3876859
         ]
@@ -853,8 +870,8 @@
       "properties": {
         "id": 268109164,
         "osm_type": "node",
-        "name": "Jet",
-        "brand": "Conoco-Phillips",
+        "name": "JET",
+        "brand": "JET",
         "opening_hours": "Mo-Fr 05:00-22:00; Sa,Su,PH 07:00-22:00"
       }
     },
@@ -942,23 +959,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.1285631,
-          52.3678397
-        ]
-      },
-      "properties": {
-        "id": 11738646684,
-        "osm_type": "node",
-        "name": "Aral",
-        "brand": "Aral",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.1278313,
           52.3699784
         ]
@@ -969,6 +969,21 @@
         "name": "Jet",
         "brand": "JET",
         "opening_hours": "Mo-Th 05:00-23:00; Fr 05:00-24:00; Sa 06:00-24:00; PH,Su 06:00-23:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1281883,
+          52.3677474
+        ]
+      },
+      "properties": {
+        "id": 13472941884,
+        "osm_type": "node",
+        "brand": "Aral"
       }
     },
     {
@@ -2404,21 +2419,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.6463087,
-          51.6802931
-        ]
-      },
-      "properties": {
-        "id": 388565780,
-        "osm_type": "node",
-        "name": "SB Tank"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.7407423,
           51.635706
         ]
@@ -2748,20 +2748,6 @@
         "osm_type": "node",
         "name": "Shell",
         "brand": "Shell"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4445101,
-          52.227969
-        ]
-      },
-      "properties": {
-        "id": 393935190,
-        "osm_type": "node"
       }
     },
     {
@@ -4806,8 +4792,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.215098,
-          53.099154
+          14.2147214,
+          53.0989388
         ]
       },
       "properties": {
@@ -5506,23 +5492,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.0080922,
-          52.3753738
-        ]
-      },
-      "properties": {
-        "id": 39916470,
-        "osm_type": "way",
-        "name": "Total",
-        "brand": "Total",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.0277301,
           52.3876812
         ]
@@ -5684,7 +5653,8 @@
         "id": 727048315,
         "osm_type": "way",
         "name": "Shell",
-        "brand": "Shell"
+        "brand": "Shell",
+        "opening_hours": "Mo-Su,PH 06:00-22:00"
       }
     },
     {
@@ -5716,6 +5686,23 @@
       "properties": {
         "id": 536432454,
         "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1285892,
+          52.3677495
+        ]
+      },
+      "properties": {
+        "id": 529670585,
+        "osm_type": "way",
+        "name": "Aral",
+        "brand": "Aral",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -6006,8 +5993,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.3000727,
-          52.5995326
+          12.3000794,
+          52.5995386
         ]
       },
       "properties": {
@@ -7530,6 +7517,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.6461618,
+          51.6803366
+        ]
+      },
+      "properties": {
+        "id": 1010053788,
+        "osm_type": "way",
+        "name": "SB Tank"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.7387013,
           51.6365036
         ]
@@ -9037,7 +9039,7 @@
         "osm_type": "way",
         "name": "HEM Tankstelle",
         "brand": "HEM",
-        "opening_hours": "Mo-Sa 06:00-21:00; Su,PH 07:00-20:00"
+        "opening_hours": "Mo-Sa 06:00-22:00; Su,PH 07:00-22:00"
       }
     },
     {

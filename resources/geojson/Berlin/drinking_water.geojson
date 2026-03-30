@@ -2079,27 +2079,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.402078,
-          52.5402834
+          13.4020834,
+          52.5403191
         ]
       },
       "properties": {
-        "id": 13033902669,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4021108,
-          52.5403027
-        ]
-      },
-      "properties": {
-        "id": 13063865303,
-        "osm_type": "node"
+        "id": 12997010901,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "indoor": "no"
       }
     },
     {
@@ -2115,23 +2104,6 @@
         "id": 9868842460,
         "osm_type": "node",
         "fee": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4021237,
-          52.5403027
-        ]
-      },
-      "properties": {
-        "id": 12997010901,
-        "osm_type": "node",
-        "access": "yes",
-        "fee": "no",
-        "indoor": "no"
       }
     },
     {
@@ -2306,7 +2278,10 @@
       "properties": {
         "id": 7476527096,
         "osm_type": "node",
-        "access": "yes"
+        "access": "yes",
+        "fee": "no",
+        "operator": "Berliner Wasserbetriebe",
+        "indoor": "no"
       }
     },
     {
@@ -4260,6 +4235,20 @@
         "osm_type": "node",
         "access": "yes",
         "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4846289,
+          52.622503
+        ]
+      },
+      "properties": {
+        "id": 13453331633,
+        "osm_type": "node"
       }
     },
     {

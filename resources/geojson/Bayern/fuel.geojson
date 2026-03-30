@@ -1113,14 +1113,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.0596849,
-          49.6700882
+          10.0596441,
+          49.6700016
         ]
       },
       "properties": {
         "id": 465620626,
         "osm_type": "node",
-        "name": "Agip Kleinochsenfurt"
+        "name": "Agip",
+        "brand": "Agip",
+        "opening_hours": "Mo-Su 06:00-22:00"
       }
     },
     {
@@ -1128,16 +1130,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.0589664,
-          49.6698861
+          10.058939,
+          49.6698384
         ]
       },
       "properties": {
         "id": 465620627,
         "osm_type": "node",
-        "name": "OMV Kleinochsenfurt",
-        "brand": "OMV",
-        "opening_hours": "06:00-22:00"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa-Su 08:00-21:00"
       }
     },
     {
@@ -1388,7 +1390,8 @@
         "id": 247169960,
         "osm_type": "node",
         "name": "Jet",
-        "brand": "JET"
+        "brand": "JET",
+        "opening_hours": "Mo-Fr 05:30-22:00; Sa 06:00-22:00; Su 07:00-22:00"
       }
     },
     {
@@ -1438,7 +1441,8 @@
         "id": 248212921,
         "osm_type": "node",
         "name": "Esso",
-        "brand": "Esso"
+        "brand": "Esso",
+        "opening_hours": "Mo-Fr 06:30-00:00; Sa 07:00-00:00; Su 08:00-00"
       }
     },
     {
@@ -1766,7 +1770,7 @@
         "id": 1732151142,
         "osm_type": "node",
         "name": "V-Markt Immenstadt",
-        "opening_hours": "Mo-Fr 08:00-20:00; Sa 07:30-20:00"
+        "opening_hours": "24/7"
       }
     },
     {
@@ -2468,8 +2472,8 @@
       "properties": {
         "id": 6237056985,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV"
+        "name": "Esso",
+        "brand": "Esso"
       }
     },
     {
@@ -3896,8 +3900,8 @@
       "properties": {
         "id": 1210943593,
         "osm_type": "node",
-        "name": "OMV Lechwiesen Nord",
-        "brand": "OMV",
+        "name": "Shell Lechwiesen Nord",
+        "brand": "Shell",
         "opening_hours": "24/7"
       }
     },
@@ -3945,7 +3949,7 @@
       "properties": {
         "id": 935327937,
         "osm_type": "node",
-        "name": "Tankstellenbetrieb Butschkau",
+        "name": "Agip",
         "brand": "Agip"
       }
     },
@@ -4913,7 +4917,7 @@
         "osm_type": "node",
         "name": "Avia",
         "brand": "Avia",
-        "opening_hours": "Mo-Su,PH 05:00-23:00"
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4973,7 +4977,8 @@
         "id": 1907391746,
         "osm_type": "node",
         "name": "Agip",
-        "brand": "Agip"
+        "brand": "Agip",
+        "opening_hours": "Mo-Sa 05:00-22:00; Su 07:00-22:00"
       }
     },
     {
@@ -8286,15 +8291,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6712807,
-          48.2255975
+          11.6713458,
+          48.2255857
         ]
       },
       "properties": {
         "id": 94067830,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "Mo-Su 06:00-22:00"
       }
     },
@@ -8633,8 +8638,8 @@
       "properties": {
         "id": 8953343803,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "Mo-Sa 05:00-23:00; Su 06:00-23:00"
       }
     },
@@ -8716,8 +8721,8 @@
       "properties": {
         "id": 1180706329,
         "osm_type": "node",
-        "name": "OMV Inntal West",
-        "brand": "OMV",
+        "name": "Esso Inntal West",
+        "brand": "Esso",
         "opening_hours": "24/7"
       }
     },
@@ -8782,7 +8787,7 @@
         "id": 8947857611,
         "osm_type": "node",
         "name": "Total",
-        "brand": "Total"
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -9762,7 +9767,7 @@
         "id": 493732787,
         "osm_type": "node",
         "name": "Jet",
-        "brand": "Jet",
+        "brand": "JET",
         "opening_hours": "Mo-Fr 05:00-23:00; Sa,Su,PH 06:00-23:00"
       }
     },
@@ -12675,6 +12680,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.3283539,
+          49.0682126
+        ]
+      },
+      "properties": {
+        "id": 13592051761,
+        "osm_type": "node",
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.3898323,
           49.0256118
         ]
@@ -13545,6 +13567,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.9513612,
+          48.407142
+        ]
+      },
+      "properties": {
+        "id": 13607216642,
+        "osm_type": "node",
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.9138272,
           48.41165
         ]
@@ -13737,8 +13776,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.139733,
-          48.4447609
+          11.1397524,
+          48.444772
         ]
       },
       "properties": {
@@ -14070,21 +14109,6 @@
         "osm_type": "node",
         "name": "I&S Tankstelle Niederroth",
         "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3883036,
-          48.3547638
-        ]
-      },
-      "properties": {
-        "id": 1563370524,
-        "osm_type": "node",
-        "brand": "Agip"
       }
     },
     {
@@ -14426,8 +14450,8 @@
       "properties": {
         "id": 260972501,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "24/7"
       }
     },
@@ -15609,13 +15633,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.4200573,
-          48.6755804
+          11.4200645,
+          48.6755891
         ]
       },
       "properties": {
         "id": 321238114,
         "osm_type": "node",
+        "name": "Avia",
         "brand": "Avia",
         "opening_hours": "Mo-Fr 06:00-19:30; Sa 06:30-19:30; Su 08:00-18:00"
       }
@@ -16045,39 +16070,6 @@
         "name": "Avia",
         "brand": "Avia",
         "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4594542,
-          48.9343961
-        ]
-      },
-      "properties": {
-        "id": 11241977385,
-        "osm_type": "node",
-        "name": "Verbio BioLNG-Tankstelle Denkendorf",
-        "brand": "Verbio",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4663493,
-          48.9334211
-        ]
-      },
-      "properties": {
-        "id": 11135477803,
-        "osm_type": "node",
-        "name": "Rosi's",
-        "brand": "Eni"
       }
     },
     {
@@ -17013,8 +17005,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.6064588,
-          49.2424205
+          10.6060672,
+          49.2423041
         ]
       },
       "properties": {
@@ -17135,6 +17127,23 @@
         "id": 5335181014,
         "osm_type": "node",
         "brand": "Agip"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.884254,
+          49.2168083
+        ]
+      },
+      "properties": {
+        "id": 13605363669,
+        "osm_type": "node",
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Su 06:00-22:00"
       }
     },
     {
@@ -17601,8 +17610,8 @@
       "properties": {
         "id": 3630794860,
         "osm_type": "node",
-        "name": "Agip Eni",
-        "brand": "Agip Eni",
+        "name": "Eni",
+        "brand": "Eni",
         "opening_hours": "24/7"
       }
     },
@@ -18878,9 +18887,9 @@
       "properties": {
         "id": 1668388933,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "Mo-Fr 07:00-19:00; Sa 07:30-18:00; Su 09:00-18:00; PH 09:00-18:00"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -19121,9 +19130,9 @@
       "properties": {
         "id": 1627138830,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "24/7"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Fr 05:00-23:00; Sa-Su 06:00-23:00"
       }
     },
     {
@@ -20588,7 +20597,7 @@
         "osm_type": "node",
         "name": "HEM",
         "brand": "HEM",
-        "opening_hours": "24/7"
+        "opening_hours": "Mo-Su 06:00-22:00"
       }
     },
     {
@@ -20627,8 +20636,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.7161593,
-          49.1622734
+          11.7160842,
+          49.1624234
         ]
       },
       "properties": {
@@ -21185,7 +21194,7 @@
         "osm_type": "node",
         "name": "Esso",
         "brand": "Esso",
-        "opening_hours": "PH,Mo-Su 00:00-24:00"
+        "opening_hours": "24/7"
       }
     },
     {
@@ -21323,15 +21332,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.0917873,
-          49.5947725
+          11.0915781,
+          49.5947677
         ]
       },
       "properties": {
         "id": 8050300524,
         "osm_type": "node",
         "name": "ELO Tankstelle Uttenreuth-Weiher",
-        "brand": "ELO"
+        "brand": "ELO",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
     {
@@ -21872,8 +21882,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.1410921,
-          49.7313889
+          11.1411075,
+          49.7313902
         ]
       },
       "properties": {
@@ -22075,9 +22085,9 @@
       "properties": {
         "id": 251478943,
         "osm_type": "node",
-        "name": "OMV Keck, Ottenhof",
-        "brand": "OMV",
-        "opening_hours": "Mo-Su 05:00-23:00"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -23186,6 +23196,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.1414008,
+          48.5408709
+        ]
+      },
+      "properties": {
+        "id": 13591089806,
+        "osm_type": "node",
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.1541698,
           48.5440098
         ]
@@ -23977,6 +24004,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.7722126,
+          48.8076492
+        ]
+      },
+      "properties": {
+        "id": 13474308604,
+        "osm_type": "node",
+        "name": "Auto Hartl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.7817432,
           48.8231686
         ]
@@ -24380,6 +24422,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.7962077,
+          49.0488696
+        ]
+      },
+      "properties": {
+        "id": 13527483735,
+        "osm_type": "node",
+        "name": "TANKrintel",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.7757895,
           49.0567138
         ]
@@ -24464,8 +24522,8 @@
       "properties": {
         "id": 4921130169,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "24/7"
       }
     },
@@ -24778,9 +24836,8 @@
       "properties": {
         "id": 335574090,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "Mo-Fr 05:00-23:00; Sa 07:00-23:00"
+        "name": "TopTank",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa-Su 07:00-22:00"
       }
     },
     {
@@ -24928,9 +24985,7 @@
       "properties": {
         "id": 402704448,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "Mo-Fr 05:00-22:00; Sa 06:00-22:00; Su 07:00-22:00; PH 07:00-22:00"
+        "name": "Esso"
       }
     },
     {
@@ -25359,6 +25414,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.3679152,
+          49.0025874
+        ]
+      },
+      "properties": {
+        "id": 13544660633,
+        "osm_type": "node",
+        "name": "BayWa",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.5125803,
           48.9041988
         ]
@@ -25383,8 +25454,8 @@
       "properties": {
         "id": 290036760,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV"
+        "name": "Nusser",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -25815,7 +25886,7 @@
         "id": 732713634,
         "osm_type": "node",
         "name": "Haider",
-        "opening_hours": "Mo-Su 06:30-21:00"
+        "opening_hours": "Mo-Fr 06:30-19:00; Sa 06:30-18:00; Su 07:30-20:00"
       }
     },
     {
@@ -26834,9 +26905,7 @@
       "properties": {
         "id": 1635861572,
         "osm_type": "node",
-        "name": "OMV Brandl",
-        "brand": "OMV",
-        "opening_hours": "07:00-22:00"
+        "name": "Nusser"
       }
     },
     {
@@ -27179,6 +27248,7 @@
       "properties": {
         "id": 2384798802,
         "osm_type": "node",
+        "name": "Shell",
         "brand": "Shell"
       }
     },
@@ -27966,8 +28036,8 @@
       "properties": {
         "id": 3200862281,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "Mo-Fr 05:00-24:00; Sa 07:00-24:00; Su 07:00-22:00; PH 07:00-22:00"
       }
     },
@@ -28227,8 +28297,9 @@
       "properties": {
         "id": 599353517,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -28809,22 +28880,6 @@
         "id": 319186916,
         "osm_type": "node",
         "name": "Autohaus Rupprecht"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.1559902,
-          49.5378842
-        ]
-      },
-      "properties": {
-        "id": 319159520,
-        "osm_type": "node",
-        "name": "Aral",
-        "brand": "Aral"
       }
     },
     {
@@ -30308,6 +30363,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.5646216,
+          49.993163
+        ]
+      },
+      "properties": {
+        "id": 13593098456,
+        "osm_type": "node",
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su,PH 08:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.5742656,
           49.9842839
         ]
@@ -30364,8 +30436,8 @@
       "properties": {
         "id": 6074416318,
         "osm_type": "node",
-        "name": "AvivaTankstelle",
-        "brand": "Shell",
+        "name": "Avia Tankstelle",
+        "brand": "Avia",
         "opening_hours": "Mo-Fr 06:00-19:00; Sa 07:00-17:00"
       }
     },
@@ -30568,22 +30640,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.8780492,
-          50.0169218
-        ]
-      },
-      "properties": {
-        "id": 1786236011,
-        "osm_type": "node",
-        "name": "Avia",
-        "brand": "Avia"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.9782409,
           49.9746651
         ]
@@ -30627,7 +30683,7 @@
         "osm_type": "node",
         "name": "Avia Servicestation",
         "brand": "AVIA",
-        "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-18:00; 24h Tankautomat"
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-18:00; \"24h Tankautomat\""
       }
     },
     {
@@ -30713,6 +30769,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.9346554,
+          50.1956032
+        ]
+      },
+      "properties": {
+        "id": 13507469779,
+        "osm_type": "node",
+        "name": "tankpool24",
+        "brand": "tankpool24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.9583213,
           50.1991149
         ]
@@ -30723,6 +30795,23 @@
         "name": "bft Tankstelle Berthold",
         "brand": "bft",
         "opening_hours": "Mo-Sa 07:00-20:00; Su 08:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.0620592,
+          50.1909261
+        ]
+      },
+      "properties": {
+        "id": 13591694564,
+        "osm_type": "node",
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -31205,7 +31294,7 @@
       "properties": {
         "id": 919676221,
         "osm_type": "node",
-        "name": "bft",
+        "name": "bft Walther",
         "brand": "bft",
         "opening_hours": "Mo-Sa 06:30-19:30; Su 08:00-17:00"
       }
@@ -31974,7 +32063,8 @@
       "properties": {
         "id": 270680591,
         "osm_type": "node",
-        "name": "Mellrichstädter Höhe Ost",
+        "name": "TotalEnergies Mellrichstädter Höhe Ost",
+        "brand": "TotalEnergies",
         "opening_hours": "24/7"
       }
     },
@@ -31983,32 +32073,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.3518944,
-          50.4235709
+          10.3519168,
+          50.4235795
         ]
       },
       "properties": {
         "id": 337780415,
         "osm_type": "node",
-        "name": "Mellrichstädter Höhe Nord",
+        "name": "Aral Mellrichstädter Höhe Nord",
         "brand": "Aral",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.3493296,
-          50.4213294
-        ]
-      },
-      "properties": {
-        "id": 4747204521,
-        "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
         "opening_hours": "24/7"
       }
     },
@@ -32304,8 +32377,8 @@
       "properties": {
         "id": 142407673,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "24/7"
       }
     },
@@ -32436,9 +32509,9 @@
       "properties": {
         "id": 150678582,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "Mo-Su 06:00-23:59"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Sa 06:00-22:00; Su 08:00-22:00"
       }
     },
     {
@@ -32823,8 +32896,8 @@
       "properties": {
         "id": 3499277200,
         "osm_type": "node",
-        "name": "Avia Tankstelle Kreußel",
-        "brand": "Avia"
+        "name": "Walther Tankstelle Kreußel",
+        "brand": "Walther"
       }
     },
     {
@@ -32870,8 +32943,8 @@
       "properties": {
         "id": 177445428,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "Mo-Fr 05:00-24:00; Sa-Su,PH 06:00-24:00"
       }
     },
@@ -33277,8 +33350,8 @@
       "properties": {
         "id": 277759429,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
@@ -34028,7 +34101,7 @@
       "properties": {
         "id": 390453122,
         "osm_type": "node",
-        "name": "Freie Tankstelle"
+        "name": "Tankstelle Bergler"
       }
     },
     {
@@ -34043,8 +34116,8 @@
       "properties": {
         "id": 1606528081,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV"
+        "name": "Esso",
+        "brand": "Esso"
       }
     },
     {
@@ -34412,9 +34485,9 @@
       "properties": {
         "id": 339260096,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "PH,Mo-Su 06:00-22:00"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Sa 06:00-22:15; Su 07:00-22:15"
       }
     },
     {
@@ -34817,7 +34890,8 @@
       },
       "properties": {
         "id": 12041147410,
-        "osm_type": "node"
+        "osm_type": "node",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -34957,6 +35031,21 @@
         "osm_type": "node",
         "brand": "Tank Plus",
         "opening_hours": "Mo-Sa 06:30-21:00; Su 08:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4377669,
+          48.7783755
+        ]
+      },
+      "properties": {
+        "id": 2735013940,
+        "osm_type": "node",
+        "brand": "Wisoil"
       }
     },
     {
@@ -36140,8 +36229,9 @@
       "properties": {
         "id": 85069757,
         "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-22:00"
       }
     },
     {
@@ -38184,22 +38274,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.2008721,
-          47.6100246
-        ]
-      },
-      "properties": {
-        "id": 1020593086,
-        "osm_type": "way",
-        "name": "Agip",
-        "brand": "Agip"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.1986589,
           47.6187293
         ]
@@ -38858,7 +38932,8 @@
       },
       "properties": {
         "id": 466488982,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "DKV"
       }
     },
     {
@@ -39966,7 +40041,7 @@
         "id": 627367199,
         "osm_type": "way",
         "name": "Total",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "opening_hours": "24/7"
       }
     },
@@ -39998,23 +40073,6 @@
         "id": 876354568,
         "osm_type": "way",
         "name": "BayWa",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.3284884,
-          49.0682946
-        ]
-      },
-      "properties": {
-        "id": 145478231,
-        "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
         "opening_hours": "24/7"
       }
     },
@@ -40087,8 +40145,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.5183269,
-          48.8644908
+          10.5181861,
+          48.8644087
         ]
       },
       "properties": {
@@ -40513,22 +40571,6 @@
         "osm_type": "way",
         "name": "BayWa",
         "opening_hours": "Mo-Su,PH 00:00-00:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.9513845,
-          48.4071341
-        ]
-      },
-      "properties": {
-        "id": 256301841,
-        "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV"
       }
     },
     {
@@ -41096,7 +41138,8 @@
       "properties": {
         "id": 833428812,
         "osm_type": "way",
-        "name": "Tankpool24"
+        "name": "tankpool24",
+        "brand": "tankpool24"
       }
     },
     {
@@ -41451,8 +41494,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.2257266,
-          49.0869181
+          11.2257279,
+          49.0869294
         ]
       },
       "properties": {
@@ -41959,8 +42002,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.4625407,
-          48.8060482
+          11.4625064,
+          48.8060582
         ]
       },
       "properties": {
@@ -42025,8 +42068,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6180684,
-          48.6865976
+          11.6180233,
+          48.686604
         ]
       },
       "properties": {
@@ -42129,6 +42172,40 @@
         "osm_type": "way",
         "name": "Aral",
         "brand": "Aral"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4594474,
+          48.9343549
+        ]
+      },
+      "properties": {
+        "id": 1383712386,
+        "osm_type": "way",
+        "name": "Verbio BioLNG-Tankstelle Denkendorf",
+        "brand": "Verbio",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4661247,
+          48.9334471
+        ]
+      },
+      "properties": {
+        "id": 1466731946,
+        "osm_type": "way",
+        "name": "Rosi's",
+        "brand": "Eni",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -42437,23 +42514,6 @@
         "name": "Avia",
         "brand": "Avia",
         "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.884284,
-          49.2168098
-        ]
-      },
-      "properties": {
-        "id": 272781629,
-        "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "Mo-Fr 05:30-22:00; Sa-Su 06:00-22:00"
       }
     },
     {
@@ -43919,8 +43979,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.0647557,
-          49.4742603
+          11.064725,
+          49.4742157
         ]
       },
       "properties": {
@@ -44321,8 +44381,9 @@
       "properties": {
         "id": 31772844,
         "osm_type": "way",
-        "name": "Meier's No 39",
-        "brand": "Independent"
+        "name": "Avia Tankstelle",
+        "brand": "Independent",
+        "opening_hours": "Mo-Fr 06:00-20:30; Sa 07:00-20:30; Su 08:00-20:00"
       }
     },
     {
@@ -44795,7 +44856,7 @@
         "osm_type": "way",
         "name": "Supol",
         "brand": "Independent",
-        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; PH,Su 08:00-22:00"
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su,PH 08:00-22:00"
       }
     },
     {
@@ -44812,7 +44873,7 @@
         "osm_type": "way",
         "name": "Aral",
         "brand": "Aral",
-        "opening_hours": "PH,Mo-Su 00:00+"
+        "opening_hours": "Mo-Su 06:00-22:00"
       }
     },
     {
@@ -44913,22 +44974,6 @@
         "name": "Aral",
         "brand": "Aral",
         "opening_hours": "Mo-Su 0:00-24:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.0915375,
-          49.5948111
-        ]
-      },
-      "properties": {
-        "id": 1016642378,
-        "osm_type": "way",
-        "name": "ELO",
-        "brand": "ELO"
       }
     },
     {
@@ -45557,8 +45602,8 @@
       "properties": {
         "id": 28424535,
         "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "24/7"
       }
     },
@@ -45672,7 +45717,9 @@
       },
       "properties": {
         "id": 24750897,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "Flugplatztankstelle",
+        "opening_hours": "Mo-Su,PH 09:00-19:00"
       }
     },
     {
@@ -45721,22 +45768,6 @@
         "osm_type": "way",
         "name": "Agip",
         "brand": "Agip"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.1414055,
-          48.5408822
-        ]
-      },
-      "properties": {
-        "id": 217020515,
-        "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV"
       }
     },
     {
@@ -45869,7 +45900,7 @@
         "id": 223680300,
         "osm_type": "way",
         "name": "Esso",
-        "brand": "OMV",
+        "brand": "Esso",
         "opening_hours": "Mo-Fr,PH 06:00-22:00, Sa,PH 7:00-22:00, Su,PH 8:00-22:00"
       }
     },
@@ -46101,21 +46132,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.7723916,
-          48.8077288
-        ]
-      },
-      "properties": {
-        "id": 428498743,
-        "osm_type": "way",
-        "name": "Auto Hartl"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.8370401,
           48.8204559
         ]
@@ -46217,20 +46233,6 @@
         "id": 184914003,
         "osm_type": "way",
         "brand": "AVIA"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.7961317,
-          49.0487795
-        ]
-      },
-      "properties": {
-        "id": 1301297889,
-        "osm_type": "way"
       }
     },
     {
@@ -47151,8 +47153,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3660139,
-          48.5877364
+          13.365934,
+          48.5875539
         ]
       },
       "properties": {
@@ -47167,15 +47169,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3659401,
-          48.5897473
+          13.3659744,
+          48.5898695
         ]
       },
       "properties": {
         "id": 243371780,
         "osm_type": "way",
-        "name": "OMV Donautal West",
-        "brand": "OMV"
+        "name": "Esso Donautal West",
+        "brand": "Esso"
       }
     },
     {
@@ -47407,8 +47409,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.6147296,
-          48.8853606
+          12.6147309,
+          48.8853594
         ]
       },
       "properties": {
@@ -48142,23 +48144,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.1527416,
-          49.6801714
-        ]
-      },
-      "properties": {
-        "id": 267485845,
-        "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.1625142,
           49.6940101
         ]
@@ -48358,8 +48343,8 @@
       "properties": {
         "id": 222394454,
         "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "PH,Mo-Su 06:00-22:00"
       }
     },
@@ -48873,8 +48858,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.5765535,
-          49.9780855
+          9.5766714,
+          49.9781669
         ]
       },
       "properties": {
@@ -48896,25 +48881,9 @@
       "properties": {
         "id": 60770867,
         "osm_type": "way",
-        "name": "Shell Tankstelle",
-        "brand": "Shell"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.5645233,
-          49.993162
-        ]
-      },
-      "properties": {
-        "id": 60770873,
-        "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "Mo-Sa 06:00-22:00; Su,PH 07:00-22:00"
+        "name": "Shell",
+        "brand": "Shell",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
     {
@@ -49037,22 +49006,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.0620596,
-          50.1909322
-        ]
-      },
-      "properties": {
-        "id": 96796492,
-        "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.0633647,
           50.1942941
         ]
@@ -49143,6 +49096,7 @@
       "properties": {
         "id": 299537031,
         "osm_type": "way",
+        "name": "Aral",
         "brand": "Aral",
         "opening_hours": "Mo-Su 05:00-22:59"
       }
@@ -49159,9 +49113,9 @@
       "properties": {
         "id": 299620428,
         "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "04:00-23:00"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Fr 05:00-22:00; Sa 07:00-22:00; So 08:00-22:00"
       }
     },
     {
@@ -49394,22 +49348,6 @@
         "name": "Jet",
         "brand": "JET",
         "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-22:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.077138,
-          50.1889978
-        ]
-      },
-      "properties": {
-        "id": 358915383,
-        "osm_type": "way",
-        "name": "bft Walther",
-        "brand": "bft"
       }
     },
     {
@@ -49970,7 +49908,8 @@
       },
       "properties": {
         "id": 1356168311,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "eni"
       }
     },
     {

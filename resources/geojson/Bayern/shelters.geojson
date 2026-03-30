@@ -543,6 +543,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.3653984,
+          49.9264564
+        ]
+      },
+      "properties": {
+        "id": 919042608,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.623769,
           49.7959344
         ]
@@ -605,14 +621,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.8193139,
-          49.7125527
+          9.8192281,
+          49.7125041
         ]
       },
       "properties": {
         "id": 420436190,
         "osm_type": "node",
-        "name": "Schutzhütte"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -5263,22 +5280,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.1854631,
-          49.6039749
-        ]
-      },
-      "properties": {
-        "id": 2404577178,
-        "osm_type": "node",
-        "name": "Schuppen mit großem Vordach",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.2278018,
           49.5139334
         ]
@@ -6317,6 +6318,21 @@
         "id": 7252575282,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.099539,
+          49.0435085
+        ]
+      },
+      "properties": {
+        "id": 11751145552,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -8944,21 +8960,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.3200743,
-          50.0384413
-        ]
-      },
-      "properties": {
-        "id": 8242675486,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.2729233,
           50.1256252
         ]
@@ -10465,8 +10466,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6365855,
-          50.0753939
+          11.6364594,
+          50.0753496
         ]
       },
       "properties": {
@@ -11986,6 +11987,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.2241644,
+          49.6343679
+        ]
+      },
+      "properties": {
+        "id": 1472040096,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.1342184,
           49.7130186
         ]
@@ -12129,6 +12145,21 @@
         "osm_type": "way",
         "shelter_type": "weather_shelter",
         "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2553285,
+          49.6919341
+        ]
+      },
+      "properties": {
+        "id": 1472038177,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -13527,7 +13558,8 @@
       "properties": {
         "id": 504813788,
         "osm_type": "way",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "weather_shelter",
+        "description": "Unterstand mit Infotafeln Holztransport Forstwirtschaft früher/heute"
       }
     },
     {
@@ -13842,6 +13874,7 @@
         "id": 217504824,
         "osm_type": "way",
         "name": "Trögelhütte",
+        "fee": "no",
         "operator": "DAV Sektion München und Oberland",
         "description": "DAV-Selbstversorgerhütte Trögelhütte"
       }
@@ -15018,6 +15051,7 @@
         "id": 401041393,
         "osm_type": "way",
         "name": "DAV-Selbstversorgerhütte Brunntalhütte",
+        "capacity": "12",
         "fee": "yes",
         "operator": "DAV Sektion München und Oberland"
       }
@@ -15037,6 +15071,22 @@
         "name": "Winklmooshütte",
         "operator": "DAV Sektion München",
         "description": "DAV-Selbstversorgerhütte Winklmooshütte"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5781167,
+          47.6897587
+        ]
+      },
+      "properties": {
+        "id": 1479674614,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter",
+        "capacity": "2"
       }
     },
     {
@@ -15906,21 +15956,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.8351828,
-          48.3774442
-        ]
-      },
-      "properties": {
-        "id": 1348663442,
-        "osm_type": "way",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.8486599,
           48.3721587
         ]
@@ -16633,8 +16668,7 @@
         "osm_type": "way",
         "name": "Schutzhütte für Obdachlose",
         "capacity": "6",
-        "operator": "Mudra Drogenhilfe",
-        "description": "https://www.nn.de/nuernberg/erste-massnahmen-besser-als-nichts-wie-die-stadt-nurnberg-gegen-obdachlosigkeit-vorgeht-1.14547871"
+        "operator": "Mudra Drogenhilfe"
       }
     },
     {
@@ -18713,6 +18747,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.1232433,
+          49.600396
+        ]
+      },
+      "properties": {
+        "id": 1474985417,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.992451,
           49.6193397
         ]
@@ -19428,6 +19477,23 @@
         "id": 44894950,
         "osm_type": "way",
         "name": "Wodianka-Hütte",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.3200685,
+          50.0384291
+        ]
+      },
+      "properties": {
+        "id": 886442154,
+        "osm_type": "way",
+        "name": "Streitplatzhütte",
         "shelter_type": "weather_shelter",
         "bench": "yes"
       }

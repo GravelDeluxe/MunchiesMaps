@@ -316,7 +316,10 @@
       },
       "properties": {
         "id": 1350469485,
-        "osm_type": "node"
+        "osm_type": "node",
+        "access": "yes",
+        "opening_hours": "05:00 - 23:00",
+        "operator": "Volkspark Potsdam"
       }
     },
     {
@@ -1738,6 +1741,20 @@
       },
       "properties": {
         "id": 11079171324,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.7158965,
+          51.9513711
+        ]
+      },
+      "properties": {
+        "id": 13465091006,
         "osm_type": "node"
       }
     },

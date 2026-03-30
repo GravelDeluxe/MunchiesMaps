@@ -543,7 +543,7 @@
         "id": 4278583134,
         "osm_type": "node",
         "name": "ADE",
-        "opening_hours": "Mo-Sa 09:00+"
+        "opening_hours": "Mo-Su,PH 08:00-21:00"
       }
     },
     {
@@ -558,7 +558,8 @@
       "properties": {
         "id": 2696627929,
         "osm_type": "node",
-        "name": "Hofladen Traub"
+        "name": "Hofladen Traub",
+        "opening_hours": "Tu,Th,Fr 16:00-17:30; Sa 09:00-12:00"
       }
     },
     {
@@ -1437,16 +1438,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.0589664,
-          49.6698861
+          10.058939,
+          49.6698384
         ]
       },
       "properties": {
         "id": 465620627,
         "osm_type": "node",
-        "name": "OMV Kleinochsenfurt",
-        "brand": "OMV",
-        "opening_hours": "06:00-22:00"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa-Su 08:00-21:00"
       }
     },
     {
@@ -1712,6 +1713,21 @@
         "osm_type": "node",
         "name": "24 Sieben Shop",
         "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.9275288,
+          49.7951555
+        ]
+      },
+      "properties": {
+        "id": 6489164426,
+        "osm_type": "node",
+        "name": "Mainspäti"
       }
     },
     {
@@ -2022,6 +2038,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.8821872,
+          49.9108902
+        ]
+      },
+      "properties": {
+        "id": 13237745116,
+        "osm_type": "node",
+        "name": "Retschter Lädchen",
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 6:00-12:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.0015277,
           49.9117229
         ]
@@ -2077,22 +2109,6 @@
         "name": "Weltladen",
         "brand": "Weltladen",
         "opening_hours": "Mo-Fr 10:00-17:30; Sa 10:00-13:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.2773511,
-          47.4098898
-        ]
-      },
-      "properties": {
-        "id": 5308972661,
-        "osm_type": "node",
-        "name": "Bavaria Bears",
-        "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00"
       }
     },
     {
@@ -2869,21 +2885,6 @@
         "id": 281155777,
         "osm_type": "node",
         "name": "Börwanger Dorfladen"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.3312248,
-          47.8181484
-        ]
-      },
-      "properties": {
-        "id": 3892565248,
-        "osm_type": "node",
-        "name": "Dorfladen"
       }
     },
     {
@@ -4259,7 +4260,7 @@
         "osm_type": "node",
         "name": "ServiceStore DB",
         "brand": "ServiceStore DB",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa-Su 08:00-12:00, 12:45-16:00"
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa,Su 08:00-16:00"
       }
     },
     {
@@ -4329,21 +4330,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.7748363,
-          47.9974251
-        ]
-      },
-      "properties": {
-        "id": 4395089805,
-        "osm_type": "node",
-        "opening_hours": "Tu-We 08:30-12:30; Fr 14:30-18:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.5869215,
           48.0561072
         ]
@@ -4366,7 +4352,7 @@
       "properties": {
         "id": 1460315799,
         "osm_type": "node",
-        "name": "Käsestube"
+        "name": "Käse-Stube"
       }
     },
     {
@@ -4474,8 +4460,8 @@
       "properties": {
         "id": 1210943593,
         "osm_type": "node",
-        "name": "OMV Lechwiesen Nord",
-        "brand": "OMV",
+        "name": "Shell Lechwiesen Nord",
+        "brand": "Shell",
         "opening_hours": "24/7"
       }
     },
@@ -5515,8 +5501,8 @@
       "properties": {
         "id": 4921219545,
         "osm_type": "node",
-        "name": "Biomarkt Penzberg",
-        "opening_hours": "Mo-Fr 08:30-18:30; Sa 08:30-12:00; PH off"
+        "name": "Bio Kramerei",
+        "opening_hours": "Tu-Fr 09:00-18:00; Sa 09:00-13:00; PH off"
       }
     },
     {
@@ -5641,7 +5627,8 @@
       "properties": {
         "id": 307673897,
         "osm_type": "node",
-        "name": "Maikiki Café & Kiosk"
+        "name": "Maikiki Café & Kiosk",
+        "opening_hours": "May-Oct: Mo-Fr 08:00-18:00"
       }
     },
     {
@@ -5718,21 +5705,6 @@
         "osm_type": "node",
         "name": "Dorfladen Resch",
         "opening_hours": "Tu-Fr 7:00-12:00,14:00-18:00; Sa 7:00-12:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.1076624,
-          47.9123128
-        ]
-      },
-      "properties": {
-        "id": 10100979917,
-        "osm_type": "node",
-        "name": "Dorfladen"
       }
     },
     {
@@ -6232,21 +6204,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.9816006,
-          48.1862385
-        ]
-      },
-      "properties": {
-        "id": 3124504748,
-        "osm_type": "node",
-        "name": "Getränke Stümpfig"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.9614567,
           48.2129503
         ]
@@ -6286,7 +6243,7 @@
         "id": 582734362,
         "osm_type": "node",
         "name": "Wasserberghaeusl",
-        "opening_hours": "Mo-So 12:00-20:00"
+        "opening_hours": "Mo-Su 12:00-20:00"
       }
     },
     {
@@ -6754,6 +6711,21 @@
         "osm_type": "node",
         "name": "Mix Land Markt",
         "opening_hours": "Mo-Th 08:30-19:00, Fr-Sa 08:30-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4630774,
+          47.88159
+        ]
+      },
+      "properties": {
+        "id": 13499132441,
+        "osm_type": "node",
+        "name": "Lotto im Opus G"
       }
     },
     {
@@ -7380,7 +7352,7 @@
         "id": 269479523,
         "osm_type": "node",
         "name": "Rothermel Feinkost, Käse, Obst, Gemüse",
-        "opening_hours": "Mo-Th 07:00-12:30,15:00-18:30; We,Sa 07:00-12:30; Fr 07:00-18:30; PH off"
+        "opening_hours": "Mo-Fr 08:00-12:30,15:00-18:30; Sa 08:00-12:30; Su,PH off"
       }
     },
     {
@@ -7709,6 +7681,21 @@
         "osm_type": "node",
         "name": "Schreibwaren & Kiosk Klamaugg",
         "opening_hours": "Mo-Fr 07:00-14:00, 16:00-18:00; Sa 08:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5011516,
+          48.1352733
+        ]
+      },
+      "properties": {
+        "id": 13574304014,
+        "osm_type": "node",
+        "name": "Laimer Kiosk"
       }
     },
     {
@@ -8103,7 +8090,23 @@
         "id": 5061620545,
         "osm_type": "node",
         "name": "Sinu Galerie",
-        "opening_hours": "Mo-Sa 06:30-20:00; PH,Su 08:00-20:00"
+        "opening_hours": "Mo-Su 08:00-20:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3735338,
+          48.1962567
+        ]
+      },
+      "properties": {
+        "id": 5061621793,
+        "osm_type": "node",
+        "name": "La Cueva - Weinhandel",
+        "opening_hours": "Tu-Sa 15:00-20:00"
       }
     },
     {
@@ -8198,6 +8201,22 @@
         "id": 1625961679,
         "osm_type": "node",
         "name": "Morpeth Teeladen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3325524,
+          48.2101305
+        ]
+      },
+      "properties": {
+        "id": 1626001259,
+        "osm_type": "node",
+        "name": "Orientecke",
+        "opening_hours": "Mo-Sa 9:00-20:00; Su,PH off"
       }
     },
     {
@@ -8512,6 +8531,20 @@
         "id": 11020298889,
         "osm_type": "node",
         "name": "Baumgartner"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5302668,
+          48.1535575
+        ]
+      },
+      "properties": {
+        "id": 13500839903,
+        "osm_type": "node"
       }
     },
     {
@@ -8963,22 +8996,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6106257,
-          48.0536003
-        ]
-      },
-      "properties": {
-        "id": 9297526352,
-        "osm_type": "node",
-        "name": "Glutenfrei Geniessen",
-        "opening_hours": "Mo-Fr 09:00-16:00; Sa,Su,PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.6105452,
           48.0663281
         ]
@@ -8988,6 +9005,20 @@
         "osm_type": "node",
         "name": "Naturkost Schlemmerladen",
         "opening_hours": "Mo-Fr 09:00-18:30; Sa 09:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.6120164,
+          48.0660709
+        ]
+      },
+      "properties": {
+        "id": 9797944102,
+        "osm_type": "node"
       }
     },
     {
@@ -9317,7 +9348,7 @@
         "id": 11123783581,
         "osm_type": "node",
         "name": "DENZ Lotto Kiosk Poststelle",
-        "opening_hours": "Mo-Fr 09:00-12:30,13:30-18:00; Sa 09:00-14:00"
+        "opening_hours": "Mo-Fr 09:00-12:30,13:30-18:00; Sa 09:00-15:00"
       }
     },
     {
@@ -9508,6 +9539,22 @@
         "osm_type": "node",
         "name": "Gastro Boutique Robin Bobin",
         "opening_hours": "Mo-Sa 09:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5831374,
+          48.1188274
+        ]
+      },
+      "properties": {
+        "id": 6255563124,
+        "osm_type": "node",
+        "name": "Minga Kiosk",
+        "opening_hours": "Mo-Th 08:00-23:00; Fr,Sa 08:00-24:00; Su 09:00-23:00"
       }
     },
     {
@@ -9724,7 +9771,8 @@
       "properties": {
         "id": 3714049356,
         "osm_type": "node",
-        "name": "24er"
+        "name": "24er",
+        "opening_hours": "Mo-Su,PH 00:00-00:00"
       }
     },
     {
@@ -9741,6 +9789,21 @@
         "osm_type": "node",
         "name": "Madlen",
         "opening_hours": "Mo-Th 07:00-24:00, Fr 07:00-02:00, Sa 08:00-02:00, Su 09:00-24:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5401551,
+          48.1345081
+        ]
+      },
+      "properties": {
+        "id": 13601665731,
+        "osm_type": "node",
+        "name": "Café Kiosk am Bavariapark"
       }
     },
     {
@@ -9780,15 +9843,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.5442942,
-          48.1357616
+          11.546997,
+          48.1368419
         ]
       },
       "properties": {
-        "id": 3838023408,
+        "id": 13564403280,
         "osm_type": "node",
-        "name": "Westend Callshop",
-        "opening_hours": "Mo-Sa 14:00-22:00"
+        "name": "k kiosk"
       }
     },
     {
@@ -9882,6 +9944,21 @@
         "osm_type": "node",
         "name": "Allfood",
         "opening_hours": "Mo-Sa 07:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5478902,
+          48.1367792
+        ]
+      },
+      "properties": {
+        "id": 13564403274,
+        "osm_type": "node",
+        "name": "allasian"
       }
     },
     {
@@ -10284,15 +10361,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.5805577,
-          48.1251827
+          11.577974,
+          48.1300682
         ]
       },
       "properties": {
-        "id": 2801777775,
+        "id": 3602045915,
         "osm_type": "node",
-        "name": "Unterau",
-        "opening_hours": "Tu-Fr 10:00-14:00,15:00-17:00; Sa 10:00-15:00; Su,PH off"
+        "name": "R. Meier",
+        "opening_hours": "Mo-Fr 07:30-18:00; Sa 08:30-16:00"
       }
     },
     {
@@ -10315,27 +10392,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.5779649,
-          48.1300545
+          11.5754896,
+          48.1287827
         ]
       },
       "properties": {
-        "id": 3670943824,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.5741638,
-          48.1292574
-        ]
-      },
-      "properties": {
-        "id": 3992442073,
-        "osm_type": "node"
+        "id": 4946023500,
+        "osm_type": "node",
+        "name": "Isar Kiosk",
+        "opening_hours": "Su-Th 09:00-00:00; Fr-Sa 09:00-01:00"
       }
     },
     {
@@ -10352,6 +10417,21 @@
         "osm_type": "node",
         "name": "abgefüllt & unverpackt",
         "opening_hours": "Mo-Fr 11:30-19:00; Sa 11:30-15:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5737671,
+          48.1298438
+        ]
+      },
+      "properties": {
+        "id": 6651581992,
+        "osm_type": "node",
+        "name": "Tante Maria"
       }
     },
     {
@@ -10492,6 +10572,21 @@
         "id": 4535139489,
         "osm_type": "node",
         "name": "Surjas Hexenladen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5607672,
+          48.1455207
+        ]
+      },
+      "properties": {
+        "id": 13596563280,
+        "osm_type": "node",
+        "name": "Night Bites"
       }
     },
     {
@@ -10664,22 +10759,6 @@
         "osm_type": "node",
         "name": "R.Hörl",
         "opening_hours": "Mo-Fr 06:00-19:00; Sa 08:00-19:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.5973729,
-          48.1043255
-        ]
-      },
-      "properties": {
-        "id": 10021629702,
-        "osm_type": "node",
-        "name": "Loco's Späti",
-        "opening_hours": "24/7"
       }
     },
     {
@@ -11733,6 +11812,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.6405524,
+          48.1250111
+        ]
+      },
+      "properties": {
+        "id": 13458319058,
+        "osm_type": "node",
+        "name": "Tante Emmas Kiosk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.6484381,
           48.125258
         ]
@@ -11876,22 +11970,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6898187,
-          48.1325415
-        ]
-      },
-      "properties": {
-        "id": 5611293187,
-        "osm_type": "node",
-        "name": "Vital Supermarkt",
-        "opening_hours": "Mo-Sa 08:00-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.6723439,
           48.1340028
         ]
@@ -12019,6 +12097,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.7425959,
+          48.1161795
+        ]
+      },
+      "properties": {
+        "id": 13525778555,
+        "osm_type": "node",
+        "name": "Aldi",
+        "opening_hours": "Mo-Sa 8:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.6972901,
           48.1296286
         ]
@@ -12093,22 +12187,6 @@
         "osm_type": "node",
         "name": "Pela",
         "opening_hours": "Mo-Fr 10:00-19:00; Sa,Su,PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.5426107,
-          48.1494655
-        ]
-      },
-      "properties": {
-        "id": 315953383,
-        "osm_type": "node",
-        "name": "Genussmeisterei Neuhausen",
-        "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-15:00"
       }
     },
     {
@@ -12309,6 +12387,7 @@
         "id": 12943709573,
         "osm_type": "node",
         "name": "REWE To Go",
+        "brand": "REWE To Go",
         "opening_hours": "24/7"
       }
     },
@@ -12450,7 +12529,24 @@
       },
       "properties": {
         "id": 1481084485,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Amuri"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.565504,
+          48.152794
+        ]
+      },
+      "properties": {
+        "id": 1573738307,
+        "osm_type": "node",
+        "name": "Asiamarkt",
+        "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-14:30"
       }
     },
     {
@@ -12482,22 +12578,6 @@
         "osm_type": "node",
         "name": "Asia Markt Maxvorstadt",
         "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-14:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.5686547,
-          48.1588432
-        ]
-      },
-      "properties": {
-        "id": 443340599,
-        "osm_type": "node",
-        "name": "Kiosk",
-        "opening_hours": "Mo-Fr 07:30-18:30; Sa 08:00-15:00"
       }
     },
     {
@@ -12599,21 +12679,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.5769075,
-          48.1519787
-        ]
-      },
-      "properties": {
-        "id": 6413894706,
-        "osm_type": "node",
-        "name": "Sindbad Kiosk & Kitchen"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.5777693,
           48.1495068
         ]
@@ -12685,7 +12750,8 @@
       "properties": {
         "id": 9225247609,
         "osm_type": "node",
-        "name": "Nordend Café Kiosk"
+        "name": "Nordend Café Kiosk",
+        "opening_hours": "Tu-Fr 07:30-18:00; Mo 07:30-14:00"
       }
     },
     {
@@ -12993,6 +13059,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.5867181,
+          48.1647745
+        ]
+      },
+      "properties": {
+        "id": 13507358049,
+        "osm_type": "node",
+        "name": "Kiosk To Go"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.5781612,
           48.1706692
         ]
@@ -13236,6 +13317,22 @@
         "osm_type": "node",
         "name": "Rdwan Salim",
         "opening_hours": "Mo-Sa 07:00-22:00; Su,PH 10:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.578969,
+          48.183592
+        ]
+      },
+      "properties": {
+        "id": 9843739980,
+        "osm_type": "node",
+        "name": "Späti40",
+        "opening_hours": "Mo,Tu,We,Th 10:00-13:00,15:00-23:00; Fr,Sa 10:00-13:00,15:00-02:00; Su 11:00-23:00"
       }
     },
     {
@@ -13596,7 +13693,7 @@
         "id": 11308374133,
         "osm_type": "node",
         "name": "Tabac&Co",
-        "opening_hours": "Mo-Fr 08:00-18:30, Sa 08:00-14:30"
+        "opening_hours": "Mo-Fr 08:00-18:30, Sa 09:00-18:00"
       }
     },
     {
@@ -13774,22 +13871,6 @@
         "id": 3143822332,
         "osm_type": "node",
         "name": "DHL Paket Shop und sonstige Lebensmittel"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.5545078,
-          48.208983
-        ]
-      },
-      "properties": {
-        "id": 12999358908,
-        "osm_type": "node",
-        "name": "teo",
-        "opening_hours": "24/7"
       }
     },
     {
@@ -14433,6 +14514,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.1049977,
+          47.7372386
+        ]
+      },
+      "properties": {
+        "id": 4250589696,
+        "osm_type": "node",
+        "name": "Weltladen Brannenburg",
+        "opening_hours": "Mo-Fr 09:00-12:00, 14:30-18:00; We,Sa 09:00-12:00; PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.1079127,
           47.8294544
         ]
@@ -14489,8 +14586,8 @@
       "properties": {
         "id": 1180706329,
         "osm_type": "node",
-        "name": "OMV Inntal West",
-        "brand": "OMV",
+        "name": "Esso Inntal West",
+        "brand": "Esso",
         "opening_hours": "24/7"
       }
     },
@@ -14596,7 +14693,8 @@
       },
       "properties": {
         "id": 12982438639,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Anmeldung CP"
       }
     },
     {
@@ -14674,7 +14772,7 @@
         "id": 6401372986,
         "osm_type": "node",
         "name": "Westerham Express",
-        "opening_hours": "00:00-07:00 off"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 08:00-18:00"
       }
     },
     {
@@ -14784,6 +14882,23 @@
         "id": 6056082221,
         "osm_type": "node",
         "name": "Bäckerei Theresia Gasteiger"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9150836,
+          47.9545186
+        ]
+      },
+      "properties": {
+        "id": 302389577,
+        "osm_type": "node",
+        "name": "Tankstelle Eierstock",
+        "brand": "Independent",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -16163,6 +16278,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.2288773,
+          48.057442
+        ]
+      },
+      "properties": {
+        "id": 3427738659,
+        "osm_type": "node",
+        "name": "BK",
+        "brand": "Benzin Kontor",
+        "opening_hours": "Mo-Sa 06:00-23:00; Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.2327978,
           48.0605532
         ]
@@ -16383,6 +16515,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.3990161,
+          48.2082313
+        ]
+      },
+      "properties": {
+        "id": 13517116965,
+        "osm_type": "node",
+        "name": "Damaskus"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.4853839,
           48.1980876
         ]
@@ -16436,6 +16583,20 @@
         "osm_type": "node",
         "name": "Brotzeitstübl",
         "opening_hours": "Mo-Fr 07:00-16:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.6306519,
+          47.7546373
+        ]
+      },
+      "properties": {
+        "id": 13448074245,
+        "osm_type": "node"
       }
     },
     {
@@ -16692,7 +16853,7 @@
         "type": "Point",
         "coordinates": [
           13.0654934,
-          47.6524051
+          47.6523881
         ]
       },
       "properties": {
@@ -16761,6 +16922,21 @@
         "osm_type": "node",
         "name": "Kiosk am Maxplatz",
         "opening_hours": "Mo-Fr 07:00-17:00; Sa 07:00-14:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.6464153,
+          47.8692182
+        ]
+      },
+      "properties": {
+        "id": 9687909457,
+        "osm_type": "node",
+        "name": "Max.Bar"
       }
     },
     {
@@ -17971,6 +18147,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.6005651,
+          48.3992401
+        ]
+      },
+      "properties": {
+        "id": 13576927664,
+        "osm_type": "node",
+        "name": "Hofladen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.5993699,
           48.4074008
         ]
@@ -18443,23 +18634,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.8865075,
-          48.3654278
-        ]
-      },
-      "properties": {
-        "id": 11407626660,
-        "osm_type": "node",
-        "name": "Yorma's",
-        "brand": "Yorma's",
-        "opening_hours": "Mo-Th 05:00-21:00; Fr 05:00-21:30; Su 07:00-20:00; Sa 07:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.9028174,
           48.3614955
         ]
@@ -18543,6 +18717,21 @@
       "properties": {
         "id": 8312154275,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8958398,
+          48.3683478
+        ]
+      },
+      "properties": {
+        "id": 11623628809,
+        "osm_type": "node",
+        "name": "Sailer"
       }
     },
     {
@@ -19523,7 +19712,8 @@
       "properties": {
         "id": 8830876505,
         "osm_type": "node",
-        "name": "Herzstück Mering"
+        "name": "Herzstück Mering",
+        "opening_hours": "Mo-Sa 07:00-12:00"
       }
     },
     {
@@ -19651,22 +19841,6 @@
         "id": 3201404041,
         "osm_type": "node",
         "name": "Tabak Pfeffer"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.9800254,
-          48.354844
-        ]
-      },
-      "properties": {
-        "id": 2098851672,
-        "osm_type": "node",
-        "name": "Käse Soiderer",
-        "opening_hours": "Tu 08:00-12:30,14:00-18:00; We 08:00-12:30; Th,Fr 07:00-18:00; Sa 07:00-12:00; Mo off"
       }
     },
     {
@@ -20589,7 +20763,8 @@
       "properties": {
         "id": 13388553728,
         "osm_type": "node",
-        "name": "Phoenix Kiosk"
+        "name": "Phoenix Kiosk",
+        "opening_hours": "Mo-Sa 09:00-20:00"
       }
     },
     {
@@ -20833,8 +21008,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6613019,
-          48.3192838
+          11.6612727,
+          48.3192727
         ]
       },
       "properties": {
@@ -21060,7 +21235,8 @@
       "properties": {
         "id": 4423232275,
         "osm_type": "node",
-        "name": "Pfaffenhofener Tafel"
+        "name": "Pfaffenhofener Tafel",
+        "opening_hours": "We 09:30-12:00"
       }
     },
     {
@@ -21166,6 +21342,22 @@
         "osm_type": "node",
         "name": "Da Hapna",
         "opening_hours": "Mo-Sa 09:00-19:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.345824,
+          48.5794964
+        ]
+      },
+      "properties": {
+        "id": 5250630125,
+        "osm_type": "node",
+        "name": "Gebauer",
+        "brand": "Independent"
       }
     },
     {
@@ -21402,6 +21594,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.2931747,
+          48.8044731
+        ]
+      },
+      "properties": {
+        "id": 13446233259,
+        "osm_type": "node",
+        "name": "Weltladen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.9181142,
           48.8931639
         ]
@@ -21485,6 +21692,22 @@
         "id": 4947337852,
         "osm_type": "node",
         "opening_hours": "Tu-Fr 08:00-12:00, 13:30-17:30; Sa 08:00-12:00; Su,Mo,PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9706075,
+          49.0320802
+        ]
+      },
+      "properties": {
+        "id": 2914824417,
+        "osm_type": "node",
+        "name": "Weltladen",
+        "opening_hours": "Mo,We,Th 09:30-12:30, 15:00-18:00; Tu,Fr 09:30-18:00; Sa 09:30-12:30"
       }
     },
     {
@@ -21758,22 +21981,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.4391779,
-          48.7358108
-        ]
-      },
-      "properties": {
-        "id": 3581346795,
-        "osm_type": "node",
-        "name": "Geco",
-        "opening_hours": "Mo-Sa 06:00-20:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.4415544,
           48.7670032
         ]
@@ -21965,7 +22172,7 @@
         "id": 1683953944,
         "osm_type": "node",
         "name": "Dorfladen ums Eck",
-        "opening_hours": "Sa 07:30-12:30; Mo-Th 07:00-12:30,15:30-18:00; Fr 07:00-18:00"
+        "opening_hours": "Sa 07:30-12:30; Mo-Th 07:00-12:30,15:30-18:00; Fr 07:00-13:00,15:30-18:00"
       }
     },
     {
@@ -23481,21 +23688,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.1723125,
-          49.7531739
-        ]
-      },
-      "properties": {
-        "id": 992605474,
-        "osm_type": "node",
-        "name": "TNT"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.2408265,
           49.7546507
         ]
@@ -24012,7 +24204,7 @@
         "id": 4563358514,
         "osm_type": "node",
         "name": "Schatzinsel",
-        "opening_hours": "Mo-Fr 09:00-13:00,14:30-18:00; Sa 09:00-13:00; Su,PH off"
+        "opening_hours": "Mo-Fr 09:00-13:00, Sa 09:00-13:00, We 14:30-18:00; Su,PH off"
       }
     },
     {
@@ -24402,6 +24594,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.0023684,
+          49.3113102
+        ]
+      },
+      "properties": {
+        "id": 3608470128,
+        "osm_type": "node",
+        "name": "Autohof Schwabach - West"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.9927189,
           49.4039786
         ]
@@ -24777,6 +24984,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.9843276,
+          49.472633
+        ]
+      },
+      "properties": {
+        "id": 4399258789,
+        "osm_type": "node",
+        "name": "Feinkosteria Schuster und Reck",
+        "opening_hours": "Tu-Fr 10:00-18:00; Sa 10:00-14:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.99036,
           49.4746857
         ]
@@ -24802,22 +25025,6 @@
         "osm_type": "node",
         "name": "Europa Lebensmittel Markt",
         "opening_hours": "Mo-Sa 07:00-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.9900861,
-          49.4754367
-        ]
-      },
-      "properties": {
-        "id": 12783094278,
-        "osm_type": "node",
-        "name": "cigo",
-        "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
     {
@@ -25083,7 +25290,8 @@
       "properties": {
         "id": 9765135106,
         "osm_type": "node",
-        "name": "Kiosk Babylon"
+        "name": "Kiosk Babylon",
+        "opening_hours": "Mo-Sa 10:00-20:00"
       }
     },
     {
@@ -26197,7 +26405,8 @@
       "properties": {
         "id": 12092498612,
         "osm_type": "node",
-        "name": "REWE to go"
+        "name": "REWE To Go",
+        "brand": "REWE To Go"
       }
     },
     {
@@ -26322,6 +26531,21 @@
         "osm_type": "node",
         "name": "Exarchos",
         "opening_hours": "Mo-Sa 07:00-20:00, PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0521867,
+          49.4610733
+        ]
+      },
+      "properties": {
+        "id": 13511689430,
+        "osm_type": "node",
+        "name": "Unverpackt Nbg"
       }
     },
     {
@@ -26676,8 +26900,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.0785448,
-          49.4942185
+          11.0786673,
+          49.4942557
         ]
       },
       "properties": {
@@ -27180,6 +27404,21 @@
         "osm_type": "node",
         "name": "Welt winkel 360°",
         "opening_hours": "Mo-Fr 10:00-18:00; Sa 09:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4575134,
+          49.2795597
+        ]
+      },
+      "properties": {
+        "id": 13595520007,
+        "osm_type": "node",
+        "name": "Saidawi Supermakrt"
       }
     },
     {
@@ -27778,7 +28017,7 @@
         "id": 693406860,
         "osm_type": "node",
         "name": "kiosXtore",
-        "opening_hours": "Mo-Fr 07:30-20:00; Sa 07:30-16:00"
+        "opening_hours": "Mo-Fr 08:00-19:30; Sa 08:00-13:00"
       }
     },
     {
@@ -27951,6 +28190,21 @@
         "id": 4286109594,
         "osm_type": "node",
         "name": "Damas"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0596871,
+          49.7176602
+        ]
+      },
+      "properties": {
+        "id": 4349018092,
+        "osm_type": "node",
+        "name": "Centrum"
       }
     },
     {
@@ -28924,22 +29178,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.9127462,
-          48.3055657
-        ]
-      },
-      "properties": {
-        "id": 12621313373,
-        "osm_type": "node",
-        "name": "Vulli's Snackkiosk",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.9193617,
           48.3112148
         ]
@@ -29600,6 +29838,22 @@
         "name": "Lotto Bayern",
         "brand": "Lotto",
         "opening_hours": "Mo-Sa 08:00-13:00; Mo-Fr 13:00-18:00; PH closed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.141257,
+          48.5409504
+        ]
+      },
+      "properties": {
+        "id": 13591089810,
+        "osm_type": "node",
+        "name": "REWE To Go",
+        "brand": "REWE To Go"
       }
     },
     {
@@ -30373,6 +30627,22 @@
         "id": 1630760762,
         "osm_type": "node",
         "name": "EDEKA Wendl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0647906,
+          48.9729388
+        ]
+      },
+      "properties": {
+        "id": 13590782583,
+        "osm_type": "node",
+        "name": "REWE To Go",
+        "brand": "REWE To Go"
       }
     },
     {
@@ -31576,6 +31846,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.3106766,
+          48.352859
+        ]
+      },
+      "properties": {
+        "id": 3420040355,
+        "osm_type": "node",
+        "name": "Naturschätze Öl und Essig"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.3066598,
           48.3585284
         ]
@@ -31737,7 +32022,8 @@
       },
       "properties": {
         "id": 1979806305,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Dorfladen Haselbach"
       }
     },
     {
@@ -31908,7 +32194,8 @@
         "id": 3427893293,
         "osm_type": "node",
         "name": "Yorma’s",
-        "brand": "Yorma’s"
+        "brand": "Yorma’s",
+        "opening_hours": "Mo-Fr 05:45-21:15; Sa 06:45-20:15; Su,PH 07:45-20:15"
       }
     },
     {
@@ -31962,6 +32249,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.961333,
+          48.8334945
+        ]
+      },
+      "properties": {
+        "id": 2386586648,
+        "osm_type": "node",
+        "name": "Reformhaus sander",
+        "opening_hours": "Mo-Fr 09:00-18:00; Sa 09:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.9617542,
           48.8306667
         ]
@@ -31971,6 +32274,36 @@
         "osm_type": "node",
         "name": "King Bazar",
         "opening_hours": "Mo-Sa 09:00-19:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9605798,
+          48.8326754
+        ]
+      },
+      "properties": {
+        "id": 9962267481,
+        "osm_type": "node",
+        "name": "G-Shop DEG",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9612415,
+          48.8320723
+        ]
+      },
+      "properties": {
+        "id": 13447751726,
+        "osm_type": "node"
       }
     },
     {
@@ -32014,7 +32347,8 @@
       "properties": {
         "id": 13116376189,
         "osm_type": "node",
-        "name": "Eleen Markt"
+        "name": "Eleen Markt",
+        "opening_hours": "Mo 10:00-20:00; Tu-Sa 08:00-20:00; Su off"
       }
     },
     {
@@ -32240,6 +32574,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.8898843,
+          49.0744646
+        ]
+      },
+      "properties": {
+        "id": 1578640120,
+        "osm_type": "node",
+        "name": "Woolworth"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.8868005,
           49.0795484
         ]
@@ -32248,6 +32597,20 @@
         "id": 5104737622,
         "osm_type": "node",
         "name": "Eine-Welt-Laden"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.8871855,
+          49.078261
+        ]
+      },
+      "properties": {
+        "id": 7633308264,
+        "osm_type": "node"
       }
     },
     {
@@ -32693,6 +33056,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.8575294,
+          49.4369262
+        ]
+      },
+      "properties": {
+        "id": 13591762040,
+        "osm_type": "node",
+        "name": "REWE To Go",
+        "brand": "REWE To Go"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.8709605,
           49.4363448
         ]
@@ -32792,36 +33171,6 @@
       "properties": {
         "id": 1983574447,
         "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.1223126,
-          49.3224171
-        ]
-      },
-      "properties": {
-        "id": 1602476103,
-        "osm_type": "node",
-        "name": "Dönerstand"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9784462,
-          49.478715
-        ]
-      },
-      "properties": {
-        "id": 3200834007,
-        "osm_type": "node",
-        "name": "Pröm"
       }
     },
     {
@@ -33370,7 +33719,8 @@
       "properties": {
         "id": 6515019612,
         "osm_type": "node",
-        "name": "Schweinmühle"
+        "name": "Schweinmühle",
+        "opening_hours": "Mo off; Apr-Sep: Tu-Su,PH 08:00-12:00,14:00-18:00; Oct-Mar: Tu-Su,PH 08:00-09:00; PH +1 day Tu off"
       }
     },
     {
@@ -34751,7 +35101,9 @@
       },
       "properties": {
         "id": 12238353641,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Snack Eck",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -34759,7 +35111,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2039866,
+          9.2039999,
           50.0035183
         ]
       },
@@ -35311,6 +35663,22 @@
         "osm_type": "node",
         "name": "Esso",
         "brand": "Esso"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1958198,
+          50.0243567
+        ]
+      },
+      "properties": {
+        "id": 13591138962,
+        "osm_type": "node",
+        "name": "REWE To Go",
+        "brand": "REWE To Go"
       }
     },
     {
@@ -35895,20 +36263,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.5549237,
-          49.981612
-        ]
-      },
-      "properties": {
-        "id": 2559905157,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.5847074,
           49.9862492
         ]
@@ -36361,8 +36715,8 @@
       "properties": {
         "id": 142407673,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "24/7"
       }
     },
@@ -37611,6 +37965,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.9234167,
+          50.308014
+        ]
+      },
+      "properties": {
+        "id": 2479287225,
+        "osm_type": "node",
+        "name": "Yorma's",
+        "brand": "Yorma's",
+        "opening_hours": "Mo-Fr 05:30-20:30; Sa 06:30-20:30; PH,Su 07:00-20:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.9234578,
           50.3080721
         ]
@@ -37618,8 +37989,8 @@
       "properties": {
         "id": 5043254247,
         "osm_type": "node",
-        "name": "Yorma’s",
-        "brand": "Yorma’s",
+        "name": "Yorma's",
+        "brand": "Yorma's",
         "opening_hours": "Mo-Fr 05:30-20:30; Sa 06:30-20:30; PH,Su 07:00-20:30"
       }
     },
@@ -37649,22 +38020,6 @@
       "properties": {
         "id": 3947735572,
         "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9132951,
-          50.317549
-        ]
-      },
-      "properties": {
-        "id": 6602659720,
-        "osm_type": "node",
-        "name": "Zigarren Wagner",
-        "opening_hours": "Mo-Fr 08:30-19:00; Sa 08:30-18:00; PH off"
       }
     },
     {
@@ -37945,6 +38300,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.4671395,
+          48.574514
+        ]
+      },
+      "properties": {
+        "id": 7012210039,
+        "osm_type": "node",
+        "name": "essStudio"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.4677766,
           48.5743814
         ]
@@ -38001,6 +38371,22 @@
         "id": 1056067657,
         "osm_type": "node",
         "name": "Yamaha Nigl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5963137,
+          48.7263833
+        ]
+      },
+      "properties": {
+        "id": 3164180337,
+        "osm_type": "node",
+        "brand": "Tank Plus",
+        "opening_hours": "Mo-Sa 06:30-21:00; Su 08:00-21:00"
       }
     },
     {
@@ -38349,21 +38735,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2547744,
-          49.8220478
-        ]
-      },
-      "properties": {
-        "id": 173254575,
-        "osm_type": "way",
-        "name": "Mirka's Bierstube"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.5590588,
           49.8249184
         ]
@@ -38509,20 +38880,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.2754353,
-          47.438294
-        ]
-      },
-      "properties": {
-        "id": 231940585,
-        "osm_type": "way"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.2728736,
           47.5438822
         ]
@@ -38637,8 +38994,9 @@
       "properties": {
         "id": 85069757,
         "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-22:00"
       }
     },
     {
@@ -39374,6 +39732,21 @@
         "osm_type": "way",
         "name": "Petra's Kiosk",
         "opening_hours": "Tu-Su 06:30-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2243143,
+          47.6303894
+        ]
+      },
+      "properties": {
+        "id": 1428793925,
+        "osm_type": "way",
+        "name": "Biergarten-Schwimmbad"
       }
     },
     {
@@ -40610,7 +40983,8 @@
         "id": 279754691,
         "osm_type": "way",
         "name": "Yorma's",
-        "brand": "Yorma's"
+        "brand": "Yorma's",
+        "opening_hours": "Mo-Sa 05:30-23:00; Su,PH 06:00-22:00"
       }
     },
     {
@@ -42304,8 +42678,8 @@
       "properties": {
         "id": 627367184,
         "osm_type": "way",
-        "name": "Total",
-        "brand": "Total"
+        "name": "TotalEnergies",
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -43084,6 +43458,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.7443087,
+          49.4961624
+        ]
+      },
+      "properties": {
+        "id": 1480001788,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.8515489,
           49.4589577
         ]
@@ -43265,7 +43653,7 @@
         "osm_type": "way",
         "name": "Yorma's",
         "brand": "Yorma's",
-        "opening_hours": "Mo-Th 05:00-20:30; Fr 05:00-21:00; Sa 06:00-21:00; PH,Su 06:30-21:00"
+        "opening_hours": "Mo-Th 05:00-20:30; Fr 05:00-21:00; Sa 06:00-21:00; Su,PH 06:30-21:00"
       }
     },
     {
@@ -43500,8 +43888,8 @@
       "properties": {
         "id": 432144621,
         "osm_type": "way",
-        "name": "Yorma’s",
-        "brand": "Yorma’s",
+        "name": "Yorma's",
+        "brand": "Yorma's",
         "opening_hours": "Mo-Th 06:00-21:00; Fr 06:00-22:00; Su,PH 08:00-22:00; Sa 08:00-22:00"
       }
     },
@@ -43517,8 +43905,8 @@
       "properties": {
         "id": 433245321,
         "osm_type": "way",
-        "name": "Yorma’s",
-        "brand": "Yorma’s",
+        "name": "Yorma's",
+        "brand": "Yorma's",
         "opening_hours": "Mo-Fr 06:00-20:00; Sa 07:00-20:00; Su,PH 10:00-20:00"
       }
     },
@@ -43534,9 +43922,9 @@
       "properties": {
         "id": 431924757,
         "osm_type": "way",
-        "name": "Yorma’s",
-        "brand": "Yorma’s",
-        "opening_hours": "Mo-Th 04:30-24:00, Fr 04:30-01:00, Sa 03:30-01:00, Su 03:30-24:00"
+        "name": "Yorma's",
+        "brand": "Yorma's",
+        "opening_hours": "Mo-Th 05:00-24:00, Fr 05:00-01:00, Sa 04:00-01:00, Su,PH 04:00-24:00"
       }
     },
     {
@@ -43551,8 +43939,8 @@
       "properties": {
         "id": 433245320,
         "osm_type": "way",
-        "name": "Yorma’s",
-        "brand": "Yorma’s",
+        "name": "Yorma's",
+        "brand": "Yorma's",
         "opening_hours": "Mo-Fr 06:00-20:00; Sa 08:00-20:00"
       }
     },
@@ -44265,7 +44653,7 @@
         "id": 1164756272,
         "osm_type": "way",
         "name": "Vogelbeere - Inklusiver Dorfladen und Café",
-        "opening_hours": "Th-Sa 09:00-18:00; Su,PH 10:00-18:00 \"Sonn- und Feiertags: Laden geschlossen - Café geöffnet!\""
+        "opening_hours": "Mo 08:00-12:00; Tu-Sa 08:00-18:00; Su closed"
       }
     },
     {
@@ -44416,8 +44804,8 @@
       "properties": {
         "id": 28424535,
         "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "24/7"
       }
     },
@@ -44659,6 +45047,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.7962499,
+          49.0486671
+        ]
+      },
+      "properties": {
+        "id": 1320393648,
+        "osm_type": "way",
+        "name": "TANKrintel",
+        "opening_hours": "Mo-Fr 05:00-22:00, Sa-Su 06:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.0998986,
           49.0121424
         ]
@@ -44815,8 +45219,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7488147,
-          48.4037419
+          12.7488148,
+          48.4037415
         ]
       },
       "properties": {
@@ -45386,8 +45790,8 @@
       "properties": {
         "id": 267485845,
         "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "24/7"
       }
     },
@@ -45420,21 +45824,6 @@
         "id": 604318875,
         "osm_type": "way",
         "name": "Dorfladen Schwarzenbach"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.0770222,
-          49.800927
-        ]
-      },
-      "properties": {
-        "id": 682281297,
-        "osm_type": "way",
-        "name": "Boderladl"
       }
     },
     {
@@ -45529,8 +45918,8 @@
       "properties": {
         "id": 222394454,
         "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "PH,Mo-Su 06:00-22:00"
       }
     },
@@ -46297,7 +46686,7 @@
         "osm_type": "way",
         "name": "ServiceStore DB",
         "brand": "ServiceStore DB",
-        "opening_hours": "PH,Mo-Su 08:00-11:00,11:30-16:00"
+        "opening_hours": "Mo-Su,PH 05:00-20:00"
       }
     },
     {

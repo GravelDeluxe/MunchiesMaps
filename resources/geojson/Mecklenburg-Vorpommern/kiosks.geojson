@@ -799,22 +799,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.4175233,
-          53.6302233
-        ]
-      },
-      "properties": {
-        "id": 8880662304,
-        "osm_type": "node",
-        "name": "FKK Unverpackt",
-        "opening_hours": "Mo-Sa 10:00-18:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.406704,
           53.6511917
         ]
@@ -822,6 +806,21 @@
       "properties": {
         "id": 2308730572,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4333533,
+          53.6037158
+        ]
+      },
+      "properties": {
+        "id": 7806099471,
+        "osm_type": "node",
+        "name": "Späti"
       }
     },
     {
@@ -1611,7 +1610,8 @@
       "properties": {
         "id": 13121926206,
         "osm_type": "node",
-        "name": "Bermudadreieck"
+        "name": "Hafenbar Bermudadreieck",
+        "opening_hours": "innerhalb Sommersaison"
       }
     },
     {
@@ -1839,7 +1839,8 @@
       "properties": {
         "id": 7773444075,
         "osm_type": "node",
-        "name": "Bernitter Dorfladen eG"
+        "name": "Bernitter Dorfladen",
+        "opening_hours": "Mo-We 07:00-14:30; Th,Fr 07:00-17:00; Sa 07:00-11:00"
       }
     },
     {
@@ -2135,7 +2136,7 @@
         "id": 3663433815,
         "osm_type": "node",
         "name": "Schahriyar",
-        "opening_hours": "Mo-Su 09:00-22:00"
+        "opening_hours": "Mo-Su 09:00-21:00"
       }
     },
     {
@@ -2174,8 +2175,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.1117802,
-          54.091971
+          12.1118417,
+          54.0918632
         ]
       },
       "properties": {
@@ -2680,8 +2681,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7172112,
-          53.3189924
+          12.7172215,
+          53.3188075
         ]
       },
       "properties": {
@@ -3531,6 +3532,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.2664294,
+          53.7721814
+        ]
+      },
+      "properties": {
+        "id": 3954260110,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.3345965,
           53.8566361
         ]
@@ -3648,6 +3663,21 @@
         "id": 10220941188,
         "osm_type": "node",
         "name": "Bar & Tabacchi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4052003,
+          54.0826833
+        ]
+      },
+      "properties": {
+        "id": 3174684662,
+        "osm_type": "node",
+        "name": "Genuss Markt"
       }
     },
     {
@@ -3774,7 +3804,7 @@
         "id": 733810335,
         "osm_type": "node",
         "name": "E-Kiosk 24",
-        "opening_hours": "Mo-Sa 00:00-00:00"
+        "opening_hours": "24/7"
       }
     },
     {
@@ -3805,6 +3835,21 @@
         "osm_type": "node",
         "name": "Jasmin Alsham",
         "opening_hours": "Mo-Sa 09:00-20:00; PH closed"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.057745,
+          54.1391377
+        ]
+      },
+      "properties": {
+        "id": 13502705295,
+        "osm_type": "node",
+        "name": "k kiosk"
       }
     },
     {
@@ -4434,9 +4479,8 @@
       "properties": {
         "id": 1459107868,
         "osm_type": "node",
-        "name": "ServiceStore DB",
-        "brand": "ServiceStore DB",
-        "opening_hours": "Mo-Fr 06:30-19:00; Sa,Su,PH 09:00-18:00"
+        "name": "Point",
+        "opening_hours": "Mo-Fr, Su 10:00-18:00"
       }
     },
     {
@@ -5193,8 +5237,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.9982343,
-          54.0586039
+          13.9982705,
+          54.0586212
         ]
       },
       "properties": {
@@ -6826,6 +6870,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.060291,
+          54.1387059
+        ]
+      },
+      "properties": {
+        "id": 1471473071,
+        "osm_type": "way",
+        "name": "Lütte Box",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.0798157,
           54.1812373
         ]
@@ -7175,7 +7235,6 @@
       "properties": {
         "id": 70953370,
         "osm_type": "way",
-        "name": "Backshop",
         "opening_hours": "Mo-Su 08:00-11:30,15:00-18:00"
       }
     },

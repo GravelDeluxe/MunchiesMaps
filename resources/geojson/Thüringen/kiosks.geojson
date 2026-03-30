@@ -788,9 +788,25 @@
       "properties": {
         "id": 218674330,
         "osm_type": "node",
-        "name": "Agip Service-Station Eisfeld",
-        "brand": "Agip",
+        "name": "Eni",
+        "brand": "Eni",
         "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.9221917,
+          50.3939732
+        ]
+      },
+      "properties": {
+        "id": 13468431163,
+        "osm_type": "node",
+        "name": "Eni Shop",
+        "brand": "Eni Shop"
       }
     },
     {
@@ -1019,7 +1035,8 @@
       "properties": {
         "id": 3607777456,
         "osm_type": "node",
-        "name": "Getränkewelt"
+        "name": "Getränkewelt",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-12:00"
       }
     },
     {
@@ -1605,8 +1622,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.3392539,
-          50.8116355
+          10.3392215,
+          50.8115939
         ]
       },
       "properties": {
@@ -1904,21 +1921,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.309568,
-          50.9944871
-        ]
-      },
-      "properties": {
-        "id": 527527204,
-        "osm_type": "node",
-        "name": "NORD MARKT"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.3088646,
           50.9954408
         ]
@@ -1933,8 +1935,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.3297046,
-          50.9786783
+          10.3297177,
+          50.9787115
         ]
       },
       "properties": {
@@ -1975,6 +1977,22 @@
         "osm_type": "node",
         "name": "Quelle Shop",
         "opening_hours": "Mo-Fr 09:00-13:00; Tu,Th,Fr 15:00-18:00; Sa 09:00-11:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.4260813,
+          51.1234284
+        ]
+      },
+      "properties": {
+        "id": 12686438078,
+        "osm_type": "node",
+        "name": "Schollimarkt",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -2159,20 +2177,6 @@
         "osm_type": "node",
         "name": "Shop&Kiosk Am Bahnhof",
         "opening_hours": "Mo-Fr 07:00-19:00; Sa,Su 10:00-19:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.7125805,
-          50.9392814
-        ]
-      },
-      "properties": {
-        "id": 8772853302,
-        "osm_type": "node"
       }
     },
     {
@@ -2846,7 +2850,8 @@
       "properties": {
         "id": 8310833913,
         "osm_type": "node",
-        "name": "OrientMarkt"
+        "name": "Bizim Market",
+        "opening_hours": "Mo-Fr 09:00-18:00; Sa 10:00-18:00"
       }
     },
     {
@@ -3235,14 +3240,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.9984171,
-          51.0091842
+          10.9984096,
+          51.0091627
         ]
       },
       "properties": {
-        "id": 2837738903,
+        "id": 3890553717,
         "osm_type": "node",
-        "name": "Kiosk"
+        "name": "DHL Paketshop im Kiosk",
+        "brand": "DHL"
       }
     },
     {
@@ -3374,6 +3380,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.0221396,
+          50.9807419
+        ]
+      },
+      "properties": {
+        "id": 13575060401,
+        "osm_type": "node",
+        "name": "Das Fairly"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.0270891,
           50.9779432
         ]
@@ -3431,6 +3452,21 @@
         "osm_type": "node",
         "name": "Dolce Vita",
         "opening_hours": "Mo-Sa 09:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0322531,
+          50.9816379
+        ]
+      },
+      "properties": {
+        "id": 13468818414,
+        "osm_type": "node",
+        "name": "Habesha Kiosk"
       }
     },
     {
@@ -3576,6 +3612,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.0453932,
+          50.9780922
+        ]
+      },
+      "properties": {
+        "id": 13445022349,
+        "osm_type": "node",
+        "name": "Erzeugerladen - ELYSIUM Stiftung",
+        "opening_hours": "Th-Sa 16:00-19:00, Su 08:00-15-00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.0537556,
           50.9880145
         ]
@@ -3583,6 +3635,22 @@
       "properties": {
         "id": 13120992114,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0145639,
+          51.005241
+        ]
+      },
+      "properties": {
+        "id": 13475022073,
+        "osm_type": "node",
+        "name": "Tabakshop Berlin",
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa 08:00-13:00; Su off"
       }
     },
     {
@@ -3765,14 +3833,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.3442608,
-          50.9718196
+          11.3442299,
+          50.9717982
         ]
       },
       "properties": {
         "id": 1373763500,
         "osm_type": "node",
         "name": "Nahkauf",
+        "brand": "Nahkauf",
         "opening_hours": "Mo-Fr 06:30-21:00, Sa 06:30-20:00"
       }
     },
@@ -3995,6 +4064,22 @@
         "id": 5838180581,
         "osm_type": "node",
         "name": "City Drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5852517,
+          50.9266719
+        ]
+      },
+      "properties": {
+        "id": 5851200550,
+        "osm_type": "node",
+        "name": "Tante Zukunft",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5067,7 +5152,7 @@
         "osm_type": "node",
         "name": "ServiceStore DB",
         "brand": "ServiceStore DB",
-        "opening_hours": "Mo-Fr 06:00-20:00; Sa,Su,PH 08:00-20:00"
+        "opening_hours": "Mo-Fr 06:00-19:00; Sa 08:00-18:00;Su 08:00-20:00;PH 08:00-18:00"
       }
     },
     {
@@ -5444,6 +5529,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.6829361,
+          50.6074201
+        ]
+      },
+      "properties": {
+        "id": 115751935,
+        "osm_type": "way",
+        "name": "Spar Express",
+        "brand": "Spar"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.9007475,
           50.6929408
         ]
@@ -5653,8 +5754,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.2741427,
-          50.67952
+          11.2741681,
+          50.6795211
         ]
       },
       "properties": {
@@ -5892,6 +5993,21 @@
         "name": "Aral Eisenach Weststadt",
         "brand": "Aral",
         "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.3095834,
+          50.9947994
+        ]
+      },
+      "properties": {
+        "id": 42431078,
+        "osm_type": "way",
+        "name": "Nord Markt"
       }
     },
     {
@@ -6825,8 +6941,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.8569437,
-          50.9046851
+          11.8569419,
+          50.9046861
         ]
       },
       "properties": {

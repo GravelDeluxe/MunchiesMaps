@@ -5206,21 +5206,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.2448653,
-          51.0591265
-        ]
-      },
-      "properties": {
-        "id": 1567381845,
-        "osm_type": "node",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.1877725,
           51.1102026
         ]
@@ -6847,6 +6832,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.0229195,
+          50.9509747
+        ]
+      },
+      "properties": {
+        "id": 11648844957,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "description": "Kleine Hütte der Bauart \"Bushaltestelle\" in relativ ruhiger und schöner Lage. Platz für eine liegende Person."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.0236933,
           50.9443532
         ]
@@ -6857,23 +6859,6 @@
         "shelter_type": "weather_shelter",
         "bench": "yes",
         "description": "Kleine Hütte der Bauart \"Bushaltestelle\". Kein Sichtschutz, zum Weg hin offen. Undichtes Dach, ziemlich marode."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.0231929,
-          50.9509343
-        ]
-      },
-      "properties": {
-        "id": 11648844957,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter",
-        "bench": "yes",
-        "description": "Kleine Hütte der Bauart \"Bushaltestelle\" in relativ ruhiger und schöner Lage. Platz für eine liegende Person."
       }
     },
     {
@@ -7585,6 +7570,21 @@
         "name": "Schutzhütte \"Himmelreich\"",
         "shelter_type": "lean_to",
         "operator": "keiner"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5563939,
+          50.8902049
+        ]
+      },
+      "properties": {
+        "id": 13463956558,
+        "osm_type": "node",
+        "name": "Unknown"
       }
     },
     {
@@ -10817,6 +10817,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.2448647,
+          51.0591295
+        ]
+      },
+      "properties": {
+        "id": 1476272938,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.2516977,
           51.1409122
         ]
@@ -11454,14 +11469,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.1598517,
-          51.3756034
+          10.1598502,
+          51.3756018
         ]
       },
       "properties": {
         "id": 1230714753,
         "osm_type": "way",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {

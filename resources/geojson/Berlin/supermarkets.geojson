@@ -335,7 +335,7 @@
         "osm_type": "node",
         "name": "Aldi",
         "brand": "ALDI Nord",
-        "opening_hours": "Mo-Sa 07:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -385,7 +385,7 @@
         "osm_type": "node",
         "name": "Lidl",
         "brand": "Lidl",
-        "opening_hours": "Mo-Sa 08:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -415,7 +415,7 @@
       "properties": {
         "id": 12886474804,
         "osm_type": "node",
-        "name": "Bio Frischemarkt Grünschnabel",
+        "name": "Grünschnabel",
         "opening_hours": "Mo-Fr 07:00-20:00; Sa 08:00-18:00; PH off"
       }
     },
@@ -2750,7 +2750,8 @@
       "properties": {
         "id": 7200854537,
         "osm_type": "node",
-        "name": "Kartar Food"
+        "name": "Kartar Food",
+        "opening_hours": "Mo-Sa 09:30-20:00"
       }
     },
     {
@@ -3084,22 +3085,6 @@
         "name": "LPG BioMarkt",
         "brand": "LPG BioMarkt",
         "opening_hours": "Mo-Sa 08:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.3324082,
-          52.4523646
-        ]
-      },
-      "properties": {
-        "id": 8640531662,
-        "osm_type": "node",
-        "name": "Al Arabi",
-        "opening_hours": "Mo-Sa 09:30-20:00"
       }
     },
     {
@@ -3751,7 +3736,7 @@
         "osm_type": "node",
         "name": "EDEKA",
         "brand": "Edeka",
-        "opening_hours": "Mo-Sa 07:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -4131,7 +4116,7 @@
       "properties": {
         "id": 482585492,
         "osm_type": "node",
-        "name": "Edeka",
+        "name": "Edeka Focke",
         "brand": "Edeka",
         "opening_hours": "Mo-Sa 07:00-22:00"
       }
@@ -4249,7 +4234,7 @@
         "id": 3632641114,
         "osm_type": "node",
         "name": "Biolino",
-        "opening_hours": "Mo-Fr 08:00-18:30; Sa 09:00-14:00"
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa 09:00-14:00"
       }
     },
     {
@@ -4855,22 +4840,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3946258,
-          52.4877711
-        ]
-      },
-      "properties": {
-        "id": 13315382015,
-        "osm_type": "node",
-        "name": "Sabor Limeño",
-        "opening_hours": "Mo-Sa 11:00-19:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.3830186,
           52.4931501
         ]
@@ -4995,7 +4964,7 @@
         "id": 766742192,
         "osm_type": "node",
         "name": "EDEKA Siebert",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "opening_hours": "Mo-Sa 07:00-22:00"
       }
     },
@@ -5164,7 +5133,7 @@
       "properties": {
         "id": 5034396389,
         "osm_type": "node",
-        "name": "El-Fj Supermarkt",
+        "name": "El-Fi Supermarkt",
         "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
@@ -5325,6 +5294,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.3352588,
+          52.5036092
+        ]
+      },
+      "properties": {
+        "id": 6535253437,
+        "osm_type": "node",
+        "name": "Go Asia",
+        "brand": "Go Asia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.3328311,
           52.5036224
         ]
@@ -5368,23 +5353,6 @@
         "osm_type": "node",
         "name": "Vinh-Loi Asien-Supermarkt",
         "opening_hours": "Mo-Sa 09:00-19:00; Su off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.3328469,
-          52.5076158
-        ]
-      },
-      "properties": {
-        "id": 9623050846,
-        "osm_type": "node",
-        "name": "Denns BioMarkt",
-        "brand": "Denns BioMarkt",
-        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00"
       }
     },
     {
@@ -5986,8 +5954,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3444505,
-          52.5319137
+          13.3446067,
+          52.5319994
         ]
       },
       "properties": {
@@ -6600,23 +6568,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3886757,
-          52.5205382
-        ]
-      },
-      "properties": {
-        "id": 1349696696,
-        "osm_type": "node",
-        "name": "REWE City",
-        "brand": "Rewe",
-        "opening_hours": "Mo-Sa 07:00-23:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.3875704,
           52.5229073
         ]
@@ -7035,23 +6986,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.4164837,
-          52.5186498
-        ]
-      },
-      "properties": {
-        "id": 3987051062,
-        "osm_type": "node",
-        "name": "EDEKA",
-        "brand": "Edeka",
-        "opening_hours": "Mo-Sa 08:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.4206829,
           52.5174568
         ]
@@ -7164,23 +7098,6 @@
         "name": "Alnatura Super Natur Markt",
         "brand": "Alnatura",
         "opening_hours": "Mo-Sa 08:00-21:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.3887617,
-          52.5254978
-        ]
-      },
-      "properties": {
-        "id": 12924870501,
-        "osm_type": "node",
-        "name": "Rewe",
-        "brand": "Rewe",
-        "opening_hours": "Mo-Sa 07:00-22:00"
       }
     },
     {
@@ -7873,6 +7790,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.4131271,
+          52.5485243
+        ]
+      },
+      "properties": {
+        "id": 13603913901,
+        "osm_type": "node",
+        "name": "Lidl",
+        "opening_hours": "Mo-Sa 07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.4161791,
           52.5493785
         ]
@@ -8447,7 +8380,7 @@
         "osm_type": "node",
         "name": "PENNY",
         "brand": "Penny",
-        "opening_hours": "Mo-Sa 08:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-22:00"
       }
     },
     {
@@ -9092,7 +9025,7 @@
       "properties": {
         "id": 12365128598,
         "osm_type": "node",
-        "name": "kleene Bio Company",
+        "name": "Kleene Bio Company",
         "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
@@ -9338,6 +9271,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.4391442,
+          52.4237681
+        ]
+      },
+      "properties": {
+        "id": 13587921011,
+        "osm_type": "node",
+        "name": "Supermarkt FamilienHaus بيت العائلة"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.4319561,
           52.4425881
         ]
@@ -9381,6 +9329,21 @@
         "osm_type": "node",
         "name": "Russia",
         "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4479136,
+          52.437276
+        ]
+      },
+      "properties": {
+        "id": 621202048,
+        "osm_type": "node",
+        "name": "Eurogida"
       }
     },
     {
@@ -12007,7 +11970,8 @@
       "properties": {
         "id": 13327937391,
         "osm_type": "node",
-        "name": "India Go"
+        "name": "India Go",
+        "opening_hours": "Mo-Sa 08:00-20:00"
       }
     },
     {
@@ -13308,6 +13272,22 @@
         "name": "REWE",
         "brand": "REWE",
         "opening_hours": "Mo-Sa 07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.541372,
+          52.5208985
+        ]
+      },
+      "properties": {
+        "id": 13481818310,
+        "osm_type": "node",
+        "name": "Aldi",
+        "brand": "Aldi Nord"
       }
     },
     {
@@ -15113,7 +15093,7 @@
         "id": 46431050,
         "osm_type": "way",
         "name": "Edeka",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
@@ -15636,7 +15616,7 @@
         "osm_type": "way",
         "name": "Lidl",
         "brand": "Lidl",
-        "opening_hours": "Mo-Sa 08:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -16312,7 +16292,7 @@
         "id": 42975145,
         "osm_type": "way",
         "name": "Centro Italia",
-        "opening_hours": "Mo-Fr 09:00-18:30; Sa 10:00-16:00"
+        "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-16:00"
       }
     },
     {
@@ -16897,6 +16877,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.332816,
+          52.5076246
+        ]
+      },
+      "properties": {
+        "id": 1047617432,
+        "osm_type": "way",
+        "name": "Denns BioMarkt",
+        "brand": "Denns BioMarkt",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.3423365,
           52.5188246
         ]
@@ -17217,6 +17214,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.4167765,
+          52.5185781
+        ]
+      },
+      "properties": {
+        "id": 1204762785,
+        "osm_type": "way",
+        "name": "EDEKA",
+        "brand": "Edeka",
+        "opening_hours": "Mo-Sa 08:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.3698421,
           52.5254685
         ]
@@ -17226,7 +17240,7 @@
         "osm_type": "way",
         "name": "Denns BioMarkt",
         "brand": "Denns BioMarkt",
-        "opening_hours": "08:00-22:00"
+        "opening_hours": "Mo-Su 06:30-22:00"
       }
     },
     {
@@ -18245,7 +18259,7 @@
         "osm_type": "way",
         "name": "Lidl",
         "brand": "Lidl",
-        "opening_hours": "Mo-Sa 08:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -19211,7 +19225,7 @@
         "osm_type": "way",
         "name": "Netto",
         "brand": "Netto",
-        "opening_hours": "Mo-Sa 07:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -19647,7 +19661,7 @@
         "osm_type": "way",
         "name": "Aldi",
         "brand": "Aldi Nord",
-        "opening_hours": "Mo-Sa 07:00-21:00"
+        "opening_hours": "closed"
       }
     },
     {
@@ -19952,7 +19966,7 @@
         "id": 125437095,
         "osm_type": "way",
         "name": "Aldi",
-        "brand": "ALDI Nord",
+        "brand": "Aldi Nord",
         "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
@@ -20020,7 +20034,7 @@
         "id": 133358624,
         "osm_type": "way",
         "name": "EDEKA",
-        "brand": "EDEKA",
+        "brand": "Edeka",
         "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
@@ -21750,7 +21764,7 @@
       "properties": {
         "id": 94646614,
         "osm_type": "way",
-        "name": "Penny",
+        "name": "PENNY. Alt-Mahlsdorf",
         "brand": "Penny",
         "opening_hours": "Mo-Sa 07:00-21:00"
       }
@@ -22296,7 +22310,7 @@
         "osm_type": "way",
         "name": "Lidl",
         "brand": "Lidl",
-        "opening_hours": "Mo-Sa 08:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {

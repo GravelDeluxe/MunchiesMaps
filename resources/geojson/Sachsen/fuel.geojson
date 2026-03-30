@@ -1224,8 +1224,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7335002,
-          50.5627216
+          12.7334876,
+          50.5627354
         ]
       },
       "properties": {
@@ -1665,7 +1665,7 @@
       "properties": {
         "id": 2188236256,
         "osm_type": "node",
-        "name": "bft-Tankstelle",
+        "name": "bft",
         "brand": "bft",
         "opening_hours": "Mo-Fr 06:00-20:00, Sa 07:00-20:00,Su 07:00-20:00"
       }
@@ -3323,6 +3323,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.008827,
+          50.8627017
+        ]
+      },
+      "properties": {
+        "id": 13519598742,
+        "osm_type": "node",
+        "name": "Shell Station",
+        "brand": "Shell",
+        "opening_hours": "Mo-Fr 06:00-20:00; Sa,Su,PH 08:00-18:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.0575251,
           50.8642848
         ]
@@ -4778,7 +4795,7 @@
         "id": 1387772646,
         "osm_type": "node",
         "name": "Total",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "opening_hours": "24/7"
       }
     },
@@ -5013,23 +5030,6 @@
         "name": "Greenline",
         "brand": "Aral",
         "opening_hours": "Mo-Fr 07:00-05:00, Sa,Su 09:00-24:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.7624061,
-          51.1206701
-        ]
-      },
-      "properties": {
-        "id": 1583414529,
-        "osm_type": "node",
-        "name": "Agip",
-        "brand": "Agip",
-        "opening_hours": "24/7"
       }
     },
     {
@@ -6061,6 +6061,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          14.4551298,
+          51.1885465
+        ]
+      },
+      "properties": {
+        "id": 13526229403,
+        "osm_type": "node",
+        "name": "Tankstelle am Marktkauf",
+        "opening_hours": "Mo-We,Sa 07:00-20:00; Tu-Fr 07:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           14.4620218,
           51.2524684
         ]
@@ -6390,23 +6406,6 @@
         "name": "Aral",
         "brand": "Aral",
         "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.1246171,
-          50.5135628
-        ]
-      },
-      "properties": {
-        "id": 196494369,
-        "osm_type": "way",
-        "name": "Kaufland-Tankstelle",
-        "brand": "Kaufland",
-        "opening_hours": "Mo-Sa 07:00-22:00"
       }
     },
     {
@@ -7927,7 +7926,7 @@
         "osm_type": "way",
         "name": "Total",
         "brand": "Total",
-        "opening_hours": "Mo-Fr 08:00-19:00, Sa-So 08:00-18:00"
+        "opening_hours": "Mo-Fr 08:00-19:00, Sa,Su 08:00-18:00"
       }
     },
     {
@@ -8348,7 +8347,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.4750224,
+          12.474974,
           51.3720458
         ]
       },
@@ -9465,23 +9464,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.0088482,
-          50.8627331
-        ]
-      },
-      "properties": {
-        "id": 129901683,
-        "osm_type": "way",
-        "name": "Shell Station",
-        "brand": "Shell",
-        "opening_hours": "Mo-Fr 06:00-20:00; Sa,Su 08:00-18:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.1789083,
           50.8648451
         ]
@@ -9893,14 +9875,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.740068,
-          51.3809406
+          12.7400857,
+          51.3809526
         ]
       },
       "properties": {
         "id": 240654692,
         "osm_type": "way",
         "name": "OIL! tank & go",
+        "brand": "OIL!",
         "opening_hours": "24/7"
       }
     },
@@ -10227,7 +10210,8 @@
       "properties": {
         "id": 1206004652,
         "osm_type": "way",
-        "name": "ept"
+        "name": "Hoyer",
+        "brand": "Hoyer"
       }
     },
     {
@@ -10732,7 +10716,7 @@
         "id": 24393536,
         "osm_type": "way",
         "name": "Total",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "opening_hours": "Mo-Fr 06:00-21:00; Sa,Su,PH 07:30-21:00"
       }
     },
@@ -11162,6 +11146,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.7622197,
+          51.1206385
+        ]
+      },
+      "properties": {
+        "id": 1478750295,
+        "osm_type": "way",
+        "name": "Agip",
+        "brand": "Agip",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.7975797,
           51.1403179
         ]
@@ -11171,7 +11172,7 @@
         "osm_type": "way",
         "name": "Total",
         "brand": "Total",
-        "opening_hours": "Mo-Fr 04:00-22:00"
+        "opening_hours": "Mo-Fr 05:00-22:00; Sa 06:00-22:00; Su,PH 06:00-22:00"
       }
     },
     {
@@ -11594,7 +11595,7 @@
       "properties": {
         "id": 263634182,
         "osm_type": "way",
-        "name": "Total",
+        "name": "TotalEnergies",
         "brand": "Total",
         "opening_hours": "24/7"
       }
@@ -11970,23 +11971,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.4747724,
-          51.172681
-        ]
-      },
-      "properties": {
-        "id": 1351266680,
-        "osm_type": "way",
-        "name": "Agip",
-        "brand": "Agip",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           14.6537471,
           51.105465
         ]
@@ -12178,22 +12162,6 @@
         "name": "Aral",
         "brand": "Aral",
         "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.4551818,
-          51.188406
-        ]
-      },
-      "properties": {
-        "id": 112770217,
-        "osm_type": "way",
-        "name": "Tankstelle am Marktkauf",
-        "opening_hours": "Mo-We,Sa 07:00-20:00; Tu-Fr 07:00-21:00"
       }
     },
     {

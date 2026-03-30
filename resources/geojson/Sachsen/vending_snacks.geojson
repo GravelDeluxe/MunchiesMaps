@@ -624,6 +624,7 @@
       "properties": {
         "id": 10837767357,
         "osm_type": "node",
+        "opening_hours": "24/7",
         "vending": "pizza",
         "operator": "Daniel Wedel & Mariann Kulcsar"
       }
@@ -1363,6 +1364,21 @@
         "id": 13109310160,
         "osm_type": "node",
         "vending": "drinks;eggs;sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.8709041,
+          50.8231741
+        ]
+      },
+      "properties": {
+        "id": 13534358815,
+        "osm_type": "node",
+        "vending": "drinks;food;sweets"
       }
     },
     {
@@ -2205,7 +2221,6 @@
       "properties": {
         "id": 12492940420,
         "osm_type": "node",
-        "name": "Coca-Cola",
         "vending": "drinks",
         "brand": "Coca-Cola"
       }
@@ -3099,6 +3114,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.8049507,
+          51.0255569
+        ]
+      },
+      "properties": {
+        "id": 13506282588,
+        "osm_type": "node",
+        "vending": "drinks;sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.8354335,
           51.0084985
         ]
@@ -3714,6 +3744,36 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.9153293,
+          50.9570544
+        ]
+      },
+      "properties": {
+        "id": 13573086730,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.9155413,
+          50.9570516
+        ]
+      },
+      "properties": {
+        "id": 13573086731,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.9276407,
           50.9568347
         ]
@@ -3985,8 +4045,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.1491839,
-          50.9179488
+          14.1492003,
+          50.9179323
         ]
       },
       "properties": {
@@ -4277,7 +4337,7 @@
       "properties": {
         "id": 12966463000,
         "osm_type": "node",
-        "vending": "bread",
+        "vending": "bread;drinks;sweets;water;food;milk",
         "operator": "Bäckerei Jacobi"
       }
     },
@@ -4528,16 +4588,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.4307343,
-          51.1800792
+          14.4307213,
+          51.1800918
         ]
       },
       "properties": {
         "id": 9199856635,
         "osm_type": "node",
-        "name": "Fleisch- und Wurstwaren Wenk Frischeautomat",
+        "name": "Frischeautomat",
         "opening_hours": "24/7",
-        "vending": "food"
+        "vending": "food",
+        "operator": "Fleisch- und Wurstwaren Wenk"
       }
     },
     {

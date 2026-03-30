@@ -6,21 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4831431,
-          49.5941004
-        ]
-      },
-      "properties": {
-        "id": 13077524446,
-        "osm_type": "node",
-        "brand": "Star"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.5740426,
           49.528187
         ]
@@ -3224,14 +3209,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.2904388,
-          50.4374128
+          8.2909966,
+          50.4374862
         ]
       },
       "properties": {
-        "id": 1467429201,
+        "id": 13566560005,
         "osm_type": "node",
-        "brand": "Shell"
+        "name": "Tillytank"
       }
     },
     {
@@ -4683,8 +4668,8 @@
       "properties": {
         "id": 282857397,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "24/7"
       }
     },
@@ -5018,7 +5003,8 @@
       "properties": {
         "id": 409025676,
         "osm_type": "node",
-        "name": "Tankstation Offenbach"
+        "name": "Tankstation Offenbach",
+        "brand": "calpam"
       }
     },
     {
@@ -5446,7 +5432,8 @@
         "id": 164681753,
         "osm_type": "node",
         "name": "Aral",
-        "brand": "Aral"
+        "brand": "Aral",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -7013,6 +7000,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.9216132,
+          50.1031231
+        ]
+      },
+      "properties": {
+        "id": 13551236629,
+        "osm_type": "node",
+        "name": "Star Tankstelle",
+        "brand": "star",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; Su 08:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.9174294,
           50.1277463
         ]
@@ -8427,8 +8431,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7491438,
-          50.5282792
+          8.7492681,
+          50.5281867
         ]
       },
       "properties": {
@@ -9984,7 +9988,7 @@
       "properties": {
         "id": 732715692,
         "osm_type": "node",
-        "name": "bft",
+        "name": "Q1",
         "brand": "bft",
         "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-21:00"
       }
@@ -10645,8 +10649,8 @@
       "properties": {
         "id": 5024974679,
         "osm_type": "node",
-        "name": "Aral",
-        "brand": "Aral"
+        "name": "Star Tankstelle",
+        "brand": "star"
       }
     },
     {
@@ -11795,21 +11799,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.4667096,
-          50.8575978
-        ]
-      },
-      "properties": {
-        "id": 1469763606,
-        "osm_type": "node",
-        "name": "sb-tanken"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.5766826,
           50.775147
         ]
@@ -11979,7 +11968,8 @@
       },
       "properties": {
         "id": 1162087904,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "rhv Raiffeisen"
       }
     },
     {
@@ -12661,6 +12651,22 @@
         "name": "Jet",
         "brand": "Jet",
         "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.7942079,
+          50.9643804
+        ]
+      },
+      "properties": {
+        "id": 13541120674,
+        "osm_type": "node",
+        "name": "Dieseldirektstation - Nur für Firmenkunden",
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -14000,7 +14006,8 @@
         "id": 197883803,
         "osm_type": "node",
         "name": "Shell",
-        "brand": "Shell"
+        "brand": "Shell",
+        "opening_hours": "Mo-Su 05:00-22:00"
       }
     },
     {
@@ -14067,6 +14074,21 @@
         "name": "Avia",
         "brand": "Avia",
         "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-15:00; Su 09:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1751332,
+          51.0072365
+        ]
+      },
+      "properties": {
+        "id": 13511759872,
+        "osm_type": "node",
+        "name": "GAVEG mbH"
       }
     },
     {
@@ -15116,7 +15138,8 @@
         "id": 275354128,
         "osm_type": "way",
         "name": "Roth Station",
-        "brand": "Roth"
+        "brand": "Roth",
+        "opening_hours": "Mo-Sa 06:00-21:00"
       }
     },
     {
@@ -17394,7 +17417,8 @@
         "id": 95721301,
         "osm_type": "way",
         "name": "bft",
-        "brand": "bft"
+        "brand": "bft",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
     {
@@ -17853,23 +17877,6 @@
         "name": "Shell Tankstelle",
         "brand": "Shell",
         "opening_hours": "05:30-22:00; Sa 07:00-22:00; Su 08:00-22:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.9216426,
-          50.1031249
-        ]
-      },
-      "properties": {
-        "id": 199959180,
-        "osm_type": "way",
-        "name": "Star Tankstelle",
-        "brand": "star",
-        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; Su 08:00-20:00"
       }
     },
     {
@@ -19086,8 +19093,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9946303,
-          50.7308949
+          8.9946367,
+          50.7308929
         ]
       },
       "properties": {
@@ -19460,8 +19467,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.736367,
-          50.4181906
+          9.7363595,
+          50.418195
         ]
       },
       "properties": {
@@ -19628,8 +19635,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.007822,
-          50.5037437
+          10.0077942,
+          50.5037419
         ]
       },
       "properties": {
@@ -19890,15 +19897,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5322109,
-          50.8146821
+          8.5322402,
+          50.8146661
         ]
       },
       "properties": {
         "id": 575061130,
         "osm_type": "way",
-        "name": "Autohaus Wahl Mittelhessen GmbH & Co.KG",
-        "brand": "Independent"
+        "brand": "Independent",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -20152,8 +20159,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7729482,
-          50.8261596
+          8.7729908,
+          50.8261678
         ]
       },
       "properties": {
@@ -20351,7 +20358,8 @@
         "id": 502929314,
         "osm_type": "way",
         "name": "Elan",
-        "brand": "Elan"
+        "brand": "Elan",
+        "opening_hours": "Mo-Fr 06:30-21:00; Sa 7:00-21:00; Su 9:00-20:00"
       }
     },
     {
@@ -20488,8 +20496,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9696533,
-          50.978906
+          8.9697564,
+          50.978936
         ]
       },
       "properties": {
@@ -20847,7 +20855,8 @@
       "properties": {
         "id": 1425517361,
         "osm_type": "way",
-        "brand": "bft"
+        "name": "Autohaus Lohr",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -20969,8 +20978,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.7146207,
-          50.8687281
+          9.7147384,
+          50.8687693
         ]
       },
       "properties": {
@@ -21910,6 +21919,22 @@
         "name": "HEM",
         "brand": "HEM",
         "opening_hours": "Mo-Fr 05:00-22:00; Sa 06:00-22:00; Su 07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.483268,
+          49.5941334
+        ]
+      },
+      "properties": {
+        "id": 20203770,
+        "osm_type": "relation",
+        "name": "star",
+        "brand": "star"
       }
     },
     {

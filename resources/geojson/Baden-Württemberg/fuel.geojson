@@ -701,23 +701,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0026455,
-          47.7428624
-        ]
-      },
-      "properties": {
-        "id": 391685780,
-        "osm_type": "node",
-        "name": "Avia",
-        "brand": "Avia",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.1720056,
           47.8217385
         ]
@@ -1272,7 +1255,8 @@
         "id": 60205694,
         "osm_type": "node",
         "name": "Esso",
-        "brand": "Esso"
+        "brand": "Esso",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
     {
@@ -2469,7 +2453,7 @@
       "properties": {
         "id": 3807925688,
         "osm_type": "node",
-        "name": "Tank in Tankstelle Hägele OHG",
+        "name": "Tank in",
         "brand": "Independent",
         "opening_hours": "Mo-Fr 06:30-22:00; Sa,Su 07:30-22:00"
       }
@@ -2777,7 +2761,8 @@
         "id": 49795346,
         "osm_type": "node",
         "name": "Agip",
-        "brand": "Agip"
+        "brand": "Agip",
+        "opening_hours": "Mo–Fr 05:00–23:00; Sa–Su 06:00–23:00; PH 06:00–23:00"
       }
     },
     {
@@ -3068,7 +3053,7 @@
       "properties": {
         "id": 428835744,
         "osm_type": "node",
-        "name": "Im Hegau (Ost)",
+        "name": "MTB Tankstelle Ost",
         "opening_hours": "24/7"
       }
     },
@@ -4432,8 +4417,9 @@
       "properties": {
         "id": 428835625,
         "osm_type": "node",
-        "name": "Esso",
-        "brand": "Esso"
+        "name": "Avia Station Kressbronn",
+        "brand": "Avia",
+        "opening_hours": "Mo–Fr 07:00-21:00; Sa 08:00-21:00; Su 08:00-21:00"
       }
     },
     {
@@ -4516,7 +4502,8 @@
       "properties": {
         "id": 370293175,
         "osm_type": "node",
-        "name": "Autohaus Sailer"
+        "name": "Autohaus Sailer",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4530,7 +4517,10 @@
       },
       "properties": {
         "id": 583257544,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Avia",
+        "brand": "Avia",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4577,8 +4567,9 @@
       "properties": {
         "id": 670814376,
         "osm_type": "node",
-        "name": "Avia",
-        "brand": "Avia"
+        "name": "AVIA XPress",
+        "brand": "Avia",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4694,7 +4685,9 @@
       "properties": {
         "id": 365816237,
         "osm_type": "node",
-        "name": "BAG"
+        "name": "Avia SB-Tankstelle",
+        "brand": "Avia",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4709,9 +4702,9 @@
       "properties": {
         "id": 3334249505,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su, PH 09:00-20:00"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; Su, PH 08:00-21:00"
       }
     },
     {
@@ -4760,8 +4753,9 @@
       "properties": {
         "id": 246856497,
         "osm_type": "node",
-        "name": "PINOIL",
-        "brand": "Pinoil"
+        "name": "PINOIL Tettnang",
+        "brand": "Pinoil",
+        "opening_hours": "Mo-Fr 06:30-21:00;Sa-Su 07:30-21:00"
       }
     },
     {
@@ -4820,8 +4814,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.602484,
-          47.709452
+          9.6025066,
+          47.7094374
         ]
       },
       "properties": {
@@ -6195,14 +6189,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.7947747,
-          48.1022692
+          9.7947306,
+          48.1022992
         ]
       },
       "properties": {
         "id": 506588872,
         "osm_type": "node",
-        "name": "CNG / Erdgas"
+        "name": "CNG / Erdgas",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -6731,7 +6726,8 @@
       "properties": {
         "id": 904603843,
         "osm_type": "node",
-        "brand": "Total",
+        "name": "TotalEnergies Schutterwald",
+        "brand": "TotalEnergies",
         "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; Su 08:00-21:00"
       }
     },
@@ -6765,22 +6761,6 @@
         "name": "Jet",
         "brand": "JET",
         "opening_hours": "Mo-Fr 06:00-24:00; Sa 06:00-24:00; PH,Su 07:00-24:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.9056048,
-          48.5400792
-        ]
-      },
-      "properties": {
-        "id": 732712876,
-        "osm_type": "node",
-        "name": "Autohaus Hilzinger",
-        "opening_hours": "Mo-Fr 07:00-12:00,13:00-18:00; Sa 09:00-12:00"
       }
     },
     {
@@ -7788,7 +7768,7 @@
         "osm_type": "node",
         "name": "Avia",
         "brand": "Avia",
-        "opening_hours": "Mo-Fr 06:45-20:00, Sa 07:30-19:00, Su,PH 09:00-19:00"
+        "opening_hours": "Mo-Fr 06:30-20:00; Sa 07:30-19:00; Su,PH 09:00-19:00"
       }
     },
     {
@@ -7871,7 +7851,7 @@
         "osm_type": "node",
         "name": "Esso",
         "brand": "Esso",
-        "opening_hours": "Mo-Sa 07:00-20:00; Su 08:30-20:00"
+        "opening_hours": "Mo-Fr 06:00-20:00; Sa 07:00-20:00; Su 08:00-20:00"
       }
     },
     {
@@ -8485,7 +8465,9 @@
       "properties": {
         "id": 630698724,
         "osm_type": "node",
-        "name": "Heinzelmann"
+        "name": "Heinzelmann",
+        "brand": "bft",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -11617,8 +11599,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9650865,
-          48.7183145
+          8.9650837,
+          48.7183368
         ]
       },
       "properties": {
@@ -11626,7 +11608,7 @@
         "osm_type": "node",
         "name": "Esso",
         "brand": "Esso",
-        "opening_hours": "24/7"
+        "opening_hours": "Mo-Fr 06:00-00:00; Sa-Su 07:00-00:00"
       }
     },
     {
@@ -12158,7 +12140,8 @@
       "properties": {
         "id": 4249907117,
         "osm_type": "node",
-        "name": "Shell"
+        "name": "Shell",
+        "brand": "Shell"
       }
     },
     {
@@ -13686,8 +13669,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.3867068,
-          48.4964527
+          9.3867151,
+          48.4964567
         ]
       },
       "properties": {
@@ -13855,7 +13838,7 @@
         "id": 289346346,
         "osm_type": "node",
         "name": "AVIA",
-        "brand": "AVIA"
+        "brand": "Avia"
       }
     },
     {
@@ -14113,6 +14096,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.4761003,
+          48.614333
+        ]
+      },
+      "properties": {
+        "id": 13506329195,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.4758718,
           48.6417343
         ]
@@ -14129,15 +14126,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.4591195,
-          48.645353
+          9.4591913,
+          48.6452621
         ]
       },
       "properties": {
         "id": 252934891,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV"
+        "name": "Avia",
+        "brand": "Avia",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
     {
@@ -18213,22 +18211,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5377287,
-          49.4026788
-        ]
-      },
-      "properties": {
-        "id": 322078214,
-        "osm_type": "node",
-        "name": "Esso",
-        "brand": "Esso"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.5378426,
           49.4022137
         ]
@@ -18581,22 +18563,6 @@
         "osm_type": "node",
         "name": "Shell Station Kimmel",
         "brand": "Shell"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6362369,
-          49.3019165
-        ]
-      },
-      "properties": {
-        "id": 5522251867,
-        "osm_type": "node",
-        "name": "OIL!",
-        "brand": "OIL!"
       }
     },
     {
@@ -18961,23 +18927,6 @@
         "osm_type": "node",
         "name": "TotalEnergies Hirschberg",
         "brand": "TotalEnergies",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6372629,
-          49.5075998
-        ]
-      },
-      "properties": {
-        "id": 5469488874,
-        "osm_type": "node",
-        "name": "H2-Tankstelle / H2-Station",
-        "brand": "Air Liquide",
         "opening_hours": "24/7"
       }
     },
@@ -20133,22 +20082,6 @@
       "properties": {
         "id": 12984276384,
         "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.1495816,
-          49.3597191
-        ]
-      },
-      "properties": {
-        "id": 150437903,
-        "osm_type": "node",
-        "name": "Jet",
-        "brand": "JET"
       }
     },
     {
@@ -22506,8 +22439,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.1077268,
-          48.4932229
+          10.1077402,
+          48.4932482
         ]
       },
       "properties": {
@@ -22884,23 +22817,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.1646252,
-          48.6905357
-        ]
-      },
-      "properties": {
-        "id": 274021623,
-        "osm_type": "node",
-        "name": "Shell",
-        "brand": "Shell",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.1661145,
           48.6907147
         ]
@@ -23111,15 +23027,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.1031953,
-          48.8612249
+          10.1032306,
+          48.8613107
         ]
       },
       "properties": {
         "id": 2591871355,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV"
+        "name": "Esso",
+        "brand": "Esso",
+        "opening_hours": "Mo-Su 04:00-23:00"
       }
     },
     {
@@ -23199,8 +23116,8 @@
       "properties": {
         "id": 309538092,
         "osm_type": "node",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "Mo-Fr 06:00-21:00, Sa 07:00-21:00, Su 08:00-21:00"
       }
     },
@@ -23866,15 +23783,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0026848,
-          47.7429594
+          8.0026815,
+          47.7429423
         ]
       },
       "properties": {
         "id": 291785160,
         "osm_type": "way",
-        "name": "AVIA Xpress Automatenstation",
-        "brand": "AVIA",
+        "name": "Avia",
+        "brand": "Avia",
         "opening_hours": "24/7"
       }
     },
@@ -24950,7 +24867,8 @@
       "properties": {
         "id": 443156102,
         "osm_type": "way",
-        "name": "Bommer"
+        "name": "Bommer",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -25084,8 +25002,8 @@
         "id": 304009395,
         "osm_type": "way",
         "name": "Im Hegau (West)",
-        "brand": "Tamoil",
-        "opening_hours": "Mo-Su,PH 00:00-00:00"
+        "brand": "HEM",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -25741,8 +25659,9 @@
       "properties": {
         "id": 42307694,
         "osm_type": "way",
-        "name": "OMV Tankstelle Kressbronn",
-        "brand": "OMV"
+        "name": "ESSO Tankstelle Kressbronn",
+        "brand": "Esso",
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa-Su 07:30-22:00"
       }
     },
     {
@@ -25825,7 +25744,9 @@
       "properties": {
         "id": 371491146,
         "osm_type": "way",
-        "name": "BFT Tankstelle"
+        "name": "bft Tankstelle",
+        "brand": "bft",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa,Su 07:00-20:00"
       }
     },
     {
@@ -25920,8 +25841,9 @@
       "properties": {
         "id": 34105677,
         "osm_type": "way",
-        "name": "Rotachstation",
-        "brand": "Avia"
+        "name": "Avia Rotachstation",
+        "brand": "Avia",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 06:30-21:00; Su 08:00-21:00"
       }
     },
     {
@@ -27726,7 +27648,7 @@
         "osm_type": "way",
         "name": "Q1",
         "brand": "Q1",
-        "opening_hours": "Mo-Sa 06:00-21:00; Su 07:00-21:00"
+        "opening_hours": "Mo-Sa 06:00-23:00; Su 07:00-23:00"
       }
     },
     {
@@ -27776,7 +27698,8 @@
         "id": 1080091198,
         "osm_type": "way",
         "name": "Shell",
-        "brand": "Shell"
+        "brand": "Shell",
+        "opening_hours": "Mo-Su 00:00-00:00"
       }
     },
     {
@@ -30114,8 +30037,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9302515,
-          48.7808063
+          8.9302272,
+          48.7808209
         ]
       },
       "properties": {
@@ -30486,8 +30409,8 @@
       "properties": {
         "id": 79376609,
         "osm_type": "way",
-        "name": "OMV",
-        "brand": "OMV",
+        "name": "Esso",
+        "brand": "Esso",
         "opening_hours": "Mo-Fr 06:00-22:00; Sa 07:00-22:00; Su 08:00-22:00"
       }
     },
@@ -31687,6 +31610,7 @@
       "properties": {
         "id": 329028401,
         "osm_type": "way",
+        "name": "Esso",
         "brand": "Esso"
       }
     },
@@ -31771,20 +31695,6 @@
         "name": "SB Tankstelle Rehm",
         "brand": "Avia",
         "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.4758645,
-          48.6144592
-        ]
-      },
-      "properties": {
-        "id": 936245863,
-        "osm_type": "way"
       }
     },
     {
@@ -32022,8 +31932,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.7105454,
-          48.4943323
+          9.7103126,
+          48.4943624
         ]
       },
       "properties": {
@@ -32039,8 +31949,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.7605127,
-          48.5171567
+          9.7605368,
+          48.5171463
         ]
       },
       "properties": {
@@ -32556,7 +32466,8 @@
         "id": 203767412,
         "osm_type": "way",
         "name": "Avia",
-        "brand": "TotalEnergies"
+        "brand": "TotalEnergies",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; Su,PH 08:00-21:00"
       }
     },
     {
@@ -34459,6 +34370,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.5376562,
+          49.4026784
+        ]
+      },
+      "properties": {
+        "id": 1478851442,
+        "osm_type": "way",
+        "name": "Esso",
+        "brand": "Esso"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.5605116,
           49.3772371
         ]
@@ -35002,7 +34929,8 @@
         "id": 213931169,
         "osm_type": "way",
         "name": "Kieselbach",
-        "brand": "Esso"
+        "brand": "Esso",
+        "opening_hours": "Mo-Fr 05:00-22:00; Sa 06:00-22:00; Su 07:00-22:00"
       }
     },
     {
@@ -35669,7 +35597,8 @@
       "properties": {
         "id": 335565024,
         "osm_type": "way",
-        "name": "Total"
+        "name": "Total",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; Su,PH 08:00-20:00"
       }
     },
     {
@@ -35756,8 +35685,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.0817296,
-          49.3553278
+          9.0813614,
+          49.3553541
         ]
       },
       "properties": {
@@ -35812,6 +35741,22 @@
       "properties": {
         "id": 289401704,
         "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.149583,
+          49.3596816
+        ]
+      },
+      "properties": {
+        "id": 1478583167,
+        "osm_type": "way",
+        "name": "Jet",
+        "brand": "JET"
       }
     },
     {
@@ -36784,7 +36729,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.6681283,
+          9.6681305,
           49.6223817
         ]
       },

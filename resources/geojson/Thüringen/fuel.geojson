@@ -261,7 +261,7 @@
         "osm_type": "node",
         "name": "Aral",
         "brand": "Aral",
-        "opening_hours": "Mo-Fr 05:00-22:00; PH,Sa,Su 07:00-22:00"
+        "opening_hours": "Mo-Fr 05:00-22:00; Sa,Su,PH 07:00-22:00"
       }
     },
     {
@@ -705,22 +705,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.6829114,
-          50.6074258
-        ]
-      },
-      "properties": {
-        "id": 274407307,
-        "osm_type": "node",
-        "name": "Jet",
-        "brand": "JET"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.6611652,
           50.6540484
         ]
@@ -991,8 +975,8 @@
       "properties": {
         "id": 218674330,
         "osm_type": "node",
-        "name": "Agip Service-Station Eisfeld",
-        "brand": "Agip",
+        "name": "Eni",
+        "brand": "Eni",
         "opening_hours": "24/7"
       }
     },
@@ -1642,8 +1626,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.3392539,
-          50.8116355
+          10.3392215,
+          50.8115939
         ]
       },
       "properties": {
@@ -1887,8 +1871,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.3170685,
-          50.9944077
+          10.3170799,
+          50.9944169
         ]
       },
       "properties": {
@@ -2863,7 +2847,8 @@
       "properties": {
         "id": 263692098,
         "osm_type": "node",
-        "name": "Tankstelle"
+        "name": "Tankstelle",
+        "brand": "Eni"
       }
     },
     {
@@ -2894,7 +2879,8 @@
         "id": 10171596904,
         "osm_type": "node",
         "name": "AVEX-Tankstelle",
-        "brand": "AVEX"
+        "brand": "AVEX",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5661,7 +5647,7 @@
         "id": 317821645,
         "osm_type": "node",
         "name": "Star",
-        "brand": "Star",
+        "brand": "star",
         "opening_hours": "Mo-Sa 06:00-22:00; Su,PH 07:00-22:00"
       }
     },
@@ -6079,13 +6065,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.6829361,
-          50.6074201
+          10.6827694,
+          50.6074919
         ]
       },
       "properties": {
-        "id": 115751935,
-        "osm_type": "way"
+        "id": 1479298159,
+        "osm_type": "way",
+        "name": "Jet",
+        "brand": "JET"
       }
     },
     {
@@ -6905,7 +6893,7 @@
         "id": 445078170,
         "osm_type": "way",
         "name": "Total",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "opening_hours": "Mo-Fr 05:00-22:00; Sa 07:00-22:00; Su,PH 08:00-22:00"
       }
     },
@@ -8671,8 +8659,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.8569437,
-          50.9046851
+          11.8569419,
+          50.9046861
         ]
       },
       "properties": {

@@ -35,6 +35,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.896677,
+          49.4459953
+        ]
+      },
+      "properties": {
+        "id": 13528779458,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.9032915,
           49.4488641
         ]
@@ -613,7 +627,7 @@
       "properties": {
         "id": 9244365194,
         "osm_type": "node",
-        "opening_hours": "Mo-Sa 8:00-20:00",
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa 07:00-20:00",
         "access": "customers"
       }
     },
@@ -1804,6 +1818,21 @@
       },
       "properties": {
         "id": 12424528543,
+        "osm_type": "node",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6028331,
+          49.8099442
+        ]
+      },
+      "properties": {
+        "id": 13564419395,
         "osm_type": "node",
         "access": "yes"
       }
@@ -4174,8 +4203,7 @@
       },
       "properties": {
         "id": 8894789435,
-        "osm_type": "node",
-        "name": "Öffentliche Toilette"
+        "osm_type": "node"
       }
     },
     {
@@ -4620,6 +4648,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.1543543,
+          50.0608222
+        ]
+      },
+      "properties": {
+        "id": 13592866237,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Frauenstein",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.0743919,
           50.1272989
         ]
@@ -4641,6 +4686,107 @@
       "properties": {
         "id": 2847982054,
         "osm_type": "node",
+        "opening_hours": "11:00-23:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2790383,
+          50.0093046
+        ]
+      },
+      "properties": {
+        "id": 13584959861,
+        "osm_type": "node",
+        "name": "Mobile Toilette Freizeitgelände Kransand",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2781593,
+          50.0117123
+        ]
+      },
+      "properties": {
+        "id": 13592866243,
+        "osm_type": "node",
+        "name": "Mobile Toilette Kinderspielplatz Eleonorenstraße, Kastel",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2823706,
+          50.0159368
+        ]
+      },
+      "properties": {
+        "id": 13584959857,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Kastel",
+        "opening_hours": "Mo-Su 07:00-20:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2682703,
+          50.0214367
+        ]
+      },
+      "properties": {
+        "id": 13592866242,
+        "osm_type": "node",
+        "name": "Mobile Toilette Kinderspielplatz An der Helling",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.385272,
+          49.9348818
+        ]
+      },
+      "properties": {
+        "id": 13537125578,
+        "osm_type": "node",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2884307,
+          49.9997076
+        ]
+      },
+      "properties": {
+        "id": 13584959860,
+        "osm_type": "node",
+        "name": "Mobile Toilette Kinderspielplatz Maaraue",
+        "opening_hours": "Apr-Oct: 24/7",
         "access": "yes"
       }
     },
@@ -4724,6 +4870,40 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.2987936,
+          49.996429
+        ]
+      },
+      "properties": {
+        "id": 13584959859,
+        "osm_type": "node",
+        "name": "Mobile Toilette Kinderspielplatz Maaraue Ost",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3084011,
+          50.0047397
+        ]
+      },
+      "properties": {
+        "id": 13584959858,
+        "osm_type": "node",
+        "name": "Mobile Toilette Kindertreff Kostheim",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.2882156,
           50.0191006
         ]
@@ -4739,6 +4919,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.2915343,
+          50.015629
+        ]
+      },
+      "properties": {
+        "id": 13592866256,
+        "osm_type": "node",
+        "name": "Mobile Toilette Kinderspielplatz Königsfloß",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.3046082,
           50.0105992
         ]
@@ -4746,6 +4943,8 @@
       "properties": {
         "id": 10036564518,
         "osm_type": "node",
+        "name": "Toilette Friedhof Kostheim",
+        "opening_hours": "Mo-Su 07:00-20:00",
         "access": "yes"
       }
     },
@@ -4814,13 +5013,33 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.1838124,
+          50.0462483
+        ]
+      },
+      "properties": {
+        "id": 13592866235,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Schierstein",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.1913366,
           50.0422835
         ]
       },
       "properties": {
         "id": 12878330057,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Toilette Kinderspielplatz Kleinaustraße",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
       }
     },
     {
@@ -4849,6 +5068,8 @@
       "properties": {
         "id": 7367022753,
         "osm_type": "node",
+        "name": "Toilette Hans-Römer-Platz",
+        "opening_hours": "24/7",
         "access": "yes"
       }
     },
@@ -4871,13 +5092,50 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.21684,
+          50.0401778
+        ]
+      },
+      "properties": {
+        "id": 13592866236,
+        "osm_type": "node",
+        "name": "Mobile Toilette Kinderspielplatz Uferstraße/Rheinwiese",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.1815286,
           50.0686198
         ]
       },
       "properties": {
         "id": 10048955017,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Mobile Toilette Kinderspielplatz Froschkönigplatz",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.1835605,
+          50.0764163
+        ]
+      },
+      "properties": {
+        "id": 13592866238,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Dotzheim",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -4892,6 +5150,54 @@
       "properties": {
         "id": 12828741118,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2247228,
+          50.0701224
+        ]
+      },
+      "properties": {
+        "id": 13584756836,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 08:30-21:30; Sa 08:30-13:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2245324,
+          50.0693512
+        ]
+      },
+      "properties": {
+        "id": 13584756837,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 08:30-21:30",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2256568,
+          50.0696006
+        ]
+      },
+      "properties": {
+        "id": 13584756838,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 08:30-21:30",
+        "access": "yes"
       }
     },
     {
@@ -4914,6 +5220,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.2166979,
+          50.0794768
+        ]
+      },
+      "properties": {
+        "id": 13584756835,
+        "osm_type": "node",
+        "opening_hours": "Mo-Su 07:30-24:00",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.2303833,
           50.0772466
         ]
@@ -4921,6 +5243,107 @@
       "properties": {
         "id": 12821135293,
         "osm_type": "node",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.228681,
+          50.0740614
+        ]
+      },
+      "properties": {
+        "id": 13592866251,
+        "osm_type": "node",
+        "name": "Toilette Wallufer Platz",
+        "opening_hours": "Apr-Oct: Mo-Fr 09:00-16:30; Sa 10:00-14:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2305507,
+          50.0798084
+        ]
+      },
+      "properties": {
+        "id": 13584756833,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 09:00-21:00",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2309678,
+          50.0800188
+        ]
+      },
+      "properties": {
+        "id": 13584756834,
+        "osm_type": "node",
+        "name": "Toilette Kinderspielplatz Bertramstraße",
+        "opening_hours": "Apr-Oct: Mo-Fr 09:00-16:30; Sa 9:00-15:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2273306,
+          50.0813866
+        ]
+      },
+      "properties": {
+        "id": 13592866250,
+        "osm_type": "node",
+        "name": "Toilette Kinderspielplatz Blücherplatz",
+        "opening_hours": "Apr-Oct: Mo-Fr 09:00-16:30; Sa 10:00-14:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2369673,
+          50.0374011
+        ]
+      },
+      "properties": {
+        "id": 13584959847,
+        "osm_type": "node",
+        "name": "Toilette Nachbarschaftshaus Biebrich",
+        "opening_hours": "Mo-Fr 7:30-20:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2373897,
+          50.0360405
+        ]
+      },
+      "properties": {
+        "id": 13592866257,
+        "osm_type": "node",
+        "name": "City Toilette",
+        "opening_hours": "24/7",
         "access": "yes"
       }
     },
@@ -4944,14 +5367,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.2409852,
-          50.0429415
+          8.2339153,
+          50.0463675
         ]
       },
       "properties": {
-        "id": 5519086002,
+        "id": 13592866241,
         "osm_type": "node",
-        "opening_hours": "24/7"
+        "name": "Mobile Toilette Kinderspielplatz Parkfeld",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
       }
     },
     {
@@ -4959,13 +5384,100 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.2423225,
-          50.0709363
+          8.2409852,
+          50.0429415
+        ]
+      },
+      "properties": {
+        "id": 5519086002,
+        "osm_type": "node",
+        "name": "City Toilette",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2381877,
+          50.0433755
+        ]
+      },
+      "properties": {
+        "id": 13592866240,
+        "osm_type": "node",
+        "name": "Toilette Kinderspielplatz Schlosspark Biebrich",
+        "opening_hours": "Apr-Oct: 08:00-21:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2501725,
+          50.0502952
+        ]
+      },
+      "properties": {
+        "id": 13592866239,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Biebrich",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.239292,
+          50.0633075
+        ]
+      },
+      "properties": {
+        "id": 13584959852,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 9:00-17:30",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2359284,
+          50.0672954
+        ]
+      },
+      "properties": {
+        "id": 13592866252,
+        "osm_type": "node",
+        "name": "Toilette Kinderspielplatz Grillparzerstraße",
+        "opening_hours": "Apr-Oct: Mo-Fr 09:00-16:30; Sa 10:00-14:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2413345,
+          50.070906
         ]
       },
       "properties": {
         "id": 2742958750,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Toilette Lili Wiesbaden",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "access": "yes"
       }
     },
     {
@@ -4981,6 +5493,23 @@
         "id": 5114724549,
         "osm_type": "node",
         "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2480736,
+          50.0668004
+        ]
+      },
+      "properties": {
+        "id": 13592866247,
+        "osm_type": "node",
+        "name": "Toilette Kulturpark Schalchthof",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -5031,6 +5560,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.2374694,
+          50.0779523
+        ]
+      },
+      "properties": {
+        "id": 13572924013,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 10:00-21:00; Sa-So 10:00-19:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.2396062,
           50.0777411
         ]
@@ -5038,6 +5583,90 @@
       "properties": {
         "id": 7867708554,
         "osm_type": "node",
+        "name": "City Toilette",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2443712,
+          50.076452
+        ]
+      },
+      "properties": {
+        "id": 13584959856,
+        "osm_type": "node",
+        "name": "Toilette RheinMain CongressCenter",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2432102,
+          50.0734175
+        ]
+      },
+      "properties": {
+        "id": 13592866248,
+        "osm_type": "node",
+        "name": "Toilette Wasserspielplatz",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2368295,
+          50.0842136
+        ]
+      },
+      "properties": {
+        "id": 13584959848,
+        "osm_type": "node",
+        "name": "Toilette Kunsthaus",
+        "opening_hours": "Tu-We 11:00-17:00; Th 11:00-19:00; Fr-Su 11:00-17:00; PH 11:00-17:00",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2374798,
+          50.0842621
+        ]
+      },
+      "properties": {
+        "id": 13584959849,
+        "osm_type": "node",
+        "name": "Toilette Kinderspielplatz Schulberg",
+        "opening_hours": "Apr-Oct: Mo-Fr 09:00-16:30; Sa 10:00-14:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2374481,
+          50.0826432
+        ]
+      },
+      "properties": {
+        "id": 13584959854,
+        "osm_type": "node",
+        "opening_hours": "Tu-Fr 10:00-18:00; Sa 10:00-14:00",
         "access": "yes"
       }
     },
@@ -5053,6 +5682,8 @@
       "properties": {
         "id": 588098443,
         "osm_type": "node",
+        "name": "City Toilette",
+        "opening_hours": "24/7",
         "access": "yes"
       }
     },
@@ -5068,7 +5699,9 @@
       "properties": {
         "id": 588138687,
         "osm_type": "node",
-        "name": "City Toilette (WC-Haus)"
+        "name": "City Toilette",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -5091,13 +5724,101 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.2386728,
+          50.0812189
+        ]
+      },
+      "properties": {
+        "id": 13584959850,
+        "osm_type": "node",
+        "name": "Toilette GALERIA Wiesbaden am Mauritiusplatz",
+        "opening_hours": "Mo-Sa 10:00-20:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2407315,
+          50.0819576
+        ]
+      },
+      "properties": {
+        "id": 13584959853,
+        "osm_type": "node",
+        "name": "Toilette Bürgerbüro Wiesbaden",
+        "opening_hours": "Mo-Fr 08:00-16:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2420596,
+          50.0819597
+        ]
+      },
+      "properties": {
+        "id": 13592866249,
+        "osm_type": "node",
+        "name": "Toilette im Rathaus",
+        "opening_hours": "Mo-Fr 07:00-18:30; Sa 09:00-15:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2391441,
+          50.0853735
+        ]
+      },
+      "properties": {
+        "id": 13592866255,
+        "osm_type": "node",
+        "name": "Mobile Toilette Kinderspielplatz Büdingenstraße",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.2451613,
           50.073259
         ]
       },
       "properties": {
         "id": 5744058037,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "City Toilette",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2457638,
+          50.0784998
+        ]
+      },
+      "properties": {
+        "id": 13584959855,
+        "osm_type": "node",
+        "name": "Toilette Museum Reinhard Ernst",
+        "opening_hours": "Tu 12:00-18:00; We 12:00-21:00; Th-Su 12:00-18:00",
+        "access": "customers"
       }
     },
     {
@@ -5112,7 +5833,9 @@
       "properties": {
         "id": 2319257415,
         "osm_type": "node",
-        "name": "City Toilette"
+        "name": "City Toilette",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -5140,7 +5863,10 @@
       },
       "properties": {
         "id": 9950863747,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Toilette im Kurhaus",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -5163,6 +5889,57 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.2465052,
+          50.0809302
+        ]
+      },
+      "properties": {
+        "id": 13592866253,
+        "osm_type": "node",
+        "name": "Kinderspielplatz Warmer Damm",
+        "opening_hours": "Apr-Oct: 08:00-21:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2519147,
+          50.0839542
+        ]
+      },
+      "properties": {
+        "id": 13592866254,
+        "osm_type": "node",
+        "name": "Toilette im Kurpark, Mitte",
+        "opening_hours": "May-Sep: 04:30-23:00; Oct-Apr: 05:00-20:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2607711,
+          50.0651965
+        ]
+      },
+      "properties": {
+        "id": 13592866246,
+        "osm_type": "node",
+        "name": "Toilette Kinderspielplatz Brunhildenstraße",
+        "opening_hours": "Apr-Oct: Mo-Fr 09:00-16:30; Sa 10:00-14:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.2674413,
           50.0602068
         ]
@@ -5170,7 +5947,9 @@
       "properties": {
         "id": 2129453722,
         "osm_type": "node",
-        "name": "Toilette im Südfriedhof"
+        "name": "Toilette im Südfriedhof",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -5192,13 +5971,48 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.2175949,
-          50.0918837
+          8.2175959,
+          50.0918844
         ]
       },
       "properties": {
         "id": 12707988186,
         "osm_type": "node",
+        "name": "Mobile Toilette Kinderspielplatz Bornhofenweg",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2159316,
+          50.0982161
+        ]
+      },
+      "properties": {
+        "id": 13584756832,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 09:30-18:00",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2208228,
+          50.0974446
+        ]
+      },
+      "properties": {
+        "id": 13592866244,
+        "osm_type": "node",
+        "name": "Toilette Nordfriedhof",
+        "opening_hours": "Apr-Oct: 07:00-19:00",
         "access": "yes"
       }
     },
@@ -5214,8 +6028,8 @@
       "properties": {
         "id": 2259884465,
         "osm_type": "node",
-        "name": "WC-Häuschen",
-        "access": "permissive"
+        "name": "City Toilette",
+        "access": "yes"
       }
     },
     {
@@ -5230,6 +6044,41 @@
       "properties": {
         "id": 3647509838,
         "osm_type": "node",
+        "name": "Toilette Freizeitgelände Alter Friedhof",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2377904,
+          50.0859814
+        ]
+      },
+      "properties": {
+        "id": 13584959851,
+        "osm_type": "node",
+        "name": "Toilette Treffpunkt Aktiv Wiesbaden-Mitte",
+        "opening_hours": "Mo-Fr 10:00-16:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2357188,
+          50.091664
+        ]
+      },
+      "properties": {
+        "id": 13592866245,
+        "osm_type": "node",
+        "opening_hours": "09:00-22:00",
         "access": "yes"
       }
     },
@@ -5245,7 +6094,60 @@
       "properties": {
         "id": 2247851757,
         "osm_type": "node",
-        "name": "City Toilette"
+        "name": "City Toilette",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.260696,
+          50.095851
+        ]
+      },
+      "properties": {
+        "id": 13592866234,
+        "osm_type": "node",
+        "name": "Toilette Kinderspielplatz An der Hofwiese",
+        "opening_hours": "Apr-Oct: Mo-Fr 09:00-16:30; Sa 10:00-14:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2821788,
+          50.087066
+        ]
+      },
+      "properties": {
+        "id": 13592866231,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Bierstadt",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2717967,
+          50.0985041
+        ]
+      },
+      "properties": {
+        "id": 13592866233,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Sonnenberg",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -5269,6 +6171,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.2770351,
+          50.1177129
+        ]
+      },
+      "properties": {
+        "id": 13592866232,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Rambach",
+        "opening_hours": "Mar-Nov: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.2898114,
           50.0571199
         ]
@@ -5276,6 +6195,57 @@
       "properties": {
         "id": 5262256929,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3027119,
+          50.0486908
+        ]
+      },
+      "properties": {
+        "id": 13592866227,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Erbenheim",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3318068,
+          50.0642306
+        ]
+      },
+      "properties": {
+        "id": 13592866221,
+        "osm_type": "node",
+        "name": "Toilette Grünanlage Hainpark",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3301754,
+          50.0845186
+        ]
+      },
+      "properties": {
+        "id": 13592866228,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Igstadt",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -5291,6 +6261,56 @@
         "id": 4077463413,
         "osm_type": "node",
         "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3678462,
+          50.0447099
+        ]
+      },
+      "properties": {
+        "id": 13592866218,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Delkenheim",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3365834,
+          50.0659409
+        ]
+      },
+      "properties": {
+        "id": 13592866220,
+        "osm_type": "node",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3433861,
+          50.0669541
+        ]
+      },
+      "properties": {
+        "id": 13592866219,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Nordenstadt",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -5318,7 +6338,129 @@
       },
       "properties": {
         "id": 10548629890,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Toilette am Dorfplatz",
+        "opening_hours": "\"Nur während Veranstaltungen\"",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3715896,
+          50.0756219
+        ]
+      },
+      "properties": {
+        "id": 13592866222,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Breckenheim",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3107391,
+          50.0919322
+        ]
+      },
+      "properties": {
+        "id": 13592866229,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Kloppenheim",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3351686,
+          50.1083969
+        ]
+      },
+      "properties": {
+        "id": 13592866223,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Medenbach",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3359833,
+          50.1103014
+        ]
+      },
+      "properties": {
+        "id": 13592866224,
+        "osm_type": "node",
+        "name": "Mobile Toilette Kinderspielplatz Münzenbergstraße",
+        "opening_hours": "Apr-Oct: 24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.2954848,
+          50.1134761
+        ]
+      },
+      "properties": {
+        "id": 13592866230,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Heßloch",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.298614,
+          50.1340926
+        ]
+      },
+      "properties": {
+        "id": 13592866226,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Naurod",
+        "opening_hours": "24/7",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3201299,
+          50.1268522
+        ]
+      },
+      "properties": {
+        "id": 13592866225,
+        "osm_type": "node",
+        "name": "Toilette Friedhof Auringen",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -8216,8 +9358,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6283957,
-          49.9494136
+          8.6284433,
+          49.9494413
         ]
       },
       "properties": {
@@ -8341,6 +9483,21 @@
       },
       "properties": {
         "id": 12546208043,
+        "osm_type": "node",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6797485,
+          49.9890754
+        ]
+      },
+      "properties": {
+        "id": 13452806304,
         "osm_type": "node",
         "access": "customers"
       }
@@ -8832,96 +9989,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6999508,
-          50.0530531
-        ]
-      },
-      "properties": {
-        "id": 4086597688,
-        "osm_type": "node",
-        "access": "destination"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6998844,
-          50.053054
-        ]
-      },
-      "properties": {
-        "id": 4086613789,
-        "osm_type": "node",
-        "access": "destination"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.699579,
-          50.0530875
-        ]
-      },
-      "properties": {
-        "id": 4086613790,
-        "osm_type": "node",
-        "access": "destination"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6995126,
-          50.0530884
-        ]
-      },
-      "properties": {
-        "id": 4086613791,
-        "osm_type": "node",
-        "access": "destination"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6991867,
-          50.0531207
-        ]
-      },
-      "properties": {
-        "id": 4086613792,
-        "osm_type": "node",
-        "access": "destination"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6991163,
-          50.0531233
-        ]
-      },
-      "properties": {
-        "id": 4086613793,
-        "osm_type": "node",
-        "access": "destination"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.6981992,
           50.0496982
         ]
@@ -9321,6 +10388,7 @@
         "id": 3450581829,
         "osm_type": "node",
         "name": "rail & fresh WC",
+        "opening_hours": "24/7",
         "access": "key"
       }
     },
@@ -10762,6 +11830,37 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.5391671,
+          50.1801955
+        ]
+      },
+      "properties": {
+        "id": 13510050414,
+        "osm_type": "node",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5426574,
+          50.1800954
+        ]
+      },
+      "properties": {
+        "id": 13471179860,
+        "osm_type": "node",
+        "opening_hours": "07:30-20:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.5528582,
           50.1510409
         ]
@@ -11689,6 +12788,21 @@
         "id": 13228434865,
         "osm_type": "node",
         "opening_hours": "Mo-Fr 08:30-17:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6828655,
+          50.2285429
+        ]
+      },
+      "properties": {
+        "id": 13526053968,
+        "osm_type": "node",
         "access": "yes"
       }
     },
@@ -12934,8 +14048,7 @@
       },
       "properties": {
         "id": 386067448,
-        "osm_type": "node",
-        "access": "yes"
+        "osm_type": "node"
       }
     },
     {
@@ -13263,6 +14376,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.980652,
+          50.1633242
+        ]
+      },
+      "properties": {
+        "id": 13538863070,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.9951868,
           50.2496093
         ]
@@ -13316,6 +14443,21 @@
         "id": 5573456913,
         "osm_type": "node",
         "access": "permissive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.0072332,
+          50.3063524
+        ]
+      },
+      "properties": {
+        "id": 13509274289,
+        "osm_type": "node",
+        "access": "yes"
       }
     },
     {
@@ -14131,7 +15273,7 @@
         "id": 12908860460,
         "osm_type": "node",
         "opening_hours": "24/7",
-        "access": "public"
+        "access": "yes"
       }
     },
     {
@@ -14883,7 +16025,8 @@
       },
       "properties": {
         "id": 12218359727,
-        "osm_type": "node"
+        "osm_type": "node",
+        "opening_hours": "Mo-Su,PH 06:00-21:00"
       }
     },
     {
@@ -16855,8 +17998,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.4070674,
-          50.6436831
+          9.4070581,
+          50.6436859
         ]
       },
       "properties": {
@@ -17169,20 +18312,6 @@
       },
       "properties": {
         "id": 6465257837,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.6214592,
-          50.7315378
-        ]
-      },
-      "properties": {
-        "id": 12435549873,
         "osm_type": "node"
       }
     },
@@ -18876,8 +20005,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9559004,
-          51.1817566
+          8.9558598,
+          51.18175
         ]
       },
       "properties": {
@@ -20383,8 +21512,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.3431169,
-          50.8686933
+          9.3430807,
+          50.8686659
         ]
       },
       "properties": {
@@ -20690,20 +21819,6 @@
         "id": 5909755330,
         "osm_type": "node",
         "access": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.4699301,
-          50.8579771
-        ]
-      },
-      "properties": {
-        "id": 1471073153,
-        "osm_type": "node"
       }
     },
     {
@@ -24253,7 +25368,8 @@
       },
       "properties": {
         "id": 1374939675,
-        "osm_type": "way"
+        "osm_type": "way",
+        "access": "permit"
       }
     },
     {
@@ -24303,8 +25419,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9673203,
-          49.606211
+          8.9673087,
+          49.6062117
         ]
       },
       "properties": {
@@ -24353,6 +25469,7 @@
       "properties": {
         "id": 290408328,
         "osm_type": "way",
+        "opening_hours": "24/7",
         "access": "yes"
       }
     },
@@ -24441,6 +25558,21 @@
       "properties": {
         "id": 415051716,
         "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.0644512,
+          49.7675299
+        ]
+      },
+      "properties": {
+        "id": 1470123723,
+        "osm_type": "way",
+        "opening_hours": "closed; \"Nur zu Festen oder Veranstaltungen geöffnet\""
       }
     },
     {
@@ -24659,6 +25791,7 @@
       "properties": {
         "id": 275690701,
         "osm_type": "way",
+        "opening_hours": "24/7",
         "access": "yes"
       }
     },
@@ -24879,6 +26012,22 @@
         "id": 1314766883,
         "osm_type": "way",
         "name": "Toilettenhäuschen am Minigolfplatz"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0637511,
+          50.3859835
+        ]
+      },
+      "properties": {
+        "id": 59286637,
+        "osm_type": "way",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su,PH 12:00-18:00",
+        "access": "yes"
       }
     },
     {
@@ -26164,6 +27313,7 @@
       "properties": {
         "id": 221471463,
         "osm_type": "way",
+        "opening_hours": "24/7",
         "access": "customers"
       }
     },
@@ -26179,6 +27329,7 @@
       "properties": {
         "id": 600285386,
         "osm_type": "way",
+        "opening_hours": "24/7",
         "access": "customers"
       }
     },
@@ -26231,8 +27382,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5361706,
-          50.1928612
+          8.5361648,
+          50.1928788
         ]
       },
       "properties": {
@@ -26578,6 +27729,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.8378205,
+          50.1335613
+        ]
+      },
+      "properties": {
+        "id": 1481684925,
+        "osm_type": "way",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.8679686,
           50.1168426
         ]
@@ -26652,8 +27818,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9302793,
-          50.1213059
+          8.9302777,
+          50.1213051
         ]
       },
       "properties": {
@@ -26668,8 +27834,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.9303157,
-          50.1212873
+          8.9303142,
+          50.1212867
         ]
       },
       "properties": {
@@ -26942,6 +28108,21 @@
       "properties": {
         "id": 686840198,
         "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.502752,
+          50.4452592
+        ]
+      },
+      "properties": {
+        "id": 1469730396,
+        "osm_type": "way",
+        "access": "customers"
       }
     },
     {
@@ -28174,8 +29355,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2654874,
-          50.7558667
+          9.2655031,
+          50.7558735
         ]
       },
       "properties": {
@@ -28224,6 +29405,20 @@
       },
       "properties": {
         "id": 1192172008,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.6214434,
+          50.7315244
+        ]
+      },
+      "properties": {
+        "id": 1468801929,
         "osm_type": "way"
       }
     },
@@ -28379,8 +29574,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.0015844,
-          50.4911627
+          10.0015819,
+          50.4911704
         ]
       },
       "properties": {
@@ -29515,6 +30710,21 @@
         "id": 250864921,
         "osm_type": "way",
         "access": "permissive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.4701113,
+          50.8578948
+        ]
+      },
+      "properties": {
+        "id": 1465311764,
+        "osm_type": "way",
+        "access": "yes"
       }
     },
     {

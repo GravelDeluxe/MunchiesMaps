@@ -494,6 +494,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.1174104,
+          50.5054307
+        ]
+      },
+      "properties": {
+        "id": 13526080473,
+        "osm_type": "node",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.1300997,
           50.5055119
         ]
@@ -501,8 +516,8 @@
       "properties": {
         "id": 2600625130,
         "osm_type": "node",
-        "opening_hours": "Dauerhaft geschlossen",
-        "access": "no"
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -1890,6 +1905,36 @@
       "properties": {
         "id": 289778385,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9768823,
+          50.4273413
+        ]
+      },
+      "properties": {
+        "id": 13564043945,
+        "osm_type": "node",
+        "access": "customers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.8905013,
+          50.514598
+        ]
+      },
+      "properties": {
+        "id": 13470580530,
+        "osm_type": "node",
+        "access": "customers"
       }
     },
     {
@@ -4841,7 +4886,8 @@
       "properties": {
         "id": 332425578,
         "osm_type": "node",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -5008,6 +5054,7 @@
       "properties": {
         "id": 9659342505,
         "osm_type": "node",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa 07:00-15:00",
         "access": "permissive"
       }
     },
@@ -5096,21 +5143,6 @@
         "id": 11173586565,
         "osm_type": "node",
         "access": "customers"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.4066811,
-          51.3257996
-        ]
-      },
-      "properties": {
-        "id": 9961855519,
-        "osm_type": "node",
-        "access": "permissive"
       }
     },
     {
@@ -6493,6 +6525,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.8697518,
+          50.7778016
+        ]
+      },
+      "properties": {
+        "id": 13483569232,
+        "osm_type": "node",
+        "opening_hours": "Mo,We,Fr 07:00-15:00; Tu,Th 07:00-18:00",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.85334,
           50.7806852
         ]
@@ -7082,20 +7130,6 @@
       },
       "properties": {
         "id": 2506874446,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.9755998,
-          50.9082778
-        ]
-      },
-      "properties": {
-        "id": 12643207701,
         "osm_type": "node"
       }
     },
@@ -9355,8 +9389,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.7556842,
-          50.7636744
+          13.7557717,
+          50.7638569
         ]
       },
       "properties": {
@@ -10281,20 +10315,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.4880717,
-          51.165083
-        ]
-      },
-      "properties": {
-        "id": 6238443042,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.489334,
           51.1652386
         ]
@@ -10477,7 +10497,9 @@
       },
       "properties": {
         "id": 304117150,
-        "osm_type": "node"
+        "osm_type": "node",
+        "opening_hours": "Mo-Su,PH 00:00-23:59",
+        "access": "yes"
       }
     },
     {
@@ -11567,6 +11589,7 @@
         "id": 2881363720,
         "osm_type": "node",
         "name": "WC im Bistro am Herzogin Garten",
+        "opening_hours": "Tu-Su 10:00-20:00",
         "access": "yes"
       }
     },
@@ -11923,6 +11946,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.8001226,
+          50.9965468
+        ]
+      },
+      "properties": {
+        "id": 13536936312,
+        "osm_type": "node",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.7969764,
           50.9976774
         ]
@@ -11960,20 +11998,6 @@
         "id": 10957791091,
         "osm_type": "node",
         "access": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.8029186,
-          51.0291816
-        ]
-      },
-      "properties": {
-        "id": 559550238,
-        "osm_type": "node"
       }
     },
     {
@@ -12765,22 +12789,6 @@
       "properties": {
         "id": 2862206754,
         "osm_type": "node",
-        "access": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.7510593,
-          51.066228
-        ]
-      },
-      "properties": {
-        "id": 9490743135,
-        "osm_type": "node",
-        "opening_hours": "Nur während Veranstaltungen",
         "access": "yes"
       }
     },
@@ -17830,6 +17838,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          14.9627586,
+          51.331562
+        ]
+      },
+      "properties": {
+        "id": 13512857200,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           15.0168998,
           51.2946507
         ]
@@ -18354,6 +18376,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.7130567,
+          50.433005
+        ]
+      },
+      "properties": {
+        "id": 1475529186,
+        "osm_type": "way",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.6526425,
           50.4888679
         ]
@@ -18457,8 +18494,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7405545,
-          50.560018
+          12.74057,
+          50.5600058
         ]
       },
       "properties": {
@@ -18790,8 +18827,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.3870494,
-          50.8171887
+          12.3870517,
+          50.8172054
         ]
       },
       "properties": {
@@ -20178,6 +20215,20 @@
         "osm_type": "way",
         "opening_hours": "Mo-Su 07:00-21:00",
         "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.975776,
+          50.9080772
+        ]
+      },
+      "properties": {
+        "id": 1365291932,
+        "osm_type": "way"
       }
     },
     {
@@ -23829,7 +23880,8 @@
       },
       "properties": {
         "id": 1032899870,
-        "osm_type": "way"
+        "osm_type": "way",
+        "opening_hours": "Mo open \"uum Markttag\""
       }
     },
     {
@@ -24074,8 +24126,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.2314532,
-          51.4331133
+          14.2314612,
+          51.4331238
         ]
       },
       "properties": {
