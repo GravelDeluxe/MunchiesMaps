@@ -165,7 +165,7 @@ def build_query(region: Dict[str, Any], body: str, timeout: int, use_legacy_area
         region_area = "\n".join(
             [
                 f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"][\"name\"=\"{area_name}\"]->.regionRel;",
-                "map_to_area.regionRel->.searchArea;",
+                ".regionRel map_to_area->.searchArea;",
             ]
         )
     return dedent(
@@ -220,6 +220,10 @@ def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[s
                 time.sleep(backoff)
                 continue
 
+            if response.status_code == 400:
+                print("[error] Overpass HTTP 400 (Bad Request).")
+                print("[error] Likely Overpass syntax error in generated query")
+                print(f"[error] Full query:\n{query}")
             response.raise_for_status()
             text = response.text or ""
             stripped = text.lstrip()
