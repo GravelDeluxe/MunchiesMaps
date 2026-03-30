@@ -36,3 +36,6 @@ Examples:
   - `rel["boundary"="administrative"]["admin_level"="..."]["name"="..."]->.regionRel;`
   - `.regionRel map_to_area->.searchArea;`
 - Category templates continue to run unchanged against `(area.searchArea)`.
+
+- For new countries/regions, verify `admin_level` empirically with Overpass tests before adding/updating entries.
+- In this project, Czech regions are queried with `admin_level=4` to match the desired kraj-level boundaries.
