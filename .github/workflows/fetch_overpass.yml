@@ -2,8 +2,29 @@ name: "Fetch Overpass Data"
 
 on:
   workflow_dispatch:
+    inputs:
+      countries:
+        description: "comma-separated country ids, e.g. czechia"
+        required: false
+        type: string
+      regions:
+        description: "comma-separated region ids, e.g. cz-praha,cz-jihomoravsky"
+        required: false
+        type: string
+      categories:
+        description: "comma-separated categories, e.g. fuel,supermarkets"
+        required: false
+        type: string
+      commit_mode:
+        description: "How changes should be written back"
+        required: false
+        type: choice
+        options:
+          - pull_request
+          - direct_commit
+        default: pull_request
   schedule:
-   - cron: "0 1 1 * *"
+    - cron: "0 1 1 * *"
 
 permissions:
   contents: write
@@ -35,21 +56,81 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r fetch_data/requirements.txt
 
+      - name: Resolve run configuration
+        id: run_config
+        env:
+          INPUT_COUNTRIES: ${{ github.event.inputs.countries || '' }}
+          INPUT_REGIONS: ${{ github.event.inputs.regions || '' }}
+          INPUT_CATEGORIES: ${{ github.event.inputs.categories || '' }}
+          INPUT_COMMIT_MODE: ${{ github.event.inputs.commit_mode || 'pull_request' }}
+        run: |
+          set -euo pipefail
+
+          echo "Event: ${{ github.event_name }}"
+          echo "Input countries: ${INPUT_COUNTRIES:-<empty>}"
+          echo "Input regions: ${INPUT_REGIONS:-<empty>}"
+          echo "Input categories: ${INPUT_CATEGORIES:-<empty>}"
+          echo "Commit mode: ${INPUT_COMMIT_MODE}"
+
+          echo "countries=${INPUT_COUNTRIES}" >> "$GITHUB_OUTPUT"
+          echo "regions=${INPUT_REGIONS}" >> "$GITHUB_OUTPUT"
+          echo "categories=${INPUT_CATEGORIES}" >> "$GITHUB_OUTPUT"
+          echo "commit_mode=${INPUT_COMMIT_MODE}" >> "$GITHUB_OUTPUT"
+
       - name: Run fetch script
-        run: python fetch_data/fetch_overpass.py
+        env:
+          INPUT_COUNTRIES: ${{ steps.run_config.outputs.countries }}
+          INPUT_REGIONS: ${{ steps.run_config.outputs.regions }}
+          INPUT_CATEGORIES: ${{ steps.run_config.outputs.categories }}
+        run: |
+          set -euo pipefail
+
+          cmd=(python fetch_data/fetch_overpass.py)
+
+          if [ -n "$INPUT_COUNTRIES" ]; then
+            cmd+=(--countries "$INPUT_COUNTRIES")
+          fi
+
+          if [ -n "$INPUT_REGIONS" ]; then
+            cmd+=(--regions "$INPUT_REGIONS")
+          fi
+
+          if [ -n "$INPUT_CATEGORIES" ]; then
+            cmd+=(--categories "$INPUT_CATEGORIES")
+          fi
+
+          printf -v cmd_pretty '%q ' "${cmd[@]}"
+          echo "Running command: ${cmd_pretty% }"
+          "${cmd[@]}"
 
       - name: Check for geojson changes
         id: geojson_changes
         run: |
+          set -euo pipefail
+
           git add resources/geojson
           if git diff --cached --quiet; then
+            echo "No changes detected in resources/geojson."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
+            echo "Changes detected in resources/geojson."
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Direct commit geojson changes
+        if: steps.geojson_changes.outputs.changed == 'true' && steps.run_config.outputs.commit_mode == 'direct_commit'
+        run: |
+          set -euo pipefail
+
+          echo "Using direct_commit mode."
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "Update GeoJSON data"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
       - name: Create or update pull request
-        if: steps.geojson_changes.outputs.changed == 'true'
+        if: steps.geojson_changes.outputs.changed == 'true' && steps.run_config.outputs.commit_mode == 'pull_request'
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Update GeoJSON data"
@@ -60,3 +141,16 @@ jobs:
           branch: data/geojson-update
           base: main
           add-paths: resources/geojson
+
+      - name: Log writeback decision
+        run: |
+          echo "GeoJSON changed: ${{ steps.geojson_changes.outputs.changed }}"
+          echo "Writeback mode: ${{ steps.run_config.outputs.commit_mode }}"
+
+          if [ "${{ steps.geojson_changes.outputs.changed }}" != "true" ]; then
+            echo "No writeback performed because no changes were found."
+          elif [ "${{ steps.run_config.outputs.commit_mode }}" = "pull_request" ]; then
+            echo "Writeback performed via pull request workflow."
+          else
+            echo "Writeback performed via direct commit."
+          fi
