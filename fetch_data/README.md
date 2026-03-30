@@ -34,5 +34,5 @@ Examples:
 - Region lookups are now built via administrative **relations** and converted to queryable areas through `map_to_area`.
 - Query prefix pattern:
   - `rel["boundary"="administrative"]["admin_level"="..."]["name"="..."]->.regionRel;`
-  - `map_to_area.regionRel->.searchArea;`
+  - `.regionRel map_to_area->.searchArea;`
 - Category templates continue to run unchanged against `(area.searchArea)`.
