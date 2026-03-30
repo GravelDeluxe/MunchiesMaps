@@ -46,6 +46,17 @@ TAG_WHITELIST: Dict[str, List[str]] = {
     "bakerys_cafes": ["name", "brand", "opening_hours", "takeaway", "outdoor_seating"],
     "kiosks": ["name", "brand", "opening_hours"],
 }
+CATEGORY_LABELS: Dict[str, str] = {
+    "fuel": "Fuel stations",
+    "supermarkets": "Supermarkets",
+    "toilets_public": "Public toilets",
+    "drinking_water": "Drinking water",
+    "fast_food": "Fast-Food",
+    "vending_snacks": "Vending (Snacks & Drinks)",
+    "shelters": "Shelters",
+    "bakerys_cafes": "Bakerys & Cafes",
+    "kiosks": "Kiosks",
+}
 
 
 def normalize_text(value: Any) -> str:
@@ -337,6 +348,123 @@ def ensure_directory(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
 
 
+def has_geojson_files(path: Path) -> bool:
+    """Check whether directory exists and contains GeoJSON files."""
+    if not path.is_dir():
+        return False
+    return any(file_path.suffix == ".geojson" for file_path in path.iterdir())
+
+
+def resolve_region_data_path(region: Dict[str, Any]) -> str:
+    """Resolve data path with compatibility fallback to legacy label directories."""
+    configured_path = str(region["path"])
+    configured_dir = RESOURCE_DIR / configured_path
+    if has_geojson_files(configured_dir):
+        return configured_path
+
+    legacy_path = str(region["label"])
+    legacy_dir = RESOURCE_DIR / legacy_path
+    if legacy_path != configured_path and has_geojson_files(legacy_dir):
+        return legacy_path
+
+    return configured_path
+
+
+def iter_geojson_coordinates(coords: Any) -> Iterable[List[float]]:
+    """Yield all coordinate pairs found in a GeoJSON coordinate structure."""
+    if not isinstance(coords, list):
+        return
+    if len(coords) >= 2 and all(isinstance(value, (int, float)) for value in coords[:2]):
+        yield [float(coords[0]), float(coords[1])]
+        return
+    for child in coords:
+        if isinstance(child, list):
+            yield from iter_geojson_coordinates(child)
+
+
+def compute_bbox_from_geojson_dir(region_path: str) -> List[float] | None:
+    """Compute bbox from all features found in region GeoJSON files."""
+    region_dir = RESOURCE_DIR / region_path
+    if not region_dir.is_dir():
+        return None
+
+    min_lon = min_lat = max_lon = max_lat = None
+    has_points = False
+
+    for geojson_file in sorted(region_dir.glob("*.geojson")):
+        try:
+            with geojson_file.open("r", encoding="utf-8") as input_file:
+                data = json.load(input_file)
+        except (OSError, ValueError) as exc:
+            print(f"[manifest] Skipping invalid GeoJSON {geojson_file}: {exc}")
+            continue
+        features = data.get("features") if isinstance(data, dict) else None
+        if not isinstance(features, list):
+            continue
+        for feature in features:
+            if not isinstance(feature, dict):
+                continue
+            geometry = feature.get("geometry")
+            if not isinstance(geometry, dict):
+                continue
+            for lon, lat in iter_geojson_coordinates(geometry.get("coordinates")):
+                has_points = True
+                min_lon = lon if min_lon is None else min(min_lon, lon)
+                min_lat = lat if min_lat is None else min(min_lat, lat)
+                max_lon = lon if max_lon is None else max(max_lon, lon)
+                max_lat = lat if max_lat is None else max(max_lat, lat)
+
+    if not has_points:
+        return None
+    return [min_lon, min_lat, max_lon, max_lat]
+
+
+def category_label(category_id: str) -> str:
+    """Resolve user-facing category label."""
+    if category_id in CATEGORY_LABELS:
+        return CATEGORY_LABELS[category_id]
+    return category_id.replace("_", " ").strip().title()
+
+
+def build_manifest(regions: List[Dict[str, Any]], categories: Dict[str, str]) -> Dict[str, Any]:
+    """Build manifest content from config and currently available GeoJSON files."""
+    manifest_regions: List[Dict[str, Any]] = []
+    for region in regions:
+        region_path = resolve_region_data_path(region)
+        manifest_regions.append(
+            {
+                "id": region["id"],
+                "label": region["label"],
+                "path": region_path,
+                "country": region["country"],
+                "country_label": region["country_label"],
+                "bbox": compute_bbox_from_geojson_dir(region_path),
+            }
+        )
+
+    manifest_categories = [
+        {"id": category_id, "label": category_label(category_id)}
+        for category_id in categories.keys()
+    ]
+
+    return {
+        "regions": manifest_regions,
+        "bundeslaender": manifest_regions,
+        "categories": manifest_categories,
+    }
+
+
+def save_manifest(regions: List[Dict[str, Any]], categories: Dict[str, str]) -> None:
+    """Write manifest.json from config and currently available GeoJSON files."""
+    ensure_directory(RESOURCE_DIR)
+    manifest_path = RESOURCE_DIR / "manifest.json"
+    manifest = build_manifest(regions, categories)
+    print(f"[manifest] Writing {manifest_path.relative_to(ROOT_DIR)}")
+    with manifest_path.open("w", encoding="utf-8") as manifest_file:
+        json.dump(manifest, manifest_file, ensure_ascii=False, indent=2)
+    print(f"[manifest] Saved (regions={len(manifest['regions'])}, categories={len(manifest['categories'])})")
+
+
 def save_geojson(content: Dict[str, Any], region: Dict[str, Any], category: str) -> None:
     """Save GeoJSON content to the resources directory."""
     target_dir = RESOURCE_DIR / str(region["path"])
@@ -455,6 +583,8 @@ def run(region_filter: set[str] | None = None, category_filter: set[str] | None 
                 msg = f"{context}{endpoint_text}{attempt_text} | {exc}"
                 failures.append(msg)
                 continue
+
+    save_manifest(regions, categories)
 
     if failures:
         print(f"[warn] Completed with {len(failures)} failures:")
