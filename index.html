@@ -2634,7 +2634,7 @@
       }
       if (offlineBtn) {
         offlineBtn.classList.toggle('is-visible', true);
-        offlineBtn.disabled = !isVisible;
+        offlineBtn.disabled = false;
       }
       updateSharePopoverGpxState();
     }
@@ -2696,12 +2696,98 @@
       return result;
     }
 
+    function toFiniteNumber(value) {
+      const num = Number(value);
+      return Number.isFinite(num) ? num : null;
+    }
+
+    function normalizeTrackPoint(point) {
+      if (Array.isArray(point) && point.length >= 2) {
+        const lat = toFiniteNumber(point[0]);
+        const lon = toFiniteNumber(point[1]);
+        if (lat === null || lon === null) return null;
+        return { lat, lon };
+      }
+      if (!point || typeof point !== 'object') return null;
+      const lat = toFiniteNumber(point.lat);
+      const lon = toFiniteNumber(point.lon ?? point.lng);
+      if (lat === null || lon === null) return null;
+      return { lat, lon };
+    }
+
+    function collectTrackPointsSnapshot() {
+      const preferredPoints = Array.isArray(gpxState?.points) && gpxState.points.length
+        ? gpxState.points
+        : (Array.isArray(appState?.gpxTrackLatLngs) ? appState.gpxTrackLatLngs : []);
+      return preferredPoints
+        .map((point) => normalizeTrackPoint(point))
+        .filter(Boolean);
+    }
+
+    function normalizePoiSnapshot(point) {
+      if (!point || typeof point !== 'object') return null;
+      const lat = toFiniteNumber(point.lat);
+      const lon = toFiniteNumber(point.lng ?? point.lon);
+      if (lat === null || lon === null) return null;
+      const props = point.propsRef || {};
+      return {
+        lat,
+        lon,
+        name: props.name || null,
+        categoryId: point.categoryId || props.categoryId || null,
+        categoryLabel: props.categoryLabel || null,
+        opening_hours: props.opening_hours || null,
+        access: props.access || null,
+        fee: props.fee || null,
+        operator: props.operator || null,
+        description: props.description || props.desc || null,
+        url: props.url || null
+      };
+    }
+
+    function collectRelevantPoisSnapshot() {
+      const points = Array.isArray(activePoints) ? activePoints : [];
+      return points
+        .map((point) => normalizePoiSnapshot(point))
+        .filter(Boolean);
+    }
+
+    function buildOfflineSnapshot() {
+      return {
+        exportTimestamp: new Date().toISOString(),
+        gpx: {
+          trackPoints: collectTrackPointsSnapshot(),
+          radiusMeters: toFiniteNumber(gpxState?.radiusMeters),
+          radiusKm: toFiniteNumber(gpxState?.radiusMeters) !== null
+            ? Number((gpxState.radiusMeters / 1000).toFixed(3))
+            : null
+        },
+        activeCategories: Array.from(filterState?.kategorien || []),
+        relevantPois: collectRelevantPoisSnapshot()
+      };
+    }
+
+    function downloadSnapshotJson(snapshot) {
+      const serialized = JSON.stringify(snapshot, null, 2);
+      const blob = new Blob([serialized], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = 'munchiesmaps-offline-snapshot.json';
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+      URL.revokeObjectURL(url);
+    }
+
     function handleOfflineHtmlExport() {
-      if (!appState.hasImportedGpx) {
+      if (!appState?.hasImportedGpx) {
         showMapToast('Import a GPX first.');
         return;
       }
-      showMapToast('Offline HTML export temporarily disabled.');
+      const snapshot = buildOfflineSnapshot();
+      downloadSnapshotJson(snapshot);
+      showMapToast('Offline snapshot exported.');
     }
 
     function buildGpxExport(trackLatLngs, visiblePois) {
