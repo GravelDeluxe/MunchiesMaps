@@ -12,13 +12,18 @@ The project is designed as a practical reference tool rather than a routing or n
 
 ## What works today
 - Night-friendly points of interest such as food, fuel, water, toilets, shelters and vending
-- Filters for categories, regions and night availability
+- Filters for categories, countries/regions and night availability
 - Option to include POIs with missing or unknown opening hours
 - GPX import and export for common bike computers and ride apps
 - Open any POI directly in Google Maps for navigation
 - Open shelters in Mapy.cz for additional details and direct routing
 - Dark mode and mobile-friendly interface
 - Community feedback via GitHub or feedback form
+
+## Country coverage
+- Germany is fully supported via generated GeoJSON datasets.
+- Czechia is supported as a pilot country, with datasets generated automatically via GitHub Actions.
+- Region selection in the app is grouped by **Country → Region** for quicker filtering.
 
 ## Alpha status & feedback
 Munchies Maps is currently in an **Alpha stage**.  
