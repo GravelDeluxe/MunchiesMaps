@@ -2710,7 +2710,52 @@
         showMapToast('Import a GPX first.');
         return;
       }
-      showMapToast('Offline HTML export coming soon.');
+      const snapshot = buildOfflineTestSnapshot();
+      downloadJsonExport(snapshot, 'munchiesmaps-offline-test-snapshot.json');
+      showMapToast('Offline test snapshot exported.');
+    }
+
+    function buildOfflineTestSnapshot() {
+      const timestamp = new Date().toISOString();
+      const radiusInput = document.getElementById('gpxRadiusKm');
+      const parsedRadius = Number.parseFloat(radiusInput?.value ?? '');
+      const fallbackRadiusKm = Number.isFinite(gpxState?.radiusMeters) ? (gpxState.radiusMeters / 1000) : DEFAULT_GPX_RADIUS_KM;
+      const gpxRadiusKm = Number.isFinite(parsedRadius) ? parsedRadius : fallbackRadiusKm;
+      const routePoints = (Array.isArray(gpxState?.points) ? gpxState.points : [])
+        .slice(0, 200)
+        .map((pt) => ({
+          lat: pt?.lat,
+          lon: pt?.lon
+        }))
+        .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lon));
+      const pois = collectVisiblePoisForExport()
+        .slice(0, 10)
+        .map((poi) => ({
+          lat: poi?.lat,
+          lon: poi?.lon,
+          name: poi?.name || 'POI',
+          categoryId: poi?.type || 'poi',
+          categoryLabel: categoryLabelMap[poi?.type] || poi?.type || 'POI'
+        }))
+        .filter((poi) => Number.isFinite(poi.lat) && Number.isFinite(poi.lon));
+      return {
+        exportTimestamp: timestamp,
+        gpxRadiusKm,
+        routePoints,
+        pois
+      };
+    }
+
+    function downloadJsonExport(data, filename) {
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = filename || 'export.json';
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+      URL.revokeObjectURL(url);
     }
 
     function buildGpxExport(trackLatLngs, visiblePois) {
