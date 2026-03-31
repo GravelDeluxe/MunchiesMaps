@@ -2875,7 +2875,7 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #dfe7df;
+      --bg: #f8fafc;
       --panel: rgba(255,255,255,0.95);
       --panel-border: rgba(15,23,42,0.18);
       --text: #0f172a;
@@ -3118,7 +3118,9 @@
     }
 
     function computeBounds(routePts, poiPts) {
-      const base = routePts.length ? routePts : poiPts;
+      const routeList = Array.isArray(routePts) ? routePts : [];
+      const poiList = Array.isArray(poiPts) ? poiPts : [];
+      const base = routeList.length ? routeList.concat(poiList) : poiList;
       if (!base.length) return { minLat: 0, maxLat: 1, minLon: 0, maxLon: 1 };
       let minLat = Infinity, maxLat = -Infinity, minLon = Infinity, maxLon = -Infinity;
       base.forEach((p) => {
@@ -3131,8 +3133,8 @@
       if (!Number.isFinite(minLat)) return { minLat: 0, maxLat: 1, minLon: 0, maxLon: 1 };
       if (minLat === maxLat) maxLat += 0.001;
       if (minLon === maxLon) maxLon += 0.001;
-      const latPad = (maxLat - minLat) * 0.1;
-      const lonPad = (maxLon - minLon) * 0.1;
+      const latPad = Math.max((maxLat - minLat) * 0.1, 0.0008);
+      const lonPad = Math.max((maxLon - minLon) * 0.1, 0.0008);
       return { minLat: minLat - latPad, maxLat: maxLat + latPad, minLon: minLon - lonPad, maxLon: maxLon + lonPad };
     }
 
@@ -3210,10 +3212,19 @@
         if (x > maxX) maxX = x;
         if (y > maxY) maxY = y;
       });
-      return { minX, minY, maxX, maxY };
+      const clamped = {
+        minX: Math.max(worldBounds.minX, minX),
+        minY: Math.max(worldBounds.minY, minY),
+        maxX: Math.min(worldBounds.maxX, maxX),
+        maxY: Math.min(worldBounds.maxY, maxY)
+      };
+      if (clamped.minX >= clamped.maxX || clamped.minY >= clamped.maxY) {
+        return { minX: worldBounds.minX, minY: worldBounds.minY, maxX: worldBounds.maxX, maxY: worldBounds.maxY };
+      }
+      return clamped;
     }
 
-    function fitToRoute() {
+    function fitToRoute(rememberAsInitial) {
       const content = computeContentBounds();
       const pad = 36;
       const minX = Math.max(worldBounds.minX, content.minX - pad);
@@ -3227,7 +3238,20 @@
         height: Math.max(maxY - minY, 120)
       };
       clampView();
+      if (rememberAsInitial) {
+        initialViewState = { ...viewState };
+      }
       render();
+    }
+
+    function resetToInitialRouteView() {
+      if (initialViewState) {
+        viewState = { ...initialViewState };
+        clampView();
+        render();
+        return;
+      }
+      fitToRoute(true);
     }
 
     function fieldRows(poi) {
@@ -3543,9 +3567,9 @@
       zoomAt(factor, anchor.x, anchor.y);
     }, { passive: false });
 
-    document.getElementById('zoomInBtn')?.addEventListener('click', () => zoomAt(0.82));
-    document.getElementById('zoomOutBtn')?.addEventListener('click', () => zoomAt(1.22));
-    document.getElementById('fitRouteBtn')?.addEventListener('click', fitToRoute);
+    document.getElementById('zoomInBtn')?.addEventListener('click', () => zoomAt(0.75));
+    document.getElementById('zoomOutBtn')?.addEventListener('click', () => zoomAt(1.33));
+    document.getElementById('fitRouteBtn')?.addEventListener('click', resetToInitialRouteView);
     document.getElementById('myLocationBtn')?.addEventListener('click', requestLocation);
 
     if (!points.length) {
@@ -3554,11 +3578,13 @@
       statusChip.textContent = 'Route: ' + points.length + ' Punkte • POIs: ' + normalizedPois.length;
     }
 
+    let initialViewState = null;
+
     function initializeMapView() {
-      render();
-      requestAnimationFrame(() => {
-        fitToRoute();
-      });
+      fitToRoute(true);
+      setTimeout(() => {
+        resetToInitialRouteView();
+      }, 0);
     }
 
     initializeMapView();
