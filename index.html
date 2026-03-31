@@ -2864,7 +2864,7 @@
 
     function buildOfflineTestHtml(snapshot) {
       const safeSnapshot = snapshot && typeof snapshot === 'object' ? snapshot : {};
-      const serializedSnapshot = JSON.stringify(safeSnapshot || {}).replace(/</g, '\u003c');
+      const serializedSnapshot = JSON.stringify(safeSnapshot || {}).replace(/</g, '\\u003c');
       const scriptCloseTag = '</scr' + 'ipt>';
       return `<!doctype html>
 <html lang="en">
@@ -3157,6 +3157,7 @@
 
     const worldBounds = { minX: 0, minY: 0, maxX: 1000, maxY: 700 };
     const routeGeoBounds = computeBounds(points, normalizedPois);
+    console.debug('[offline-export] computeBounds', routeGeoBounds);
     let viewState = {
       minX: worldBounds.minX,
       minY: worldBounds.minY,
@@ -3197,6 +3198,10 @@
       viewState.minY = focusY - viewState.height * relY;
       clampView();
       render();
+    }
+
+    function setStatus(message) {
+      if (statusChip) statusChip.textContent = message;
     }
 
     function computeContentBounds() {
@@ -3241,6 +3246,7 @@
       if (rememberAsInitial) {
         initialViewState = { ...viewState };
       }
+      console.debug('[offline-export] fitToRoute', { rememberAsInitial, viewState: { ...viewState } });
       render();
     }
 
@@ -3317,7 +3323,7 @@
       popup.style.top = projected.y + 'px';
     }
 
-    function render() {
+    function renderBaseScene() {
       projectedByPoiId = new Map();
       svg.innerHTML = '';
       svg.setAttribute('viewBox', [viewState.minX, viewState.minY, viewState.width, viewState.height].join(' '));
@@ -3448,25 +3454,92 @@
       syncPopupPosition();
     }
 
+    function renderFallback(error) {
+      console.error('[offline-export] fallback render', error);
+      setStatus('Fallback-Render aktiv');
+      try {
+        svg.innerHTML = '';
+        svg.setAttribute('viewBox', [viewState.minX, viewState.minY, viewState.width, viewState.height].join(' '));
+        const scene = document.createElementNS(svgNs, 'g');
+        svg.appendChild(scene);
+
+        const bg = document.createElementNS(svgNs, 'rect');
+        bg.setAttribute('x', '0');
+        bg.setAttribute('y', '0');
+        bg.setAttribute('width', '1000');
+        bg.setAttribute('height', '700');
+        bg.setAttribute('fill', '#f8fafc');
+        scene.appendChild(bg);
+
+        const routePoints = points.map((p) => projectPoint(p.lat, p.lon, routeGeoBounds)).map((pp) => pp[0] + ',' + pp[1]);
+        if (routePoints.length > 1) {
+          const route = document.createElementNS(svgNs, 'polyline');
+          route.setAttribute('points', routePoints.join(' '));
+          route.setAttribute('fill', 'none');
+          route.setAttribute('stroke', '#e02424');
+          route.setAttribute('stroke-width', '4');
+          route.setAttribute('stroke-linecap', 'round');
+          route.setAttribute('stroke-linejoin', 'round');
+          scene.appendChild(route);
+        }
+
+        kmMarkers.forEach((entry) => {
+          const [x, y] = projectPoint(entry.lat, entry.lon, routeGeoBounds);
+          const chip = document.createElementNS(svgNs, 'circle');
+          chip.setAttribute('cx', x);
+          chip.setAttribute('cy', y);
+          chip.setAttribute('r', '9');
+          chip.setAttribute('fill', '#fff');
+          chip.setAttribute('stroke', '#e02424');
+          chip.setAttribute('stroke-width', '1.6');
+          scene.appendChild(chip);
+        });
+
+        normalizedPois.forEach((poi) => {
+          const [x, y] = projectPoint(poi.lat, poi.lon, routeGeoBounds);
+          const dot = document.createElementNS(svgNs, 'circle');
+          dot.setAttribute('cx', x);
+          dot.setAttribute('cy', y);
+          dot.setAttribute('r', '6');
+          dot.setAttribute('fill', '#0f172a');
+          dot.setAttribute('stroke', '#ffffff');
+          dot.setAttribute('stroke-width', '2');
+          scene.appendChild(dot);
+        });
+      } catch (fallbackError) {
+        console.error('[offline-export] hard render failure', fallbackError);
+        setStatus('Render fehlgeschlagen');
+      }
+    }
+
+    function render() {
+      try {
+        renderBaseScene();
+      } catch (error) {
+        console.error('[offline-export] render failed', error);
+        renderFallback(error);
+      }
+    }
+
     function requestLocation() {
       if (!('geolocation' in navigator)) {
-        statusChip.textContent = 'Geolocation nicht verfügbar';
+        setStatus('Geolocation nicht verfügbar');
         return;
       }
       if (window.location.protocol === 'file:') {
-        statusChip.textContent = 'Standortabfrage auf file:// ggf. blockiert';
+        setStatus('Standortabfrage auf file:// ggf. blockiert');
       } else {
-        statusChip.textContent = 'Standort wird ermittelt ...';
+        setStatus('Standort wird ermittelt ...');
       }
       navigator.geolocation.getCurrentPosition((position) => {
         userLocation = {
           lat: Number(position.coords.latitude),
           lon: Number(position.coords.longitude)
         };
-        statusChip.textContent = 'Mein Standort aktiv';
+        setStatus('Mein Standort aktiv');
         render();
       }, () => {
-        statusChip.textContent = 'Standortzugriff fehlgeschlagen';
+        setStatus('Standortzugriff fehlgeschlagen');
       }, {
         enableHighAccuracy: true,
         timeout: 10000,
@@ -3567,26 +3640,57 @@
       zoomAt(factor, anchor.x, anchor.y);
     }, { passive: false });
 
-    document.getElementById('zoomInBtn')?.addEventListener('click', () => zoomAt(0.75));
-    document.getElementById('zoomOutBtn')?.addEventListener('click', () => zoomAt(1.33));
-    document.getElementById('fitRouteBtn')?.addEventListener('click', resetToInitialRouteView);
-    document.getElementById('myLocationBtn')?.addEventListener('click', requestLocation);
+    document.getElementById('zoomInBtn')?.addEventListener('click', () => {
+      console.debug('[offline-export] button: zoom-in');
+      zoomAt(0.75);
+    });
+    document.getElementById('zoomOutBtn')?.addEventListener('click', () => {
+      console.debug('[offline-export] button: zoom-out');
+      zoomAt(1.33);
+    });
+    document.getElementById('fitRouteBtn')?.addEventListener('click', () => {
+      console.debug('[offline-export] button: fit-route');
+      resetToInitialRouteView();
+    });
+    document.getElementById('myLocationBtn')?.addEventListener('click', () => {
+      console.debug('[offline-export] button: my-location');
+      requestLocation();
+    });
 
     if (!points.length) {
-      statusChip.textContent = 'Keine Route im Snapshot';
+      setStatus('Keine Route im Snapshot');
     } else {
-      statusChip.textContent = 'Route: ' + points.length + ' Punkte • POIs: ' + normalizedPois.length;
+      setStatus('Route: ' + points.length + ' Punkte • POIs: ' + normalizedPois.length);
     }
 
     let initialViewState = null;
 
     function initializeMapView() {
-      fitToRoute(true);
-      setTimeout(() => {
-        resetToInitialRouteView();
-      }, 0);
+      console.debug('[offline-export] initializeMapView:start', { points: points.length, pois: normalizedPois.length });
+      try {
+        fitToRoute(true);
+        setTimeout(() => {
+          try {
+            resetToInitialRouteView();
+          } catch (error) {
+            console.error('[offline-export] resetToInitialRouteView failed', error);
+            renderFallback(error);
+          }
+        }, 0);
+      } catch (error) {
+        console.error('[offline-export] initializeMapView failed', error);
+        setStatus('Initialisierung mit Fallback');
+        viewState = {
+          minX: worldBounds.minX,
+          minY: worldBounds.minY,
+          width: worldBounds.maxX - worldBounds.minX,
+          height: worldBounds.maxY - worldBounds.minY
+        };
+        renderFallback(error);
+      }
     }
 
+    console.debug('[offline-export] before first render');
     initializeMapView();
   ${scriptCloseTag}
 </body>
