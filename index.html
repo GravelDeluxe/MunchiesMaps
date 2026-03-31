@@ -2027,6 +2027,7 @@
 
     const DEFAULT_GPX_RADIUS_KM = 0.3;
     const GPX_KM_MARKER_INTERVAL_KM = 5;
+    const GPX_CLUSTER_THRESHOLD_OVERRIDE = Number.MAX_SAFE_INTEGER;
     const gpxState = {
       points: [],
       sampledPoints: [],
@@ -2046,6 +2047,7 @@
     let filterRunId = 0;
     let applyFiltersTimer = null;
     let viewportClusterThreshold = parseClusterThreshold(localStorage.getItem(CLUSTER_THRESHOLD_KEY));
+    let gpxClusterThresholdBeforeOverride = null;
     const CLUSTER_DEBOUNCE_MS = 200;
     const GRID_CELL_SIZE = 0.05; // ~5km cells for viewport counting
     const MARKER_CACHE_LIMIT = 5000;
@@ -2356,6 +2358,25 @@
         }
       });
       return visible;
+    }
+
+    function findRegionByLocationBbox(lat, lng, regions) {
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+      if (!Array.isArray(regions) || !regions.length) return null;
+      for (let i = 0; i < regions.length; i += 1) {
+        const region = regions[i];
+        const bbox = region?.bbox;
+        if (!Array.isArray(bbox) || bbox.length !== 4) continue;
+        const west = Number(bbox[0]);
+        const south = Number(bbox[1]);
+        const east = Number(bbox[2]);
+        const north = Number(bbox[3]);
+        if (![west, south, east, north].every(Number.isFinite)) continue;
+        if (lng >= west && lng <= east && lat >= south && lat <= north) {
+          return region || null;
+        }
+      }
+      return null;
     }
 
     function buildCombosForStates(stateIdsSet, categoryIdsSet) {
@@ -3120,6 +3141,27 @@
       input.value = String(viewportClusterThreshold);
       input.addEventListener('change', applyThreshold);
       input.addEventListener('blur', applyThreshold);
+    }
+
+    function syncClusterThresholdInput() {
+      const input = document.getElementById('clusterThresholdInput');
+      if (input) input.value = String(viewportClusterThreshold);
+    }
+
+    function enableGpxClusterOverride() {
+      if (!gpxState.active) return;
+      if (gpxClusterThresholdBeforeOverride == null) {
+        gpxClusterThresholdBeforeOverride = viewportClusterThreshold;
+      }
+      viewportClusterThreshold = GPX_CLUSTER_THRESHOLD_OVERRIDE;
+      syncClusterThresholdInput();
+    }
+
+    function restoreClusterThresholdAfterGpx() {
+      if (gpxClusterThresholdBeforeOverride == null) return;
+      viewportClusterThreshold = gpxClusterThresholdBeforeOverride;
+      gpxClusterThresholdBeforeOverride = null;
+      syncClusterThresholdInput();
     }
 
     function setupBadgeToggle() {
@@ -4014,6 +4056,7 @@
     }
 
     function resetGpxState() {
+      restoreClusterThresholdAfterGpx();
       gpxState.active = false;
       gpxState.points = [];
       gpxState.sampledPoints = [];
@@ -4031,6 +4074,7 @@
       if (radiusInput) radiusInput.value = DEFAULT_GPX_RADIUS_KM.toFixed(1);
       if (err) err.textContent = '';
       updateExportGpxVisibility();
+      updateClusteringForViewport();
     }
 
     async function handleGpxApply() {
@@ -4079,6 +4123,7 @@
       gpxState.bbox = computeExpandedBBox(sampled, radiusMeters);
       gpxState.geoJson = gpxGeoJson;
       gpxState.active = true;
+      enableGpxClusterOverride();
       appState.hasImportedGpx = true;
       appState.gpxTrackLatLngs = trackPoints.map((pt) => L.latLng(pt.lat, pt.lon));
 
@@ -4093,6 +4138,7 @@
       updateExportGpxVisibility();
 
       await applyFilters();
+      updateClusteringForViewport();
     }
 
     function resetAllFilters() {
@@ -4112,8 +4158,7 @@
       if (includeToggle) includeToggle.checked = false;
       updateBadgeDependentToggles(false, false);
       viewportClusterThreshold = DEFAULT_CLUSTER_THRESHOLD;
-      const clusterInput = document.getElementById('clusterThresholdInput');
-      if (clusterInput) clusterInput.value = String(viewportClusterThreshold);
+      syncClusterThresholdInput();
       localStorage.removeItem(CLUSTER_THRESHOLD_KEY);
       updateClusteringForViewport();
       triggerApplyFilters();
@@ -4278,6 +4323,11 @@
         if (initialFix) {
           updateUserLocationLayers(initialFix);
           map.setView([initialFix.lat, initialFix.lng], Math.max(map.getZoom(), 15), { animate: false });
+          const detectedRegion = findRegionByLocationBbox(initialFix.lat, initialFix.lng, manifestData.regions);
+          if (detectedRegion?.id) {
+            filterState.bundeslaender = new Set([detectedRegion.id]);
+            renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
+          }
         } else {
           map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom, { animate: false });
         }
