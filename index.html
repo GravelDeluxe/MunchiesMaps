@@ -383,12 +383,17 @@
       background: color-mix(in srgb, var(--panel) 86%, transparent);
     }
     .country-header {
-      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+    }
+    .country-header-toggle {
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      padding: 8px 0;
       border: none;
       background: transparent;
       color: var(--text);
@@ -396,6 +401,7 @@
       text-align: left;
       font-size: 14px;
       font-weight: 700;
+      padding: 0;
     }
     .country-header .chevron {
       display: inline-flex;
@@ -406,14 +412,11 @@
       transition: transform 0.15s ease;
       transform: rotate(0deg);
     }
-    .country-header[aria-expanded="true"] .chevron {
+    .country-header-toggle[aria-expanded="true"] .chevron {
       transform: rotate(90deg);
     }
     .country-regions[hidden] {
       display: none;
-    }
-    .country-regions .checkrow.country-select-row {
-      font-weight: 600;
     }
     .country-regions {
       margin-top: 6px;
@@ -844,10 +847,6 @@
               </div>
               <div class="accordion-body" id="blSection">
                 <p class="option-helper">Hide countries or regions to improve performance.</p>
-                <div class="action-row">
-                  <button type="button" id="blSelectAll">Select all</button>
-                  <button type="button" id="blSelectNone">Select none</button>
-                </div>
                 <div class="checklist" id="blList"></div>
               </div>
             </div>
@@ -2133,10 +2132,13 @@
         const countryWrapper = document.createElement('div');
         countryWrapper.classList.add('country-group');
 
-        const countryHeader = document.createElement('button');
-        countryHeader.type = 'button';
+        const countryHeader = document.createElement('div');
         countryHeader.classList.add('country-header');
-        countryHeader.setAttribute('aria-expanded', expandedCountries.has(group.countryCode) ? 'true' : 'false');
+
+        const countryToggleBtn = document.createElement('button');
+        countryToggleBtn.type = 'button';
+        countryToggleBtn.classList.add('country-header-toggle');
+        countryToggleBtn.setAttribute('aria-expanded', expandedCountries.has(group.countryCode) ? 'true' : 'false');
 
         const countryCb = document.createElement('input');
         countryCb.type = 'checkbox';
@@ -2146,7 +2148,12 @@
         countryCb.checked = selectedCount === group.regions.length && group.regions.length > 0;
         countryCb.indeterminate = selectedCount > 0 && selectedCount < group.regions.length;
 
+        countryCb.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+
         countryCb.addEventListener('change', (e) => {
+          e.stopPropagation();
           const shouldSelect = e.target.checked;
           group.regions.forEach((region) => {
             if (shouldSelect) {
@@ -2154,6 +2161,11 @@
             } else {
               selectedSet.delete(region.id);
             }
+          });
+          const activeRegionCount = group.regions.filter((region) => selectedSet.has(region.id)).length;
+          console.log('[region-filter-country-toggle]', {
+            country: group.countryCode,
+            activeRegions: activeRegionCount
           });
           renderRegionChecklist(containerId, items, selectedSet, setName);
           triggerApplyFilters();
@@ -2166,7 +2178,7 @@
           renderRegionChecklist(containerId, items, selectedSet, setName);
         };
 
-        countryHeader.addEventListener('click', toggleCountry);
+        countryToggleBtn.addEventListener('click', toggleCountry);
 
         const countryText = document.createElement('span');
         countryText.textContent = group.countryLabel;
@@ -2174,22 +2186,16 @@
         chevron.classList.add('chevron');
         chevron.setAttribute('aria-hidden', 'true');
         chevron.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
-        countryHeader.appendChild(countryText);
-        countryHeader.appendChild(chevron);
+        countryToggleBtn.appendChild(countryText);
+        countryToggleBtn.appendChild(chevron);
+        countryHeader.appendChild(countryCb);
+        countryHeader.appendChild(countryToggleBtn);
 
         const regionsWrapper = document.createElement('div');
         regionsWrapper.classList.add('country-regions');
         const isExpanded = expandedCountries.has(group.countryCode);
         regionsWrapper.hidden = !isExpanded;
-        countryHeader.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-
-        const countryRow = document.createElement('label');
-        countryRow.classList.add('checkrow', 'country-select-row');
-        countryRow.appendChild(countryCb);
-        const countrySelectionText = document.createElement('span');
-        countrySelectionText.textContent = `All ${group.countryLabel}`;
-        countryRow.appendChild(countrySelectionText);
-        regionsWrapper.appendChild(countryRow);
+        countryToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
 
         console.log('[region-filter-country]', {
           country: group.countryLabel,
@@ -2979,7 +2985,7 @@
           .join('');
       const mapHref = mapsHref(lat, lng);
       const mapyHref = categoryId === 'shelters'
-        ? `https://mapy.cz/zakladni?x=${encodeURIComponent(lng)}&y=${encodeURIComponent(lat)}&z=17`
+        ? `https://mapy.com/en/zakladni?x=${encodeURIComponent(lng)}&y=${encodeURIComponent(lat)}&z=17`
         : '';
       return `
         <div class="popup-content">
@@ -3963,8 +3969,6 @@
       map.whenReady(() => map.invalidateSize());
       await applyFilters();
 
-      on(qs('#blSelectAll'), 'click', () => selectAll(manifestData.regions, filterState.bundeslaender, 'blList', 'bl'));
-      on(qs('#blSelectNone'), 'click', () => selectNone(filterState.bundeslaender, 'blList', 'bl', manifestData.regions));
       on(qs('#catSelectAll'), 'click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
       on(qs('#catSelectNone'), 'click', () => selectNone(filterState.kategorien, 'catList', 'cat', manifestData.categories));
 
