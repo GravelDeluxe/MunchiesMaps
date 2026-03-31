@@ -534,6 +534,7 @@
     .gpx-apply { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); }
     .gpx-export { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); display: none; }
     .gpx-export.is-visible { display: inline-flex; }
+    .gpx-export:disabled { opacity: 0.6; cursor: not-allowed; }
     .gpx-error { color: #dc2626; font-size: 13px; }
     .gpx-km-marker {
       background: transparent;
@@ -849,6 +850,7 @@
               </div>
               <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
               <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
+              <button type="button" class="gpx-export" id="offlineHtmlExportBtn">Export Offline HTML</button>
               <div class="gpx-error" id="gpxError" aria-live="polite"></div>
             </div>
           </div>
@@ -2624,10 +2626,13 @@
 
     function updateExportGpxVisibility() {
       const exportBtn = document.getElementById('gpxExportBtn');
-      if (!exportBtn) return;
+      const offlineBtn = document.getElementById('offlineHtmlExportBtn');
+      if (!exportBtn || !offlineBtn) return;
       const isVisible = Boolean(appState.hasImportedGpx);
       exportBtn.classList.toggle('is-visible', isVisible);
       exportBtn.disabled = !isVisible;
+      offlineBtn.classList.toggle('is-visible', true);
+      offlineBtn.disabled = !isVisible;
       updateSharePopoverGpxState();
     }
 
@@ -2688,6 +2693,235 @@
       return result;
     }
 
+    function collectFilteredPoisForOfflineExport() {
+      const unique = new Set();
+      const points = Array.isArray(activePoints) ? activePoints : [];
+      const result = [];
+      points.forEach((point) => {
+        const data = buildPoiExportData(point);
+        if (!data) return;
+        const key = `${Number(data.lat).toFixed(6)}|${Number(data.lon).toFixed(6)}|${data.name}`;
+        if (unique.has(key)) return;
+        unique.add(key);
+        result.push({
+          ...data,
+          categoryId: point.categoryId || '',
+          categoryLabel: point.propsRef?.categoryLabel || categoryLabelMap[point.categoryId] || data.type || 'POI',
+          opening_hours: point.propsRef?.opening_hours || '',
+          access: point.propsRef?.access || '',
+          fee: point.propsRef?.fee || '',
+          operator: point.propsRef?.operator || '',
+          description: point.propsRef?.description || '',
+          url: point.propsRef?.url || ''
+        });
+      });
+      return result;
+    }
+
+    function computeTrackBBox(trackPoints) {
+      if (!Array.isArray(trackPoints) || !trackPoints.length) return null;
+      let minLat = Infinity, maxLat = -Infinity, minLon = Infinity, maxLon = -Infinity;
+      trackPoints.forEach((pt) => {
+        const lat = Number(pt.lat ?? pt[0]);
+        const lon = Number(pt.lon ?? pt.lng ?? pt[1]);
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+        if (lat < minLat) minLat = lat;
+        if (lat > maxLat) maxLat = lat;
+        if (lon < minLon) minLon = lon;
+        if (lon > maxLon) maxLon = lon;
+      });
+      if (!Number.isFinite(minLat) || !Number.isFinite(minLon)) return null;
+      return { minLat, maxLat, minLon, maxLon };
+    }
+
+    function buildOfflineHtmlSnapshot() {
+      const track = Array.isArray(gpxState.points) ? gpxState.points : [];
+      const pois = collectFilteredPoisForOfflineExport();
+      const activeCategories = Array.from(filterState.kategorien || []).map((id) => ({
+        id,
+        label: categoryLabelMap[id] || id
+      }));
+      const bbox = computeTrackBBox(track);
+      return {
+        exportedAt: new Date().toISOString(),
+        routeName: 'Imported GPX route',
+        bbox,
+        gpxRadiusKm: Number((gpxState.radiusMeters / 1000).toFixed(2)),
+        filters: {
+          categories: activeCategories,
+          showBadges: Boolean(appState.showBadges),
+          hideNoBadges: Boolean(appState.hideNoBadges),
+          includeMissingData: Boolean(appState.includeMissingData)
+        },
+        routePoints: track.map((pt) => ({ lat: Number(pt.lat), lon: Number(pt.lon) })),
+        pois
+      };
+    }
+
+    function buildOfflineRideHtml(snapshot) {
+      const snapshotJson = JSON.stringify(snapshot).replace(/</g, '\\u003c');
+      return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Munchies Maps Offline Ride</title>
+<style>
+body{margin:0;font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f4f7fb;color:#0f172a}
+header{padding:14px 16px;border-bottom:1px solid #dbe2ea;background:#fff}
+h1{margin:0 0 8px;font-size:18px}
+.helper{font-size:12px;color:#475569}
+.layout{display:grid;grid-template-columns:minmax(280px,340px) 1fr;min-height:calc(100vh - 72px)}
+.sidebar{border-right:1px solid #dbe2ea;background:#fff;padding:12px 14px;overflow:auto}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#e2e8f0;margin:2px 6px 2px 0;font-size:12px}
+.map-wrap{position:relative;padding:10px}
+#mapSvg{width:100%;height:calc(100vh - 96px);border:1px solid #cbd5e1;border-radius:12px;background:#eef4fb}
+.toolbar{position:absolute;top:18px;right:18px;display:flex;gap:8px}
+.toolbar button{padding:8px 10px;border:1px solid #94a3b8;border-radius:10px;background:#fff;cursor:pointer}
+.toolbar button:hover{background:#f8fafc}
+.panel{margin-top:10px;padding:10px;border:1px solid #dbe2ea;border-radius:10px;background:#f8fafc}
+.poi-dot{cursor:pointer}
+.muted{color:#64748b}
+@media (max-width:920px){.layout{grid-template-columns:1fr}.sidebar{border-right:0;border-bottom:1px solid #dbe2ea}#mapSvg{height:55vh}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Munchies Maps Offline Ride</h1>
+  <div class="helper">Lokaler Snapshot, keine Live-Daten. Standortfunktion ist browser-/kontextabhängig.</div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <div id="snapshotMeta"></div>
+    <div class="panel"><strong>POI Details</strong><div id="poiInfo" class="muted">Klicke einen Marker für Details.</div></div>
+    <div class="panel"><strong>Status</strong><div id="statusInfo" class="muted">Bereit.</div></div>
+  </aside>
+  <main class="map-wrap">
+    <svg id="mapSvg" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet"></svg>
+    <div class="toolbar">
+      <button id="locateBtn" type="button">Mein Standort</button>
+      <button id="zoomRouteBtn" type="button">Auf Route zoomen</button>
+    </div>
+  </main>
+</div>
+<script>
+const SNAPSHOT=${snapshotJson};
+const svg=document.getElementById('mapSvg');
+const statusInfo=document.getElementById('statusInfo');
+const poiInfo=document.getElementById('poiInfo');
+const state={minLat:0,maxLat:0,minLon:0,maxLon:0,padding:0.05,userLocation:null};
+
+function setStatus(msg){statusInfo.textContent=msg;}
+function esc(v){return String(v||'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function toXY(lat,lon){
+  const w=1000,h=700,p=45;
+  const xNorm=(lon-state.minLon)/Math.max(state.maxLon-state.minLon,1e-9);
+  const yNorm=(lat-state.minLat)/Math.max(state.maxLat-state.minLat,1e-9);
+  return {x:p+xNorm*(w-p*2), y:h-p-yNorm*(h-p*2)};
+}
+function computeBounds(){
+  const pts=[...(SNAPSHOT.routePoints||[]),...(SNAPSHOT.pois||[]).map(p=>({lat:p.lat,lon:p.lon}))];
+  if(!pts.length){state.minLat=47;state.maxLat=55;state.minLon=5;state.maxLon=15;return;}
+  state.minLat=Math.min(...pts.map(p=>p.lat)); state.maxLat=Math.max(...pts.map(p=>p.lat));
+  state.minLon=Math.min(...pts.map(p=>p.lon)); state.maxLon=Math.max(...pts.map(p=>p.lon));
+  const latPad=(state.maxLat-state.minLat||0.02)*state.padding;
+  const lonPad=(state.maxLon-state.minLon||0.02)*state.padding;
+  state.minLat-=latPad; state.maxLat+=latPad; state.minLon-=lonPad; state.maxLon+=lonPad;
+}
+function renderBackground(){
+  const ns='http://www.w3.org/2000/svg';
+  const bg=document.createElementNS(ns,'rect');
+  bg.setAttribute('x','0');bg.setAttribute('y','0');bg.setAttribute('width','1000');bg.setAttribute('height','700');bg.setAttribute('fill','#eaf2fb');
+  svg.appendChild(bg);
+  for(let i=0;i<=10;i++){
+    const x=45+i*91, y=45+i*61;
+    const vl=document.createElementNS(ns,'line'); vl.setAttribute('x1',x);vl.setAttribute('x2',x);vl.setAttribute('y1',45);vl.setAttribute('y2',655);vl.setAttribute('stroke','#d0dbe8');vl.setAttribute('stroke-width','1');svg.appendChild(vl);
+    const hl=document.createElementNS(ns,'line'); hl.setAttribute('x1',45);hl.setAttribute('x2',955);hl.setAttribute('y1',y);hl.setAttribute('y2',y);hl.setAttribute('stroke','#d0dbe8');hl.setAttribute('stroke-width','1');svg.appendChild(hl);
+  }
+}
+function renderRoute(){
+  const ns='http://www.w3.org/2000/svg';
+  if(!(SNAPSHOT.routePoints||[]).length) return;
+  const poly=document.createElementNS(ns,'polyline');
+  poly.setAttribute('points',SNAPSHOT.routePoints.map(p=>{const xy=toXY(p.lat,p.lon);return xy.x+','+xy.y;}).join(' '));
+  poly.setAttribute('fill','none'); poly.setAttribute('stroke','#0f766e'); poly.setAttribute('stroke-width','4'); poly.setAttribute('stroke-linejoin','round');
+  svg.appendChild(poly);
+}
+function colorFor(cat){const m={supermarkets:'#16a34a',kiosks:'#0ea5e9',vending_snacks:'#7c3aed',shelters:'#0f766e',bakerys_cafes:'#ea580c',drinking_water:'#2563eb',toilets_public:'#334155',fuel:'#e11d48',fast_food:'#dc2626'};return m[cat]||'#111827';}
+function renderPois(){
+  const ns='http://www.w3.org/2000/svg';
+  (SNAPSHOT.pois||[]).forEach((poi)=>{
+    const xy=toXY(poi.lat,poi.lon);
+    const c=document.createElementNS(ns,'circle');
+    c.setAttribute('cx',xy.x);c.setAttribute('cy',xy.y);c.setAttribute('r','5');
+    c.setAttribute('fill',colorFor(poi.categoryId));c.setAttribute('stroke','#fff');c.setAttribute('stroke-width','1.5');c.setAttribute('class','poi-dot');
+    c.addEventListener('click',()=>{
+      const parts=[poi.name||'POI', poi.categoryLabel||poi.type||'', poi.opening_hours?('opening_hours: '+poi.opening_hours):'', poi.access?('access: '+poi.access):'', poi.fee?('fee: '+poi.fee):'', poi.operator?('operator: '+poi.operator):'', poi.description?('description: '+poi.description):'', poi.url?('url: '+poi.url):''].filter(Boolean);
+      poiInfo.innerHTML=parts.map(p=>'<div>'+esc(p)+'</div>').join('');
+      setStatus('POI ausgewählt.');
+    });
+    svg.appendChild(c);
+  });
+}
+function renderMeta(){
+  const el=document.getElementById('snapshotMeta');
+  const cats=(SNAPSHOT.filters&&SNAPSHOT.filters.categories)||[];
+  el.innerHTML='<strong>Snapshot-Infos</strong>'
+    +'<div class="muted">Export: '+esc(SNAPSHOT.exportedAt)+'</div>'
+    +'<div class="muted">Routepunkte: '+((SNAPSHOT.routePoints||[]).length)+'</div>'
+    +'<div class="muted">POIs: '+((SNAPSHOT.pois||[]).length)+'</div>'
+    +'<div class="muted">GPX-Radius: '+esc(SNAPSHOT.gpxRadiusKm)+' km</div>'
+    +'<div style="margin-top:6px">'+cats.map(c=>'<span class="badge">'+esc(c.label||c.id)+'</span>').join('')+'</div>';
+}
+function drawUserLocation(lat,lon){
+  const ns='http://www.w3.org/2000/svg';
+  const existing=document.getElementById('userLocationDot'); if(existing) existing.remove();
+  const xy=toXY(lat,lon); const dot=document.createElementNS(ns,'circle');
+  dot.id='userLocationDot'; dot.setAttribute('cx',xy.x); dot.setAttribute('cy',xy.y); dot.setAttribute('r','7');
+  dot.setAttribute('fill','#f59e0b'); dot.setAttribute('stroke','#fff'); dot.setAttribute('stroke-width','2');
+  svg.appendChild(dot);
+}
+document.getElementById('locateBtn').addEventListener('click',()=>{
+  if(!navigator.geolocation){setStatus('Geolocation wird von diesem Browser nicht unterstützt.');return;}
+  navigator.geolocation.getCurrentPosition((pos)=>{
+    const lat=pos.coords.latitude, lon=pos.coords.longitude;
+    drawUserLocation(lat,lon);
+    state.userLocation={lat,lon};
+    setStatus('Standort angezeigt. Im file://-Kontext kann dies je nach Browser eingeschränkt sein.');
+  },()=>{
+    setStatus('Standort konnte nicht abgerufen werden. Im lokalen Browserkontext ggf. eingeschränkt.');
+  },{enableHighAccuracy:true,timeout:10000,maximumAge:30000});
+});
+document.getElementById('zoomRouteBtn').addEventListener('click',()=>{computeBounds();svg.innerHTML='';renderBackground();renderRoute();renderPois();if(state.userLocation) drawUserLocation(state.userLocation.lat,state.userLocation.lon);setStatus('Route-Ansicht zurückgesetzt.');});
+computeBounds(); renderBackground(); renderRoute(); renderPois(); renderMeta();
+</script>
+</body>
+</html>`;
+    }
+
+    function downloadOfflineHtmlExport(html) {
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = 'munchiesmaps-offline-ride.html';
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+      URL.revokeObjectURL(url);
+    }
+
+    function handleOfflineHtmlExport() {
+      if (!appState.hasImportedGpx || !gpxState.points.length) {
+        showMapToast('Import a GPX first.');
+        return;
+      }
+      const snapshot = buildOfflineHtmlSnapshot();
+      const html = buildOfflineRideHtml(snapshot);
+      downloadOfflineHtmlExport(html);
+      showMapToast('Offline HTML export started.');
+    }
+
     function buildGpxExport(trackLatLngs, visiblePois) {
       const trackPoints = Array.isArray(trackLatLngs) ? trackLatLngs : [];
       const pois = Array.isArray(visiblePois) ? visiblePois : [];
@@ -2737,16 +2971,23 @@
 
     function setupGpxExportButton() {
       const exportBtn = document.getElementById('gpxExportBtn');
-      if (!exportBtn) return;
+      const offlineBtn = document.getElementById('offlineHtmlExportBtn');
+      if (!exportBtn || !offlineBtn) return;
       updateExportGpxVisibility();
       exportBtn.addEventListener('click', () => {
-        if (!appState.hasImportedGpx) return;
+        if (!appState.hasImportedGpx) {
+          showMapToast('Import a GPX first.');
+          return;
+        }
         const exportedCount = exportPoisWithGpx();
         if (exportedCount > 0) {
           showMapToast('POIs exported to GPX.');
         } else {
           showMapToast('Route exported without POIs.');
         }
+      });
+      offlineBtn.addEventListener('click', () => {
+        handleOfflineHtmlExport();
       });
     }
 
