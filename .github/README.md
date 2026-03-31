@@ -15,6 +15,10 @@ The project is designed as a practical reference tool rather than a routing or n
 - Filters for categories, countries/regions and night availability
 - Option to include POIs with missing or unknown opening hours
 - GPX import and export for common bike computers and ride apps
+- MVP button `Export Offline HTML` to download a single local HTML snapshot file
+- Offline HTML snapshot includes route, relevant filtered POIs, and a simplified map-like SVG background
+- Offline export is intentionally a small prototype and does not replace full online map features
+- Snapshot includes a `Mein Standort` action; availability depends on browser support and local (`file://`) context
 - Open any POI directly in Google Maps for navigation
 - Open shelters in Mapy.cz for additional details and direct routing
 - Dark mode and mobile-friendly interface
