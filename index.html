@@ -2726,13 +2726,11 @@
       return result;
     }
 
-    function collectActivePoisForOfflineExport(limit = 50) {
+    function collectActivePoisForOfflineExport() {
       const points = Array.isArray(activePoints) ? activePoints : [];
-      const maxPois = Number.isFinite(limit) ? Math.max(0, Math.floor(limit)) : 50;
       const unique = new Set();
       const result = [];
       for (let i = 0; i < points.length; i++) {
-        if (result.length >= maxPois) break;
         const point = points[i];
         if (!point) continue;
         const lat = Number(point.lat);
@@ -2741,7 +2739,7 @@
         const props = point.propsRef || {};
         const categoryId = point.categoryId || 'poi';
         const categoryLabel = props.categoryLabel || categoryLabelMap[categoryId] || markerLabel(categoryId, props) || 'POI';
-        const name = (props.name || categoryLabel || 'POI').trim();
+        const name = String(props.name || categoryLabel || 'POI').trim();
         const key = `${lat.toFixed(6)}|${lon.toFixed(6)}|${name}|${categoryId}`;
         if (unique.has(key)) continue;
         unique.add(key);
@@ -2774,13 +2772,12 @@
       const fallbackRadiusKm = Number.isFinite(gpxState?.radiusMeters) ? (gpxState.radiusMeters / 1000) : DEFAULT_GPX_RADIUS_KM;
       const gpxRadiusKm = Number.isFinite(parsedRadius) ? parsedRadius : fallbackRadiusKm;
       const routePoints = (Array.isArray(gpxState?.points) ? gpxState.points : [])
-        .slice(0, 200)
         .map((pt) => ({
-          lat: pt?.lat,
-          lon: pt?.lon
+          lat: Number(pt?.lat),
+          lon: Number(pt?.lon)
         }))
         .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lon));
-      const pois = collectActivePoisForOfflineExport(50)
+      const pois = collectActivePoisForOfflineExport()
         .filter((poi) => Number.isFinite(poi.lat) && Number.isFinite(poi.lon));
       return {
         exportTimestamp: timestamp,
