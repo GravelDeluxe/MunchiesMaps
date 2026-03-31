@@ -535,6 +535,25 @@
     .gpx-export { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); display: none; }
     .gpx-export.is-visible { display: inline-flex; }
     .gpx-error { color: #dc2626; font-size: 13px; }
+    .gpx-km-marker {
+      background: transparent;
+      border: none;
+    }
+    .gpx-km-marker-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border-radius: 9px;
+      border: 1px solid rgba(255, 0, 0, 0.55);
+      background: rgba(255, 255, 255, 0.9);
+      color: #b91c1c;
+      font: 600 11px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      box-sizing: border-box;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+    }
 
     .feedback-form { display: flex; flex-direction: column; gap: 8px; position: relative; }
     .feedback-label { font-weight: 700; color: var(--text); }
@@ -1901,6 +1920,7 @@
 
       const map = L.map('map', { zoomControl: true, preferCanvas: true });
       window.map = map;
+      const gpxKilometerMarkerLayer = L.layerGroup().addTo(map);
 
     const FALLBACK_VIEW = { center: [52.52, 13.405], zoom: 11 };
     // Ensure the map has an initial view before any custom layers render.
@@ -1995,6 +2015,7 @@
     const DEBUG_BADGES = false;
 
     const DEFAULT_GPX_RADIUS_KM = 0.3;
+    const GPX_KM_MARKER_INTERVAL_KM = 5;
     const gpxState = {
       points: [],
       sampledPoints: [],
@@ -2514,7 +2535,63 @@
       };
     }
 
+    function buildKilometerMarkers(latlngs, intervalKm = GPX_KM_MARKER_INTERVAL_KM) {
+      if (!Array.isArray(latlngs) || latlngs.length < 2) return [];
+      const intervalMeters = Number(intervalKm) * 1000;
+      if (!Number.isFinite(intervalMeters) || intervalMeters <= 0) return [];
+
+      const markers = [];
+      let cumulativeMeters = 0;
+      let nextMarkerAtMeters = intervalMeters;
+
+      for (let i = 1; i < latlngs.length; i++) {
+        const start = L.latLng(latlngs[i - 1]);
+        const end = L.latLng(latlngs[i]);
+        const segmentMeters = start.distanceTo(end);
+        if (!Number.isFinite(segmentMeters) || segmentMeters <= 0) continue;
+
+        while ((cumulativeMeters + segmentMeters) >= nextMarkerAtMeters) {
+          const segmentOffset = nextMarkerAtMeters - cumulativeMeters;
+          const ratio = segmentOffset / segmentMeters;
+          const lat = start.lat + ((end.lat - start.lat) * ratio);
+          const lng = start.lng + ((end.lng - start.lng) * ratio);
+          markers.push({
+            latlng: L.latLng(lat, lng),
+            km: Math.round(nextMarkerAtMeters / 1000)
+          });
+          nextMarkerAtMeters += intervalMeters;
+        }
+
+        cumulativeMeters += segmentMeters;
+      }
+
+      return markers;
+    }
+
+    function clearGpxKilometerMarkers() {
+      gpxKilometerMarkerLayer.clearLayers();
+    }
+
+    function renderGpxKilometerMarkers(latlngs) {
+      clearGpxKilometerMarkers();
+      const kilometerMarkers = buildKilometerMarkers(latlngs, GPX_KM_MARKER_INTERVAL_KM);
+      kilometerMarkers.forEach((entry) => {
+        const icon = L.divIcon({
+          className: 'gpx-km-marker',
+          html: `<span class="gpx-km-marker-label">${entry.km}</span>`,
+          iconSize: [22, 22],
+          iconAnchor: [11, 11]
+        });
+        L.marker(entry.latlng, {
+          icon,
+          interactive: false,
+          keyboard: false
+        }).addTo(gpxKilometerMarkerLayer);
+      });
+    }
+
     function clearGpxTrack() {
+      clearGpxKilometerMarkers();
       if (gpxTrackLayer) {
         map.removeLayer(gpxTrackLayer);
         gpxTrackLayer = null;
@@ -3770,6 +3847,8 @@
       console.log('GPX points:', trackPoints.length, 'sampled:', sampled.length, 'radiusMeters:', radiusMeters);
 
       renderGpxTrack(gpxGeoJson);
+      // Rebuild kilometer markers whenever a GPX route changes.
+      renderGpxKilometerMarkers(appState.gpxTrackLatLngs);
       if (hasNewFile) {
         fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
       }
