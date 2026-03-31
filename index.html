@@ -2838,7 +2838,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background: radial-gradient(circle at 20% 10%, #edf4e8 0%, #d8e3d3 55%, #ced8ca 100%);
+      background: #f8fafc;
       font: 14px/1.45 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
     }
@@ -3143,14 +3143,34 @@
       render();
     }
 
+    function computeContentBounds() {
+      const coords = [];
+      points.forEach((p) => coords.push(projectPoint(p.lat, p.lon, routeGeoBounds)));
+      kmMarkers.forEach((entry) => coords.push(projectPoint(entry.lat, entry.lon, routeGeoBounds)));
+      normalizedPois.forEach((poi) => coords.push(projectPoint(poi.lat, poi.lon, routeGeoBounds)));
+      if (!coords.length) return { minX: worldBounds.minX, minY: worldBounds.minY, maxX: worldBounds.maxX, maxY: worldBounds.maxY };
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      coords.forEach(([x, y]) => {
+        if (x < minX) minX = x;
+        if (y < minY) minY = y;
+        if (x > maxX) maxX = x;
+        if (y > maxY) maxY = y;
+      });
+      return { minX, minY, maxX, maxY };
+    }
+
     function fitToRoute() {
-      const min = projectPoint(routeGeoBounds.minLat, routeGeoBounds.minLon, routeGeoBounds);
-      const max = projectPoint(routeGeoBounds.maxLat, routeGeoBounds.maxLon, routeGeoBounds);
+      const content = computeContentBounds();
+      const pad = 36;
+      const minX = Math.max(worldBounds.minX, content.minX - pad);
+      const minY = Math.max(worldBounds.minY, content.minY - pad);
+      const maxX = Math.min(worldBounds.maxX, content.maxX + pad);
+      const maxY = Math.min(worldBounds.maxY, content.maxY + pad);
       viewState = {
-        minX: Math.min(min[0], max[0]),
-        minY: Math.min(min[1], max[1]),
-        width: Math.max(Math.abs(max[0] - min[0]), 160),
-        height: Math.max(Math.abs(max[1] - min[1]), 120)
+        minX,
+        minY,
+        width: Math.max(maxX - minX, 160),
+        height: Math.max(maxY - minY, 120)
       };
       clampView();
       render();
@@ -3232,28 +3252,8 @@
       bg.setAttribute('y', '0');
       bg.setAttribute('width', '1000');
       bg.setAttribute('height', '700');
-      bg.setAttribute('fill', '#e8efdf');
+      bg.setAttribute('fill', '#f8fafc');
       scene.appendChild(bg);
-
-      for (let i = -120; i < 1200; i += 120) {
-        const path = document.createElementNS(svgNs, 'path');
-        path.setAttribute('d', 'M ' + i + ' 0 C ' + (i + 40) + ' 110, ' + (i - 40) + ' 230, ' + i + ' 350 C ' + (i + 35) + ' 470, ' + (i - 35) + ' 590, ' + i + ' 700');
-        path.setAttribute('stroke', 'rgba(144, 169, 127, 0.22)');
-        path.setAttribute('stroke-width', '2');
-        path.setAttribute('fill', 'none');
-        scene.appendChild(path);
-      }
-
-      for (let y = 40; y < 700; y += 90) {
-        const line = document.createElementNS(svgNs, 'line');
-        line.setAttribute('x1', '0');
-        line.setAttribute('y1', String(y));
-        line.setAttribute('x2', '1000');
-        line.setAttribute('y2', String(y + 12));
-        line.setAttribute('stroke', 'rgba(255,255,255,0.35)');
-        line.setAttribute('stroke-width', '1');
-        scene.appendChild(line);
-      }
 
       const routePoints = points.map((p) => {
         const pp = projectPoint(p.lat, p.lon, routeGeoBounds);
@@ -3414,14 +3414,12 @@
         return;
       }
 
-      const markerNode = event.target?.closest?.('[data-poi-marker="true"]');
       pointerDragDistance = 0;
       dragState = {
         x: event.clientX,
         y: event.clientY,
         minX: viewState.minX,
-        minY: viewState.minY,
-        markerId: markerNode?.dataset?.poiId || null
+        minY: viewState.minY
       };
       svg.classList.add('is-dragging');
     });
@@ -3458,17 +3456,20 @@
       activePointers.delete(event.pointerId);
       if (activePointers.size < 2) pinchState = null;
 
-      const wasTap = pointerDragDistance < 8;
-      const markerId = dragState?.markerId;
+      const tapThreshold = event.pointerType === 'touch' ? 12 : 8;
+      const wasTap = pointerDragDistance < tapThreshold;
       dragState = null;
       svg.classList.remove('is-dragging');
       try { svg.releasePointerCapture(event.pointerId); } catch (err) {}
 
-      if (wasTap && markerId) {
-        openPopup(markerId);
-        return;
-      }
-      if (wasTap && !markerId) {
+      if (wasTap) {
+        const target = document.elementFromPoint(event.clientX, event.clientY);
+        const markerNode = target?.closest?.('[data-poi-marker="true"]');
+        const markerId = markerNode?.dataset?.poiId || null;
+        if (markerId) {
+          openPopup(markerId);
+          return;
+        }
         closePopup();
       }
     }
@@ -3499,7 +3500,14 @@
       statusChip.textContent = 'Route: ' + points.length + ' Punkte • POIs: ' + normalizedPois.length;
     }
 
-    fitToRoute();
+    function initializeMapView() {
+      render();
+      requestAnimationFrame(() => {
+        fitToRoute();
+      });
+    }
+
+    initializeMapView();
   ${scriptCloseTag}
 </body>
 </html>`;
