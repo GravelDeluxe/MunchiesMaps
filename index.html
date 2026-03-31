@@ -2036,6 +2036,7 @@
       active: false,
       geoJson: null
     };
+    const regionGeometryCache = new Map();
 
     let gpxTrackLayer = null;
 
@@ -2377,6 +2378,59 @@
         }
       }
       return null;
+    }
+
+    function getRegionBBox(region) {
+      const bbox = region?.bbox;
+      if (!Array.isArray(bbox) || bbox.length !== 4) return null;
+      const west = Number(bbox[0]);
+      const south = Number(bbox[1]);
+      const east = Number(bbox[2]);
+      const north = Number(bbox[3]);
+      if (![west, south, east, north].every(Number.isFinite)) return null;
+      return [west, south, east, north];
+    }
+
+    function buildRegionGeometryCache(regions) {
+      if (!Array.isArray(regions)) return;
+      regions.forEach((region) => {
+        if (!region?.id || regionGeometryCache.has(region.id)) return;
+        regionGeometryCache.set(region.id, {
+          id: region.id,
+          name: region.label || region.id,
+          bbox: getRegionBBox(region),
+          geometry: region.geometry || null
+        });
+      });
+    }
+
+    function isGPXIntersectingRegion(gpxLayer, regionGeoJson) {
+      if (!gpxLayer || !regionGeoJson) return false;
+      const gpxBounds = gpxLayer.getBounds?.();
+      const gpxBbox = getBoundsBbox(gpxBounds);
+      const regionBbox = Array.isArray(regionGeoJson?.bbox) ? regionGeoJson.bbox : getRegionBBox(regionGeoJson);
+      if (!gpxBbox || !regionBbox) return false;
+      return bboxIntersects(gpxBbox, regionBbox);
+    }
+
+    function autoSelectRegionsByGpxRoute() {
+      if (!appState.gpxLayer || !Array.isArray(manifestData?.regions) || !manifestData.regions.length) return false;
+      buildRegionGeometryCache(manifestData.regions);
+
+      const matchingRegionIds = new Set();
+      manifestData.regions.forEach((region) => {
+        const regionGeo = regionGeometryCache.get(region.id) || region;
+        if (isGPXIntersectingRegion(appState.gpxLayer, regionGeo)) {
+          matchingRegionIds.add(region.id);
+        }
+      });
+
+      if (!matchingRegionIds.size) return false;
+
+      filterState.bundeslaender = matchingRegionIds;
+      renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
+      showMapToast(`${matchingRegionIds.size} region(s) along the route activated.`);
+      return true;
     }
 
     function buildCombosForStates(stateIdsSet, categoryIdsSet) {
@@ -4475,6 +4529,7 @@
         })
         .sort(sortRegions);
       const categories = Array.isArray(data.categories) ? data.categories : [];
+      buildRegionGeometryCache(regions);
       return { regions, bundeslaender: regions, categories };
     }
 
@@ -4721,6 +4776,9 @@
       renderGpxTrack(gpxGeoJson);
       // Rebuild kilometer markers whenever a GPX route changes.
       renderGpxKilometerMarkers(appState.gpxTrackLatLngs);
+      if (hasNewFile) {
+        autoSelectRegionsByGpxRoute();
+      }
       if (hasNewFile) {
         fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
       }
