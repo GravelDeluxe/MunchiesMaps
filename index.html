@@ -3077,7 +3077,8 @@
     function sanitizeUrl(value) {
       const raw = String(value || '').trim();
       if (!raw) return '';
-      if (/^https?:\/\//i.test(raw)) return raw;
+      const lowerRaw = raw.toLowerCase();
+      if (lowerRaw.startsWith('http://') || lowerRaw.startsWith('https://')) return raw;
       return '';
     }
 
