@@ -2810,7 +2810,7 @@
 
     function buildOfflineTestHtml(snapshot) {
       const safeSnapshot = snapshot && typeof snapshot === 'object' ? snapshot : {};
-      const serializedSnapshot = JSON.stringify(safeSnapshot || {}).replace(/</g, '\\u003c');
+      const serializedSnapshot = JSON.stringify(safeSnapshot || {}).replace(/</g, '\u003c');
       const scriptCloseTag = '</scr' + 'ipt>';
       return `<!doctype html>
 <html lang="en">
@@ -2821,224 +2821,174 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #f4f6f9;
-      --panel: #ffffff;
-      --panel-soft: #f8fafc;
+      --bg: #dfe7df;
+      --panel: rgba(255,255,255,0.95);
+      --panel-border: rgba(15,23,42,0.18);
       --text: #0f172a;
       --muted: #475569;
-      --border: #d8e0ea;
-      --route: #2563eb;
-      --route-shadow: rgba(37, 99, 235, 0.25);
-      --shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
-      --radius-lg: 18px;
-      --radius-md: 12px;
+      --route: #e02424;
+      --route-glow: rgba(224,36,36,0.28);
+      --poi-stroke: rgba(15,23,42,0.35);
+      --shadow: 0 10px 28px rgba(15,23,42,0.16);
+      --radius: 12px;
     }
     * { box-sizing: border-box; }
-    body {
+    html, body {
       margin: 0;
-      min-height: 100vh;
-      font: 14px/1.5 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(circle at top right, #e8effc, transparent 45%), var(--bg);
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: radial-gradient(circle at 20% 10%, #edf4e8 0%, #d8e3d3 55%, #ced8ca 100%);
+      font: 14px/1.45 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
-      padding: 18px;
     }
-    .page { max-width: 1180px; margin: 0 auto; display: grid; gap: 14px; }
-    .topbar {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      padding: 16px 18px;
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-    h1 { margin: 0 0 4px; font-size: 1.4rem; line-height: 1.2; }
-    .subtitle { margin: 0; color: var(--muted); font-size: 0.95rem; }
-    .offline-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #1e3a8a;
-      background: #dbeafe;
-      border: 1px solid #bfdbfe;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-weight: 700;
-    }
-    .meta-grid {
-      display: grid;
-      gap: 10px;
-      grid-template-columns: repeat(5, minmax(130px, 1fr));
-    }
-    .meta-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow);
-      padding: 11px 12px;
-    }
-    .meta-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
-    .meta-value { font-size: 1.08rem; font-weight: 700; color: var(--text); }
-    .meta-note { font-size: 0.8rem; color: var(--muted); margin-top: 3px; }
-    .layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr); gap: 12px; }
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      padding: 12px;
-    }
-    .map-shell { display: grid; gap: 10px; }
-    .map-frame {
-      position: relative;
-      border-radius: var(--radius-md);
-      border: 1px solid #c8d4e4;
-      background: linear-gradient(165deg, #eff5fe 0%, #dce8f9 100%);
+    .map-root {
+      position: fixed;
+      inset: 0;
       overflow: hidden;
     }
-    #mapSvg { width: 100%; height: auto; display: block; min-height: 360px; touch-action: none; cursor: grab; }
+    #mapSvg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      touch-action: none;
+      cursor: grab;
+      user-select: none;
+    }
     #mapSvg.is-dragging { cursor: grabbing; }
-    .controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
-    .status { color: var(--muted); font-size: 0.86rem; }
-    button {
-      border: 1px solid #93c5fd;
-      background: linear-gradient(180deg, #ffffff, #eaf3ff);
-      color: #1d4ed8;
-      font-weight: 700;
+    .map-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .controls {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: grid;
+      gap: 8px;
+      pointer-events: auto;
+    }
+    .controls button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--panel-border);
       border-radius: 10px;
-      padding: 9px 13px;
+      background: var(--panel);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      font-size: 19px;
+      font-weight: 700;
       cursor: pointer;
     }
-    button:disabled { opacity: 0.55; cursor: default; }
-    button:hover { border-color: #60a5fa; background: #e0eeff; }
-    .popup-card {
+    .controls button:active { transform: translateY(1px); }
+    .controls button.control-wide {
+      width: auto;
+      min-width: 42px;
+      padding: 0 10px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .popup {
       position: absolute;
-      left: 10px;
-      right: 10px;
-      bottom: 10px;
-      z-index: 3;
-      background: rgba(255, 255, 255, 0.97);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      z-index: 6;
+      min-width: 220px;
+      max-width: min(320px, 88vw);
+      max-height: min(60vh, 360px);
+      overflow: auto;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding: 10px 12px;
-      max-height: 48%;
-      overflow: auto;
+      pointer-events: auto;
+      transform: translate(-50%, calc(-100% - 12px));
       display: none;
     }
-    .popup-card.is-open { display: block; }
-    .side-title { margin: 0 0 8px; font-size: 1rem; }
-    .legend { display: grid; gap: 6px; margin-bottom: 12px; }
-    .legend-item { display: grid; grid-template-columns: 12px 1fr auto; align-items: center; gap: 8px; font-size: 0.86rem; color: var(--muted); }
-    .legend-dot { width: 12px; height: 12px; border-radius: 999px; border: 2px solid rgba(15, 23, 42, 0.2); }
-    .detail-card {
-      background: var(--panel-soft);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 12px;
-      min-height: 140px;
+    .popup.is-open { display: block; }
+    .popup::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 14px;
+      height: 14px;
+      background: var(--panel);
+      border-right: 1px solid var(--panel-border);
+      border-bottom: 1px solid var(--panel-border);
+      transform: translateX(-50%) rotate(45deg);
     }
-    .detail-empty { color: var(--muted); font-size: 0.92rem; }
-    .poi-name { margin: 0 0 8px; font-size: 1rem; line-height: 1.3; }
+    .popup h3 { margin: 0 22px 6px 0; font-size: 15px; line-height: 1.3; }
+    .popup-close {
+      position: absolute;
+      right: 8px;
+      top: 6px;
+      width: 24px;
+      height: 24px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: #475569;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+    }
     .cat-badge {
       display: inline-flex;
-      align-items: center;
-      gap: 6px;
       border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 0.75rem;
+      padding: 3px 9px;
+      font-size: 11px;
       font-weight: 700;
-      margin-bottom: 10px;
       border: 1px solid;
+      margin-bottom: 7px;
     }
-    .detail-line { color: var(--muted); font-size: 0.85rem; margin-top: 5px; }
-    @media (max-width: 930px) {
-      .meta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .layout { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 600px) {
-      body { padding: 10px; }
-      .topbar, .panel { padding: 10px; }
-      .meta-grid { grid-template-columns: 1fr; }
-      #mapSvg { min-height: 290px; }
-      button { width: 100%; }
-      .controls { align-items: stretch; }
+    .popup-line { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .popup-line b { color: var(--text); }
+    .status-chip {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      z-index: 5;
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      color: var(--muted);
+      padding: 6px 10px;
+      font-size: 11px;
+      letter-spacing: 0.02em;
+      box-shadow: var(--shadow);
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="topbar">
-      <div>
-        <h1>Munchies Maps • Ride Snapshot</h1>
-        <p class="subtitle">Standalone offline export with interactive map, POI popups and route controls.</p>
+  <div class="map-root">
+    <svg id="mapSvg" viewBox="0 0 1000 700" aria-label="Offline route map"></svg>
+    <div class="map-overlay">
+      <div id="poiPopup" class="popup" role="dialog" aria-live="polite"></div>
+      <div class="controls">
+        <button id="zoomInBtn" type="button" aria-label="Zoom in">+</button>
+        <button id="zoomOutBtn" type="button" aria-label="Zoom out">−</button>
+        <button id="fitRouteBtn" type="button" class="control-wide">Route zentrieren</button>
+        <button id="myLocationBtn" type="button" class="control-wide">Mein Standort</button>
       </div>
-      <span class="offline-badge">Offline Snapshot</span>
-    </header>
-
-    <section class="meta-grid">
-      <article class="meta-card"><div class="meta-label">Exportzeit</div><div class="meta-value" id="exportTime">-</div></article>
-      <article class="meta-card"><div class="meta-label">Routepunkte</div><div class="meta-value" id="routeCount">0</div><div class="meta-note">Track vollständig geladen</div></article>
-      <article class="meta-card"><div class="meta-label">POIs</div><div class="meta-value" id="poiCount">0</div><div class="meta-note">Sichtbare Stops enthalten</div></article>
-      <article class="meta-card"><div class="meta-label">GPX Radius</div><div class="meta-value"><span id="radiusKm">-</span> km</div></article>
-      <article class="meta-card"><div class="meta-label">Status</div><div class="meta-value" id="statusSummary">Bereit</div><div class="meta-note" id="geoStatusMeta">Geolocation bereit</div></article>
-    </section>
-
-    <section class="layout">
-      <div class="panel map-shell">
-        <div class="map-frame">
-          <svg id="mapSvg" viewBox="0 0 1000 700" aria-label="Offline snapshot map"></svg>
-          <div id="poiPopup" class="popup-card" role="dialog" aria-live="polite"></div>
-        </div>
-        <div class="controls">
-          <div class="btn-row">
-            <button id="zoomInBtn" type="button">Zoom +</button>
-            <button id="zoomOutBtn" type="button">Zoom -</button>
-            <button id="zoomRouteBtn" type="button">Fit auf Route</button>
-            <button id="myLocationBtn" type="button">Mein Standort</button>
-          </div>
-          <div class="status" id="stopsStatus">0 stops loaded</div>
-        </div>
-      </div>
-
-      <aside class="panel">
-        <h2 class="side-title">Kategorien</h2>
-        <div id="legend" class="legend"></div>
-        <h2 class="side-title">Ausgewählter POI</h2>
-        <div id="poiDetail" class="detail-card"></div>
-      </aside>
-    </section>
+      <div id="statusChip" class="status-chip">Offline-Karte bereit</div>
+    </div>
   </div>
   <script>
     const SNAPSHOT = ${serializedSnapshot};
     const svg = document.getElementById('mapSvg');
     const popup = document.getElementById('poiPopup');
-    const detail = document.getElementById('poiDetail');
-    const legend = document.getElementById('legend');
-    const geoStatusMeta = document.getElementById('geoStatusMeta');
-    const points = Array.isArray(SNAPSHOT?.routePoints) ? SNAPSHOT.routePoints : [];
+    const statusChip = document.getElementById('statusChip');
+    const points = Array.isArray(SNAPSHOT?.routePoints) ? SNAPSHOT.routePoints.filter((p) => Number.isFinite(p?.lat) && Number.isFinite(p?.lon)) : [];
     const pois = Array.isArray(SNAPSHOT?.pois) ? SNAPSHOT.pois : [];
     const svgNs = 'http://www.w3.org/2000/svg';
     let selectedPoiId = null;
     let userLocation = null;
-    let worldBounds = null;
-    let viewState = { minX: 0, minY: 0, width: 1000, height: 700 };
-    let dragState = null;
     let pointerDragDistance = 0;
-    const poiById = new Map();
-    const normalizedPois = pois.map((poi, index) => {
-      const safeId = String(poi?.id || ('poi-' + index));
-      const nextPoi = Object.assign({}, poi, { id: safeId });
-      poiById.set(safeId, nextPoi);
-      return nextPoi;
-    });
+    let dragState = null;
+    let pinchState = null;
+    let projectedByPoiId = new Map();
 
     const CATEGORY_STYLES = {
       supermarkets: { color: '#0f766e', bg: '#ccfbf1', short: 'SM' },
@@ -3061,49 +3011,6 @@
       return CATEGORY_STYLES[categoryKey(poi)] || CATEGORY_STYLES.default;
     }
 
-    function formatDate(iso) {
-      if (!iso) return '-';
-      const date = new Date(iso);
-      if (Number.isNaN(date.getTime())) return iso;
-      return date.toLocaleString();
-    }
-
-    document.getElementById('exportTime').textContent = formatDate(SNAPSHOT?.exportTimestamp);
-    document.getElementById('routeCount').textContent = String(points.length);
-    document.getElementById('poiCount').textContent = String(normalizedPois.length);
-    document.getElementById('radiusKm').textContent = Number.isFinite(SNAPSHOT?.gpxRadiusKm) ? SNAPSHOT.gpxRadiusKm.toFixed(1) : '-';
-    document.getElementById('statusSummary').textContent = points.length > 1 ? 'Route bereit' : 'Nur Punkte geladen';
-    document.getElementById('stopsStatus').textContent = normalizedPois.length + ' stops loaded';
-
-    function computeBounds(routePts, poiPts) {
-      const all = routePts.concat(poiPts);
-      if (!all.length) return { minLat: 0, maxLat: 1, minLon: 0, maxLon: 1 };
-      let minLat = all[0].lat, maxLat = all[0].lat, minLon = all[0].lon, maxLon = all[0].lon;
-      all.forEach((p) => {
-        if (!Number.isFinite(p?.lat) || !Number.isFinite(p?.lon)) return;
-        if (p.lat < minLat) minLat = p.lat;
-        if (p.lat > maxLat) maxLat = p.lat;
-        if (p.lon < minLon) minLon = p.lon;
-        if (p.lon > maxLon) maxLon = p.lon;
-      });
-      if (minLat === maxLat) maxLat += 0.001;
-      if (minLon === maxLon) maxLon += 0.001;
-      const latPad = (maxLat - minLat) * 0.08;
-      const lonPad = (maxLon - minLon) * 0.08;
-      return { minLat: minLat - latPad, maxLat: maxLat + latPad, minLon: minLon - lonPad, maxLon: maxLon + lonPad };
-    }
-
-    function projectPoint(lat, lon, b) {
-      const mapW = 1000;
-      const mapH = 700;
-      const pad = 28;
-      const w = mapW - pad * 2;
-      const h = mapH - pad * 2;
-      const x = pad + ((lon - b.minLon) / (b.maxLon - b.minLon)) * w;
-      const y = mapH - pad - ((lat - b.minLat) / (b.maxLat - b.minLat)) * h;
-      return [x, y];
-    }
-
     function escapeHtml(value) {
       return String(value ?? '')
         .replace(/&/g, '&amp;')
@@ -3116,24 +3023,150 @@
     function sanitizeUrl(value) {
       const raw = String(value || '').trim();
       if (!raw) return '';
-      if (/^https?:\\/\\//i.test(raw)) return raw;
+      if (/^https?:\/\//i.test(raw)) return raw;
       return '';
     }
 
-    function setEmptyDetail() {
-      detail.innerHTML = '<div class="detail-empty">Wähle einen Marker auf der Karte, um Details zu sehen.</div>';
+    function haversineMeters(lat1, lon1, lat2, lon2) {
+      const R = 6371000;
+      const toRad = (d) => (d * Math.PI) / 180;
+      const dLat = toRad(lat2 - lat1);
+      const dLon = toRad(lon2 - lon1);
+      const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    function buildKilometerMarkers(routePts, intervalKm) {
+      if (!Array.isArray(routePts) || routePts.length < 2) return [];
+      const intervalMeters = Number(intervalKm) * 1000;
+      if (!Number.isFinite(intervalMeters) || intervalMeters <= 0) return [];
+      const markers = [];
+      let cumulativeMeters = 0;
+      let nextMarkerAt = intervalMeters;
+      for (let i = 1; i < routePts.length; i++) {
+        const a = routePts[i - 1];
+        const b = routePts[i];
+        const segment = haversineMeters(a.lat, a.lon, b.lat, b.lon);
+        if (!Number.isFinite(segment) || segment <= 0) continue;
+        while ((cumulativeMeters + segment) >= nextMarkerAt) {
+          const offset = nextMarkerAt - cumulativeMeters;
+          const ratio = offset / segment;
+          markers.push({
+            lat: a.lat + ((b.lat - a.lat) * ratio),
+            lon: a.lon + ((b.lon - a.lon) * ratio),
+            km: Math.round(nextMarkerAt / 1000)
+          });
+          nextMarkerAt += intervalMeters;
+        }
+        cumulativeMeters += segment;
+      }
+      return markers;
+    }
+
+    function computeBounds(routePts, poiPts) {
+      const base = routePts.length ? routePts : poiPts;
+      if (!base.length) return { minLat: 0, maxLat: 1, minLon: 0, maxLon: 1 };
+      let minLat = Infinity, maxLat = -Infinity, minLon = Infinity, maxLon = -Infinity;
+      base.forEach((p) => {
+        if (!Number.isFinite(p?.lat) || !Number.isFinite(p?.lon)) return;
+        if (p.lat < minLat) minLat = p.lat;
+        if (p.lat > maxLat) maxLat = p.lat;
+        if (p.lon < minLon) minLon = p.lon;
+        if (p.lon > maxLon) maxLon = p.lon;
+      });
+      if (!Number.isFinite(minLat)) return { minLat: 0, maxLat: 1, minLon: 0, maxLon: 1 };
+      if (minLat === maxLat) maxLat += 0.001;
+      if (minLon === maxLon) maxLon += 0.001;
+      const latPad = (maxLat - minLat) * 0.1;
+      const lonPad = (maxLon - minLon) * 0.1;
+      return { minLat: minLat - latPad, maxLat: maxLat + latPad, minLon: minLon - lonPad, maxLon: maxLon + lonPad };
+    }
+
+    function projectPoint(lat, lon, b) {
+      const mapW = 1000;
+      const mapH = 700;
+      const pad = 30;
+      const w = mapW - pad * 2;
+      const h = mapH - pad * 2;
+      const x = pad + ((lon - b.minLon) / (b.maxLon - b.minLon)) * w;
+      const y = mapH - pad - ((lat - b.minLat) / (b.maxLat - b.minLat)) * h;
+      return [x, y];
+    }
+
+    const normalizedPois = pois
+      .map((poi, index) => ({ ...poi, id: String(poi?.id || ('poi-' + index)) }))
+      .filter((poi) => Number.isFinite(poi?.lat) && Number.isFinite(poi?.lon));
+    const poiById = new Map(normalizedPois.map((poi) => [String(poi.id), poi]));
+    const kmMarkers = buildKilometerMarkers(points, 5);
+
+    const worldBounds = { minX: 0, minY: 0, maxX: 1000, maxY: 700 };
+    const routeGeoBounds = computeBounds(points, normalizedPois);
+    let viewState = {
+      minX: worldBounds.minX,
+      minY: worldBounds.minY,
+      width: worldBounds.maxX - worldBounds.minX,
+      height: worldBounds.maxY - worldBounds.minY
+    };
+
+    function clampView() {
+      const minWidth = 120;
+      const minHeight = 84;
+      const maxWidth = worldBounds.maxX - worldBounds.minX;
+      const maxHeight = worldBounds.maxY - worldBounds.minY;
+      viewState.width = Math.min(Math.max(viewState.width, minWidth), maxWidth);
+      viewState.height = Math.min(Math.max(viewState.height, minHeight), maxHeight);
+      const maxX = worldBounds.maxX - viewState.width;
+      const maxY = worldBounds.maxY - viewState.height;
+      viewState.minX = Math.min(Math.max(viewState.minX, worldBounds.minX), Math.max(worldBounds.minX, maxX));
+      viewState.minY = Math.min(Math.max(viewState.minY, worldBounds.minY), Math.max(worldBounds.minY, maxY));
+    }
+
+    function viewPointFromClient(clientX, clientY) {
+      const rect = svg.getBoundingClientRect();
+      if (!rect.width || !rect.height) return { x: viewState.minX, y: viewState.minY };
+      const x = viewState.minX + ((clientX - rect.left) / rect.width) * viewState.width;
+      const y = viewState.minY + ((clientY - rect.top) / rect.height) * viewState.height;
+      return { x, y };
+    }
+
+    function zoomAt(factor, anchorX, anchorY) {
+      if (!Number.isFinite(factor) || factor <= 0) return;
+      const focusX = Number.isFinite(anchorX) ? anchorX : (viewState.minX + viewState.width / 2);
+      const focusY = Number.isFinite(anchorY) ? anchorY : (viewState.minY + viewState.height / 2);
+      const relX = (focusX - viewState.minX) / viewState.width;
+      const relY = (focusY - viewState.minY) / viewState.height;
+      viewState.width *= factor;
+      viewState.height *= factor;
+      viewState.minX = focusX - viewState.width * relX;
+      viewState.minY = focusY - viewState.height * relY;
+      clampView();
+      render();
+    }
+
+    function fitToRoute() {
+      const min = projectPoint(routeGeoBounds.minLat, routeGeoBounds.minLon, routeGeoBounds);
+      const max = projectPoint(routeGeoBounds.maxLat, routeGeoBounds.maxLon, routeGeoBounds);
+      viewState = {
+        minX: Math.min(min[0], max[0]),
+        minY: Math.min(min[1], max[1]),
+        width: Math.max(Math.abs(max[0] - min[0]), 160),
+        height: Math.max(Math.abs(max[1] - min[1]), 120)
+      };
+      clampView();
+      render();
     }
 
     function fieldRows(poi) {
       return [
+        ['Kategorie', poi?.categoryLabel || poi?.categoryId],
         ['Beschreibung', poi?.description],
         ['Opening hours', poi?.opening_hours],
         ['Access', poi?.access],
         ['Operator', poi?.operator],
         ['Fee', poi?.fee],
-        ['Telefon', poi?.phone],
         ['URL', poi?.url],
         ['Website', poi?.website],
+        ['Telefon', poi?.phone],
         ['Brand', poi?.brand],
         ['Chain', poi?.chain]
       ].filter((entry) => entry[1] && String(entry[1]).trim() !== '');
@@ -3144,268 +3177,218 @@
       if (!safeValue) return '';
       if (label === 'URL' || label === 'Website') {
         const normalized = sanitizeUrl(safeValue);
-        if (normalized) {
-          return '<a href="' + escapeHtml(normalized) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(safeValue) + '</a>';
-        }
+        if (normalized) return '<a href="' + escapeHtml(normalized) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(safeValue) + '</a>';
       }
       return escapeHtml(safeValue);
     }
 
-    function showDetail(poi) {
-      if (!poi) return setEmptyDetail();
-      const style = getCategoryStyle(poi);
-      const category = poi?.categoryLabel || poi?.categoryId || 'Unbekannt';
-      const safeName = escapeHtml(poi?.name || 'POI');
-      const lat = Number.isFinite(poi?.lat) ? poi.lat.toFixed(5) : '-';
-      const lon = Number.isFinite(poi?.lon) ? poi.lon.toFixed(5) : '-';
-      const rows = fieldRows(poi);
-      detail.innerHTML = [
-        '<h3 class="poi-name">' + safeName + '</h3>',
-        '<span class="cat-badge" style="color:' + style.color + ';background:' + style.bg + ';border-color:' + style.color + ';">' + style.short + ' • ' + escapeHtml(category) + '</span>',
-        rows.length ? rows.map((entry) => '<div class="detail-line"><b>' + escapeHtml(entry[0]) + ':</b> ' + renderValue(entry[0], entry[1]) + '</div>').join('') : '<div class="detail-line">Keine weiteren Details verfügbar.</div>',
-        '<div class="detail-line"><b>Koordinaten:</b> ' + lat + ', ' + lon + '</div>'
-      ].join('');
+    function closePopup() {
+      popup.className = 'popup';
+      popup.style.left = '0px';
+      popup.style.top = '0px';
+      popup.innerHTML = '';
+      selectedPoiId = null;
+      render();
     }
 
-    function setPopup(poi) {
-      if (!poi) {
-        popup.className = 'popup-card';
-        popup.innerHTML = '';
-        return;
-      }
+    function openPopup(poiId) {
+      const poi = poiById.get(String(poiId));
+      if (!poi) return closePopup();
+      selectedPoiId = String(poiId);
       const style = getCategoryStyle(poi);
-      const fields = fieldRows(poi);
-      popup.className = 'popup-card is-open';
+      const lines = fieldRows(poi);
+      popup.className = 'popup is-open';
       popup.innerHTML = [
-        '<h3 class="poi-name">' + escapeHtml(poi.name || 'POI') + '</h3>',
-        '<span class="cat-badge" style="color:' + style.color + ';background:' + style.bg + ';border-color:' + style.color + ';">' + escapeHtml(poi.categoryLabel || poi.categoryId || 'POI') + '</span>',
-        fields.length ? fields.map((entry) => '<div class="detail-line"><b>' + escapeHtml(entry[0]) + ':</b> ' + renderValue(entry[0], entry[1]) + '</div>').join('') : '<div class="detail-line">Keine weiteren Details verfügbar.</div>',
-        '<div class="detail-line"><b>Koordinaten:</b> ' + escapeHtml(Number(poi.lat).toFixed(5)) + ', ' + escapeHtml(Number(poi.lon).toFixed(5)) + '</div>',
-        '<div class="detail-line"><button type="button" id="closePopupBtn">Auswahl aufheben</button></div>'
+        '<button type="button" class="popup-close" id="closePopupBtn" aria-label="Schließen">×</button>',
+        '<h3>' + escapeHtml(poi.name || 'POI') + '</h3>',
+        '<span class="cat-badge" style="color:' + style.color + ';background:' + style.bg + ';border-color:' + style.color + ';">' + escapeHtml(style.short + ' • ' + (poi.categoryLabel || poi.categoryId || 'POI')) + '</span>',
+        lines.length ? lines.map((entry) => '<div class="popup-line"><b>' + escapeHtml(entry[0]) + ':</b> ' + renderValue(entry[0], entry[1]) + '</div>').join('') : '<div class="popup-line">Keine Details verfügbar.</div>'
       ].join('');
-      document.getElementById('closePopupBtn')?.addEventListener('click', () => {
-        selectedPoiId = null;
-        setPopup(null);
-        setEmptyDetail();
-        render();
-      });
+      document.getElementById('closePopupBtn')?.addEventListener('click', () => closePopup());
+      render();
     }
 
-    function renderLegend() {
-      const counts = new Map();
-      normalizedPois.forEach((poi) => {
-        const key = categoryKey(poi);
-        counts.set(key, (counts.get(key) || 0) + 1);
-      });
-      if (!counts.size) {
-        legend.innerHTML = '<div class="detail-empty">Keine POIs im Snapshot.</div>';
+    function syncPopupPosition() {
+      if (!selectedPoiId) return;
+      const projected = projectedByPoiId.get(selectedPoiId);
+      if (!projected) {
+        popup.className = 'popup';
         return;
       }
-      legend.innerHTML = '';
-      Array.from(counts.entries())
-        .sort((a, b) => b[1] - a[1])
-        .forEach(([key, count]) => {
-          const style = CATEGORY_STYLES[key] || CATEGORY_STYLES.default;
-          const label = normalizedPois.find((poi) => categoryKey(poi) === key)?.categoryLabel || key;
-          const row = document.createElement('div');
-          row.className = 'legend-item';
-          row.innerHTML = '<span class="legend-dot" style="background:' + style.color + ';"></span><span>' + escapeHtml(label) + '</span><strong>' + count + '</strong>';
-          legend.appendChild(row);
-        });
-    }
-
-    function clampView() {
-      if (!worldBounds) return;
-      const maxX = worldBounds.maxX - viewState.width;
-      const maxY = worldBounds.maxY - viewState.height;
-      viewState.minX = Math.min(Math.max(viewState.minX, worldBounds.minX), Math.max(worldBounds.minX, maxX));
-      viewState.minY = Math.min(Math.max(viewState.minY, worldBounds.minY), Math.max(worldBounds.minY, maxY));
-    }
-
-    function fitToRoute() {
-      if (!worldBounds) return;
-      viewState = {
-        minX: worldBounds.minX,
-        minY: worldBounds.minY,
-        width: worldBounds.maxX - worldBounds.minX,
-        height: worldBounds.maxY - worldBounds.minY
-      };
-      render();
-    }
-
-    function zoomBy(factor) {
-      const centerX = viewState.minX + viewState.width / 2;
-      const centerY = viewState.minY + viewState.height / 2;
-      const minWidth = 120;
-      const minHeight = 90;
-      const maxWidth = worldBounds ? (worldBounds.maxX - worldBounds.minX) : 1000;
-      const maxHeight = worldBounds ? (worldBounds.maxY - worldBounds.minY) : 700;
-      viewState.width = Math.min(Math.max(viewState.width * factor, minWidth), maxWidth);
-      viewState.height = Math.min(Math.max(viewState.height * factor, minHeight), maxHeight);
-      viewState.minX = centerX - viewState.width / 2;
-      viewState.minY = centerY - viewState.height / 2;
-      clampView();
-      render();
+      popup.style.left = projected.x + 'px';
+      popup.style.top = projected.y + 'px';
     }
 
     function render() {
-      const bounds = computeBounds(points, userLocation ? normalizedPois.concat([userLocation]) : normalizedPois);
-      worldBounds = { minX: 0, minY: 0, maxX: 1000, maxY: 700 };
-      if (!Number.isFinite(viewState.width) || !Number.isFinite(viewState.height) || viewState.width <= 0) {
-        fitToRoute();
-      }
+      projectedByPoiId = new Map();
       svg.innerHTML = '';
       svg.setAttribute('viewBox', [viewState.minX, viewState.minY, viewState.width, viewState.height].join(' '));
+
       const scene = document.createElementNS(svgNs, 'g');
       svg.appendChild(scene);
-      const background = document.createElementNS(svgNs, 'rect');
-      background.setAttribute('x', '0');
-      background.setAttribute('y', '0');
-      background.setAttribute('width', '1000');
-      background.setAttribute('height', '700');
-      background.setAttribute('fill', '#edf3fb');
-      scene.appendChild(background);
-      for (let x = 0; x <= 1000; x += 100) {
+
+      const bg = document.createElementNS(svgNs, 'rect');
+      bg.setAttribute('x', '0');
+      bg.setAttribute('y', '0');
+      bg.setAttribute('width', '1000');
+      bg.setAttribute('height', '700');
+      bg.setAttribute('fill', '#e8efdf');
+      scene.appendChild(bg);
+
+      for (let i = -120; i < 1200; i += 120) {
+        const path = document.createElementNS(svgNs, 'path');
+        path.setAttribute('d', 'M ' + i + ' 0 C ' + (i + 40) + ' 110, ' + (i - 40) + ' 230, ' + i + ' 350 C ' + (i + 35) + ' 470, ' + (i - 35) + ' 590, ' + i + ' 700');
+        path.setAttribute('stroke', 'rgba(144, 169, 127, 0.22)');
+        path.setAttribute('stroke-width', '2');
+        path.setAttribute('fill', 'none');
+        scene.appendChild(path);
+      }
+
+      for (let y = 40; y < 700; y += 90) {
         const line = document.createElementNS(svgNs, 'line');
-        line.setAttribute('x1', x); line.setAttribute('y1', 0); line.setAttribute('x2', x); line.setAttribute('y2', 700);
-        line.setAttribute('stroke', '#d4dfec'); line.setAttribute('stroke-width', '1');
+        line.setAttribute('x1', '0');
+        line.setAttribute('y1', String(y));
+        line.setAttribute('x2', '1000');
+        line.setAttribute('y2', String(y + 12));
+        line.setAttribute('stroke', 'rgba(255,255,255,0.35)');
+        line.setAttribute('stroke-width', '1');
         scene.appendChild(line);
       }
-      for (let y = 0; y <= 700; y += 100) {
-        const line = document.createElementNS(svgNs, 'line');
-        line.setAttribute('x1', 0); line.setAttribute('y1', y); line.setAttribute('x2', 1000); line.setAttribute('y2', y);
-        line.setAttribute('stroke', '#d4dfec'); line.setAttribute('stroke-width', '1');
-        scene.appendChild(line);
-      }
-      if (points.length > 1) {
-        const routeGlow = document.createElementNS(svgNs, 'polyline');
-        routeGlow.setAttribute('fill', 'none');
-        routeGlow.setAttribute('stroke', 'var(--route-shadow)');
-        routeGlow.setAttribute('stroke-width', '11');
-        routeGlow.setAttribute('stroke-linecap', 'round');
-        routeGlow.setAttribute('stroke-linejoin', 'round');
-        routeGlow.setAttribute('points', points.map((p) => {
-          const projected = projectPoint(p.lat, p.lon, bounds);
-          return projected[0] + ',' + projected[1];
-        }).join(' '));
-        scene.appendChild(routeGlow);
+
+      const routePoints = points.map((p) => {
+        const pp = projectPoint(p.lat, p.lon, routeGeoBounds);
+        return pp[0] + ',' + pp[1];
+      });
+
+      if (routePoints.length > 1) {
+        const glow = document.createElementNS(svgNs, 'polyline');
+        glow.setAttribute('points', routePoints.join(' '));
+        glow.setAttribute('fill', 'none');
+        glow.setAttribute('stroke', 'var(--route-glow)');
+        glow.setAttribute('stroke-width', '9');
+        glow.setAttribute('stroke-linecap', 'round');
+        glow.setAttribute('stroke-linejoin', 'round');
+        scene.appendChild(glow);
 
         const route = document.createElementNS(svgNs, 'polyline');
+        route.setAttribute('points', routePoints.join(' '));
         route.setAttribute('fill', 'none');
         route.setAttribute('stroke', 'var(--route)');
-        route.setAttribute('stroke-width', '5');
+        route.setAttribute('stroke-width', '4.25');
         route.setAttribute('stroke-linecap', 'round');
         route.setAttribute('stroke-linejoin', 'round');
-        route.setAttribute('points', points.map((p) => {
-          const projected = projectPoint(p.lat, p.lon, bounds);
-          return projected[0] + ',' + projected[1];
-        }).join(' '));
         scene.appendChild(route);
       }
 
+      kmMarkers.forEach((entry) => {
+        const projected = projectPoint(entry.lat, entry.lon, routeGeoBounds);
+        const group = document.createElementNS(svgNs, 'g');
+
+        const chip = document.createElementNS(svgNs, 'circle');
+        chip.setAttribute('cx', projected[0]);
+        chip.setAttribute('cy', projected[1]);
+        chip.setAttribute('r', '9');
+        chip.setAttribute('fill', '#fffaf8');
+        chip.setAttribute('stroke', '#e02424');
+        chip.setAttribute('stroke-width', '1.4');
+        group.appendChild(chip);
+
+        const txt = document.createElementNS(svgNs, 'text');
+        txt.setAttribute('x', projected[0]);
+        txt.setAttribute('y', projected[1] + 3.5);
+        txt.setAttribute('text-anchor', 'middle');
+        txt.setAttribute('font-size', '8.5');
+        txt.setAttribute('font-weight', '700');
+        txt.setAttribute('fill', '#991b1b');
+        txt.textContent = String(entry.km);
+        group.appendChild(txt);
+
+        scene.appendChild(group);
+      });
+
       normalizedPois.forEach((poi) => {
-        const projected = projectPoint(poi.lat, poi.lon, bounds);
-        const x = projected[0];
-        const y = projected[1];
+        const projected = projectPoint(poi.lat, poi.lon, routeGeoBounds);
         const markerId = String(poi.id);
+        projectedByPoiId.set(markerId, { x: projected[0], y: projected[1] });
         const style = getCategoryStyle(poi);
         const isSelected = markerId === selectedPoiId;
 
         const group = document.createElementNS(svgNs, 'g');
-        group.style.cursor = 'pointer';
-        group.dataset.poiId = markerId;
         group.dataset.poiMarker = 'true';
+        group.dataset.poiId = markerId;
+        group.style.cursor = 'pointer';
 
         const hit = document.createElementNS(svgNs, 'circle');
-        hit.setAttribute('cx', x);
-        hit.setAttribute('cy', y);
-        hit.setAttribute('r', isSelected ? '18' : '15');
+        hit.setAttribute('cx', projected[0]);
+        hit.setAttribute('cy', projected[1]);
+        hit.setAttribute('r', isSelected ? '18' : '16');
         hit.setAttribute('fill', 'transparent');
         group.appendChild(hit);
 
         const ring = document.createElementNS(svgNs, 'circle');
-        ring.setAttribute('cx', x);
-        ring.setAttribute('cy', y);
-        ring.setAttribute('r', isSelected ? '12.5' : '9.5');
+        ring.setAttribute('cx', projected[0]);
+        ring.setAttribute('cy', projected[1]);
+        ring.setAttribute('r', isSelected ? '10' : '8.3');
         ring.setAttribute('fill', '#ffffff');
-        ring.setAttribute('opacity', isSelected ? '0.95' : '0.8');
+        ring.setAttribute('stroke', isSelected ? '#111827' : 'rgba(148,163,184,0.9)');
+        ring.setAttribute('stroke-width', isSelected ? '2' : '1.1');
         group.appendChild(ring);
 
         const dot = document.createElementNS(svgNs, 'circle');
-        dot.setAttribute('cx', x);
-        dot.setAttribute('cy', y);
-        dot.setAttribute('r', isSelected ? '7.1' : '5.8');
+        dot.setAttribute('cx', projected[0]);
+        dot.setAttribute('cy', projected[1]);
+        dot.setAttribute('r', isSelected ? '6.2' : '5.4');
         dot.setAttribute('fill', style.color);
-        dot.setAttribute('stroke', isSelected ? '#0f172a' : 'rgba(15, 23, 42, 0.35)');
-        dot.setAttribute('stroke-width', isSelected ? '2.4' : '1.2');
+        dot.setAttribute('stroke', 'var(--poi-stroke)');
+        dot.setAttribute('stroke-width', '0.9');
         group.appendChild(dot);
+
         scene.appendChild(group);
       });
 
-      if (userLocation) {
-        const projected = projectPoint(userLocation.lat, userLocation.lon, bounds);
-        const outer = document.createElementNS(svgNs, 'circle');
-        outer.setAttribute('cx', projected[0]);
-        outer.setAttribute('cy', projected[1]);
-        outer.setAttribute('r', '10');
-        outer.setAttribute('fill', 'rgba(37,99,235,0.2)');
-        outer.setAttribute('stroke', '#1d4ed8');
-        outer.setAttribute('stroke-width', '1.5');
-        scene.appendChild(outer);
+      if (userLocation && Number.isFinite(userLocation.lat) && Number.isFinite(userLocation.lon)) {
+        const projected = projectPoint(userLocation.lat, userLocation.lon, routeGeoBounds);
+        const pulse = document.createElementNS(svgNs, 'circle');
+        pulse.setAttribute('cx', projected[0]);
+        pulse.setAttribute('cy', projected[1]);
+        pulse.setAttribute('r', '11');
+        pulse.setAttribute('fill', 'rgba(14,116,144,0.16)');
+        pulse.setAttribute('stroke', '#0369a1');
+        pulse.setAttribute('stroke-width', '1.2');
+        scene.appendChild(pulse);
 
-        const inner = document.createElementNS(svgNs, 'circle');
-        inner.setAttribute('cx', projected[0]);
-        inner.setAttribute('cy', projected[1]);
-        inner.setAttribute('r', '4.2');
-        inner.setAttribute('fill', '#1d4ed8');
-        inner.setAttribute('stroke', '#fff');
-        inner.setAttribute('stroke-width', '1.4');
-        scene.appendChild(inner);
+        const pin = document.createElementNS(svgNs, 'circle');
+        pin.setAttribute('cx', projected[0]);
+        pin.setAttribute('cy', projected[1]);
+        pin.setAttribute('r', '4.6');
+        pin.setAttribute('fill', '#0369a1');
+        pin.setAttribute('stroke', '#ffffff');
+        pin.setAttribute('stroke-width', '1.2');
+        scene.appendChild(pin);
       }
-    }
 
-    function selectPoiById(poiId) {
-      const poi = poiById.get(String(poiId));
-      if (!poi) return;
-      selectedPoiId = String(poiId);
-      showDetail(poi);
-      setPopup(poi);
-      render();
-    }
-
-    function clearSelection() {
-      selectedPoiId = null;
-      setPopup(null);
-      setEmptyDetail();
-      render();
+      syncPopupPosition();
     }
 
     function requestLocation() {
       if (!('geolocation' in navigator)) {
-        document.getElementById('stopsStatus').textContent = 'Geolocation nicht verfügbar.';
-        geoStatusMeta.textContent = 'Browser unterstützt Geolocation nicht.';
+        statusChip.textContent = 'Geolocation nicht verfügbar';
         return;
       }
       if (window.location.protocol === 'file:') {
-        geoStatusMeta.textContent = 'file:// kann Geolocation blockieren (Browser-Sicherheitsrichtlinien).';
+        statusChip.textContent = 'Standortabfrage auf file:// ggf. blockiert';
+      } else {
+        statusChip.textContent = 'Standort wird ermittelt ...';
       }
-      document.getElementById('stopsStatus').textContent = 'Standort wird ermittelt ...';
       navigator.geolocation.getCurrentPosition((position) => {
         userLocation = {
           lat: Number(position.coords.latitude),
           lon: Number(position.coords.longitude)
         };
-        geoStatusMeta.textContent = 'Standort erfolgreich gelesen.';
-        document.getElementById('stopsStatus').textContent = 'Standort angezeigt.';
-        fitToRoute();
-      }, (error) => {
-        const code = Number(error?.code);
-        let msg = error && error.message ? error.message : 'Standort nicht verfügbar.';
-        if (code === 1) msg = 'Standortzugriff verweigert.';
-        if (code === 2) msg = 'Standort momentan nicht verfügbar.';
-        if (code === 3) msg = 'Standortabfrage hat zu lange gedauert.';
-        geoStatusMeta.textContent = 'Standortzugriff fehlgeschlagen. ' + (window.location.protocol === 'file:' ? 'Teste die Datei ggf. über einen lokalen HTTP-Server.' : '');
-        document.getElementById('stopsStatus').textContent = msg;
+        statusChip.textContent = 'Mein Standort aktiv';
+        render();
+      }, () => {
+        statusChip.textContent = 'Standortzugriff fehlgeschlagen';
       }, {
         enableHighAccuracy: true,
         timeout: 10000,
@@ -3413,7 +3396,24 @@
       });
     }
 
+    const activePointers = new Map();
+
     svg.addEventListener('pointerdown', (event) => {
+      svg.setPointerCapture(event.pointerId);
+      activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+      if (activePointers.size === 2) {
+        const pts = Array.from(activePointers.values());
+        const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+        const center = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 };
+        pinchState = {
+          distance: dist,
+          center,
+          view: { ...viewState }
+        };
+        dragState = null;
+        return;
+      }
+
       const markerNode = event.target?.closest?.('[data-poi-marker="true"]');
       pointerDragDistance = 0;
       dragState = {
@@ -3424,12 +3424,27 @@
         markerId: markerNode?.dataset?.poiId || null
       };
       svg.classList.add('is-dragging');
-      svg.setPointerCapture(event.pointerId);
     });
+
     svg.addEventListener('pointermove', (event) => {
+      if (!activePointers.has(event.pointerId)) return;
+      activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+      if (pinchState && activePointers.size >= 2) {
+        const pts = Array.from(activePointers.values());
+        const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+        if (dist > 0 && pinchState.distance > 0) {
+          viewState = { ...pinchState.view };
+          const center = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 };
+          const anchor = viewPointFromClient(center.x, center.y);
+          zoomAt(pinchState.distance / dist, anchor.x, anchor.y);
+        }
+        return;
+      }
+
       if (!dragState) return;
-      const scaleX = viewState.width / svg.clientWidth;
-      const scaleY = viewState.height / svg.clientHeight;
+      const scaleX = viewState.width / Math.max(svg.clientWidth, 1);
+      const scaleY = viewState.height / Math.max(svg.clientHeight, 1);
       const dx = (event.clientX - dragState.x) * scaleX;
       const dy = (event.clientY - dragState.y) * scaleY;
       pointerDragDistance = Math.max(pointerDragDistance, Math.abs(event.clientX - dragState.x) + Math.abs(event.clientY - dragState.y));
@@ -3438,39 +3453,58 @@
       clampView();
       render();
     });
-    svg.addEventListener('pointerup', (event) => {
+
+    function onPointerEnd(event) {
+      activePointers.delete(event.pointerId);
+      if (activePointers.size < 2) pinchState = null;
+
       const wasTap = pointerDragDistance < 8;
       const markerId = dragState?.markerId;
       dragState = null;
       svg.classList.remove('is-dragging');
       try { svg.releasePointerCapture(event.pointerId); } catch (err) {}
+
       if (wasTap && markerId) {
-        selectPoiById(markerId);
+        openPopup(markerId);
         return;
       }
       if (wasTap && !markerId) {
-        clearSelection();
+        closePopup();
       }
-    });
-    svg.addEventListener('pointercancel', () => {
+    }
+
+    svg.addEventListener('pointerup', onPointerEnd);
+    svg.addEventListener('pointercancel', (event) => {
+      activePointers.delete(event.pointerId);
+      pinchState = null;
       dragState = null;
       svg.classList.remove('is-dragging');
     });
 
-    document.getElementById('zoomRouteBtn')?.addEventListener('click', () => {
-      fitToRoute();
-    });
-    document.getElementById('zoomInBtn')?.addEventListener('click', () => zoomBy(0.8));
-    document.getElementById('zoomOutBtn')?.addEventListener('click', () => zoomBy(1.25));
+    svg.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      const anchor = viewPointFromClient(event.clientX, event.clientY);
+      const factor = event.deltaY < 0 ? 0.88 : 1.14;
+      zoomAt(factor, anchor.x, anchor.y);
+    }, { passive: false });
+
+    document.getElementById('zoomInBtn')?.addEventListener('click', () => zoomAt(0.82));
+    document.getElementById('zoomOutBtn')?.addEventListener('click', () => zoomAt(1.22));
+    document.getElementById('fitRouteBtn')?.addEventListener('click', fitToRoute);
     document.getElementById('myLocationBtn')?.addEventListener('click', requestLocation);
 
-    renderLegend();
-    setEmptyDetail();
+    if (!points.length) {
+      statusChip.textContent = 'Keine Route im Snapshot';
+    } else {
+      statusChip.textContent = 'Route: ' + points.length + ' Punkte • POIs: ' + normalizedPois.length;
+    }
+
     fitToRoute();
   ${scriptCloseTag}
 </body>
 </html>`;
     }
+
 
     function downloadTextFile(content, filename, mimeType) {
       const blob = new Blob([content], { type: mimeType || 'text/plain;charset=utf-8' });
