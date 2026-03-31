@@ -2727,6 +2727,16 @@
     }
 
     function collectActivePoisForOfflineExport() {
+      const readString = (obj, keys) => {
+        if (!obj || !Array.isArray(keys)) return '';
+        for (let i = 0; i < keys.length; i++) {
+          const value = obj[keys[i]];
+          if (value === null || value === undefined) continue;
+          const normalized = String(value).trim();
+          if (normalized) return normalized;
+        }
+        return '';
+      };
       const points = Array.isArray(activePoints) ? activePoints : [];
       const unique = new Set();
       const result = [];
@@ -2738,8 +2748,8 @@
         if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
         const props = point.propsRef || {};
         const categoryId = point.categoryId || 'poi';
-        const categoryLabel = props.categoryLabel || categoryLabelMap[categoryId] || markerLabel(categoryId, props) || 'POI';
-        const name = String(props.name || categoryLabel || 'POI').trim();
+        const categoryLabel = readString(props, ['categoryLabel']) || categoryLabelMap[categoryId] || markerLabel(categoryId, props) || 'POI';
+        const name = readString(props, ['name']) || String(categoryLabel || 'POI').trim();
         const key = `${lat.toFixed(6)}|${lon.toFixed(6)}|${name}|${categoryId}`;
         if (unique.has(key)) continue;
         unique.add(key);
@@ -2750,16 +2760,16 @@
           name,
           categoryId,
           categoryLabel,
-          description: typeof props.description === 'string' ? props.description : '',
-          opening_hours: typeof props.opening_hours === 'string' ? props.opening_hours : '',
-          access: typeof props.access === 'string' ? props.access : '',
-          operator: typeof props.operator === 'string' ? props.operator : '',
-          fee: typeof props.fee === 'string' ? props.fee : '',
-          url: typeof props.url === 'string' ? props.url : '',
-          phone: typeof props.phone === 'string' ? props.phone : '',
-          website: typeof props.website === 'string' ? props.website : '',
-          brand: typeof props.brand === 'string' ? props.brand : '',
-          chain: typeof props.chain === 'string' ? props.chain : ''
+          description: readString(props, ['description', 'desc']),
+          opening_hours: readString(props, ['opening_hours']),
+          access: readString(props, ['access']),
+          operator: readString(props, ['operator']),
+          fee: readString(props, ['fee']),
+          url: readString(props, ['url', 'website']),
+          phone: readString(props, ['phone', 'contact:phone']),
+          website: readString(props, ['website', 'url', 'contact:website']),
+          brand: readString(props, ['brand']),
+          chain: readString(props, ['chain'])
         });
       }
       return result;
@@ -3021,14 +3031,25 @@
     let worldBounds = null;
     let viewState = { minX: 0, minY: 0, width: 1000, height: 700 };
     let dragState = null;
+    let pointerDragDistance = 0;
+    const poiById = new Map();
+    const normalizedPois = pois.map((poi, index) => {
+      const safeId = String(poi?.id || ('poi-' + index));
+      const nextPoi = Object.assign({}, poi, { id: safeId });
+      poiById.set(safeId, nextPoi);
+      return nextPoi;
+    });
 
     const CATEGORY_STYLES = {
-      supermarket: { color: '#0f766e', bg: '#ccfbf1', short: 'SM' },
-      bakery: { color: '#b45309', bg: '#fef3c7', short: 'BK' },
-      convenience: { color: '#7c3aed', bg: '#ede9fe', short: 'CV' },
+      supermarkets: { color: '#0f766e', bg: '#ccfbf1', short: 'SM' },
+      kiosks: { color: '#7c3aed', bg: '#ede9fe', short: 'KI' },
+      vending_snacks: { color: '#6d28d9', bg: '#ede9fe', short: 'VS' },
       fast_food: { color: '#b91c1c', bg: '#fee2e2', short: 'FF' },
       fuel: { color: '#1d4ed8', bg: '#dbeafe', short: 'FS' },
-      restaurant: { color: '#be185d', bg: '#fce7f3', short: 'RS' },
+      drinking_water: { color: '#0369a1', bg: '#dbeafe', short: 'DW' },
+      toilets_public: { color: '#334155', bg: '#e2e8f0', short: 'WC' },
+      bakerys_cafes: { color: '#b45309', bg: '#fef3c7', short: 'BC' },
+      shelters: { color: '#166534', bg: '#dcfce7', short: 'SH' },
       default: { color: '#334155', bg: '#e2e8f0', short: 'POI' }
     };
 
@@ -3049,10 +3070,10 @@
 
     document.getElementById('exportTime').textContent = formatDate(SNAPSHOT?.exportTimestamp);
     document.getElementById('routeCount').textContent = String(points.length);
-    document.getElementById('poiCount').textContent = String(pois.length);
+    document.getElementById('poiCount').textContent = String(normalizedPois.length);
     document.getElementById('radiusKm').textContent = Number.isFinite(SNAPSHOT?.gpxRadiusKm) ? SNAPSHOT.gpxRadiusKm.toFixed(1) : '-';
     document.getElementById('statusSummary').textContent = points.length > 1 ? 'Route bereit' : 'Nur Punkte geladen';
-    document.getElementById('stopsStatus').textContent = pois.length + ' stops loaded';
+    document.getElementById('stopsStatus').textContent = normalizedPois.length + ' stops loaded';
 
     function computeBounds(routePts, poiPts) {
       const all = routePts.concat(poiPts);
@@ -3103,17 +3124,46 @@
       detail.innerHTML = '<div class="detail-empty">Wähle einen Marker auf der Karte, um Details zu sehen.</div>';
     }
 
+    function fieldRows(poi) {
+      return [
+        ['Beschreibung', poi?.description],
+        ['Opening hours', poi?.opening_hours],
+        ['Access', poi?.access],
+        ['Operator', poi?.operator],
+        ['Fee', poi?.fee],
+        ['Telefon', poi?.phone],
+        ['URL', poi?.url],
+        ['Website', poi?.website],
+        ['Brand', poi?.brand],
+        ['Chain', poi?.chain]
+      ].filter((entry) => entry[1] && String(entry[1]).trim() !== '');
+    }
+
+    function renderValue(label, value) {
+      const safeValue = String(value || '').trim();
+      if (!safeValue) return '';
+      if (label === 'URL' || label === 'Website') {
+        const normalized = sanitizeUrl(safeValue);
+        if (normalized) {
+          return '<a href="' + escapeHtml(normalized) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(safeValue) + '</a>';
+        }
+      }
+      return escapeHtml(safeValue);
+    }
+
     function showDetail(poi) {
       if (!poi) return setEmptyDetail();
       const style = getCategoryStyle(poi);
       const category = poi?.categoryLabel || poi?.categoryId || 'Unbekannt';
-      const safeName = poi?.name || 'POI';
+      const safeName = escapeHtml(poi?.name || 'POI');
       const lat = Number.isFinite(poi?.lat) ? poi.lat.toFixed(5) : '-';
       const lon = Number.isFinite(poi?.lon) ? poi.lon.toFixed(5) : '-';
+      const rows = fieldRows(poi);
       detail.innerHTML = [
         '<h3 class="poi-name">' + safeName + '</h3>',
-        '<span class="cat-badge" style="color:' + style.color + ';background:' + style.bg + ';border-color:' + style.color + ';">' + style.short + ' • ' + category + '</span>',
-        '<div class="detail-line">Koordinaten: ' + lat + ', ' + lon + '</div>'
+        '<span class="cat-badge" style="color:' + style.color + ';background:' + style.bg + ';border-color:' + style.color + ';">' + style.short + ' • ' + escapeHtml(category) + '</span>',
+        rows.length ? rows.map((entry) => '<div class="detail-line"><b>' + escapeHtml(entry[0]) + ':</b> ' + renderValue(entry[0], entry[1]) + '</div>').join('') : '<div class="detail-line">Keine weiteren Details verfügbar.</div>',
+        '<div class="detail-line"><b>Koordinaten:</b> ' + lat + ', ' + lon + '</div>'
       ].join('');
     }
 
@@ -3124,31 +3174,26 @@
         return;
       }
       const style = getCategoryStyle(poi);
-      const fields = [
-        ['Beschreibung', poi.description],
-        ['Opening hours', poi.opening_hours],
-        ['Access', poi.access],
-        ['Operator', poi.operator],
-        ['Fee', poi.fee],
-        ['Telefon', poi.phone],
-        ['Website', poi.website],
-        ['Brand', poi.brand],
-        ['Chain', poi.chain]
-      ].filter((entry) => entry[1] && String(entry[1]).trim() !== '');
-      const url = sanitizeUrl(poi.url) || sanitizeUrl(poi.website);
+      const fields = fieldRows(poi);
       popup.className = 'popup-card is-open';
       popup.innerHTML = [
         '<h3 class="poi-name">' + escapeHtml(poi.name || 'POI') + '</h3>',
         '<span class="cat-badge" style="color:' + style.color + ';background:' + style.bg + ';border-color:' + style.color + ';">' + escapeHtml(poi.categoryLabel || poi.categoryId || 'POI') + '</span>',
-        fields.map((entry) => '<div class="detail-line"><b>' + escapeHtml(entry[0]) + ':</b> ' + escapeHtml(entry[1]) + '</div>').join(''),
+        fields.length ? fields.map((entry) => '<div class="detail-line"><b>' + escapeHtml(entry[0]) + ':</b> ' + renderValue(entry[0], entry[1]) + '</div>').join('') : '<div class="detail-line">Keine weiteren Details verfügbar.</div>',
         '<div class="detail-line"><b>Koordinaten:</b> ' + escapeHtml(Number(poi.lat).toFixed(5)) + ', ' + escapeHtml(Number(poi.lon).toFixed(5)) + '</div>',
-        url ? '<div class="detail-line"><a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">Link öffnen</a></div>' : ''
+        '<div class="detail-line"><button type="button" id="closePopupBtn">Auswahl aufheben</button></div>'
       ].join('');
+      document.getElementById('closePopupBtn')?.addEventListener('click', () => {
+        selectedPoiId = null;
+        setPopup(null);
+        setEmptyDetail();
+        render();
+      });
     }
 
     function renderLegend() {
       const counts = new Map();
-      pois.forEach((poi) => {
+      normalizedPois.forEach((poi) => {
         const key = categoryKey(poi);
         counts.set(key, (counts.get(key) || 0) + 1);
       });
@@ -3161,10 +3206,10 @@
         .sort((a, b) => b[1] - a[1])
         .forEach(([key, count]) => {
           const style = CATEGORY_STYLES[key] || CATEGORY_STYLES.default;
-          const label = pois.find((poi) => categoryKey(poi) === key)?.categoryLabel || key;
+          const label = normalizedPois.find((poi) => categoryKey(poi) === key)?.categoryLabel || key;
           const row = document.createElement('div');
           row.className = 'legend-item';
-          row.innerHTML = '<span class="legend-dot" style="background:' + style.color + ';"></span><span>' + label + '</span><strong>' + count + '</strong>';
+          row.innerHTML = '<span class="legend-dot" style="background:' + style.color + ';"></span><span>' + escapeHtml(label) + '</span><strong>' + count + '</strong>';
           legend.appendChild(row);
         });
     }
@@ -3204,7 +3249,7 @@
     }
 
     function render() {
-      const bounds = computeBounds(points, userLocation ? pois.concat([userLocation]) : pois);
+      const bounds = computeBounds(points, userLocation ? normalizedPois.concat([userLocation]) : normalizedPois);
       worldBounds = { minX: 0, minY: 0, maxX: 1000, maxY: 700 };
       if (!Number.isFinite(viewState.width) || !Number.isFinite(viewState.height) || viewState.width <= 0) {
         fitToRoute();
@@ -3213,6 +3258,13 @@
       svg.setAttribute('viewBox', [viewState.minX, viewState.minY, viewState.width, viewState.height].join(' '));
       const scene = document.createElementNS(svgNs, 'g');
       svg.appendChild(scene);
+      const background = document.createElementNS(svgNs, 'rect');
+      background.setAttribute('x', '0');
+      background.setAttribute('y', '0');
+      background.setAttribute('width', '1000');
+      background.setAttribute('height', '700');
+      background.setAttribute('fill', '#edf3fb');
+      scene.appendChild(background);
       for (let x = 0; x <= 1000; x += 100) {
         const line = document.createElementNS(svgNs, 'line');
         line.setAttribute('x1', x); line.setAttribute('y1', 0); line.setAttribute('x2', x); line.setAttribute('y2', 700);
@@ -3251,21 +3303,30 @@
         scene.appendChild(route);
       }
 
-      pois.forEach((poi, index) => {
+      normalizedPois.forEach((poi) => {
         const projected = projectPoint(poi.lat, poi.lon, bounds);
         const x = projected[0];
         const y = projected[1];
-        const markerId = String(index);
+        const markerId = String(poi.id);
         const style = getCategoryStyle(poi);
         const isSelected = markerId === selectedPoiId;
 
         const group = document.createElementNS(svgNs, 'g');
         group.style.cursor = 'pointer';
+        group.dataset.poiId = markerId;
+        group.dataset.poiMarker = 'true';
+
+        const hit = document.createElementNS(svgNs, 'circle');
+        hit.setAttribute('cx', x);
+        hit.setAttribute('cy', y);
+        hit.setAttribute('r', isSelected ? '18' : '15');
+        hit.setAttribute('fill', 'transparent');
+        group.appendChild(hit);
 
         const ring = document.createElementNS(svgNs, 'circle');
         ring.setAttribute('cx', x);
         ring.setAttribute('cy', y);
-        ring.setAttribute('r', isSelected ? '11' : '9');
+        ring.setAttribute('r', isSelected ? '12.5' : '9.5');
         ring.setAttribute('fill', '#ffffff');
         ring.setAttribute('opacity', isSelected ? '0.95' : '0.8');
         group.appendChild(ring);
@@ -3273,24 +3334,11 @@
         const dot = document.createElementNS(svgNs, 'circle');
         dot.setAttribute('cx', x);
         dot.setAttribute('cy', y);
-        dot.setAttribute('r', isSelected ? '6.8' : '5.5');
+        dot.setAttribute('r', isSelected ? '7.1' : '5.8');
         dot.setAttribute('fill', style.color);
         dot.setAttribute('stroke', isSelected ? '#0f172a' : 'rgba(15, 23, 42, 0.35)');
         dot.setAttribute('stroke-width', isSelected ? '2.4' : '1.2');
         group.appendChild(dot);
-
-        group.addEventListener('mouseenter', () => {
-          if (selectedPoiId !== markerId) ring.setAttribute('r', '10');
-        });
-        group.addEventListener('mouseleave', () => {
-          if (selectedPoiId !== markerId) ring.setAttribute('r', '9');
-        });
-        group.addEventListener('click', () => {
-          selectedPoiId = markerId;
-          showDetail(poi);
-          setPopup(poi);
-          render();
-        });
         scene.appendChild(group);
       });
 
@@ -3316,11 +3364,30 @@
       }
     }
 
+    function selectPoiById(poiId) {
+      const poi = poiById.get(String(poiId));
+      if (!poi) return;
+      selectedPoiId = String(poiId);
+      showDetail(poi);
+      setPopup(poi);
+      render();
+    }
+
+    function clearSelection() {
+      selectedPoiId = null;
+      setPopup(null);
+      setEmptyDetail();
+      render();
+    }
+
     function requestLocation() {
       if (!('geolocation' in navigator)) {
         document.getElementById('stopsStatus').textContent = 'Geolocation nicht verfügbar.';
         geoStatusMeta.textContent = 'Browser unterstützt Geolocation nicht.';
         return;
+      }
+      if (window.location.protocol === 'file:') {
+        geoStatusMeta.textContent = 'file:// kann Geolocation blockieren (Browser-Sicherheitsrichtlinien).';
       }
       document.getElementById('stopsStatus').textContent = 'Standort wird ermittelt ...';
       navigator.geolocation.getCurrentPosition((position) => {
@@ -3332,8 +3399,12 @@
         document.getElementById('stopsStatus').textContent = 'Standort angezeigt.';
         fitToRoute();
       }, (error) => {
-        const msg = error && error.message ? error.message : 'Standort nicht verfügbar.';
-        geoStatusMeta.textContent = 'Standortzugriff fehlgeschlagen.';
+        const code = Number(error?.code);
+        let msg = error && error.message ? error.message : 'Standort nicht verfügbar.';
+        if (code === 1) msg = 'Standortzugriff verweigert.';
+        if (code === 2) msg = 'Standort momentan nicht verfügbar.';
+        if (code === 3) msg = 'Standortabfrage hat zu lange gedauert.';
+        geoStatusMeta.textContent = 'Standortzugriff fehlgeschlagen. ' + (window.location.protocol === 'file:' ? 'Teste die Datei ggf. über einen lokalen HTTP-Server.' : '');
         document.getElementById('stopsStatus').textContent = msg;
       }, {
         enableHighAccuracy: true,
@@ -3343,7 +3414,15 @@
     }
 
     svg.addEventListener('pointerdown', (event) => {
-      dragState = { x: event.clientX, y: event.clientY, minX: viewState.minX, minY: viewState.minY };
+      const markerNode = event.target?.closest?.('[data-poi-marker="true"]');
+      pointerDragDistance = 0;
+      dragState = {
+        x: event.clientX,
+        y: event.clientY,
+        minX: viewState.minX,
+        minY: viewState.minY,
+        markerId: markerNode?.dataset?.poiId || null
+      };
       svg.classList.add('is-dragging');
       svg.setPointerCapture(event.pointerId);
     });
@@ -3353,23 +3432,29 @@
       const scaleY = viewState.height / svg.clientHeight;
       const dx = (event.clientX - dragState.x) * scaleX;
       const dy = (event.clientY - dragState.y) * scaleY;
+      pointerDragDistance = Math.max(pointerDragDistance, Math.abs(event.clientX - dragState.x) + Math.abs(event.clientY - dragState.y));
       viewState.minX = dragState.minX - dx;
       viewState.minY = dragState.minY - dy;
       clampView();
       render();
     });
     svg.addEventListener('pointerup', (event) => {
+      const wasTap = pointerDragDistance < 8;
+      const markerId = dragState?.markerId;
       dragState = null;
       svg.classList.remove('is-dragging');
       try { svg.releasePointerCapture(event.pointerId); } catch (err) {}
-    });
-    svg.addEventListener('click', (event) => {
-      if (event.target === svg) {
-        selectedPoiId = null;
-        setPopup(null);
-        setEmptyDetail();
-        render();
+      if (wasTap && markerId) {
+        selectPoiById(markerId);
+        return;
       }
+      if (wasTap && !markerId) {
+        clearSelection();
+      }
+    });
+    svg.addEventListener('pointercancel', () => {
+      dragState = null;
+      svg.classList.remove('is-dragging');
     });
 
     document.getElementById('zoomRouteBtn')?.addEventListener('click', () => {
