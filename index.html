@@ -2744,11 +2744,22 @@
         if (unique.has(key)) continue;
         unique.add(key);
         result.push({
+          id: String(point.id ?? `${categoryId}-${lat.toFixed(6)}-${lon.toFixed(6)}-${i}`),
           lat,
           lon,
           name,
           categoryId,
-          categoryLabel
+          categoryLabel,
+          description: typeof props.description === 'string' ? props.description : '',
+          opening_hours: typeof props.opening_hours === 'string' ? props.opening_hours : '',
+          access: typeof props.access === 'string' ? props.access : '',
+          operator: typeof props.operator === 'string' ? props.operator : '',
+          fee: typeof props.fee === 'string' ? props.fee : '',
+          url: typeof props.url === 'string' ? props.url : '',
+          phone: typeof props.phone === 'string' ? props.phone : '',
+          website: typeof props.website === 'string' ? props.website : '',
+          brand: typeof props.brand === 'string' ? props.brand : '',
+          chain: typeof props.chain === 'string' ? props.chain : ''
         });
       }
       return result;
@@ -2761,8 +2772,8 @@
       }
       const snapshot = buildOfflineTestSnapshot();
       const html = buildOfflineTestHtml(snapshot);
-      downloadTextFile(html, 'munchiesmaps-offline-test-ride.html', 'text/html;charset=utf-8');
-      showMapToast('Offline HTML test export downloaded.');
+      downloadTextFile(html, 'munchiesmaps-offline-ride-map.html', 'text/html;charset=utf-8');
+      showMapToast('Offline HTML export downloaded.');
     }
 
     function buildOfflineTestSnapshot() {
@@ -2796,7 +2807,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Munchies Maps • Offline Ride Snapshot</title>
+  <title>Munchies Maps • Offline Ride Map</title>
   <style>
     :root {
       color-scheme: light;
@@ -2875,13 +2886,16 @@
     }
     .map-shell { display: grid; gap: 10px; }
     .map-frame {
+      position: relative;
       border-radius: var(--radius-md);
       border: 1px solid #c8d4e4;
-      background: linear-gradient(165deg, #eff5fe 0%, #e3edf9 100%);
+      background: linear-gradient(165deg, #eff5fe 0%, #dce8f9 100%);
       overflow: hidden;
     }
-    #mapSvg { width: 100%; height: auto; display: block; min-height: 360px; }
+    #mapSvg { width: 100%; height: auto; display: block; min-height: 360px; touch-action: none; cursor: grab; }
+    #mapSvg.is-dragging { cursor: grabbing; }
     .controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
     .status { color: var(--muted); font-size: 0.86rem; }
     button {
       border: 1px solid #93c5fd;
@@ -2892,7 +2906,24 @@
       padding: 9px 13px;
       cursor: pointer;
     }
+    button:disabled { opacity: 0.55; cursor: default; }
     button:hover { border-color: #60a5fa; background: #e0eeff; }
+    .popup-card {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 3;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 10px 12px;
+      max-height: 48%;
+      overflow: auto;
+      display: none;
+    }
+    .popup-card.is-open { display: block; }
     .side-title { margin: 0 0 8px; font-size: 1rem; }
     .legend { display: grid; gap: 6px; margin-bottom: 12px; }
     .legend-item { display: grid; grid-template-columns: 12px 1fr auto; align-items: center; gap: 8px; font-size: 0.86rem; color: var(--muted); }
@@ -2937,7 +2968,7 @@
     <header class="topbar">
       <div>
         <h1>Munchies Maps • Ride Snapshot</h1>
-        <p class="subtitle">Standalone offline export of imported route and visible stops.</p>
+        <p class="subtitle">Standalone offline export with interactive map, POI popups and route controls.</p>
       </div>
       <span class="offline-badge">Offline Snapshot</span>
     </header>
@@ -2947,16 +2978,22 @@
       <article class="meta-card"><div class="meta-label">Routepunkte</div><div class="meta-value" id="routeCount">0</div><div class="meta-note">Track vollständig geladen</div></article>
       <article class="meta-card"><div class="meta-label">POIs</div><div class="meta-value" id="poiCount">0</div><div class="meta-note">Sichtbare Stops enthalten</div></article>
       <article class="meta-card"><div class="meta-label">GPX Radius</div><div class="meta-value"><span id="radiusKm">-</span> km</div></article>
-      <article class="meta-card"><div class="meta-label">Status</div><div class="meta-value" id="statusSummary">Bereit</div></article>
+      <article class="meta-card"><div class="meta-label">Status</div><div class="meta-value" id="statusSummary">Bereit</div><div class="meta-note" id="geoStatusMeta">Geolocation bereit</div></article>
     </section>
 
     <section class="layout">
       <div class="panel map-shell">
         <div class="map-frame">
           <svg id="mapSvg" viewBox="0 0 1000 700" aria-label="Offline snapshot map"></svg>
+          <div id="poiPopup" class="popup-card" role="dialog" aria-live="polite"></div>
         </div>
         <div class="controls">
-          <button id="zoomRouteBtn" type="button">Auf Route zoomen</button>
+          <div class="btn-row">
+            <button id="zoomInBtn" type="button">Zoom +</button>
+            <button id="zoomOutBtn" type="button">Zoom -</button>
+            <button id="zoomRouteBtn" type="button">Fit auf Route</button>
+            <button id="myLocationBtn" type="button">Mein Standort</button>
+          </div>
           <div class="status" id="stopsStatus">0 stops loaded</div>
         </div>
       </div>
@@ -2972,11 +3009,18 @@
   <script>
     const SNAPSHOT = ${serializedSnapshot};
     const svg = document.getElementById('mapSvg');
+    const popup = document.getElementById('poiPopup');
     const detail = document.getElementById('poiDetail');
     const legend = document.getElementById('legend');
+    const geoStatusMeta = document.getElementById('geoStatusMeta');
     const points = Array.isArray(SNAPSHOT?.routePoints) ? SNAPSHOT.routePoints : [];
     const pois = Array.isArray(SNAPSHOT?.pois) ? SNAPSHOT.pois : [];
+    const svgNs = 'http://www.w3.org/2000/svg';
     let selectedPoiId = null;
+    let userLocation = null;
+    let worldBounds = null;
+    let viewState = { minX: 0, minY: 0, width: 1000, height: 700 };
+    let dragState = null;
 
     const CATEGORY_STYLES = {
       supermarket: { color: '#0f766e', bg: '#ccfbf1', short: 'SM' },
@@ -3029,12 +3073,30 @@
     }
 
     function projectPoint(lat, lon, b) {
-      const pad = 24;
-      const w = 1000 - pad * 2;
-      const h = 700 - pad * 2;
+      const mapW = 1000;
+      const mapH = 700;
+      const pad = 28;
+      const w = mapW - pad * 2;
+      const h = mapH - pad * 2;
       const x = pad + ((lon - b.minLon) / (b.maxLon - b.minLon)) * w;
-      const y = 700 - pad - ((lat - b.minLat) / (b.maxLat - b.minLat)) * h;
+      const y = mapH - pad - ((lat - b.minLat) / (b.maxLat - b.minLat)) * h;
       return [x, y];
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function sanitizeUrl(value) {
+      const raw = String(value || '').trim();
+      if (!raw) return '';
+      if (/^https?:\\/\\//i.test(raw)) return raw;
+      return '';
     }
 
     function setEmptyDetail() {
@@ -3052,6 +3114,35 @@
         '<h3 class="poi-name">' + safeName + '</h3>',
         '<span class="cat-badge" style="color:' + style.color + ';background:' + style.bg + ';border-color:' + style.color + ';">' + style.short + ' • ' + category + '</span>',
         '<div class="detail-line">Koordinaten: ' + lat + ', ' + lon + '</div>'
+      ].join('');
+    }
+
+    function setPopup(poi) {
+      if (!poi) {
+        popup.className = 'popup-card';
+        popup.innerHTML = '';
+        return;
+      }
+      const style = getCategoryStyle(poi);
+      const fields = [
+        ['Beschreibung', poi.description],
+        ['Opening hours', poi.opening_hours],
+        ['Access', poi.access],
+        ['Operator', poi.operator],
+        ['Fee', poi.fee],
+        ['Telefon', poi.phone],
+        ['Website', poi.website],
+        ['Brand', poi.brand],
+        ['Chain', poi.chain]
+      ].filter((entry) => entry[1] && String(entry[1]).trim() !== '');
+      const url = sanitizeUrl(poi.url) || sanitizeUrl(poi.website);
+      popup.className = 'popup-card is-open';
+      popup.innerHTML = [
+        '<h3 class="poi-name">' + escapeHtml(poi.name || 'POI') + '</h3>',
+        '<span class="cat-badge" style="color:' + style.color + ';background:' + style.bg + ';border-color:' + style.color + ';">' + escapeHtml(poi.categoryLabel || poi.categoryId || 'POI') + '</span>',
+        fields.map((entry) => '<div class="detail-line"><b>' + escapeHtml(entry[0]) + ':</b> ' + escapeHtml(entry[1]) + '</div>').join(''),
+        '<div class="detail-line"><b>Koordinaten:</b> ' + escapeHtml(Number(poi.lat).toFixed(5)) + ', ' + escapeHtml(Number(poi.lon).toFixed(5)) + '</div>',
+        url ? '<div class="detail-line"><a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">Link öffnen</a></div>' : ''
       ].join('');
     }
 
@@ -3078,23 +3169,64 @@
         });
     }
 
+    function clampView() {
+      if (!worldBounds) return;
+      const maxX = worldBounds.maxX - viewState.width;
+      const maxY = worldBounds.maxY - viewState.height;
+      viewState.minX = Math.min(Math.max(viewState.minX, worldBounds.minX), Math.max(worldBounds.minX, maxX));
+      viewState.minY = Math.min(Math.max(viewState.minY, worldBounds.minY), Math.max(worldBounds.minY, maxY));
+    }
+
+    function fitToRoute() {
+      if (!worldBounds) return;
+      viewState = {
+        minX: worldBounds.minX,
+        minY: worldBounds.minY,
+        width: worldBounds.maxX - worldBounds.minX,
+        height: worldBounds.maxY - worldBounds.minY
+      };
+      render();
+    }
+
+    function zoomBy(factor) {
+      const centerX = viewState.minX + viewState.width / 2;
+      const centerY = viewState.minY + viewState.height / 2;
+      const minWidth = 120;
+      const minHeight = 90;
+      const maxWidth = worldBounds ? (worldBounds.maxX - worldBounds.minX) : 1000;
+      const maxHeight = worldBounds ? (worldBounds.maxY - worldBounds.minY) : 700;
+      viewState.width = Math.min(Math.max(viewState.width * factor, minWidth), maxWidth);
+      viewState.height = Math.min(Math.max(viewState.height * factor, minHeight), maxHeight);
+      viewState.minX = centerX - viewState.width / 2;
+      viewState.minY = centerY - viewState.height / 2;
+      clampView();
+      render();
+    }
+
     function render() {
-      const bounds = computeBounds(points, pois);
+      const bounds = computeBounds(points, userLocation ? pois.concat([userLocation]) : pois);
+      worldBounds = { minX: 0, minY: 0, maxX: 1000, maxY: 700 };
+      if (!Number.isFinite(viewState.width) || !Number.isFinite(viewState.height) || viewState.width <= 0) {
+        fitToRoute();
+      }
       svg.innerHTML = '';
+      svg.setAttribute('viewBox', [viewState.minX, viewState.minY, viewState.width, viewState.height].join(' '));
+      const scene = document.createElementNS(svgNs, 'g');
+      svg.appendChild(scene);
       for (let x = 0; x <= 1000; x += 100) {
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        const line = document.createElementNS(svgNs, 'line');
         line.setAttribute('x1', x); line.setAttribute('y1', 0); line.setAttribute('x2', x); line.setAttribute('y2', 700);
         line.setAttribute('stroke', '#d4dfec'); line.setAttribute('stroke-width', '1');
-        svg.appendChild(line);
+        scene.appendChild(line);
       }
       for (let y = 0; y <= 700; y += 100) {
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        const line = document.createElementNS(svgNs, 'line');
         line.setAttribute('x1', 0); line.setAttribute('y1', y); line.setAttribute('x2', 1000); line.setAttribute('y2', y);
         line.setAttribute('stroke', '#d4dfec'); line.setAttribute('stroke-width', '1');
-        svg.appendChild(line);
+        scene.appendChild(line);
       }
       if (points.length > 1) {
-        const routeGlow = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+        const routeGlow = document.createElementNS(svgNs, 'polyline');
         routeGlow.setAttribute('fill', 'none');
         routeGlow.setAttribute('stroke', 'var(--route-shadow)');
         routeGlow.setAttribute('stroke-width', '11');
@@ -3104,9 +3236,9 @@
           const projected = projectPoint(p.lat, p.lon, bounds);
           return projected[0] + ',' + projected[1];
         }).join(' '));
-        svg.appendChild(routeGlow);
+        scene.appendChild(routeGlow);
 
-        const route = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+        const route = document.createElementNS(svgNs, 'polyline');
         route.setAttribute('fill', 'none');
         route.setAttribute('stroke', 'var(--route)');
         route.setAttribute('stroke-width', '5');
@@ -3116,7 +3248,7 @@
           const projected = projectPoint(p.lat, p.lon, bounds);
           return projected[0] + ',' + projected[1];
         }).join(' '));
-        svg.appendChild(route);
+        scene.appendChild(route);
       }
 
       pois.forEach((poi, index) => {
@@ -3127,10 +3259,10 @@
         const style = getCategoryStyle(poi);
         const isSelected = markerId === selectedPoiId;
 
-        const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        const group = document.createElementNS(svgNs, 'g');
         group.style.cursor = 'pointer';
 
-        const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        const ring = document.createElementNS(svgNs, 'circle');
         ring.setAttribute('cx', x);
         ring.setAttribute('cy', y);
         ring.setAttribute('r', isSelected ? '11' : '9');
@@ -3138,7 +3270,7 @@
         ring.setAttribute('opacity', isSelected ? '0.95' : '0.8');
         group.appendChild(ring);
 
-        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        const dot = document.createElementNS(svgNs, 'circle');
         dot.setAttribute('cx', x);
         dot.setAttribute('cy', y);
         dot.setAttribute('r', isSelected ? '6.8' : '5.5');
@@ -3156,19 +3288,100 @@
         group.addEventListener('click', () => {
           selectedPoiId = markerId;
           showDetail(poi);
+          setPopup(poi);
           render();
         });
-        svg.appendChild(group);
+        scene.appendChild(group);
+      });
+
+      if (userLocation) {
+        const projected = projectPoint(userLocation.lat, userLocation.lon, bounds);
+        const outer = document.createElementNS(svgNs, 'circle');
+        outer.setAttribute('cx', projected[0]);
+        outer.setAttribute('cy', projected[1]);
+        outer.setAttribute('r', '10');
+        outer.setAttribute('fill', 'rgba(37,99,235,0.2)');
+        outer.setAttribute('stroke', '#1d4ed8');
+        outer.setAttribute('stroke-width', '1.5');
+        scene.appendChild(outer);
+
+        const inner = document.createElementNS(svgNs, 'circle');
+        inner.setAttribute('cx', projected[0]);
+        inner.setAttribute('cy', projected[1]);
+        inner.setAttribute('r', '4.2');
+        inner.setAttribute('fill', '#1d4ed8');
+        inner.setAttribute('stroke', '#fff');
+        inner.setAttribute('stroke-width', '1.4');
+        scene.appendChild(inner);
+      }
+    }
+
+    function requestLocation() {
+      if (!('geolocation' in navigator)) {
+        document.getElementById('stopsStatus').textContent = 'Geolocation nicht verfügbar.';
+        geoStatusMeta.textContent = 'Browser unterstützt Geolocation nicht.';
+        return;
+      }
+      document.getElementById('stopsStatus').textContent = 'Standort wird ermittelt ...';
+      navigator.geolocation.getCurrentPosition((position) => {
+        userLocation = {
+          lat: Number(position.coords.latitude),
+          lon: Number(position.coords.longitude)
+        };
+        geoStatusMeta.textContent = 'Standort erfolgreich gelesen.';
+        document.getElementById('stopsStatus').textContent = 'Standort angezeigt.';
+        fitToRoute();
+      }, (error) => {
+        const msg = error && error.message ? error.message : 'Standort nicht verfügbar.';
+        geoStatusMeta.textContent = 'Standortzugriff fehlgeschlagen.';
+        document.getElementById('stopsStatus').textContent = msg;
+      }, {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 120000
       });
     }
 
-    document.getElementById('zoomRouteBtn')?.addEventListener('click', () => {
+    svg.addEventListener('pointerdown', (event) => {
+      dragState = { x: event.clientX, y: event.clientY, minX: viewState.minX, minY: viewState.minY };
+      svg.classList.add('is-dragging');
+      svg.setPointerCapture(event.pointerId);
+    });
+    svg.addEventListener('pointermove', (event) => {
+      if (!dragState) return;
+      const scaleX = viewState.width / svg.clientWidth;
+      const scaleY = viewState.height / svg.clientHeight;
+      const dx = (event.clientX - dragState.x) * scaleX;
+      const dy = (event.clientY - dragState.y) * scaleY;
+      viewState.minX = dragState.minX - dx;
+      viewState.minY = dragState.minY - dy;
+      clampView();
       render();
     });
+    svg.addEventListener('pointerup', (event) => {
+      dragState = null;
+      svg.classList.remove('is-dragging');
+      try { svg.releasePointerCapture(event.pointerId); } catch (err) {}
+    });
+    svg.addEventListener('click', (event) => {
+      if (event.target === svg) {
+        selectedPoiId = null;
+        setPopup(null);
+        setEmptyDetail();
+        render();
+      }
+    });
+
+    document.getElementById('zoomRouteBtn')?.addEventListener('click', () => {
+      fitToRoute();
+    });
+    document.getElementById('zoomInBtn')?.addEventListener('click', () => zoomBy(0.8));
+    document.getElementById('zoomOutBtn')?.addEventListener('click', () => zoomBy(1.25));
+    document.getElementById('myLocationBtn')?.addEventListener('click', requestLocation);
 
     renderLegend();
     setEmptyDetail();
-    render();
+    fitToRoute();
   ${scriptCloseTag}
 </body>
 </html>`;
