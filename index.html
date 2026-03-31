@@ -376,6 +376,25 @@
     .checklist { display: flex; flex-direction: column; gap: 8px; }
     .checklist .checkrow { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
     .checklist input[type="checkbox"] { width: 16px; height: 16px; }
+    .country-group {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      background: color-mix(in srgb, var(--panel) 86%, transparent);
+    }
+    .country-group .checkrow {
+      font-weight: 600;
+    }
+    .country-regions {
+      margin-top: 6px;
+      margin-left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .country-regions .checkrow {
+      font-weight: 400;
+    }
     .cat-icon { display: inline-grid; place-items: center; border-radius: 999px; overflow: hidden; flex: 0 0 auto; background: transparent; border: 1px solid transparent; box-sizing: border-box; }
     .cat-icon img { width: 100%; height: 100%; display: block; }
     .cat-icon i { color: currentColor; line-height: 1; }
@@ -788,13 +807,13 @@
             <span class="chevron">⌄</span>
           </div>
           <div class="accordion-body" id="optionsBody">
-            <div class="section" id="bundeslandSection">
+            <div class="section" id="regionSection">
               <div class="accordion-header" data-target="blSection" aria-expanded="false" role="button" tabindex="0">
-                <span>Region</span>
+                <span>Regions</span>
                 <span class="chevron">⌄</span>
               </div>
               <div class="accordion-body" id="blSection">
-                <p class="option-helper">Hide regions to improve performance.</p>
+                <p class="option-helper">Hide countries or regions to improve performance.</p>
                 <div class="action-row">
                   <button type="button" id="blSelectAll">Select all</button>
                   <button type="button" id="blSelectNone">Select none</button>
@@ -2046,7 +2065,113 @@
       return `${datasetKey}-${normLon}-${normLat}`;
     }
 
+    function groupRegionsByCountry(items) {
+      const groups = new Map();
+      items.forEach((region) => {
+        const countryCode = (region?.country || 'unknown').toString();
+        const countryLabel = (region?.country_label || region?.country || 'Unknown').toString();
+        if (!groups.has(countryCode)) {
+          groups.set(countryCode, { countryCode, countryLabel, regions: [] });
+        }
+        groups.get(countryCode).regions.push(region);
+      });
+
+      return Array.from(groups.values())
+        .sort((a, b) => a.countryLabel.localeCompare(b.countryLabel, undefined, { sensitivity: 'base' }))
+        .map((group) => ({
+          ...group,
+          regions: group.regions.sort((a, b) => {
+            const labelA = (a?.label || a?.id || '').toString();
+            const labelB = (b?.label || b?.id || '').toString();
+            return labelA.localeCompare(labelB, undefined, { sensitivity: 'base' });
+          })
+        }));
+    }
+
+    function renderRegionChecklist(containerId, items, selectedSet, setName) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      const groups = groupRegionsByCountry(items);
+
+      console.log('[region-filter-render]', {
+        countries: groups.length,
+        regions: items.length
+      });
+
+      groups.forEach((group, countryIndex) => {
+        const countryWrapper = document.createElement('div');
+        countryWrapper.classList.add('country-group');
+
+        const countryRow = document.createElement('label');
+        countryRow.classList.add('checkrow');
+
+        const countryCb = document.createElement('input');
+        countryCb.type = 'checkbox';
+        countryCb.id = `${setName}-country-${countryIndex}`;
+
+        const selectedCount = group.regions.filter((region) => selectedSet.has(region.id)).length;
+        countryCb.checked = selectedCount === group.regions.length && group.regions.length > 0;
+        countryCb.indeterminate = selectedCount > 0 && selectedCount < group.regions.length;
+
+        countryCb.addEventListener('change', (e) => {
+          const shouldSelect = e.target.checked;
+          group.regions.forEach((region) => {
+            if (shouldSelect) {
+              selectedSet.add(region.id);
+            } else {
+              selectedSet.delete(region.id);
+            }
+          });
+          renderRegionChecklist(containerId, items, selectedSet, setName);
+          triggerApplyFilters();
+          if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+        });
+
+        const countryText = document.createElement('span');
+        countryText.textContent = group.countryLabel;
+        countryRow.appendChild(countryCb);
+        countryRow.appendChild(countryText);
+
+        const regionsWrapper = document.createElement('div');
+        regionsWrapper.classList.add('country-regions');
+
+        group.regions.forEach((region, regionIndex) => {
+          const row = document.createElement('label');
+          row.classList.add('checkrow');
+          const cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.value = region.id;
+          cb.checked = selectedSet.has(region.id);
+          cb.id = `${setName}-region-${countryIndex}-${regionIndex}`;
+          cb.addEventListener('change', (e) => {
+            if (e.target.checked) {
+              selectedSet.add(region.id);
+            } else {
+              selectedSet.delete(region.id);
+            }
+            renderRegionChecklist(containerId, items, selectedSet, setName);
+            triggerApplyFilters();
+            if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+          });
+
+          const text = document.createElement('span');
+          text.textContent = region.label || region.id;
+          row.appendChild(cb);
+          row.appendChild(text);
+          regionsWrapper.appendChild(row);
+        });
+
+        countryWrapper.appendChild(countryRow);
+        countryWrapper.appendChild(regionsWrapper);
+        container.appendChild(countryWrapper);
+      });
+    }
+
     function renderChecklist(containerId, items, selectedSet, setName) {
+      if (setName === 'bl') {
+        renderRegionChecklist(containerId, items, selectedSet, setName);
+        return;
+      }
       const container = document.getElementById(containerId);
       container.innerHTML = '';
       items.forEach((item, idx) => {
