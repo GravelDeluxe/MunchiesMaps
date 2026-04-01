@@ -165,7 +165,7 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
 
 def build_query(region: Dict[str, Any], body: str, timeout: int, use_legacy_area: bool = False) -> str:
     """Construct the full Overpass query for a region and category."""
-    area_name = region["area_name"]
+    area_name = normalize_text(region.get("query_name")) or region["area_name"]
     admin_level = str(region["admin_level"])
     country_area_name = normalize_text(region.get("country_area_name"))
     country_admin_level = normalize_text(region.get("country_admin_level")) or "2"
