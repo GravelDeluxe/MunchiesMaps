@@ -708,7 +708,7 @@
       font-size: var(--marker-icon-size, 15px);
       line-height: 1;
     }
-    .offline-fallback {
+    .app-fallback {
       position: fixed;
       inset: 0;
       z-index: 1200;
@@ -718,7 +718,7 @@
       padding: 20px;
       background: var(--overlay);
     }
-    .offline-fallback__card {
+    .app-fallback__card {
       max-width: 480px;
       background: var(--panel);
       border: 1px solid var(--border);
@@ -880,7 +880,6 @@
               </div>
               <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
               <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
-              <button type="button" class="gpx-export" id="offlineRideSaveBtn">Save Offline Ride</button>
               <div class="gpx-error" id="gpxError" aria-live="polite"></div>
             </div>
           </div>
@@ -971,7 +970,7 @@
     const qsa = (selector, root = document) => Array.from(root.querySelectorAll(selector));
     const on = (el, event, handler, options) => el && el.addEventListener(event, handler, options);
     if (typeof window.L === 'undefined') {
-      document.body.innerHTML = '<div class="offline-fallback"><div class="offline-fallback__card"><strong>App shell unavailable offline.</strong><p>Core map files are missing. Open once online to cache the app shell.</p></div></div>';
+      document.body.innerHTML = '<div class="app-fallback"><div class="app-fallback__card"><strong>Map libraries unavailable.</strong><p>Please reload and try again.</p></div></div>';
       throw new Error('Leaflet unavailable');
     }
 
@@ -2032,10 +2031,6 @@
     applyTheme(initialTheme);
 
     const MANIFEST_URL = `resources/geojson/manifest.json?v=${APP_VERSION}`;
-    const SERVICE_WORKER_URL = `sw.js?v=${APP_VERSION}`;
-    const OFFLINE_SESSION_DB_NAME = 'munchiesmaps-offline';
-    const OFFLINE_SESSION_STORE = 'sessions';
-    const OFFLINE_SESSION_KEY = 'ride-session-v1';
 
     const filterState = {
       bundeslaender: new Set(),
@@ -2739,15 +2734,10 @@
 
     function updateExportGpxVisibility() {
       const exportBtn = document.getElementById('gpxExportBtn');
-      const offlineBtn = document.getElementById('offlineRideSaveBtn');
       const isVisible = Boolean(appState?.hasImportedGpx);
       if (exportBtn) {
         exportBtn.classList.toggle('is-visible', isVisible);
         exportBtn.disabled = !isVisible;
-      }
-      if (offlineBtn) {
-        offlineBtn.classList.toggle('is-visible', isVisible);
-        offlineBtn.disabled = !isVisible;
       }
       updateSharePopoverGpxState();
     }
@@ -2809,143 +2799,13 @@
       return result;
     }
 
-    function normalizeOfflinePoi(point) {
-      if (!point) return null;
-      const lat = Number(point.lat);
-      const lng = Number(point.lng);
-      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
-      const props = point.propsRef && typeof point.propsRef === 'object' ? point.propsRef : {};
-      return {
-        id: String(point.id || `${point.categoryId || 'poi'}-${lat.toFixed(6)}-${lng.toFixed(6)}`),
-        lat,
-        lng,
-        categoryId: point.categoryId || 'poi',
-        propsRef: { ...props }
-      };
-    }
 
-    function collectPoisForOfflineSession() {
-      const points = Array.isArray(activePoints) ? activePoints : [];
-      const unique = new Set();
-      const normalized = [];
-      points.forEach((point) => {
-        const value = normalizeOfflinePoi(point);
-        if (!value) return;
-        const key = `${value.lat.toFixed(6)}|${value.lng.toFixed(6)}|${value.categoryId}|${value.id}`;
-        if (unique.has(key)) return;
-        unique.add(key);
-        normalized.push(value);
-      });
-      return normalized;
-    }
 
-    function collectCurrentRideSession() {
-      const center = map?.getCenter?.();
-      const zoom = map?.getZoom?.();
-      const radiusInput = document.getElementById('gpxRadiusKm');
-      const inputRadius = Number.parseFloat(radiusInput?.value ?? '');
-      const gpxRadiusKm = Number.isFinite(inputRadius)
-        ? inputRadius
-        : (Number.isFinite(gpxState?.radiusMeters) ? gpxState.radiusMeters / 1000 : DEFAULT_GPX_RADIUS_KM);
-      return {
-        savedAt: new Date().toISOString(),
-        map: {
-          center: center ? { lat: Number(center.lat), lng: Number(center.lng) } : null,
-          zoom: Number.isFinite(zoom) ? zoom : null
-        },
-        theme: document.body.classList.contains('theme-dark') ? 'dark' : 'light',
-        filterState: {
-          regions: Array.from(filterState.bundeslaender || []),
-          categories: Array.from(filterState.kategorien || []),
-          showBadges: Boolean(appState.showBadges),
-          hideNoBadges: Boolean(appState.hideNoBadges),
-          includeMissingData: Boolean(appState.includeMissingData),
-          clusterThreshold: Number(viewportClusterThreshold)
-        },
-        meta: {
-          regions: Array.isArray(manifestData?.regions) ? manifestData.regions : [],
-          categories: Array.isArray(manifestData?.categories) ? manifestData.categories : [],
-          categoryLabelMap: { ...categoryLabelMap }
-        },
-        gpx: {
-          points: Array.isArray(gpxState.points) ? gpxState.points.map((pt) => ({ lat: Number(pt?.lat), lon: Number(pt?.lon) })).filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lon)) : [],
-          geoJson: gpxState.geoJson || null,
-          radiusKm: Number.isFinite(gpxRadiusKm) ? gpxRadiusKm : DEFAULT_GPX_RADIUS_KM
-        },
-        pois: collectPoisForOfflineSession()
-      };
-    }
 
-    function openOfflineSessionDb() {
-      return new Promise((resolve, reject) => {
-        if (!window.indexedDB) {
-          reject(new Error('IndexedDB unavailable'));
-          return;
-        }
-        const request = indexedDB.open(OFFLINE_SESSION_DB_NAME, 1);
-        request.onupgradeneeded = () => {
-          const db = request.result;
-          if (!db.objectStoreNames.contains(OFFLINE_SESSION_STORE)) {
-            db.createObjectStore(OFFLINE_SESSION_STORE);
-          }
-        };
-        request.onsuccess = () => resolve(request.result);
-        request.onerror = () => reject(request.error || new Error('IndexedDB open failed'));
-      });
-    }
 
-    async function writeOfflineRideSession(payload) {
-      const db = await openOfflineSessionDb();
-      await new Promise((resolve, reject) => {
-        const tx = db.transaction(OFFLINE_SESSION_STORE, 'readwrite');
-        tx.objectStore(OFFLINE_SESSION_STORE).put(payload, OFFLINE_SESSION_KEY);
-        tx.oncomplete = () => resolve();
-        tx.onerror = () => reject(tx.error || new Error('IndexedDB write failed'));
-      });
-      db.close();
-    }
 
-    async function readOfflineRideSession() {
-      const db = await openOfflineSessionDb();
-      const value = await new Promise((resolve, reject) => {
-        const tx = db.transaction(OFFLINE_SESSION_STORE, 'readonly');
-        const req = tx.objectStore(OFFLINE_SESSION_STORE).get(OFFLINE_SESSION_KEY);
-        req.onsuccess = () => resolve(req.result || null);
-        req.onerror = () => reject(req.error || new Error('IndexedDB read failed'));
-      });
-      db.close();
-      return value;
-    }
 
-    async function deleteOfflineRideSession() {
-      const db = await openOfflineSessionDb();
-      await new Promise((resolve, reject) => {
-        const tx = db.transaction(OFFLINE_SESSION_STORE, 'readwrite');
-        tx.objectStore(OFFLINE_SESSION_STORE).delete(OFFLINE_SESSION_KEY);
-        tx.oncomplete = () => resolve();
-        tx.onerror = () => reject(tx.error || new Error('IndexedDB delete failed'));
-      });
-      db.close();
-    }
 
-    async function handleOfflineRideSave() {
-      if (!appState?.hasImportedGpx) {
-        showMapToast('Import a GPX first.');
-        return;
-      }
-      try {
-        if (navigator.storage?.persist) {
-          try { await navigator.storage.persist(); } catch (e) {}
-        }
-        const previous = await readOfflineRideSession().catch(() => null);
-        const snapshot = collectCurrentRideSession();
-        await writeOfflineRideSession(snapshot);
-        showMapToast(previous ? 'Offline ride updated.' : 'Offline ride saved.');
-      } catch (error) {
-        console.error('offline-ride-save failed', error);
-        showMapToast('Could not save offline ride.');
-      }
-    }
 
     function buildGpxExport(trackLatLngs, visiblePois) {
       const trackPoints = Array.isArray(trackLatLngs) ? trackLatLngs : [];
@@ -2996,7 +2856,6 @@
 
     function setupGpxExportButton() {
       const exportBtn = document.getElementById('gpxExportBtn');
-      const offlineBtn = document.getElementById('offlineRideSaveBtn');
       updateExportGpxVisibility();
       if (exportBtn) {
         exportBtn.addEventListener('click', () => {
@@ -3012,222 +2871,11 @@
           }
         });
       }
-      if (offlineBtn) {
-        offlineBtn.addEventListener('click', () => {
-          handleOfflineRideSave();
-        });
-      }
     }
 
-    function applyOfflineSessionUiState(session) {
-      if (!session || typeof session !== 'object') return;
-      const theme = session.theme === 'dark';
-      applyTheme(theme);
 
-      const savedMeta = session.meta || {};
-      if ((!Array.isArray(manifestData?.regions) || !manifestData.regions.length) && Array.isArray(savedMeta.regions)) {
-        manifestData.regions = savedMeta.regions;
-      }
-      if ((!Array.isArray(manifestData?.categories) || !manifestData.categories.length) && Array.isArray(savedMeta.categories)) {
-        manifestData.categories = savedMeta.categories;
-      }
-      if (savedMeta.categoryLabelMap && typeof savedMeta.categoryLabelMap === 'object') {
-        categoryLabelMap = { ...savedMeta.categoryLabelMap };
-      } else if (Array.isArray(manifestData?.categories)) {
-        categoryLabelMap = manifestData.categories.reduce((acc, cat) => {
-          acc[cat.id] = cat.label;
-          return acc;
-        }, {});
-      }
 
-      const savedFilters = session.filterState || {};
-      filterState.bundeslaender = new Set(Array.isArray(savedFilters.regions) ? savedFilters.regions : []);
-      filterState.kategorien = new Set(Array.isArray(savedFilters.categories) ? savedFilters.categories : []);
-      if (!filterState.bundeslaender.size && Array.isArray(manifestData?.regions)) {
-        manifestData.regions.forEach((entry) => filterState.bundeslaender.add(entry.id));
-      }
-      if (!filterState.kategorien.size && Array.isArray(manifestData?.categories)) {
-        manifestData.categories.forEach((entry) => filterState.kategorien.add(entry.id));
-      }
-      renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
-      renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
 
-      appState.showBadges = Boolean(savedFilters.showBadges);
-      appState.hideNoBadges = Boolean(savedFilters.hideNoBadges);
-      appState.includeMissingData = Boolean(savedFilters.includeMissingData);
-      const badgeToggle = document.getElementById('toggleBadges');
-      const hideToggle = document.getElementById('toggleHideNoBadges');
-      const includeToggle = document.getElementById('toggleIncludeMissingOH');
-      if (badgeToggle) badgeToggle.checked = appState.showBadges;
-      if (hideToggle) hideToggle.checked = appState.hideNoBadges;
-      if (includeToggle) includeToggle.checked = appState.includeMissingData;
-      updateBadgeDependentToggles(appState.showBadges, appState.hideNoBadges);
-
-      const savedThreshold = Number(savedFilters.clusterThreshold);
-      viewportClusterThreshold = Number.isFinite(savedThreshold) ? savedThreshold : DEFAULT_CLUSTER_THRESHOLD;
-      syncClusterThresholdInput();
-
-      const savedGpx = session.gpx || {};
-      const points = Array.isArray(savedGpx.points) ? savedGpx.points : [];
-      const radiusKm = Number(savedGpx.radiusKm);
-      const radiusMeters = (Number.isFinite(radiusKm) ? radiusKm : DEFAULT_GPX_RADIUS_KM) * 1000;
-      gpxState.points = points;
-      gpxState.sampledPoints = downsamplePoints(points);
-      gpxState.radiusMeters = radiusMeters;
-      gpxState.bbox = computeExpandedBBox(gpxState.sampledPoints, radiusMeters);
-      gpxState.geoJson = savedGpx.geoJson || null;
-      gpxState.active = points.length > 0;
-      appState.hasImportedGpx = points.length > 0;
-      appState.gpxTrackLatLngs = points.map((pt) => L.latLng(pt.lat, pt.lon));
-
-      const radiusInput = document.getElementById('gpxRadiusKm');
-      if (radiusInput) radiusInput.value = (radiusMeters / 1000).toFixed(1);
-      if (gpxState.geoJson) {
-        renderGpxTrack(gpxState.geoJson);
-      }
-      renderGpxKilometerMarkers(appState.gpxTrackLatLngs);
-      updateExportGpxVisibility();
-      enableGpxClusterOverride();
-
-      const savedPois = Array.isArray(session.pois) ? session.pois.map(normalizeOfflinePoi).filter(Boolean) : [];
-      renderPois(savedPois);
-
-      const savedCenter = session.map?.center;
-      const savedZoom = Number(session.map?.zoom);
-      if (savedCenter && Number.isFinite(savedCenter.lat) && Number.isFinite(savedCenter.lng) && Number.isFinite(savedZoom)) {
-        map.setView([savedCenter.lat, savedCenter.lng], savedZoom, { animate: false });
-      } else if (gpxTrackLayer) {
-        fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
-      }
-    }
-
-    function showOfflineFallback(message, detail) {
-      const existing = document.getElementById('offlineFallbackOverlay');
-      if (existing) existing.remove();
-      const overlay = document.createElement('div');
-      overlay.id = 'offlineFallbackOverlay';
-      overlay.className = 'offline-fallback';
-      overlay.innerHTML = `<div class="offline-fallback__card"><strong>${escapeHtml(message)}</strong><p>${escapeHtml(detail || '')}</p></div>`;
-      document.body.appendChild(overlay);
-    }
-
-    function promptOfflineSessionAction() {
-      return new Promise((resolve) => {
-        const backdrop = document.createElement('div');
-        backdrop.className = 'intro-backdrop';
-        backdrop.setAttribute('role', 'presentation');
-
-        const modal = document.createElement('div');
-        modal.className = 'intro-modal';
-        modal.setAttribute('role', 'dialog');
-        modal.setAttribute('aria-modal', 'true');
-        modal.setAttribute('aria-labelledby', 'offlineSessionTitle');
-
-        const title = document.createElement('h2');
-        title.id = 'offlineSessionTitle';
-        title.textContent = 'Saved offline ride found';
-
-        const body = document.createElement('div');
-        body.className = 'intro-body';
-        const message = document.createElement('p');
-        message.textContent = 'A saved offline ride was found.';
-        body.appendChild(message);
-
-        const actions = document.createElement('div');
-        actions.className = 'intro-actions';
-        actions.style.flexDirection = 'column';
-        actions.style.alignItems = 'stretch';
-
-        const cancelBtn = document.createElement('button');
-        cancelBtn.type = 'button';
-        cancelBtn.textContent = 'Cancel';
-        cancelBtn.style.width = '100%';
-
-        const resetBtn = document.createElement('button');
-        resetBtn.type = 'button';
-        resetBtn.textContent = 'Reset saved data';
-        resetBtn.style.width = '100%';
-
-        const loadBtn = document.createElement('button');
-        loadBtn.type = 'button';
-        loadBtn.textContent = 'Load saved data';
-        loadBtn.style.width = '100%';
-
-        actions.appendChild(loadBtn);
-        actions.appendChild(resetBtn);
-        actions.appendChild(cancelBtn);
-
-        modal.appendChild(title);
-        modal.appendChild(body);
-        modal.appendChild(actions);
-        backdrop.appendChild(modal);
-        document.body.appendChild(backdrop);
-
-        const previousFocus = document.activeElement;
-        const focusableElements = () => {
-          return Array.from(modal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])'))
-            .filter((el) => !el.hasAttribute('disabled'));
-        };
-
-        const close = (action) => {
-          document.removeEventListener('keydown', handleKeydown);
-          backdrop.remove();
-          if (previousFocus && typeof previousFocus.focus === 'function') {
-            previousFocus.focus();
-          }
-          resolve(action);
-        };
-
-        const trapFocus = (event) => {
-          if (event.key !== 'Tab') return;
-          const items = focusableElements();
-          if (!items.length) return;
-          const first = items[0];
-          const last = items[items.length - 1];
-          if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-          } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-          }
-        };
-
-        const handleKeydown = (event) => {
-          if (event.key === 'Escape') {
-            event.preventDefault();
-            close('cancel');
-            return;
-          }
-          trapFocus(event);
-        };
-
-        cancelBtn.addEventListener('click', () => close('cancel'));
-        loadBtn.addEventListener('click', () => close('load'));
-        resetBtn.addEventListener('click', () => close('reset'));
-        backdrop.addEventListener('click', (event) => {
-          if (event.target === backdrop) {
-            close('cancel');
-          }
-        });
-        modal.addEventListener('click', (event) => event.stopPropagation());
-        document.addEventListener('keydown', handleKeydown);
-
-        const focusables = focusableElements();
-        if (focusables.length) {
-          focusables[focusables.length - 1].focus();
-        }
-      });
-    }
-
-    async function registerServiceWorker() {
-      if (!('serviceWorker' in navigator)) return;
-      try {
-        await navigator.serviceWorker.register(SERVICE_WORKER_URL);
-      } catch (error) {
-        console.warn('service worker registration failed', error);
-      }
-    }
 
     function downsamplePoints(points, maxPoints = 2000) {
       if (!Array.isArray(points) || !points.length) return [];
@@ -4507,19 +4155,10 @@
       );
     }
 
-    let shouldSkipInitialApplyFilters = false;
-
     setupIntroPopup();
     on(qs('#locateButton'), 'click', () => goToUserLocation({ centerOnFix: true }));
 
     (async () => {
-      const savedOfflineSession = await readOfflineRideSession().catch(() => null);
-      const hasSavedOfflineSession = Boolean(savedOfflineSession);
-      const isOffline = navigator.onLine === false;
-      const offlineAction = (isOffline && hasSavedOfflineSession)
-        ? await promptOfflineSessionAction()
-        : null;
-
       setAccordionHandlers();
       setupDrawer();
       setupDrawerWidthMeasurement();
@@ -4536,24 +4175,7 @@
       setupSharedViewPrompt();
       runBadgeDiagnostics();
 
-      await registerServiceWorker();
-
-      let manifestLoaded = false;
-      if (!isOffline) {
-        try {
-          manifestData = await loadManifest();
-          manifestLoaded = true;
-        } catch (error) {
-          console.warn('manifest-load failed, continuing in offline mode', error);
-          manifestData = { regions: [], bundeslaender: [], categories: [] };
-        }
-      } else {
-        manifestData = { regions: [], bundeslaender: [], categories: [] };
-      }
-      if (!manifestLoaded && savedOfflineSession?.meta) {
-        manifestData.regions = Array.isArray(savedOfflineSession.meta.regions) ? savedOfflineSession.meta.regions : [];
-        manifestData.categories = Array.isArray(savedOfflineSession.meta.categories) ? savedOfflineSession.meta.categories : [];
-      }
+      manifestData = await loadManifest();
 
       categoryLabelMap = (manifestData.categories || []).reduce((acc, cat) => {
         acc[cat.id] = cat.label;
@@ -4568,21 +4190,6 @@
       renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
       renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
 
-      if (offlineAction === 'load' && savedOfflineSession) {
-        applyOfflineSessionUiState(savedOfflineSession);
-        shouldSkipInitialApplyFilters = true;
-      } else if (offlineAction === 'reset') {
-        await deleteOfflineRideSession().catch((error) => {
-          console.error('offline-ride-reset failed', error);
-        });
-        showMapToast('Saved offline ride was reset.');
-      } else if (savedOfflineSession && !isOffline) {
-        showMapToast('Offline ride available.');
-      }
-      if (isOffline && !savedOfflineSession) {
-        showOfflineFallback('No saved offline ride found.', 'Open the app online and use "Save Offline Ride" first.');
-      }
-
       const hasShared = hasPendingSharedView();
       if (hasShared) {
         map.whenReady(() => {
@@ -4590,21 +4197,15 @@
         });
         pendingSharedViewSeen = true;
         updateSharedViewPromptVisibility();
-      } else if (!shouldSkipInitialApplyFilters) {
-        if (!isOffline) {
-          const initialFix = await tryGetInitialGeolocation();
-          if (initialFix) {
-            updateUserLocationLayers(initialFix);
-            map.setView([initialFix.lat, initialFix.lng], Math.max(map.getZoom(), 15), { animate: false });
-            const detectedRegion = manifestLoaded
-              ? findRegionByLocationBbox(initialFix.lat, initialFix.lng, manifestData.regions)
-              : null;
-            if (detectedRegion?.id) {
-              filterState.bundeslaender = new Set([detectedRegion.id]);
-              renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
-            }
-          } else {
-            map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom, { animate: false });
+      } else {
+        const initialFix = await tryGetInitialGeolocation();
+        if (initialFix) {
+          updateUserLocationLayers(initialFix);
+          map.setView([initialFix.lat, initialFix.lng], Math.max(map.getZoom(), 15), { animate: false });
+          const detectedRegion = findRegionByLocationBbox(initialFix.lat, initialFix.lng, manifestData.regions);
+          if (detectedRegion?.id) {
+            filterState.bundeslaender = new Set([detectedRegion.id]);
+            renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
           }
         } else {
           map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom, { animate: false });
@@ -4612,11 +4213,7 @@
         updateUrlFromCurrentState({ replace: true });
       }
       map.whenReady(() => map.invalidateSize());
-      if (manifestLoaded && !shouldSkipInitialApplyFilters) {
-        await applyFilters();
-      } else if (!manifestLoaded && !savedOfflineSession) {
-        showMapToast('Offline: no saved ride found.');
-      }
+      await applyFilters();
 
       on(qs('#catSelectAll'), 'click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
       on(qs('#catSelectNone'), 'click', () => selectNone(filterState.kategorien, 'catList', 'cat', manifestData.categories));
