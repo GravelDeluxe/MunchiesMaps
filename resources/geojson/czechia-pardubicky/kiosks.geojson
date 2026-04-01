@@ -248,6 +248,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          15.8412752,
+          49.7483181
+        ]
+      },
+      "properties": {
+        "id": 13588339390,
+        "osm_type": "node",
+        "name": "Smíšené zboží"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           15.8563203,
           49.7693275
         ]
@@ -289,21 +304,6 @@
         "osm_type": "node",
         "name": "Večerka U Davida",
         "brand": "Můj obchod"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.9212251,
-          49.7626017
-        ]
-      },
-      "properties": {
-        "id": 1496681639,
-        "osm_type": "node",
-        "name": "Coop Tuty"
       }
     },
     {
@@ -426,6 +426,8 @@
       "properties": {
         "id": 7858482025,
         "osm_type": "node",
+        "name": "Coop Jednota",
+        "brand": "Coop",
         "opening_hours": "Mo,We 07:00-12:30; Tu,Th-Fr 07:00-16:00; Sa 07:00-10:00; Su off"
       }
     },
@@ -472,8 +474,26 @@
       "properties": {
         "id": 5620601598,
         "osm_type": "node",
-        "name": "Můjobchod - Potraviny u Nama",
+        "name": "Potraviny u Nama",
+        "brand": "Můj obchod",
         "opening_hours": "Mo-Sa 06:00-19:00; Su 08:00-16:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3464956,
+          49.6291404
+        ]
+      },
+      "properties": {
+        "id": 5620605510,
+        "osm_type": "node",
+        "name": "Coop Tip",
+        "brand": "Coop Tip",
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa 07:00-11:00"
       }
     },
     {
@@ -1283,15 +1303,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3887839,
-          49.8334413
+          16.3887345,
+          49.8335193
         ]
       },
       "properties": {
-        "id": 2850024851,
+        "id": 13581740572,
         "osm_type": "node",
-        "name": "Oil Team Janov",
-        "opening_hours": "Mo-Fr 05:00-19:00; Sa-Su 07:00-17:00"
+        "name": "Čerpací stanice Janov",
+        "opening_hours": "Mo-Fr 06:00-20:00; Sa,Su 07:00-20:00"
       }
     },
     {
@@ -1879,6 +1899,7 @@
       "properties": {
         "id": 4286179689,
         "osm_type": "node",
+        "name": "Potraviny Čepí",
         "opening_hours": "Mo-Fr 06:30-19:00; Sa-Su 07:00-18:00"
       }
     },
@@ -2333,7 +2354,8 @@
       "properties": {
         "id": 9341945958,
         "osm_type": "node",
-        "name": "Potraviny Rosice"
+        "name": "Potraviny Rosice",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-12:00"
       }
     },
     {
@@ -2349,7 +2371,8 @@
         "id": 12917903579,
         "osm_type": "node",
         "name": "Potraviny U Hurychů",
-        "brand": "Můj obchod"
+        "brand": "Můj obchod",
+        "opening_hours": "Mo-Fr 06:00-16:00"
       }
     },
     {
@@ -3463,6 +3486,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          16.2852671,
+          50.0014131
+        ]
+      },
+      "properties": {
+        "id": 13584587418,
+        "osm_type": "node",
+        "name": "Konzum Market",
+        "brand": "Coop Konzum"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           16.264349,
           50.0093506
         ]
@@ -3666,6 +3705,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          16.4052533,
+          49.9748845
+        ]
+      },
+      "properties": {
+        "id": 456023837,
+        "osm_type": "node",
+        "name": "Konzum",
+        "brand": "Coop Konzum",
+        "opening_hours": "Mo-Fr 06:30-20:00; Sa,Su,PH 07:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           16.4220506,
           49.9424494
         ]
@@ -3676,6 +3732,22 @@
         "name": "Konzum",
         "brand": "Coop Konzum",
         "opening_hours": "Mo-Fr 07:00-12:00,13:00-17:00; Sa 07:00-11:00; PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3891591,
+          50.0049607
+        ]
+      },
+      "properties": {
+        "id": 12092199211,
+        "osm_type": "node",
+        "name": "Konzum Market",
+        "brand": "Coop Konzum"
       }
     },
     {
@@ -3738,7 +3810,7 @@
       "properties": {
         "id": 842112261,
         "osm_type": "node",
-        "name": "Konzum",
+        "name": "Coop Konzum",
         "brand": "Coop Konzum",
         "opening_hours": "Mo-Fr 07:30-12:00; 13:00-17:00; Sa 07:00-11:00; PH off"
       }
@@ -3819,7 +3891,7 @@
       "properties": {
         "id": 2492660013,
         "osm_type": "node",
-        "name": "Konzum",
+        "name": "Coop Konzum",
         "brand": "Coop Konzum",
         "opening_hours": "Mo-Fr 07:30-12:30; 13:00-17:00; Sa 07:30-11:00; PH off"
       }
@@ -3836,7 +3908,7 @@
       "properties": {
         "id": 13316887629,
         "osm_type": "node",
-        "name": "Konzum",
+        "name": "Coop Konzum",
         "brand": "Coop Konzum"
       }
     },
@@ -3852,8 +3924,8 @@
       "properties": {
         "id": 842112156,
         "osm_type": "node",
-        "name": "Coop Diskont",
-        "brand": "Coop Diskont",
+        "name": "Coop",
+        "brand": "Coop",
         "opening_hours": "Mo-Fr 07:00-19:00; Sa,Su 07:00-12:00; PH off"
       }
     },
@@ -3869,7 +3941,7 @@
       "properties": {
         "id": 842112370,
         "osm_type": "node",
-        "name": "Konzum Market",
+        "name": "Coop Konzum",
         "brand": "Coop Konzum",
         "opening_hours": "Mo-Fr 06:30-20:00; Sa 07:00-13:00; Sa 07:30-18:00; PH off"
       }
@@ -4033,6 +4105,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          16.6227376,
+          50.0104208
+        ]
+      },
+      "properties": {
+        "id": 13584522524,
+        "osm_type": "node",
+        "name": "Konzum Market",
+        "brand": "Coop Konzum"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           16.7242025,
           49.9364343
         ]
@@ -4137,20 +4225,6 @@
         "id": 1772930991,
         "osm_type": "node",
         "name": "CBA Portaviny"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.6631158,
-          50.0975171
-        ]
-      },
-      "properties": {
-        "id": 471232057,
-        "osm_type": "node"
       }
     },
     {
@@ -4357,7 +4431,8 @@
       "properties": {
         "id": 254842033,
         "osm_type": "way",
-        "name": "Coop Nedvězí",
+        "name": "Coop",
+        "brand": "Coop",
         "opening_hours": "Mo-Fr 07:00-11:30,13:30-15:30; Tu 07:00-11:30; Th 07:00-11:30,14:00-16:00; Sa 07:30-09:30"
       }
     },
@@ -4634,8 +4709,8 @@
       "properties": {
         "id": 251382178,
         "osm_type": "way",
-        "name": "COOP Jednota",
-        "brand": "COOP Jednota"
+        "name": "Coop",
+        "brand": "Coop"
       }
     },
     {
