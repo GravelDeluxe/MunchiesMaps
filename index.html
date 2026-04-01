@@ -3079,23 +3079,27 @@
 
         const actions = document.createElement('div');
         actions.className = 'intro-actions';
-        actions.style.justifyContent = 'flex-end';
+        actions.style.flexDirection = 'column';
+        actions.style.alignItems = 'stretch';
 
         const cancelBtn = document.createElement('button');
         cancelBtn.type = 'button';
         cancelBtn.textContent = 'Cancel';
+        cancelBtn.style.width = '100%';
 
         const resetBtn = document.createElement('button');
         resetBtn.type = 'button';
-        resetBtn.textContent = 'Reset saved Data';
+        resetBtn.textContent = 'Reset saved data';
+        resetBtn.style.width = '100%';
 
         const loadBtn = document.createElement('button');
         loadBtn.type = 'button';
-        loadBtn.textContent = 'Load';
+        loadBtn.textContent = 'Load saved data';
+        loadBtn.style.width = '100%';
 
-        actions.appendChild(cancelBtn);
-        actions.appendChild(resetBtn);
         actions.appendChild(loadBtn);
+        actions.appendChild(resetBtn);
+        actions.appendChild(cancelBtn);
 
         modal.appendChild(title);
         modal.appendChild(body);
