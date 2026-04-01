@@ -2887,6 +2887,17 @@
       return value;
     }
 
+    async function deleteOfflineRideSession() {
+      const db = await openOfflineSessionDb();
+      await new Promise((resolve, reject) => {
+        const tx = db.transaction(OFFLINE_SESSION_STORE, 'readwrite');
+        tx.objectStore(OFFLINE_SESSION_STORE).delete(OFFLINE_SESSION_KEY);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error || new Error('IndexedDB delete failed'));
+      });
+      db.close();
+    }
+
     async function handleOfflineRideSave() {
       if (!appState?.hasImportedGpx) {
         showMapToast('Import a GPX first.');
@@ -3042,6 +3053,111 @@
       } else if (gpxTrackLayer) {
         fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
       }
+    }
+
+    function promptOfflineSessionAction() {
+      return new Promise((resolve) => {
+        const backdrop = document.createElement('div');
+        backdrop.className = 'intro-backdrop';
+        backdrop.setAttribute('role', 'presentation');
+
+        const modal = document.createElement('div');
+        modal.className = 'intro-modal';
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-labelledby', 'offlineSessionTitle');
+
+        const title = document.createElement('h2');
+        title.id = 'offlineSessionTitle';
+        title.textContent = 'Saved offline ride found';
+
+        const body = document.createElement('div');
+        body.className = 'intro-body';
+        const message = document.createElement('p');
+        message.textContent = 'A saved offline ride was found.';
+        body.appendChild(message);
+
+        const actions = document.createElement('div');
+        actions.className = 'intro-actions';
+        actions.style.justifyContent = 'flex-end';
+
+        const cancelBtn = document.createElement('button');
+        cancelBtn.type = 'button';
+        cancelBtn.textContent = 'Cancel';
+
+        const resetBtn = document.createElement('button');
+        resetBtn.type = 'button';
+        resetBtn.textContent = 'Reset saved Data';
+
+        const loadBtn = document.createElement('button');
+        loadBtn.type = 'button';
+        loadBtn.textContent = 'Load';
+
+        actions.appendChild(cancelBtn);
+        actions.appendChild(resetBtn);
+        actions.appendChild(loadBtn);
+
+        modal.appendChild(title);
+        modal.appendChild(body);
+        modal.appendChild(actions);
+        backdrop.appendChild(modal);
+        document.body.appendChild(backdrop);
+
+        const previousFocus = document.activeElement;
+        const focusableElements = () => {
+          return Array.from(modal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])'))
+            .filter((el) => !el.hasAttribute('disabled'));
+        };
+
+        const close = (action) => {
+          document.removeEventListener('keydown', handleKeydown);
+          backdrop.remove();
+          if (previousFocus && typeof previousFocus.focus === 'function') {
+            previousFocus.focus();
+          }
+          resolve(action);
+        };
+
+        const trapFocus = (event) => {
+          if (event.key !== 'Tab') return;
+          const items = focusableElements();
+          if (!items.length) return;
+          const first = items[0];
+          const last = items[items.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        };
+
+        const handleKeydown = (event) => {
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            close('cancel');
+            return;
+          }
+          trapFocus(event);
+        };
+
+        cancelBtn.addEventListener('click', () => close('cancel'));
+        loadBtn.addEventListener('click', () => close('load'));
+        resetBtn.addEventListener('click', () => close('reset'));
+        backdrop.addEventListener('click', (event) => {
+          if (event.target === backdrop) {
+            close('cancel');
+          }
+        });
+        modal.addEventListener('click', (event) => event.stopPropagation());
+        document.addEventListener('keydown', handleKeydown);
+
+        const focusables = focusableElements();
+        if (focusables.length) {
+          focusables[focusables.length - 1].focus();
+        }
+      });
     }
 
     async function registerServiceWorker() {
@@ -4332,20 +4448,9 @@
     on(qs('#locateButton'), 'click', () => goToUserLocation({ centerOnFix: true }));
 
     (async () => {
-      await registerServiceWorker();
-      manifestData = await loadManifest();
-      categoryLabelMap = (manifestData.categories || []).reduce((acc, cat) => {
-        acc[cat.id] = cat.label;
-        return acc;
-      }, {});
+      const savedOfflineSession = await readOfflineRideSession().catch(() => null);
+      const offlineAction = savedOfflineSession ? await promptOfflineSessionAction() : null;
 
-      manifestData.regions.forEach(bl => filterState.bundeslaender.add(bl.id));
-      manifestData.categories.forEach(cat => filterState.kategorien.add(cat.id));
-
-      applyShareStateFromUrl(manifestData);
-
-      renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
-      renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
       setAccordionHandlers();
       setupDrawer();
       setupDrawerWidthMeasurement();
@@ -4362,11 +4467,39 @@
       setupSharedViewPrompt();
       runBadgeDiagnostics();
 
-      const savedOfflineSession = await readOfflineRideSession().catch(() => null);
-      if (!navigator.onLine && savedOfflineSession) {
+      await registerServiceWorker();
+
+      let manifestLoaded = false;
+      try {
+        manifestData = await loadManifest();
+        manifestLoaded = true;
+      } catch (error) {
+        console.warn('manifest-load failed, continuing in offline mode', error);
+        manifestData = { regions: [], bundeslaender: [], categories: [] };
+      }
+
+      categoryLabelMap = (manifestData.categories || []).reduce((acc, cat) => {
+        acc[cat.id] = cat.label;
+        return acc;
+      }, {});
+
+      manifestData.regions.forEach(bl => filterState.bundeslaender.add(bl.id));
+      manifestData.categories.forEach(cat => filterState.kategorien.add(cat.id));
+
+      applyShareStateFromUrl(manifestData);
+
+      renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
+      renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
+
+      if (offlineAction === 'load' && savedOfflineSession) {
         applyOfflineSessionUiState(savedOfflineSession);
         shouldSkipInitialApplyFilters = true;
-      } else if (navigator.onLine && savedOfflineSession) {
+      } else if (offlineAction === 'reset') {
+        await deleteOfflineRideSession().catch((error) => {
+          console.error('offline-ride-reset failed', error);
+        });
+        showMapToast('Saved offline ride was reset.');
+      } else if (savedOfflineSession) {
         showMapToast('Offline ride available.');
       }
 
@@ -4377,12 +4510,14 @@
         });
         pendingSharedViewSeen = true;
         updateSharedViewPromptVisibility();
-      } else {
+      } else if (!shouldSkipInitialApplyFilters) {
         const initialFix = await tryGetInitialGeolocation();
         if (initialFix) {
           updateUserLocationLayers(initialFix);
           map.setView([initialFix.lat, initialFix.lng], Math.max(map.getZoom(), 15), { animate: false });
-          const detectedRegion = findRegionByLocationBbox(initialFix.lat, initialFix.lng, manifestData.regions);
+          const detectedRegion = manifestLoaded
+            ? findRegionByLocationBbox(initialFix.lat, initialFix.lng, manifestData.regions)
+            : null;
           if (detectedRegion?.id) {
             filterState.bundeslaender = new Set([detectedRegion.id]);
             renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
@@ -4393,8 +4528,10 @@
         updateUrlFromCurrentState({ replace: true });
       }
       map.whenReady(() => map.invalidateSize());
-      if (!shouldSkipInitialApplyFilters) {
+      if (manifestLoaded && !shouldSkipInitialApplyFilters) {
         await applyFilters();
+      } else if (!manifestLoaded && !savedOfflineSession) {
+        showMapToast('Offline: no saved ride found.');
       }
 
       on(qs('#catSelectAll'), 'click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
