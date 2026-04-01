@@ -167,17 +167,39 @@ def build_query(region: Dict[str, Any], body: str, timeout: int, use_legacy_area
     """Construct the full Overpass query for a region and category."""
     area_name = region["area_name"]
     admin_level = str(region["admin_level"])
+    country_area_name = normalize_text(region.get("country_area_name"))
+    country_admin_level = normalize_text(region.get("country_admin_level")) or "2"
     if use_legacy_area:
-        region_area = (
-            f"area[\"name\"=\"{area_name}\"][\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]->.searchArea;"
-        )
+        if country_area_name:
+            region_area = "\n".join(
+                [
+                    f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"][\"name\"=\"{country_area_name}\"]->.countryRel;",
+                    ".countryRel map_to_area->.searchCountryArea;",
+                    f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"][\"name\"=\"{area_name}\"](area.searchCountryArea)->.regionRel;",
+                    ".regionRel map_to_area->.searchArea;",
+                ]
+            )
+        else:
+            region_area = (
+                f"area[\"name\"=\"{area_name}\"][\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]->.searchArea;"
+            )
     else:
-        region_area = "\n".join(
-            [
-                f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"][\"name\"=\"{area_name}\"]->.regionRel;",
-                ".regionRel map_to_area->.searchArea;",
-            ]
-        )
+        if country_area_name:
+            region_area = "\n".join(
+                [
+                    f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"][\"name\"=\"{country_area_name}\"]->.countryRel;",
+                    ".countryRel map_to_area->.searchCountryArea;",
+                    f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"][\"name\"=\"{area_name}\"](area.searchCountryArea)->.regionRel;",
+                    ".regionRel map_to_area->.searchArea;",
+                ]
+            )
+        else:
+            region_area = "\n".join(
+                [
+                    f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"][\"name\"=\"{area_name}\"]->.regionRel;",
+                    ".regionRel map_to_area->.searchArea;",
+                ]
+            )
     return dedent(
         f"""
         [out:json][timeout:{timeout}];
@@ -584,10 +606,22 @@ def run(
             f"[region] ({region_index}/{len(selected_regions)}) "
             f"id={region['id']} | country={region['country']} | label={region['label']}"
         )
-        for category_index, (category, func_name) in enumerate(selected_categories, start=1):
+        region_categories_raw = region.get("categories")
+        if isinstance(region_categories_raw, list) and region_categories_raw:
+            allowed_region_categories = {
+                str(item).strip() for item in region_categories_raw if str(item).strip()
+            }
+            region_categories = [
+                (category, func_name)
+                for category, func_name in selected_categories
+                if category in allowed_region_categories
+            ]
+        else:
+            region_categories = list(selected_categories)
+        for category_index, (category, func_name) in enumerate(region_categories, start=1):
             template_func = get_category_function(func_name)
             print(
-                f"[cat]   ({category_index}/{len(selected_categories)}) "
+                f"[cat]   ({category_index}/{len(region_categories)}) "
                 f"Region={region['id']} | Country={region['country']} | Category={category} | Template={func_name}"
             )
             body = template_func()
