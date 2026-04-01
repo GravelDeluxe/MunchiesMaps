@@ -859,7 +859,7 @@
               </div>
               <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
               <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
-              <button type="button" class="gpx-export" id="offlineHtmlExportBtn">Export Offline HTML</button>
+              <button type="button" class="gpx-export" id="offlineRideSaveBtn">Save Offline Ride</button>
               <div class="gpx-error" id="gpxError" aria-live="polite"></div>
             </div>
           </div>
@@ -2007,6 +2007,10 @@
     applyTheme(initialTheme);
 
     const MANIFEST_URL = `resources/geojson/manifest.json?v=${APP_VERSION}`;
+    const SERVICE_WORKER_URL = `sw.js?v=${APP_VERSION}`;
+    const OFFLINE_SESSION_DB_NAME = 'munchiesmaps-offline';
+    const OFFLINE_SESSION_STORE = 'sessions';
+    const OFFLINE_SESSION_KEY = 'ride-session-v1';
 
     const filterState = {
       bundeslaender: new Set(),
@@ -2710,7 +2714,7 @@
 
     function updateExportGpxVisibility() {
       const exportBtn = document.getElementById('gpxExportBtn');
-      const offlineBtn = document.getElementById('offlineHtmlExportBtn');
+      const offlineBtn = document.getElementById('offlineRideSaveBtn');
       const isVisible = Boolean(appState?.hasImportedGpx);
       if (exportBtn) {
         exportBtn.classList.toggle('is-visible', isVisible);
@@ -2780,1013 +2784,126 @@
       return result;
     }
 
-    function collectActivePoisForOfflineExport() {
-      const readString = (obj, keys) => {
-        if (!obj || !Array.isArray(keys)) return '';
-        for (let i = 0; i < keys.length; i++) {
-          const value = obj[keys[i]];
-          if (value === null || value === undefined) continue;
-          const normalized = String(value).trim();
-          if (normalized) return normalized;
-        }
-        return '';
+    function normalizeOfflinePoi(point) {
+      if (!point) return null;
+      const lat = Number(point.lat);
+      const lng = Number(point.lng);
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+      const props = point.propsRef && typeof point.propsRef === 'object' ? point.propsRef : {};
+      return {
+        id: String(point.id || `${point.categoryId || 'poi'}-${lat.toFixed(6)}-${lng.toFixed(6)}`),
+        lat,
+        lng,
+        categoryId: point.categoryId || 'poi',
+        propsRef: { ...props }
       };
-      const points = Array.isArray(activePoints) ? activePoints : [];
-      const unique = new Set();
-      const result = [];
-      for (let i = 0; i < points.length; i++) {
-        const point = points[i];
-        if (!point) continue;
-        const lat = Number(point.lat);
-        const lon = Number(point.lng);
-        if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
-        const props = point.propsRef || {};
-        const categoryId = point.categoryId || 'poi';
-        const categoryLabel = readString(props, ['categoryLabel']) || categoryLabelMap[categoryId] || markerLabel(categoryId, props) || 'POI';
-        const name = readString(props, ['name']) || String(categoryLabel || 'POI').trim();
-        const key = `${lat.toFixed(6)}|${lon.toFixed(6)}|${name}|${categoryId}`;
-        if (unique.has(key)) continue;
-        unique.add(key);
-        result.push({
-          id: String(point.id ?? `${categoryId}-${lat.toFixed(6)}-${lon.toFixed(6)}-${i}`),
-          lat,
-          lon,
-          name,
-          categoryId,
-          categoryLabel,
-          description: readString(props, ['description', 'desc']),
-          opening_hours: readString(props, ['opening_hours']),
-          access: readString(props, ['access']),
-          operator: readString(props, ['operator']),
-          fee: readString(props, ['fee']),
-          url: readString(props, ['url', 'website']),
-          phone: readString(props, ['phone', 'contact:phone']),
-          website: readString(props, ['website', 'url', 'contact:website']),
-          brand: readString(props, ['brand']),
-          chain: readString(props, ['chain'])
-        });
-      }
-      return result;
     }
 
-    function handleOfflineHtmlExport() {
+    function collectPoisForOfflineSession() {
+      const points = Array.isArray(activePoints) ? activePoints : [];
+      const unique = new Set();
+      const normalized = [];
+      points.forEach((point) => {
+        const value = normalizeOfflinePoi(point);
+        if (!value) return;
+        const key = `${value.lat.toFixed(6)}|${value.lng.toFixed(6)}|${value.categoryId}|${value.id}`;
+        if (unique.has(key)) return;
+        unique.add(key);
+        normalized.push(value);
+      });
+      return normalized;
+    }
+
+    function collectCurrentRideSession() {
+      const center = map?.getCenter?.();
+      const zoom = map?.getZoom?.();
+      const radiusInput = document.getElementById('gpxRadiusKm');
+      const inputRadius = Number.parseFloat(radiusInput?.value ?? '');
+      const gpxRadiusKm = Number.isFinite(inputRadius)
+        ? inputRadius
+        : (Number.isFinite(gpxState?.radiusMeters) ? gpxState.radiusMeters / 1000 : DEFAULT_GPX_RADIUS_KM);
+      return {
+        savedAt: new Date().toISOString(),
+        map: {
+          center: center ? { lat: Number(center.lat), lng: Number(center.lng) } : null,
+          zoom: Number.isFinite(zoom) ? zoom : null
+        },
+        theme: document.body.classList.contains('theme-dark') ? 'dark' : 'light',
+        filterState: {
+          regions: Array.from(filterState.bundeslaender || []),
+          categories: Array.from(filterState.kategorien || []),
+          showBadges: Boolean(appState.showBadges),
+          hideNoBadges: Boolean(appState.hideNoBadges),
+          includeMissingData: Boolean(appState.includeMissingData),
+          clusterThreshold: Number(viewportClusterThreshold)
+        },
+        gpx: {
+          points: Array.isArray(gpxState.points) ? gpxState.points.map((pt) => ({ lat: Number(pt?.lat), lon: Number(pt?.lon) })).filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lon)) : [],
+          geoJson: gpxState.geoJson || null,
+          radiusKm: Number.isFinite(gpxRadiusKm) ? gpxRadiusKm : DEFAULT_GPX_RADIUS_KM
+        },
+        pois: collectPoisForOfflineSession()
+      };
+    }
+
+    function openOfflineSessionDb() {
+      return new Promise((resolve, reject) => {
+        if (!window.indexedDB) {
+          reject(new Error('IndexedDB unavailable'));
+          return;
+        }
+        const request = indexedDB.open(OFFLINE_SESSION_DB_NAME, 1);
+        request.onupgradeneeded = () => {
+          const db = request.result;
+          if (!db.objectStoreNames.contains(OFFLINE_SESSION_STORE)) {
+            db.createObjectStore(OFFLINE_SESSION_STORE);
+          }
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error || new Error('IndexedDB open failed'));
+      });
+    }
+
+    async function writeOfflineRideSession(payload) {
+      const db = await openOfflineSessionDb();
+      await new Promise((resolve, reject) => {
+        const tx = db.transaction(OFFLINE_SESSION_STORE, 'readwrite');
+        tx.objectStore(OFFLINE_SESSION_STORE).put(payload, OFFLINE_SESSION_KEY);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error || new Error('IndexedDB write failed'));
+      });
+      db.close();
+    }
+
+    async function readOfflineRideSession() {
+      const db = await openOfflineSessionDb();
+      const value = await new Promise((resolve, reject) => {
+        const tx = db.transaction(OFFLINE_SESSION_STORE, 'readonly');
+        const req = tx.objectStore(OFFLINE_SESSION_STORE).get(OFFLINE_SESSION_KEY);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => reject(req.error || new Error('IndexedDB read failed'));
+      });
+      db.close();
+      return value;
+    }
+
+    async function handleOfflineRideSave() {
       if (!appState?.hasImportedGpx) {
         showMapToast('Import a GPX first.');
         return;
       }
-      const snapshot = buildOfflineTestSnapshot();
-      const html = buildOfflineTestHtml(snapshot);
-      downloadTextFile(html, 'munchiesmaps-offline-ride-map.html', 'text/html;charset=utf-8');
-      showMapToast('Offline HTML export downloaded.');
-    }
-
-    function buildOfflineTestSnapshot() {
-      const timestamp = new Date().toISOString();
-      const radiusInput = document.getElementById('gpxRadiusKm');
-      const parsedRadius = Number.parseFloat(radiusInput?.value ?? '');
-      const fallbackRadiusKm = Number.isFinite(gpxState?.radiusMeters) ? (gpxState.radiusMeters / 1000) : DEFAULT_GPX_RADIUS_KM;
-      const gpxRadiusKm = Number.isFinite(parsedRadius) ? parsedRadius : fallbackRadiusKm;
-      const routePoints = (Array.isArray(gpxState?.points) ? gpxState.points : [])
-        .map((pt) => ({
-          lat: Number(pt?.lat),
-          lon: Number(pt?.lon)
-        }))
-        .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lon));
-      const pois = collectActivePoisForOfflineExport()
-        .filter((poi) => Number.isFinite(poi.lat) && Number.isFinite(poi.lon));
-      const exportLayerIconConfig = Object.entries(LAYER_ICON_CONFIG || {}).reduce((acc, [key, cfg]) => {
-        if (!cfg || typeof cfg !== 'object') return acc;
-        acc[key] = {
-          iconClass: String(cfg.iconClass || ''),
-          color: String(cfg.color || ''),
-          hoverColor: String(cfg.hoverColor || ''),
-          outlineColor: String(cfg.outlineColor || ''),
-          label: String(cfg.label || ''),
-          size: Number(cfg.size) || DEFAULT_MARKER_SIZE,
-          iconSize: Number(cfg.iconSize) || DEFAULT_MARKER_ICON_SIZE
-        };
-        return acc;
-      }, {});
-      return {
-        exportTimestamp: timestamp,
-        gpxRadiusKm,
-        routePoints,
-        pois,
-        layerIconConfig: exportLayerIconConfig
-      };
-    }
-
-    function buildOfflineTestHtml(snapshot) {
-      const safeSnapshot = snapshot && typeof snapshot === 'object' ? snapshot : {};
-      const serializedSnapshot = JSON.stringify(safeSnapshot || {}).replace(/</g, '\\u003c');
-      const scriptCloseTag = '</scr' + 'ipt>';
-      return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Munchies Maps • Offline Ride Map</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f8fafc;
-      --panel: rgba(255,255,255,0.95);
-      --panel-border: rgba(15,23,42,0.18);
-      --text: #0f172a;
-      --muted: #475569;
-      --route: #e02424;
-      --route-glow: rgba(224,36,36,0.28);
-      --poi-stroke: rgba(15,23,42,0.35);
-      --shadow: 0 10px 28px rgba(15,23,42,0.16);
-      --radius: 12px;
-    }
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #f8fafc;
-      font: 14px/1.45 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-    }
-    .map-root {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-    }
-    #mapSvg {
-      width: 100%;
-      height: 100%;
-      display: block;
-      touch-action: none;
-      cursor: grab;
-      user-select: none;
-    }
-    #mapSvg.is-dragging { cursor: grabbing; }
-    .map-overlay {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-    .controls {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      display: grid;
-      gap: 8px;
-      pointer-events: auto;
-    }
-    .controls button {
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--panel-border);
-      border-radius: 10px;
-      background: var(--panel);
-      color: var(--text);
-      box-shadow: var(--shadow);
-      font-size: 19px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .controls button:active { transform: translateY(1px); }
-    .controls button.control-wide {
-      width: auto;
-      min-width: 42px;
-      padding: 0 10px;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-    .popup {
-      position: absolute;
-      z-index: 6;
-      min-width: 220px;
-      max-width: min(320px, 88vw);
-      max-height: min(60vh, 360px);
-      overflow: auto;
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 10px 12px;
-      pointer-events: auto;
-      transform: translate(-50%, calc(-100% - 12px));
-      display: none;
-    }
-    .popup.is-open { display: block; }
-    .popup::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -8px;
-      width: 14px;
-      height: 14px;
-      background: var(--panel);
-      border-right: 1px solid var(--panel-border);
-      border-bottom: 1px solid var(--panel-border);
-      transform: translateX(-50%) rotate(45deg);
-    }
-    .popup h3 { margin: 0 22px 6px 0; font-size: 15px; line-height: 1.3; }
-    .popup-close {
-      position: absolute;
-      right: 8px;
-      top: 6px;
-      width: 24px;
-      height: 24px;
-      border: 0;
-      border-radius: 999px;
-      background: transparent;
-      color: #475569;
-      cursor: pointer;
-      font-size: 18px;
-      line-height: 1;
-    }
-    .cat-badge {
-      display: inline-flex;
-      border-radius: 999px;
-      padding: 3px 9px;
-      font-size: 11px;
-      font-weight: 700;
-      border: 1px solid;
-      margin-bottom: 7px;
-    }
-    .popup-line { font-size: 12px; color: var(--muted); margin-top: 4px; }
-    .popup-line b { color: var(--text); }
-    .status-chip {
-      position: absolute;
-      left: 12px;
-      bottom: 12px;
-      z-index: 5;
-      border: 1px solid var(--panel-border);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.9);
-      color: var(--muted);
-      padding: 6px 10px;
-      font-size: 11px;
-      letter-spacing: 0.02em;
-      box-shadow: var(--shadow);
-      pointer-events: none;
-    }
-  </style>
-</head>
-<body>
-  <div class="map-root">
-    <svg id="mapSvg" viewBox="0 0 1000 700" aria-label="Offline route map"></svg>
-    <div class="map-overlay">
-      <div id="poiPopup" class="popup" role="dialog" aria-live="polite"></div>
-      <div class="controls">
-        <button id="zoomInBtn" type="button" aria-label="Zoom in">+</button>
-        <button id="zoomOutBtn" type="button" aria-label="Zoom out">−</button>
-        <button id="fitRouteBtn" type="button" class="control-wide">Route zentrieren</button>
-        <button id="myLocationBtn" type="button" class="control-wide">Mein Standort</button>
-      </div>
-      <div id="statusChip" class="status-chip">Offline-Karte bereit</div>
-    </div>
-  </div>
-  <script>
-    const SNAPSHOT = ${serializedSnapshot};
-    const svg = document.getElementById('mapSvg');
-    const popup = document.getElementById('poiPopup');
-    const statusChip = document.getElementById('statusChip');
-    const points = Array.isArray(SNAPSHOT?.routePoints) ? SNAPSHOT.routePoints.filter((p) => Number.isFinite(p?.lat) && Number.isFinite(p?.lon)) : [];
-    const pois = Array.isArray(SNAPSHOT?.pois) ? SNAPSHOT.pois : [];
-    const svgNs = 'http://www.w3.org/2000/svg';
-    let selectedPoiId = null;
-    let userLocation = null;
-    let pointerDragDistance = 0;
-    let dragState = null;
-    let pinchState = null;
-    let projectedByPoiId = new Map();
-
-    const EXPORTED_LAYER_ICON_CONFIG = SNAPSHOT?.layerIconConfig && typeof SNAPSHOT.layerIconConfig === 'object'
-      ? SNAPSHOT.layerIconConfig
-      : {};
-    const DEFAULT_MARKER_SIZE = 30;
-    const DEFAULT_MARKER_ICON_SIZE = 15;
-    const FALLBACK_LAYER_ICON_CONFIG = {
-      default: { iconClass: 'fa-solid fa-location-dot', color: '#6b7280', label: 'Points of Interest', size: DEFAULT_MARKER_SIZE, iconSize: DEFAULT_MARKER_ICON_SIZE }
-    };
-    const LAYER_ICON_CONFIG = Object.assign({}, FALLBACK_LAYER_ICON_CONFIG, EXPORTED_LAYER_ICON_CONFIG);
-    const ICON_GLYPH_BY_FA_CLASS = {
-      'fa-burger': '🍔',
-      'fa-toilet': 'WC',
-      'fa-droplet': '💧',
-      'fa-campground': '⛺',
-      'fa-gas-pump': '⛽',
-      'fa-cart-shopping': '🛒',
-      'fa-door-closed': '🚪',
-      'fa-mug-saucer': '☕',
-      'fa-store': '🏪',
-      'fa-location-dot': '•'
-    };
-
-    function categoryKey(poi) {
-      return String(poi?.categoryId || '').trim().toLowerCase() || 'default';
-    }
-
-    function getLayerIconConfig(categoryId) {
-      const key = categoryKey({ categoryId });
-      return {
-        key,
-        config: LAYER_ICON_CONFIG[key] || LAYER_ICON_CONFIG.default || FALLBACK_LAYER_ICON_CONFIG.default
-      };
-    }
-
-    function iconGlyphForPoi(poi, categoryKeyResolved) {
-      const iconClass = String(poi?.iconClass || '').trim();
-      const resolvedClass = iconClass || String((LAYER_ICON_CONFIG[categoryKeyResolved] || {}).iconClass || '');
-      const classParts = resolvedClass.split(/\s+/).filter(Boolean);
-      for (let i = 0; i < classParts.length; i++) {
-        const glyph = ICON_GLYPH_BY_FA_CLASS[classParts[i]];
-        if (glyph) return glyph;
-      }
-      return '•';
-    }
-
-    function withAlpha(color, alpha) {
-      const value = String(color || '').trim();
-      if (/^#[0-9a-f]{6}$/i.test(value)) {
-        const r = Number.parseInt(value.slice(1, 3), 16);
-        const g = Number.parseInt(value.slice(3, 5), 16);
-        const b = Number.parseInt(value.slice(5, 7), 16);
-        return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
-      }
-      return 'rgba(148,163,184,' + alpha + ')';
-    }
-
-    function getCategoryStyle(poi) {
-      const { key, config } = getLayerIconConfig(poi?.categoryId);
-      return {
-        color: String(config.color || '#6b7280'),
-        bg: withAlpha(config.color || '#6b7280', 0.16),
-        short: iconGlyphForPoi(config, key)
-      };
-    }
-
-    function escapeHtml(value) {
-      return String(value ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-    }
-
-    function sanitizeUrl(value) {
-      const raw = String(value || '').trim();
-      if (!raw) return '';
-      const lowerRaw = raw.toLowerCase();
-      if (lowerRaw.startsWith('http://') || lowerRaw.startsWith('https://')) return raw;
-      return '';
-    }
-
-    function haversineMeters(lat1, lon1, lat2, lon2) {
-      const R = 6371000;
-      const toRad = (d) => (d * Math.PI) / 180;
-      const dLat = toRad(lat2 - lat1);
-      const dLon = toRad(lon2 - lon1);
-      const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
-      return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    }
-
-    function buildKilometerMarkers(routePts, intervalKm) {
-      if (!Array.isArray(routePts) || routePts.length < 2) return [];
-      const intervalMeters = Number(intervalKm) * 1000;
-      if (!Number.isFinite(intervalMeters) || intervalMeters <= 0) return [];
-      const markers = [];
-      let cumulativeMeters = 0;
-      let nextMarkerAt = intervalMeters;
-      for (let i = 1; i < routePts.length; i++) {
-        const a = routePts[i - 1];
-        const b = routePts[i];
-        const segment = haversineMeters(a.lat, a.lon, b.lat, b.lon);
-        if (!Number.isFinite(segment) || segment <= 0) continue;
-        while ((cumulativeMeters + segment) >= nextMarkerAt) {
-          const offset = nextMarkerAt - cumulativeMeters;
-          const ratio = offset / segment;
-          markers.push({
-            lat: a.lat + ((b.lat - a.lat) * ratio),
-            lon: a.lon + ((b.lon - a.lon) * ratio),
-            km: Math.round(nextMarkerAt / 1000)
-          });
-          nextMarkerAt += intervalMeters;
-        }
-        cumulativeMeters += segment;
-      }
-      return markers;
-    }
-
-    function computeBounds(routePts, poiPts) {
-      const routeList = Array.isArray(routePts) ? routePts : [];
-      const poiList = Array.isArray(poiPts) ? poiPts : [];
-      const base = routeList.length ? routeList.concat(poiList) : poiList;
-      if (!base.length) return { minLat: 0, maxLat: 1, minLon: 0, maxLon: 1 };
-      let minLat = Infinity, maxLat = -Infinity, minLon = Infinity, maxLon = -Infinity;
-      base.forEach((p) => {
-        if (!Number.isFinite(p?.lat) || !Number.isFinite(p?.lon)) return;
-        if (p.lat < minLat) minLat = p.lat;
-        if (p.lat > maxLat) maxLat = p.lat;
-        if (p.lon < minLon) minLon = p.lon;
-        if (p.lon > maxLon) maxLon = p.lon;
-      });
-      if (!Number.isFinite(minLat)) return { minLat: 0, maxLat: 1, minLon: 0, maxLon: 1 };
-      if (minLat === maxLat) maxLat += 0.001;
-      if (minLon === maxLon) maxLon += 0.001;
-      const latPad = Math.max((maxLat - minLat) * 0.1, 0.0008);
-      const lonPad = Math.max((maxLon - minLon) * 0.1, 0.0008);
-      return { minLat: minLat - latPad, maxLat: maxLat + latPad, minLon: minLon - lonPad, maxLon: maxLon + lonPad };
-    }
-
-    function projectPoint(lat, lon, b) {
-      const mapW = 1000;
-      const mapH = 700;
-      const pad = 30;
-      const w = mapW - pad * 2;
-      const h = mapH - pad * 2;
-      const x = pad + ((lon - b.minLon) / (b.maxLon - b.minLon)) * w;
-      const y = mapH - pad - ((lat - b.minLat) / (b.maxLat - b.minLat)) * h;
-      return [x, y];
-    }
-
-    const normalizedPois = pois
-      .map((poi, index) => ({ ...poi, id: String(poi?.id || ('poi-' + index)) }))
-      .filter((poi) => Number.isFinite(poi?.lat) && Number.isFinite(poi?.lon));
-    const poiById = new Map(normalizedPois.map((poi) => [String(poi.id), poi]));
-    const kmMarkers = buildKilometerMarkers(points, 5);
-
-    const worldBounds = { minX: 0, minY: 0, maxX: 1000, maxY: 700 };
-    const routeGeoBounds = computeBounds(points, normalizedPois);
-    console.debug('[offline-export] computeBounds', routeGeoBounds);
-    let viewState = {
-      minX: worldBounds.minX,
-      minY: worldBounds.minY,
-      width: worldBounds.maxX - worldBounds.minX,
-      height: worldBounds.maxY - worldBounds.minY
-    };
-
-    function clampView() {
-      const minWidth = 120;
-      const minHeight = 84;
-      const maxWidth = worldBounds.maxX - worldBounds.minX;
-      const maxHeight = worldBounds.maxY - worldBounds.minY;
-      viewState.width = Math.min(Math.max(viewState.width, minWidth), maxWidth);
-      viewState.height = Math.min(Math.max(viewState.height, minHeight), maxHeight);
-      const maxX = worldBounds.maxX - viewState.width;
-      const maxY = worldBounds.maxY - viewState.height;
-      viewState.minX = Math.min(Math.max(viewState.minX, worldBounds.minX), Math.max(worldBounds.minX, maxX));
-      viewState.minY = Math.min(Math.max(viewState.minY, worldBounds.minY), Math.max(worldBounds.minY, maxY));
-    }
-
-    function viewPointFromClient(clientX, clientY) {
-      const rect = svg.getBoundingClientRect();
-      if (!rect.width || !rect.height) return { x: viewState.minX, y: viewState.minY };
-      const x = viewState.minX + ((clientX - rect.left) / rect.width) * viewState.width;
-      const y = viewState.minY + ((clientY - rect.top) / rect.height) * viewState.height;
-      return { x, y };
-    }
-
-    function zoomAt(factor, anchorX, anchorY) {
-      if (!Number.isFinite(factor) || factor <= 0) return;
-      const focusX = Number.isFinite(anchorX) ? anchorX : (viewState.minX + viewState.width / 2);
-      const focusY = Number.isFinite(anchorY) ? anchorY : (viewState.minY + viewState.height / 2);
-      const relX = (focusX - viewState.minX) / viewState.width;
-      const relY = (focusY - viewState.minY) / viewState.height;
-      viewState.width *= factor;
-      viewState.height *= factor;
-      viewState.minX = focusX - viewState.width * relX;
-      viewState.minY = focusY - viewState.height * relY;
-      clampView();
-      render();
-    }
-
-    function setStatus(message) {
-      if (statusChip) statusChip.textContent = message;
-    }
-
-    function computeContentBounds() {
-      const coords = [];
-      points.forEach((p) => coords.push(projectPoint(p.lat, p.lon, routeGeoBounds)));
-      kmMarkers.forEach((entry) => coords.push(projectPoint(entry.lat, entry.lon, routeGeoBounds)));
-      normalizedPois.forEach((poi) => coords.push(projectPoint(poi.lat, poi.lon, routeGeoBounds)));
-      if (!coords.length) return { minX: worldBounds.minX, minY: worldBounds.minY, maxX: worldBounds.maxX, maxY: worldBounds.maxY };
-      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-      coords.forEach(([x, y]) => {
-        if (x < minX) minX = x;
-        if (y < minY) minY = y;
-        if (x > maxX) maxX = x;
-        if (y > maxY) maxY = y;
-      });
-      const clamped = {
-        minX: Math.max(worldBounds.minX, minX),
-        minY: Math.max(worldBounds.minY, minY),
-        maxX: Math.min(worldBounds.maxX, maxX),
-        maxY: Math.min(worldBounds.maxY, maxY)
-      };
-      if (clamped.minX >= clamped.maxX || clamped.minY >= clamped.maxY) {
-        return { minX: worldBounds.minX, minY: worldBounds.minY, maxX: worldBounds.maxX, maxY: worldBounds.maxY };
-      }
-      return clamped;
-    }
-
-    function fitToRoute(rememberAsInitial) {
-      const content = computeContentBounds();
-      const pad = 36;
-      const minX = Math.max(worldBounds.minX, content.minX - pad);
-      const minY = Math.max(worldBounds.minY, content.minY - pad);
-      const maxX = Math.min(worldBounds.maxX, content.maxX + pad);
-      const maxY = Math.min(worldBounds.maxY, content.maxY + pad);
-      viewState = {
-        minX,
-        minY,
-        width: Math.max(maxX - minX, 160),
-        height: Math.max(maxY - minY, 120)
-      };
-      clampView();
-      if (rememberAsInitial) {
-        initialViewState = { ...viewState };
-      }
-      console.debug('[offline-export] fitToRoute', { rememberAsInitial, viewState: { ...viewState } });
-      render();
-    }
-
-    function resetToInitialRouteView() {
-      if (initialViewState) {
-        viewState = { ...initialViewState };
-        clampView();
-        render();
-        return;
-      }
-      fitToRoute(true);
-    }
-
-    function fieldRows(poi) {
-      return [
-        ['Kategorie', poi?.categoryLabel || poi?.categoryId],
-        ['Beschreibung', poi?.description],
-        ['Opening hours', poi?.opening_hours],
-        ['Access', poi?.access],
-        ['Operator', poi?.operator],
-        ['Fee', poi?.fee],
-        ['URL', poi?.url],
-        ['Website', poi?.website],
-        ['Telefon', poi?.phone],
-        ['Brand', poi?.brand],
-        ['Chain', poi?.chain]
-      ].filter((entry) => entry[1] && String(entry[1]).trim() !== '');
-    }
-
-    function renderValue(label, value) {
-      const safeValue = String(value || '').trim();
-      if (!safeValue) return '';
-      if (label === 'URL' || label === 'Website') {
-        const normalized = sanitizeUrl(safeValue);
-        if (normalized) return '<a href="' + escapeHtml(normalized) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(safeValue) + '</a>';
-      }
-      return escapeHtml(safeValue);
-    }
-
-    function closePopup() {
-      popup.className = 'popup';
-      popup.style.left = '0px';
-      popup.style.top = '0px';
-      popup.innerHTML = '';
-      selectedPoiId = null;
-      render();
-    }
-
-    function openPopup(poiId) {
-      const poi = poiById.get(String(poiId));
-      if (!poi) return closePopup();
-      selectedPoiId = String(poiId);
-      const style = getCategoryStyle(poi);
-      const lines = fieldRows(poi);
-      popup.className = 'popup is-open';
-      popup.innerHTML = [
-        '<button type="button" class="popup-close" id="closePopupBtn" aria-label="Schließen">×</button>',
-        '<h3>' + escapeHtml(poi.name || 'POI') + '</h3>',
-        '<span class="cat-badge" style="color:' + style.color + ';background:' + style.bg + ';border-color:' + style.color + ';">' + escapeHtml(style.short + ' • ' + (poi.categoryLabel || poi.categoryId || 'POI')) + '</span>',
-        lines.length ? lines.map((entry) => '<div class="popup-line"><b>' + escapeHtml(entry[0]) + ':</b> ' + renderValue(entry[0], entry[1]) + '</div>').join('') : '<div class="popup-line">Keine Details verfügbar.</div>'
-      ].join('');
-      document.getElementById('closePopupBtn')?.addEventListener('click', () => closePopup());
-      render();
-    }
-
-    function syncPopupPosition() {
-      if (!selectedPoiId) return;
-      const projected = projectedByPoiId.get(selectedPoiId);
-      if (!projected) {
-        popup.className = 'popup';
-        return;
-      }
-      popup.style.left = projected.x + 'px';
-      popup.style.top = projected.y + 'px';
-    }
-
-    function renderBaseScene() {
-      projectedByPoiId = new Map();
-      svg.innerHTML = '';
-      svg.setAttribute('viewBox', [viewState.minX, viewState.minY, viewState.width, viewState.height].join(' '));
-
-      const scene = document.createElementNS(svgNs, 'g');
-      svg.appendChild(scene);
-
-      const bg = document.createElementNS(svgNs, 'rect');
-      bg.setAttribute('x', '0');
-      bg.setAttribute('y', '0');
-      bg.setAttribute('width', '1000');
-      bg.setAttribute('height', '700');
-      bg.setAttribute('fill', '#f8fafc');
-      scene.appendChild(bg);
-
-      const routePoints = points.map((p) => {
-        const pp = projectPoint(p.lat, p.lon, routeGeoBounds);
-        return pp[0] + ',' + pp[1];
-      });
-
-      if (routePoints.length > 1) {
-        const glow = document.createElementNS(svgNs, 'polyline');
-        glow.setAttribute('points', routePoints.join(' '));
-        glow.setAttribute('fill', 'none');
-        glow.setAttribute('stroke', 'var(--route-glow)');
-        glow.setAttribute('stroke-width', '9');
-        glow.setAttribute('stroke-linecap', 'round');
-        glow.setAttribute('stroke-linejoin', 'round');
-        scene.appendChild(glow);
-
-        const route = document.createElementNS(svgNs, 'polyline');
-        route.setAttribute('points', routePoints.join(' '));
-        route.setAttribute('fill', 'none');
-        route.setAttribute('stroke', 'var(--route)');
-        route.setAttribute('stroke-width', '4.25');
-        route.setAttribute('stroke-linecap', 'round');
-        route.setAttribute('stroke-linejoin', 'round');
-        scene.appendChild(route);
-      }
-
-      kmMarkers.forEach((entry) => {
-        const projected = projectPoint(entry.lat, entry.lon, routeGeoBounds);
-        const group = document.createElementNS(svgNs, 'g');
-
-        const chip = document.createElementNS(svgNs, 'circle');
-        chip.setAttribute('cx', projected[0]);
-        chip.setAttribute('cy', projected[1]);
-        chip.setAttribute('r', '9');
-        chip.setAttribute('fill', '#fffaf8');
-        chip.setAttribute('stroke', '#e02424');
-        chip.setAttribute('stroke-width', '1.4');
-        group.appendChild(chip);
-
-        const txt = document.createElementNS(svgNs, 'text');
-        txt.setAttribute('x', projected[0]);
-        txt.setAttribute('y', projected[1] + 3.5);
-        txt.setAttribute('text-anchor', 'middle');
-        txt.setAttribute('font-size', '8.5');
-        txt.setAttribute('font-weight', '700');
-        txt.setAttribute('fill', '#991b1b');
-        txt.textContent = String(entry.km);
-        group.appendChild(txt);
-
-        scene.appendChild(group);
-      });
-
-      normalizedPois.forEach((poi) => {
-        const projected = projectPoint(poi.lat, poi.lon, routeGeoBounds);
-        const markerId = String(poi.id);
-        projectedByPoiId.set(markerId, { x: projected[0], y: projected[1] });
-        const isSelected = markerId === selectedPoiId;
-        const { key: resolvedCategoryKey, config } = getLayerIconConfig(poi.categoryId);
-        const markerColor = String(config.color || '#6b7280');
-        const markerOutline = String(config.outlineColor || 'rgba(255,255,255,0.25)');
-        const markerSize = Number(config.size) || DEFAULT_MARKER_SIZE;
-        const coreRadius = Math.max(5, Math.round(markerSize * 0.19));
-        const ringRadius = coreRadius + (isSelected ? 3.5 : 2.8);
-        const hitRadius = ringRadius + (isSelected ? 8 : 7);
-        const iconGlyph = iconGlyphForPoi(config, resolvedCategoryKey);
-        const iconFontSize = Math.max(8, Math.round((Number(config.iconSize) || DEFAULT_MARKER_ICON_SIZE) * 0.72));
-
-        const group = document.createElementNS(svgNs, 'g');
-        group.dataset.poiMarker = 'true';
-        group.dataset.poiId = markerId;
-        group.style.cursor = 'pointer';
-
-        const hit = document.createElementNS(svgNs, 'circle');
-        hit.setAttribute('cx', projected[0]);
-        hit.setAttribute('cy', projected[1]);
-        hit.setAttribute('r', String(hitRadius));
-        hit.setAttribute('fill', 'transparent');
-        group.appendChild(hit);
-
-        const ring = document.createElementNS(svgNs, 'circle');
-        ring.setAttribute('cx', projected[0]);
-        ring.setAttribute('cy', projected[1]);
-        ring.setAttribute('r', String(ringRadius));
-        ring.setAttribute('fill', '#ffffff');
-        ring.setAttribute('stroke', isSelected ? '#111827' : markerOutline);
-        ring.setAttribute('stroke-width', isSelected ? '2' : '1.3');
-        group.appendChild(ring);
-
-        const dot = document.createElementNS(svgNs, 'circle');
-        dot.setAttribute('cx', projected[0]);
-        dot.setAttribute('cy', projected[1]);
-        dot.setAttribute('r', String(coreRadius + (isSelected ? 0.8 : 0)));
-        dot.setAttribute('fill', markerColor);
-        dot.setAttribute('stroke', 'var(--poi-stroke)');
-        dot.setAttribute('stroke-width', '0.9');
-        group.appendChild(dot);
-
-        const symbol = document.createElementNS(svgNs, 'text');
-        symbol.setAttribute('x', projected[0]);
-        symbol.setAttribute('y', projected[1] + 0.6);
-        symbol.setAttribute('text-anchor', 'middle');
-        symbol.setAttribute('dominant-baseline', 'middle');
-        symbol.setAttribute('font-size', String(iconFontSize));
-        symbol.setAttribute('font-weight', '700');
-        symbol.setAttribute('fill', '#ffffff');
-        symbol.setAttribute('pointer-events', 'none');
-        symbol.textContent = iconGlyph;
-        group.appendChild(symbol);
-
-        scene.appendChild(group);
-      });
-
-      if (userLocation && Number.isFinite(userLocation.lat) && Number.isFinite(userLocation.lon)) {
-        const projected = projectPoint(userLocation.lat, userLocation.lon, routeGeoBounds);
-        const pulse = document.createElementNS(svgNs, 'circle');
-        pulse.setAttribute('cx', projected[0]);
-        pulse.setAttribute('cy', projected[1]);
-        pulse.setAttribute('r', '11');
-        pulse.setAttribute('fill', 'rgba(14,116,144,0.16)');
-        pulse.setAttribute('stroke', '#0369a1');
-        pulse.setAttribute('stroke-width', '1.2');
-        scene.appendChild(pulse);
-
-        const pin = document.createElementNS(svgNs, 'circle');
-        pin.setAttribute('cx', projected[0]);
-        pin.setAttribute('cy', projected[1]);
-        pin.setAttribute('r', '4.6');
-        pin.setAttribute('fill', '#0369a1');
-        pin.setAttribute('stroke', '#ffffff');
-        pin.setAttribute('stroke-width', '1.2');
-        scene.appendChild(pin);
-      }
-
-      syncPopupPosition();
-    }
-
-    function renderFallback(error) {
-      console.error('[offline-export] fallback render', error);
-      setStatus('Fallback-Render aktiv');
       try {
-        svg.innerHTML = '';
-        svg.setAttribute('viewBox', [viewState.minX, viewState.minY, viewState.width, viewState.height].join(' '));
-        const scene = document.createElementNS(svgNs, 'g');
-        svg.appendChild(scene);
-
-        const bg = document.createElementNS(svgNs, 'rect');
-        bg.setAttribute('x', '0');
-        bg.setAttribute('y', '0');
-        bg.setAttribute('width', '1000');
-        bg.setAttribute('height', '700');
-        bg.setAttribute('fill', '#f8fafc');
-        scene.appendChild(bg);
-
-        const routePoints = points.map((p) => projectPoint(p.lat, p.lon, routeGeoBounds)).map((pp) => pp[0] + ',' + pp[1]);
-        if (routePoints.length > 1) {
-          const route = document.createElementNS(svgNs, 'polyline');
-          route.setAttribute('points', routePoints.join(' '));
-          route.setAttribute('fill', 'none');
-          route.setAttribute('stroke', '#e02424');
-          route.setAttribute('stroke-width', '4');
-          route.setAttribute('stroke-linecap', 'round');
-          route.setAttribute('stroke-linejoin', 'round');
-          scene.appendChild(route);
+        if (navigator.storage?.persist) {
+          try { await navigator.storage.persist(); } catch (e) {}
         }
-
-        kmMarkers.forEach((entry) => {
-          const [x, y] = projectPoint(entry.lat, entry.lon, routeGeoBounds);
-          const chip = document.createElementNS(svgNs, 'circle');
-          chip.setAttribute('cx', x);
-          chip.setAttribute('cy', y);
-          chip.setAttribute('r', '9');
-          chip.setAttribute('fill', '#fff');
-          chip.setAttribute('stroke', '#e02424');
-          chip.setAttribute('stroke-width', '1.6');
-          scene.appendChild(chip);
-        });
-
-        normalizedPois.forEach((poi) => {
-          const [x, y] = projectPoint(poi.lat, poi.lon, routeGeoBounds);
-          const dot = document.createElementNS(svgNs, 'circle');
-          dot.setAttribute('cx', x);
-          dot.setAttribute('cy', y);
-          dot.setAttribute('r', '6');
-          dot.setAttribute('fill', '#0f172a');
-          dot.setAttribute('stroke', '#ffffff');
-          dot.setAttribute('stroke-width', '2');
-          scene.appendChild(dot);
-        });
-      } catch (fallbackError) {
-        console.error('[offline-export] hard render failure', fallbackError);
-        setStatus('Render fehlgeschlagen');
-      }
-    }
-
-    function render() {
-      try {
-        renderBaseScene();
+        const previous = await readOfflineRideSession().catch(() => null);
+        const snapshot = collectCurrentRideSession();
+        await writeOfflineRideSession(snapshot);
+        showMapToast(previous ? 'Offline ride updated.' : 'Offline ride saved.');
       } catch (error) {
-        console.error('[offline-export] render failed', error);
-        renderFallback(error);
+        console.error('offline-ride-save failed', error);
+        showMapToast('Could not save offline ride.');
       }
-    }
-
-    function requestLocation() {
-      if (!('geolocation' in navigator)) {
-        setStatus('Geolocation nicht verfügbar');
-        return;
-      }
-      if (window.location.protocol === 'file:') {
-        setStatus('Standortabfrage auf file:// ggf. blockiert');
-      } else {
-        setStatus('Standort wird ermittelt ...');
-      }
-      navigator.geolocation.getCurrentPosition((position) => {
-        userLocation = {
-          lat: Number(position.coords.latitude),
-          lon: Number(position.coords.longitude)
-        };
-        setStatus('Mein Standort aktiv');
-        render();
-      }, () => {
-        setStatus('Standortzugriff fehlgeschlagen');
-      }, {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 120000
-      });
-    }
-
-    const activePointers = new Map();
-
-    svg.addEventListener('pointerdown', (event) => {
-      svg.setPointerCapture(event.pointerId);
-      activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-      if (activePointers.size === 2) {
-        const pts = Array.from(activePointers.values());
-        const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
-        const center = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 };
-        pinchState = {
-          distance: dist,
-          center,
-          view: { ...viewState }
-        };
-        dragState = null;
-        return;
-      }
-
-      pointerDragDistance = 0;
-      dragState = {
-        x: event.clientX,
-        y: event.clientY,
-        minX: viewState.minX,
-        minY: viewState.minY
-      };
-      svg.classList.add('is-dragging');
-    });
-
-    svg.addEventListener('pointermove', (event) => {
-      if (!activePointers.has(event.pointerId)) return;
-      activePointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-
-      if (pinchState && activePointers.size >= 2) {
-        const pts = Array.from(activePointers.values());
-        const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
-        if (dist > 0 && pinchState.distance > 0) {
-          viewState = { ...pinchState.view };
-          const center = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 };
-          const anchor = viewPointFromClient(center.x, center.y);
-          zoomAt(pinchState.distance / dist, anchor.x, anchor.y);
-        }
-        return;
-      }
-
-      if (!dragState) return;
-      const scaleX = viewState.width / Math.max(svg.clientWidth, 1);
-      const scaleY = viewState.height / Math.max(svg.clientHeight, 1);
-      const dx = (event.clientX - dragState.x) * scaleX;
-      const dy = (event.clientY - dragState.y) * scaleY;
-      pointerDragDistance = Math.max(pointerDragDistance, Math.abs(event.clientX - dragState.x) + Math.abs(event.clientY - dragState.y));
-      viewState.minX = dragState.minX - dx;
-      viewState.minY = dragState.minY - dy;
-      clampView();
-      render();
-    });
-
-    function onPointerEnd(event) {
-      activePointers.delete(event.pointerId);
-      if (activePointers.size < 2) pinchState = null;
-
-      const tapThreshold = event.pointerType === 'touch' ? 12 : 8;
-      const wasTap = pointerDragDistance < tapThreshold;
-      dragState = null;
-      svg.classList.remove('is-dragging');
-      try { svg.releasePointerCapture(event.pointerId); } catch (err) {}
-
-      if (wasTap) {
-        const target = document.elementFromPoint(event.clientX, event.clientY);
-        const markerNode = target?.closest?.('[data-poi-marker="true"]');
-        const markerId = markerNode?.dataset?.poiId || null;
-        if (markerId) {
-          openPopup(markerId);
-          return;
-        }
-        closePopup();
-      }
-    }
-
-    svg.addEventListener('pointerup', onPointerEnd);
-    svg.addEventListener('pointercancel', (event) => {
-      activePointers.delete(event.pointerId);
-      pinchState = null;
-      dragState = null;
-      svg.classList.remove('is-dragging');
-    });
-
-    svg.addEventListener('wheel', (event) => {
-      event.preventDefault();
-      const anchor = viewPointFromClient(event.clientX, event.clientY);
-      const factor = event.deltaY < 0 ? 0.88 : 1.14;
-      zoomAt(factor, anchor.x, anchor.y);
-    }, { passive: false });
-
-    document.getElementById('zoomInBtn')?.addEventListener('click', () => {
-      console.debug('[offline-export] button: zoom-in');
-      zoomAt(0.75);
-    });
-    document.getElementById('zoomOutBtn')?.addEventListener('click', () => {
-      console.debug('[offline-export] button: zoom-out');
-      zoomAt(1.33);
-    });
-    document.getElementById('fitRouteBtn')?.addEventListener('click', () => {
-      console.debug('[offline-export] button: fit-route');
-      resetToInitialRouteView();
-    });
-    document.getElementById('myLocationBtn')?.addEventListener('click', () => {
-      console.debug('[offline-export] button: my-location');
-      requestLocation();
-    });
-
-    if (!points.length) {
-      setStatus('Keine Route im Snapshot');
-    } else {
-      setStatus('Route: ' + points.length + ' Punkte • POIs: ' + normalizedPois.length);
-    }
-
-    let initialViewState = null;
-
-    function initializeMapView() {
-      console.debug('[offline-export] initializeMapView:start', { points: points.length, pois: normalizedPois.length });
-      try {
-        fitToRoute(true);
-        setTimeout(() => {
-          try {
-            resetToInitialRouteView();
-          } catch (error) {
-            console.error('[offline-export] resetToInitialRouteView failed', error);
-            renderFallback(error);
-          }
-        }, 0);
-      } catch (error) {
-        console.error('[offline-export] initializeMapView failed', error);
-        setStatus('Initialisierung mit Fallback');
-        viewState = {
-          minX: worldBounds.minX,
-          minY: worldBounds.minY,
-          width: worldBounds.maxX - worldBounds.minX,
-          height: worldBounds.maxY - worldBounds.minY
-        };
-        renderFallback(error);
-      }
-    }
-
-    console.debug('[offline-export] before first render');
-    initializeMapView();
-  ${scriptCloseTag}
-</body>
-</html>`;
-    }
-
-
-    function downloadTextFile(content, filename, mimeType) {
-      const blob = new Blob([content], { type: mimeType || 'text/plain;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const anchor = document.createElement('a');
-      anchor.href = url;
-      anchor.download = filename || 'export.txt';
-      document.body.appendChild(anchor);
-      anchor.click();
-      document.body.removeChild(anchor);
-      URL.revokeObjectURL(url);
     }
 
     function buildGpxExport(trackLatLngs, visiblePois) {
@@ -3838,7 +2955,7 @@
 
     function setupGpxExportButton() {
       const exportBtn = document.getElementById('gpxExportBtn');
-      const offlineBtn = document.getElementById('offlineHtmlExportBtn');
+      const offlineBtn = document.getElementById('offlineRideSaveBtn');
       updateExportGpxVisibility();
       if (exportBtn) {
         exportBtn.addEventListener('click', () => {
@@ -3856,8 +2973,83 @@
       }
       if (offlineBtn) {
         offlineBtn.addEventListener('click', () => {
-          handleOfflineHtmlExport();
+          handleOfflineRideSave();
         });
+      }
+    }
+
+    function applyOfflineSessionUiState(session) {
+      if (!session || typeof session !== 'object') return;
+      const theme = session.theme === 'dark';
+      applyTheme(theme);
+
+      const savedFilters = session.filterState || {};
+      filterState.bundeslaender = new Set(Array.isArray(savedFilters.regions) ? savedFilters.regions : []);
+      filterState.kategorien = new Set(Array.isArray(savedFilters.categories) ? savedFilters.categories : []);
+      if (!filterState.bundeslaender.size && Array.isArray(manifestData?.regions)) {
+        manifestData.regions.forEach((entry) => filterState.bundeslaender.add(entry.id));
+      }
+      if (!filterState.kategorien.size && Array.isArray(manifestData?.categories)) {
+        manifestData.categories.forEach((entry) => filterState.kategorien.add(entry.id));
+      }
+      renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
+      renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
+
+      appState.showBadges = Boolean(savedFilters.showBadges);
+      appState.hideNoBadges = Boolean(savedFilters.hideNoBadges);
+      appState.includeMissingData = Boolean(savedFilters.includeMissingData);
+      const badgeToggle = document.getElementById('toggleBadges');
+      const hideToggle = document.getElementById('toggleHideNoBadges');
+      const includeToggle = document.getElementById('toggleIncludeMissingOH');
+      if (badgeToggle) badgeToggle.checked = appState.showBadges;
+      if (hideToggle) hideToggle.checked = appState.hideNoBadges;
+      if (includeToggle) includeToggle.checked = appState.includeMissingData;
+      updateBadgeDependentToggles(appState.showBadges, appState.hideNoBadges);
+
+      const savedThreshold = Number(savedFilters.clusterThreshold);
+      viewportClusterThreshold = Number.isFinite(savedThreshold) ? savedThreshold : DEFAULT_CLUSTER_THRESHOLD;
+      syncClusterThresholdInput();
+
+      const savedGpx = session.gpx || {};
+      const points = Array.isArray(savedGpx.points) ? savedGpx.points : [];
+      const radiusKm = Number(savedGpx.radiusKm);
+      const radiusMeters = (Number.isFinite(radiusKm) ? radiusKm : DEFAULT_GPX_RADIUS_KM) * 1000;
+      gpxState.points = points;
+      gpxState.sampledPoints = downsamplePoints(points);
+      gpxState.radiusMeters = radiusMeters;
+      gpxState.bbox = computeExpandedBBox(gpxState.sampledPoints, radiusMeters);
+      gpxState.geoJson = savedGpx.geoJson || null;
+      gpxState.active = points.length > 0;
+      appState.hasImportedGpx = points.length > 0;
+      appState.gpxTrackLatLngs = points.map((pt) => L.latLng(pt.lat, pt.lon));
+
+      const radiusInput = document.getElementById('gpxRadiusKm');
+      if (radiusInput) radiusInput.value = (radiusMeters / 1000).toFixed(1);
+      if (gpxState.geoJson) {
+        renderGpxTrack(gpxState.geoJson);
+      }
+      renderGpxKilometerMarkers(appState.gpxTrackLatLngs);
+      updateExportGpxVisibility();
+      enableGpxClusterOverride();
+
+      const savedPois = Array.isArray(session.pois) ? session.pois.map(normalizeOfflinePoi).filter(Boolean) : [];
+      renderPois(savedPois);
+
+      const savedCenter = session.map?.center;
+      const savedZoom = Number(session.map?.zoom);
+      if (savedCenter && Number.isFinite(savedCenter.lat) && Number.isFinite(savedCenter.lng) && Number.isFinite(savedZoom)) {
+        map.setView([savedCenter.lat, savedCenter.lng], savedZoom, { animate: false });
+      } else if (gpxTrackLayer) {
+        fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
+      }
+    }
+
+    async function registerServiceWorker() {
+      if (!('serviceWorker' in navigator)) return;
+      try {
+        await navigator.serviceWorker.register(SERVICE_WORKER_URL);
+      } catch (error) {
+        console.warn('service worker registration failed', error);
       }
     }
 
@@ -5134,10 +4326,13 @@
       );
     }
 
+    let shouldSkipInitialApplyFilters = false;
+
     setupIntroPopup();
     on(qs('#locateButton'), 'click', () => goToUserLocation({ centerOnFix: true }));
 
     (async () => {
+      await registerServiceWorker();
       manifestData = await loadManifest();
       categoryLabelMap = (manifestData.categories || []).reduce((acc, cat) => {
         acc[cat.id] = cat.label;
@@ -5167,6 +4362,14 @@
       setupSharedViewPrompt();
       runBadgeDiagnostics();
 
+      const savedOfflineSession = await readOfflineRideSession().catch(() => null);
+      if (!navigator.onLine && savedOfflineSession) {
+        applyOfflineSessionUiState(savedOfflineSession);
+        shouldSkipInitialApplyFilters = true;
+      } else if (navigator.onLine && savedOfflineSession) {
+        showMapToast('Offline ride available.');
+      }
+
       const hasShared = hasPendingSharedView();
       if (hasShared) {
         map.whenReady(() => {
@@ -5190,7 +4393,9 @@
         updateUrlFromCurrentState({ replace: true });
       }
       map.whenReady(() => map.invalidateSize());
-      await applyFilters();
+      if (!shouldSkipInitialApplyFilters) {
+        await applyFilters();
+      }
 
       on(qs('#catSelectAll'), 'click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
       on(qs('#catSelectNone'), 'click', () => selectNone(filterState.kategorien, 'catList', 'cat', manifestData.categories));
