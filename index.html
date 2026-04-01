@@ -9,8 +9,6 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --bg: #f6f7fb;
@@ -703,10 +701,35 @@
       box-sizing: border-box;
       position: relative;
     }
-    .mm-marker i {
+    .mm-marker .mm-icon {
       color: #fff;
       font-size: var(--marker-icon-size, 15px);
       line-height: 1;
+    }
+    .mm-icon {
+      font-style: normal;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .offline-fallback {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: var(--overlay);
+    }
+    .offline-fallback__card {
+      max-width: 480px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      color: var(--text);
     }
     .mm-marker:hover,
     .mm-marker:focus {
@@ -751,14 +774,17 @@
       window.__isDarkTheme = isDark;
     })();
   </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SSC7BE5TP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8SSC7BE5TP');
+  if (navigator.onLine) {
+    const gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-8SSC7BE5TP';
+    document.head.appendChild(gaScript);
+    gtag('js', new Date());
+    gtag('config', 'G-8SSC7BE5TP');
+  }
 </script>
 </head>
 <body>
@@ -769,11 +795,11 @@
     </div>
     <div class="map-controls-br">
       <button id="locateButton" type="button" aria-label="Center map on my location">
-        <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+        <span aria-hidden="true">◎</span>
       </button>
       <div class="share-control">
         <button id="shareMainBtn" class="btn-share-main" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Share" title="Share">
-          <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+          <span aria-hidden="true">↗</span>
         </button>
         <div id="sharePopover" class="share-popover" role="dialog" aria-label="Share / Export" aria-hidden="true">
           <div class="share-popover-title">Share / Export</div>
@@ -784,7 +810,7 @@
         </div>
       </div>
       <button id="layerDrawerToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open map options and filters">
-        <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+        <span aria-hidden="true">☰</span>
       </button>
     </div>
     <div id="mapToast" class="map-toast" role="status" aria-live="polite"></div>
@@ -949,6 +975,10 @@
     const qs = (selector, root = document) => root.querySelector(selector);
     const qsa = (selector, root = document) => Array.from(root.querySelectorAll(selector));
     const on = (el, event, handler, options) => el && el.addEventListener(event, handler, options);
+    if (typeof window.L === 'undefined') {
+      document.body.innerHTML = '<div class="offline-fallback"><div class="offline-fallback__card"><strong>App shell unavailable offline.</strong><p>Core map files are missing. Open once online to cache the app shell.</p></div></div>';
+      throw new Error('Leaflet unavailable');
+    }
 
     const THEME_KEY = 'theme';
     const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
@@ -1236,28 +1266,28 @@
 
     const LAYER_ICON_CONFIG = {
       fast_food: {
-        iconClass: 'fa-solid fa-burger',
+        iconGlyph: '🍔',
         color: '#E53935',
         hoverColor: '#FF6F60',
         outlineColor: '#FF6F60',
         label: 'Fast Food'
       },
-      toilets_public: { iconClass: 'fa-solid fa-toilet', color: '#2F80ED', label: 'Toilets' },
-      drinking_water: { iconClass: 'fa-solid fa-droplet', color: '#56CCF2', label: 'Drinking Water' },
-      shelters: { iconClass: 'fa-solid fa-campground', color: '#6FCF97', label: 'Shelter' },
-      fuel: { iconClass: 'fa-solid fa-gas-pump', color: '#F2C94C', label: 'Fuel' },
-      supermarkets: { iconClass: 'fa-solid fa-cart-shopping', color: '#9B51E0', label: 'Supermarkets' },
+      toilets_public: { iconGlyph: '🚻', color: '#2F80ED', label: 'Toilets' },
+      drinking_water: { iconGlyph: '💧', color: '#56CCF2', label: 'Drinking Water' },
+      shelters: { iconGlyph: '⛺', color: '#6FCF97', label: 'Shelter' },
+      fuel: { iconGlyph: '⛽', color: '#F2C94C', label: 'Fuel' },
+      supermarkets: { iconGlyph: '🛒', color: '#9B51E0', label: 'Supermarkets' },
       // Door-closed uses an access/service metaphor for vending machines (not a food type).
       vending_snacks: {
-        iconClass: 'fa-solid fa-door-closed',
+        iconGlyph: '🚪',
         color: '#8E8A86',
         hoverColor: '#B7B2AD',
         outlineColor: '#B7B2AD',
         label: 'Vending (Snacks & Drinks)'
       },
-      bakerys_cafes: { iconClass: 'fa-solid fa-mug-saucer', color: '#F2994A', label: 'Bakeries & Cafes' },
-      kiosks: { iconClass: 'fa-solid fa-store', color: '#27AE60', label: 'Kiosks' },
-      default: { iconClass: 'fa-solid fa-location-dot', color: '#6b7280', label: 'Points of Interest' }
+      bakerys_cafes: { iconGlyph: '☕', color: '#F2994A', label: 'Bakeries & Cafes' },
+      kiosks: { iconGlyph: '🏪', color: '#27AE60', label: 'Kiosks' },
+      default: { iconGlyph: '•', color: '#6b7280', label: 'Points of Interest' }
     };
 
     function resolveLayerKey(layerKey) {
@@ -1293,8 +1323,9 @@
       el.style.height = `${size}px`;
       el.style.color = config.color;
       el.style.fontSize = `${Math.round(size * 0.65)}px`;
-      const icon = document.createElement('i');
-      icon.className = config.iconClass;
+      const icon = document.createElement('span');
+      icon.className = 'mm-icon';
+      icon.textContent = config.iconGlyph || '•';
       icon.setAttribute('aria-hidden', 'true');
       el.appendChild(icon);
       return el;
@@ -1307,7 +1338,7 @@
       const cls = classes.filter(Boolean).join(' ');
       const dim = `${size}px`;
       const fontSize = Math.round(size * 0.65);
-      return `<span class="${cls}" style="width:${dim};height:${dim};color:${config.color};font-size:${fontSize}px;"><i class="${config.iconClass}" aria-hidden="true"></i></span>`;
+      return `<span class="${cls}" style="width:${dim};height:${dim};color:${config.color};font-size:${fontSize}px;"><span class="mm-icon" aria-hidden="true">${escapeHtml(config.iconGlyph || '•')}</span></span>`;
     }
 
     let categoryLabelMap = {};
@@ -2224,7 +2255,7 @@
         const chevron = document.createElement('span');
         chevron.classList.add('chevron');
         chevron.setAttribute('aria-hidden', 'true');
-        chevron.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+        chevron.textContent = '›';
         countryToggleBtn.appendChild(countryText);
         countryToggleBtn.appendChild(chevron);
         countryHeader.appendChild(countryCb);
@@ -2837,6 +2868,11 @@
           includeMissingData: Boolean(appState.includeMissingData),
           clusterThreshold: Number(viewportClusterThreshold)
         },
+        meta: {
+          regions: Array.isArray(manifestData?.regions) ? manifestData.regions : [],
+          categories: Array.isArray(manifestData?.categories) ? manifestData.categories : [],
+          categoryLabelMap: { ...categoryLabelMap }
+        },
         gpx: {
           points: Array.isArray(gpxState.points) ? gpxState.points.map((pt) => ({ lat: Number(pt?.lat), lon: Number(pt?.lon) })).filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lon)) : [],
           geoJson: gpxState.geoJson || null,
@@ -2994,6 +3030,22 @@
       const theme = session.theme === 'dark';
       applyTheme(theme);
 
+      const savedMeta = session.meta || {};
+      if ((!Array.isArray(manifestData?.regions) || !manifestData.regions.length) && Array.isArray(savedMeta.regions)) {
+        manifestData.regions = savedMeta.regions;
+      }
+      if ((!Array.isArray(manifestData?.categories) || !manifestData.categories.length) && Array.isArray(savedMeta.categories)) {
+        manifestData.categories = savedMeta.categories;
+      }
+      if (savedMeta.categoryLabelMap && typeof savedMeta.categoryLabelMap === 'object') {
+        categoryLabelMap = { ...savedMeta.categoryLabelMap };
+      } else if (Array.isArray(manifestData?.categories)) {
+        categoryLabelMap = manifestData.categories.reduce((acc, cat) => {
+          acc[cat.id] = cat.label;
+          return acc;
+        }, {});
+      }
+
       const savedFilters = session.filterState || {};
       filterState.bundeslaender = new Set(Array.isArray(savedFilters.regions) ? savedFilters.regions : []);
       filterState.kategorien = new Set(Array.isArray(savedFilters.categories) ? savedFilters.categories : []);
@@ -3053,6 +3105,16 @@
       } else if (gpxTrackLayer) {
         fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
       }
+    }
+
+    function showOfflineFallback(message, detail) {
+      const existing = document.getElementById('offlineFallbackOverlay');
+      if (existing) existing.remove();
+      const overlay = document.createElement('div');
+      overlay.id = 'offlineFallbackOverlay';
+      overlay.className = 'offline-fallback';
+      overlay.innerHTML = `<div class="offline-fallback__card"><strong>${escapeHtml(message)}</strong><p>${escapeHtml(detail || '')}</p></div>`;
+      document.body.appendChild(overlay);
     }
 
     function promptOfflineSessionAction() {
@@ -3763,7 +3825,7 @@
               role="img"
               aria-label="${escapeHtml(label)} marker"
               title="${escapeHtml(label)}">
-          <i class="${config.iconClass}" aria-hidden="true"></i>
+          <span class="mm-icon" aria-hidden="true">${escapeHtml(config.iconGlyph || '•')}</span>
           ${badgeHtml}
         </span>
       `;
@@ -4453,7 +4515,11 @@
 
     (async () => {
       const savedOfflineSession = await readOfflineRideSession().catch(() => null);
-      const offlineAction = savedOfflineSession ? await promptOfflineSessionAction() : null;
+      const hasSavedOfflineSession = Boolean(savedOfflineSession);
+      const isOffline = navigator.onLine === false;
+      const offlineAction = (isOffline && hasSavedOfflineSession)
+        ? await promptOfflineSessionAction()
+        : null;
 
       setAccordionHandlers();
       setupDrawer();
@@ -4474,12 +4540,20 @@
       await registerServiceWorker();
 
       let manifestLoaded = false;
-      try {
-        manifestData = await loadManifest();
-        manifestLoaded = true;
-      } catch (error) {
-        console.warn('manifest-load failed, continuing in offline mode', error);
+      if (!isOffline) {
+        try {
+          manifestData = await loadManifest();
+          manifestLoaded = true;
+        } catch (error) {
+          console.warn('manifest-load failed, continuing in offline mode', error);
+          manifestData = { regions: [], bundeslaender: [], categories: [] };
+        }
+      } else {
         manifestData = { regions: [], bundeslaender: [], categories: [] };
+      }
+      if (!manifestLoaded && savedOfflineSession?.meta) {
+        manifestData.regions = Array.isArray(savedOfflineSession.meta.regions) ? savedOfflineSession.meta.regions : [];
+        manifestData.categories = Array.isArray(savedOfflineSession.meta.categories) ? savedOfflineSession.meta.categories : [];
       }
 
       categoryLabelMap = (manifestData.categories || []).reduce((acc, cat) => {
@@ -4503,8 +4577,11 @@
           console.error('offline-ride-reset failed', error);
         });
         showMapToast('Saved offline ride was reset.');
-      } else if (savedOfflineSession) {
+      } else if (savedOfflineSession && !isOffline) {
         showMapToast('Offline ride available.');
+      }
+      if (isOffline && !savedOfflineSession) {
+        showOfflineFallback('No saved offline ride found.', 'Open the app online and use "Save Offline Ride" first.');
       }
 
       const hasShared = hasPendingSharedView();
@@ -4515,16 +4592,20 @@
         pendingSharedViewSeen = true;
         updateSharedViewPromptVisibility();
       } else if (!shouldSkipInitialApplyFilters) {
-        const initialFix = await tryGetInitialGeolocation();
-        if (initialFix) {
-          updateUserLocationLayers(initialFix);
-          map.setView([initialFix.lat, initialFix.lng], Math.max(map.getZoom(), 15), { animate: false });
-          const detectedRegion = manifestLoaded
-            ? findRegionByLocationBbox(initialFix.lat, initialFix.lng, manifestData.regions)
-            : null;
-          if (detectedRegion?.id) {
-            filterState.bundeslaender = new Set([detectedRegion.id]);
-            renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
+        if (!isOffline) {
+          const initialFix = await tryGetInitialGeolocation();
+          if (initialFix) {
+            updateUserLocationLayers(initialFix);
+            map.setView([initialFix.lat, initialFix.lng], Math.max(map.getZoom(), 15), { animate: false });
+            const detectedRegion = manifestLoaded
+              ? findRegionByLocationBbox(initialFix.lat, initialFix.lng, manifestData.regions)
+              : null;
+            if (detectedRegion?.id) {
+              filterState.bundeslaender = new Set([detectedRegion.id]);
+              renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
+            }
+          } else {
+            map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom, { animate: false });
           }
         } else {
           map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom, { animate: false });
