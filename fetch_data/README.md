@@ -13,6 +13,14 @@ Automation scripts for pulling OpenStreetMap data and exporting it as GeoJSON fo
 - Each region entry contains explicit metadata: `id`, `label`, `path`, `country`, `country_label`, `area_name`, `admin_level`.
 - Output folders are now taken from `path` (for example `resources/geojson/germany/berlin/`), not implicitly from the human-readable label.
 - Legacy `states:` is still supported by the script for transition safety, but new config should use `regions:`.
+- Naming fields are now split by purpose:
+  - `label` / `country_label`: UI text only.
+  - `area_name` / `country_area_name`: readable defaults.
+  - `query_name` / `country_query_name`: technical Overpass exact-match names.
+  - `query_name_regex` / `country_query_name_regex`: optional regex fallbacks.
+- Overpass query resolution is now the same engine for all countries:
+  - first `country+region` (if country query scope is configured), then direct region fallback,
+  - each with exact match first and optional regex fallback second.
 
 ## CLI filters
 

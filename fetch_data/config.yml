@@ -256,7 +256,8 @@ regions:
     region: aargau
     country_label: Schweiz
     area_name: Aargau
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -268,7 +269,8 @@ regions:
     region: appenzell-ausserrhoden
     country_label: Schweiz
     area_name: Appenzell Ausserrhoden
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -280,7 +282,8 @@ regions:
     region: appenzell-innerrhoden
     country_label: Schweiz
     area_name: Appenzell Innerrhoden
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -292,7 +295,8 @@ regions:
     region: basel-landschaft
     country_label: Schweiz
     area_name: Basel-Landschaft
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -304,7 +308,8 @@ regions:
     region: basel-stadt
     country_label: Schweiz
     area_name: Basel-Stadt
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -316,8 +321,10 @@ regions:
     region: bern
     country_label: Schweiz
     area_name: Bern/Berne
-    query_name: Bern/Berne
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    query_name: Bern
+    query_name_regex: ^(Bern|Berne)$
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -329,8 +336,10 @@ regions:
     region: fribourg
     country_label: Schweiz
     area_name: Fribourg/Freiburg
-    query_name: Fribourg/Freiburg
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    query_name: Fribourg
+    query_name_regex: ^(Fribourg|Freiburg)$
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -342,7 +351,8 @@ regions:
     region: geneve
     country_label: Schweiz
     area_name: Genève
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -354,7 +364,8 @@ regions:
     region: glarus
     country_label: Schweiz
     area_name: Glarus
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -366,8 +377,10 @@ regions:
     region: graubuenden
     country_label: Schweiz
     area_name: Graubünden/Grischun/Grigioni
-    query_name: Graubünden/Grischun/Grigioni
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    query_name: Graubünden
+    query_name_regex: ^(Graubünden|Grischun|Grigioni)$
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -379,7 +392,8 @@ regions:
     region: jura
     country_label: Schweiz
     area_name: Jura
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -391,7 +405,8 @@ regions:
     region: luzern
     country_label: Schweiz
     area_name: Luzern
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -403,7 +418,8 @@ regions:
     region: neuchatel
     country_label: Schweiz
     area_name: Neuchâtel
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -415,7 +431,8 @@ regions:
     region: nidwalden
     country_label: Schweiz
     area_name: Nidwalden
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -427,7 +444,8 @@ regions:
     region: obwalden
     country_label: Schweiz
     area_name: Obwalden
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -439,7 +457,8 @@ regions:
     region: schaffhausen
     country_label: Schweiz
     area_name: Schaffhausen
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -451,7 +470,8 @@ regions:
     region: schwyz
     country_label: Schweiz
     area_name: Schwyz
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -463,7 +483,8 @@ regions:
     region: solothurn
     country_label: Schweiz
     area_name: Solothurn
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -475,7 +496,8 @@ regions:
     region: st-gallen
     country_label: Schweiz
     area_name: St. Gallen
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -487,7 +509,8 @@ regions:
     region: thurgau
     country_label: Schweiz
     area_name: Thurgau
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -499,7 +522,8 @@ regions:
     region: ticino
     country_label: Schweiz
     area_name: Ticino
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -511,7 +535,8 @@ regions:
     region: uri
     country_label: Schweiz
     area_name: Uri
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -523,8 +548,10 @@ regions:
     region: valais
     country_label: Schweiz
     area_name: Valais/Wallis
-    query_name: Valais/Wallis
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    query_name: Valais
+    query_name_regex: ^(Valais|Wallis)$
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -536,7 +563,8 @@ regions:
     region: vaud
     country_label: Schweiz
     area_name: Vaud
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -548,7 +576,8 @@ regions:
     region: zug
     country_label: Schweiz
     area_name: Zug
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
@@ -560,7 +589,8 @@ regions:
     region: zurich
     country_label: Schweiz
     area_name: Zürich
-    country_area_name: Schweiz/Suisse/Svizzera/Svizra
+    country_area_name: Schweiz
+    country_query_name: Switzerland
     country_admin_level: 2
     admin_level: 4
     categories:
