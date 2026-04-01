@@ -716,7 +716,9 @@ def run(
             f"id={region['id']} | country={region['country']} | label={region['label']}"
         )
         region_categories_raw = region.get("categories")
-        if isinstance(region_categories_raw, list) and region_categories_raw:
+        if category_filter:
+            region_categories = list(selected_categories)
+        elif isinstance(region_categories_raw, list) and region_categories_raw:
             allowed_region_categories = {
                 str(item).strip() for item in region_categories_raw if str(item).strip()
             }
