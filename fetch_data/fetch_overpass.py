@@ -163,43 +163,100 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
     return []
 
 
-def build_query(region: Dict[str, Any], body: str, timeout: int, use_legacy_area: bool = False) -> str:
-    """Construct the full Overpass query for a region and category."""
-    area_name = normalize_text(region.get("query_name")) or region["area_name"]
-    admin_level = str(region["admin_level"])
-    country_area_name = normalize_text(region.get("country_area_name"))
+def overpass_escape(value: str) -> str:
+    """Escape Overpass string literals."""
+    return value.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def get_region_query_name(region: Dict[str, Any]) -> str:
+    """Return technical region name for exact query matching."""
+    return normalize_text(region.get("query_name")) or normalize_text(region.get("area_name"))
+
+
+def get_country_query_name(region: Dict[str, Any]) -> str:
+    """Return technical country name for exact query matching."""
+    return normalize_text(region.get("country_query_name")) or normalize_text(region.get("country_area_name"))
+
+
+def get_region_query_regex(region: Dict[str, Any]) -> str:
+    """Return optional region regex fallback pattern."""
+    return normalize_text(region.get("query_name_regex"))
+
+
+def get_country_query_regex(region: Dict[str, Any]) -> str:
+    """Return optional country regex fallback pattern."""
+    return normalize_text(region.get("country_query_name_regex"))
+
+
+def has_country_scope(region: Dict[str, Any]) -> bool:
+    """Return whether region should be resolved inside an explicit country scope."""
+    return bool(get_country_query_name(region))
+
+
+def build_exact_relation_selector(name: str, admin_level: str, target_var: str, area_scope: str | None = None) -> str:
+    """Build exact relation selector with optional area scope."""
+    scope = f"(area.{area_scope})" if area_scope else ""
+    return (
+        f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]"
+        f"[\"name\"=\"{overpass_escape(name)}\"]{scope}->{target_var};"
+    )
+
+
+def build_regex_relation_selector(pattern: str, admin_level: str, target_var: str, area_scope: str | None = None) -> str:
+    """Build regex relation selector with optional area scope."""
+    scope = f"(area.{area_scope})" if area_scope else ""
+    return (
+        f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]"
+        f"[\"name\"~\"{overpass_escape(pattern)}\"]{scope}->{target_var};"
+    )
+
+
+def build_country_region_scope(region: Dict[str, Any], match_type: str) -> str | None:
+    """Build region search area by first resolving country and then region."""
     country_admin_level = normalize_text(region.get("country_admin_level")) or "2"
-    if use_legacy_area:
-        if country_area_name:
-            region_area = "\n".join(
-                [
-                    f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"][\"name\"=\"{country_area_name}\"]->.countryRel;",
-                    ".countryRel map_to_area->.searchCountryArea;",
-                    f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"][\"name\"=\"{area_name}\"](area.searchCountryArea)->.regionRel;",
-                    ".regionRel map_to_area->.searchArea;",
-                ]
-            )
-        else:
-            region_area = (
-                f"area[\"name\"=\"{area_name}\"][\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]->.searchArea;"
-            )
+    region_admin_level = str(region["admin_level"])
+    country_query = (
+        get_country_query_name(region) if match_type == "exact" else get_country_query_regex(region)
+    )
+    region_query = get_region_query_name(region) if match_type == "exact" else get_region_query_regex(region)
+    if not country_query or not region_query:
+        return None
+    selector_builder = build_exact_relation_selector if match_type == "exact" else build_regex_relation_selector
+    return "\n".join(
+        [
+            selector_builder(country_query, country_admin_level, ".countryRel"),
+            ".countryRel map_to_area->.searchCountryArea;",
+            selector_builder(region_query, region_admin_level, ".regionRel", "searchCountryArea"),
+            ".regionRel map_to_area->.searchArea;",
+        ]
+    )
+
+
+def build_direct_region_scope(region: Dict[str, Any], match_type: str) -> str | None:
+    """Build region search area by resolving the region relation directly."""
+    region_admin_level = str(region["admin_level"])
+    region_query = get_region_query_name(region) if match_type == "exact" else get_region_query_regex(region)
+    if not region_query:
+        return None
+    selector_builder = build_exact_relation_selector if match_type == "exact" else build_regex_relation_selector
+    return "\n".join(
+        [
+            selector_builder(region_query, region_admin_level, ".regionRel"),
+            ".regionRel map_to_area->.searchArea;",
+        ]
+    )
+
+
+def build_query(region: Dict[str, Any], body: str, timeout: int, mode: str, match_type: str) -> str:
+    """Construct the full Overpass query for a region and category."""
+    if mode == "country+region":
+        region_area = build_country_region_scope(region, match_type)
+    elif mode == "direct-region":
+        region_area = build_direct_region_scope(region, match_type)
     else:
-        if country_area_name:
-            region_area = "\n".join(
-                [
-                    f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"][\"name\"=\"{country_area_name}\"]->.countryRel;",
-                    ".countryRel map_to_area->.searchCountryArea;",
-                    f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"][\"name\"=\"{area_name}\"](area.searchCountryArea)->.regionRel;",
-                    ".regionRel map_to_area->.searchArea;",
-                ]
-            )
-        else:
-            region_area = "\n".join(
-                [
-                    f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"][\"name\"=\"{area_name}\"]->.regionRel;",
-                    ".regionRel map_to_area->.searchArea;",
-                ]
-            )
+        raise ValueError(f"Unsupported query mode: {mode}")
+    if not region_area:
+        raise ValueError(f"Cannot build query scope for mode={mode}, match_type={match_type}, region={region['id']}")
     return dedent(
         f"""
         [out:json][timeout:{timeout}];
@@ -210,6 +267,58 @@ def build_query(region: Dict[str, Any], body: str, timeout: int, use_legacy_area
         out center qt;
         """
     ).strip()
+
+
+def build_query_attempts(region: Dict[str, Any]) -> List[Dict[str, str]]:
+    """Build ordered, de-duplicated query attempts for a region."""
+    attempts: List[Dict[str, str]] = []
+
+    def append_attempt(mode: str, match_type: str) -> None:
+        region_query = get_region_query_name(region) if match_type == "exact" else get_region_query_regex(region)
+        country_query = (
+            get_country_query_name(region) if match_type == "exact" else get_country_query_regex(region)
+        )
+        if not region_query:
+            return
+        if mode == "country+region" and not country_query:
+            return
+        if mode != "country+region":
+            country_query = ""
+        attempts.append(
+            {
+                "mode": mode,
+                "match_type": match_type,
+                "region_query": region_query,
+                "country_query": country_query,
+            }
+        )
+
+    if has_country_scope(region):
+        append_attempt("country+region", "exact")
+        if get_region_query_regex(region) or get_country_query_regex(region):
+            append_attempt("country+region", "regex")
+        append_attempt("direct-region", "exact")
+        if get_region_query_regex(region):
+            append_attempt("direct-region", "regex")
+    else:
+        append_attempt("direct-region", "exact")
+        if get_region_query_regex(region):
+            append_attempt("direct-region", "regex")
+
+    unique_attempts: List[Dict[str, str]] = []
+    seen: set[tuple[str, str, str, str]] = set()
+    for attempt in attempts:
+        key = (
+            attempt["mode"],
+            attempt["match_type"],
+            attempt["region_query"],
+            attempt["country_query"],
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        unique_attempts.append(attempt)
+    return unique_attempts
 
 
 def request_with_retry(endpoints: List[str], query: str, timeout: int) -> Dict[str, Any]:
@@ -625,33 +734,47 @@ def run(
                 f"Region={region['id']} | Country={region['country']} | Category={category} | Template={func_name}"
             )
             body = template_func()
-            query = build_query(region, body, timeout)
-            print(
-                "[query] "
-                f"region={region['id']} | country={region['country']} | area={region['area_name']} "
-                f"| level={region['admin_level']} | category={category}"
-            )
-            print(f"[query] Built query (chars={len(query)}, timeout={timeout}s)")
-            if verbose_query:
-                print(f"[query] Full query:\n{query}")
             try:
-                response_json = request_with_retry(endpoints, query, timeout)
-                elements = response_json.get("elements", [])
-                if len(elements) == 0:
+                attempts = build_query_attempts(region)
+                if not attempts:
+                    raise ValueError(f"No valid query attempts for region={region['id']}")
+
+                elements: List[Dict[str, Any]] = []
+                fallback_used = False
+                for attempt_index, attempt in enumerate(attempts, start=1):
+                    mode = attempt["mode"]
+                    match_type = attempt["match_type"]
+                    region_query = attempt["region_query"]
+                    country_query = attempt["country_query"]
+                    query = build_query(region, body, timeout, mode=mode, match_type=match_type)
+                    prefix = "[query]" if attempt_index == 1 else "[query] fallback ->"
                     print(
-                        "No Overpass elements returned for "
-                        f"region={region['id']}, area_name={region['area_name']}, "
-                        f"admin_level={region['admin_level']}, category={category}"
+                        f"{prefix} label={region['label']} | country={region['country']} "
+                        f"| region_query={region_query} | country_query={country_query or '-'} "
+                        f"| mode={mode} | match_type={match_type} | category={category}"
                     )
-                    fallback_query = build_query(region, body, timeout, use_legacy_area=True)
+                    print(f"[query] Built query (chars={len(query)}, timeout={timeout}s)")
+                    if verbose_query:
+                        print(f"[query] Full query:\n{query}")
+                    response_json = request_with_retry(endpoints, query, timeout)
+                    elements = response_json.get("elements", [])
+                    if elements:
+                        break
+                    if attempt_index < len(attempts):
+                        fallback_used = True
+                        next_attempt = attempts[attempt_index]
+                        print(
+                            "[query] No elements returned; considering fallback "
+                            f"to mode={next_attempt['mode']} | match_type={next_attempt['match_type']}"
+                        )
+
+                if not elements:
                     print(
-                        "[query] Fallback to legacy area selector "
+                        "[query] No Overpass elements returned after query attempts "
                         f"for region={region['id']} | category={category}"
                     )
-                    if verbose_query:
-                        print(f"[query] Full fallback query:\n{fallback_query}")
-                    response_json = request_with_retry(endpoints, fallback_query, timeout)
-                    elements = response_json.get("elements", [])
+                elif fallback_used:
+                    print("[query] Fallback succeeded.")
                 geojson = convert_to_geojson(elements, category)
                 print(f"[diag] elements={len(elements)} | features={len(geojson.get('features', []))}")
                 save_geojson(geojson, region, category)
