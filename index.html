@@ -4121,13 +4121,18 @@
       return regions.find((region) => region?.id === regionId) || null;
     }
 
+    function getGeoJsonPath(country, region, fallbackPath) {
+      if (country && region) return `${country}/${region}`;
+      return fallbackPath || '';
+    }
+
     async function ensureDataset(bundeslandId, categoryId) {
       const key = comboKey(bundeslandId, categoryId);
       if (datasetCache.has(key)) return datasetCache.get(key);
       if (missingCache.has(key)) return null;
 
       const region = getRegionById(bundeslandId);
-      const regionPath = region?.path || bundeslandId;
+      const regionPath = getGeoJsonPath(region?.country, region?.region, region?.path || bundeslandId);
       const url = `resources/geojson/${regionPath}/${categoryId}.geojson?v=${APP_VERSION}`;
 
       console.log('[dataset-load]', {

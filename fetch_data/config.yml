@@ -9,212 +9,242 @@ overpass:
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg
-    path: germany-baden-wuerttemberg
+    path: germany/baden-wuerttemberg
     country: germany
+    region: baden-wuerttemberg
     country_label: Germany
     area_name: Baden-Württemberg
     admin_level: 4
   - id: de-bayern
     label: Bayern
-    path: germany-bayern
+    path: germany/bayern
     country: germany
+    region: bayern
     country_label: Germany
     area_name: Bayern
     admin_level: 4
   - id: de-berlin
     label: Berlin
-    path: germany-berlin
+    path: germany/berlin
     country: germany
+    region: berlin
     country_label: Germany
     area_name: Berlin
     admin_level: 4
   - id: de-brandenburg
     label: Brandenburg
-    path: germany-brandenburg
+    path: germany/brandenburg
     country: germany
+    region: brandenburg
     country_label: Germany
     area_name: Brandenburg
     admin_level: 4
   - id: de-bremen
     label: Bremen
-    path: germany-bremen
+    path: germany/bremen
     country: germany
+    region: bremen
     country_label: Germany
     area_name: Bremen
     admin_level: 4
   - id: de-hamburg
     label: Hamburg
-    path: germany-hamburg
+    path: germany/hamburg
     country: germany
+    region: hamburg
     country_label: Germany
     area_name: Hamburg
     admin_level: 4
   - id: de-hessen
     label: Hessen
-    path: germany-hessen
+    path: germany/hessen
     country: germany
+    region: hessen
     country_label: Germany
     area_name: Hessen
     admin_level: 4
   - id: de-mecklenburg-vorpommern
     label: Mecklenburg-Vorpommern
-    path: germany-mecklenburg-vorpommern
+    path: germany/mecklenburg-vorpommern
     country: germany
+    region: mecklenburg-vorpommern
     country_label: Germany
     area_name: Mecklenburg-Vorpommern
     admin_level: 4
   - id: de-niedersachsen
     label: Niedersachsen
-    path: germany-niedersachsen
+    path: germany/niedersachsen
     country: germany
+    region: niedersachsen
     country_label: Germany
     area_name: Niedersachsen
     admin_level: 4
   - id: de-nordrhein-westfalen
     label: Nordrhein-Westfalen
-    path: germany-nordrhein-westfalen
+    path: germany/nordrhein-westfalen
     country: germany
+    region: nordrhein-westfalen
     country_label: Germany
     area_name: Nordrhein-Westfalen
     admin_level: 4
   - id: de-rheinland-pfalz
     label: Rheinland-Pfalz
-    path: germany-rheinland-pfalz
+    path: germany/rheinland-pfalz
     country: germany
+    region: rheinland-pfalz
     country_label: Germany
     area_name: Rheinland-Pfalz
     admin_level: 4
   - id: de-saarland
     label: Saarland
-    path: germany-saarland
+    path: germany/saarland
     country: germany
+    region: saarland
     country_label: Germany
     area_name: Saarland
     admin_level: 4
   - id: de-sachsen
     label: Sachsen
-    path: germany-sachsen
+    path: germany/sachsen
     country: germany
+    region: sachsen
     country_label: Germany
     area_name: Sachsen
     admin_level: 4
   - id: de-sachsen-anhalt
     label: Sachsen-Anhalt
-    path: germany-sachsen-anhalt
+    path: germany/sachsen-anhalt
     country: germany
+    region: sachsen-anhalt
     country_label: Germany
     area_name: Sachsen-Anhalt
     admin_level: 4
   - id: de-schleswig-holstein
     label: Schleswig-Holstein
-    path: germany-schleswig-holstein
+    path: germany/schleswig-holstein
     country: germany
+    region: schleswig-holstein
     country_label: Germany
     area_name: Schleswig-Holstein
     admin_level: 4
   - id: de-thueringen
     label: Thüringen
-    path: germany-thueringen
+    path: germany/thueringen
     country: germany
+    region: thueringen
     country_label: Germany
     area_name: Thüringen
     admin_level: 4
 
   - id: cz-praha
     label: Praha
-    path: czechia-praha
+    path: czechia/praha
     country: czechia
+    region: praha
     country_label: Czechia
     area_name: Praha
     admin_level: 4
   - id: cz-stredocesky
     label: Středočeský kraj
-    path: czechia-stredocesky
+    path: czechia/stredocesky
     country: czechia
+    region: stredocesky
     country_label: Czechia
     area_name: Středočeský kraj
     admin_level: 4
   - id: cz-jihocesky
     label: Jihočeský kraj
-    path: czechia-jihocesky
+    path: czechia/jihocesky
     country: czechia
+    region: jihocesky
     country_label: Czechia
     area_name: Jihočeský kraj
     admin_level: 4
   - id: cz-plzensky
     label: Plzeňský kraj
-    path: czechia-plzensky
+    path: czechia/plzensky
     country: czechia
+    region: plzensky
     country_label: Czechia
     area_name: Plzeňský kraj
     admin_level: 4
   - id: cz-karlovarsky
     label: Karlovarský kraj
-    path: czechia-karlovarsky
+    path: czechia/karlovarsky
     country: czechia
+    region: karlovarsky
     country_label: Czechia
     area_name: Karlovarský kraj
     admin_level: 4
   - id: cz-ustecky
     label: Ústecký kraj
-    path: czechia-ustecky
+    path: czechia/ustecky
     country: czechia
+    region: ustecky
     country_label: Czechia
     area_name: Ústecký kraj
     admin_level: 4
   - id: cz-liberecky
     label: Liberecký kraj
-    path: czechia-liberecky
+    path: czechia/liberecky
     country: czechia
+    region: liberecky
     country_label: Czechia
     area_name: Liberecký kraj
     admin_level: 4
   - id: cz-kralovehradecky
     label: Královéhradecký kraj
-    path: czechia-kralovehradecky
+    path: czechia/kralovehradecky
     country: czechia
+    region: kralovehradecky
     country_label: Czechia
     area_name: Královéhradecký kraj
     admin_level: 4
   - id: cz-pardubicky
     label: Pardubický kraj
-    path: czechia-pardubicky
+    path: czechia/pardubicky
     country: czechia
+    region: pardubicky
     country_label: Czechia
     area_name: Pardubický kraj
     admin_level: 4
   - id: cz-vysocina
     label: Vysočina
-    path: czechia-vysocina
+    path: czechia/vysocina
     country: czechia
+    region: vysocina
     country_label: Czechia
     area_name: Kraj Vysočina
     admin_level: 4
   - id: cz-jihomoravsky
     label: Jihomoravský kraj
-    path: czechia-jihomoravsky
+    path: czechia/jihomoravsky
     country: czechia
+    region: jihomoravsky
     country_label: Czechia
     area_name: Jihomoravský kraj
     admin_level: 4
   - id: cz-olomoucky
     label: Olomoucký kraj
-    path: czechia-olomoucky
+    path: czechia/olomoucky
     country: czechia
+    region: olomoucky
     country_label: Czechia
     area_name: Olomoucký kraj
     admin_level: 4
   - id: cz-zlinsky
     label: Zlínský kraj
-    path: czechia-zlinsky
+    path: czechia/zlinsky
     country: czechia
+    region: zlinsky
     country_label: Czechia
     area_name: Zlínský kraj
     admin_level: 4
   - id: cz-moravskoslezsky
     label: Moravskoslezský kraj
-    path: czechia-moravskoslezsky
+    path: czechia/moravskoslezsky
     country: czechia
+    region: moravskoslezsky
     country_label: Czechia
     area_name: Moravskoslezský kraj
     admin_level: 4
