@@ -11,7 +11,7 @@ Automation scripts for pulling OpenStreetMap data and exporting it as GeoJSON fo
 
 - `config.yml` now uses `regions:` instead of a flat `states:` list.
 - Each region entry contains explicit metadata: `id`, `label`, `path`, `country`, `country_label`, `area_name`, `admin_level`.
-- Output folders are now taken from `path` (for example `resources/geojson/germany-berlin/`), not implicitly from the human-readable label.
+- Output folders are now taken from `path` (for example `resources/geojson/germany/berlin/`), not implicitly from the human-readable label.
 - Legacy `states:` is still supported by the script for transition safety, but new config should use `regions:`.
 
 ## CLI filters

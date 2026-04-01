@@ -127,6 +127,15 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                 )
             region = dict(raw_region)
             region["admin_level"] = int(region["admin_level"])
+            if "region" not in region or not str(region["region"]).strip():
+                configured_path = str(region["path"])
+                if "/" in configured_path:
+                    region["region"] = configured_path.split("/", 1)[1]
+                elif "-" in configured_path:
+                    region["region"] = configured_path.split("-", 1)[1]
+                else:
+                    region["region"] = slugify(str(region["label"]))
+            region["path"] = get_geojson_path(str(region["country"]), str(region["region"]))
             regions.append(region)
         return regions
 
@@ -141,7 +150,8 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                 {
                     "id": f"de-{slugify(state_name)}",
                     "label": state_name,
-                    "path": state_name,
+                    "region": slugify(state_name),
+                    "path": get_geojson_path("germany", slugify(state_name)),
                     "country": "germany",
                     "country_label": "Germany",
                     "area_name": state_name,
@@ -367,6 +377,11 @@ def has_geojson_files(path: Path) -> bool:
     return any(file_path.suffix == ".geojson" for file_path in path.iterdir())
 
 
+def get_geojson_path(country: str, region: str) -> str:
+    """Build canonical country/region path for a region dataset."""
+    return f"{country}/{region}"
+
+
 def resolve_region_data_path(region: Dict[str, Any]) -> str:
     """Resolve data path with compatibility fallback to legacy label directories."""
     configured_path = str(region["path"])
@@ -449,6 +464,7 @@ def build_manifest(regions: List[Dict[str, Any]], categories: Dict[str, str]) ->
                 "label": region["label"],
                 "path": region_path,
                 "country": region["country"],
+                "region": region.get("region"),
                 "country_label": region["country_label"],
                 "bbox": compute_bbox_from_geojson_dir(region_path),
             }
