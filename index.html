@@ -531,6 +531,7 @@
     .cluster-row label { font-weight: 650; color: var(--text); }
     .cluster-row input[type="number"] { width: 160px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
     .cluster-helper { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.4; }
+    .cluster-status { margin: 2px 0 0; color: var(--muted); font-size: 12px; line-height: 1.35; }
     .zoom-row { display: flex; flex-direction: column; gap: 6px; }
     .zoom-row label { font-weight: 650; color: var(--text); }
     .zoom-row input[type="number"] { width: 100px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
@@ -919,6 +920,7 @@
                   <label for="clusterThresholdInput">Enable clustering above (visible POIs)</label>
                   <input type="number" id="clusterThresholdInput" min="0" step="1" />
                   <p class="cluster-helper">Clusters appear only when more than X POIs are visible in the current map view.</p>
+                  <p class="cluster-status" id="visiblePoiCountStatus">Sichtbare POIs: 0</p>
                 </div>
               </div>
             </div>
@@ -3993,28 +3995,6 @@
       return indices;
     }
 
-    function countPointsInSegment(south, north, west, east) {
-      return collectIndicesInSegment(south, north, west, east).length;
-    }
-
-    function countVisibleInBounds(bounds) {
-      if (!bounds) return 0;
-      const south = bounds.getSouth();
-      const north = bounds.getNorth();
-      const west = bounds.getWest();
-      const east = bounds.getEast();
-
-      if (west <= east) {
-        return countPointsInSegment(south, north, west, east);
-      }
-
-      // Handle world-wrap by splitting into two segments
-      return (
-        countPointsInSegment(south, north, west, 180) +
-        countPointsInSegment(south, north, -180, east)
-      );
-    }
-
     function getPaddedBounds(bounds, paddingPx = 0) {
       if (!map || !bounds || !paddingPx) return bounds;
       const size = map.getSize();
@@ -4063,6 +4043,20 @@
         }
         return false;
       });
+    }
+
+    function getVisiblePoiCount(bounds) {
+      if (!map) return 0;
+      if (!shouldShowPoisAtCurrentZoom()) return 0;
+      const viewportBounds = bounds || map.getBounds();
+      return getVisiblePoints(viewportBounds, 0).length;
+    }
+
+    function updateVisiblePoiCountStatus(count) {
+      const statusEl = document.getElementById('visiblePoiCountStatus');
+      if (!statusEl) return;
+      const safeCount = Number.isFinite(count) ? Math.max(0, Math.floor(count)) : 0;
+      statusEl.textContent = `Sichtbare POIs: ${safeCount}`;
     }
 
     function clearPoiLayers() {
@@ -4121,6 +4115,7 @@
     function updateClusteringForViewport() {
       if (!map) return;
       if (!shouldShowPoisAtCurrentZoom()) {
+        updateVisiblePoiCountStatus(0);
         clearPoiLayers();
         if (!zoomHintActive) {
           showMapToast('Zoome weiter hinein, um POIs anzuzeigen.');
@@ -4130,7 +4125,8 @@
       }
       zoomHintActive = false;
       const bounds = map.getBounds();
-      const visibleCount = countVisibleInBounds(bounds);
+      const visibleCount = getVisiblePoiCount(bounds);
+      updateVisiblePoiCountStatus(visibleCount);
       const nextMode = visibleCount > viewportClusterThreshold ? 'cluster' : 'plain';
       renderWithMode(nextMode);
     }
