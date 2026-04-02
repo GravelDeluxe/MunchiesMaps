@@ -981,7 +981,7 @@
     const QUICK_FEEDBACK_RATE_LIMIT_MS = 60000;
     const QUICK_FEEDBACK_STORAGE_KEY = 'quickFeedbackLastSubmit';
     const INTRO_HIDE_KEY = 'munchiesMapsHideIntro';
-    const SHARE_SCHEMA_VERSION = "1";
+    const SHARE_SCHEMA_VERSION = "2";
     const GH_OWNER = "MarkusCouch";
     const GH_REPO = "MunchiesMaps";
     const GH_NEW_ISSUE_URL = `https://github.com/${GH_OWNER}/${GH_REPO}/issues/new`;
@@ -1006,6 +1006,25 @@
       SH: 'Schleswig-Holstein',
       TH: 'Thueringen'
     };
+    const REGION_ORDER = {
+      de: [
+        'de-baden-wuerttemberg', 'de-bayern', 'de-berlin', 'de-brandenburg', 'de-bremen', 'de-hamburg',
+        'de-hessen', 'de-mecklenburg-vorpommern', 'de-niedersachsen', 'de-nordrhein-westfalen',
+        'de-rheinland-pfalz', 'de-saarland', 'de-sachsen', 'de-sachsen-anhalt', 'de-schleswig-holstein',
+        'de-thueringen'
+      ],
+      cz: [
+        'cz-jihocesky', 'cz-jihomoravsky', 'cz-karlovarsky', 'cz-kralovehradecky', 'cz-liberecky', 'cz-moravskoslezsky',
+        'cz-olomoucky', 'cz-pardubicky', 'cz-plzensky', 'cz-praha', 'cz-stredocesky', 'cz-ustecky', 'cz-vysocina', 'cz-zlinsky'
+      ],
+      ch: [
+        'ch-aargau', 'ch-appenzell-ausserrhoden', 'ch-appenzell-innerrhoden', 'ch-basel-landschaft', 'ch-basel-stadt',
+        'ch-bern', 'ch-fribourg', 'ch-geneve', 'ch-glarus', 'ch-graubuenden', 'ch-jura', 'ch-luzern', 'ch-neuchatel',
+        'ch-nidwalden', 'ch-obwalden', 'ch-schaffhausen', 'ch-schwyz', 'ch-solothurn', 'ch-st-gallen', 'ch-thurgau',
+        'ch-ticino', 'ch-uri', 'ch-valais', 'ch-vaud', 'ch-zug', 'ch-zurich'
+      ]
+    };
+    const REGION_COUNTRIES = Object.keys(REGION_ORDER);
 
     const CAT_CODE_TO_ID = {
       ff: 'fast_food',
@@ -1019,11 +1038,6 @@
       ki: 'kiosks'
     };
 
-    const STATE_ID_TO_CODE = Object.entries(STATE_CODE_TO_ID)
-      .reduce((acc, [code, id]) => {
-        acc[id] = code;
-        return acc;
-      }, {});
     const CAT_ID_TO_CODE = Object.entries(CAT_CODE_TO_ID)
       .reduce((acc, [code, id]) => {
         acc[id] = code;
@@ -1410,6 +1424,186 @@
       return String(value || '').split(',').map((s) => s.trim()).filter(Boolean);
     }
 
+    function getRegionOrder(country) {
+      const key = String(country || '').toLowerCase();
+      return Array.isArray(REGION_ORDER[key]) ? REGION_ORDER[key] : [];
+    }
+
+    function encodeActiveRegions(country, activeRegions) {
+      const order = getRegionOrder(country);
+      if (!order.length) return null;
+      const selected = activeRegions instanceof Set ? activeRegions : new Set(activeRegions || []);
+      const bitString = order.map((regionId) => (selected.has(regionId) ? '1' : '0')).join('');
+      const value = parseInt(bitString, 2);
+      return Number.isFinite(value) ? value.toString(36) : null;
+    }
+
+    function decodeActiveRegions(country, code) {
+      const order = getRegionOrder(country);
+      if (!order.length) return null;
+      const token = String(code || '').trim().toLowerCase();
+      if (!/^[0-9a-z]+$/.test(token)) return null;
+      const value = parseInt(token, 36);
+      if (!Number.isFinite(value)) return null;
+      const bits = value.toString(2);
+      if (bits.length > order.length) return null;
+      const normalizedBits = bits.padStart(order.length, '0');
+      const selected = new Set();
+      normalizedBits.split('').forEach((bit, index) => {
+        if (bit === '1') selected.add(order[index]);
+      });
+      return selected;
+    }
+
+    function getDefaultRegionStateByCountry() {
+      return REGION_COUNTRIES.reduce((acc, country) => {
+        acc[country] = new Set(getRegionOrder(country));
+        return acc;
+      }, {});
+    }
+
+    function serializeRegionStateByCountry(stateByCountry) {
+      const parts = [];
+      REGION_COUNTRIES.forEach((country) => {
+        const selection = stateByCountry?.[country];
+        if (!(selection instanceof Set)) return;
+        const defaultSet = new Set(getRegionOrder(country));
+        if (setEquals(selection, defaultSet)) return;
+        const encoded = encodeActiveRegions(country, selection);
+        if (encoded) {
+          parts.push(`${country}:${encoded}`);
+        }
+      });
+      return parts.join(';');
+    }
+
+    function parseRegionStateParam(value) {
+      const result = {};
+      const raw = String(value || '').trim();
+      if (!raw) return result;
+      const segments = raw.split(';').map((segment) => segment.trim()).filter(Boolean);
+      segments.forEach((segment) => {
+        const [countryRaw, codeRaw] = segment.split(':');
+        const country = String(countryRaw || '').toLowerCase();
+        if (!country || !codeRaw || !getRegionOrder(country).length) return;
+        const decoded = decodeActiveRegions(country, codeRaw);
+        if (decoded instanceof Set) {
+          result[country] = decoded;
+        }
+      });
+      return result;
+    }
+
+    function readRegionStateFromUrl() {
+      const params = getUrlParams();
+      const version = params.get('v');
+      const rawCompactState = params.get('s');
+      if (version === SHARE_SCHEMA_VERSION && rawCompactState != null) {
+        return {
+          source: 'new',
+          regionStateByCountry: parseRegionStateParam(rawCompactState),
+          shouldMigrate: false
+        };
+      }
+
+      const legacyRaw = firstParam(params, ['states', 's']);
+      if (legacyRaw == null) {
+        return {
+          source: 'default',
+          regionStateByCountry: {},
+          shouldMigrate: false
+        };
+      }
+
+      const tokens = parseCsv(legacyRaw);
+      const ids = tokens.map((token) => STATE_CODE_TO_ID[token] || token);
+      const legacyStateSet = new Set(ids);
+      if (!legacyStateSet.size) {
+        return {
+          source: 'default',
+          regionStateByCountry: {},
+          shouldMigrate: false
+        };
+      }
+
+      const legacyByCountry = {};
+      let hasKnownRegion = false;
+      REGION_COUNTRIES.forEach((country) => {
+        const order = getRegionOrder(country);
+        const nextSet = new Set(order.filter((id) => legacyStateSet.has(id)));
+        if (nextSet.size > 0) {
+          legacyByCountry[country] = nextSet;
+          hasKnownRegion = true;
+        }
+      });
+      if (!hasKnownRegion) {
+        return {
+          source: 'default',
+          regionStateByCountry: {},
+          shouldMigrate: false
+        };
+      }
+      return {
+        source: 'legacy',
+        regionStateByCountry: legacyByCountry,
+        shouldMigrate: true
+      };
+    }
+
+    function writeRegionStateToUrl(regionStateByCountry, { replace = true } = {}) {
+      const url = new URL(window.location.href);
+      const compact = serializeRegionStateByCountry(regionStateByCountry);
+      url.searchParams.set('v', SHARE_SCHEMA_VERSION);
+      if (compact) {
+        url.searchParams.set('s', compact);
+      } else {
+        url.searchParams.delete('s');
+      }
+      url.searchParams.delete('states');
+      if (replace) {
+        window.history.replaceState(null, '', url.toString());
+      } else {
+        window.history.pushState(null, '', url.toString());
+      }
+    }
+
+    function getRegionStateByCountryFromSelectedStates(selectedStates) {
+      const selected = selectedStates instanceof Set ? selectedStates : new Set(selectedStates || []);
+      return REGION_COUNTRIES.reduce((acc, country) => {
+        const order = getRegionOrder(country);
+        const countrySet = new Set(order.filter((regionId) => selected.has(regionId)));
+        acc[country] = countrySet;
+        return acc;
+      }, {});
+    }
+
+    function runRegionStateSelfChecks() {
+      const checks = [];
+      REGION_COUNTRIES.forEach((country) => {
+        const order = getRegionOrder(country);
+        const allSelected = new Set(order);
+        const encodedAll = encodeActiveRegions(country, allSelected);
+        const decodedAll = decodeActiveRegions(country, encodedAll);
+        checks.push(setEquals(allSelected, decodedAll));
+
+        const encodedNone = encodeActiveRegions(country, new Set());
+        const decodedNone = decodeActiveRegions(country, encodedNone);
+        checks.push(setEquals(new Set(), decodedNone));
+
+        const sample = new Set(order.filter((_, index) => index % 2 === 0));
+        const encodedSample = encodeActiveRegions(country, sample);
+        const decodedSample = decodeActiveRegions(country, encodedSample);
+        checks.push(setEquals(sample, decodedSample));
+      });
+      checks.push(decodeActiveRegions('de', '***') === null);
+
+      const migrationSample = parseRegionStateParam('de:1;cz:0');
+      checks.push(migrationSample.de instanceof Set && migrationSample.cz instanceof Set);
+      if (checks.some((ok) => !ok)) {
+        console.warn('[url-region-state] self-check failed');
+      }
+    }
+
     function normalizeTheme(value) {
       const normalized = String(value || '').toLowerCase();
       if (normalized === 'd' || normalized === 'dark') return 'dark';
@@ -1453,11 +1647,13 @@
     function readShareStateFromUrl() {
       const params = getUrlParams();
       const version = params.get('v');
-      if (version && version !== SHARE_SCHEMA_VERSION) {
+      if (version && version !== '1' && version !== SHARE_SCHEMA_VERSION) {
         return {};
       }
 
       const state = {};
+      const regionStateFromUrl = readRegionStateFromUrl();
+      state.regionState = regionStateFromUrl;
 
       const lat = firstParam(params, ['a', 'lat']);
       const lng = firstParam(params, ['o', 'lng']);
@@ -1487,14 +1683,7 @@
         state.categories = new Set(ids);
       }
 
-      const rawStates = firstParam(params, ['s', 'states']);
-      if (rawStates == null) {
-        state.states = null;
-      } else {
-        const tokens = parseCsv(rawStates);
-        const ids = tokens.map((token) => STATE_CODE_TO_ID[token] || token);
-        state.states = new Set(ids);
-      }
+      state.states = null;
 
       return state;
     }
@@ -1521,9 +1710,19 @@
         }
       }
 
-      if (state.states instanceof Set) {
+      const regionSource = state.regionState || { source: 'default', regionStateByCountry: {}, shouldMigrate: false };
+      if (regionSource.source !== 'default') {
         const validIds = allIds(data.regions);
-        const nextSet = new Set(Array.from(state.states).filter((id) => validIds.has(id)));
+        const nextSet = new Set();
+        const defaultsByCountry = getDefaultRegionStateByCountry();
+        REGION_COUNTRIES.forEach((country) => {
+          const sourceSet = regionSource.regionStateByCountry?.[country] instanceof Set
+            ? regionSource.regionStateByCountry[country]
+            : defaultsByCountry[country];
+          sourceSet.forEach((id) => {
+            if (validIds.has(id)) nextSet.add(id);
+          });
+        });
         if (nextSet.size > 0) {
           filterState.bundeslaender = nextSet;
         }
@@ -1553,6 +1752,11 @@
       } else {
         pendingSharedView = null;
       }
+
+      if (regionSource.shouldMigrate) {
+        const nextRegionState = getRegionStateByCountryFromSelectedStates(filterState.bundeslaender);
+        writeRegionStateToUrl(nextRegionState, { replace: true });
+      }
     }
 
     function buildShareUrl({ includeHash = false } = {}) {
@@ -1569,15 +1773,9 @@
       params.set('h', boolTo01(appState.hideNoBadges));
       params.set('m', boolTo01(appState.includeMissingData));
 
-      const allStates = allIds(manifestData.regions);
-      if (!setEquals(filterState.bundeslaender, allStates)) {
-        const tokens = Array.from(filterState.bundeslaender || [])
-          .map((id) => STATE_ID_TO_CODE[id] || id)
-          .sort();
-        if (tokens.length) {
-          params.set('s', tokens.join(','));
-        }
-      }
+      const regionStateByCountry = getRegionStateByCountryFromSelectedStates(filterState.bundeslaender);
+      const compactState = serializeRegionStateByCountry(regionStateByCountry);
+      if (compactState) params.set('s', compactState);
 
       const allCategories = allIds(manifestData.categories);
       if (!setEquals(filterState.kategorien, allCategories)) {
@@ -4157,6 +4355,7 @@
 
     setupIntroPopup();
     on(qs('#locateButton'), 'click', () => goToUserLocation({ centerOnFix: true }));
+    runRegionStateSelfChecks();
 
     (async () => {
       setAccordionHandlers();
