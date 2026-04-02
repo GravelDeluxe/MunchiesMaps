@@ -919,8 +919,8 @@
                 <div class="cluster-row">
                   <label for="clusterThresholdInput">Enable clustering above (visible POIs)</label>
                   <input type="number" id="clusterThresholdInput" min="0" step="1" />
-                  <p class="cluster-helper">Clusters appear only when more than X POIs are visible in the current map view.</p>
-                  <p class="cluster-status" id="visiblePoiCountStatus">Sichtbare POIs: 0</p>
+                  <p class="cluster-helper">Clusters are applied when the number of visible POIs reaches this value.</p>
+                  <p class="cluster-status" id="visiblePoiCountStatus">Visible POIs: 0</p>
                 </div>
               </div>
             </div>
@@ -931,9 +931,9 @@
               </div>
               <div class="accordion-body" id="zoomBody">
                 <div class="zoom-row">
-                  <p class="zoom-helper">Lege fest, ab welcher Zoom-Stufe POIs angezeigt werden. Bei kleineren Zoom-Stufen werden keine POIs geladen bzw. dargestellt, um die Karte übersichtlicher und schneller zu halten.</p>
-                  <label for="minPoiZoomInput">Minimale Zoom-Stufe für POIs</label>
-                  <input type="number" id="minPoiZoomInput" min="6" max="14" step="1" />
+                  <p class="zoom-helper">Higher zoom levels mean a closer zoom-in. Maximum zoom level: 19. POIs are hidden when the map zoom is at or below the selected level.</p>
+                  <label for="minPoiZoomInput">Minimum zoom level for POIs</label>
+                  <input type="number" id="minPoiZoomInput" min="6" max="19" step="1" />
                 </div>
               </div>
             </div>
@@ -1295,7 +1295,7 @@
     const DEFAULT_CLUSTER_THRESHOLD = 200;
     const DEFAULT_MIN_POI_ZOOM = 10;
     const MIN_POI_ZOOM_MIN = 6;
-    const MIN_POI_ZOOM_MAX = 14;
+    const MIN_POI_ZOOM_MAX = 19;
 
     const DEFAULT_MARKER_SIZE = 30;
     const DEFAULT_MARKER_ICON_SIZE = 15;
@@ -2292,7 +2292,6 @@
     const DEFAULT_GPX_RADIUS_KM = 0.3;
     const SAVED_GPX_ROUTE_KEY = 'munchiesmaps.savedGpxRoute';
     const GPX_KM_MARKER_INTERVAL_KM = 5;
-    const GPX_CLUSTER_THRESHOLD_OVERRIDE = Number.MAX_SAFE_INTEGER;
     const gpxState = {
       points: [],
       sampledPoints: [],
@@ -2315,7 +2314,6 @@
     let applyFiltersTimer = null;
     let viewportClusterThreshold = parseClusterThreshold(localStorage.getItem(CLUSTER_THRESHOLD_KEY));
     let minPoiZoom = parseMinPoiZoom(localStorage.getItem(MIN_POI_ZOOM_KEY));
-    let gpxClusterThresholdBeforeOverride = null;
     let zoomHintActive = false;
     const CLUSTER_DEBOUNCE_MS = 200;
     const GRID_CELL_SIZE = 0.05; // ~5km cells for viewport counting
@@ -2981,10 +2979,39 @@
     }
 
     function fitMapToGpxTrack({ padding = 28, maxZoom = 16 } = {}) {
-      if (!map || !gpxTrackLayer) return;
+      if (!map || !gpxTrackLayer) return false;
       const bounds = gpxTrackLayer.getBounds?.();
-      if (!bounds || !bounds.isValid || !bounds.isValid()) return;
+      if (!bounds || !bounds.isValid || !bounds.isValid()) return false;
       map.fitBounds(bounds, { padding: [padding, padding], maxZoom, animate: true });
+      return true;
+    }
+
+    function waitForMapStabilizedAfterFit(timeoutMs = 1200) {
+      if (!map) return Promise.resolve();
+      return new Promise((resolve) => {
+        let settled = false;
+        const done = () => {
+          if (settled) return;
+          settled = true;
+          map.off('moveend', onMoveEnd);
+          clearTimeout(timer);
+          resolve();
+        };
+        const onMoveEnd = () => done();
+        const timer = setTimeout(done, timeoutMs);
+        map.once('moveend', onMoveEnd);
+      });
+    }
+
+    function applyGpxAutoOptions() {
+      if (!map || !gpxState.active) return;
+      setMinPoiZoom(map.getZoom());
+      const visibleCount = getVisiblePoiCount(map.getBounds());
+      setClusterThreshold(visibleCount);
+      updateClusteringForViewport();
+      if (typeof debouncedUrlUpdate === 'function') {
+        debouncedUrlUpdate();
+      }
     }
 
     function getSavedGpxRoute() {
@@ -3363,19 +3390,36 @@
       });
     }
 
+    function setClusterThreshold(value) {
+      const clamped = clampClusterThreshold(value);
+      viewportClusterThreshold = clamped;
+      syncClusterThresholdInput();
+      if (clamped === DEFAULT_CLUSTER_THRESHOLD) {
+        localStorage.removeItem(CLUSTER_THRESHOLD_KEY);
+      } else {
+        localStorage.setItem(CLUSTER_THRESHOLD_KEY, String(clamped));
+      }
+      return clamped;
+    }
+
+    function setMinPoiZoom(value) {
+      const clamped = clampMinPoiZoom(value);
+      minPoiZoom = clamped;
+      syncMinPoiZoomInput();
+      if (clamped === DEFAULT_MIN_POI_ZOOM) {
+        localStorage.removeItem(MIN_POI_ZOOM_KEY);
+      } else {
+        localStorage.setItem(MIN_POI_ZOOM_KEY, String(clamped));
+      }
+      return clamped;
+    }
+
     function setupClusterThresholdControl() {
       const input = document.getElementById('clusterThresholdInput');
       if (!input) return;
 
       const applyThreshold = () => {
-        const clamped = clampClusterThreshold(input.value);
-        input.value = String(clamped);
-        viewportClusterThreshold = clamped;
-        if (clamped === DEFAULT_CLUSTER_THRESHOLD) {
-          localStorage.removeItem(CLUSTER_THRESHOLD_KEY);
-        } else {
-          localStorage.setItem(CLUSTER_THRESHOLD_KEY, String(clamped));
-        }
+        setClusterThreshold(input.value);
         updateClusteringForViewport();
       };
 
@@ -3389,14 +3433,7 @@
       if (!input) return;
 
       const applyMinPoiZoom = () => {
-        const clamped = clampMinPoiZoom(input.value);
-        input.value = String(clamped);
-        minPoiZoom = clamped;
-        if (clamped === DEFAULT_MIN_POI_ZOOM) {
-          localStorage.removeItem(MIN_POI_ZOOM_KEY);
-        } else {
-          localStorage.setItem(MIN_POI_ZOOM_KEY, String(clamped));
-        }
+        setMinPoiZoom(input.value);
         updateClusteringForViewport();
         if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
       };
@@ -3414,22 +3451,6 @@
     function syncMinPoiZoomInput() {
       const input = document.getElementById('minPoiZoomInput');
       if (input) input.value = String(minPoiZoom);
-    }
-
-    function enableGpxClusterOverride() {
-      if (!gpxState.active) return;
-      if (gpxClusterThresholdBeforeOverride == null) {
-        gpxClusterThresholdBeforeOverride = viewportClusterThreshold;
-      }
-      viewportClusterThreshold = GPX_CLUSTER_THRESHOLD_OVERRIDE;
-      syncClusterThresholdInput();
-    }
-
-    function restoreClusterThresholdAfterGpx() {
-      if (gpxClusterThresholdBeforeOverride == null) return;
-      viewportClusterThreshold = gpxClusterThresholdBeforeOverride;
-      gpxClusterThresholdBeforeOverride = null;
-      syncClusterThresholdInput();
     }
 
     function shouldShowPoisAtCurrentZoom() {
@@ -4056,7 +4077,7 @@
       const statusEl = document.getElementById('visiblePoiCountStatus');
       if (!statusEl) return;
       const safeCount = Number.isFinite(count) ? Math.max(0, Math.floor(count)) : 0;
-      statusEl.textContent = `Sichtbare POIs: ${safeCount}`;
+      statusEl.textContent = `Visible POIs: ${safeCount}`;
     }
 
     function clearPoiLayers() {
@@ -4346,7 +4367,6 @@
     }
 
     function resetGpxState() {
-      restoreClusterThresholdAfterGpx();
       gpxState.active = false;
       gpxState.points = [];
       gpxState.sampledPoints = [];
@@ -4429,7 +4449,6 @@
       gpxState.geoJson = gpxGeoJson;
       gpxState.rawText = gpxRawText;
       gpxState.active = true;
-      enableGpxClusterOverride();
       appState.hasImportedGpx = true;
       appState.gpxTrackLatLngs = trackPoints.map((pt) => L.latLng(pt.lat, pt.lon));
 
@@ -4441,13 +4460,17 @@
       if (autoSelectRegions && (hasNewFile || hasRawTextInput)) {
         autoSelectRegionsByGpxRoute();
       }
+      let hasFittedToTrack = false;
       if (!skipFitToTrack && (hasNewFile || hasRawTextInput)) {
-        fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
+        hasFittedToTrack = fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
+      }
+      if (hasFittedToTrack) {
+        await waitForMapStabilizedAfterFit();
       }
       refreshGpxUiState();
 
       await applyFilters();
-      updateClusteringForViewport();
+      applyGpxAutoOptions();
     }
 
     function resetAllFilters() {
@@ -4466,12 +4489,8 @@
       if (hideToggle) hideToggle.checked = false;
       if (includeToggle) includeToggle.checked = false;
       updateBadgeDependentToggles(false, false);
-      viewportClusterThreshold = DEFAULT_CLUSTER_THRESHOLD;
-      syncClusterThresholdInput();
-      localStorage.removeItem(CLUSTER_THRESHOLD_KEY);
-      minPoiZoom = DEFAULT_MIN_POI_ZOOM;
-      syncMinPoiZoomInput();
-      localStorage.removeItem(MIN_POI_ZOOM_KEY);
+      setClusterThreshold(DEFAULT_CLUSTER_THRESHOLD);
+      setMinPoiZoom(DEFAULT_MIN_POI_ZOOM);
       updateClusteringForViewport();
       triggerApplyFilters();
       if (typeof debouncedUrlUpdate === 'function') {
