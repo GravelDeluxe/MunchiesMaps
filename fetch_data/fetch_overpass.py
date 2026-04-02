@@ -180,7 +180,23 @@ def get_country_query_name(region: Dict[str, Any]) -> str:
 
 def get_region_query_regex(region: Dict[str, Any]) -> str:
     """Return optional region regex fallback pattern."""
-    return normalize_text(region.get("query_name_regex"))
+    configured_regex = normalize_text(region.get("query_name_regex"))
+    if configured_regex:
+        return configured_regex
+
+    area_name = normalize_text(region.get("area_name"))
+    if "/" not in area_name:
+        return ""
+
+    variants: List[str] = []
+    for candidate in [area_name, *area_name.split("/")]:
+        normalized_candidate = normalize_text(candidate)
+        if normalized_candidate and normalized_candidate not in variants:
+            variants.append(normalized_candidate)
+    if not variants:
+        return ""
+    escaped_variants = [re.escape(value) for value in variants]
+    return f"^({'|'.join(escaped_variants)})$"
 
 
 def get_country_query_regex(region: Dict[str, Any]) -> str:

@@ -312,7 +312,7 @@ regions:
     country_label: Schweiz
     area_name: Bern/Berne
     query_name: Bern
-    query_name_regex: ^(Bern|Berne)$
+    query_name_regex: ^(Bern/Berne|Bern|Berne)$
     country_area_name: Schweiz
     country_query_name: Switzerland
     country_admin_level: 2
@@ -325,7 +325,7 @@ regions:
     country_label: Schweiz
     area_name: Fribourg/Freiburg
     query_name: Fribourg
-    query_name_regex: ^(Fribourg|Freiburg)$
+    query_name_regex: ^(Fribourg/Freiburg|Fribourg|Freiburg)$
     country_area_name: Schweiz
     country_query_name: Switzerland
     country_admin_level: 2
@@ -360,7 +360,7 @@ regions:
     country_label: Schweiz
     area_name: Graubünden/Grischun/Grigioni
     query_name: Graubünden
-    query_name_regex: ^(Graubünden|Grischun|Grigioni)$
+    query_name_regex: ^(Graubünden/Grischun/Grigioni|Graubünden|Grischun|Grigioni)$
     country_area_name: Schweiz
     country_query_name: Switzerland
     country_admin_level: 2
@@ -505,7 +505,7 @@ regions:
     country_label: Schweiz
     area_name: Valais/Wallis
     query_name: Valais
-    query_name_regex: ^(Valais|Wallis)$
+    query_name_regex: ^(Valais/Wallis|Valais|Wallis)$
     country_area_name: Schweiz
     country_query_name: Switzerland
     country_admin_level: 2
