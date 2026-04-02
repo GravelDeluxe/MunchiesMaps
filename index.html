@@ -535,6 +535,8 @@
     .gpx-export { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); display: none; }
     .gpx-export.is-visible { display: inline-flex; }
     .gpx-export:disabled { opacity: 0.6; cursor: not-allowed; }
+    .gpx-import-action { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); display: none; }
+    .gpx-import-action.is-visible { display: inline-flex; }
     .gpx-error { color: #dc2626; font-size: 13px; }
     .gpx-km-marker {
       background: transparent;
@@ -870,6 +872,7 @@
           </div>
           <div class="accordion-body" id="gpxBody">
             <div class="gpx-inputs">
+              <button type="button" class="gpx-import-action" id="gpxLoadSavedBtn">Load saved route</button>
               <div class="gpx-row">
                 <label for="gpxFileInput">GPX file</label>
                 <input type="file" id="gpxFileInput" accept=".gpx" />
@@ -880,6 +883,8 @@
               </div>
               <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
               <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
+              <button type="button" class="gpx-export" id="gpxSaveBtn">Save route</button>
+              <button type="button" class="gpx-import-action" id="gpxResetSavedBtn">Reset save</button>
               <div class="gpx-error" id="gpxError" aria-live="polite"></div>
             </div>
           </div>
@@ -2248,6 +2253,7 @@
     const DEBUG_BADGES = false;
 
     const DEFAULT_GPX_RADIUS_KM = 0.3;
+    const SAVED_GPX_ROUTE_KEY = 'munchiesmaps.savedGpxRoute';
     const GPX_KM_MARKER_INTERVAL_KM = 5;
     const GPX_CLUSTER_THRESHOLD_OVERRIDE = Number.MAX_SAFE_INTEGER;
     const gpxState = {
@@ -2256,7 +2262,8 @@
       radiusMeters: DEFAULT_GPX_RADIUS_KM * 1000,
       bbox: null,
       active: false,
-      geoJson: null
+      geoJson: null,
+      rawText: null
     };
     const regionGeometryCache = new Map();
 
@@ -2930,14 +2937,97 @@
       map.fitBounds(bounds, { padding: [padding, padding], maxZoom, animate: true });
     }
 
-    function updateExportGpxVisibility() {
+    function getSavedGpxRoute() {
+      let rawValue = null;
+      try {
+        rawValue = localStorage.getItem(SAVED_GPX_ROUTE_KEY);
+      } catch (err) {
+        return null;
+      }
+      if (!rawValue) return null;
+      let parsed = null;
+      try {
+        parsed = JSON.parse(rawValue);
+      } catch (err) {
+        localStorage.removeItem(SAVED_GPX_ROUTE_KEY);
+        return null;
+      }
+      const rawText = typeof parsed?.rawText === 'string' ? parsed.rawText.trim() : '';
+      if (!rawText) {
+        localStorage.removeItem(SAVED_GPX_ROUTE_KEY);
+        return null;
+      }
+      return { rawText };
+    }
+
+    function hasSavedGpxRoute() {
+      return Boolean(getSavedGpxRoute());
+    }
+
+    function refreshGpxUiState() {
       const exportBtn = document.getElementById('gpxExportBtn');
+      const saveBtn = document.getElementById('gpxSaveBtn');
+      const loadSavedBtn = document.getElementById('gpxLoadSavedBtn');
+      const resetSavedBtn = document.getElementById('gpxResetSavedBtn');
       const isVisible = Boolean(appState?.hasImportedGpx);
+      const hasSaved = hasSavedGpxRoute();
       if (exportBtn) {
         exportBtn.classList.toggle('is-visible', isVisible);
         exportBtn.disabled = !isVisible;
       }
+      if (saveBtn) {
+        saveBtn.classList.toggle('is-visible', isVisible);
+        saveBtn.disabled = !isVisible;
+      }
+      if (loadSavedBtn) {
+        loadSavedBtn.classList.toggle('is-visible', hasSaved);
+      }
+      if (resetSavedBtn) {
+        resetSavedBtn.classList.toggle('is-visible', hasSaved);
+      }
       updateSharePopoverGpxState();
+    }
+
+    function buildRawGpxFromTrackLatLngs() {
+      const track = Array.isArray(appState.gpxTrackLatLngs)
+        ? appState.gpxTrackLatLngs.filter((pt) => Number.isFinite(pt?.lat) && Number.isFinite(pt?.lng))
+        : [];
+      if (!track.length) return '';
+      const xml = buildGpxExport(track, []);
+      return typeof xml === 'string' ? xml.trim() : '';
+    }
+
+    function saveCurrentRouteToCache() {
+      if (!appState.hasImportedGpx) return false;
+      const rawText = (typeof gpxState.rawText === 'string' && gpxState.rawText.trim())
+        ? gpxState.rawText.trim()
+        : buildRawGpxFromTrackLatLngs();
+      if (!rawText) return false;
+      try {
+        localStorage.setItem(SAVED_GPX_ROUTE_KEY, JSON.stringify({ rawText }));
+      } catch (err) {
+        return false;
+      }
+      refreshGpxUiState();
+      return true;
+    }
+
+    async function loadSavedRouteFromCache() {
+      const saved = getSavedGpxRoute();
+      if (!saved?.rawText) return false;
+      try {
+        await handleGpxApply({ rawGpxText: saved.rawText, skipFitToTrack: false, autoSelectRegions: true });
+      } catch (err) {
+        localStorage.removeItem(SAVED_GPX_ROUTE_KEY);
+        refreshGpxUiState();
+        return false;
+      }
+      return true;
+    }
+
+    function clearSavedRouteCache() {
+      localStorage.removeItem(SAVED_GPX_ROUTE_KEY);
+      refreshGpxUiState();
     }
 
     function buildPoiExportData(point) {
@@ -3054,7 +3144,10 @@
 
     function setupGpxExportButton() {
       const exportBtn = document.getElementById('gpxExportBtn');
-      updateExportGpxVisibility();
+      const saveBtn = document.getElementById('gpxSaveBtn');
+      const loadSavedBtn = document.getElementById('gpxLoadSavedBtn');
+      const resetSavedBtn = document.getElementById('gpxResetSavedBtn');
+      refreshGpxUiState();
       if (exportBtn) {
         exportBtn.addEventListener('click', () => {
           if (!appState?.hasImportedGpx) {
@@ -3067,6 +3160,38 @@
           } else {
             showMapToast('Route exported without POIs.');
           }
+        });
+      }
+      if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+          const ok = saveCurrentRouteToCache();
+          if (ok) {
+            showMapToast('Route saved locally.');
+          } else {
+            showMapToast('No route to save.');
+          }
+        });
+      }
+      if (loadSavedBtn) {
+        loadSavedBtn.addEventListener('click', () => {
+          loadSavedRouteFromCache()
+            .then((ok) => {
+              if (ok) {
+                showMapToast('Saved route loaded.');
+              } else {
+                showMapToast('No saved route found.');
+              }
+            })
+            .catch(() => {
+              showMapToast('Saved route is invalid and was removed.');
+            });
+        });
+      }
+      if (resetSavedBtn) {
+        resetSavedBtn.addEventListener('click', () => {
+          if (!hasSavedGpxRoute()) return;
+          clearSavedRouteCache();
+          showMapToast('Saved route removed.');
         });
       }
     }
@@ -4135,6 +4260,7 @@
       gpxState.radiusMeters = DEFAULT_GPX_RADIUS_KM * 1000;
       gpxState.bbox = null;
       gpxState.geoJson = null;
+      gpxState.rawText = null;
       appState.hasImportedGpx = false;
       appState.gpxTrackLatLngs = [];
       appState.gpxLayer = null;
@@ -4145,11 +4271,11 @@
       if (fileInput) fileInput.value = '';
       if (radiusInput) radiusInput.value = DEFAULT_GPX_RADIUS_KM.toFixed(1);
       if (err) err.textContent = '';
-      updateExportGpxVisibility();
+      refreshGpxUiState();
       updateClusteringForViewport();
     }
 
-    async function handleGpxApply() {
+    async function handleGpxApply({ rawGpxText = null, skipFitToTrack = false, autoSelectRegions = true } = {}) {
       const errorEl = document.getElementById('gpxError');
       const radiusInput = document.getElementById('gpxRadiusKm');
       const fileInput = document.getElementById('gpxFileInput');
@@ -4161,14 +4287,28 @@
 
       let trackPoints = gpxState.points;
       let gpxGeoJson = gpxState.geoJson;
+      let gpxRawText = gpxState.rawText;
       const file = fileInput?.files?.[0];
       const hasNewFile = Boolean(file);
-      if (file) {
+      const hasRawTextInput = typeof rawGpxText === 'string' && rawGpxText.trim().length > 0;
+      if (hasRawTextInput) {
+        try {
+          const normalizedRaw = rawGpxText.trim();
+          const parsed = parseGpxText(normalizedRaw);
+          trackPoints = parsed.points;
+          gpxGeoJson = buildGpxGeoJson(parsed.xml);
+          gpxRawText = normalizedRaw;
+        } catch (err) {
+          if (errorEl) errorEl.textContent = 'Saved GPX route is invalid.';
+          throw err;
+        }
+      } else if (file) {
         try {
           const text = await readFileAsText(file);
           const parsed = parseGpxText(text);
           trackPoints = parsed.points;
           gpxGeoJson = buildGpxGeoJson(parsed.xml);
+          gpxRawText = text;
         } catch (err) {
           if (errorEl) errorEl.textContent = 'Could not read the file.';
           return;
@@ -4194,6 +4334,7 @@
       gpxState.radiusMeters = radiusMeters;
       gpxState.bbox = computeExpandedBBox(sampled, radiusMeters);
       gpxState.geoJson = gpxGeoJson;
+      gpxState.rawText = gpxRawText;
       gpxState.active = true;
       enableGpxClusterOverride();
       appState.hasImportedGpx = true;
@@ -4204,13 +4345,13 @@
       renderGpxTrack(gpxGeoJson);
       // Rebuild kilometer markers whenever a GPX route changes.
       renderGpxKilometerMarkers(appState.gpxTrackLatLngs);
-      if (hasNewFile) {
+      if (autoSelectRegions && (hasNewFile || hasRawTextInput)) {
         autoSelectRegionsByGpxRoute();
       }
-      if (hasNewFile) {
+      if (!skipFitToTrack && (hasNewFile || hasRawTextInput)) {
         fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
       }
-      updateExportGpxVisibility();
+      refreshGpxUiState();
 
       await applyFilters();
       updateClusteringForViewport();
