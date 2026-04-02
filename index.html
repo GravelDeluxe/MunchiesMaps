@@ -522,8 +522,10 @@
     .theme-toggle input:checked + .toggle-switch::after { transform: translateX(22px); }
 
     .gpx-inputs { display: flex; flex-direction: column; gap: 10px; }
-    .gpx-cache-actions { display: none; flex-wrap: wrap; gap: 8px; }
+    .gpx-cache-actions { display: none; flex-direction: column; gap: 8px; }
     .gpx-cache-actions.is-visible { display: flex; }
+    .gpx-cache-primary-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .gpx-cache-primary-actions .gpx-import-action { flex: 1 1 170px; }
     .gpx-import-menu { display: none; flex-direction: column; gap: 10px; }
     .gpx-import-menu.is-visible { display: flex; }
     .gpx-row { display: flex; flex-direction: column; gap: 6px; }
@@ -883,8 +885,10 @@
           <div class="accordion-body" id="gpxBody">
             <div class="gpx-inputs">
               <div class="gpx-cache-actions" id="gpxCacheActions">
-                <button type="button" class="gpx-import-action" id="gpxLoadSavedBtn">Load saved route</button>
-                <button type="button" class="gpx-import-action" id="gpxDeleteSavedBtn">Delete save</button>
+                <div class="gpx-cache-primary-actions">
+                  <button type="button" class="gpx-import-action" id="gpxLoadSavedBtn">Load saved route</button>
+                  <button type="button" class="gpx-import-action" id="gpxDeleteSavedBtn">Delete save</button>
+                </div>
                 <button type="button" class="gpx-import-action" id="gpxImportNewBtn">Import new</button>
               </div>
               <div class="gpx-import-menu" id="gpxImportMenu">
@@ -3133,9 +3137,7 @@
       const saved = getSavedGpxRoute();
       if (!saved?.rawText) return false;
       try {
-        await handleGpxApply({ rawGpxText: saved.rawText, skipFitToTrack: false, autoSelectRegions: true });
-        setGpxUiMode('import-open');
-        refreshGpxUiState();
+        await handleGpxApply({ rawGpxText: saved.rawText, skipFitToTrack: false, autoSelectRegions: true, uiModeAfterApply: 'cache-found' });
       } catch (err) {
         localStorage.removeItem(SAVED_GPX_ROUTE_KEY);
         setGpxUiMode('standard');
@@ -4441,7 +4443,7 @@
       updateClusteringForViewport();
     }
 
-    async function handleGpxApply({ rawGpxText = null, skipFitToTrack = false, autoSelectRegions = true } = {}) {
+    async function handleGpxApply({ rawGpxText = null, skipFitToTrack = false, autoSelectRegions = true, uiModeAfterApply = 'import-open' } = {}) {
       const errorEl = document.getElementById('gpxError');
       const radiusInput = document.getElementById('gpxRadiusKm');
       const fileInput = document.getElementById('gpxFileInput');
@@ -4520,7 +4522,7 @@
       if (hasFittedToTrack) {
         await waitForMapStabilizedAfterFit();
       }
-      setGpxUiMode('import-open');
+      setGpxUiMode(uiModeAfterApply);
       refreshGpxUiState();
 
       await applyFilters();
