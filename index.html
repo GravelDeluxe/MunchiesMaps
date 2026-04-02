@@ -531,6 +531,10 @@
     .cluster-row label { font-weight: 650; color: var(--text); }
     .cluster-row input[type="number"] { width: 160px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
     .cluster-helper { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.4; }
+    .zoom-row { display: flex; flex-direction: column; gap: 6px; }
+    .zoom-row label { font-weight: 650; color: var(--text); }
+    .zoom-row input[type="number"] { width: 100px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+    .zoom-helper { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.4; }
     .gpx-apply { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); }
     .gpx-export { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); display: none; }
     .gpx-export.is-visible { display: inline-flex; }
@@ -918,6 +922,19 @@
                 </div>
               </div>
             </div>
+            <div class="section" id="zoomSection">
+              <div class="accordion-header" data-target="zoomBody" aria-expanded="false" role="button" tabindex="0">
+                <span>Zoom</span>
+                <span class="chevron">⌄</span>
+              </div>
+              <div class="accordion-body" id="zoomBody">
+                <div class="zoom-row">
+                  <p class="zoom-helper">Lege fest, ab welcher Zoom-Stufe POIs angezeigt werden. Bei kleineren Zoom-Stufen werden keine POIs geladen bzw. dargestellt, um die Karte übersichtlicher und schneller zu halten.</p>
+                  <label for="minPoiZoomInput">Minimale Zoom-Stufe für POIs</label>
+                  <input type="number" id="minPoiZoomInput" min="6" max="14" step="1" />
+                </div>
+              </div>
+            </div>
             <div class="section" id="resetSection">
               <p class="option-helper">Reset all filters, GPX state, and options to defaults.</p>
               <button type="button" id="resetAllBtn" class="drawer-reset-btn">Reset</button>
@@ -981,6 +998,7 @@
 
     const THEME_KEY = 'theme';
     const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
+    const MIN_POI_ZOOM_KEY = 'minPoiZoom';
     const APP_VERSION = "0.1.0";
     const QUICK_FEEDBACK_ENDPOINT = "https://script.google.com/macros/s/AKfycbzewIElOyqoS0xeGWab6MWoCZq67qs9uKEEAVwJzMRWJDE5ebxZlNwESaZQnNP_pAKVAA/exec";
     const QUICK_FEEDBACK_RATE_LIMIT_MS = 60000;
@@ -1273,6 +1291,9 @@
     }
 
     const DEFAULT_CLUSTER_THRESHOLD = 200;
+    const DEFAULT_MIN_POI_ZOOM = 10;
+    const MIN_POI_ZOOM_MIN = 6;
+    const MIN_POI_ZOOM_MAX = 14;
 
     const DEFAULT_MARKER_SIZE = 30;
     const DEFAULT_MARKER_ICON_SIZE = 15;
@@ -1679,6 +1700,9 @@
       const includeMissing = normalize01(firstParam(params, ['m', 'includeMissing']));
       if (includeMissing !== null) state.m = includeMissing;
 
+      const poiZoom = firstParam(params, ['pz', 'minPoiZoom']);
+      if (poiZoom !== null) state.pz = parseMinPoiZoom(poiZoom);
+
       const rawCategories = firstParam(params, ['c', 'categories']);
       if (rawCategories == null) {
         state.categories = null;
@@ -1752,6 +1776,16 @@
         if (toggle) toggle.checked = state.m;
       }
 
+      if (Number.isFinite(state.pz)) {
+        minPoiZoom = clampMinPoiZoom(state.pz);
+        if (minPoiZoom === DEFAULT_MIN_POI_ZOOM) {
+          localStorage.removeItem(MIN_POI_ZOOM_KEY);
+        } else {
+          localStorage.setItem(MIN_POI_ZOOM_KEY, String(minPoiZoom));
+        }
+        syncMinPoiZoomInput();
+      }
+
       if (Number.isFinite(state.lat) && Number.isFinite(state.lng) && Number.isFinite(state.z)) {
         pendingSharedView = { lat: state.lat, lng: state.lng, z: state.z };
       } else {
@@ -1777,6 +1811,7 @@
       params.set('b', boolTo01(appState.showBadges));
       params.set('h', boolTo01(appState.hideNoBadges));
       params.set('m', boolTo01(appState.includeMissingData));
+      if (minPoiZoom !== DEFAULT_MIN_POI_ZOOM) params.set('pz', String(minPoiZoom));
 
       const regionStateByCountry = getRegionStateByCountryFromSelectedStates(filterState.bundeslaender);
       const compactState = serializeRegionStateByCountry(regionStateByCountry);
@@ -2277,7 +2312,9 @@
     let filterRunId = 0;
     let applyFiltersTimer = null;
     let viewportClusterThreshold = parseClusterThreshold(localStorage.getItem(CLUSTER_THRESHOLD_KEY));
+    let minPoiZoom = parseMinPoiZoom(localStorage.getItem(MIN_POI_ZOOM_KEY));
     let gpxClusterThresholdBeforeOverride = null;
+    let zoomHintActive = false;
     const CLUSTER_DEBOUNCE_MS = 200;
     const GRID_CELL_SIZE = 0.05; // ~5km cells for viewport counting
     const MARKER_CACHE_LIMIT = 5000;
@@ -2737,6 +2774,17 @@
       const numeric = Number(value);
       if (!Number.isFinite(numeric) || numeric < 0) return DEFAULT_CLUSTER_THRESHOLD;
       return Math.max(0, Math.floor(numeric));
+    }
+
+    function clampMinPoiZoom(value) {
+      const numeric = Number(value);
+      if (!Number.isFinite(numeric)) return DEFAULT_MIN_POI_ZOOM;
+      return Math.min(MIN_POI_ZOOM_MAX, Math.max(MIN_POI_ZOOM_MIN, Math.floor(numeric)));
+    }
+
+    function parseMinPoiZoom(value) {
+      if (value == null) return DEFAULT_MIN_POI_ZOOM;
+      return clampMinPoiZoom(value);
     }
 
     function hasPendingSharedView() {
@@ -3334,9 +3382,36 @@
       input.addEventListener('blur', applyThreshold);
     }
 
+    function setupMinPoiZoomControl() {
+      const input = document.getElementById('minPoiZoomInput');
+      if (!input) return;
+
+      const applyMinPoiZoom = () => {
+        const clamped = clampMinPoiZoom(input.value);
+        input.value = String(clamped);
+        minPoiZoom = clamped;
+        if (clamped === DEFAULT_MIN_POI_ZOOM) {
+          localStorage.removeItem(MIN_POI_ZOOM_KEY);
+        } else {
+          localStorage.setItem(MIN_POI_ZOOM_KEY, String(clamped));
+        }
+        updateClusteringForViewport();
+        if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+      };
+
+      input.value = String(minPoiZoom);
+      input.addEventListener('change', applyMinPoiZoom);
+      input.addEventListener('blur', applyMinPoiZoom);
+    }
+
     function syncClusterThresholdInput() {
       const input = document.getElementById('clusterThresholdInput');
       if (input) input.value = String(viewportClusterThreshold);
+    }
+
+    function syncMinPoiZoomInput() {
+      const input = document.getElementById('minPoiZoomInput');
+      if (input) input.value = String(minPoiZoom);
     }
 
     function enableGpxClusterOverride() {
@@ -3353,6 +3428,11 @@
       viewportClusterThreshold = gpxClusterThresholdBeforeOverride;
       gpxClusterThresholdBeforeOverride = null;
       syncClusterThresholdInput();
+    }
+
+    function shouldShowPoisAtCurrentZoom() {
+      if (!map || typeof map.getZoom !== 'function') return true;
+      return map.getZoom() >= minPoiZoom;
     }
 
     function setupBadgeToggle() {
@@ -3985,6 +4065,14 @@
       });
     }
 
+    function clearPoiLayers() {
+      poiCluster.clearLayers();
+      poiPlain.clearLayers();
+      if (map.hasLayer(poiPlain)) map.removeLayer(poiPlain);
+      if (map.hasLayer(poiCluster)) map.removeLayer(poiCluster);
+      currentMode = null;
+    }
+
     function renderWithMode(mode) {
       const normalizedMode = mode === 'cluster' ? 'cluster' : 'plain';
       if (!map) return;
@@ -4032,6 +4120,15 @@
 
     function updateClusteringForViewport() {
       if (!map) return;
+      if (!shouldShowPoisAtCurrentZoom()) {
+        clearPoiLayers();
+        if (!zoomHintActive) {
+          showMapToast('Zoome weiter hinein, um POIs anzuzeigen.');
+          zoomHintActive = true;
+        }
+        return;
+      }
+      zoomHintActive = false;
       const bounds = map.getBounds();
       const visibleCount = countVisibleInBounds(bounds);
       const nextMode = visibleCount > viewportClusterThreshold ? 'cluster' : 'plain';
@@ -4376,6 +4473,9 @@
       viewportClusterThreshold = DEFAULT_CLUSTER_THRESHOLD;
       syncClusterThresholdInput();
       localStorage.removeItem(CLUSTER_THRESHOLD_KEY);
+      minPoiZoom = DEFAULT_MIN_POI_ZOOM;
+      syncMinPoiZoomInput();
+      localStorage.removeItem(MIN_POI_ZOOM_KEY);
       updateClusteringForViewport();
       triggerApplyFilters();
       if (typeof debouncedUrlUpdate === 'function') {
@@ -4505,6 +4605,7 @@
       setAppVersion();
       setupThemeToggle();
       setupClusterThresholdControl();
+      setupMinPoiZoomControl();
       setupBadgeToggle();
       setupHideNoBadgesToggle();
       setupIncludeMissingToggle();

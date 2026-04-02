@@ -8,6 +8,10 @@ The region filter uses a compact URL state in the query string:
 - `s=<country-code>:<base36-bitmask>[;<country-code>:<base36-bitmask>...]`
 - Example: `?v=2&s=de:zzzz;cz:3f2;ch:1a8`
 
+Additional share-state params (optional):
+
+- `pz=<number>`: minimum zoom level required to show POIs (default `10` if omitted).
+
 Encoding rules:
 
 1. Every country has a fixed region order (`REGION_ORDER` in `index.html`).
