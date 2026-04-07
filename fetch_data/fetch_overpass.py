@@ -204,9 +204,33 @@ def get_country_query_regex(region: Dict[str, Any]) -> str:
     return normalize_text(region.get("country_query_name_regex"))
 
 
+def get_country_iso_code(region: Dict[str, Any]) -> str:
+    """Return optional ISO country code for country relation lookup."""
+    return normalize_text(region.get("country_iso")).upper()
+
+
 def has_country_scope(region: Dict[str, Any]) -> bool:
     """Return whether region should be resolved inside an explicit country scope."""
-    return bool(get_country_query_name(region))
+    return bool(get_country_query_name(region) or get_country_iso_code(region))
+
+
+def build_country_scope_selector(region: Dict[str, Any], match_type: str, target_var: str) -> str | None:
+    """Build country relation selector using ISO tag or name fallback."""
+    country_admin_level = normalize_text(region.get("country_admin_level")) or "2"
+    country_iso = get_country_iso_code(region)
+    if country_iso and match_type == "exact":
+        return (
+            f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"]"
+            f"[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"]->{target_var};"
+        )
+
+    country_query = (
+        get_country_query_name(region) if match_type == "exact" else get_country_query_regex(region)
+    )
+    if not country_query:
+        return None
+    selector_builder = build_exact_relation_selector if match_type == "exact" else build_regex_relation_selector
+    return selector_builder(country_query, country_admin_level, target_var)
 
 
 def build_exact_relation_selector(name: str, admin_level: str, target_var: str, area_scope: str | None = None) -> str:
@@ -229,18 +253,15 @@ def build_regex_relation_selector(pattern: str, admin_level: str, target_var: st
 
 def build_country_region_scope(region: Dict[str, Any], match_type: str) -> str | None:
     """Build region search area by first resolving country and then region."""
-    country_admin_level = normalize_text(region.get("country_admin_level")) or "2"
     region_admin_level = str(region["admin_level"])
-    country_query = (
-        get_country_query_name(region) if match_type == "exact" else get_country_query_regex(region)
-    )
     region_query = get_region_query_name(region) if match_type == "exact" else get_region_query_regex(region)
-    if not country_query or not region_query:
+    country_selector = build_country_scope_selector(region, match_type, ".countryRel")
+    if not country_selector or not region_query:
         return None
     selector_builder = build_exact_relation_selector if match_type == "exact" else build_regex_relation_selector
     return "\n".join(
         [
-            selector_builder(country_query, country_admin_level, ".countryRel"),
+            country_selector,
             ".countryRel map_to_area->.searchCountryArea;",
             selector_builder(region_query, region_admin_level, ".regionRel", "searchCountryArea"),
             ".regionRel map_to_area->.searchArea;",
@@ -294,18 +315,21 @@ def build_query_attempts(region: Dict[str, Any]) -> List[Dict[str, str]]:
         country_query = (
             get_country_query_name(region) if match_type == "exact" else get_country_query_regex(region)
         )
+        country_scope = get_country_iso_code(region) if match_type == "exact" else ""
         if not region_query:
             return
-        if mode == "country+region" and not country_query:
+        if mode == "country+region" and not (country_query or country_scope):
             return
         if mode != "country+region":
             country_query = ""
+            country_scope = ""
         attempts.append(
             {
                 "mode": mode,
                 "match_type": match_type,
                 "region_query": region_query,
                 "country_query": country_query,
+                "country_scope": country_scope,
             }
         )
 
@@ -322,13 +346,14 @@ def build_query_attempts(region: Dict[str, Any]) -> List[Dict[str, str]]:
             append_attempt("direct-region", "regex")
 
     unique_attempts: List[Dict[str, str]] = []
-    seen: set[tuple[str, str, str, str]] = set()
+    seen: set[tuple[str, str, str, str, str]] = set()
     for attempt in attempts:
         key = (
             attempt["mode"],
             attempt["match_type"],
             attempt["region_query"],
             attempt["country_query"],
+            attempt["country_scope"],
         )
         if key in seen:
             continue
