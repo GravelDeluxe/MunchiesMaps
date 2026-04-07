@@ -105,6 +105,55 @@ def slugify(value: str) -> str:
 
 def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
     """Read regions from modern config and keep compatibility with legacy states list."""
+    countries_cfg = config.get("countries", {})
+    country_regions: List[Dict[str, Any]] = []
+    if isinstance(countries_cfg, dict):
+        for country_key, raw_country in countries_cfg.items():
+            if not isinstance(raw_country, dict):
+                raise ValueError(f"Config error: countries.{country_key} must be an object.")
+            iso3166_1 = normalize_text(raw_country.get("iso3166_1")).upper()
+            if not iso3166_1:
+                raise ValueError(f"Config error: countries.{country_key}.iso3166_1 is required.")
+            country_label = normalize_text(raw_country.get("label")) or str(country_key).replace("-", " ").title()
+            country_admin_level = int(raw_country.get("country_admin_level", 2))
+            region_admin_level = int(raw_country.get("region_admin_level", 4))
+            region_boundary = normalize_text(raw_country.get("region_boundary"))
+            region_match_key = normalize_text(raw_country.get("region_match_key")) or "name"
+            raw_country_regions = raw_country.get("regions") or []
+            if not isinstance(raw_country_regions, list):
+                raise ValueError(f"Config error: countries.{country_key}.regions must be a list.")
+            for raw_region in raw_country_regions:
+                if not isinstance(raw_region, dict):
+                    raise ValueError(
+                        f"Config error: each item in countries.{country_key}.regions must be an object."
+                    )
+                region_id = normalize_text(raw_region.get("id"))
+                label = normalize_text(raw_region.get("label"))
+                match_value = normalize_text(raw_region.get("match_value"))
+                if not region_id or not label or not match_value:
+                    raise ValueError(
+                        "Config error: country region entries require id, label and match_value."
+                    )
+                region_slug = normalize_text(raw_region.get("region")) or region_id
+                region_path = normalize_text(raw_region.get("path")) or get_geojson_path(str(country_key), region_slug)
+                country_regions.append(
+                    {
+                        "id": region_id,
+                        "label": label,
+                        "region": region_slug,
+                        "path": region_path,
+                        "country": str(country_key),
+                        "country_label": country_label,
+                        "area_name": label,
+                        "admin_level": region_admin_level,
+                        "region_boundary": region_boundary or None,
+                        "region_match_key": region_match_key,
+                        "region_match_value": match_value,
+                        "country_iso": iso3166_1,
+                        "country_admin_level": country_admin_level,
+                    }
+                )
+
     raw_regions = config.get("regions")
     if isinstance(raw_regions, list) and raw_regions:
         regions: List[Dict[str, Any]] = []
@@ -127,6 +176,15 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                 )
             region = dict(raw_region)
             region["admin_level"] = int(region["admin_level"])
+            region["region_match_key"] = normalize_text(region.get("region_match_key")) or "name"
+            region["region_match_value"] = normalize_text(region.get("region_match_value")) or normalize_text(
+                region.get("area_name")
+            )
+            region_boundary = normalize_text(region.get("region_boundary"))
+            region["region_boundary"] = region_boundary or None
+            country_iso = normalize_text(region.get("country_iso")).upper()
+            if country_iso:
+                region["country_iso"] = country_iso
             if "region" not in region or not str(region["region"]).strip():
                 configured_path = str(region["path"])
                 if "/" in configured_path:
@@ -137,7 +195,7 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                     region["region"] = slugify(str(region["label"]))
             region["path"] = get_geojson_path(str(region["country"]), str(region["region"]))
             regions.append(region)
-        return regions
+        return [*regions, *country_regions]
 
     raw_states = config.get("states", [])
     if isinstance(raw_states, list) and raw_states:
@@ -158,9 +216,9 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                     "admin_level": 4,
                 }
             )
-        return regions
+        return [*regions, *country_regions]
 
-    return []
+    return country_regions
 
 
 def overpass_escape(value: str) -> str:
@@ -170,7 +228,13 @@ def overpass_escape(value: str) -> str:
 
 def get_region_query_name(region: Dict[str, Any]) -> str:
     """Return technical region name for exact query matching."""
-    return normalize_text(region.get("query_name")) or normalize_text(region.get("area_name"))
+    if normalize_text(region.get("region_match_key")) != "name":
+        return ""
+    return (
+        normalize_text(region.get("query_name"))
+        or normalize_text(region.get("region_match_value"))
+        or normalize_text(region.get("area_name"))
+    )
 
 
 def get_country_query_name(region: Dict[str, Any]) -> str:
@@ -206,7 +270,7 @@ def get_country_query_regex(region: Dict[str, Any]) -> str:
 
 def get_country_iso_code(region: Dict[str, Any]) -> str:
     """Return optional ISO country code for country relation lookup."""
-    return normalize_text(region.get("country_iso")).upper()
+    return normalize_text(region.get("country_iso") or region.get("iso3166_1")).upper()
 
 
 def has_country_scope(region: Dict[str, Any]) -> bool:
@@ -233,6 +297,21 @@ def build_country_scope_selector(region: Dict[str, Any], match_type: str, target
     return selector_builder(country_query, country_admin_level, target_var)
 
 
+def build_country_area_selector(region: Dict[str, Any], match_type: str) -> str | None:
+    """Build country area selector with ISO-first strategy."""
+    country_admin_level = normalize_text(region.get("country_admin_level")) or "2"
+    country_iso = get_country_iso_code(region)
+    if country_iso and match_type == "exact":
+        return (
+            f"area[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"]"
+            f"[\"admin_level\"=\"{country_admin_level}\"]->.country;"
+        )
+    country_selector = build_country_scope_selector(region, match_type, ".countryRel")
+    if not country_selector:
+        return None
+    return "\n".join([country_selector, ".countryRel map_to_area->.country;"])
+
+
 def build_exact_relation_selector(name: str, admin_level: str, target_var: str, area_scope: str | None = None) -> str:
     """Build exact relation selector with optional area scope."""
     scope = f"(area.{area_scope})" if area_scope else ""
@@ -253,35 +332,59 @@ def build_regex_relation_selector(pattern: str, admin_level: str, target_var: st
 
 def build_country_region_scope(region: Dict[str, Any], match_type: str) -> str | None:
     """Build region search area by first resolving country and then region."""
-    region_admin_level = str(region["admin_level"])
-    region_query = get_region_query_name(region) if match_type == "exact" else get_region_query_regex(region)
-    country_selector = build_country_scope_selector(region, match_type, ".countryRel")
-    if not country_selector or not region_query:
+    country_selector = build_country_area_selector(region, match_type)
+    region_selector = build_region_selector(region, match_type)
+    if not country_selector or not region_selector:
         return None
-    selector_builder = build_exact_relation_selector if match_type == "exact" else build_regex_relation_selector
     return "\n".join(
         [
             country_selector,
-            ".countryRel map_to_area->.searchCountryArea;",
-            selector_builder(region_query, region_admin_level, ".regionRel", "searchCountryArea"),
-            ".regionRel map_to_area->.searchArea;",
+            f"relation(area.country){region_selector}->.region_rel;",
+            ".region_rel map_to_area->.searchArea;",
         ]
     )
 
 
 def build_direct_region_scope(region: Dict[str, Any], match_type: str) -> str | None:
     """Build region search area by resolving the region relation directly."""
-    region_admin_level = str(region["admin_level"])
-    region_query = get_region_query_name(region) if match_type == "exact" else get_region_query_regex(region)
-    if not region_query:
+    region_selector = build_region_selector(region, match_type)
+    if not region_selector:
         return None
-    selector_builder = build_exact_relation_selector if match_type == "exact" else build_regex_relation_selector
     return "\n".join(
         [
-            selector_builder(region_query, region_admin_level, ".regionRel"),
-            ".regionRel map_to_area->.searchArea;",
+            f"relation{region_selector}->.region_rel;",
+            ".region_rel map_to_area->.searchArea;",
         ]
     )
+
+
+def build_region_selector(region: Dict[str, Any], match_type: str = "exact") -> str | None:
+    """Build relation selector from configurable region-matching metadata."""
+    admin_level = str(region["admin_level"])
+    boundary = normalize_text(region.get("region_boundary"))
+    match_key = normalize_text(region.get("region_match_key")) or "name"
+    match_value = normalize_text(region.get("region_match_value"))
+    if not match_value:
+        return None
+    if match_type == "regex":
+        if match_key != "name":
+            return None
+        region_regex = get_region_query_regex(region)
+        if not region_regex:
+            return None
+        match_operator = "~"
+        match_literal = region_regex
+    else:
+        match_operator = "="
+        match_literal = match_value
+
+    filters = [f"[\"admin_level\"=\"{overpass_escape(admin_level)}\"]"]
+    if boundary:
+        filters.append(f"[\"boundary\"=\"{overpass_escape(boundary)}\"]")
+    filters.append(
+        f"[\"{overpass_escape(match_key)}\"{match_operator}\"{overpass_escape(match_literal)}\"]"
+    )
+    return "".join(filters)
 
 
 def build_query(region: Dict[str, Any], body: str, timeout: int, mode: str, match_type: str) -> str:
@@ -301,7 +404,7 @@ def build_query(region: Dict[str, Any], body: str, timeout: int, mode: str, matc
         (
         {indent(body, '  ')}
         );
-        out center qt;
+        out center tags;
         """
     ).strip()
 
@@ -309,14 +412,18 @@ def build_query(region: Dict[str, Any], body: str, timeout: int, mode: str, matc
 def build_query_attempts(region: Dict[str, Any]) -> List[Dict[str, str]]:
     """Build ordered, de-duplicated query attempts for a region."""
     attempts: List[Dict[str, str]] = []
+    region_match_key = normalize_text(region.get("region_match_key")) or "name"
+    region_match_value = normalize_text(region.get("region_match_value")) or normalize_text(region.get("area_name"))
 
     def append_attempt(mode: str, match_type: str) -> None:
-        region_query = get_region_query_name(region) if match_type == "exact" else get_region_query_regex(region)
+        region_query = region_match_value if match_type == "exact" else get_region_query_regex(region)
         country_query = (
             get_country_query_name(region) if match_type == "exact" else get_country_query_regex(region)
         )
         country_scope = get_country_iso_code(region) if match_type == "exact" else ""
         if not region_query:
+            return
+        if match_type == "regex" and region_match_key != "name":
             return
         if mode == "country+region" and not (country_query or country_scope):
             return
@@ -328,6 +435,7 @@ def build_query_attempts(region: Dict[str, Any]) -> List[Dict[str, str]]:
                 "mode": mode,
                 "match_type": match_type,
                 "region_query": region_query,
+                "region_match_key": region_match_key,
                 "country_query": country_query,
                 "country_scope": country_scope,
             }
@@ -352,6 +460,7 @@ def build_query_attempts(region: Dict[str, Any]) -> List[Dict[str, str]]:
             attempt["mode"],
             attempt["match_type"],
             attempt["region_query"],
+            attempt.get("region_match_key", ""),
             attempt["country_query"],
             attempt["country_scope"],
         )
@@ -788,12 +897,15 @@ def run(
                     mode = attempt["mode"]
                     match_type = attempt["match_type"]
                     region_query = attempt["region_query"]
+                    region_match_key = attempt.get("region_match_key") or region.get("region_match_key") or "name"
                     country_query = attempt["country_query"]
                     query = build_query(region, body, timeout, mode=mode, match_type=match_type)
                     prefix = "[query]" if attempt_index == 1 else "[query] fallback ->"
                     print(
-                        f"{prefix} label={region['label']} | country={region['country']} "
-                        f"| region_query={region_query} | country_query={country_query or '-'} "
+                        f"{prefix} country={region['country']} | region_id={region['id']} | region_label={region['label']} "
+                        f"| region_match_key={region_match_key} | region_match_value={region_query} "
+                        f"| admin_level={region['admin_level']} | boundary={region.get('region_boundary') or '-'} "
+                        f"| country_query={country_query or '-'} "
                         f"| mode={mode} | match_type={match_type} | category={category}"
                     )
                     print(f"[query] Built query (chars={len(query)}, timeout={timeout}s)")
@@ -801,6 +913,11 @@ def run(
                         print(f"[query] Full query:\n{query}")
                     response_json = request_with_retry(endpoints, query, timeout)
                     elements = response_json.get("elements", [])
+                    print(
+                        "[result] "
+                        f"country={region['country']} | region_id={region['id']} | category={category} "
+                        f"| success={'yes' if bool(response_json) else 'no'} | elements={len(elements)}"
+                    )
                     if elements:
                         break
                     if attempt_index < len(attempts):

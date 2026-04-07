@@ -10,6 +10,7 @@ Automation scripts for pulling OpenStreetMap data and exporting it as GeoJSON fo
 ## Regions config (minimal multi-country step)
 
 - `config.yml` now uses `regions:` instead of a flat `states:` list.
+- Optional: `countries:` can define country-level region matching defaults (`iso3166_1`, `region_admin_level`, optional `region_boundary`, `region_match_key`) and nested `regions` (`id`, `label`, `match_value`).
 - Each region entry contains explicit metadata: `id`, `label`, `path`, `country`, `country_label`, `area_name`, `admin_level`.
 - Output folders are now taken from `path` (for example `resources/geojson/germany/berlin/`), not implicitly from the human-readable label.
 - Legacy `states:` is still supported by the script for transition safety, but new config should use `regions:`.
@@ -21,6 +22,9 @@ Automation scripts for pulling OpenStreetMap data and exporting it as GeoJSON fo
 - Overpass query resolution is now the same engine for all countries:
   - first `country+region` (if country query scope is configured), then direct region fallback,
   - each with exact match first and optional regex fallback second.
+- Region relation selector defaults remain backward compatible:
+  - `region_match_key` defaults to `name`
+  - `region_boundary` is optional (unset means no boundary filter)
 
 ## CLI filters
 
@@ -42,8 +46,9 @@ Examples:
 
 - Region lookups are now built via administrative **relations** and converted to queryable areas through `map_to_area`.
 - Query prefix pattern:
-  - `rel["boundary"="administrative"]["admin_level"="..."]["name"="..."]->.regionRel;`
-  - `.regionRel map_to_area->.searchArea;`
+  - `area["ISO3166-1"="..."]["admin_level"="2"]->.country;`
+  - `relation(area.country)["admin_level"="..."][optional boundary][match_key="match_value"]->.region_rel;`
+  - `.region_rel map_to_area->.searchArea;`
 - Category templates continue to run unchanged against `(area.searchArea)`.
 
 - For new countries/regions, verify `admin_level` empirically with Overpass tests before adding/updating entries.
