@@ -136,6 +136,8 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                     )
                 region_slug = normalize_text(raw_region.get("region")) or region_id
                 region_path = normalize_text(raw_region.get("path")) or get_geojson_path(str(country_key), region_slug)
+                query_name = normalize_text(raw_region.get("query_name"))
+                query_name_regex = normalize_text(raw_region.get("query_name_regex"))
                 country_regions.append(
                     {
                         "id": region_id,
@@ -149,6 +151,8 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                         "region_boundary": region_boundary or None,
                         "region_match_key": region_match_key,
                         "region_match_value": match_value,
+                        "query_name": query_name or None,
+                        "query_name_regex": query_name_regex or None,
                         "country_iso": iso3166_1,
                         "country_admin_level": country_admin_level,
                     }
@@ -301,7 +305,7 @@ def build_country_area_selector(region: Dict[str, Any], match_type: str) -> str 
     """Build country area selector with ISO-first strategy."""
     country_admin_level = normalize_text(region.get("country_admin_level")) or "2"
     country_iso = get_country_iso_code(region)
-    if country_iso and match_type == "exact":
+    if country_iso:
         return (
             f"area[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"]"
             f"[\"admin_level\"=\"{country_admin_level}\"]->.country;"
@@ -420,7 +424,7 @@ def build_query_attempts(region: Dict[str, Any]) -> List[Dict[str, str]]:
         country_query = (
             get_country_query_name(region) if match_type == "exact" else get_country_query_regex(region)
         )
-        country_scope = get_country_iso_code(region) if match_type == "exact" else ""
+        country_scope = get_country_iso_code(region)
         if not region_query:
             return
         if match_type == "regex" and region_match_key != "name":

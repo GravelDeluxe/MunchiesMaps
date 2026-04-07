@@ -40,7 +40,9 @@ Examples:
 - `python fetch_overpass.py --regions de-berlin,cz-praha --categories fast_food`
 - `python fetch_overpass.py --countries czechia`
 - `python fetch_overpass.py --countries austria`
+- `python fetch_overpass.py --countries croatia`
 - `python fetch_overpass.py --regions cz-praha --categories fuel --verbose-query`
+- `python fetch_overpass.py --countries croatia --categories fuel --verbose-query`
 
 ## Administrative boundary resolution
 
@@ -52,4 +54,4 @@ Examples:
 - Category templates continue to run unchanged against `(area.searchArea)`.
 
 - For new countries/regions, verify `admin_level` empirically with Overpass tests before adding/updating entries.
-- In this project, Czech regions and Austrian regions are queried with `admin_level=4`.
+- In this project, Czech regions, Austrian regions and Croatian counties are queried with `admin_level=4`.

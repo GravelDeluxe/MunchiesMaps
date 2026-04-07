@@ -51,6 +51,119 @@ countries:
       - id: si044
         label: Obalno-kraška
         match_value: SI044
+  croatia:
+    label: Croatia
+    iso3166_1: HR
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_match_key: name
+    regions:
+      - id: hr-osjecko-baranjska-zupanija
+        region: osjecko-baranjska-zupanija
+        label: Osječko-baranjska županija
+        match_value: Osječko-baranjska županija
+        query_name_regex: ^Osječko-baranjska županija$
+      - id: hr-vukovarsko-srijemska-zupanija
+        region: vukovarsko-srijemska-zupanija
+        label: Vukovarsko-srijemska županija
+        match_value: Vukovarsko-srijemska županija
+        query_name_regex: ^Vukovarsko-srijemska županija$
+      - id: hr-brodsko-posavska-zupanija
+        region: brodsko-posavska-zupanija
+        label: Brodsko-posavska županija
+        match_value: Brodsko-posavska županija
+        query_name_regex: ^Brodsko-posavska županija$
+      - id: hr-viroviticko-podravska-zupanija
+        region: viroviticko-podravska-zupanija
+        label: Virovitičko-podravska županija
+        match_value: Virovitičko-podravska županija
+        query_name_regex: ^Virovitičko-podravska županija$
+      - id: hr-pozesko-slavonska-zupanija
+        region: pozesko-slavonska-zupanija
+        label: Požeško-slavonska županija
+        match_value: Požeško-slavonska županija
+        query_name_regex: ^Požeško-slavonska županija$
+      - id: hr-sisacko-moslavacka-zupanija
+        region: sisacko-moslavacka-zupanija
+        label: Sisačko-moslavačka županija
+        match_value: Sisačko-moslavačka županija
+        query_name_regex: ^Sisačko-moslavačka županija$
+      - id: hr-bjelovarsko-bilogorska-zupanija
+        region: bjelovarsko-bilogorska-zupanija
+        label: Bjelovarsko-bilogorska županija
+        match_value: Bjelovarsko-bilogorska županija
+        query_name_regex: ^Bjelovarsko-bilogorska županija$
+      - id: hr-medimurska-zupanija
+        region: medimurska-zupanija
+        label: Međimurska županija
+        match_value: Međimurska županija
+        query_name_regex: ^Međimurska županija$
+      - id: hr-koprivnicko-krizevacka-zupanija
+        region: koprivnicko-krizevacka-zupanija
+        label: Koprivničko-križevačka županija
+        match_value: Koprivničko-križevačka županija
+        query_name_regex: ^Koprivničko-križevačka županija$
+      - id: hr-varazdinska-zupanija
+        region: varazdinska-zupanija
+        label: Varaždinska županija
+        match_value: Varaždinska županija
+        query_name_regex: ^Varaždinska županija$
+      - id: hr-krapinsko-zagorska-zupanija
+        region: krapinsko-zagorska-zupanija
+        label: Krapinsko-zagorska županija
+        match_value: Krapinsko-zagorska županija
+        query_name_regex: ^Krapinsko-zagorska županija$
+      - id: hr-grad-zagreb
+        region: grad-zagreb
+        label: Grad Zagreb
+        match_value: Grad Zagreb
+        query_name_regex: ^Grad Zagreb$
+      - id: hr-zagrebacka-zupanija
+        region: zagrebacka-zupanija
+        label: Zagrebačka županija
+        match_value: Zagrebačka županija
+        query_name_regex: ^Zagrebačka županija$
+      - id: hr-karlovacka-zupanija
+        region: karlovacka-zupanija
+        label: Karlovačka županija
+        match_value: Karlovačka županija
+        query_name_regex: ^Karlovačka županija$
+      - id: hr-istarska-zupanija
+        region: istarska-zupanija
+        label: Istarska županija
+        match_value: Istarska županija
+        query_name_regex: ^Istarska županija$
+      - id: hr-primorsko-goranska-zupanija
+        region: primorsko-goranska-zupanija
+        label: Primorsko-goranska županija
+        match_value: Primorsko-goranska županija
+        query_name_regex: ^Primorsko-goranska županija$
+      - id: hr-licko-senjska-zupanija
+        region: licko-senjska-zupanija
+        label: Ličko-senjska županija
+        match_value: Ličko-senjska županija
+        query_name_regex: ^Ličko-senjska županija$
+      - id: hr-zadarska-zupanija
+        region: zadarska-zupanija
+        label: Zadarska županija
+        match_value: Zadarska županija
+        query_name_regex: ^Zadarska županija$
+      - id: hr-sibensko-kninska-zupanija
+        region: sibensko-kninska-zupanija
+        label: Šibensko-kninska županija
+        match_value: Šibensko-kninska županija
+        query_name_regex: ^Šibensko-kninska županija$
+      - id: hr-splitsko-dalmatinska-zupanija
+        region: splitsko-dalmatinska-zupanija
+        label: Splitsko-dalmatinska županija
+        match_value: Splitsko-dalmatinska županija
+        query_name_regex: ^Splitsko-dalmatinska županija$
+      - id: hr-dubrovacko-neretvanska-zupanija
+        region: dubrovacko-neretvanska-zupanija
+        label: Dubrovačko-neretvanska županija
+        match_value: Dubrovačko-neretvanska županija
+        query_name_regex: ^Dubrovačko-neretvanska županija$
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg
