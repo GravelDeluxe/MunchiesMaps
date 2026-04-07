@@ -6,7 +6,7 @@ The region filter uses a compact URL state in the query string:
 
 - `v=2`
 - `s=<country-code>:<base36-bitmask>[;<country-code>:<base36-bitmask>...]`
-- Example: `?v=2&s=de:zzzz;cz:3f2;ch:1a8;at:2k`
+- Example: `?v=2&s=de:zzzz;cz:3f2;ch:1a8;at:2k;hr:8v1`
 
 Additional share-state params (optional):
 
