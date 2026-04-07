@@ -6,6 +6,51 @@ overpass:
   timeout: 180
   fail_on_error: false
   request_delay_seconds: 0.3
+countries:
+  slovenia:
+    label: Slovenia
+    iso3166_1: SI
+    country_admin_level: 2
+    region_admin_level: 5
+    region_boundary: census
+    region_match_key: ref:nuts:3
+    regions:
+      - id: si031
+        label: Pomurska
+        match_value: SI031
+      - id: si032
+        label: Podravska
+        match_value: SI032
+      - id: si033
+        label: Koroška
+        match_value: SI033
+      - id: si034
+        label: Savinjska
+        match_value: SI034
+      - id: si035
+        label: Zasavska
+        match_value: SI035
+      - id: si036
+        label: Posavska
+        match_value: SI036
+      - id: si037
+        label: Jugovzhodna Slovenija
+        match_value: SI037
+      - id: si038
+        label: Primorsko-notranjska
+        match_value: SI038
+      - id: si041
+        label: Osrednjeslovenska
+        match_value: SI041
+      - id: si042
+        label: Gorenjska
+        match_value: SI042
+      - id: si043
+        label: Goriška
+        match_value: SI043
+      - id: si044
+        label: Obalno-kraška
+        match_value: SI044
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg
