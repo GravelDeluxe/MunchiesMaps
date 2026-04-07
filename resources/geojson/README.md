@@ -6,4 +6,4 @@ This folder contains the GeoJSON datasets that back the map. Data is organized p
 - `manifest.json` contains all region entries with `id`, `label`, `path`, `country`, `country_label`, and `bbox` so consumers can resolve the correct folders.
 - Available categories are derived from `fetch_data/config.yml` and written to `manifest.json`.
 - Files are generated automatically by the `fetch_data` scripts; regenerate rather than editing them manually.
-- Germany, Czechia, Switzerland, and Austria are generated through the same data pipeline.
+- Germany, Czechia, Switzerland, Austria, and Slovenia are generated through the same data pipeline.
