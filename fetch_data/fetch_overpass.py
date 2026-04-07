@@ -119,6 +119,9 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
             region_admin_level = int(raw_country.get("region_admin_level", 4))
             region_boundary = normalize_text(raw_country.get("region_boundary"))
             region_match_key = normalize_text(raw_country.get("region_match_key")) or "name"
+            region_identifier_strategy = normalize_text(raw_country.get("region_identifier_strategy")).lower()
+            if region_identifier_strategy == "iso3166-2":
+                region_match_key = "ISO3166-2"
             raw_country_regions = raw_country.get("regions") or []
             if not isinstance(raw_country_regions, list):
                 raise ValueError(f"Config error: countries.{country_key}.regions must be a list.")
@@ -127,14 +130,16 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                     raise ValueError(
                         f"Config error: each item in countries.{country_key}.regions must be an object."
                     )
-                region_id = normalize_text(raw_region.get("id"))
+                region_code = normalize_text(raw_region.get("code"))
+                region_id = normalize_text(raw_region.get("id")) or region_code
                 label = normalize_text(raw_region.get("label"))
-                match_value = normalize_text(raw_region.get("match_value"))
+                region_iso3166_2 = normalize_text(raw_region.get("iso3166_2")).upper()
+                match_value = normalize_text(raw_region.get("match_value")) or region_iso3166_2
                 if not region_id or not label or not match_value:
                     raise ValueError(
-                        "Config error: country region entries require id, label and match_value."
+                        "Config error: country region entries require id/code, label and match_value/iso3166_2."
                     )
-                region_slug = normalize_text(raw_region.get("region")) or region_id
+                region_slug = normalize_text(raw_region.get("region")) or region_code or region_id
                 region_path = normalize_text(raw_region.get("path")) or get_geojson_path(str(country_key), region_slug)
                 query_name = normalize_text(raw_region.get("query_name"))
                 query_name_regex = normalize_text(raw_region.get("query_name_regex"))
@@ -155,6 +160,8 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                         "query_name_regex": query_name_regex or None,
                         "country_iso": iso3166_1,
                         "country_admin_level": country_admin_level,
+                        "region_code": region_code or region_id,
+                        "region_iso3166_2": region_iso3166_2 or None,
                     }
                 )
 

@@ -164,6 +164,74 @@ countries:
         label: Dubrovačko-neretvanska županija
         match_value: Dubrovačko-neretvanska županija
         query_name_regex: ^Dubrovačko-neretvanska županija$
+  italy:
+    label: Italy
+    iso3166_1: IT
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    regions:
+      - code: it-65
+        label: Abruzzo
+        iso3166_2: IT-65
+      - code: it-77
+        label: Basilicata
+        iso3166_2: IT-77
+      - code: it-78
+        label: Calabria
+        iso3166_2: IT-78
+      - code: it-72
+        label: Campania
+        iso3166_2: IT-72
+      - code: it-45
+        label: Emilia-Romagna
+        iso3166_2: IT-45
+      - code: it-36
+        label: Friuli Venezia Giulia
+        iso3166_2: IT-36
+      - code: it-62
+        label: Lazio
+        iso3166_2: IT-62
+      - code: it-42
+        label: Liguria
+        iso3166_2: IT-42
+      - code: it-25
+        label: Lombardia
+        iso3166_2: IT-25
+      - code: it-57
+        label: Marche
+        iso3166_2: IT-57
+      - code: it-67
+        label: Molise
+        iso3166_2: IT-67
+      - code: it-21
+        label: Piemonte
+        iso3166_2: IT-21
+      - code: it-75
+        label: Puglia
+        iso3166_2: IT-75
+      - code: it-88
+        label: Sardegna
+        iso3166_2: IT-88
+      - code: it-82
+        label: Sicilia
+        iso3166_2: IT-82
+      - code: it-52
+        label: Toscana
+        iso3166_2: IT-52
+      - code: it-32
+        label: Trentino-Alto Adige/Südtirol
+        iso3166_2: IT-32
+      - code: it-55
+        label: Umbria
+        iso3166_2: IT-55
+      - code: it-23
+        label: Valle d'Aosta/Vallée d'Aoste
+        iso3166_2: IT-23
+      - code: it-34
+        label: Veneto
+        iso3166_2: IT-34
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg
