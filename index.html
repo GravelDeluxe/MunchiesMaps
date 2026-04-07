@@ -1737,6 +1737,7 @@
 
     function applyShareStateFromUrl(data) {
       const state = readShareStateFromUrl();
+      regionManualModeById.clear();
 
       filterState.bundeslaender = allIds(data.regions);
       filterState.kategorien = allIds(data.categories);
@@ -1772,6 +1773,13 @@
         });
         if (nextSet.size > 0) {
           filterState.bundeslaender = nextSet;
+          validIds.forEach((id) => {
+            if (nextSet.has(id)) {
+              regionManualModeById.set(id, 'forcedOn');
+            } else {
+              regionManualModeById.set(id, 'forcedOff');
+            }
+          });
         }
       }
 
@@ -2292,6 +2300,8 @@
       bundeslaender: new Set(),
       kategorien: new Set()
     };
+    const regionManualModeById = new Map();
+    let autoActiveRegionIds = new Set();
     const appState = window.appState = window.appState || {};
     Object.assign(appState, {
       showBadges: appState.showBadges ?? false,
@@ -2474,20 +2484,20 @@
           e.stopPropagation();
           const shouldSelect = e.target.checked;
           group.regions.forEach((region) => {
-            if (shouldSelect) {
-              selectedSet.add(region.id);
-            } else {
-              selectedSet.delete(region.id);
-            }
+            const nextMode = computeManualModeFromCheckbox(region.id, shouldSelect);
+            setManualRegionMode(region.id, nextMode);
           });
-          const activeRegionCount = group.regions.filter((region) => selectedSet.has(region.id)).length;
+          const changed = refreshEffectiveRegionState({ triggerFilters: false, rerenderChecklist: false, updateUrl: false });
+          const activeRegionCount = group.regions.filter((region) => filterState.bundeslaender.has(region.id)).length;
           console.log('[region-filter-country-toggle]', {
             country: group.countryCode,
             activeRegions: activeRegionCount
           });
           renderRegionChecklist(containerId, items, selectedSet, setName);
-          triggerApplyFilters();
-          if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+          if (changed) {
+            triggerApplyFilters();
+            if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+          }
         });
 
         const toggleCountry = () => {
@@ -2529,18 +2539,29 @@
           cb.checked = selectedSet.has(region.id);
           cb.id = `${setName}-region-${countryIndex}-${regionIndex}`;
           cb.addEventListener('change', (e) => {
-            if (e.target.checked) {
-              selectedSet.add(region.id);
-            } else {
-              selectedSet.delete(region.id);
-            }
+            const nextMode = computeManualModeFromCheckbox(region.id, e.target.checked);
+            setManualRegionMode(region.id, nextMode);
+            const changed = refreshEffectiveRegionState({ triggerFilters: false, rerenderChecklist: false, updateUrl: false });
             renderRegionChecklist(containerId, items, selectedSet, setName);
-            triggerApplyFilters();
-            if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+            if (changed) {
+              triggerApplyFilters();
+              if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+            }
           });
 
           const text = document.createElement('span');
           text.textContent = region.label || region.id;
+          const mode = getRegionSelectionMode(region.id);
+          row.dataset.regionMode = mode;
+          if (mode === 'forcedOn') {
+            row.title = 'Manually activated';
+          } else if (mode === 'forcedOff') {
+            row.title = 'Manually deactivated';
+          } else if (autoActiveRegionIds.has(region.id)) {
+            row.title = 'Automatically active (viewport)';
+          } else {
+            row.title = 'Automatically inactive (outside viewport)';
+          }
           row.appendChild(cb);
           row.appendChild(text);
           regionsWrapper.appendChild(row);
@@ -2644,6 +2665,89 @@
       return visible;
     }
 
+    function getRegionsIntersectingBounds(mapBounds, data) {
+      const boundsBox = getBoundsBbox(mapBounds);
+      if (!boundsBox) return new Set();
+      const visible = new Set();
+      const items = Array.isArray(data?.regions) ? data.regions : (Array.isArray(data?.bundeslaender) ? data.bundeslaender : []);
+      items.forEach((entry) => {
+        const bbox = getRegionBBox(entry);
+        if (!bbox) return;
+        if (bboxIntersects(boundsBox, bbox)) {
+          visible.add(entry.id);
+        }
+      });
+      return visible;
+    }
+
+    function getEffectiveActiveRegions({
+      autoRegionIds = new Set(),
+      manualModeById = new Map(),
+      allRegionIds = []
+    } = {}) {
+      const effective = new Set();
+      allRegionIds.forEach((regionId) => {
+        const mode = manualModeById.get(regionId) || 'auto';
+        if (mode === 'forcedOff') return;
+        if (mode === 'forcedOn' || autoRegionIds.has(regionId)) {
+          effective.add(regionId);
+        }
+      });
+      return effective;
+    }
+
+    function getRegionSelectionMode(regionId) {
+      return regionManualModeById.get(regionId) || 'auto';
+    }
+
+    function setManualRegionMode(regionId, nextMode) {
+      if (!regionId) return;
+      if (nextMode === 'forcedOn' || nextMode === 'forcedOff') {
+        regionManualModeById.set(regionId, nextMode);
+      } else {
+        regionManualModeById.delete(regionId);
+      }
+    }
+
+    function computeManualModeFromCheckbox(regionId, shouldBeChecked) {
+      const isAutoActive = autoActiveRegionIds.has(regionId);
+      if (shouldBeChecked) {
+        return isAutoActive ? 'auto' : 'forcedOn';
+      }
+      return isAutoActive ? 'forcedOff' : 'auto';
+    }
+
+    function refreshEffectiveRegionState({
+      triggerFilters = true,
+      rerenderChecklist = true,
+      updateUrl = true
+    } = {}) {
+      const allRegionIds = (manifestData.regions || []).map((region) => region.id).filter(Boolean);
+      const effective = getEffectiveActiveRegions({
+        autoRegionIds: autoActiveRegionIds,
+        manualModeById: regionManualModeById,
+        allRegionIds
+      });
+      if (setEquals(effective, filterState.bundeslaender)) return false;
+      filterState.bundeslaender = effective;
+      if (rerenderChecklist) {
+        renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
+      }
+      if (triggerFilters) {
+        triggerApplyFilters();
+      }
+      if (updateUrl && typeof debouncedUrlUpdate === 'function') {
+        debouncedUrlUpdate();
+      }
+      return true;
+    }
+
+    function updateAutoActiveRegionsFromViewport({ triggerFilters = true, rerenderChecklist = true, updateUrl = true } = {}) {
+      if (!map || !manifestData?.regions?.length) return false;
+      autoActiveRegionIds = getRegionsIntersectingBounds(map.getBounds(), manifestData);
+      return refreshEffectiveRegionState({ triggerFilters, rerenderChecklist, updateUrl });
+    }
+
     function findRegionByLocationBbox(lat, lng, regions) {
       if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
       if (!Array.isArray(regions) || !regions.length) return null;
@@ -2710,8 +2814,10 @@
 
       if (!matchingRegionIds.size) return false;
 
-      filterState.bundeslaender = matchingRegionIds;
-      renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
+      matchingRegionIds.forEach((regionId) => {
+        setManualRegionMode(regionId, 'forcedOn');
+      });
+      refreshEffectiveRegionState({ triggerFilters: false, rerenderChecklist: true, updateUrl: true });
       showMapToast(`${matchingRegionIds.size} region(s) along the route activated.`);
       return true;
     }
@@ -4207,9 +4313,12 @@
     }
 
     const debouncedViewportUpdate = debounce(() => updateClusteringForViewport(), CLUSTER_DEBOUNCE_MS);
+    const debouncedAutoRegionUpdate = debounce(() => updateAutoActiveRegionsFromViewport(), CLUSTER_DEBOUNCE_MS);
     const debouncedUrlUpdate = debounce(() => updateUrlFromCurrentState({ replace: true }), SHARE_URL_UPDATE_DEBOUNCE_MS);
     map.on('moveend', debouncedViewportUpdate);
     map.on('zoomend', debouncedViewportUpdate);
+    map.on('moveend', debouncedAutoRegionUpdate);
+    map.on('zoomend', debouncedAutoRegionUpdate);
     map.on('moveend', debouncedUrlUpdate);
     map.on('zoomend', debouncedUrlUpdate);
 
@@ -4530,7 +4639,13 @@
     }
 
     function resetAllFilters() {
-      filterState.bundeslaender = new Set((manifestData.regions || []).map((b) => b.id));
+      regionManualModeById.clear();
+      autoActiveRegionIds = getRegionsIntersectingBounds(map.getBounds(), manifestData);
+      filterState.bundeslaender = getEffectiveActiveRegions({
+        autoRegionIds: autoActiveRegionIds,
+        manualModeById: regionManualModeById,
+        allRegionIds: (manifestData.regions || []).map((b) => b.id)
+      });
       filterState.kategorien = new Set((manifestData.categories || []).map((c) => c.id));
       renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
       renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
@@ -4694,10 +4809,10 @@
         return acc;
       }, {});
 
-      manifestData.regions.forEach(bl => filterState.bundeslaender.add(bl.id));
       manifestData.categories.forEach(cat => filterState.kategorien.add(cat.id));
 
       applyShareStateFromUrl(manifestData);
+      autoActiveRegionIds = getRegionsIntersectingBounds(map.getBounds(), manifestData);
 
       renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
       renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
@@ -4714,16 +4829,13 @@
         if (initialFix) {
           updateUserLocationLayers(initialFix);
           map.setView([initialFix.lat, initialFix.lng], Math.max(map.getZoom(), 15), { animate: false });
-          const detectedRegion = findRegionByLocationBbox(initialFix.lat, initialFix.lng, manifestData.regions);
-          if (detectedRegion?.id) {
-            filterState.bundeslaender = new Set([detectedRegion.id]);
-            renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
-          }
         } else {
           map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom, { animate: false });
         }
         updateUrlFromCurrentState({ replace: true });
       }
+      autoActiveRegionIds = getRegionsIntersectingBounds(map.getBounds(), manifestData);
+      refreshEffectiveRegionState({ triggerFilters: false, rerenderChecklist: true, updateUrl: false });
       map.whenReady(() => map.invalidateSize());
       await applyFilters();
 
