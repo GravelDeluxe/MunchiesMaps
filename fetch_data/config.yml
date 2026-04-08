@@ -312,6 +312,78 @@ countries:
       - code: dk-85
         label: Region Sjælland
         iso3166_2: DK-85
+  sweden:
+    label: Sweden
+    iso3166_1: SE
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - code: se-bd
+        label: Norrbottens län
+        iso3166_2: SE-BD
+      - code: se-ac
+        label: Västerbottens län
+        iso3166_2: SE-AC
+      - code: se-z
+        label: Jämtlands län
+        iso3166_2: SE-Z
+      - code: se-y
+        label: Västernorrlands län
+        iso3166_2: SE-Y
+      - code: se-x
+        label: Gävleborgs län
+        iso3166_2: SE-X
+      - code: se-w
+        label: Dalarnas län
+        iso3166_2: SE-W
+      - code: se-c
+        label: Uppsala län
+        iso3166_2: SE-C
+      - code: se-u
+        label: Västmanlands län
+        iso3166_2: SE-U
+      - code: se-t
+        label: Örebro län
+        iso3166_2: SE-T
+      - code: se-s
+        label: Värmlands län
+        iso3166_2: SE-S
+      - code: se-o
+        label: Västra Götalands län
+        iso3166_2: SE-O
+      - code: se-f
+        label: Jönköpings län
+        iso3166_2: SE-F
+      - code: se-d
+        label: Södermanlands län
+        iso3166_2: SE-D
+      - code: se-ab
+        label: Stockholms län
+        iso3166_2: SE-AB
+      - code: se-n
+        label: Hallands län
+        iso3166_2: SE-N
+      - code: se-m
+        label: Skåne län
+        iso3166_2: SE-M
+      - code: se-g
+        label: Kronobergs län
+        iso3166_2: SE-G
+      - code: se-k
+        label: Blekinge län
+        iso3166_2: SE-K
+      - code: se-h
+        label: Kalmar län
+        iso3166_2: SE-H
+      - code: se-e
+        label: Östergötlands län
+        iso3166_2: SE-E
+      - code: se-i
+        label: Gotlands län
+        iso3166_2: SE-I
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg
