@@ -384,6 +384,63 @@ countries:
       - code: se-i
         label: Gotlands län
         iso3166_2: SE-I
+  norway:
+    label: Norway
+    iso3166_1: NO
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - code: no-39
+        label: Vestfold
+        iso3166_2: NO-39
+      - code: no-40
+        label: Telemark
+        iso3166_2: NO-40
+      - code: no-11
+        label: Rogaland
+        iso3166_2: NO-11
+      - code: no-31
+        label: Østfold
+        iso3166_2: NO-31
+      - code: no-03
+        label: Oslo
+        iso3166_2: NO-03
+      - code: no-32
+        label: Akershus
+        iso3166_2: NO-32
+      - code: no-56
+        label: Finnmark
+        iso3166_2: NO-56
+      - code: no-50
+        label: Trøndelag
+        iso3166_2: NO-50
+      - code: no-15
+        label: Møre og Romsdal
+        iso3166_2: NO-15
+      - code: no-55
+        label: Troms
+        iso3166_2: NO-55
+      - code: no-18
+        label: Nordland
+        iso3166_2: NO-18
+      - code: no-33
+        label: Buskerud
+        iso3166_2: NO-33
+      - code: no-21
+        label: Svalbard
+        iso3166_2: NO-21
+      - code: no-42
+        label: Agder
+        iso3166_2: NO-42
+      - code: no-34
+        label: Innlandet
+        iso3166_2: NO-34
+      - code: no-46
+        label: Vestland
+        iso3166_2: NO-46
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg
