@@ -288,6 +288,30 @@ countries:
       - code: fr-hdf
         label: Hauts-de-France
         iso3166_2: FR-HDF
+  denmark:
+    label: Denmark
+    iso3166_1: DK
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - code: dk-81
+        label: Region Nordjylland
+        iso3166_2: DK-81
+      - code: dk-82
+        label: Region Midtjylland
+        iso3166_2: DK-82
+      - code: dk-83
+        label: Region Syddanmark
+        iso3166_2: DK-83
+      - code: dk-84
+        label: Region Hovedstaden
+        iso3166_2: DK-84
+      - code: dk-85
+        label: Region Sjælland
+        iso3166_2: DK-85
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg

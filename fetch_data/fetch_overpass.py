@@ -120,6 +120,7 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
             region_boundary = normalize_text(raw_country.get("region_boundary"))
             region_match_key = normalize_text(raw_country.get("region_match_key")) or "name"
             region_identifier_strategy = normalize_text(raw_country.get("region_identifier_strategy")).lower()
+            country_scope_strategy = normalize_text(raw_country.get("country_scope_strategy")).lower()
             if region_identifier_strategy == "iso3166-2":
                 region_match_key = "ISO3166-2"
             raw_country_regions = raw_country.get("regions") or []
@@ -160,6 +161,7 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                         "query_name_regex": query_name_regex or None,
                         "country_iso": iso3166_1,
                         "country_admin_level": country_admin_level,
+                        "country_scope_strategy": country_scope_strategy or None,
                         "region_code": region_code or region_id,
                         "region_iso3166_2": region_iso3166_2 or None,
                     }
@@ -312,6 +314,12 @@ def build_country_area_selector(region: Dict[str, Any], match_type: str) -> str 
     """Build country area selector with ISO-first strategy."""
     country_admin_level = normalize_text(region.get("country_admin_level")) or "2"
     country_iso = get_country_iso_code(region)
+    country_scope_strategy = normalize_text(region.get("country_scope_strategy")).lower()
+    if country_iso and country_scope_strategy == "area-iso" and match_type == "exact":
+        return (
+            f"area[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"][\"admin_level\"=\"{country_admin_level}\"]"
+            "->.country;"
+        )
     if country_iso:
         return (
             f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"]"
@@ -351,8 +359,8 @@ def build_country_region_scope(region: Dict[str, Any], match_type: str) -> str |
     return "\n".join(
         [
             country_selector,
-            f"relation(area.country){region_selector}->.region_rel;",
-            ".region_rel map_to_area->.searchArea;",
+            f"relation(area.country){region_selector}->.regionRel;",
+            ".regionRel map_to_area->.searchArea;",
         ]
     )
 
@@ -364,8 +372,8 @@ def build_direct_region_scope(region: Dict[str, Any], match_type: str) -> str | 
         return None
     return "\n".join(
         [
-            f"relation{region_selector}->.region_rel;",
-            ".region_rel map_to_area->.searchArea;",
+            f"relation{region_selector}->.regionRel;",
+            ".regionRel map_to_area->.searchArea;",
         ]
     )
 
