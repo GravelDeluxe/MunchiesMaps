@@ -232,6 +232,62 @@ countries:
       - code: it-34
         label: Veneto
         iso3166_2: IT-34
+  france:
+    label: France
+    iso3166_1: FR
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    regions:
+      - code: fr-cvl
+        label: Centre-Val de Loire
+        iso3166_2: FR-CVL
+      - code: fr-idf
+        label: Île-de-France
+        iso3166_2: FR-IDF
+      - code: fr-pdl
+        label: Pays de la Loire
+        iso3166_2: FR-PDL
+      - code: fr-pac
+        label: Provence-Alpes-Côte d'Azur
+        iso3166_2: FR-PAC
+      - code: fr-20r
+        label: Corse
+        iso3166_2: FR-20R
+      - code: fr-bre
+        label: Bretagne
+        iso3166_2: FR-BRE
+      - code: fr-976
+        label: Mayotte
+        iso3166_2: FR-976
+      - code: fr-972
+        label: Martinique
+        iso3166_2: FR-972
+      - code: fr-971
+        label: Guadeloupe
+        iso3166_2: FR-971
+      - code: fr-ges
+        label: Grand Est
+        iso3166_2: FR-GES
+      - code: fr-ara
+        label: Auvergne-Rhône-Alpes
+        iso3166_2: FR-ARA
+      - code: fr-bfc
+        label: Bourgogne-Franche-Comté
+        iso3166_2: FR-BFC
+      - code: fr-naq
+        label: Nouvelle-Aquitaine
+        iso3166_2: FR-NAQ
+      - code: fr-occ
+        label: Occitanie
+        iso3166_2: FR-OCC
+      - code: fr-nor
+        label: Normandie
+        iso3166_2: FR-NOR
+      - code: fr-hdf
+        label: Hauts-de-France
+        iso3166_2: FR-HDF
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg

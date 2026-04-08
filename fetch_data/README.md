@@ -46,15 +46,17 @@ Examples:
 - `python fetch_overpass.py --regions cz-praha --categories fuel --verbose-query`
 - `python fetch_overpass.py --countries croatia --categories fuel --verbose-query`
 - `python fetch_overpass.py --regions it-25 --categories fuel --verbose-query`
+- `python fetch_overpass.py --countries france --categories fuel --verbose-query`
 
 ## Administrative boundary resolution
 
 - Region lookups are now built via administrative **relations** and converted to queryable areas through `map_to_area`.
 - Query prefix pattern:
-  - `area["ISO3166-1"="..."]["admin_level"="2"]->.country;`
+  - `rel["boundary"="administrative"]["admin_level"="2"]["ISO3166-1"="..."]->.countryRel;`
+  - `.countryRel map_to_area->.country;`
   - `relation(area.country)["admin_level"="..."][optional boundary][match_key="match_value"]->.region_rel;`
   - `.region_rel map_to_area->.searchArea;`
 - Category templates continue to run unchanged against `(area.searchArea)`.
 
 - For new countries/regions, verify `admin_level` empirically with Overpass tests before adding/updating entries.
-- In this project, Czech regions, Austrian regions, Croatian counties and Italian regions are queried with `admin_level=4`.
+- In this project, Czech regions, Austrian regions, Croatian counties, Italian regions and French regions are queried with `admin_level=4`.

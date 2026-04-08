@@ -314,8 +314,9 @@ def build_country_area_selector(region: Dict[str, Any], match_type: str) -> str 
     country_iso = get_country_iso_code(region)
     if country_iso:
         return (
-            f"area[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"]"
-            f"[\"admin_level\"=\"{country_admin_level}\"]->.country;"
+            f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"]"
+            f"[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"]->.countryRel;\n"
+            ".countryRel map_to_area->.country;"
         )
     country_selector = build_country_scope_selector(region, match_type, ".countryRel")
     if not country_selector:
