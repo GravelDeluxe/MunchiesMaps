@@ -573,6 +573,76 @@ countries:
       - code: fi-19
         label: FI-19
         iso3166_2: FI-19
+
+  netherlands:
+    label: Netherlands
+    iso3166_1: NL
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - code: nl-fr
+        label: Fryslân
+        iso3166_2: NL-FR
+      - code: nl-fl
+        label: Flevoland
+        iso3166_2: NL-FL
+      - code: nl-dr
+        label: Drenthe
+        iso3166_2: NL-DR
+      - code: nl-ge
+        label: Gelderland
+        iso3166_2: NL-GE
+      - code: nl-ov
+        label: Overijssel
+        iso3166_2: NL-OV
+      - code: nl-nh
+        label: Noord-Holland
+        iso3166_2: NL-NH
+      - code: nl-ut
+        label: Utrecht
+        iso3166_2: NL-UT
+      - code: nl-nb
+        label: Noord-Brabant
+        iso3166_2: NL-NB
+      - code: nl-zh
+        label: Zuid-Holland
+        iso3166_2: NL-ZH
+      - code: nl-li
+        label: Limburg
+        iso3166_2: NL-LI
+      - code: nl-ze
+        label: Zeeland
+        iso3166_2: NL-ZE
+      - code: nl-gr
+        label: Groningen
+        iso3166_2: NL-GR
+  belgium:
+    label: Belgium
+    iso3166_1: BE
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - code: be-vlg
+        label: Vlaanderen
+        iso3166_2: BE-VLG
+      - code: be-bru
+        label: Région de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest
+        iso3166_2: BE-BRU
+      - code: be-wal
+        label: Wallonie
+        iso3166_2: BE-WAL
+  luxembourg:
+    label: Luxembourg
+    iso3166_1: LU
+    country_admin_level: 2
+    country_scope_strategy: area-iso
+    query_mode: country-only
   portugal:
     label: Portugal
     iso3166_1: PT

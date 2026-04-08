@@ -170,6 +170,34 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                         "region_code": region_code or region_id,
                         "region_iso3166_2": region_iso3166_2 or None,
                         "region_scope_strategy": region_scope_strategy_entry or None,
+                        "query_mode": normalize_text(raw_country.get("query_mode")).lower() or None,
+                    }
+                )
+
+            if not raw_country_regions:
+                query_mode = normalize_text(raw_country.get("query_mode")).lower() or "country-only"
+                country_regions.append(
+                    {
+                        "id": str(country_key),
+                        "label": country_label,
+                        "region": str(country_key),
+                        "path": get_geojson_path(str(country_key), str(country_key)),
+                        "country": str(country_key),
+                        "country_label": country_label,
+                        "area_name": country_label,
+                        "admin_level": country_admin_level,
+                        "region_boundary": None,
+                        "region_match_key": "name",
+                        "region_match_value": country_label,
+                        "query_name": None,
+                        "query_name_regex": None,
+                        "country_iso": iso3166_1,
+                        "country_admin_level": country_admin_level,
+                        "country_scope_strategy": country_scope_strategy or "area-iso",
+                        "region_code": str(country_key),
+                        "region_iso3166_2": None,
+                        "region_scope_strategy": None,
+                        "query_mode": query_mode,
                     }
                 )
 
@@ -369,10 +397,18 @@ def build_country_region_scope(region: Dict[str, Any], match_type: str) -> str |
     return "\n".join(
         [
             country_selector,
-            f"relation(area.country){region_selector}->.regionRel;",
-            ".regionRel map_to_area->.searchArea;",
+            f"relation(area.country){region_selector}->.regions;",
+            ".regions map_to_area -> .regionAreas;",
         ]
     )
+
+
+def build_country_only_scope(region: Dict[str, Any], match_type: str) -> str | None:
+    """Build country-only search area for countries without subregions."""
+    country_selector = build_country_area_selector(region, match_type)
+    if not country_selector:
+        return None
+    return "\n".join([country_selector, ".country -> .searchArea;"])
 
 
 def build_direct_region_scope(region: Dict[str, Any], match_type: str) -> str | None:
@@ -438,13 +474,15 @@ def build_region_selector(region: Dict[str, Any], match_type: str = "exact") -> 
 def build_query(region: Dict[str, Any], body: str, timeout: int, mode: str, match_type: str) -> str:
     """Construct the full Overpass query for a region and category."""
     query_body = body
-    if normalize_text(region.get("region_scope_strategy")).lower() == "fi-iso3166-2-direct":
+    if mode == "country+region" or normalize_text(region.get("region_scope_strategy")).lower() == "fi-iso3166-2-direct":
         query_body = query_body.replace("(area.searchArea)", "(area.regionAreas)")
 
     if mode == "country+region":
         region_area = build_country_region_scope(region, match_type)
     elif mode == "direct-region":
         region_area = build_direct_region_scope(region, match_type)
+    elif mode == "country-only":
+        region_area = build_country_only_scope(region, match_type)
     else:
         raise ValueError(f"Unsupported query mode: {mode}")
     if not region_area:
@@ -466,20 +504,24 @@ def build_query_attempts(region: Dict[str, Any]) -> List[Dict[str, str]]:
     attempts: List[Dict[str, str]] = []
     region_match_key = normalize_text(region.get("region_match_key")) or "name"
     region_match_value = normalize_text(region.get("region_match_value")) or normalize_text(region.get("area_name"))
+    query_mode = normalize_text(region.get("query_mode")).lower()
 
     def append_attempt(mode: str, match_type: str) -> None:
-        region_query = region_match_value if match_type == "exact" else get_region_query_regex(region)
+        if mode == "country-only":
+            region_query = normalize_text(region.get("country_iso")) or normalize_text(region.get("country_label"))
+        else:
+            region_query = region_match_value if match_type == "exact" else get_region_query_regex(region)
         country_query = (
             get_country_query_name(region) if match_type == "exact" else get_country_query_regex(region)
         )
         country_scope = get_country_iso_code(region)
-        if not region_query:
+        if mode != "country-only" and not region_query:
             return
         if match_type == "regex" and region_match_key != "name":
             return
-        if mode == "country+region" and not (country_query or country_scope):
+        if mode in {"country+region", "country-only"} and not (country_query or country_scope):
             return
-        if mode != "country+region":
+        if mode == "direct-region":
             country_query = ""
             country_scope = ""
         attempts.append(
@@ -493,7 +535,11 @@ def build_query_attempts(region: Dict[str, Any]) -> List[Dict[str, str]]:
             }
         )
 
-    if has_country_scope(region):
+    if query_mode == "country-only":
+        append_attempt("country-only", "exact")
+        if get_country_query_regex(region):
+            append_attempt("country-only", "regex")
+    elif has_country_scope(region):
         append_attempt("country+region", "exact")
         if get_region_query_regex(region) or get_country_query_regex(region):
             append_attempt("country+region", "regex")
