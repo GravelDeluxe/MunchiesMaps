@@ -326,6 +326,7 @@ def build_country_area_selector(region: Dict[str, Any], match_type: str) -> str 
     if country_iso and country_scope_strategy == "area-iso" and match_type == "exact":
         return (
             f"area[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"][\"admin_level\"=\"{country_admin_level}\"]"
+            "[\"boundary\"=\"administrative\"]"
             "->.country;"
         )
     if country_iso:
