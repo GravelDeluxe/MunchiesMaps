@@ -121,6 +121,7 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
             region_match_key = normalize_text(raw_country.get("region_match_key")) or "name"
             region_identifier_strategy = normalize_text(raw_country.get("region_identifier_strategy")).lower()
             country_scope_strategy = normalize_text(raw_country.get("country_scope_strategy")).lower()
+            region_scope_strategy = normalize_text(raw_country.get("region_scope_strategy")).lower()
             if region_identifier_strategy == "iso3166-2":
                 region_match_key = "ISO3166-2"
             raw_country_regions = raw_country.get("regions") or []
@@ -144,6 +145,9 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                 region_path = normalize_text(raw_region.get("path")) or get_geojson_path(str(country_key), region_slug)
                 query_name = normalize_text(raw_region.get("query_name"))
                 query_name_regex = normalize_text(raw_region.get("query_name_regex"))
+                region_scope_strategy_entry = (
+                    normalize_text(raw_region.get("region_scope_strategy")).lower() or region_scope_strategy
+                )
                 country_regions.append(
                     {
                         "id": region_id,
@@ -164,6 +168,7 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                         "country_scope_strategy": country_scope_strategy or None,
                         "region_code": region_code or region_id,
                         "region_iso3166_2": region_iso3166_2 or None,
+                        "region_scope_strategy": region_scope_strategy_entry or None,
                     }
                 )
 
@@ -288,6 +293,9 @@ def get_country_iso_code(region: Dict[str, Any]) -> str:
 
 def has_country_scope(region: Dict[str, Any]) -> bool:
     """Return whether region should be resolved inside an explicit country scope."""
+    region_scope_strategy = normalize_text(region.get("region_scope_strategy")).lower()
+    if region_scope_strategy in {"direct-relation-only", "fi-iso3166-2-direct"}:
+        return False
     return bool(get_country_query_name(region) or get_country_iso_code(region))
 
 
@@ -367,6 +375,24 @@ def build_country_region_scope(region: Dict[str, Any], match_type: str) -> str |
 
 def build_direct_region_scope(region: Dict[str, Any], match_type: str) -> str | None:
     """Build region search area by resolving the region relation directly."""
+    if normalize_text(region.get("region_scope_strategy")).lower() == "fi-iso3166-2-direct":
+        if match_type != "exact":
+            return None
+        admin_level = str(region["admin_level"])
+        iso_code = normalize_text(region.get("region_iso3166_2")).upper()
+        if not iso_code:
+            return None
+        return "\n".join(
+            [
+                (
+                    "relation"
+                    f"[\"boundary\"=\"administrative\"][\"admin_level\"=\"{overpass_escape(admin_level)}\"]"
+                    f"[\"ISO3166-2\"~\"^{overpass_escape(iso_code)}$\"]->.regions;"
+                ),
+                ".regions map_to_area -> .regionAreas;",
+            ]
+        )
+
     region_selector = build_region_selector(region, match_type)
     if not region_selector:
         return None
@@ -409,6 +435,10 @@ def build_region_selector(region: Dict[str, Any], match_type: str = "exact") -> 
 
 def build_query(region: Dict[str, Any], body: str, timeout: int, mode: str, match_type: str) -> str:
     """Construct the full Overpass query for a region and category."""
+    query_body = body
+    if normalize_text(region.get("region_scope_strategy")).lower() == "fi-iso3166-2-direct":
+        query_body = query_body.replace("(area.searchArea)", "(area.regionAreas)")
+
     if mode == "country+region":
         region_area = build_country_region_scope(region, match_type)
     elif mode == "direct-region":
@@ -422,7 +452,7 @@ def build_query(region: Dict[str, Any], body: str, timeout: int, mode: str, matc
         [out:json][timeout:{timeout}];
         {region_area}
         (
-        {indent(body, '  ')}
+        {indent(query_body, '  ')}
         );
         out center tags;
         """
