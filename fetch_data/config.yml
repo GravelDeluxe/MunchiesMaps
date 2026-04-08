@@ -573,6 +573,95 @@ countries:
       - code: fi-19
         label: FI-19
         iso3166_2: FI-19
+  portugal:
+    label: Portugal
+    iso3166_1: PT
+    country_admin_level: 2
+    region_admin_level: 6
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - code: pt-01
+        label: Aveiro
+        iso3166_2: PT-01
+        admin_level: 6
+      - code: pt-02
+        label: Beja
+        iso3166_2: PT-02
+        admin_level: 6
+      - code: pt-03
+        label: Braga
+        iso3166_2: PT-03
+        admin_level: 6
+      - code: pt-04
+        label: Braganca
+        iso3166_2: PT-04
+        admin_level: 6
+      - code: pt-05
+        label: Castelo Branco
+        iso3166_2: PT-05
+        admin_level: 6
+      - code: pt-06
+        label: Coimbra
+        iso3166_2: PT-06
+        admin_level: 6
+      - code: pt-07
+        label: Evora
+        iso3166_2: PT-07
+        admin_level: 6
+      - code: pt-08
+        label: Faro
+        iso3166_2: PT-08
+        admin_level: 6
+      - code: pt-09
+        label: Guarda
+        iso3166_2: PT-09
+        admin_level: 6
+      - code: pt-10
+        label: Leiria
+        iso3166_2: PT-10
+        admin_level: 6
+      - code: pt-11
+        label: Lisboa
+        iso3166_2: PT-11
+        admin_level: 6
+      - code: pt-12
+        label: Portalegre
+        iso3166_2: PT-12
+        admin_level: 6
+      - code: pt-13
+        label: Porto
+        iso3166_2: PT-13
+        admin_level: 6
+      - code: pt-14
+        label: Santarem
+        iso3166_2: PT-14
+        admin_level: 6
+      - code: pt-15
+        label: Setubal
+        iso3166_2: PT-15
+        admin_level: 6
+      - code: pt-16
+        label: Viana do Castelo
+        iso3166_2: PT-16
+        admin_level: 6
+      - code: pt-17
+        label: Vila Real
+        iso3166_2: PT-17
+        admin_level: 6
+      - code: pt-18
+        label: Viseu
+        iso3166_2: PT-18
+        admin_level: 6
+      - code: pt-20
+        label: Acores
+        iso3166_2: PT-20
+        admin_level: 4
+      - code: pt-30
+        label: Madeira
+        iso3166_2: PT-30
+        admin_level: 4
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg
