@@ -148,6 +148,7 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                 region_scope_strategy_entry = (
                     normalize_text(raw_region.get("region_scope_strategy")).lower() or region_scope_strategy
                 )
+                region_admin_level_entry = int(raw_region.get("admin_level", region_admin_level))
                 country_regions.append(
                     {
                         "id": region_id,
@@ -157,7 +158,7 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                         "country": str(country_key),
                         "country_label": country_label,
                         "area_name": label,
-                        "admin_level": region_admin_level,
+                        "admin_level": region_admin_level_entry,
                         "region_boundary": region_boundary or None,
                         "region_match_key": region_match_key,
                         "region_match_value": match_value,
