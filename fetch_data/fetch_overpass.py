@@ -899,6 +899,29 @@ def parse_csv_filter(value: str | None) -> set[str]:
     return {item.strip() for item in value.split(",") if item.strip()}
 
 
+def normalize_filter_token(value: Any) -> str:
+    """Normalize filter tokens for case-insensitive matching."""
+    return normalize_text(value).lower()
+
+
+def get_country_aliases(region: Dict[str, Any]) -> set[str]:
+    """Return normalized aliases that identify a country."""
+    aliases = {
+        normalize_filter_token(region.get("country")),
+        normalize_filter_token(region.get("country_label")),
+        normalize_filter_token(region.get("country_iso")),
+        normalize_filter_token(region.get("iso3166_1")),
+    }
+    return {alias for alias in aliases if alias}
+
+
+def matches_country_filter(region: Dict[str, Any], country_filter: set[str]) -> bool:
+    """Return whether region country matches any provided country filter token."""
+    if not country_filter:
+        return True
+    return bool(get_country_aliases(region) & country_filter)
+
+
 def run(
     region_filter: set[str] | None = None,
     category_filter: set[str] | None = None,
@@ -908,7 +931,7 @@ def run(
     """Run the fetch process for all configured regions and categories."""
     region_filter = region_filter or set()
     category_filter = category_filter or set()
-    country_filter = country_filter or set()
+    country_filter = {normalize_filter_token(token) for token in (country_filter or set()) if token}
 
     config = load_config()
     overpass_cfg = config.get("overpass", {})
@@ -938,13 +961,47 @@ def run(
         region
         for region in regions
         if (not region_filter or region["id"] in region_filter)
-        and (not country_filter or region["country"] in country_filter)
+        and matches_country_filter(region, country_filter)
     ]
     selected_categories = [
         (category, func_name)
         for category, func_name in categories.items()
         if not category_filter or category in category_filter
     ]
+
+    matched_countries = sorted({region["country"] for region in selected_regions})
+    if country_filter:
+        print(f"[filter] Input countries: {', '.join(sorted(country_filter))}")
+        print(
+            "[filter] Resolved countries: "
+            f"{', '.join(matched_countries) if matched_countries else '-'}"
+        )
+        print(f"[filter] Matched regions: {len(selected_regions)}")
+        if not selected_regions:
+            valid_country_ids = sorted({normalize_text(region.get("country")) for region in regions if region.get("country")})
+            valid_country_labels = sorted(
+                {normalize_text(region.get("country_label")) for region in regions if region.get("country_label")}
+            )
+            valid_country_iso = sorted(
+                {
+                    normalize_text(region.get("country_iso") or region.get("iso3166_1")).upper()
+                    for region in regions
+                    if normalize_text(region.get("country_iso") or region.get("iso3166_1"))
+                }
+            )
+            raise ValueError(
+                "Country filter matched no configured regions. "
+                f"Input: {', '.join(sorted(country_filter))}. "
+                f"Valid ids: {', '.join(valid_country_ids[:10])}. "
+                f"Valid labels: {', '.join(valid_country_labels[:10])}. "
+                f"Valid ISO: {', '.join(valid_country_iso[:10])}."
+            )
+
+    if region_filter and not selected_regions:
+        raise ValueError(f"No regions matched --regions filter: {', '.join(sorted(region_filter))}")
+
+    if category_filter and not selected_categories:
+        raise ValueError(f"No categories matched --categories filter: {', '.join(sorted(category_filter))}")
 
     ensure_directory(RESOURCE_DIR)
 
