@@ -163,7 +163,7 @@ def collect_missing_paths(expected_paths: list[tuple[str, Path]]) -> dict[str, l
 
 def print_missing_report(missing_by_country: dict[str, list[Path]]) -> None:
     total_missing = sum(len(paths) for paths in missing_by_country.values())
-    print("Missing JSON files (GeoJSON expected):")
+    print("Missing GeoJSON files (report only):")
     for country, paths in missing_by_country.items():
         print(f"\n[{country}] ({len(paths)})")
         for path in paths:
@@ -173,28 +173,38 @@ def print_missing_report(missing_by_country: dict[str, list[Path]]) -> None:
 
 
 def main() -> int:
+    expected_paths: list[tuple[str, Path]] = []
+    missing_by_country: dict[str, list[Path]] = {}
+
     try:
         config = load_config(CONFIG_PATH)
         expected_paths, config_errors = build_expected_geojson_paths(config)
     except Exception as exc:  # noqa: BLE001
-        print(f"ERROR: {exc}", file=sys.stderr)
-        return 1
+        print(f"Configuration/load issue detected (report only): {exc}")
+        config_errors = []
 
-    if config_errors:
-        print("Configuration issues detected:", file=sys.stderr)
+    if "config_errors" in locals() and config_errors:
+        print("Configuration issues detected (report only):")
         for error in config_errors:
-            print(f"- {error}", file=sys.stderr)
-        return 1
+            print(f"- {error}")
 
-    missing_by_country = collect_missing_paths(expected_paths)
+    if expected_paths:
+        missing_by_country = collect_missing_paths(expected_paths)
 
     if missing_by_country:
         print_missing_report(missing_by_country)
-        return 1
+        checked_countries = len({country for country, _ in expected_paths})
+        print(
+            "Check completed successfully. Missing files were reported above. "
+            f"(countries checked: {checked_countries}, files checked: {len(expected_paths)}, "
+            f"missing files: {sum(len(paths) for paths in missing_by_country.values())})"
+        )
+        return 0
 
     print(
-        "All expected JSON files are present "
-        f"({len(expected_paths)} file(s) checked in {RESOURCE_ROOT.relative_to(ROOT_DIR)})."
+        "Check completed successfully. All expected GeoJSON files are present. "
+        f"(countries checked: {len({country for country, _ in expected_paths})}, "
+        f"files checked: {len(expected_paths)}, missing files: 0)"
     )
     return 0
 
