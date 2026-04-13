@@ -789,6 +789,31 @@ countries:
       - code: pl-32
         label: Zachodniopomorskie
         iso3166_2: PL-32
+  great_britain:
+    label: Great Britain
+    iso3166_1: GB
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - code: gb-eng
+        label: England
+        region: england
+        iso3166_2: GB-ENG
+      - code: gb-sct
+        label: Scotland
+        region: scotland
+        iso3166_2: GB-SCT
+      - code: gb-wls
+        label: Wales
+        region: wales
+        iso3166_2: GB-WLS
+      - code: gb-nir
+        label: Northern Ireland
+        region: northern_ireland
+        iso3166_2: GB-NIR
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg
