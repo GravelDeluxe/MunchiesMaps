@@ -2686,6 +2686,24 @@
       return !(a[2] < b[0] || a[0] > b[2] || a[3] < b[1] || a[1] > b[3]);
     }
 
+    function expandBBox(bbox, marginDeg = 0.15) {
+      if (!Array.isArray(bbox) || bbox.length !== 4) return null;
+      const west = Number(bbox[0]);
+      const south = Number(bbox[1]);
+      const east = Number(bbox[2]);
+      const north = Number(bbox[3]);
+      const margin = Number(marginDeg);
+      if (![west, south, east, north, margin].every(Number.isFinite)) return null;
+      return [west - margin, south - margin, east + margin, north + margin];
+    }
+
+    function bboxTouchesOrIntersects(a, b, marginDeg = 0.15) {
+      const bboxA = expandBBox(a, marginDeg);
+      const bboxB = expandBBox(b, marginDeg);
+      if (!bboxA || !bboxB) return false;
+      return bboxIntersects(bboxA, bboxB);
+    }
+
     function getVisibleStateIds(mapBounds, selectedStateIds, data) {
       const boundsBox = getBoundsBbox(mapBounds);
       if (!boundsBox) return new Set();
@@ -2694,8 +2712,8 @@
       const byId = new Map(items.map((entry) => [entry.id, entry]));
       selectedStateIds.forEach((stateId) => {
         const entry = byId.get(stateId);
-        const bbox = entry?.bbox;
-        if (!Array.isArray(bbox) || bbox.length !== 4) return;
+        const bbox = getRegionBBox(entry);
+        if (!bbox) return;
         if (bboxIntersects(boundsBox, bbox)) {
           visible.add(stateId);
         }
@@ -2833,7 +2851,7 @@
       if (!gpxLayer || !regionGeoJson) return false;
       const gpxBounds = gpxLayer.getBounds?.();
       const gpxBbox = getBoundsBbox(gpxBounds);
-      const regionBbox = Array.isArray(regionGeoJson?.bbox) ? regionGeoJson.bbox : getRegionBBox(regionGeoJson);
+      const regionBbox = getRegionBBox(regionGeoJson);
       if (!gpxBbox || !regionBbox) return false;
       return bboxIntersects(gpxBbox, regionBbox);
     }
@@ -2868,6 +2886,55 @@
         });
       });
       return combos;
+    }
+
+    function getRegionsToLoad({
+      mapBounds,
+      selectedStates,
+      manifestData,
+      gpxActive = false,
+      gpxLayer = null
+    } = {}) {
+      const selected = new Set(selectedStates || []);
+      const visibleStates = getVisibleStateIds(mapBounds, selected, manifestData);
+      const items = Array.isArray(manifestData?.regions) ? manifestData.regions : (Array.isArray(manifestData?.bundeslaender) ? manifestData.bundeslaender : []);
+      const regionsById = new Map(items.map((entry) => [entry.id, entry]));
+      console.debug('[regions] selected=%d visible=%d gpxActive=%s', selected.size, visibleStates.size, Boolean(gpxActive && gpxLayer));
+
+      if (gpxActive && gpxLayer) {
+        const gpxVisible = new Set();
+        visibleStates.forEach((stateId) => {
+          const region = regionsById.get(stateId);
+          if (!region) return;
+          const regionGeo = regionGeometryCache.get(stateId) || region;
+          if (isGPXIntersectingRegion(gpxLayer, regionGeo)) {
+            gpxVisible.add(stateId);
+          }
+        });
+        if (!gpxVisible.size && visibleStates.size) {
+          console.debug('[regions] gpx no intersections in viewport, fallback visible=%d', visibleStates.size);
+          return visibleStates;
+        }
+        console.debug('[regions] gpx intersections=%d', gpxVisible.size);
+        return gpxVisible;
+      }
+
+      const adjacentStates = new Set();
+      const visibleBboxes = [];
+      visibleStates.forEach((stateId) => {
+        const bbox = getRegionBBox(regionsById.get(stateId));
+        if (bbox) visibleBboxes.push(bbox);
+      });
+      selected.forEach((stateId) => {
+        if (visibleStates.has(stateId)) return;
+        const bbox = getRegionBBox(regionsById.get(stateId));
+        if (!bbox) return;
+        if (visibleBboxes.some((visibleBbox) => bboxTouchesOrIntersects(visibleBbox, bbox, 0.15))) {
+          adjacentStates.add(stateId);
+        }
+      });
+      console.debug('[regions] adjacent=%d', adjacentStates.size);
+      return new Set([...visibleStates, ...adjacentStates]);
     }
 
     function idleYield(timeout = 1200) {
@@ -4523,48 +4590,32 @@
         return;
       }
 
-      const visibleStates = getVisibleStateIds(map.getBounds(), selectedStates, manifestData);
-      if (!visibleStates.size) {
-        const fallbackState = Array.from(selectedStates)[0];
-        if (fallbackState) visibleStates.add(fallbackState);
-      }
+      const mapBounds = map?.getBounds?.() || null;
+      const visibleStates = getVisibleStateIds(mapBounds, selectedStates, manifestData);
+      let regionsToLoad = getRegionsToLoad({
+        mapBounds,
+        selectedStates,
+        manifestData,
+        gpxActive: gpxState.active || Boolean(appState.gpxLayer),
+        gpxLayer: appState.gpxLayer
+      });
 
-      const primaryCombos = buildCombosForStates(visibleStates, selectedCats);
-      await loadDatasetsForCombos(primaryCombos, runId);
+      if (!regionsToLoad.size && visibleStates.size) {
+        regionsToLoad = visibleStates;
+      }
+      if (!regionsToLoad.size) {
+        const fallbackState = Array.from(selectedStates)[0];
+        if (fallbackState) regionsToLoad = new Set([fallbackState]);
+      }
+      console.log('[filters] visible=%d selected=%d regionsToLoad=%d', visibleStates.size, selectedStates.size, regionsToLoad.size);
+
+      const combos = buildCombosForStates(regionsToLoad, selectedCats);
+      await loadDatasetsForCombos(combos, runId);
       await new Promise(requestAnimationFrame);
       if (runId !== filterRunId) return;
-
-      const primaryPoints = await buildPointsFromCombos(primaryCombos, runId);
-      if (runId !== filterRunId || !primaryPoints) return;
-      renderPois(primaryPoints);
-
-      const remainingStates = Array.from(selectedStates).filter((id) => !visibleStates.has(id));
-      if (!remainingStates.length) return;
-
-      let lastRender = 0;
-      const renderReadyPoints = async () => {
-        const now = Date.now();
-        if (now - lastRender < BACKGROUND_RENDER_DEBOUNCE_MS) return;
-        lastRender = now;
-        const points = await buildPointsFromReadySelected(selectedStates, selectedCats, runId);
-        if (runId !== filterRunId || !points) return;
-        renderPois(points);
-      };
-
-      const batches = chunkArray(remainingStates, BACKGROUND_BATCH_SIZE_STATES);
-      for (const batch of batches) {
-        if (runId !== filterRunId) return;
-        await idleYield();
-        if (runId !== filterRunId) return;
-        const batchCombos = buildCombosForStates(new Set(batch), selectedCats);
-        await loadDatasetsForCombos(batchCombos, runId);
-        if (runId !== filterRunId) return;
-        await renderReadyPoints();
-      }
-
-      const finalPoints = await buildPointsFromReadySelected(selectedStates, selectedCats, runId);
-      if (runId !== filterRunId || !finalPoints) return;
-      renderPois(finalPoints);
+      const points = await buildPointsFromCombos(combos, runId);
+      if (runId !== filterRunId || !points) return;
+      renderPois(points);
     }
 
     function resetGpxState() {
