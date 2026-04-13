@@ -912,6 +912,9 @@ def get_country_aliases(region: Dict[str, Any]) -> set[str]:
         normalize_filter_token(region.get("country_iso")),
         normalize_filter_token(region.get("iso3166_1")),
     }
+    country_iso = normalize_filter_token(region.get("country_iso") or region.get("iso3166_1"))
+    if country_iso == "gb":
+        aliases.update({"uk", "great britain"})
     return {alias for alias in aliases if alias}
 
 
