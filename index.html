@@ -2479,10 +2479,15 @@
         }));
     }
 
-    function renderRegionChecklist(containerId, items, selectedSet, setName) {
+    function getCurrentSelectedRegions() {
+      return filterState.bundeslaender;
+    }
+
+    function renderRegionChecklist(containerId, items, _selectedSet, setName) {
       const container = document.getElementById(containerId);
       container.innerHTML = '';
       const groups = groupRegionsByCountry(items);
+      const currentSelectedSet = getCurrentSelectedRegions();
 
       console.log('[region-filter-render]', {
         countries: groups.length,
@@ -2505,7 +2510,7 @@
         countryCb.type = 'checkbox';
         countryCb.id = `${setName}-country-${countryIndex}`;
 
-        const selectedCount = group.regions.filter((region) => selectedSet.has(region.id)).length;
+        const selectedCount = group.regions.filter((region) => currentSelectedSet.has(region.id)).length;
         countryCb.checked = selectedCount === group.regions.length && group.regions.length > 0;
         countryCb.indeterminate = selectedCount > 0 && selectedCount < group.regions.length;
 
@@ -2526,7 +2531,7 @@
             country: group.countryCode,
             activeRegions: activeRegionCount
           });
-          renderRegionChecklist(containerId, items, selectedSet, setName);
+          renderRegionChecklist(containerId, items, filterState.bundeslaender, setName);
           if (changed) {
             triggerApplyFilters();
             if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
@@ -2536,7 +2541,7 @@
         const toggleCountry = () => {
           const isOpen = expandedCountries.has(group.countryCode);
           expandedCountries = isOpen ? new Set() : new Set([group.countryCode]);
-          renderRegionChecklist(containerId, items, selectedSet, setName);
+          renderRegionChecklist(containerId, items, filterState.bundeslaender, setName);
         };
 
         countryToggleBtn.addEventListener('click', toggleCountry);
@@ -2569,13 +2574,13 @@
           const cb = document.createElement('input');
           cb.type = 'checkbox';
           cb.value = region.id;
-          cb.checked = selectedSet.has(region.id);
+          cb.checked = currentSelectedSet.has(region.id);
           cb.id = `${setName}-region-${countryIndex}-${regionIndex}`;
           cb.addEventListener('change', (e) => {
             const nextMode = computeManualModeFromCheckbox(region.id, e.target.checked);
             setManualRegionMode(region.id, nextMode);
             const changed = refreshEffectiveRegionState({ triggerFilters: false, rerenderChecklist: false, updateUrl: false });
-            renderRegionChecklist(containerId, items, selectedSet, setName);
+            renderRegionChecklist(containerId, items, filterState.bundeslaender, setName);
             if (changed) {
               triggerApplyFilters();
               if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
