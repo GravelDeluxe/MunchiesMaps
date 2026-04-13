@@ -259,7 +259,7 @@
         "id": 299838938,
         "osm_type": "node",
         "name": "Tempo Skatås",
-        "opening_hours": "Mo-Su 09:00-22:00"
+        "opening_hours": "Mo-Su 08:00-22:00"
       }
     },
     {
@@ -837,8 +837,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.55644,
-          57.9135281
+          12.5564811,
+          57.9135423
         ]
       },
       "properties": {
@@ -2141,7 +2141,7 @@
         "osm_type": "node",
         "name": "Pressbyrån",
         "brand": "Pressbyrån",
-        "opening_hours": "Mo-Fr 05:30-23:30; Sa,Su 07:30-23:30"
+        "opening_hours": "Mo-Fr 05:30-23:30; Sa 07:30-23:30; Su 07:30-22:00"
       }
     },
     {
@@ -2412,7 +2412,7 @@
         "osm_type": "node",
         "name": "Pressbyrån",
         "brand": "Pressbyrån",
-        "opening_hours": "Mo-Fr 05:30-20:00; Sa 07:00-20:00; Su 08:00-15:00"
+        "opening_hours": "Mo-Fr 05:30-20:30; Sa 07:00-20:00; Su 08:00-20:00"
       }
     },
     {
@@ -3980,23 +3980,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.974719,
-          57.702395
-        ]
-      },
-      "properties": {
-        "id": 3234909681,
-        "osm_type": "node",
-        "name": "Pressbyrån",
-        "brand": "Pressbyrån",
-        "opening_hours": "Mo-Fr 07:00-20:00; Sa 09:00-20:00; Su 10:00-18:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.8236287,
           58.073705
         ]
@@ -4180,7 +4163,7 @@
         "id": 3386786288,
         "osm_type": "node",
         "name": "SNUSANTA",
-        "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-17:00; Su 10:00-16:00"
+        "opening_hours": "Mo-Fr 09:00-19:00; Sa 10:00-17:00; Su 11:00-16:00"
       }
     },
     {
@@ -4289,22 +4272,6 @@
         "id": 3623343894,
         "osm_type": "node",
         "name": "Viktoria Livs"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.5318448,
-          57.5494384
-        ]
-      },
-      "properties": {
-        "id": 3662272789,
-        "osm_type": "node",
-        "name": "ICA Nära Hyssna",
-        "brand": "ICA Nära"
       }
     },
     {
@@ -5614,22 +5581,6 @@
         "osm_type": "node",
         "name": "MyWay Torgkungen",
         "opening_hours": "Mo-Su 07:30-22:00; Fr,Sa 07:30-24:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.0127199,
-          57.8138871
-        ]
-      },
-      "properties": {
-        "id": 6014904383,
-        "osm_type": "node",
-        "name": "Ingo Fristad",
-        "brand": "Ingo"
       }
     },
     {
@@ -7832,6 +7783,65 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.9168116,
+          58.3533979
+        ]
+      },
+      "properties": {
+        "id": 13671991705,
+        "osm_type": "node",
+        "name": "OKQ8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.012678,
+          57.8139492
+        ]
+      },
+      "properties": {
+        "id": 13680140986,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2493232,
+          58.9840998
+        ]
+      },
+      "properties": {
+        "id": 13711921838,
+        "osm_type": "node",
+        "name": "Billigfors orient"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0562745,
+          57.7155548
+        ]
+      },
+      "properties": {
+        "id": 13723706416,
+        "osm_type": "node",
+        "name": "Härlanda servicebutik"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.8764773,
           57.6558479
         ]
@@ -8431,6 +8441,7 @@
         "id": 215463869,
         "osm_type": "way",
         "name": "Pressbyrån",
+        "brand": "Pressbyrån",
         "opening_hours": "Mo-Fr 06:30-21:30; Sa 10:00-21:30; Su 10:00-20:00"
       }
     },
@@ -8918,8 +8929,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.8360374,
-          58.3858441
+          13.8360069,
+          58.3858416
         ]
       },
       "properties": {

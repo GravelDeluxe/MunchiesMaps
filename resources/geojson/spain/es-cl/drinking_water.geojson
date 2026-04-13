@@ -7236,7 +7236,10 @@
       },
       "properties": {
         "id": 1821714767,
-        "osm_type": "node"
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "indoor": "no"
       }
     },
     {
@@ -36956,8 +36959,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -6.5331705,
-          40.5989966
+          -6.5331748,
+          40.598994
         ]
       },
       "properties": {
@@ -42703,20 +42706,6 @@
         "id": 4862588318,
         "osm_type": "node",
         "name": "Fuente de la Lancha"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -4.3168361,
-          40.6347447
-        ]
-      },
-      "properties": {
-        "id": 4862606604,
-        "osm_type": "node"
       }
     },
     {
@@ -71910,6 +71899,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -1.8963553,
+          41.6659596
+        ]
+      },
+      "properties": {
+        "id": 8254876187,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -5.5827045,
           42.5933369
         ]
@@ -80884,7 +80887,10 @@
       "properties": {
         "id": 9932290775,
         "osm_type": "node",
-        "operator": "Fuente Fidionda"
+        "name": "Fuente Fidionda",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "no"
       }
     },
     {
@@ -98566,6 +98572,20 @@
       },
       "properties": {
         "id": 13717607003,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.708541,
+          41.6563001
+        ]
+      },
+      "properties": {
+        "id": 13723834844,
         "osm_type": "node"
       }
     },

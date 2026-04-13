@@ -6,14 +6,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.4459674,
-          43.2843284
+          12.7007528,
+          59.5053303
         ]
       },
       "properties": {
-        "id": 860298241,
+        "id": 253144546,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -21,15 +21,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8860169,
-          43.6299779
+          12.5223223,
+          59.4777507
         ]
       },
       "properties": {
-        "id": 900539493,
+        "id": 253151819,
         "osm_type": "node",
-        "name": "Aiguelongue Pizzeria Montpellier",
-        "vending": "pizza"
+        "name": "Manjatjärn 10B",
+        "access": "customers",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "operator": "Stiftelsen Glaskogen",
+        "description": "Firewood is provided at Glaskogen 10A, 5 min north from here. For Glaskogen card permits see https://www.glaskogen.se/en/hiking/",
+        "url": "https://swetrails.com/sv/poi/Glaskogen_M%C3%B6rteb%C3%A4cksviken_s%C3%B6dra"
       }
     },
     {
@@ -37,17 +44,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.9016436,
-          42.6841783
+          12.5241404,
+          59.5007154
         ]
       },
       "properties": {
-        "id": 992585097,
+        "id": 304891597,
         "osm_type": "node",
-        "name": "Coca-Cola",
-        "vending": "drinks",
-        "brand": "Coca-Cola",
-        "operator": "Coca-Cola"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -55,15 +59,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.5517212,
-          44.1628795
+          12.6981002,
+          59.4340832
         ]
       },
       "properties": {
-        "id": 1236542662,
+        "id": 305248221,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "milk"
+        "name": "Stömnesjön",
+        "shelter_type": "lean_to",
+        "url": "https://tillskogs.se/s/stomnesjon-vindskydd"
       }
     },
     {
@@ -71,14 +76,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4743593,
-          43.5650005
+          12.5691396,
+          59.42919
         ]
       },
       "properties": {
-        "id": 1640553980,
+        "id": 305282386,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Åltjärnen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -86,14 +92,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4750701,
-          43.5646351
+          12.6560037,
+          59.4418571
         ]
       },
       "properties": {
-        "id": 1640556919,
+        "id": 305283483,
         "osm_type": "node",
-        "vending": "coffee"
+        "name": "Tångtjärn",
+        "shelter_type": "lean_to",
+        "url": "https://tillskogs.se/s/tangtjarn"
       }
     },
     {
@@ -101,14 +109,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.1053275,
-          44.111308
+          12.5235743,
+          59.4786457
         ]
       },
       "properties": {
-        "id": 2191496749,
+        "id": 305287349,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Glaskogen 10A",
+        "access": "customers",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "operator": "Stiftelsen Glaskogen",
+        "url": "https://swetrails.com/sv/poi/Glaskogen_m%C3%B6rteb%C3%A4cksviken_norra_vindskydd"
       }
     },
     {
@@ -116,14 +131,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8710605,
-          43.6324063
+          12.5673543,
+          59.4160433
         ]
       },
       "properties": {
-        "id": 2502517351,
+        "id": 305309880,
         "osm_type": "node",
-        "vending": "food"
+        "name": "Holmtjärnen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -131,14 +147,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8710762,
-          43.632411
+          11.8627832,
+          59.3449871
         ]
       },
       "properties": {
-        "id": 2502517354,
+        "id": 440459362,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO 11 Tullön - Stora Le",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -146,14 +163,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8699102,
-          43.6337539
+          11.8226864,
+          59.3087869
         ]
       },
       "properties": {
-        "id": 2502517357,
+        "id": 440459422,
         "osm_type": "node",
-        "vending": "food"
+        "name": "DANO 8 Trollön - Stora Le",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -161,14 +179,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8699194,
-          43.6337573
+          11.9466447,
+          59.3929696
         ]
       },
       "properties": {
-        "id": 2502517358,
+        "id": 440459450,
         "osm_type": "node",
-        "vending": "hot_drinks"
+        "name": "DANO 41 Nystugeholmen - Flötefjorden",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -176,14 +195,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8988648,
-          42.6844277
+          11.8450104,
+          59.3404568
         ]
       },
       "properties": {
-        "id": 2783250285,
+        "id": 443876145,
         "osm_type": "node",
-        "vending": "drinks;food"
+        "name": "DANO 10 Hästön - Stora Le",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -191,14 +211,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8997472,
-          42.6839341
+          11.8431072,
+          59.2479127
         ]
       },
       "properties": {
-        "id": 2783310169,
+        "id": 443883839,
         "osm_type": "node",
-        "vending": "food;drinks"
+        "name": "DANO 7 Guppviksön - Stora Le",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -206,14 +227,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.2213344,
-          42.5232896
+          11.8558768,
+          59.4637474
         ]
       },
       "properties": {
-        "id": 3024582100,
+        "id": 837679293,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO 20 Upprann Öst - Foxen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -221,14 +243,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5555163,
-          44.3638595
+          11.8605119,
+          59.357635
         ]
       },
       "properties": {
-        "id": 3103808543,
+        "id": 837925695,
         "osm_type": "node",
-        "vending": "coffee"
+        "name": "DANO 17 Getöarna - Foxen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -236,14 +259,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5559633,
-          44.3612804
+          12.5373849,
+          59.4291385
         ]
       },
       "properties": {
-        "id": 3109042510,
+        "id": 899418523,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "43 Funktionsanpassat väderskydd",
+        "shelter_type": "lean_to",
+        "bench": "yes",
+        "operator": "Stiftelsen Glaskogen",
+        "description": "You buy the Glaskogen card when you use firewood and fireplaces, wind shelters, overnight cabins, dustbins and toilets that are in the nature reserve."
       }
     },
     {
@@ -251,14 +278,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3741589,
-          43.631245
+          12.593175,
+          60.330607
         ]
       },
       "properties": {
-        "id": 3493129100,
+        "id": 1355250634,
         "osm_type": "node",
-        "vending": "drinks;food"
+        "name": "Gransjön vindskydd",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -266,14 +294,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.1910711,
-          43.7846225
+          11.9623924,
+          59.8893822
         ]
       },
       "properties": {
-        "id": 3527862917,
+        "id": 1355250639,
         "osm_type": "node",
-        "vending": "food"
+        "name": "Hekttjernet gapahuk",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -281,14 +310,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8810475,
-          42.7612323
+          12.4922715,
+          60.7674985
         ]
       },
       "properties": {
-        "id": 3551274909,
+        "id": 1355250658,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Hemtjernet gapahuk",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -296,14 +326,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8810454,
-          42.7612419
+          12.3800694,
+          60.8141358
         ]
       },
       "properties": {
-        "id": 3551274910,
+        "id": 1355250665,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Hundbekken gapahuk",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -311,16 +342,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4330859,
-          43.609603
+          12.5842006,
+          60.3636143
         ]
       },
       "properties": {
-        "id": 3669185809,
+        "id": 1355250679,
         "osm_type": "node",
-        "name": "Tutti Matic Lascrosses",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "name": "Hällsjön vindskydd",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -328,14 +358,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4750297,
-          43.5655931
+          12.4615698,
+          60.7377268
         ]
       },
       "properties": {
-        "id": 3672313514,
+        "id": 1355250696,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Höcklingsbäcken vindskydd",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -343,15 +374,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.1521835,
-          43.6842005
+          12.3520197,
+          60.9997346
         ]
       },
       "properties": {
-        "id": 3675303994,
+        "id": 1355250697,
         "osm_type": "node",
-        "vending": "drinks",
-        "operator": "Coca-Cola Compagny"
+        "name": "Höljån vindskydd",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "url": "https://vindskyddskartan.se/en/places/488/H%C3%B6lj%C3%A5n%20vindskydd"
       }
     },
     {
@@ -359,14 +392,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.1406779,
-          43.5272071
+          12.4405276,
+          60.7070541
         ]
       },
       "properties": {
-        "id": 3769028027,
+        "id": 1355250765,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Noppaho vindskydd",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -374,14 +408,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.1850385,
-          44.0443788
+          12.5634345,
+          60.3493179
         ]
       },
       "properties": {
-        "id": 3862952300,
+        "id": 1355250791,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Nyckelvattnet vindskydd",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -389,14 +424,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8699277,
-          43.6337592
+          12.6122963,
+          60.3869536
         ]
       },
       "properties": {
-        "id": 4228647959,
+        "id": 1355250878,
         "osm_type": "node",
-        "vending": "hot_drinks"
+        "name": "Röjden nord vindskydd",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -404,14 +440,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8699007,
-          43.6337506
+          12.6136307,
+          60.385174
         ]
       },
       "properties": {
-        "id": 4228647961,
+        "id": 1355250894,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Röjden sør vindskydd",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -419,14 +456,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8698877,
-          43.6337469
+          12.4896111,
+          60.0712577
         ]
       },
       "properties": {
-        "id": 4228647962,
+        "id": 1355250931,
         "osm_type": "node",
-        "vending": "hot_drinks"
+        "name": "Skålsjön vindskydd",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -434,14 +472,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8688758,
-          43.6337808
+          12.3896458,
+          59.2712656
         ]
       },
       "properties": {
-        "id": 4228647964,
+        "id": 1376622938,
         "osm_type": "node",
-        "vending": "hot_drinks"
+        "name": "Sillebotten DANO95",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -449,14 +488,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.868886,
-          43.6337797
+          12.3306668,
+          59.2097578
         ]
       },
       "properties": {
-        "id": 4228647966,
+        "id": 1376811766,
         "osm_type": "node",
-        "vending": "food"
+        "name": "Djäkenäset DANO93",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -464,14 +504,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8688993,
-          43.6337759
+          12.389226,
+          59.239312
         ]
       },
       "properties": {
-        "id": 4228647967,
+        "id": 1376811767,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Mörnäs DANO94",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -479,14 +520,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8696068,
-          43.6329076
+          12.2838767,
+          59.2265478
         ]
       },
       "properties": {
-        "id": 4236171316,
+        "id": 1376811768,
         "osm_type": "node",
-        "vending": "hot_drinks"
+        "name": "Silvergruven DANO90",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -494,14 +536,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8695801,
-          43.6329167
+          12.2791325,
+          59.1910609
         ]
       },
       "properties": {
-        "id": 4236171317,
+        "id": 1376871864,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Hängesten DANO86",
+        "shelter_type": "weather_shelter",
+        "operator": "DANO"
       }
     },
     {
@@ -509,14 +553,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8695893,
-          43.6329013
+          12.2845997,
+          59.2481477
         ]
       },
       "properties": {
-        "id": 4236171318,
+        "id": 1376871868,
         "osm_type": "node",
-        "vending": "food"
+        "name": "Harhalsen",
+        "shelter_type": "weather_shelter",
+        "operator": "DANO"
       }
     },
     {
@@ -524,14 +570,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8702844,
-          43.6316176
+          12.2870892,
+          59.2479648
         ]
       },
       "properties": {
-        "id": 4244029252,
+        "id": 1376871970,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Stussholmen",
+        "shelter_type": "weather_shelter",
+        "operator": "DANO"
       }
     },
     {
@@ -539,14 +587,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8702774,
-          43.63163
+          12.3265544,
+          59.1892158
         ]
       },
       "properties": {
-        "id": 4244029253,
+        "id": 1376871986,
         "osm_type": "node",
-        "vending": "food"
+        "name": "Trollön DANO83",
+        "shelter_type": "weather_shelter",
+        "operator": "DANO"
       }
     },
     {
@@ -554,15 +604,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.0583457,
-          43.5653923
+          11.909575,
+          59.3623506
         ]
       },
       "properties": {
-        "id": 4321619921,
+        "id": 1394722471,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "Boulangerie Baux"
+        "name": "DANO 15 Getön Öst - Foxen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -570,14 +620,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.99138,
-          43.6499963
+          11.9070662,
+          59.3639071
         ]
       },
       "properties": {
-        "id": 4331999447,
+        "id": 1394722477,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO 16 Getön Nord - Foxen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -585,14 +636,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8710377,
-          43.6329306
+          12.0815308,
+          59.1805306
         ]
       },
       "properties": {
-        "id": 4443550096,
+        "id": 1422333522,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO63",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -600,14 +652,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.871043,
-          43.6329216
+          13.9416942,
+          59.6284153
         ]
       },
       "properties": {
-        "id": 4443550097,
+        "id": 1509583082,
         "osm_type": "node",
-        "vending": "hot_drinks"
+        "name": "Sågviken",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -615,14 +668,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5893259,
-          44.3612519
+          11.9692286,
+          59.3261227
         ]
       },
       "properties": {
-        "id": 4643814760,
+        "id": 1801891444,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO 31 Rävhåleviken - Nedre Blomsjön",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -630,14 +684,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.6214442,
-          42.8390239
+          11.9717257,
+          59.3219805
         ]
       },
       "properties": {
-        "id": 5097761227,
+        "id": 1801891883,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO 30 Hagholmen - Nedre Blomsjön",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -645,14 +700,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.6214308,
-          42.8390185
+          12.0140744,
+          59.2194242
         ]
       },
       "properties": {
-        "id": 5097761228,
+        "id": 1801910424,
         "osm_type": "node",
-        "vending": "coffee"
+        "name": "Verkenäset",
+        "shelter_type": "weather_shelter",
+        "operator": "DANO"
       }
     },
     {
@@ -660,14 +717,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8634689,
-          43.6329871
+          11.9166221,
+          59.3025261
         ]
       },
       "properties": {
-        "id": 5279155071,
+        "id": 1801910431,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO71",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -675,14 +733,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8627139,
-          43.632737
+          11.9153107,
+          59.3117543
         ]
       },
       "properties": {
-        "id": 5279155073,
+        "id": 1801910434,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO72",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -690,14 +749,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3594222,
-          43.6596834
+          14.208266,
+          59.1064553
         ]
       },
       "properties": {
-        "id": 5420881628,
+        "id": 1977086302,
         "osm_type": "node",
-        "vending": "drinks;sweets;coffee"
+        "name": "Rötterna raststuga",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -705,14 +765,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.7718538,
-          42.6952899
+          14.1553252,
+          59.4238944
         ]
       },
       "properties": {
-        "id": 5501838272,
+        "id": 2355283548,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -720,14 +780,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.924433,
-          43.5949051
+          12.2975133,
+          61.0274307
         ]
       },
       "properties": {
-        "id": 5839440608,
+        "id": 2361721666,
         "osm_type": "node",
-        "vending": "coffee"
+        "name": "Høljefallskoia",
+        "shelter_type": "basic_hut",
+        "operator": "Statskog"
       }
     },
     {
@@ -735,14 +797,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.996472,
-          42.467832
+          13.5869168,
+          60.0107208
         ]
       },
       "properties": {
-        "id": 5925973195,
+        "id": 2381207179,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Vindskydd",
+        "shelter_type": "lean_to",
+        "bench": "yes"
       }
     },
     {
@@ -750,14 +814,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4540687,
-          43.6120942
+          13.9429023,
+          59.6530736
         ]
       },
       "properties": {
-        "id": 5929181009,
+        "id": 2391298724,
         "osm_type": "node",
-        "vending": "drinks;food"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -765,14 +829,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.1386499,
-          43.9194097
+          12.6183763,
+          59.4382072
         ]
       },
       "properties": {
-        "id": 6130232867,
+        "id": 2400624177,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Slöjtjärnen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -780,14 +845,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4749395,
-          43.5645272
+          12.7891484,
+          59.8598092
         ]
       },
       "properties": {
-        "id": 6493223842,
+        "id": 2435808484,
         "osm_type": "node",
-        "vending": "coffee"
+        "name": "Märrtjärnet",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -795,14 +861,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.474906,
-          43.5645475
+          12.7800225,
+          59.8847419
         ]
       },
       "properties": {
-        "id": 6493223843,
+        "id": 2435809800,
         "osm_type": "node",
-        "vending": "drinks"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -810,14 +876,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4744605,
-          43.5649978
+          13.0857669,
+          59.6171323
         ]
       },
       "properties": {
-        "id": 6493224698,
+        "id": 2444468428,
         "osm_type": "node",
-        "vending": "coffee"
+        "shelter_type": "lean_to",
+        "bench": "yes",
+        "url": "https://vindskyddskartan.se/en/places/784/Rennstadsnipan%20Vindskydd"
       }
     },
     {
@@ -825,14 +893,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4744873,
-          43.5650192
+          12.0928469,
+          59.1850889
         ]
       },
       "properties": {
-        "id": 6493224699,
+        "id": 2450272048,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO65",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -840,14 +909,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4743988,
-          43.5653535
+          12.0838881,
+          59.1819264
         ]
       },
       "properties": {
-        "id": 6493224710,
+        "id": 2450273449,
         "osm_type": "node",
-        "vending": "coffee"
+        "name": "DANO64",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -855,14 +925,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8710828,
-          43.6354644
+          12.0834316,
+          59.1839956
         ]
       },
       "properties": {
-        "id": 6548438772,
+        "id": 2450274987,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO66",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -870,14 +941,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8711016,
-          43.635464
+          12.1583567,
+          59.259558
         ]
       },
       "properties": {
-        "id": 6548462293,
+        "id": 2450284045,
         "osm_type": "node",
-        "vending": "food"
+        "name": "Lövnäsviken",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -885,14 +957,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.1778304,
-          43.2747155
+          12.1525984,
+          59.2785513
         ]
       },
       "properties": {
-        "id": 6581556612,
+        "id": 2450284505,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "DANO81",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -900,15 +973,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4584044,
-          43.566385
+          11.9986182,
+          59.3468415
         ]
       },
       "properties": {
-        "id": 6591509081,
+        "id": 2450294939,
         "osm_type": "node",
-        "vending": "food;drinks",
-        "operator": "Esso"
+        "name": "DANO 32 Hansuddeviken - Nedre Blomsjön LAT: 59.343889 LNG: 11.998889",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -916,14 +989,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8707647,
-          43.6317538
+          12.0016679,
+          59.3599861
         ]
       },
       "properties": {
-        "id": 6771760098,
+        "id": 2450298131,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "DANO 33  Öarna - Övre Blomsjön",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -931,14 +1005,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8707614,
-          43.6317421
+          12.0085745,
+          59.3722565
         ]
       },
       "properties": {
-        "id": 6771760100,
+        "id": 2450298417,
         "osm_type": "node",
-        "vending": "food"
+        "name": "DANO 34 Sucka - Övre Blomsjön",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -946,14 +1021,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8707507,
-          43.6317329
+          11.9535868,
+          59.414651
         ]
       },
       "properties": {
-        "id": 6771760101,
+        "id": 2450301451,
         "osm_type": "node",
-        "vending": "coffee"
+        "name": "DANO 36 Hjärtenäset - Flötefjorden",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -961,15 +1037,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8693872,
-          43.6336494
+          11.9464762,
+          59.4130665
         ]
       },
       "properties": {
-        "id": 6788852261,
+        "id": 2450301615,
         "osm_type": "node",
-        "vending": "food",
-        "operator": "BDA Distribution"
+        "name": "DANO 37 Bockön Nord - Flötefjorden",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -977,15 +1053,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8693837,
-          43.6336538
+          11.9467954,
+          59.4123063
         ]
       },
       "properties": {
-        "id": 6788852262,
+        "id": 2450302339,
         "osm_type": "node",
-        "vending": "coffee",
-        "operator": "BDA Distribution"
+        "name": "DANO 38 Bockön Syd - Flötefjorden",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -993,15 +1069,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8693768,
-          43.633663
+          11.9517203,
+          59.399084
         ]
       },
       "properties": {
-        "id": 6788852263,
+        "id": 2450303639,
         "osm_type": "node",
-        "vending": "drinks",
-        "operator": "BDA Distribution"
+        "name": "DANO 39 Lilla Sundsbyn - Flötefjorden",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1009,14 +1085,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8695827,
-          43.6329337
+          11.9020991,
+          59.3527418
         ]
       },
       "properties": {
-        "id": 6793433711,
+        "id": 2450315582,
         "osm_type": "node",
-        "vending": "hot_drinks"
+        "name": "DANO 12 Fänadstjuset - Foxen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1024,14 +1101,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4005449,
-          43.5788549
+          11.8420069,
+          59.3799382
         ]
       },
       "properties": {
-        "id": 7010935746,
+        "id": 2450319976,
         "osm_type": "node",
-        "vending": "food;drinks;coffee"
+        "name": "DANO 18 Kattebäcken - Foxen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1039,14 +1117,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3567874,
-          43.8279826
+          11.8800214,
+          59.3992964
         ]
       },
       "properties": {
-        "id": 7020456545,
+        "id": 2450322897,
         "osm_type": "node",
-        "vending": "drinks;sweets;food;coffee"
+        "name": "DANO 19 Bärön - Foxen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1054,14 +1133,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.463075,
-          43.5575215
+          11.8508835,
+          59.4671495
         ]
       },
       "properties": {
-        "id": 7046074604,
+        "id": 2450328947,
         "osm_type": "node",
-        "vending": "coffee"
+        "name": "DANO 21 Upprann Väst - Foxen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1069,14 +1149,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4630679,
-          43.557531
+          11.8472426,
+          59.4730153
         ]
       },
       "properties": {
-        "id": 7046074605,
+        "id": 2450329044,
         "osm_type": "node",
-        "vending": "food"
+        "name": "DANO 22 Kalvön - Foxen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1084,17 +1165,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.2436503,
-          43.9619674
+          11.845762,
+          59.5236672
         ]
       },
       "properties": {
-        "id": 7049749992,
+        "id": 2450359324,
         "osm_type": "node",
-        "name": "Bergamo Pizza express",
-        "opening_hours": "24/7",
-        "vending": "pizza",
-        "operator": "Bergamo Pizza express"
+        "name": "DANO 24 Sandaön - Töck",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1102,14 +1181,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.9166281,
-          44.72374
+          11.8353492,
+          59.5721846
         ]
       },
       "properties": {
-        "id": 7157050477,
+        "id": 2450390516,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "DANO 25 Ulvenäsmossen - Töck",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1117,14 +1197,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3307136,
-          43.8183565
+          11.8941008,
+          59.6285758
         ]
       },
       "properties": {
-        "id": 7195369552,
+        "id": 2450394347,
         "osm_type": "node",
-        "vending": "coffee"
+        "name": "DANO 27 Vintran - Östen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1132,14 +1213,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8776369,
-          43.7050293
+          11.8241809,
+          59.3157197
         ]
       },
       "properties": {
-        "id": 7359222014,
+        "id": 2450402019,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "DANO 9 Könnemyren - Stora Le",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1147,14 +1229,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.0642245,
-          42.8964751
+          12.2042392,
+          59.3213667
         ]
       },
       "properties": {
-        "id": 7389706481,
+        "id": 2450418767,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "DANO96",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1162,15 +1245,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4874759,
-          43.6136854
+          12.9188337,
+          60.3400875
         ]
       },
       "properties": {
-        "id": 7692303051,
+        "id": 2618331142,
         "osm_type": "node",
-        "vending": "pizza",
-        "operator": "Pizzas Bufalino"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1178,16 +1260,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.7962538,
-          43.5467624
+          13.5216882,
+          59.2575396
         ]
       },
       "properties": {
-        "id": 8018519385,
+        "id": 2892003851,
         "osm_type": "node",
-        "name": "Selecta",
-        "vending": "coffee",
-        "brand": "Selecta"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1195,15 +1275,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.2074628,
-          43.6845143
+          13.5141905,
+          59.2579004
         ]
       },
       "properties": {
-        "id": 8094682430,
+        "id": 2892003857,
         "osm_type": "node",
-        "vending": "food;pizza",
-        "operator": "La Toscane"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1211,15 +1290,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.2208335,
-          43.7324875
+          14.2309917,
+          59.60965
         ]
       },
       "properties": {
-        "id": 8094682431,
+        "id": 2905225092,
         "osm_type": "node",
-        "vending": "food;pizza",
-        "operator": "La Toscane"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1227,14 +1305,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.5151991,
-          43.666594
+          13.8639346,
+          59.7389534
         ]
       },
       "properties": {
-        "id": 8248297033,
+        "id": 2951291344,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Långtjärnen",
+        "shelter_type": "lean_to",
+        "description": "Ligger intill svartåleden"
       }
     },
     {
@@ -1242,14 +1322,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.5861928,
-          44.0010911
+          13.2344396,
+          58.8864243
         ]
       },
       "properties": {
-        "id": 8354977515,
+        "id": 3018753246,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1257,14 +1337,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.1315788,
-          44.0214148
+          14.2744415,
+          60.0389643
         ]
       },
       "properties": {
-        "id": 8422601345,
+        "id": 3057409759,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter",
+        "description": "Vindskydd"
       }
     },
     {
@@ -1272,15 +1353,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.0976085,
-          43.788277
+          14.2490715,
+          60.0544551
         ]
       },
       "properties": {
-        "id": 8432033718,
+        "id": 3057433543,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "Ledistrib"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1288,14 +1368,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4537531,
-          43.6111855
+          12.505363,
+          59.4718911
         ]
       },
       "properties": {
-        "id": 8530301291,
+        "id": 3321951645,
         "osm_type": "node",
-        "vending": "food"
+        "name": "Bergsviken Nordöst",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1303,15 +1384,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.6056541,
-          42.9854167
+          13.6661191,
+          59.3704173
         ]
       },
       "properties": {
-        "id": 8570674073,
+        "id": 3597289852,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "Les Pains de Vie"
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "url": "https://vindskyddskartan.se/en/places/1604/J%C3%A4ver%C3%B6n%20%C3%96st"
       }
     },
     {
@@ -1319,14 +1401,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.926856,
-          42.7294656
+          12.9032032,
+          60.3493606
         ]
       },
       "properties": {
-        "id": 8753917403,
+        "id": 3627195512,
         "osm_type": "node",
-        "vending": "food;drinks;sweets"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1334,14 +1416,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.0632419,
-          43.8381804
+          13.5023699,
+          59.2551064
         ]
       },
       "properties": {
-        "id": 8811218490,
+        "id": 3629475560,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1349,14 +1431,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.9608028,
-          42.4839451
+          13.4429871,
+          60.2877667
         ]
       },
       "properties": {
-        "id": 8900727893,
+        "id": 3712711262,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1364,14 +1446,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.894754,
-          43.9060098
+          13.4409412,
+          60.295858
         ]
       },
       "properties": {
-        "id": 8974185527,
+        "id": 3712711271,
         "osm_type": "node",
-        "vending": "food"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1379,15 +1461,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.3979049,
-          42.6073052
+          12.4529726,
+          59.2807514
         ]
       },
       "properties": {
-        "id": 8980117358,
+        "id": 3721488079,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "Boulangerie du Mont Canigou"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1395,14 +1476,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.0764487,
-          44.3973059
+          13.3415409,
+          60.4484405
         ]
       },
       "properties": {
-        "id": 9008639124,
+        "id": 3751903786,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Fänstjärn Raststuga",
+        "access": "yes",
+        "capacity": "7",
+        "fee": "no"
       }
     },
     {
@@ -1410,14 +1494,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.2640843,
-          43.305584
+          13.5455699,
+          59.2872258
         ]
       },
       "properties": {
-        "id": 9020951785,
+        "id": 3811719114,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1425,16 +1509,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.3519521,
-          43.2180122
+          14.07004,
+          59.24112
         ]
       },
       "properties": {
-        "id": 9032119388,
+        "id": 4015035246,
         "osm_type": "node",
-        "vending": "coffee",
-        "brand": "Selecta",
-        "operator": "Sélecta"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1442,14 +1524,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8539111,
-          43.6360047
+          14.1998833,
+          59.50095
         ]
       },
       "properties": {
-        "id": 9049347920,
+        "id": 4018305827,
         "osm_type": "node",
-        "vending": "coffee"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1457,217 +1539,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.2491128,
-          44.1148686
+          12.6364088,
+          59.6149519
         ]
       },
       "properties": {
-        "id": 9112718481,
-        "osm_type": "node",
-        "vending": "pizza",
-        "operator": "Smart pizza"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.1205464,
-          43.6777383
-        ]
-      },
-      "properties": {
-        "id": 9121919967,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza",
-        "operator": "Ambiance Pizza"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.0878649,
-          43.8302672
-        ]
-      },
-      "properties": {
-        "id": 9141903307,
-        "osm_type": "node",
-        "vending": "bread",
-        "operator": "Ledistrib"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.041968,
-          43.8734235
-        ]
-      },
-      "properties": {
-        "id": 9177739043,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.1119154,
-          43.8539003
-        ]
-      },
-      "properties": {
-        "id": 9177766292,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.1487386,
-          43.9373827
-        ]
-      },
-      "properties": {
-        "id": 9177839438,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.0267219,
-          43.8310044
-        ]
-      },
-      "properties": {
-        "id": 9177872627,
-        "osm_type": "node",
-        "vending": "bread"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.031513,
-          43.8432724
-        ]
-      },
-      "properties": {
-        "id": 9177888887,
-        "osm_type": "node",
-        "vending": "bread"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.8996356,
-          42.6831709
-        ]
-      },
-      "properties": {
-        "id": 9190636329,
-        "osm_type": "node",
-        "vending": "food;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.9000158,
-          42.683615
-        ]
-      },
-      "properties": {
-        "id": 9190636330,
-        "osm_type": "node",
-        "vending": "food;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.9015151,
-          42.683319
-        ]
-      },
-      "properties": {
-        "id": 9196994802,
-        "osm_type": "node",
-        "vending": "food;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          3.4709758,
-          43.2989014
-        ]
-      },
-      "properties": {
-        "id": 9214177021,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          1.9472251,
-          43.3230318
-        ]
-      },
-      "properties": {
-        "id": 9297846037,
-        "osm_type": "node",
-        "name": "Pizzeria De L'écluse",
-        "opening_hours": "24/7",
-        "vending": "pizza"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          1.9537304,
-          43.2964158
-        ]
-      },
-      "properties": {
-        "id": 9297846038,
-        "osm_type": "node",
-        "name": "Pizzeria De L'écluse",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "id": 4032666595,
+        "osm_type": "node"
       }
     },
     {
@@ -1675,14 +1553,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.953717,
-          43.2964185
+          12.6360026,
+          59.6149763
         ]
       },
       "properties": {
-        "id": 9297846039,
+        "id": 4058867487,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Björnmyren",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1690,14 +1569,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.9594348,
-          43.3119545
+          12.6299354,
+          59.623106
         ]
       },
       "properties": {
-        "id": 9297846040,
+        "id": 4058867488,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Sarvbäcken",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1705,16 +1585,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.9594315,
-          43.3119401
+          13.3598374,
+          59.3756353
         ]
       },
       "properties": {
-        "id": 9297846041,
+        "id": 4069125171,
         "osm_type": "node",
-        "name": "Pizzeria De L'écluse",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1722,16 +1600,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.6241959,
-          43.3690596
+          13.5045272,
+          59.2570502
         ]
       },
       "properties": {
-        "id": 9297846042,
+        "id": 4171886753,
         "osm_type": "node",
-        "name": "Pizza Galli Express",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1739,16 +1615,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.7034166,
-          43.4001518
+          12.6448002,
+          59.5658286
         ]
       },
       "properties": {
-        "id": 9297846043,
+        "id": 4301210153,
         "osm_type": "node",
-        "name": "Pizza Galli Express",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "name": "Hungviksön",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "url": "https://vindskyddskartan.se/en/places/3997/Hungviks%C3%B6n"
       }
     },
     {
@@ -1756,16 +1633,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.5863952,
-          43.4541611
+          12.8317931,
+          59.6030296
         ]
       },
       "properties": {
-        "id": 9297846044,
+        "id": 4301235799,
         "osm_type": "node",
-        "name": "Pizza Mamita",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -1773,15 +1649,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.9006908,
-          44.0696868
+          13.0351783,
+          59.4651479
         ]
       },
       "properties": {
-        "id": 9325819186,
+        "id": 4301239115,
         "osm_type": "node",
-        "name": "Trésor du Sud",
-        "vending": "food;honey"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -1789,15 +1665,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4276874,
-          43.9650814
+          13.3977738,
+          59.8513932
         ]
       },
       "properties": {
-        "id": 9334627825,
+        "id": 4307435941,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "Chez Lucien"
+        "name": "Boraskullen",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -1805,16 +1681,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.9084239,
-          43.8767542
+          13.4206684,
+          59.8236944
         ]
       },
       "properties": {
-        "id": 9442631431,
+        "id": 4307435961,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza",
-        "operator": "Monsieur Tomate"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1822,15 +1696,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.9746638,
-          43.1627781
+          13.4242137,
+          59.829123
         ]
       },
       "properties": {
-        "id": 9444860676,
+        "id": 4307438732,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "bread"
+        "name": "Skalltjärnen Norra",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1838,15 +1712,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.9424989,
-          43.8436815
+          12.2932196,
+          59.5284193
         ]
       },
       "properties": {
-        "id": 9489615497,
+        "id": 4317999334,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "Maison Chabanol"
+        "name": "Bergtjärnen",
+        "shelter_type": "lean_to",
+        "url": "https://vindskyddskartan.se/en/places/2736/Glaskogen%2025"
       }
     },
     {
@@ -1854,16 +1729,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3510219,
-          43.8589888
+          12.3289338,
+          59.4520627
         ]
       },
       "properties": {
-        "id": 9645248547,
+        "id": 4317999336,
         "osm_type": "node",
-        "name": "distributeur à pain",
-        "opening_hours": "24/7",
-        "vending": "bread"
+        "name": "32",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1871,14 +1745,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8707737,
-          42.6404456
+          12.3283564,
+          59.4391653
         ]
       },
       "properties": {
-        "id": 9697645149,
+        "id": 4317999337,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Mellansjödammen",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -1886,14 +1761,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.9251184,
-          43.722809
+          12.3162091,
+          59.5257738
         ]
       },
       "properties": {
-        "id": 9721461356,
+        "id": 4317999339,
         "osm_type": "node",
-        "vending": "food;bread"
+        "name": "54 Älveberget",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1901,16 +1777,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3268139,
-          43.5098675
+          12.9778657,
+          59.2883596
         ]
       },
       "properties": {
-        "id": 9750305960,
+        "id": 4318583737,
         "osm_type": "node",
-        "name": "Pizza Ô feu de bois",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "shelter_type": "lean_to",
+        "bench": "yes",
+        "fee": "no",
+        "url": "https://vindskyddskartan.se/en/places/930/S%C3%A4vsj%C3%B6n%20V%C3%A4rmland%20Vindskydd"
       }
     },
     {
@@ -1918,14 +1795,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.2006217,
-          43.4018243
+          13.0007433,
+          59.2940122
         ]
       },
       "properties": {
-        "id": 9765073606,
+        "id": 4318583738,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to",
+        "url": "https://vindskyddskartan.se/en/places/1220/S%C3%A4vsj%C3%B6n%20Vindskydd"
       }
     },
     {
@@ -1933,16 +1811,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5725913,
-          44.3620424
+          13.1016889,
+          59.2505346
         ]
       },
       "properties": {
-        "id": 9823107419,
+        "id": 4356562739,
         "osm_type": "node",
-        "name": "Made in Marcillac",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1950,16 +1826,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5805428,
-          44.3565874
+          12.5379214,
+          59.4439321
         ]
       },
       "properties": {
-        "id": 9823107420,
+        "id": 4417885614,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza",
-        "operator": "Pizz'à Rodez"
+        "name": "Svarthagstjärnen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1967,16 +1842,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5763262,
-          44.3547143
+          13.3033874,
+          59.2869176
         ]
       },
       "properties": {
-        "id": 9823158504,
+        "id": 4473674042,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza",
-        "operator": "Pizza Saint Cyrice"
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "table": "yes",
+        "url": "https://vindskyddskartan.se/en/places/4090/Hamnholmarna"
       }
     },
     {
@@ -1984,14 +1860,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.3687612,
-          43.1913546
+          13.3126624,
+          59.3042725
         ]
       },
       "properties": {
-        "id": 9855869717,
+        "id": 4612830736,
         "osm_type": "node",
-        "vending": "food"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1999,15 +1875,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4788124,
-          43.5354923
+          12.5949847,
+          60.3611415
         ]
       },
       "properties": {
-        "id": 9861267674,
+        "id": 4743947968,
         "osm_type": "node",
-        "vending": "pizza",
-        "operator": "Pizza Box by La Romanista"
+        "name": "Hällsjön vindskydd",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -2015,14 +1891,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.1232763,
-          42.5069428
+          12.5855194,
+          59.8411557
         ]
       },
       "properties": {
-        "id": 9869004593,
+        "id": 4801308255,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Mörttjärnet",
+        "shelter_type": "lean_to",
+        "capacity": "6"
       }
     },
     {
@@ -2030,15 +1908,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.0052953,
-          42.6183175
+          13.3153691,
+          59.3681519
         ]
       },
       "properties": {
-        "id": 9876009613,
+        "id": 4827590581,
         "osm_type": "node",
-        "name": "Boucherie du Roussillon",
-        "vending": "food;meat"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -2046,16 +1923,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5986246,
-          44.3959136
+          12.5318458,
+          59.4017918
         ]
       },
       "properties": {
-        "id": 9884603905,
+        "id": 4853285429,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza",
-        "operator": "Pizza Bazac"
+        "name": "Stora Mörttjärnen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2063,14 +1939,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.6078384,
-          42.9645843
+          12.4961222,
+          59.4399084
         ]
       },
       "properties": {
-        "id": 9907657783,
+        "id": 4881657492,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "42 Glatjärnen",
+        "access": "customers",
+        "shelter_type": "lean_to",
+        "operator": "Stiftelsen Glaskogen"
       }
     },
     {
@@ -2078,14 +1957,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.1167825,
-          43.7384109
+          12.2904719,
+          59.4599116
         ]
       },
       "properties": {
-        "id": 9952763368,
+        "id": 5030716166,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Lelången Syd",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "fee": "yes",
+        "url": "https://vindskyddskartan.se/en/places/2732/Glaskogen%2031"
       }
     },
     {
@@ -2093,16 +1976,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.769649,
-          42.625024
+          12.2402474,
+          59.4753578
         ]
       },
       "properties": {
-        "id": 9970110328,
+        "id": 5030716192,
         "osm_type": "node",
-        "name": "Distributeur Fred Pizz'",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "name": "Lilla Skärvattnet",
+        "shelter_type": "lean_to",
+        "fee": "yes"
       }
     },
     {
@@ -2110,14 +1993,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.1363305,
-          43.9929323
+          12.4830222,
+          59.7052786
         ]
       },
       "properties": {
-        "id": 9972454709,
+        "id": 5030825756,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to",
+        "bench": "yes"
       }
     },
     {
@@ -2125,14 +2009,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.1363534,
-          43.9929294
+          12.4823624,
+          59.7048212
         ]
       },
       "properties": {
-        "id": 9972454710,
+        "id": 5030825757,
         "osm_type": "node",
-        "vending": "food"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2140,16 +2024,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.6625241,
-          43.8492952
+          14.1448581,
+          60.1975496
         ]
       },
       "properties": {
-        "id": 9990492072,
+        "id": 5051758144,
         "osm_type": "node",
-        "name": "Bella Italia Express",
-        "vending": "pizza",
-        "operator": "bella italia"
+        "name": "Dundern",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2157,14 +2040,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.992537,
-          43.9705458
+          12.5043627,
+          59.4717181
         ]
       },
       "properties": {
-        "id": 10026845418,
+        "id": 5150252635,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Bergsviken Sydväst",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "description": "Bra vindskydd. Finns ytterligare 3 vindskydd men direkt bakom finns det gott om utrymme för tältning. Gott om ved.",
+        "url": "https://swetrails.com/sv/poi/Glaskogen_Vindskydd_Nordv%C3%A4st"
       }
     },
     {
@@ -2172,15 +2061,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4013618,
-          43.5784896
+          12.5037126,
+          59.4718538
         ]
       },
       "properties": {
-        "id": 10135627008,
+        "id": 5150252636,
         "osm_type": "node",
-        "vending": "coffee;drinks;sweets;water",
-        "operator": "facultée mirail"
+        "name": "Bergsviken Nordväst",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "description": "Fint vindskydd, kan vara lite vindigt. Finns ytterligare 3 vindskydd men, direkt bakom finns det gott om utrymme för tältning. Gott om ved.",
+        "url": "https://swetrails.com/sv/poi/Glaskogen_Vindskydd_Nordv%C3%A4st"
       }
     },
     {
@@ -2188,15 +2082,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.1503257,
-          43.6838294
+          12.5631121,
+          59.4370971
         ]
       },
       "properties": {
-        "id": 10186356753,
+        "id": 5562900465,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "name": "Hagmyren",
+        "access": "customers",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -2204,14 +2099,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3720084,
-          43.838236
+          12.508471,
+          59.9148566
         ]
       },
       "properties": {
-        "id": 10220174926,
+        "id": 5598594614,
         "osm_type": "node",
-        "vending": "drinks"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2219,14 +2114,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3719964,
-          43.8382375
+          12.3807669,
+          59.4291935
         ]
       },
       "properties": {
-        "id": 10220174927,
+        "id": 5657050589,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Halmtjärnet",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "fee": "yes",
+        "url": "https://vindskyddskartan.se/en/places/2725/Glaskogen%2036"
       }
     },
     {
@@ -2234,14 +2133,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.7172346,
-          44.9531626
+          12.4709527,
+          59.4128602
         ]
       },
       "properties": {
-        "id": 10261144424,
+        "id": 5657071545,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Sandtjärnet",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2249,15 +2149,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.5691102,
-          43.246732
+          12.3724394,
+          59.5917893
         ]
       },
       "properties": {
-        "id": 10262095689,
+        "id": 5657200636,
         "osm_type": "node",
-        "vending": "pizza",
-        "operator": "Le Rital"
+        "name": "Stora Abborrtjärnet",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2265,14 +2165,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.023001,
-          43.6625231
+          14.1263688,
+          59.7017524
         ]
       },
       "properties": {
-        "id": 10559205884,
+        "id": 5784786276,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2280,16 +2180,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.8332645,
-          42.7249115
+          12.9762109,
+          60.2709043
         ]
       },
       "properties": {
-        "id": 10589557140,
+        "id": 5793565025,
         "osm_type": "node",
-        "vending": "food;drinks",
-        "brand": "Selecta",
-        "operator": "selecta"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2297,14 +2195,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.9235312,
-          43.0355573
+          13.2920302,
+          59.2866739
         ]
       },
       "properties": {
-        "id": 10741262905,
+        "id": 5832778672,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2312,14 +2210,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.9410259,
-          43.572095
+          13.6328021,
+          59.7368368
         ]
       },
       "properties": {
-        "id": 10749199558,
+        "id": 5843347434,
         "osm_type": "node",
-        "vending": "coffee"
+        "shelter_type": "lean_to",
+        "bench": "yes"
       }
     },
     {
@@ -2327,14 +2226,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.9872621,
-          44.6258797
+          13.412075,
+          59.8188432
         ]
       },
       "properties": {
-        "id": 10751009434,
+        "id": 5949866162,
         "osm_type": "node",
-        "vending": "food"
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -2342,14 +2241,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.5993541,
-          43.1109913
+          12.4825744,
+          60.6923309
         ]
       },
       "properties": {
-        "id": 10781942305,
+        "id": 5979669332,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2357,14 +2256,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3818137,
-          43.7981044
+          12.5079051,
+          59.4722756
         ]
       },
       "properties": {
-        "id": 10784973426,
+        "id": 6035249239,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Rågärdsviken Vindskydd",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "description": "Bra vindskydd ligger lite mer avsides än de andra 3 i området. Har bra plats att dra upp kanoter. Gott om ved i mängder.",
+        "url": "https://swetrails.com/sv/poi/Glasgkoen_Vindskydd_R%C3%A5g%C3%A4rdsviken"
       }
     },
     {
@@ -2372,14 +2277,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.275663,
-          43.6917242
+          12.5053087,
+          59.4716639
         ]
       },
       "properties": {
-        "id": 10807990766,
+        "id": 6035249947,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Bergsviken Sydöst",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "description": "Vindskyddet ligger rakt emot ett annat vindskydd, men finns gott om buskage i mellan. Ingen direkt access för kanoter, men finns nära inpå. Finns ytterligare 3 vindskydd. Gott om ved i mängder.",
+        "url": "https://swetrails.com/sv/poi/Glaskogen_Vindskydd_Syd%C3%B6stra"
       }
     },
     {
@@ -2387,15 +2298,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.5452316,
-          43.884091
+          12.5394029,
+          59.492583
         ]
       },
       "properties": {
-        "id": 10861035898,
+        "id": 6053559134,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "Le Petit Varennois"
+        "name": "Glaskogen 12 Knappstadsviken vindskydd",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "description": "Fint vindskydd uppe på en liten kulle men finns plats runtom för att dra upp kanoter. Gott om ved.",
+        "url": "https://swetrails.com/sv/poi/Glaskogen_Knappstadsviken_Vindskydd"
       }
     },
     {
@@ -2403,14 +2319,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.0139252,
-          42.7733695
+          12.4808396,
+          59.5175264
         ]
       },
       "properties": {
-        "id": 10894773259,
+        "id": 6053559351,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Glaskogen 14",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "operator": "Stiftelsen Glaskogen",
+        "description": "Vindskyddet ligger högt beläget. Finns gott om tältplatser längs ryggen.",
+        "url": "https://swetrails.com/sv/poi/Glaskogen_Erstavikens_Vindskydd"
       }
     },
     {
@@ -2418,14 +2341,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.0145052,
-          42.7730757
+          12.5238186,
+          59.5008455
         ]
       },
       "properties": {
-        "id": 10894773260,
+        "id": 6053561686,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Glaskogen 13",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "operator": "Stiftelsen Glaskogen",
+        "description": "Vindskyddet ligger på en väldigt populär badplats… Så ingen bra plats.",
+        "url": "https://swetrails.com/sv/poi/Br%C3%A5nestan_Vindskydd"
       }
     },
     {
@@ -2433,14 +2363,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.2799073,
-          44.0494155
+          12.449685,
+          59.5238979
         ]
       },
       "properties": {
-        "id": 10917982543,
+        "id": 6058921776,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Sitjärnen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2448,14 +2379,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5805203,
-          44.3626304
+          12.4593115,
+          59.4849766
         ]
       },
       "properties": {
-        "id": 10936929205,
+        "id": 6088417859,
         "osm_type": "node",
-        "vending": "food;sweets"
+        "name": "Glaskogen 8 norra",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "operator": "Stiftelsen Glaskogen",
+        "description": "Vindksyddet är i bra ordning, med fin utsikt över Stora gla."
       }
     },
     {
@@ -2463,14 +2400,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.6312502,
-          43.463731
+          12.409067,
+          59.4263901
         ]
       },
       "properties": {
-        "id": 10949421824,
+        "id": 6088419407,
         "osm_type": "node",
-        "vending": "snack;drinks"
+        "name": "Älmheds-Långtjärnet",
+        "access": "customers",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2478,15 +2417,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.1104948,
-          43.3866084
+          12.4232452,
+          59.4939417
         ]
       },
       "properties": {
-        "id": 10969338131,
+        "id": 6093610476,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "name": "Kyrkstadudden",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -2494,16 +2434,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.0558193,
-          43.448157
+          12.4589199,
+          59.4834839
         ]
       },
       "properties": {
-        "id": 10969359399,
+        "id": 6093992342,
         "osm_type": "node",
-        "name": "Gang of Pizza",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "name": "Glaskogen 8 södra",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes",
+        "operator": "Stiftelsen Glaskogen",
+        "description": "Vindskydd i bra ordning, ligger direkt intill vattnet där det är enkelt att få upp kanoter. Direkt bakom vindskyddet brukar det finnas en gigantisk hög med ved.",
+        "url": "https://commons.wikimedia.org/wiki/File:Glaskogen_8_s%C3%B6dra_vindskydd_at_Kalvudden_-_overview.jpg"
       }
     },
     {
@@ -2511,16 +2456,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.1317181,
-          43.9195673
+          12.3766391,
+          59.4752831
         ]
       },
       "properties": {
-        "id": 10991987824,
+        "id": 6121090773,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza",
-        "operator": "Monsieur Tomate"
+        "name": "Svarttjärnen Nord",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "no",
+        "fee": "yes"
       }
     },
     {
@@ -2528,16 +2475,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.137993,
-          43.922438
+          13.6653945,
+          59.7172944
         ]
       },
       "properties": {
-        "id": 10997217367,
+        "id": 6172904296,
         "osm_type": "node",
-        "vending": "coffee",
-        "brand": "Selecta",
-        "operator": "Selecta"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2545,15 +2490,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.1538286,
-          43.9550411
+          14.1342518,
+          59.7038863
         ]
       },
       "properties": {
-        "id": 11001248120,
+        "id": 6419601186,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -2561,14 +2505,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.539919,
-          43.840133
+          11.8858734,
+          59.4499248
         ]
       },
       "properties": {
-        "id": 11002386572,
+        "id": 6540384909,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -2576,16 +2521,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8875412,
-          43.9579882
+          13.3426017,
+          60.4452717
         ]
       },
       "properties": {
-        "id": 11028037246,
+        "id": 6564428656,
         "osm_type": "node",
-        "name": "Pola pizza",
-        "opening_hours": "PH,Mo-Su 00:00-24:00",
-        "vending": "pizza"
+        "name": "Fänstjärn",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -2593,14 +2538,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.6294862,
-          44.9081639
+          12.4329504,
+          59.4076816
         ]
       },
       "properties": {
-        "id": 11082959254,
+        "id": 6680452451,
         "osm_type": "node",
-        "vending": "pizza;drinks"
+        "name": "Öjesjön",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "fee": "yes",
+        "url": "https://vindskyddskartan.se/en/places/2723/Glaskogen%2039"
       }
     },
     {
@@ -2608,14 +2557,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8825378,
-          42.7799043
+          12.2959261,
+          59.4781721
         ]
       },
       "properties": {
-        "id": 11086832559,
+        "id": 6685582611,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Lelången Nord",
+        "shelter_type": "lean_to",
+        "url": "https://vindskyddskartan.se/en/places/580/Glaskogen%2028"
       }
     },
     {
@@ -2623,16 +2574,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.0237608,
-          42.6998184
+          12.3010591,
+          59.5428815
         ]
       },
       "properties": {
-        "id": 11117639573,
+        "id": 6760826282,
         "osm_type": "node",
-        "name": "Gioco Di Pizza",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "name": "24 Djuvsheden",
+        "shelter_type": "lean_to",
+        "fee": "yes",
+        "operator": "Stiftelsen Glaskogen",
+        "url": "https://vindskyddskartan.se/en/places/95/Glaskogen%2024"
       }
     },
     {
@@ -2640,14 +2593,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.2071437,
-          44.1914878
+          12.4086553,
+          59.5927549
         ]
       },
       "properties": {
-        "id": 11163292741,
+        "id": 6829051868,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Älgsjön",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -2655,14 +2609,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.0753793,
-          43.5085367
+          13.5606909,
+          59.6384098
         ]
       },
       "properties": {
-        "id": 11165938759,
+        "id": 6836404919,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -2670,14 +2624,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.9788942,
-          42.6045438
+          13.844666,
+          59.3864533
         ]
       },
       "properties": {
-        "id": 11194697858,
+        "id": 6877415711,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2685,15 +2639,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4072311,
-          43.601777
+          12.573319,
+          60.667038
         ]
       },
       "properties": {
-        "id": 11201053621,
+        "id": 7125225416,
         "osm_type": "node",
-        "vending": "food",
-        "operator": "COP’COP"
+        "name": "Scråckarberget Raststuga",
+        "description": "På gården finns en koja öppen för vandrare. Kojan är inte tydligt synlig men ligger strax norr om bostadsbyggnaden. Finns plats för många sovande. <img src="
       }
     },
     {
@@ -2701,14 +2655,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.0840003,
-          43.6135049
+          12.432704,
+          60.720109
         ]
       },
       "properties": {
-        "id": 11242959729,
+        "id": 7125225420,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Norro Raststuga",
+        "description": "I gott skick med plats för övernattning."
       }
     },
     {
@@ -2716,14 +2671,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.1682142,
-          43.4220346
+          12.403405,
+          60.799045
         ]
       },
       "properties": {
-        "id": 11251399287,
+        "id": 7125225421,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Nolbyholen Raststuga",
+        "description": "Öppen stuga i gott skick med plats för övernattning."
       }
     },
     {
@@ -2731,15 +2687,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.2083417,
-          43.467777
+          14.0693,
+          59.09296
         ]
       },
       "properties": {
-        "id": 11265151129,
+        "id": 7125225428,
         "osm_type": "node",
-        "name": "Gang Of Pizza",
-        "vending": "pizza"
+        "name": "Linsöstugan",
+        "description": "Fin övernattningsstuga 700 meters vandring genom kohagar, från vägen. Två rum och kök. Ett flertal sängar. El, vatten, eldstäder och utedass Vid vandringsleden Prästöleden"
       }
     },
     {
@@ -2747,15 +2703,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.3206165,
-          43.5012465
+          12.5962131,
+          59.9302826
         ]
       },
       "properties": {
-        "id": 11281380031,
+        "id": 7125225432,
         "osm_type": "node",
-        "name": "Pizza Roujan",
-        "vending": "pizza"
+        "name": "Lafallshöjden Raststuga",
+        "description": "Ett par mil NNO om Gunnarskog i Värmland 59.9302826 12.5962131 Övernattningsstuga Fräsch stuga på vacker slåtteräng Tre bäddar med sängkläder Vedspis och ved Vatten och husgeråd Utedass Väg fram, samt vandringsled"
       }
     },
     {
@@ -2763,14 +2719,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.3197547,
-          43.5013194
+          13.3513138,
+          59.43553
         ]
       },
       "properties": {
-        "id": 11281593633,
+        "id": 7125225440,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Högemon Kolarkoja",
+        "bench": "no",
+        "description": "Plats för två sovande. Dörren finns men är lite trasig. Inget dass. Ligger i naturreservat. Man tar sig dit gående på stig.",
+        "url": "https://vindskyddskartan.se/en/places/3123/H%C3%B6gemon%20Kolarkoja"
       }
     },
     {
@@ -2778,15 +2737,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.0749073,
-          43.9247876
+          12.542763,
+          60.647617
         ]
       },
       "properties": {
-        "id": 11281668740,
+        "id": 7125225443,
         "osm_type": "node",
-        "vending": "pizza",
-        "operator": "La Garance"
+        "name": "Herreskojan Raststuga",
+        "description": "Övernattning för sju personer. Väl underhållen. Ligger nära vägen men är skymd så att den knapps syns. Ca 400 meter från Finnskogsleden."
       }
     },
     {
@@ -2794,14 +2753,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.9428352,
-          43.6421515
+          12.57644,
+          60.345064
         ]
       },
       "properties": {
-        "id": 11404265310,
+        "id": 7125225447,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Gåstjernskoian",
+        "description": "Koian är en stor med öppen spis i mitten och sovbänkar på båda sidor. Det rymmer cirka 15 personer. Det finns inga fisk- och simningsmöjligheter i omedelbar närhet, men i närmaste vatten finns både simma och fiskemöjligheter. Fiskekort krävs, men å andra"
       }
     },
     {
@@ -2809,14 +2769,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4457454,
-          43.6046608
+          12.437866,
+          60.833617
         ]
       },
       "properties": {
-        "id": 11503062893,
+        "id": 7125225455,
         "osm_type": "node",
-        "vending": "drinks;sweets"
+        "name": "Bjørnholtkojan",
+        "description": "En gammal timmerkoja som ligger mitt i skogen. Karta och kompass som gäller för att hitta hit då det inte finns någon väg i närheten. Plats för 6 sovande"
       }
     },
     {
@@ -2824,14 +2785,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.417426,
-          44.4641564
+          12.6318861,
+          60.4465782
         ]
       },
       "properties": {
-        "id": 11531631517,
+        "id": 7125225458,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Abborrtjärnsberg Raststuga",
+        "access": "yes",
+        "fee": "no",
+        "description": "Klassas som naturreservat. Ägs av Finnkulturföreningen. Står öppen för övernattning. Finns bara två sängplatser men får plats fler på golvet."
       }
     },
     {
@@ -2839,14 +2803,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.7631633,
-          43.5229949
+          13.3553571,
+          59.4340804
         ]
       },
       "properties": {
-        "id": 11544279422,
+        "id": 7125241121,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Mellerud Vindskydd",
+        "shelter_type": "weather_shelter",
+        "description": "Plats för 1-2 sovande Med lite vilja, dåligt med ved"
       }
     },
     {
@@ -2854,14 +2820,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.37616,
-          44.0342991
+          13.6317167,
+          59.3553166
         ]
       },
       "properties": {
-        "id": 11638424757,
+        "id": 7125723341,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Långviksudden",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2869,14 +2836,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.5606127,
-          43.4008318
+          13.5566076,
+          59.3105094
         ]
       },
       "properties": {
-        "id": 11731581318,
+        "id": 7125723350,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Sättersviken",
+        "shelter_type": "lean_to",
+        "description": "Ligger intill bonäsleden"
       }
     },
     {
@@ -2884,14 +2853,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.0407343,
-          44.0281388
+          13.4232782,
+          59.8268824
         ]
       },
       "properties": {
-        "id": 11733667045,
+        "id": 7125723351,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Skalltjärnen Västra",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2899,15 +2869,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.9652606,
-          43.659974
+          13.4227079,
+          59.8237312
         ]
       },
       "properties": {
-        "id": 11760546554,
+        "id": 7125723352,
         "osm_type": "node",
-        "vending": "pizza",
-        "operator": "Pizza Party"
+        "name": "Skalltjärnen Södra",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2915,15 +2885,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4514412,
-          43.3679595
+          13.7422925,
+          59.836709
         ]
       },
       "properties": {
-        "id": 11764402750,
+        "id": 7125723353,
         "osm_type": "node",
-        "vending": "food",
-        "operator": "Mets Encore"
+        "name": "Grässjön",
+        "shelter_type": "lean_to",
+        "description": "Ligger intill svartåleden"
       }
     },
     {
@@ -2931,15 +2902,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.7281412,
-          44.4665157
+          13.8352847,
+          59.7652768
         ]
       },
       "properties": {
-        "id": 11812578841,
+        "id": 7125723355,
         "osm_type": "node",
-        "vending": "pizza",
-        "operator": "Faim de loup"
+        "name": "Grandalsbäcken",
+        "shelter_type": "lean_to",
+        "description": "Ligger intill svartåleden"
       }
     },
     {
@@ -2947,15 +2919,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5163332,
-          44.3693265
+          14.019413,
+          59.6585941
         ]
       },
       "properties": {
-        "id": 11812578842,
+        "id": 7125723356,
         "osm_type": "node",
-        "vending": "pizza",
-        "operator": "Faim de loup"
+        "name": "Lungälven",
+        "shelter_type": "lean_to",
+        "description": "Ligger intill brattforsleden"
       }
     },
     {
@@ -2963,14 +2936,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.9165817,
-          42.7769299
+          13.0359542,
+          60.5061668
         ]
       },
       "properties": {
-        "id": 11850479240,
+        "id": 7125728520,
         "osm_type": "node",
-        "vending": "drinks"
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "url": "https://vindskyddskartan.se/en/places/2751/Dammyren%2C%20Ljusnan"
       }
     },
     {
@@ -2978,14 +2953,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.9165612,
-          42.7769304
+          12.6711572,
+          60.4533107
         ]
       },
       "properties": {
-        "id": 11850479244,
+        "id": 7125728529,
         "osm_type": "node",
-        "vending": "drinks"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2993,14 +2968,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.8186453,
-          44.9219805
+          12.9200667,
+          60.2067787
         ]
       },
       "properties": {
-        "id": 11851207845,
+        "id": 7125728532,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -3008,15 +2983,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3462214,
-          43.5858759
+          12.7653461,
+          59.9139084
         ]
       },
       "properties": {
-        "id": 11862320934,
+        "id": 7125728533,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3024,15 +2998,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.8902818,
-          43.9024195
+          12.8095436,
+          59.8679352
         ]
       },
       "properties": {
-        "id": 11918165237,
+        "id": 7125728534,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3040,14 +3013,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.7693966,
-          43.2000337
+          12.3771662,
+          59.4724555
         ]
       },
       "properties": {
-        "id": 11920229783,
+        "id": 7125728540,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Svarttjärnen Syd (Glaskogen 29)",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3055,15 +3029,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.7126296,
-          43.3202589
+          13.5781662,
+          59.2836963
         ]
       },
       "properties": {
-        "id": 11929325386,
+        "id": 7125728543,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "maBaguette.com"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3071,15 +3044,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.6215419,
-          43.0332158
+          11.8693033,
+          59.4775651
         ]
       },
       "properties": {
-        "id": 11950899473,
+        "id": 7125728750,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "Boulangerie Demartin"
+        "name": "DANO 23 Stornäset - Foxen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3087,14 +3060,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5812952,
-          44.3530275
+          13.922934,
+          59.6690955
         ]
       },
       "properties": {
-        "id": 11957907385,
+        "id": 7125728788,
         "osm_type": "node",
-        "vending": "drinks;sweets"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3102,15 +3075,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.0209032,
-          44.3589148
+          11.888528,
+          59.638795
         ]
       },
       "properties": {
-        "id": 12031997259,
+        "id": 7125728858,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "drinks;food"
+        "name": "DANO 28 Navarviksön - Östen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3118,16 +3091,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.9234067,
-          42.5488064
+          14.0140929,
+          59.6455652
         ]
       },
       "properties": {
-        "id": 12064681131,
+        "id": 7133933227,
         "osm_type": "node",
-        "name": "Casiers locaux éthiques des Albères",
-        "opening_hours": "24/7",
-        "vending": "food"
+        "name": "Älgdalen",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3135,14 +3107,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.2629597,
-          44.5547089
+          12.536779,
+          59.4292162
         ]
       },
       "properties": {
-        "id": 12068846083,
+        "id": 7146171915,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "43 Stora Rämmingstjärnen",
+        "shelter_type": "lean_to",
+        "operator": "Stiftelsen Glaskogen",
+        "description": "You buy the Glaskogen card when you use firewood and fireplaces, wind shelters, overnight cabins, dustbins and toilets that are in the nature reserve."
       }
     },
     {
@@ -3150,14 +3125,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4536202,
-          43.6120071
+          12.7405894,
+          60.4978384
         ]
       },
       "properties": {
-        "id": 12101851503,
+        "id": 7629639476,
         "osm_type": "node",
-        "vending": "drinks;coffee;sweets"
+        "fee": "no"
       }
     },
     {
@@ -3165,14 +3140,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4533474,
-          43.6120201
+          12.7793889,
+          59.290006
         ]
       },
       "properties": {
-        "id": 12101851504,
+        "id": 7629654814,
         "osm_type": "node",
-        "vending": "drinks;sweets"
+        "name": "Nysäter Vindskydd",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "url": "https://vindskyddskartan.se/en/places/778/Nys%C3%A4ter%20Vindskydd"
       }
     },
     {
@@ -3180,14 +3158,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4535687,
-          43.6115924
+          13.277412,
+          59.919773
         ]
       },
       "properties": {
-        "id": 12101851505,
+        "id": 7640621134,
         "osm_type": "node",
-        "vending": "drinks;sweets"
+        "name": "Släthea",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -3195,14 +3174,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4533225,
-          43.6119741
+          12.3468053,
+          59.5220083
         ]
       },
       "properties": {
-        "id": 12101851506,
+        "id": 7726960386,
         "osm_type": "node",
-        "vending": "drinks;sweets"
+        "shelter_type": "basic_hut",
+        "table": "yes",
+        "url": "https://vindskyddskartan.se/en/places/1453/Glaskogen%2026"
       }
     },
     {
@@ -3210,14 +3191,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.6095346,
-          42.8086132
+          14.1881425,
+          59.353922
         ]
       },
       "properties": {
-        "id": 12118558424,
+        "id": 7920232823,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -3225,14 +3206,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.1603688,
-          43.4221548
+          12.2768045,
+          59.874738
         ]
       },
       "properties": {
-        "id": 12138024991,
+        "id": 8092492387,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -3240,14 +3221,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.2538434,
-          43.3368649
+          12.2819694,
+          59.8636998
         ]
       },
       "properties": {
-        "id": 12177327687,
+        "id": 8092492390,
         "osm_type": "node",
-        "vending": "food"
+        "name": "Hökedalsrasten",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -3255,15 +3237,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.033378,
-          44.6085873
+          13.9231324,
+          59.6804249
         ]
       },
       "properties": {
-        "id": 12177416431,
+        "id": 8659428159,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "La Mie Câline"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3271,16 +3252,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.5705827,
-          44.8775924
+          12.5949845,
+          59.9467866
         ]
       },
       "properties": {
-        "id": 12198660231,
+        "id": 8752492914,
         "osm_type": "node",
-        "name": "La Pizzaela",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "table": "yes"
       }
     },
     {
@@ -3288,15 +3269,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.0246977,
-          43.2361666
+          14.3090486,
+          60.0341269
         ]
       },
       "properties": {
-        "id": 12211541912,
+        "id": 8936917887,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "food"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3304,14 +3284,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.0264263,
-          44.512054
+          14.2835998,
+          60.0374064
         ]
       },
       "properties": {
-        "id": 12212073979,
+        "id": 8936917891,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to",
+        "description": "Vindskydd"
       }
     },
     {
@@ -3319,14 +3300,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.0581268,
-          43.2339955
+          13.7948178,
+          60.2742604
         ]
       },
       "properties": {
-        "id": 12215009170,
+        "id": 8983245007,
         "osm_type": "node",
-        "vending": "drinks"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -3334,16 +3316,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.0695442,
-          43.2399269
+          13.4281535,
+          60.2751534
         ]
       },
       "properties": {
-        "id": 12241146771,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta",
-        "operator": "Selecta"
+        "id": 9006994249,
+        "osm_type": "node"
       }
     },
     {
@@ -3351,14 +3330,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.9517294,
-          43.9889744
+          12.6993573,
+          60.4153496
         ]
       },
       "properties": {
-        "id": 12247883935,
+        "id": 9372357829,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Anders Kåta",
+        "fee": "yes"
       }
     },
     {
@@ -3366,14 +3346,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.9992326,
-          43.7450351
+          13.0768662,
+          59.3380215
         ]
       },
       "properties": {
-        "id": 12314445762,
+        "id": 9830865767,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to",
+        "fee": "no"
       }
     },
     {
@@ -3381,14 +3362,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.1833562,
-          43.3564082
+          13.710428,
+          59.6042366
         ]
       },
       "properties": {
-        "id": 12334929266,
+        "id": 9960056026,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3396,15 +3377,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4534869,
-          43.6122747
+          13.1347289,
+          59.6599785
         ]
       },
       "properties": {
-        "id": 12350793656,
+        "id": 10282167523,
         "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
+        "name": "Bluesberry Woods"
       }
     },
     {
@@ -3412,14 +3392,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.33437,
-          43.6036341
+          12.361592,
+          59.5168324
         ]
       },
       "properties": {
-        "id": 12374101007,
+        "id": 10770695941,
         "osm_type": "node",
-        "vending": "food;drinks"
+        "name": "4",
+        "shelter_type": "weather_shelter",
+        "operator": "Stiftelsen Glaskogen",
+        "description": "Litet Vindskydd"
       }
     },
     {
@@ -3427,14 +3410,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.453337,
-          43.612296
+          12.3668518,
+          59.5191921
         ]
       },
       "properties": {
-        "id": 12412563263,
+        "id": 10770695944,
         "osm_type": "node",
-        "vending": "drinks;food;sweets;feminine_hygiene"
+        "name": "27",
+        "shelter_type": "weather_shelter",
+        "operator": "Stiftelsen Glaskogen",
+        "description": "Litet Vindskydd"
       }
     },
     {
@@ -3442,14 +3428,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.59222,
-          43.8837611
+          13.9773848,
+          59.3252154
         ]
       },
       "properties": {
-        "id": 12476239368,
+        "id": 10907581703,
         "osm_type": "node",
-        "vending": "bread"
+        "access": "yes"
       }
     },
     {
@@ -3457,15 +3443,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.0975613,
-          44.0649905
+          13.4773827,
+          59.3737169
         ]
       },
       "properties": {
-        "id": 12506841130,
+        "id": 10976909878,
         "osm_type": "node",
-        "vending": "pizza",
-        "operator": "Pizzarium"
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
       }
     },
     {
@@ -3473,16 +3459,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.5703223,
-          43.7178373
+          13.5625094,
+          59.3103258
         ]
       },
       "properties": {
-        "id": 12521518763,
+        "id": 11075324619,
         "osm_type": "node",
-        "name": "Casa d'Italia",
-        "vending": "ice_cream;épicerie_fine;traiteur",
-        "operator": "Casa d'Italia"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3490,16 +3474,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.8734796,
-          43.6297944
+          13.5834722,
+          59.8111936
         ]
       },
       "properties": {
-        "id": 12526639022,
+        "id": 11078620705,
         "osm_type": "node",
-        "name": "Gang of Pizza",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "name": "Stendalsättra"
       }
     },
     {
@@ -3507,14 +3489,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.5774663,
-          43.6469257
+          13.4348933,
+          59.9027409
         ]
       },
       "properties": {
-        "id": 12543370633,
+        "id": 11090338491,
         "osm_type": "node",
-        "vending": "food"
+        "access": "yes",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -3522,14 +3505,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.5774705,
-          43.6469376
+          13.6714634,
+          59.7330523
         ]
       },
       "properties": {
-        "id": 12543370634,
+        "id": 11151358231,
         "osm_type": "node",
-        "vending": "drinks"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3537,14 +3520,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.5774633,
-          43.6469123
+          14.3255638,
+          59.9979843
         ]
       },
       "properties": {
-        "id": 12543370635,
+        "id": 11806777745,
         "osm_type": "node",
-        "vending": "coffee"
+        "shelter_type": "lean_to",
+        "description": "Vindskydd"
       }
     },
     {
@@ -3552,14 +3536,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4532011,
-          43.6121563
+          14.3235558,
+          59.9953022
         ]
       },
       "properties": {
-        "id": 12577021980,
+        "id": 11806777746,
         "osm_type": "node",
-        "vending": "snack;drink"
+        "shelter_type": "lean_to",
+        "description": "Vindskydd"
       }
     },
     {
@@ -3567,14 +3552,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.1495888,
-          42.9821848
+          14.358973,
+          59.9237137
         ]
       },
       "properties": {
-        "id": 12626249862,
+        "id": 11806777747,
         "osm_type": "node",
-        "vending": "milk"
+        "shelter_type": "lean_to",
+        "description": "Vindskydd"
       }
     },
     {
@@ -3582,14 +3568,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.0746725,
-          43.3606258
+          12.7476968,
+          60.4781919
         ]
       },
       "properties": {
-        "id": 12662465113,
+        "id": 12073912096,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to",
+        "url": "https://map.campwild.org/places/3221"
       }
     },
     {
@@ -3597,14 +3584,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.1739193,
-          43.2746331
+          12.7085267,
+          60.4734647
         ]
       },
       "properties": {
-        "id": 12669784785,
+        "id": 12073918997,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3612,14 +3599,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.1511452,
-          43.3881857
+          12.9090977,
+          60.3855761
         ]
       },
       "properties": {
-        "id": 12670412446,
+        "id": 12073941907,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3627,14 +3614,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.1574882,
-          43.3890367
+          13.8031867,
+          59.6207313
         ]
       },
       "properties": {
-        "id": 12670425766,
+        "id": 12115561745,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3642,14 +3629,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.3958464,
-          43.5035502
+          13.4194779,
+          59.8339693
         ]
       },
       "properties": {
-        "id": 12673161960,
+        "id": 12118298446,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -3657,14 +3644,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.4563613,
-          43.5405672
+          12.9627742,
+          60.1072208
         ]
       },
       "properties": {
-        "id": 12673486222,
+        "id": 12118308271,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Gräsbergsstugan",
+        "access": "permit",
+        "fee": "no"
       }
     },
     {
@@ -3672,14 +3661,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.5831803,
-          43.6356262
+          12.9146916,
+          60.184518
         ]
       },
       "properties": {
-        "id": 12676692328,
+        "id": 12118340550,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -3687,14 +3676,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.5943824,
-          43.6487376
+          13.4013033,
+          60.4826321
         ]
       },
       "properties": {
-        "id": 12676692330,
+        "id": 12118612640,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3702,14 +3691,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.5760371,
-          43.5856462
+          12.9609087,
+          60.2997731
         ]
       },
       "properties": {
-        "id": 12698325509,
+        "id": 12118817899,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3717,14 +3706,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.5421577,
-          43.6523729
+          12.7487889,
+          59.9279446
         ]
       },
       "properties": {
-        "id": 12704440808,
+        "id": 12120981181,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -3732,14 +3721,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.2393226,
-          43.6078157
+          12.7487004,
+          59.9284473
         ]
       },
       "properties": {
-        "id": 12749884778,
+        "id": 12120981188,
         "osm_type": "node",
-        "vending": "drinks;sweets"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3747,14 +3736,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.4373903,
-          43.6226238
+          12.614032,
+          59.9033963
         ]
       },
       "properties": {
-        "id": 12801995241,
+        "id": 12121018017,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3762,14 +3751,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.7057234,
-          42.8894649
+          12.8255644,
+          59.862496
         ]
       },
       "properties": {
-        "id": 12806868708,
+        "id": 12128268177,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3777,14 +3766,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.7177528,
-          42.9187386
+          13.1352857,
+          59.8547343
         ]
       },
       "properties": {
-        "id": 12814288162,
+        "id": 12568936038,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "table": "no",
+        "fee": "no"
       }
     },
     {
@@ -3792,14 +3784,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.6163966,
-          43.145729
+          12.9193014,
+          60.8094386
         ]
       },
       "properties": {
-        "id": 12821080470,
+        "id": 12569728984,
         "osm_type": "node",
-        "vending": "bread"
+        "name": "Eggsjön",
+        "shelter_type": "lean_to",
+        "table": "no",
+        "fee": "no"
       }
     },
     {
@@ -3807,14 +3802,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.2453944,
-          44.0589135
+          13.0865515,
+          60.3022947
         ]
       },
       "properties": {
-        "id": 12849376733,
+        "id": 12572061912,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to",
+        "url": "https://vindskyddskartan.se/en/places/796/Mj%C3%B6gtj%C3%A4rn%20Vindskydd"
       }
     },
     {
@@ -3822,16 +3818,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.0656365,
-          44.0913611
+          12.7025624,
+          60.4102966
         ]
       },
       "properties": {
-        "id": 12850986996,
+        "id": 12572072889,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza",
-        "operator": "La Provençale"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -3839,15 +3833,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8878741,
-          42.7260944
+          12.562277,
+          59.3464551
         ]
       },
       "properties": {
-        "id": 12870747218,
+        "id": 12572135320,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza"
+        "name": "Kolarkojan Stenbyn/Ulvfjället Vindskydd",
+        "shelter_type": "lean_to",
+        "url": "https://vindskyddskartan.se/en/places/795/Kolarkojan%20Stenbyn%252FUlvfj%C3%A4llet%20Vindskydd"
       }
     },
     {
@@ -3855,14 +3850,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.8440821,
-          44.9106663
+          12.7053282,
+          59.7756822
         ]
       },
       "properties": {
-        "id": 12888304174,
+        "id": 12587552185,
         "osm_type": "node",
-        "vending": "pizza"
+        "name": "Byamossarna Vindskyd",
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "url": "https://vindskyddskartan.se/en/places/292/Byamossarna%20Vindskydd"
       }
     },
     {
@@ -3870,14 +3868,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.4231234,
-          43.4558634
+          12.8998562,
+          59.0905874
         ]
       },
       "properties": {
-        "id": 12925732727,
+        "id": 12609533113,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "url": "https://vindskyddskartan.se/en/places/858/Duse%20Vindskydd"
       }
     },
     {
@@ -3885,16 +3885,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.452408,
-          43.5301668
+          14.0064568,
+          59.9202625
         ]
       },
       "properties": {
-        "id": 12989782541,
+        "id": 12644159454,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "pizza",
-        "operator": "Gang of Pizza"
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "url": "https://vindskyddskartan.se/en/places/3562/Finnhyttetj%C3%A4rnen"
       }
     },
     {
@@ -3902,14 +3902,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8906431,
-          44.1042952
+          13.1658562,
+          60.2750133
         ]
       },
       "properties": {
-        "id": 12997722220,
+        "id": 12650649382,
         "osm_type": "node",
-        "vending": "food;eggs"
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "url": "https://vindskyddskartan.se/en/places/595/G%C3%A5rdsj%C3%B6n%20Vindskydd"
       }
     },
     {
@@ -3917,14 +3919,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.5150203,
-          44.4574747
+          12.5853055,
+          59.9087729
         ]
       },
       "properties": {
-        "id": 13023555200,
+        "id": 12666785053,
         "osm_type": "node",
-        "vending": "bread"
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "table": "yes",
+        "url": "https://vindskyddskartan.se/en/places/885/Gr%C3%A4nsj%C3%B6n%20Vindskydd"
       }
     },
     {
@@ -3932,14 +3937,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.1710517,
-          43.9211281
+          13.6732806,
+          59.74589
         ]
       },
       "properties": {
-        "id": 13028506769,
+        "id": 12668072053,
         "osm_type": "node",
-        "vending": "food"
+        "shelter_type": "basic_hut",
+        "bench": "yes",
+        "table": "yes",
+        "url": "https://vindskyddskartan.se/api/images/64B224E22A6DC8F5.jpg"
       }
     },
     {
@@ -3947,14 +3955,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.568057,
-          44.6482956
+          12.8833659,
+          60.8613824
         ]
       },
       "properties": {
-        "id": 13048230248,
+        "id": 12668992128,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "basic_hut",
+        "bench": "yes",
+        "url": "https://vindskyddskartan.se/en/places/3229/Grillk%C3%A5ta%20Fager%C3%A5sdammen"
       }
     },
     {
@@ -3962,14 +3972,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.894012,
-          44.3192911
+          12.8245527,
+          60.1527312
         ]
       },
       "properties": {
-        "id": 13069417675,
+        "id": 12694632273,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "url": "https://vindskyddskartan.se/en/places/4335/Grundan"
       }
     },
     {
@@ -3977,14 +3989,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3387351,
-          43.9727861
+          12.8070643,
+          60.1630771
         ]
       },
       "properties": {
-        "id": 13088966643,
+        "id": 12694665199,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "url": "https://vindskyddskartan.se/en/places/287/Grundsj%C3%B6n%20Vindskydd"
       }
     },
     {
@@ -3992,15 +4006,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.1026292,
-          42.6141635
+          13.445468,
+          59.5433169
         ]
       },
       "properties": {
-        "id": 13093092565,
+        "id": 12736556486,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "bread"
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "url": "https://vindskyddskartan.se/en/places/4323/Forshaga"
       }
     },
     {
@@ -4008,15 +4023,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.1825463,
-          43.9372927
+          12.384952,
+          59.9931009
         ]
       },
       "properties": {
-        "id": 13094733409,
+        "id": 12744965723,
         "osm_type": "node",
-        "vending": "pizza",
-        "operator": "Burning Wood"
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "fee": "yes",
+        "url": "https://vindskyddskartan.se/en/places/3593/H%C3%A5vilsrud"
       }
     },
     {
@@ -4024,15 +4041,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8708247,
-          42.6404039
+          13.3410598,
+          59.4295668
         ]
       },
       "properties": {
-        "id": 13129757835,
+        "id": 12806662395,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "bread"
+        "shelter_type": "lean_to",
+        "bench": "no",
+        "url": "https://vindskyddskartan.se/en/places/889/H%C3%B6gemon%20Vindskydd"
       }
     },
     {
@@ -4040,14 +4058,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.3687642,
-          43.1913657
+          12.5561376,
+          60.1386168
         ]
       },
       "properties": {
-        "id": 13142025014,
+        "id": 12947259542,
         "osm_type": "node",
-        "vending": "coffee"
+        "name": "Lomstorp Raststuga",
+        "access": "yes",
+        "bench": "yes",
+        "capacity": "2",
+        "fee": "no"
       }
     },
     {
@@ -4055,15 +4077,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.3540557,
-          44.2450334
+          14.1165861,
+          59.5054247
         ]
       },
       "properties": {
-        "id": 13162479011,
+        "id": 12949090059,
         "osm_type": "node",
-        "vending": "bread",
-        "operator": "Boulangerie de LA MALENE"
+        "name": "Torphöjdens Bodega",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -4071,14 +4093,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4020623,
-          43.7887666
+          11.9565149,
+          59.426042
         ]
       },
       "properties": {
-        "id": 13184818077,
+        "id": 13041178943,
         "osm_type": "node",
-        "vending": "food"
+        "name": "DANO 108 Mörtön - Flötefjorden",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -4086,15 +4109,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.1412858,
-          44.4953972
+          13.158103,
+          60.5068259
         ]
       },
       "properties": {
-        "id": 13200441007,
+        "id": 13069340599,
         "osm_type": "node",
-        "vending": "food",
-        "operator": "La Pastorale"
+        "shelter_type": "lean_to",
+        "bench": "yes"
       }
     },
     {
@@ -4102,14 +4125,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8346369,
-          43.5771617
+          13.5815424,
+          59.4116874
         ]
       },
       "properties": {
-        "id": 13245701473,
+        "id": 13598502404,
         "osm_type": "node",
-        "vending": "pizza"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -4117,15 +4140,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3957669,
-          43.6230737
+          13.5048205,
+          59.5164913
         ]
       },
       "properties": {
-        "id": 13247884923,
+        "id": 13702247806,
         "osm_type": "node",
-        "vending": "food",
-        "operator": "BibimPop"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -4133,14 +4155,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8392493,
-          42.5308693
+          13.4596601,
+          59.5394568
         ]
       },
       "properties": {
-        "id": 13348172748,
+        "id": 13702247826,
         "osm_type": "node",
-        "vending": "coffee"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -4148,14 +4170,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3603673,
-          43.6611781
+          12.2819203,
+          59.8782181
         ]
       },
       "properties": {
-        "id": 13398032256,
-        "osm_type": "node",
-        "vending": "drinks"
+        "id": 469777654,
+        "osm_type": "way",
+        "access": "yes",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -4163,14 +4186,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.4873512,
-          43.3052069
+          13.5488977,
+          59.8467404
         ]
       },
       "properties": {
-        "id": 13426713378,
-        "osm_type": "node",
-        "vending": "coffee"
+        "id": 515661687,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "bench": "yes"
       }
     },
     {
@@ -4178,14 +4202,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.9957823,
-          43.4550945
+          12.3075847,
+          59.5636222
         ]
       },
       "properties": {
-        "id": 13428812287,
-        "osm_type": "node",
-        "vending": "pizza"
+        "id": 581373559,
+        "osm_type": "way",
+        "shelter_type": "basic_hut",
+        "fee": "yes",
+        "url": "https://vindskyddskartan.se/en/places/1452/Glaskogen%2023"
       }
     },
     {
@@ -4193,15 +4219,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3467532,
-          43.539507
+          13.8993592,
+          59.6731996
         ]
       },
       "properties": {
-        "id": 13430249308,
-        "osm_type": "node",
-        "vending": "food",
-        "operator": "Bibim Pop"
+        "id": 763457743,
+        "osm_type": "way",
+        "shelter_type": "basic_hut",
+        "description": "Ligger intill svartåleden"
       }
     },
     {
@@ -4209,14 +4235,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3701593,
-          43.6324161
+          12.7157865,
+          60.0043522
         ]
       },
       "properties": {
-        "id": 13435750527,
-        "osm_type": "node",
-        "vending": "food"
+        "id": 945415300,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -4224,14 +4250,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.370145,
-          43.6324724
+          12.5238456,
+          60.2659812
         ]
       },
       "properties": {
-        "id": 13435775905,
-        "osm_type": "node",
-        "vending": "food"
+        "id": 945984977,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -4239,17 +4265,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.2203039,
-          43.8003617
+          12.5236986,
+          60.2659838
         ]
       },
       "properties": {
-        "id": 13482578201,
-        "osm_type": "node",
-        "name": "Bergamo Pizza Express",
-        "opening_hours": "24/7",
-        "vending": "pizza",
-        "operator": "Bergamo Pizza"
+        "id": 945984978,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -4257,14 +4280,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.0576203,
-          43.2347586
+          12.5770972,
+          60.2242908
         ]
       },
       "properties": {
-        "id": 13589744238,
-        "osm_type": "node",
-        "vending": "pizza"
+        "id": 946123095,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -4272,14 +4295,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4690115,
-          43.5509207
+          12.885584,
+          60.7979411
         ]
       },
       "properties": {
-        "id": 13607595970,
-        "osm_type": "node",
-        "vending": "food"
+        "id": 951297138,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -4287,14 +4310,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4704132,
-          43.5612606
+          12.6506105,
+          60.4366785
         ]
       },
       "properties": {
-        "id": 13676160938,
-        "osm_type": "node",
-        "vending": "coffee"
+        "id": 1019094784,
+        "osm_type": "way",
+        "name": "Oledobba",
+        "access": "yes",
+        "bench": "yes",
+        "table": "yes",
+        "fee": "no"
       }
     },
     {
@@ -4302,14 +4329,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4704019,
-          43.5612552
+          14.2839878,
+          59.43711
         ]
       },
       "properties": {
-        "id": 13676160939,
-        "osm_type": "node",
-        "vending": "coffee"
+        "id": 1201171731,
+        "osm_type": "way"
       }
     },
     {
@@ -4317,14 +4343,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4704276,
-          43.5611886
+          12.7585286,
+          59.7289795
         ]
       },
       "properties": {
-        "id": 13676160940,
-        "osm_type": "node",
-        "vending": "food"
+        "id": 1308588277,
+        "osm_type": "way",
+        "access": "yes",
+        "capacity": "2",
+        "fee": "no"
       }
     },
     {
@@ -4332,14 +4360,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4704172,
-          43.5611396
+          12.9433289,
+          60.2869715
         ]
       },
       "properties": {
-        "id": 13676160941,
-        "osm_type": "node",
-        "vending": "food"
+        "id": 1308635231,
+        "osm_type": "way",
+        "name": "Bondfugestorp",
+        "access": "yes",
+        "fee": "no"
       }
     },
     {
@@ -4347,14 +4377,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.658585,
-          42.9135491
+          12.6099306,
+          60.4117017
         ]
       },
       "properties": {
-        "id": 13726262762,
-        "osm_type": "node",
-        "vending": "bread"
+        "id": 1310630444,
+        "osm_type": "way",
+        "name": "Fjälltorp",
+        "access": "permissive",
+        "capacity": "4",
+        "fee": "no",
+        "operator": "heir"
       }
     }
   ]
