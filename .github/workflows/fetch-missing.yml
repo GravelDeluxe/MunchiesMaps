@@ -2,12 +2,6 @@ name: "Fetch Missing GeoJSON"
 
 on:
   workflow_dispatch:
-    inputs:
-      dry_run:
-        description: "Run without committing/pushing changes"
-        required: false
-        type: boolean
-        default: false
 
 permissions:
   contents: write
