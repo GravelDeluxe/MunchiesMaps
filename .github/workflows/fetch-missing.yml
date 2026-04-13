@@ -1,0 +1,78 @@
+name: "Fetch Missing GeoJSON"
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run without committing/pushing changes"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-missing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml requests
+
+      - name: Run fetch_missing_overpass script
+        env:
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          set -euo pipefail
+
+          if [ "$DRY_RUN" = "true" ]; then
+            python fetch_data/fetch_missing_overpass.py --dry-run
+          else
+            python fetch_data/fetch_missing_overpass.py
+          fi
+
+      - name: Configure git user
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Stage GeoJSON and manifest changes
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          set -euo pipefail
+
+          mapfile -t geojson_files < <(find resources/geojson -type f -name '*.geojson' | sort)
+
+          if [ -f resources/geojson/manifest.json ]; then
+            geojson_files+=("resources/geojson/manifest.json")
+          fi
+
+          if [ ${#geojson_files[@]} -gt 0 ]; then
+            git add "${geojson_files[@]}"
+          fi
+
+      - name: Commit and push changes
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          set -euo pipefail
+
+          if git diff --cached --quiet; then
+            echo "No GeoJSON changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Fetch missing GeoJSON files"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
