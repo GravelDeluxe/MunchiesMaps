@@ -334,7 +334,7 @@ def build_country_scope_selector(region: Dict[str, Any], match_type: str, target
     country_iso = get_country_iso_code(region)
     if country_iso and match_type == "exact":
         return (
-            f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"]"
+            f"relation[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"]"
             f"[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"]->{target_var};"
         )
 
@@ -360,21 +360,21 @@ def build_country_area_selector(region: Dict[str, Any], match_type: str) -> str 
         )
     if country_iso:
         return (
-            f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"]"
+            f"relation[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"]"
             f"[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"]->.countryRel;\n"
-            ".countryRel map_to_area->.country;"
+            ".countryRel map_to_area -> .country;"
         )
     country_selector = build_country_scope_selector(region, match_type, ".countryRel")
     if not country_selector:
         return None
-    return "\n".join([country_selector, ".countryRel map_to_area->.country;"])
+    return "\n".join([country_selector, ".countryRel map_to_area -> .country;"])
 
 
 def build_exact_relation_selector(name: str, admin_level: str, target_var: str, area_scope: str | None = None) -> str:
     """Build exact relation selector with optional area scope."""
     scope = f"(area.{area_scope})" if area_scope else ""
     return (
-        f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]"
+        f"relation[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]"
         f"[\"name\"=\"{overpass_escape(name)}\"]{scope}->{target_var};"
     )
 
@@ -383,7 +383,7 @@ def build_regex_relation_selector(pattern: str, admin_level: str, target_var: st
     """Build regex relation selector with optional area scope."""
     scope = f"(area.{area_scope})" if area_scope else ""
     return (
-        f"rel[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]"
+        f"relation[\"boundary\"=\"administrative\"][\"admin_level\"=\"{admin_level}\"]"
         f"[\"name\"~\"{overpass_escape(pattern)}\"]{scope}->{target_var};"
     )
 
@@ -437,7 +437,7 @@ def build_direct_region_scope(region: Dict[str, Any], match_type: str) -> str | 
     return "\n".join(
         [
             f"relation{region_selector}->.regionRel;",
-            ".regionRel map_to_area->.searchArea;",
+            ".regionRel map_to_area -> .searchArea;",
         ]
     )
 
