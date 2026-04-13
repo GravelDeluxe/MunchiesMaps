@@ -732,6 +732,63 @@ countries:
         label: Madeira
         iso3166_2: PT-30
         admin_level: 4
+  poland:
+    label: Poland
+    iso3166_1: PL
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - code: pl-02
+        label: Dolnośląskie
+        iso3166_2: PL-02
+      - code: pl-04
+        label: Kujawsko-Pomorskie
+        iso3166_2: PL-04
+      - code: pl-06
+        label: Lubelskie
+        iso3166_2: PL-06
+      - code: pl-08
+        label: Lubuskie
+        iso3166_2: PL-08
+      - code: pl-10
+        label: Łódzkie
+        iso3166_2: PL-10
+      - code: pl-12
+        label: Małopolskie
+        iso3166_2: PL-12
+      - code: pl-14
+        label: Mazowieckie
+        iso3166_2: PL-14
+      - code: pl-16
+        label: Opolskie
+        iso3166_2: PL-16
+      - code: pl-18
+        label: Podkarpackie
+        iso3166_2: PL-18
+      - code: pl-20
+        label: Podlaskie
+        iso3166_2: PL-20
+      - code: pl-22
+        label: Pomorskie
+        iso3166_2: PL-22
+      - code: pl-24
+        label: Śląskie
+        iso3166_2: PL-24
+      - code: pl-26
+        label: Świętokrzyskie
+        iso3166_2: PL-26
+      - code: pl-28
+        label: Warmińsko-Mazurskie
+        iso3166_2: PL-28
+      - code: pl-30
+        label: Wielkopolskie
+        iso3166_2: PL-30
+      - code: pl-32
+        label: Zachodniopomorskie
+        iso3166_2: PL-32
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg
