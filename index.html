@@ -2531,10 +2531,40 @@
       return `${datasetKey}-${normLon}-${normLat}`;
     }
 
+    function normalizeTextToken(value) {
+      return String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[_\s]+/g, '-');
+    }
+
+    function normalizeCountryCode(value) {
+      const key = normalizeTextToken(value);
+      if (!key) return '';
+      if (['ro', 'rou', 'romania'].includes(key)) return 'ro';
+      return key;
+    }
+
+    function normalizeRegionId(value) {
+      return normalizeTextToken(value)
+        .replace(/[^\w-]/g, '')
+        .replace(/_+/g, '-');
+    }
+
+    function isRomaniaRegion(region) {
+      const normalizedCountry = normalizeCountryCode(region?.country);
+      const normalizedCountryLabel = normalizeCountryCode(region?.country_label);
+      const normalizedId = normalizeRegionId(region?.id || region?.region);
+      return normalizedCountry === 'ro'
+        || normalizedCountryLabel === 'ro'
+        || normalizedId.startsWith('ro-');
+    }
+
     function groupRegionsByCountry(items) {
       const groups = new Map();
       items.forEach((region) => {
-        const countryCode = (region?.country || 'unknown').toString();
+        const rawCountry = region?.country || region?.country_label || 'unknown';
+        const countryCode = normalizeCountryCode(rawCountry) || 'unknown';
         const countryLabel = (region?.country_label || region?.country || 'Unknown').toString();
         if (!groups.has(countryCode)) {
           groups.set(countryCode, { countryCode, countryLabel, regions: [] });
@@ -2555,7 +2585,7 @@
     }
 
     function getRegionUiGroupsForCountry(countryCode) {
-      const key = String(countryCode || '').toLowerCase();
+      const key = normalizeCountryCode(countryCode);
       return Array.isArray(REGION_UI_GROUPS[key]) ? REGION_UI_GROUPS[key] : null;
     }
 
@@ -2565,13 +2595,13 @@
         return [{ id: `${group.countryCode}-default`, label: null, regions: group.regions }];
       }
 
-      const byId = new Map(group.regions.map((region) => [region.id, region]));
+      const byId = new Map(group.regions.map((region) => [normalizeRegionId(region?.id || region?.region), region]));
       const assigned = new Set();
       const buckets = uiGroups.map((uiGroup) => {
         const regions = uiGroup.regionIds
-          .map((regionId) => byId.get(regionId))
+          .map((regionId) => byId.get(normalizeRegionId(regionId)))
           .filter(Boolean);
-        regions.forEach((region) => assigned.add(region.id));
+        regions.forEach((region) => assigned.add(normalizeRegionId(region?.id || region?.region)));
         return {
           id: uiGroup.id,
           label: uiGroup.label,
@@ -2579,12 +2609,23 @@
         };
       }).filter((bucket) => bucket.regions.length > 0);
 
-      const unassigned = group.regions.filter((region) => !assigned.has(region.id));
+      const unassigned = group.regions.filter((region) => !assigned.has(normalizeRegionId(region?.id || region?.region)));
       if (unassigned.length > 0) {
         buckets.push({
           id: `${group.countryCode}-other`,
           label: 'Weitere Regionen',
           regions: unassigned
+        });
+      }
+
+      if (normalizeCountryCode(group?.countryCode) === 'ro') {
+        console.log('[region-ui-buckets][ro]', {
+          country: group?.countryCode,
+          bucketSummary: buckets.map((bucket) => ({
+            id: bucket.id,
+            label: bucket.label,
+            regions: bucket.regions.map((region) => normalizeRegionId(region?.id || region?.region))
+          }))
         });
       }
 
@@ -2679,6 +2720,13 @@
           country: group.countryLabel,
           regions: group.regions.length
         });
+        if (normalizeCountryCode(group.countryCode) === 'ro') {
+          console.log('[region-filter-country][ro]', {
+            country: group.countryCode,
+            countryLabel: group.countryLabel,
+            regionIds: group.regions.map((region) => normalizeRegionId(region?.id || region?.region))
+          });
+        }
 
         const uiBuckets = buildRegionUiBuckets(group);
         let regionIndex = 0;
@@ -4600,9 +4648,18 @@
       return regions.find((region) => region?.id === regionId) || null;
     }
 
-    function getGeoJsonPath(country, region, fallbackPath) {
-      if (country && region) return `${country}/${region}`;
-      return fallbackPath || '';
+    function getGeoJsonPath(regionEntry) {
+      const explicitPath = String(regionEntry?.path || '').trim().replace(/^\/+|\/+$/g, '');
+      if (explicitPath) return explicitPath;
+
+      const normalizedCountry = normalizeTextToken(regionEntry?.country).replace(/[^\w-]/g, '');
+      const normalizedRegion = normalizeTextToken(regionEntry?.region).replace(/[^\w-]/g, '');
+      if (normalizedCountry && normalizedRegion) {
+        return `${normalizedCountry}/${normalizedRegion}`;
+      }
+
+      const fallbackId = normalizeRegionId(regionEntry?.id);
+      return fallbackId || '';
     }
 
     async function ensureDataset(bundeslandId, categoryId) {
@@ -4611,7 +4668,7 @@
       if (missingCache.has(key)) return null;
 
       const region = getRegionById(bundeslandId);
-      const regionPath = getGeoJsonPath(region?.country, region?.region, region?.path || bundeslandId);
+      const regionPath = getGeoJsonPath(region);
       const url = `resources/geojson/${regionPath}/${categoryId}.geojson?v=${APP_VERSION}`;
 
       console.log('[dataset-load]', {
@@ -4620,6 +4677,17 @@
         path: regionPath,
         category: categoryId
       });
+      if (isRomaniaRegion(region)) {
+        console.log('[dataset-load][ro]', {
+          regionId: bundeslandId,
+          country: region?.country,
+          countryLabel: region?.country_label,
+          manifestRegion: region?.region,
+          manifestPath: region?.path,
+          resolvedPath: regionPath,
+          category: categoryId
+        });
+      }
 
       try {
         const geojson = await loadGeoJSON(url);
@@ -4643,6 +4711,16 @@
       } catch (err) {
         if (!missingCache.has(key)) {
           console.warn(`GeoJSON missing for ${regionPath}/${categoryId} (region ${bundeslandId}):`, err);
+          if (isRomaniaRegion(region)) {
+            console.warn('[dataset-load-failed][ro]', {
+              regionId: bundeslandId,
+              country: region?.country,
+              countryLabel: region?.country_label,
+              regionIdNormalized: normalizeRegionId(region?.id || region?.region),
+              attemptedPath: regionPath,
+              category: categoryId
+            });
+          }
           missingCache.add(key);
         }
         return null;
