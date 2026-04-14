@@ -809,6 +809,39 @@ countries:
       - code: pl-32
         label: Zachodniopomorskie
         iso3166_2: PL-32
+  slowakei:
+    label: Slowakei
+    iso3166_1: SK
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - id: sk-bl
+        label: Bratislavský kraj
+        iso3166_2: SK-BL
+      - id: sk-ta
+        label: Trnavský kraj
+        iso3166_2: SK-TA
+      - id: sk-tc
+        label: Trenčiansky kraj
+        iso3166_2: SK-TC
+      - id: sk-ni
+        label: Nitriansky kraj
+        iso3166_2: SK-NI
+      - id: sk-zi
+        label: Žilinský kraj
+        iso3166_2: SK-ZI
+      - id: sk-bc
+        label: Banskobystrický kraj
+        iso3166_2: SK-BC
+      - id: sk-pv
+        label: Prešovský kraj
+        iso3166_2: SK-PV
+      - id: sk-ki
+        label: Košický kraj
+        iso3166_2: SK-KI
   great_britain:
     label: Great Britain
     iso3166_1: GB
