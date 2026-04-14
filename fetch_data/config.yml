@@ -164,6 +164,75 @@ countries:
         label: Dubrovačko-neretvanska županija
         match_value: Dubrovačko-neretvanska županija
         query_name_regex: ^Dubrovačko-neretvanska županija$
+  hungary:
+    label: Hungary
+    iso3166_1: HU
+    country_admin_level: 2
+    country_scope_strategy: area-iso
+    region_admin_level: 6
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    regions:
+      - id: hu-ba
+        label: Baranya vármegye
+        iso3166_2: HU-BA
+      - id: hu-bk
+        label: Bács-Kiskun vármegye
+        iso3166_2: HU-BK
+      - id: hu-be
+        label: Békés vármegye
+        iso3166_2: HU-BE
+      - id: hu-bz
+        label: Borsod-Abaúj-Zemplén vármegye
+        iso3166_2: HU-BZ
+      - id: hu-bu
+        label: Budapest
+        iso3166_2: HU-BU
+      - id: hu-cs
+        label: Csongrád-Csanád vármegye
+        iso3166_2: HU-CS
+      - id: hu-fe
+        label: Fejér vármegye
+        iso3166_2: HU-FE
+      - id: hu-gs
+        label: Győr-Moson-Sopron vármegye
+        iso3166_2: HU-GS
+      - id: hu-hb
+        label: Hajdú-Bihar vármegye
+        iso3166_2: HU-HB
+      - id: hu-he
+        label: Heves vármegye
+        iso3166_2: HU-HE
+      - id: hu-jn
+        label: Jász-Nagykun-Szolnok vármegye
+        iso3166_2: HU-JN
+      - id: hu-ke
+        label: Komárom-Esztergom vármegye
+        iso3166_2: HU-KE
+      - id: hu-no
+        label: Nógrád vármegye
+        iso3166_2: HU-NO
+      - id: hu-pe
+        label: Pest vármegye
+        iso3166_2: HU-PE
+      - id: hu-so
+        label: Somogy vármegye
+        iso3166_2: HU-SO
+      - id: hu-sz
+        label: Szabolcs-Szatmár-Bereg vármegye
+        iso3166_2: HU-SZ
+      - id: hu-to
+        label: Tolna vármegye
+        iso3166_2: HU-TO
+      - id: hu-va
+        label: Vas vármegye
+        iso3166_2: HU-VA
+      - id: hu-ve
+        label: Veszprém vármegye
+        iso3166_2: HU-VE
+      - id: hu-za
+        label: Zala vármegye
+        iso3166_2: HU-ZA
   ireland:
     label: Ireland
     iso3166_1: IE
