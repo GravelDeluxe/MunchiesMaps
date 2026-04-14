@@ -1614,13 +1614,13 @@
       }, {});
     }
 
-    function serializeRegionStateByCountry(stateByCountry) {
+    function serializeRegionStateByCountry(stateByCountry, { includeDefaults = false } = {}) {
       const parts = [];
       REGION_COUNTRIES.forEach((country) => {
         const selection = stateByCountry?.[country];
         if (!(selection instanceof Set)) return;
         const defaultSet = new Set(getRegionOrder(country));
-        if (setEquals(selection, defaultSet)) return;
+        if (!includeDefaults && setEquals(selection, defaultSet)) return;
         const encoded = encodeActiveRegions(country, selection);
         if (encoded) {
           parts.push(`${country}:${encoded}`);
@@ -1651,10 +1651,19 @@
       const version = params.get('v');
       const rawCompactState = params.get('s');
       if (version === SHARE_SCHEMA_VERSION && rawCompactState != null) {
+        const parsedRegionState = parseRegionStateParam(rawCompactState);
+        const presentCountries = REGION_COUNTRIES.filter((country) => parsedRegionState[country] instanceof Set);
+        const missingCountries = REGION_COUNTRIES.filter((country) => !(parsedRegionState[country] instanceof Set));
+        console.debug(
+          '[url-region-state] source=new present=%o missing=%o defaults=%o',
+          presentCountries,
+          missingCountries,
+          missingCountries
+        );
         return {
           source: 'new',
-          regionStateByCountry: parseRegionStateParam(rawCompactState),
-          shouldMigrate: false
+          regionStateByCountry: parsedRegionState,
+          shouldMigrate: missingCountries.length > 0
         };
       }
 
@@ -1695,6 +1704,14 @@
           shouldMigrate: false
         };
       }
+      const presentCountries = REGION_COUNTRIES.filter((country) => legacyByCountry[country] instanceof Set);
+      const missingCountries = REGION_COUNTRIES.filter((country) => !(legacyByCountry[country] instanceof Set));
+      console.debug(
+        '[url-region-state] source=legacy present=%o missing=%o defaults=%o',
+        presentCountries,
+        missingCountries,
+        missingCountries
+      );
       return {
         source: 'legacy',
         regionStateByCountry: legacyByCountry,
@@ -1702,9 +1719,9 @@
       };
     }
 
-    function writeRegionStateToUrl(regionStateByCountry, { replace = true } = {}) {
+    function writeRegionStateToUrl(regionStateByCountry, { replace = true, includeDefaults = false } = {}) {
       const url = new URL(window.location.href);
-      const compact = serializeRegionStateByCountry(regionStateByCountry);
+      const compact = serializeRegionStateByCountry(regionStateByCountry, { includeDefaults });
       url.searchParams.set('v', SHARE_SCHEMA_VERSION);
       if (compact) {
         url.searchParams.set('s', compact);
@@ -1871,14 +1888,20 @@
         const validIds = allIds(data.regions);
         const nextSet = new Set();
         const defaultsByCountry = getDefaultRegionStateByCountry();
+        const defaultedCountries = [];
         REGION_COUNTRIES.forEach((country) => {
-          const sourceSet = regionSource.regionStateByCountry?.[country] instanceof Set
+          const hasCountryOverride = regionSource.regionStateByCountry?.[country] instanceof Set;
+          const sourceSet = hasCountryOverride
             ? regionSource.regionStateByCountry[country]
             : defaultsByCountry[country];
+          if (!hasCountryOverride) defaultedCountries.push(country);
           sourceSet.forEach((id) => {
             if (validIds.has(id)) nextSet.add(id);
           });
         });
+        if (defaultedCountries.length > 0) {
+          console.debug('[url-region-state] defaults-used=%o', defaultedCountries);
+        }
         if (nextSet.size > 0) {
           filterState.bundeslaender = nextSet;
           validIds.forEach((id) => {
@@ -1890,6 +1913,13 @@
           });
         }
       }
+
+      const activeRegionsByCountry = REGION_COUNTRIES.reduce((acc, country) => {
+        const order = getRegionOrder(country);
+        acc[country] = order.filter((id) => filterState.bundeslaender.has(id)).length;
+        return acc;
+      }, {});
+      console.debug('[url-region-state] active-regions-per-country=%o', activeRegionsByCountry);
 
       if (typeof state.b === 'boolean') {
         appState.showBadges = state.b;
@@ -1928,7 +1958,7 @@
 
       if (regionSource.shouldMigrate) {
         const nextRegionState = getRegionStateByCountryFromSelectedStates(filterState.bundeslaender);
-        writeRegionStateToUrl(nextRegionState, { replace: true });
+        writeRegionStateToUrl(nextRegionState, { replace: true, includeDefaults: true });
       }
     }
 
