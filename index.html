@@ -428,6 +428,30 @@
     .country-regions .checkrow {
       font-weight: 400;
     }
+    .region-ui-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .region-ui-group + .region-ui-group {
+      margin-top: 8px;
+    }
+    .region-ui-group-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+      margin: 2px 0 0;
+    }
+    .region-ui-group-items {
+      margin-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .region-ui-group-title + .region-ui-group-items {
+      margin-left: 12px;
+    }
     .cat-icon { display: inline-grid; place-items: center; border-radius: 999px; overflow: hidden; flex: 0 0 auto; background: transparent; border: 1px solid transparent; box-sizing: border-box; }
     .cat-icon img { width: 100%; height: 100%; display: block; }
     .cat-icon i { color: currentColor; line-height: 1; }
@@ -1116,6 +1140,40 @@
       ]
     };
     const REGION_COUNTRIES = Object.keys(REGION_ORDER);
+    const REGION_UI_GROUPS = {
+      ro: [
+        {
+          id: 'ro-transylvania-center',
+          label: 'Transsilvanien / Zentrum',
+          regionIds: ['ro-ab', 'ro-bn', 'ro-bv', 'ro-cj', 'ro-cv', 'ro-hr', 'ro-hd', 'ro-mm', 'ro-ms', 'ro-sb', 'ro-sj', 'ro-sm']
+        },
+        {
+          id: 'ro-west-banat-crisana',
+          label: 'Westen / Banat / Crișana',
+          regionIds: ['ro-ar', 'ro-bh', 'ro-cs', 'ro-tm']
+        },
+        {
+          id: 'ro-moldavia',
+          label: 'Moldau',
+          regionIds: ['ro-bc', 'ro-bt', 'ro-is', 'ro-nt', 'ro-sv', 'ro-vn', 'ro-vs', 'ro-gl']
+        },
+        {
+          id: 'ro-wallachia-south',
+          label: 'Walachei / Süden',
+          regionIds: ['ro-ag', 'ro-br', 'ro-bz', 'ro-cl', 'ro-db', 'ro-dj', 'ro-gj', 'ro-gr', 'ro-il', 'ro-mh', 'ro-ot', 'ro-ph', 'ro-tr', 'ro-vl']
+        },
+        {
+          id: 'ro-bucharest-ilfov',
+          label: 'Bukarest / Ilfov',
+          regionIds: ['ro-b', 'ro-if']
+        },
+        {
+          id: 'ro-dobrogea-black-sea',
+          label: 'Dobrudscha / Schwarzmeerraum',
+          regionIds: ['ro-ct', 'ro-tl']
+        }
+      ]
+    };
 
     const CAT_CODE_TO_ID = {
       ff: 'fast_food',
@@ -2496,6 +2554,43 @@
         }));
     }
 
+    function getRegionUiGroupsForCountry(countryCode) {
+      const key = String(countryCode || '').toLowerCase();
+      return Array.isArray(REGION_UI_GROUPS[key]) ? REGION_UI_GROUPS[key] : null;
+    }
+
+    function buildRegionUiBuckets(group) {
+      const uiGroups = getRegionUiGroupsForCountry(group?.countryCode);
+      if (!uiGroups?.length) {
+        return [{ id: `${group.countryCode}-default`, label: null, regions: group.regions }];
+      }
+
+      const byId = new Map(group.regions.map((region) => [region.id, region]));
+      const assigned = new Set();
+      const buckets = uiGroups.map((uiGroup) => {
+        const regions = uiGroup.regionIds
+          .map((regionId) => byId.get(regionId))
+          .filter(Boolean);
+        regions.forEach((region) => assigned.add(region.id));
+        return {
+          id: uiGroup.id,
+          label: uiGroup.label,
+          regions
+        };
+      }).filter((bucket) => bucket.regions.length > 0);
+
+      const unassigned = group.regions.filter((region) => !assigned.has(region.id));
+      if (unassigned.length > 0) {
+        buckets.push({
+          id: `${group.countryCode}-other`,
+          label: 'Weitere Regionen',
+          regions: unassigned
+        });
+      }
+
+      return buckets;
+    }
+
     function getCurrentSelectedRegions() {
       return filterState.bundeslaender;
     }
@@ -2585,41 +2680,61 @@
           regions: group.regions.length
         });
 
-        group.regions.forEach((region, regionIndex) => {
-          const row = document.createElement('label');
-          row.classList.add('checkrow');
-          const cb = document.createElement('input');
-          cb.type = 'checkbox';
-          cb.value = region.id;
-          cb.checked = currentSelectedSet.has(region.id);
-          cb.id = `${setName}-region-${countryIndex}-${regionIndex}`;
-          cb.addEventListener('change', (e) => {
-            const nextMode = computeManualModeFromCheckbox(region.id, e.target.checked);
-            setManualRegionMode(region.id, nextMode);
-            const changed = refreshEffectiveRegionState({ triggerFilters: false, rerenderChecklist: false, updateUrl: false });
-            renderRegionChecklist(containerId, items, filterState.bundeslaender, setName);
-            if (changed) {
-              triggerApplyFilters();
-              if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+        const uiBuckets = buildRegionUiBuckets(group);
+        let regionIndex = 0;
+        uiBuckets.forEach((bucket) => {
+          const bucketWrapper = document.createElement('div');
+          bucketWrapper.classList.add('region-ui-group');
+          if (bucket.label) {
+            const bucketTitle = document.createElement('div');
+            bucketTitle.classList.add('region-ui-group-title');
+            bucketTitle.textContent = bucket.label;
+            bucketWrapper.appendChild(bucketTitle);
+          }
+
+          const bucketItems = document.createElement('div');
+          bucketItems.classList.add('region-ui-group-items');
+
+          bucket.regions.forEach((region) => {
+            const row = document.createElement('label');
+            row.classList.add('checkrow');
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.value = region.id;
+            cb.checked = currentSelectedSet.has(region.id);
+            cb.id = `${setName}-region-${countryIndex}-${regionIndex}`;
+            regionIndex += 1;
+            cb.addEventListener('change', (e) => {
+              const nextMode = computeManualModeFromCheckbox(region.id, e.target.checked);
+              setManualRegionMode(region.id, nextMode);
+              const changed = refreshEffectiveRegionState({ triggerFilters: false, rerenderChecklist: false, updateUrl: false });
+              renderRegionChecklist(containerId, items, filterState.bundeslaender, setName);
+              if (changed) {
+                triggerApplyFilters();
+                if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+              }
+            });
+
+            const text = document.createElement('span');
+            text.textContent = region.label || region.id;
+            const mode = getRegionSelectionMode(region.id);
+            row.dataset.regionMode = mode;
+            if (mode === 'forcedOn') {
+              row.title = 'Manually activated';
+            } else if (mode === 'forcedOff') {
+              row.title = 'Manually deactivated';
+            } else if (autoActiveRegionIds.has(region.id)) {
+              row.title = 'Automatically active (viewport)';
+            } else {
+              row.title = 'Automatically inactive (outside viewport)';
             }
+            row.appendChild(cb);
+            row.appendChild(text);
+            bucketItems.appendChild(row);
           });
 
-          const text = document.createElement('span');
-          text.textContent = region.label || region.id;
-          const mode = getRegionSelectionMode(region.id);
-          row.dataset.regionMode = mode;
-          if (mode === 'forcedOn') {
-            row.title = 'Manually activated';
-          } else if (mode === 'forcedOff') {
-            row.title = 'Manually deactivated';
-          } else if (autoActiveRegionIds.has(region.id)) {
-            row.title = 'Automatically active (viewport)';
-          } else {
-            row.title = 'Automatically inactive (outside viewport)';
-          }
-          row.appendChild(cb);
-          row.appendChild(text);
-          regionsWrapper.appendChild(row);
+          bucketWrapper.appendChild(bucketItems);
+          regionsWrapper.appendChild(bucketWrapper);
         });
 
         countryWrapper.appendChild(countryHeader);
