@@ -10203,9 +10203,8 @@
       "properties": {
         "id": 345506144,
         "osm_type": "node",
-        "name": "CO-OP Daily",
-        "brand": "Co-op Daily",
-        "opening_hours": "Mo-Sa 07:00-22:00"
+        "name": "Morrison's Daily",
+        "opening_hours": "0600-2200 daily"
       }
     },
     {
@@ -60483,6 +60482,22 @@
         "id": 1852977213,
         "osm_type": "node",
         "name": "Seoul Plaza"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6009518,
+          54.6991783
+        ]
+      },
+      "properties": {
+        "id": 1853544344,
+        "osm_type": "node",
+        "name": "Spennymoor Convenience Store",
+        "brand": "Premier"
       }
     },
     {
@@ -111226,7 +111241,7 @@
         "id": 4258823497,
         "osm_type": "node",
         "name": "The Old Post Office",
-        "opening_hours": "Mo,We-Su 10:00-16:30"
+        "opening_hours": "Su,Mo,Th,Fr 10:00-16:00; Sa 09:00-16:00; Tu,We off"
       }
     },
     {
@@ -300739,22 +300754,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.020317,
-          53.7099326
-        ]
-      },
-      "properties": {
-        "id": 224843263,
-        "osm_type": "way",
-        "name": "Carlton Supermarket",
-        "opening_hours": "Mo-Sa 06:00-21:30; Su 07:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -1.2007961,
           52.9619109
         ]
@@ -336376,8 +336375,9 @@
       "properties": {
         "id": 372705355,
         "osm_type": "way",
-        "name": "Costcutter",
-        "brand": "Costcutter"
+        "name": "Co-op Food",
+        "brand": "Co-op Food",
+        "opening_hours": "Mo-Su 07:00-22:00"
       }
     },
     {
@@ -350937,8 +350937,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.0136447,
-          51.5755224
+          -0.0136402,
+          51.5755243
         ]
       },
       "properties": {
@@ -350952,7 +350952,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.0141386,
+          -0.0141356,
           51.5757047
         ]
       },
@@ -379412,21 +379412,6 @@
         "osm_type": "way",
         "name": "Sainsbury's Local",
         "brand": "Sainsbury's Local"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.5659003,
-          51.4664993
-        ]
-      },
-      "properties": {
-        "id": 688061570,
-        "osm_type": "way",
-        "name": "Universal Convenience Store"
       }
     },
     {

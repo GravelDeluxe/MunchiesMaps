@@ -21309,9 +21309,10 @@
       "properties": {
         "id": 636875290,
         "osm_type": "node",
-        "name": "West Café",
+        "name": "Scholar's Brew",
         "brand": "Boutique Espresso",
-        "opening_hours": "Mo-Fr 08:00-17:00"
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -23773,23 +23774,6 @@
         "id": 676296979,
         "osm_type": "node",
         "name": "The Living Cafe"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.2287952,
-          52.1932533
-        ]
-      },
-      "properties": {
-        "id": 676311639,
-        "osm_type": "node",
-        "name": "Cafe Viaduct",
-        "opening_hours": "Mo-Su 10:00-16:00",
-        "outdoor_seating": "yes"
       }
     },
     {
@@ -124978,7 +124962,7 @@
         "id": 4258823497,
         "osm_type": "node",
         "name": "The Old Post Office",
-        "opening_hours": "Mo,We-Su 10:00-16:30"
+        "opening_hours": "Su,Mo,Th,Fr 10:00-16:00; Sa 09:00-16:00; Tu,We off"
       }
     },
     {
@@ -300183,7 +300167,7 @@
         "id": 10284727897,
         "osm_type": "node",
         "name": "Paradox Coffee",
-        "opening_hours": "Mo-Fr 08:30-15:00; Sa 09:00-16:00; Su 09:30-16:00",
+        "opening_hours": "Mo-Fr 08:30-15:30; Sa-Su 09:00-16:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
       }
@@ -354083,7 +354067,7 @@
         "type": "Point",
         "coordinates": [
           -0.701962,
-          52.1531326
+          52.1531277
         ]
       },
       "properties": {
@@ -391996,8 +391980,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.0186734,
-          51.582032
+          -0.0186781,
+          51.582037
         ]
       },
       "properties": {
@@ -392068,6 +392052,52 @@
         "id": 13728456333,
         "osm_type": "node",
         "name": "The Refreshment Room"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.219009,
+          52.1871712
+        ]
+      },
+      "properties": {
+        "id": 13729834216,
+        "osm_type": "node",
+        "name": "The Balcony Cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.2169907,
+          52.1880159
+        ]
+      },
+      "properties": {
+        "id": 13729844595,
+        "osm_type": "node",
+        "name": "Little Al's at The Commandery",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.2826972,
+          52.1989303
+        ]
+      },
+      "properties": {
+        "id": 13729863316,
+        "osm_type": "node",
+        "name": "Little Al's at the Firs"
       }
     },
     {
@@ -394152,7 +394182,7 @@
         "id": 59299042,
         "osm_type": "way",
         "name": "Café Ashiana",
-        "opening_hours": "Mo-Th 12:00-02:00; Fr-Sa 12:00-03:00; Su 15:00 - 02:00",
+        "opening_hours": "closed",
         "outdoor_seating": "yes"
       }
     },
@@ -410322,7 +410352,9 @@
       "properties": {
         "id": 143124490,
         "osm_type": "way",
-        "name": "Bewiched Coffee"
+        "name": "Bewiched Coffee",
+        "opening_hours": "Mo-Sa 08:00-18:00; Su 09:00-17:00",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -465771,53 +465803,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.564464,
-          51.4687811
-        ]
-      },
-      "properties": {
-        "id": 401103368,
-        "osm_type": "way",
-        "name": "Aesop",
-        "opening_hours": "Mo-Sa 10:00-18:00; Su 11:00-16:00",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.5644734,
-          51.4686619
-        ]
-      },
-      "properties": {
-        "id": 401103385,
-        "osm_type": "way",
-        "name": "East Bristol Bakery"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.5643835,
-          51.4682815
-        ]
-      },
-      "properties": {
-        "id": 401103409,
-        "osm_type": "way",
-        "name": "La Casbah Cafe"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -0.786553,
           52.895779
         ]
@@ -492407,14 +492392,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.1453396,
-          52.2660106
+          -2.1453362,
+          52.2660028
         ]
       },
       "properties": {
         "id": 594337586,
         "osm_type": "way",
-        "name": "Droitwich Spa Lido Cafe By Little Al's Kitchen"
+        "name": "Littls Al's at the Lido"
       }
     },
     {
@@ -500189,22 +500174,6 @@
         "id": 677368316,
         "osm_type": "way",
         "name": "Larkrise Café"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -1.267784,
-          50.9142483
-        ]
-      },
-      "properties": {
-        "id": 677384646,
-        "osm_type": "way",
-        "name": "Deveroast",
-        "opening_hours": "Tu 08:30-13:00 We-Sa 08:30-15:00 Su 08:30-13:00"
       }
     },
     {
@@ -552223,15 +552192,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.1430634,
-          51.8111373
+          1.1430461,
+          51.8111254
         ]
       },
       "properties": {
         "id": 1195567750,
         "osm_type": "way",
-        "name": "Costa Drive Thru",
-        "brand": "Costa"
+        "name": "Costa",
+        "brand": "Costa",
+        "takeaway": "yes"
       }
     },
     {
@@ -560705,6 +560675,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          1.4238751,
+          51.3807195
+        ]
+      },
+      "properties": {
+        "id": 1303247896,
+        "osm_type": "way",
+        "name": "Taddy's Barn",
+        "opening_hours": "Tu-Fr 10:00-16:00;Sa 09:00-16:00;Su 09:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -4.1463501,
           50.3724804
         ]
@@ -563671,6 +563657,22 @@
         "id": 1329114591,
         "osm_type": "way",
         "name": "The Landing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.2678375,
+          50.9144434
+        ]
+      },
+      "properties": {
+        "id": 1329252858,
+        "osm_type": "way",
+        "name": "Deveroast",
+        "opening_hours": "Su-We 08:30-13:00 Th-Sa 08:30-15:00"
       }
     },
     {
@@ -572789,6 +572791,23 @@
       "properties": {
         "id": 1499013528,
         "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.2287448,
+          52.1932623
+        ]
+      },
+      "properties": {
+        "id": 1499309822,
+        "osm_type": "way",
+        "name": "Cafe Viaduct",
+        "opening_hours": "Mo-Su 10:00-16:00",
+        "outdoor_seating": "yes"
       }
     },
     {
