@@ -471,8 +471,39 @@ def build_region_selector(region: Dict[str, Any], match_type: str = "exact") -> 
     return "".join(filters)
 
 
-def build_query(region: Dict[str, Any], body: str, timeout: int, mode: str, match_type: str) -> str:
+def build_query(
+    region: Dict[str, Any],
+    category: str,
+    body: str,
+    timeout: int,
+    mode: str,
+    match_type: str,
+) -> str:
     """Construct the full Overpass query for a region and category."""
+    if category == "fast_food":
+        region_iso = normalize_text(region.get("region_iso3166_2"))
+        if not region_iso and normalize_text(region.get("region_match_key")) == "ISO3166-2":
+            region_iso = normalize_text(region.get("region_match_value"))
+        if not region_iso:
+            raise ValueError(
+                f"fast_food query requires ISO3166-2 region code, but none is configured for region={region['id']}"
+            )
+        return dedent(
+            f"""
+            [out:json][timeout:{timeout}];
+
+            rel["boundary"="administrative"]["ISO3166-2"="{overpass_escape(region_iso)}"]->.regions;
+            .regions map_to_area -> .regionAreas;
+
+            (
+              nwr["amenity"="fast_food"](area.regionAreas);
+              nwr["amenity"="restaurant"]["fast_food"="yes"](area.regionAreas);
+            );
+
+            out center tags;
+            """
+        ).strip()
+
     query_body = body
     if mode == "country+region" or normalize_text(region.get("region_scope_strategy")).lower() == "fi-iso3166-2-direct":
         query_body = query_body.replace("(area.searchArea)", "(area.regionAreas)")
@@ -1057,7 +1088,7 @@ def run(
                     region_query = attempt["region_query"]
                     region_match_key = attempt.get("region_match_key") or region.get("region_match_key") or "name"
                     country_query = attempt["country_query"]
-                    query = build_query(region, body, timeout, mode=mode, match_type=match_type)
+                    query = build_query(region, category, body, timeout, mode=mode, match_type=match_type)
                     prefix = "[query]" if attempt_index == 1 else "[query] fallback ->"
                     print(
                         f"{prefix} country={region['country']} | region_id={region['id']} | region_label={region['label']} "

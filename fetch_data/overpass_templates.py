@@ -48,19 +48,12 @@ def drinking_water() -> str:
 
 
 def fast_food() -> str:
-    """Return Overpass body for McDonald's and Burger King locations."""
+    """Return Overpass body for fast-food amenities and restaurant fast_food=yes."""
     return dedent(
         f"""
         (
-          nwr["amenity"~"fast_food|restaurant"]["brand:wikidata"="Q38076"]({AREA_ALIAS});
-          nwr["amenity"~"fast_food|restaurant"]["brand"="McDonald's"]({AREA_ALIAS});
-          nwr["amenity"~"fast_food|restaurant"]["operator"="McDonald's"]({AREA_ALIAS});
-          nwr["amenity"~"fast_food|restaurant"]["name"~"\\bMcDonald'?s\\b",i]({AREA_ALIAS});
-
-          nwr["amenity"~"fast_food|restaurant"]["brand:wikidata"="Q177054"]({AREA_ALIAS});
-          nwr["amenity"~"fast_food|restaurant"]["brand"="Burger King"]({AREA_ALIAS});
-          nwr["amenity"~"fast_food|restaurant"]["operator"="Burger King"]({AREA_ALIAS});
-          nwr["amenity"~"fast_food|restaurant"]["name"~"\\bBurger\\s*King\\b|\\bBurgerKing\\b",i]({AREA_ALIAS});
+          nwr["amenity"="fast_food"]({AREA_ALIAS});
+          nwr["amenity"="restaurant"]["fast_food"="yes"]({AREA_ALIAS});
         );
         """
     ).strip()
