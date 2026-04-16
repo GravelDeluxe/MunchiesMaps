@@ -23,6 +23,7 @@ Automation scripts for pulling OpenStreetMap data and exporting it as GeoJSON fo
 - Overpass query resolution is now the same engine for all countries:
   - first `country+region` (if country query scope is configured), then direct region fallback,
   - each with exact match first and optional regex fallback second.
+- Phase-1 migration note: DE/AT/CH/CZ regions now support `iso3166_2` directly in `regions:` and prefer ISO-based relation matching (`["ISO3166-2"~"..."]`) inside country scope; existing name/regex fallback remains active for non-migrated regions and countries.
 - Region relation selector defaults remain backward compatible:
   - `region_match_key` defaults to `name`
   - `region_boundary` is optional (unset means no boundary filter)
