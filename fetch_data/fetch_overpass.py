@@ -57,6 +57,13 @@ CATEGORY_LABELS: Dict[str, str] = {
     "bakerys_cafes": "Bakerys & Cafes",
     "kiosks": "Kiosks",
 }
+PHASE1_ISO_PREFERRED_COUNTRIES = {"DE", "AT", "CH", "CZ"}
+PHASE1_COUNTRY_KEY_TO_ISO = {
+    "germany": "DE",
+    "austria": "AT",
+    "switzerland": "CH",
+    "czechia": "CZ",
+}
 
 
 def normalize_text(value: Any) -> str:
@@ -232,6 +239,10 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
             country_iso = normalize_text(region.get("country_iso")).upper()
             if country_iso:
                 region["country_iso"] = country_iso
+            region_iso = normalize_text(region.get("region_iso3166_2") or region.get("iso3166_2")).upper()
+            if region_iso:
+                region["region_iso3166_2"] = region_iso
+                region["iso3166_2"] = region_iso
             if "region" not in region or not str(region["region"]).strip():
                 configured_path = str(region["path"])
                 if "/" in configured_path:
@@ -317,7 +328,31 @@ def get_country_query_regex(region: Dict[str, Any]) -> str:
 
 def get_country_iso_code(region: Dict[str, Any]) -> str:
     """Return optional ISO country code for country relation lookup."""
-    return normalize_text(region.get("country_iso") or region.get("iso3166_1")).upper()
+    country_iso = normalize_text(region.get("country_iso") or region.get("iso3166_1")).upper()
+    if country_iso:
+        return country_iso
+    country_key = normalize_text(region.get("country")).lower()
+    return PHASE1_COUNTRY_KEY_TO_ISO.get(country_key, "")
+
+
+def get_region_iso_code(region: Dict[str, Any]) -> str:
+    """Return optional ISO region code for relation lookup."""
+    return normalize_text(region.get("region_iso3166_2") or region.get("iso3166_2")).upper()
+
+
+def should_prefer_region_iso(region: Dict[str, Any], match_type: str) -> bool:
+    """Use ISO3166-2 as preferred region matcher for configured phase-1 countries."""
+    if match_type != "exact":
+        return False
+    if get_country_iso_code(region) not in PHASE1_ISO_PREFERRED_COUNTRIES:
+        return False
+    return bool(get_region_iso_code(region))
+
+
+def build_region_iso_regex(*iso_codes: str) -> str:
+    """Build strict regex alternation for ISO3166-2 relation matching."""
+    escaped = [re.escape(code) for code in iso_codes if code]
+    return f"^({'|'.join(escaped)})$"
 
 
 def has_country_scope(region: Dict[str, Any]) -> bool:
@@ -391,13 +426,24 @@ def build_regex_relation_selector(pattern: str, admin_level: str, target_var: st
 def build_country_region_scope(region: Dict[str, Any], match_type: str) -> str | None:
     """Build region search area by first resolving country and then region."""
     country_selector = build_country_area_selector(region, match_type)
-    region_selector = build_region_selector(region, match_type)
-    if not country_selector or not region_selector:
+    if not country_selector:
         return None
+    if should_prefer_region_iso(region, match_type):
+        admin_level = str(region["admin_level"])
+        region_iso = get_region_iso_code(region)
+        region_relation_clause = (
+            f"relation(area.country)[\"boundary\"=\"administrative\"][\"admin_level\"=\"{overpass_escape(admin_level)}\"]"
+            f"[\"ISO3166-2\"~\"{overpass_escape(build_region_iso_regex(region_iso))}\"]->.regions;"
+        )
+    else:
+        region_selector = build_region_selector(region, match_type)
+        if not region_selector:
+            return None
+        region_relation_clause = f"relation(area.country){region_selector}->.regions;"
     return "\n".join(
         [
             country_selector,
-            f"relation(area.country){region_selector}->.regions;",
+            region_relation_clause,
             ".regions map_to_area -> .regionAreas;",
         ]
     )
@@ -448,16 +494,24 @@ def build_region_selector(region: Dict[str, Any], match_type: str = "exact") -> 
     boundary = normalize_text(region.get("region_boundary"))
     match_key = normalize_text(region.get("region_match_key")) or "name"
     match_value = normalize_text(region.get("region_match_value"))
+    if should_prefer_region_iso(region, match_type):
+        match_key = "ISO3166-2"
+        match_value = build_region_iso_regex(get_region_iso_code(region))
+        match_type = "regex"
     if not match_value:
         return None
     if match_type == "regex":
-        if match_key != "name":
+        if match_key not in {"name", "ISO3166-2"}:
             return None
-        region_regex = get_region_query_regex(region)
-        if not region_regex:
-            return None
-        match_operator = "~"
-        match_literal = region_regex
+        if match_key == "ISO3166-2":
+            match_operator = "~"
+            match_literal = match_value
+        else:
+            region_regex = get_region_query_regex(region)
+            if not region_regex:
+                return None
+            match_operator = "~"
+            match_literal = region_regex
     else:
         match_operator = "="
         match_literal = match_value
@@ -480,30 +534,6 @@ def build_query(
     match_type: str,
 ) -> str:
     """Construct the full Overpass query for a region and category."""
-    if category == "fast_food":
-        region_iso = normalize_text(region.get("region_iso3166_2"))
-        if not region_iso and normalize_text(region.get("region_match_key")) == "ISO3166-2":
-            region_iso = normalize_text(region.get("region_match_value"))
-        if not region_iso:
-            raise ValueError(
-                f"fast_food query requires ISO3166-2 region code, but none is configured for region={region['id']}"
-            )
-        return dedent(
-            f"""
-            [out:json][timeout:{timeout}];
-
-            rel["boundary"="administrative"]["ISO3166-2"="{overpass_escape(region_iso)}"]->.regions;
-            .regions map_to_area -> .regionAreas;
-
-            (
-              nwr["amenity"="fast_food"](area.regionAreas);
-              nwr["amenity"="restaurant"]["fast_food"="yes"](area.regionAreas);
-            );
-
-            out center tags;
-            """
-        ).strip()
-
     query_body = body
     if mode == "country+region" or normalize_text(region.get("region_scope_strategy")).lower() == "fi-iso3166-2-direct":
         query_body = query_body.replace("(area.searchArea)", "(area.regionAreas)")
