@@ -4117,29 +4117,77 @@
       return normalized ? 'Unknown' : '';
     }
 
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function isLikelyUrl(value) {
+      if (typeof value !== 'string') return false;
+      const v = value.trim();
+      return /^https?:\/\/\S+$/i.test(v) || /^www\.\S+$/i.test(v);
+    }
+
+    function normalizeUrl(value) {
+      const v = String(value || '').trim();
+      if (!v) return '';
+      if (/^https?:\/\//i.test(v)) return v;
+      if (/^www\./i.test(v)) return `https://${v}`;
+      return v;
+    }
+
+    function toSafeHttpUrl(value) {
+      const normalized = normalizeUrl(value);
+      if (!normalized) return '';
+      try {
+        const parsed = new URL(normalized);
+        if (!/^https?:$/i.test(parsed.protocol)) return '';
+        return parsed.toString();
+      } catch (err) {
+        return '';
+      }
+    }
+
+    function isUrlFieldKey(key) {
+      return /(^|:)(website|url)$/i.test(String(key || ''));
+    }
+
     function popupHtml(props, categoryId, lat, lng) {
       const p = props || {};
       const name = p.name || '(unnamed)';
       const desc = p.description ? p.description : '';
       const catLabel = categoryId ? categoryLabelMap[categoryId] : null;
-      const categoryBadge = catLabel ? `<span class="popup-cat">${categoryIconHtml(categoryId, 20, 'cat-icon--popup')}<span>${catLabel}</span></span>` : '';
-      const renderField = (label, value) => {
+      const categoryBadge = catLabel
+        ? `<span class="popup-cat">${categoryIconHtml(categoryId, 20, 'cat-icon--popup')}<span>${escapeHtml(catLabel)}</span></span>`
+        : '';
+      const renderField = (label, value, key = '') => {
         if (value == null || String(value).trim() === '') return '';
-        return `<div><b>${label}</b>: ${String(value)}</div>`;
+        const raw = String(value).trim();
+        const safeUrl = (isUrlFieldKey(key) || isLikelyUrl(raw)) ? toSafeHttpUrl(raw) : '';
+        const renderedValue = safeUrl
+          ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(raw)}</a>`
+          : escapeHtml(raw);
+        return `<div><b>${escapeHtml(label)}</b>: ${renderedValue}</div>`;
       };
       const other = categoryId === 'fast_food'
         ? [
-            renderField('Brand', p.brand),
-            renderField('Opening hours', p.opening_hours),
-            renderField('Phone', p.phone),
-            renderField('Website', p.website),
-            renderField('Chain', formatFastFoodChain(p.chain))
+            renderField('Brand', p.brand, 'brand'),
+            renderField('Opening hours', p.opening_hours, 'opening_hours'),
+            renderField('Phone', p.phone, 'phone'),
+            renderField('Website', p.website, 'website'),
+            renderField('URL', p.url, 'url'),
+            renderField('contact:website', p['contact:website'], 'contact:website'),
+            renderField('Chain', formatFastFoodChain(p.chain), 'chain')
           ].filter(Boolean).join('')
         : Object.keys(p)
           .filter(k => !['name','description','cluster','cluster_id','point_count','point_count_abbreviated'].includes(k))
           .filter(k => p[k] != null && String(p[k]).trim() !== '')
           .slice(0, 20)
-          .map(k => `<div><b>${k}</b>: ${String(p[k])}</div>`)
+          .map(k => renderField(k, p[k], k))
           .join('');
       const mapHref = mapsHref(lat, lng);
       const mapyHref = categoryId === 'shelters'
@@ -4147,22 +4195,22 @@
         : '';
       return `
         <div class="popup-content">
-          <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${name}</span></div>
-          ${desc ? `<div class="popup-desc">${desc}</div>` : ''}
+          <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${escapeHtml(name)}</span></div>
+          ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
           ${other ? `<div class="popup-extra">${other}</div>` : ''}
           <div class="popup-footer">
             <a
               class="open-gmaps"
-              href="${mapHref}"
+              href="${escapeHtml(mapHref)}"
               target="_blank"
               rel="noopener noreferrer"
-              data-lat="${lat}"
-              data-lng="${lng}"
+              data-lat="${escapeHtml(lat)}"
+              data-lng="${escapeHtml(lng)}"
             >Open in Google Maps</a>
             ${mapyHref ? `
               <div>
                 <a
-                  href="${mapyHref}"
+                  href="${escapeHtml(mapyHref)}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >Open in Mapy.com</a>
