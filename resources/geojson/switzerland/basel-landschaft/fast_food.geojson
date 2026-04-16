@@ -6,15 +6,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5014621,
-          47.4172201
+          7.6042811,
+          47.5259654
         ]
       },
       "properties": {
-        "id": 872461937,
+        "id": 274678737,
         "osm_type": "node",
         "name": "McDonald's",
         "brand": "McDonald's",
+        "operator": "McDonald's",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
       }
@@ -43,6 +44,75 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.7179535,
+          47.5355645
+        ]
+      },
+      "properties": {
+        "id": 554971929,
+        "osm_type": "node",
+        "name": "Murad Imbiss",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8544078,
+          47.4653353
+        ]
+      },
+      "properties": {
+        "id": 639124028,
+        "osm_type": "node",
+        "name": "Pizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8502472,
+          47.4653896
+        ]
+      },
+      "properties": {
+        "id": 648527633,
+        "osm_type": "node",
+        "name": "Food Express",
+        "phone": "+41 61 983 16 40",
+        "website": "https://www.foodexpress-gelterkinden.ch/",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5014621,
+          47.4172201
+        ]
+      },
+      "properties": {
+        "id": 872461937,
+        "osm_type": "node",
+        "name": "McDonald's",
+        "brand": "McDonald's",
+        "opening_hours": "Mo-Th 11:00-23:00; Fr-Sa 11:00-24:00",
+        "brand:wikidata": "Q38076",
+        "chain": "mcdonalds"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.5532991,
           47.5464261
         ]
@@ -61,18 +131,509 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6042811,
-          47.5259654
+          7.622033,
+          47.55339
         ]
       },
       "properties": {
-        "id": 274678737,
+        "id": 1573222220,
         "osm_type": "node",
-        "name": "McDonald's",
-        "brand": "McDonald's",
-        "operator": "McDonald's",
-        "brand:wikidata": "Q38076",
-        "chain": "mcdonalds"
+        "name": "Burger King",
+        "chain": "burger_king"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6214489,
+          47.5535785
+        ]
+      },
+      "properties": {
+        "id": 1618048044,
+        "osm_type": "node",
+        "name": "Birs Grill",
+        "opening_hours": "Mo-Th 10:00-22:00; Fr-Sa 10:00-23:00; Su 13:00-22:00",
+        "phone": "+41613110782",
+        "website": "https://www.birsgrill.ch/de",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5369971,
+          47.5503858
+        ]
+      },
+      "properties": {
+        "id": 1654390685,
+        "osm_type": "node",
+        "name": "Pico Pizzeria",
+        "phone": "+41 800 010 102",
+        "website": "https://www.picoo.ch/",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5914866,
+          47.4935178
+        ]
+      },
+      "properties": {
+        "id": 2088963935,
+        "osm_type": "node",
+        "name": "Pizza Capo",
+        "website": "http://pizza-capo.ch/",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5720061,
+          47.5232374
+        ]
+      },
+      "properties": {
+        "id": 2456759436,
+        "osm_type": "node",
+        "name": "Pizzeria La Rotonda",
+        "opening_hours": "Mo-Th 17:00-22:20, Mo-Sa 11:00-14:00, Fr,Sa 17:00-01:45, Su 11:00-23:00",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6471139,
+          47.5267647
+        ]
+      },
+      "properties": {
+        "id": 2577144464,
+        "osm_type": "node",
+        "name": "Cafe & More",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7333907,
+          47.4832243
+        ]
+      },
+      "properties": {
+        "id": 2611147146,
+        "osm_type": "node",
+        "name": "Gleis 1",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7322201,
+          47.4839379
+        ]
+      },
+      "properties": {
+        "id": 2611147148,
+        "osm_type": "node",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5585081,
+          47.5163022
+        ]
+      },
+      "properties": {
+        "id": 2878161212,
+        "osm_type": "node",
+        "name": "V.I.P Kebab",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5949291,
+          47.4783727
+        ]
+      },
+      "properties": {
+        "id": 2888975881,
+        "osm_type": "node",
+        "name": "Werni's Grillimbiss",
+        "opening_hours": "09:00-14:30",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6142737,
+          47.5290242
+        ]
+      },
+      "properties": {
+        "id": 3269584478,
+        "osm_type": "node",
+        "name": "Neue Welt Take Away",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8221704,
+          47.4627321
+        ]
+      },
+      "properties": {
+        "id": 3910208593,
+        "osm_type": "node",
+        "name": "Badi Restaurant Sissach",
+        "opening_hours": "Sommermonate 9 - 19 Uhr",
+        "operator": "Sport Sissach AG",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6932079,
+          47.5208404
+        ]
+      },
+      "properties": {
+        "id": 5169018282,
+        "osm_type": "node",
+        "name": "City Grill",
+        "opening_hours": "Mo-Sa 11:00-22:00; Su,PH off",
+        "website": "https://www.citygrill-pratteln.ch/",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7006317,
+          47.5272607
+        ]
+      },
+      "properties": {
+        "id": 5340531310,
+        "osm_type": "node",
+        "name": "Burger King",
+        "brand": "Burger King",
+        "website": "https://de.burger-king.ch/kingfinder/19499?id=1532",
+        "operator": "Autogrill Schweiz",
+        "brand:wikidata": "Q177054",
+        "chain": "burger_king"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5679903,
+          47.5225957
+        ]
+      },
+      "properties": {
+        "id": 5811651799,
+        "osm_type": "node",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6200822,
+          47.5385685
+        ]
+      },
+      "properties": {
+        "id": 5817091638,
+        "osm_type": "node",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6472043,
+          47.5268261
+        ]
+      },
+      "properties": {
+        "id": 6057706465,
+        "osm_type": "node",
+        "name": "Dönerstop",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6932734,
+          47.5243843
+        ]
+      },
+      "properties": {
+        "id": 6581351087,
+        "osm_type": "node",
+        "name": "Anaxo",
+        "opening_hours": "Mo-Fr 07:00-15:00",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7328274,
+          47.4438024
+        ]
+      },
+      "properties": {
+        "id": 6765199916,
+        "osm_type": "node",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6456766,
+          47.5331074
+        ]
+      },
+      "properties": {
+        "id": 7417536864,
+        "osm_type": "node",
+        "name": "Käppeli Imbiss",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8524973,
+          47.4635462
+        ]
+      },
+      "properties": {
+        "id": 7428945410,
+        "osm_type": "node",
+        "name": "Sarah's BRÜGEL & TSCHÜSS",
+        "opening_hours": "Mo,Th,Fr 11:00-13:30,17:00-20:00; Sa 11:00-20:00; Tu,We,Su off",
+        "phone": "+41 61 983 08 08",
+        "website": "https://www.bruegel.ch/",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6297849,
+          47.5338148
+        ]
+      },
+      "properties": {
+        "id": 7528950965,
+        "osm_type": "node",
+        "name": "10' dieci",
+        "brand": "dieci",
+        "opening_hours": "Mo-Th 11:00-13:30,17:00-22:00; Fr-Sa 11:00-13:30,17:00-22:30 Su 17:00-22:00",
+        "phone": "+41 61 633 10 10",
+        "website": "https://dieci.ch/de/pizzakurier-muttenz",
+        "operator": "Dieci",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5908142,
+          47.4765976
+        ]
+      },
+      "properties": {
+        "id": 8446939617,
+        "osm_type": "node",
+        "name": "Pho 51",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7528522,
+          47.4748075
+        ]
+      },
+      "properties": {
+        "id": 8941942238,
+        "osm_type": "node",
+        "name": "Del Fuoco",
+        "opening_hours": "Mo-Sa 11:00-14:00,17:00-22:00",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.761635,
+          47.4712785
+        ]
+      },
+      "properties": {
+        "id": 8941942249,
+        "osm_type": "node",
+        "name": "Lausener",
+        "opening_hours": "Mo 16:00-22:30; Tu-Th 10:30-13:30,16:00-22:30; Fr 10:30-13:30,16:00-23:00; Sa 11:00-23:00; Su 11:00-22:00",
+        "phone": "+41619213711",
+        "website": "https://www.lausener-pizza-kebap-kurier-lausen.ch",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8118638,
+          47.4628753
+        ]
+      },
+      "properties": {
+        "id": 9723727287,
+        "osm_type": "node",
+        "name": "Bahnhof-Imbiss",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5959092,
+          47.4878588
+        ]
+      },
+      "properties": {
+        "id": 9809571978,
+        "osm_type": "node",
+        "name": "Kägen Imbiss-Café Kocak",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.595633,
+          47.4864108
+        ]
+      },
+      "properties": {
+        "id": 9809571979,
+        "osm_type": "node",
+        "name": "Suppe-Bar zum Suppechasper",
+        "opening_hours": "Mo-Fr 11:15-13:30",
+        "website": "https://www.facebook.com/SuppeBar/",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5989998,
+          47.4887484
+        ]
+      },
+      "properties": {
+        "id": 9809571984,
+        "osm_type": "node",
+        "name": "Lotus Thai Kitchen Foodtruck",
+        "opening_hours": "Tu-We",
+        "website": "http://www.lotus-thaikitchen.ch",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5889842,
+          47.4420852
+        ]
+      },
+      "properties": {
+        "id": 10087597918,
+        "osm_type": "node",
+        "name": "Tacos grill",
+        "phone": "+41 61 3337000",
+        "chain": "unknown"
       }
     },
     {
@@ -101,19 +662,120 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7006317,
-          47.5272607
+          7.560691,
+          47.5580624
         ]
       },
       "properties": {
-        "id": 5340531310,
+        "id": 11999404469,
         "osm_type": "node",
-        "name": "Burger King",
-        "brand": "Burger King",
-        "website": "https://de.burger-king.ch/kingfinder/19499?id=1532",
-        "operator": "Autogrill Schweiz",
-        "brand:wikidata": "Q177054",
-        "chain": "burger_king"
+        "name": "The Josef's",
+        "opening_hours": "Tu-Sa 11:00-21:30; Su 12:00-21:30",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7236786,
+          47.5330703
+        ]
+      },
+      "properties": {
+        "id": 12266602633,
+        "osm_type": "node",
+        "name": "Burger Corner",
+        "website": "https://www.burgercorner.ch/",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4989979,
+          47.4224713
+        ]
+      },
+      "properties": {
+        "id": 12520308836,
+        "osm_type": "node",
+        "name": "EAT Point",
+        "opening_hours": "Su-Th 10:30-22:00; Fr-Sa 10:30-23:00",
+        "phone": "+41 61 761 16 14",
+        "website": "https://www.eat-point24.ch/",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4998933,
+          47.4216327
+        ]
+      },
+      "properties": {
+        "id": 12533771233,
+        "osm_type": "node",
+        "name": "Pizza Spicy",
+        "phone": "+41 61 761 47 47",
+        "website": "https://pizza-spicy.ch/",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7356307,
+          47.482623
+        ]
+      },
+      "properties": {
+        "id": 13176915294,
+        "osm_type": "node",
+        "name": "Central Pizza & Kebap",
+        "opening_hours": "Su-Th 11:00-22:00,Fr-Sa 11:00-23:00",
+        "phone": "+41 61 554 42 22",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.690858,
+          47.5226107
+        ]
+      },
+      "properties": {
+        "id": 13668997248,
+        "osm_type": "node",
+        "name": "Kebap Station",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6902748,
+          47.5270303
+        ]
+      },
+      "properties": {
+        "id": 13724832322,
+        "osm_type": "node",
+        "name": "Nergele Kebab House",
+        "chain": "unknown"
       }
     },
     {
@@ -140,6 +802,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.6200761,
+          47.5574235
+        ]
+      },
+      "properties": {
+        "id": 147699933,
+        "osm_type": "way",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.8014465,
           47.4672897
         ]
@@ -152,6 +829,74 @@
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
         "chain": "mcdonalds"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5452138,
+          47.5482951
+        ]
+      },
+      "properties": {
+        "id": 230788246,
+        "osm_type": "way",
+        "name": "Ziegelei Kebap und Pizza Haus",
+        "opening_hours": "Mo-Fr 08:00-21:00, Sa 08:00-18:00",
+        "phone": "+41 76 302 88 41",
+        "website": "https://www.ziegelei-imbiss.ch/",
+        "operator": "Ehepaar Acikgöz",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7372873,
+          47.4539843
+        ]
+      },
+      "properties": {
+        "id": 247985457,
+        "osm_type": "way",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.733312,
+          47.4848185
+        ]
+      },
+      "properties": {
+        "id": 255119392,
+        "osm_type": "way",
+        "name": "Amigo Imbiss",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8132549,
+          47.462767
+        ]
+      },
+      "properties": {
+        "id": 1222214144,
+        "osm_type": "way",
+        "name": "Kevin Imbiss",
+        "phone": "+41 76 783 54 57",
+        "chain": "unknown"
       }
     }
   ]
