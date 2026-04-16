@@ -57,7 +57,7 @@ CATEGORY_LABELS: Dict[str, str] = {
     "bakerys_cafes": "Bakerys & Cafes",
     "kiosks": "Kiosks",
 }
-PHASE1_ISO_PREFERRED_COUNTRIES = {"DE", "AT", "CH", "CZ"}
+PHASE1_ISO_PREFERRED_COUNTRIES = {"DE", "AT", "CH", "CZ", "HR"}
 PHASE1_COUNTRY_KEY_TO_ISO = {
     "germany": "DE",
     "austria": "AT",
@@ -341,7 +341,7 @@ def get_region_iso_code(region: Dict[str, Any]) -> str:
 
 
 def should_prefer_region_iso(region: Dict[str, Any], match_type: str) -> bool:
-    """Use ISO3166-2 as preferred region matcher for configured phase-1 countries."""
+    """Use ISO3166-2 as preferred region matcher for configured countries."""
     if match_type != "exact":
         return False
     if get_country_iso_code(region) not in PHASE1_ISO_PREFERRED_COUNTRIES:
