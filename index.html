@@ -4117,15 +4117,6 @@
       return normalized ? 'Unknown' : '';
     }
 
-    function escapeHtml(value) {
-      return String(value)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#39;');
-    }
-
     function isLikelyUrl(value) {
       if (typeof value !== 'string') return false;
       const v = value.trim();
