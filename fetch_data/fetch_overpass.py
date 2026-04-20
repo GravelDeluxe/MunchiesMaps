@@ -134,6 +134,13 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
             raw_country_regions = raw_country.get("regions") or []
             if not isinstance(raw_country_regions, list):
                 raise ValueError(f"Config error: countries.{country_key}.regions must be a list.")
+            inferred_country_only = (
+                len(raw_country_regions) == 1
+                and int(raw_country_regions[0].get("admin_level", region_admin_level)) == country_admin_level
+            )
+            inferred_query_mode = normalize_text(raw_country.get("query_mode")).lower() or (
+                "country-only" if inferred_country_only else None
+            )
             for raw_region in raw_country_regions:
                 if not isinstance(raw_region, dict):
                     raise ValueError(
@@ -177,7 +184,7 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                         "region_code": region_code or region_id,
                         "region_iso3166_2": region_iso3166_2 or None,
                         "region_scope_strategy": region_scope_strategy_entry or None,
-                        "query_mode": normalize_text(raw_country.get("query_mode")).lower() or None,
+                        "query_mode": inferred_query_mode,
                     }
                 )
 
