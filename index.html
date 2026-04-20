@@ -1092,6 +1092,9 @@
         'at-burgenland', 'at-karnten', 'at-niederosterreich', 'at-oberosterreich', 'at-salzburg',
         'at-steiermark', 'at-tirol', 'at-vorarlberg', 'at-wien'
       ],
+      al: [
+        'al-north', 'al-center', 'al-south'
+      ],
       si: [
         'si031', 'si032', 'si033', 'si034', 'si035', 'si036',
         'si037', 'si038', 'si041', 'si042', 'si043', 'si044'
@@ -1154,6 +1157,13 @@
     };
     const REGION_COUNTRIES = Object.keys(REGION_ORDER);
     const REGION_UI_GROUPS = {
+      al: [
+        {
+          id: 'al-default',
+          label: null,
+          regionIds: ['al-north', 'al-center', 'al-south']
+        }
+      ],
       ro: [
         {
           id: 'ro-transylvania-center',
