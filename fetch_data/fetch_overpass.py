@@ -57,7 +57,7 @@ CATEGORY_LABELS: Dict[str, str] = {
     "bakerys_cafes": "Bakerys & Cafes",
     "kiosks": "Kiosks",
 }
-PHASE1_ISO_PREFERRED_COUNTRIES = {"DE", "AT", "CH", "CZ", "HR", "BA"}
+PHASE1_ISO_PREFERRED_COUNTRIES = {"DE", "AT", "CH", "CZ", "HR", "BA", "BG"}
 PHASE1_COUNTRY_KEY_TO_ISO = {
     "germany": "DE",
     "austria": "AT",
