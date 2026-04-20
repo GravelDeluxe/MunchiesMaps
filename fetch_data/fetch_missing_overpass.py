@@ -23,7 +23,11 @@ CONFIG_PATH = ROOT_DIR / "fetch_data" / "config.yml"
 RESOURCE_ROOT = ROOT_DIR / "resources" / "geojson"
 
 
-def parse_missing(config: dict[str, Any], missing_by_country: dict[str, list[Path]]) -> tuple[set[str], set[str], list[str]]:
+def parse_missing(
+    config: dict[str, Any],
+    missing_by_country: dict[str, list[Path]],
+    countries_filter: set[str] | None = None,
+) -> tuple[set[str], set[str], list[str]]:
     """Resolve missing files into fetch_overpass filters."""
     regions = normalize_regions(config)
     region_by_path = {
@@ -36,7 +40,9 @@ def parse_missing(config: dict[str, Any], missing_by_country: dict[str, list[Pat
     categories: set[str] = set()
     combos: list[str] = []
 
-    for paths in missing_by_country.values():
+    for country, paths in missing_by_country.items():
+        if countries_filter and country not in countries_filter:
+            continue
         for missing_path in paths:
             try:
                 relative = missing_path.resolve().relative_to(RESOURCE_ROOT.resolve())
@@ -64,6 +70,12 @@ def parse_missing(config: dict[str, Any], missing_by_country: dict[str, list[Pat
 def main() -> int:
     parser = argparse.ArgumentParser(description="Fetch only missing GeoJSON files based on config expectations.")
     parser.add_argument("--dry-run", action="store_true", help="Only show what would be fetched.")
+    parser.add_argument(
+        "--countries",
+        type=str,
+        default="",
+        help="Comma-separated country ids to limit fetching (e.g. romania,serbia).",
+    )
     args = parser.parse_args()
 
     config = load_config(CONFIG_PATH)
@@ -79,9 +91,22 @@ def main() -> int:
         print("No missing files. Nothing to fetch.")
         return 0
 
-    region_ids, categories, combos = parse_missing(config, missing_by_country)
+    countries_filter = {c.strip().lower() for c in args.countries.split(",") if c.strip()}
+    region_ids, categories, combos = parse_missing(
+        config,
+        missing_by_country,
+        countries_filter=countries_filter or None,
+    )
 
-    print(f"[missing-fetch] regions={len(region_ids)} | categories={len(categories)} | files={missing_count}")
+    if not region_ids or not categories:
+        if countries_filter:
+            print("No missing files for selected country filter. Nothing to fetch.")
+        else:
+            print("No missing files. Nothing to fetch.")
+        return 0
+
+    filtered_file_count = len(combos)
+    print(f"[missing-fetch] regions={len(region_ids)} | categories={len(categories)} | files={filtered_file_count}")
     if combos:
         print("[missing-fetch] missing combinations:")
         for combo in combos:
