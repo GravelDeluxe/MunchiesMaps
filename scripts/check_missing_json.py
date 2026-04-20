@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import argparse
+import json
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -172,24 +174,56 @@ def print_missing_report(missing_by_country: dict[str, list[Path]]) -> None:
     print(f"\nSummary: {total_missing} missing file(s) across {len(missing_by_country)} countr(ies).")
 
 
+def format_json_summary(
+    expected_paths: list[tuple[str, Path]],
+    missing_by_country: dict[str, list[Path]],
+    config_errors: list[str],
+) -> dict[str, Any]:
+    countries_checked = sorted({country for country, _ in expected_paths})
+    return {
+        "countries_checked": countries_checked,
+        "files_checked": len(expected_paths),
+        "missing_files": sum(len(paths) for paths in missing_by_country.values()),
+        "missing_by_country": {
+            country: [str(path.relative_to(ROOT_DIR)) for path in paths]
+            for country, paths in missing_by_country.items()
+        },
+        "config_errors": config_errors,
+    }
+
+
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output-format",
+        choices=["text", "json"],
+        default="text",
+        help="Output format for missing file report.",
+    )
+    args = parser.parse_args()
+
     expected_paths: list[tuple[str, Path]] = []
     missing_by_country: dict[str, list[Path]] = {}
+    config_errors: list[str] = []
 
     try:
         config = load_config(CONFIG_PATH)
         expected_paths, config_errors = build_expected_geojson_paths(config)
     except Exception as exc:  # noqa: BLE001
         print(f"Configuration/load issue detected (report only): {exc}")
-        config_errors = []
-
-    if "config_errors" in locals() and config_errors:
-        print("Configuration issues detected (report only):")
-        for error in config_errors:
-            print(f"- {error}")
 
     if expected_paths:
         missing_by_country = collect_missing_paths(expected_paths)
+
+    if args.output_format == "json":
+        summary = format_json_summary(expected_paths, missing_by_country, config_errors)
+        print(json.dumps(summary, ensure_ascii=False))
+        return 0
+
+    if config_errors:
+        print("Configuration issues detected (report only):")
+        for error in config_errors:
+            print(f"- {error}")
 
     if missing_by_country:
         print_missing_report(missing_by_country)

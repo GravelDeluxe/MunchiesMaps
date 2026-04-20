@@ -1,0 +1,177 @@
+name: "Fetch Missing GeoJSON (Matrix by Country)"
+
+on:
+  workflow_dispatch:
+    inputs:
+      countries:
+        description: "Optional comma-separated country ids to limit processing"
+        required: false
+        type: string
+  # Optional schedule (disabled by default). Uncomment when needed.
+  # schedule:
+  #   - cron: "0 2 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: fetch-missing-matrix-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  detect-missing:
+    name: Detect missing countries for matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.build-matrix.outputs.matrix }}
+      has_missing: ${{ steps.build-matrix.outputs.has_missing }}
+      countries_csv: ${{ steps.build-matrix.outputs.countries_csv }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r fetch_data/requirements.txt
+
+      - name: Smoke test key scripts
+        run: |
+          python -m py_compile \
+            scripts/check_missing_json.py \
+            fetch_data/fetch_overpass.py \
+            fetch_data/fetch_missing_overpass.py
+
+      - name: Build country matrix from missing report
+        id: build-matrix
+        env:
+          INPUT_COUNTRIES: ${{ github.event.inputs.countries || '' }}
+        run: |
+          set -euo pipefail
+
+          python scripts/check_missing_json.py --output-format json > missing_report.json
+          echo "Missing report summary:"
+          cat missing_report.json
+
+          python - <<'PY'
+          import json
+          import os
+
+          input_countries = [
+              c.strip().lower()
+              for c in os.environ.get("INPUT_COUNTRIES", "").split(",")
+              if c.strip()
+          ]
+          with open("missing_report.json", "r", encoding="utf-8") as fh:
+              report = json.load(fh)
+
+          countries = sorted(report.get("missing_by_country", {}).keys())
+          if input_countries:
+              allowed = set(input_countries)
+              countries = [c for c in countries if c in allowed]
+
+          matrix = {"include": [{"country": country} for country in countries]}
+          has_missing = "true" if countries else "false"
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
+              out.write(f"matrix={json.dumps(matrix, separators=(',', ':'))}\n")
+              out.write(f"has_missing={has_missing}\n")
+              out.write(f"countries_csv={','.join(countries)}\n")
+
+          print(f"Computed matrix: {json.dumps(matrix)}")
+          print(f"Countries with missing data: {countries if countries else '<none>'}")
+          PY
+
+      - name: No missing countries notice
+        if: steps.build-matrix.outputs.has_missing != 'true'
+        run: echo "No missing countries detected. Matrix fetch job will be skipped."
+
+  fetch-missing-by-country:
+    name: Fetch missing data (${{ matrix.country }})
+    needs: detect-missing
+    if: needs.detect-missing.outputs.has_missing == 'true'
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.detect-missing.outputs.matrix) }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r fetch_data/requirements.txt
+
+      - name: Smoke test scripts
+        run: |
+          python -m py_compile \
+            scripts/check_missing_json.py \
+            fetch_data/fetch_overpass.py \
+            fetch_data/fetch_missing_overpass.py
+
+      - name: Fetch only missing data for matrix country
+        run: |
+          set -euo pipefail
+          echo "Processing country: ${{ matrix.country }}"
+          python fetch_data/fetch_missing_overpass.py --countries "${{ matrix.country }}"
+
+      - name: Detect GeoJSON changes for country
+        id: country_changes
+        run: |
+          set -euo pipefail
+
+          git add resources/geojson
+
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes detected after fetch for ${{ matrix.country }}."
+            exit 0
+          fi
+
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "Changed files:"
+          git diff --cached --name-only
+
+      - name: Create pull request per country
+        if: steps.country_changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Fetch missing GeoJSON for ${{ matrix.country }}"
+          title: "Fetch missing GeoJSON for ${{ matrix.country }}"
+          body: |
+            Automated update for missing GeoJSON files.
+
+            - Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            - Country: `${{ matrix.country }}`
+            - Source workflow: `fetch_missing_matrix.yml`
+
+            This PR was generated per-country to avoid branch collisions in matrix jobs.
+          branch: data/missing-${{ matrix.country }}-${{ github.run_id }}-${{ github.run_attempt }}
+          base: main
+          add-paths: |
+            resources/geojson
+
+      - name: Log PR decision
+        run: |
+          if [ "${{ steps.country_changes.outputs.changed }}" = "true" ]; then
+            echo "Created/updated PR for ${{ matrix.country }}."
+          else
+            echo "No PR needed for ${{ matrix.country }} (no changes)."
+          fi
