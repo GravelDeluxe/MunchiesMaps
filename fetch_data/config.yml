@@ -784,6 +784,17 @@ countries:
     country_admin_level: 2
     country_scope_strategy: relation-iso-area
     query_mode: country-only
+  macedonia:
+    label: Mazedonien
+    iso3166_1: MK
+    country_admin_level: 2
+    country_scope_strategy: area-iso
+    regions:
+      - id: macedonia
+        region: macedonia
+        label: Mazedonien
+        admin_level: 2
+        match_value: Mazedonien
   portugal:
     label: Portugal
     iso3166_1: PT
