@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 import re
 import sys
 import time
@@ -19,10 +20,11 @@ import overpass_templates
 CONFIG_PATH = Path(__file__).resolve().parent / "config.yml"
 ROOT_DIR = Path(__file__).resolve().parent.parent
 RESOURCE_DIR = ROOT_DIR / "resources" / "geojson"
-RETRYABLE_STATUS_CODES = {406, 429, 500, 502, 503, 504}
-MAX_RETRIES = 5
-INITIAL_BACKOFF = 1.0
-BACKOFF_FACTOR = 2
+FAILOVER_STATUS_CODES = {406, 429, 500, 502, 503, 504}
+REQUEST_CONNECT_TIMEOUT = 20
+REQUEST_READ_TIMEOUT = 90
+JITTER_MIN_SECONDS = 0.5
+JITTER_MAX_SECONDS = 1.5
 TAG_WHITELIST: Dict[str, List[str]] = {
     "fuel": ["name", "brand", "opening_hours"],
     "supermarkets": ["name", "brand", "opening_hours"],
@@ -650,129 +652,99 @@ def request_with_retry(
     context: Dict[str, Any] | None = None,
     run_stats: Dict[str, Any] | None = None,
 ) -> Dict[str, Any]:
-    """Send POST request to Overpass API with exponential backoff and failover."""
+    """Send POST request to Overpass API with endpoint failover."""
+    _ = timeout
     last_exc: Exception | None = None
     last_endpoint: str | None = None
-    last_attempt: int | None = None
     context = context or {}
     context_region = context.get("region", "-")
     context_category = context.get("category", "-")
     context_country = context.get("country", "-")
     context_query_attempt = context.get("query_attempt", "-")
-    for endpoint in endpoints:
-        attempt = 0
-        connect_timeout = 10
-        read_timeout = min(120, timeout + 30)
-        while True:
-            attempt += 1
-            if run_stats is not None:
-                run_stats["total_attempts"] += 1
-            last_endpoint = endpoint
-            last_attempt = attempt
+    for endpoint_index, endpoint in enumerate(endpoints, start=1):
+        if run_stats is not None:
+            run_stats["total_attempts"] += 1
+        last_endpoint = endpoint
+        jitter = random.uniform(JITTER_MIN_SECONDS, JITTER_MAX_SECONDS)
+        print(
+            "[req] "
+            f"Endpoint={endpoint} | Region={context_region} | Country={context_country} "
+            f"| Category={context_category} | QueryAttempt={context_query_attempt} "
+            f"| EndpointTry={endpoint_index}/{len(endpoints)} | jitter={jitter:.2f}s"
+        )
+        time.sleep(jitter)
+        try:
+            response = requests.post(
+                endpoint,
+                data={"data": query},
+                timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT),
+            )
+        except (requests.Timeout, requests.ConnectionError) as exc:
+            last_exc = exc
             print(
                 "[req] "
-                f"Endpoint={endpoint} | Region={context_region} | Country={context_country} "
-                f"| Category={context_category} | QueryAttempt={context_query_attempt} "
-                f"| Attempt={attempt}/{MAX_RETRIES}"
+                f"Exception={type(exc).__name__} | Endpoint={endpoint} | failover=next"
             )
-            try:
-                response = requests.post(
-                    endpoint,
-                    data={"data": query},
-                    timeout=(connect_timeout, read_timeout),
-                )
-            except requests.RequestException as exc:
-                last_exc = exc
-                if attempt > MAX_RETRIES:
-                    break
-                backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
-                print(
-                    "[req] "
-                    f"Exception={type(exc).__name__} | Endpoint={endpoint} | Region={context_region} "
-                    f"| Category={context_category} | Attempt={attempt}/{MAX_RETRIES} "
-                    f"| retry in {backoff:.1f}s"
-                )
-                time.sleep(backoff)
-                continue
+            continue
+        except requests.RequestException as exc:
+            last_exc = exc
+            print(
+                "[req] "
+                f"Exception={type(exc).__name__} | Endpoint={endpoint} | failover=abort"
+            )
+            break
 
-            if response.status_code in RETRYABLE_STATUS_CODES:
-                if attempt > MAX_RETRIES:
-                    last_exc = requests.HTTPError(
-                        f"Overpass returned status {response.status_code} after {MAX_RETRIES} retries."
-                    )
-                    break
-                backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
-                print(
-                    "[req] "
-                    f"Status={response.status_code} | Endpoint={endpoint} | Region={context_region} "
-                    f"| Category={context_category} | Attempt={attempt}/{MAX_RETRIES} "
-                    f"| retry in {backoff:.1f}s"
-                )
-                time.sleep(backoff)
-                continue
+        if response.status_code in FAILOVER_STATUS_CODES:
+            last_exc = requests.HTTPError(f"Overpass returned status {response.status_code}.")
+            print(
+                "[req] "
+                f"Status={response.status_code} | Endpoint={endpoint} | failover=next"
+            )
+            continue
 
-            if response.status_code == 400:
-                print("[error] Overpass HTTP 400 (Bad Request).")
-                print("[error] Likely Overpass syntax error in generated query")
-                print(f"[error] Full query:\n{query}")
-            response.raise_for_status()
-            text = response.text or ""
-            stripped = text.lstrip()
-            content_type = response.headers.get("Content-Type", "")
-            is_json = stripped.startswith("{") or stripped.startswith("[")
-            if not is_json and "application/json" in content_type.lower() and stripped:
-                is_json = True
-            if not is_json:
-                last_exc = ValueError(
-                    "Non-JSON response from "
-                    f"{endpoint}: status={response.status_code}, content-type={content_type}, "
-                    f"body_prefix={text[:200]!r}"
-                )
-                if attempt > MAX_RETRIES:
-                    break
-                backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
-                print(
-                    "[req] "
-                    f"Exception=NonJsonResponse | Endpoint={endpoint} | Region={context_region} "
-                    f"| Category={context_category} | Attempt={attempt}/{MAX_RETRIES} "
-                    f"| retry in {backoff:.1f}s"
-                )
-                time.sleep(backoff)
-                continue
-            try:
-                response_json = response.json()
-                bytes_len = len(response.content or b"")
-                print(f"[req] Success | endpoint={endpoint} | bytes={bytes_len}")
-                if run_stats is not None:
-                    run_stats["endpoints_used"].add(endpoint)
-                elements = response_json.get("elements", [])
-                print(f"[data] Received elements={len(elements)}")
-                return response_json
-            except ValueError as exc:
-                last_exc = ValueError(
-                    "Failed to decode JSON from "
-                    f"{endpoint}: status={response.status_code}, content-type={content_type}, "
-                    f"body_prefix={text[:200]!r}"
-                )
-                if attempt > MAX_RETRIES:
-                    break
-                backoff = INITIAL_BACKOFF * (BACKOFF_FACTOR ** (attempt - 1))
-                print(
-                    "[req] "
-                    f"Exception={type(exc).__name__} | Endpoint={endpoint} | Region={context_region} "
-                    f"| Category={context_category} | Attempt={attempt}/{MAX_RETRIES} "
-                    f"| retry in {backoff:.1f}s"
-                )
-                time.sleep(backoff)
-                continue
-
-        print(f"[warn] Endpoint {endpoint} failed after {MAX_RETRIES} retries; trying next endpoint...")
+        if response.status_code == 400:
+            print("[error] Overpass HTTP 400 (Bad Request).")
+            print("[error] Likely Overpass syntax error in generated query")
+            print(f"[error] Full query:\n{query}")
+        response.raise_for_status()
+        text = response.text or ""
+        stripped = text.lstrip()
+        content_type = response.headers.get("Content-Type", "")
+        is_json = stripped.startswith("{") or stripped.startswith("[")
+        if not is_json and "application/json" in content_type.lower() and stripped:
+            is_json = True
+        if not is_json:
+            last_exc = ValueError(
+                "Non-JSON response from "
+                f"{endpoint}: status={response.status_code}, content-type={content_type}, "
+                f"body_prefix={text[:200]!r}"
+            )
+            print(f"[req] Exception=NonJsonResponse | Endpoint={endpoint} | failover=next")
+            continue
+        try:
+            response_json = response.json()
+            bytes_len = len(response.content or b"")
+            print(f"[req] Success | endpoint={endpoint} | bytes={bytes_len}")
+            if run_stats is not None:
+                run_stats["endpoints_used"].add(endpoint)
+                if endpoint_index > 1:
+                    run_stats["rescued_by_failover"] += 1
+            elements = response_json.get("elements", [])
+            print(f"[data] Received elements={len(elements)}")
+            return response_json
+        except ValueError:
+            last_exc = ValueError(
+                "Failed to decode JSON from "
+                f"{endpoint}: status={response.status_code}, content-type={content_type}, "
+                f"body_prefix={text[:200]!r}"
+            )
+            print("[req] Exception=InvalidJSON | Endpoint={endpoint} | failover=next")
+            continue
 
     if last_exc is None:
         raise RuntimeError("All Overpass endpoints failed. Last error: unknown.")
     error = RuntimeError(f"All Overpass endpoints failed. Last error: {last_exc}")
     setattr(error, "endpoint", last_endpoint)
-    setattr(error, "attempt", last_attempt)
     raise error
 
 
@@ -1039,6 +1011,40 @@ def matches_country_filter(region: Dict[str, Any], country_filter: set[str]) -> 
     return bool(get_country_aliases(region) & country_filter)
 
 
+def build_smoke_test_query() -> str:
+    """Return a tiny Overpass query used to validate endpoint availability."""
+    return dedent(
+        """
+        [out:json][timeout:25];
+        relation(51477);
+        out ids qt 1;
+        """
+    ).strip()
+
+
+def smoke_test_endpoints(endpoints: List[str]) -> List[str]:
+    """Run a lightweight smoke test against every configured endpoint."""
+    smoke_query = build_smoke_test_query()
+    healthy: List[str] = []
+    for endpoint in endpoints:
+        try:
+            response = requests.post(
+                endpoint,
+                data={"data": smoke_query},
+                timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT),
+            )
+            if response.status_code in FAILOVER_STATUS_CODES:
+                print(f"[smoke] failed | endpoint={endpoint} | status={response.status_code}")
+                continue
+            response.raise_for_status()
+            print(f"[smoke] ok | endpoint={endpoint} | status={response.status_code}")
+            healthy.append(endpoint)
+        except requests.RequestException as exc:
+            print(f"[smoke] failed | endpoint={endpoint} | exception={type(exc).__name__}: {exc}")
+    print(f"[smoke] healthy_endpoints={len(healthy)}/{len(endpoints)}")
+    return healthy
+
+
 def run(
     region_filter: set[str] | None = None,
     category_filter: set[str] | None = None,
@@ -1065,7 +1071,7 @@ def run(
         )
     timeout = int(overpass_cfg.get("timeout", 180))
     fail_on_error = bool(overpass_cfg.get("fail_on_error", False))
-    request_delay_seconds = float(overpass_cfg.get("request_delay_seconds", 0.3))
+    request_delay_seconds = float(overpass_cfg.get("request_delay_seconds", 0.0))
     regions = normalize_regions(config)
     categories = config.get("categories", {}) or {}
 
@@ -1128,6 +1134,7 @@ def run(
         "successful_fetches": 0,
         "failed_fetches": 0,
         "skipped_fetches": 0,
+        "rescued_by_failover": 0,
         "endpoints_used": set(),
         "geojson_written": 0,
     }
@@ -1139,6 +1146,9 @@ def run(
         f"| Timeout={timeout}s | Delay={request_delay_seconds}s"
     )
     print(f"[run] Endpoints: {endpoints_display}")
+    healthy_endpoints = smoke_test_endpoints(endpoints)
+    if not healthy_endpoints:
+        raise RuntimeError("Smoke tests failed for all configured endpoints. Aborting early.")
 
     for region_index, region in enumerate(selected_regions, start=1):
         print(
@@ -1192,7 +1202,7 @@ def run(
                     if verbose_query:
                         print(f"[query] Full query:\n{query}")
                     response_json = request_with_retry(
-                        endpoints,
+                        healthy_endpoints,
                         query,
                         timeout,
                         context={
@@ -1232,12 +1242,11 @@ def run(
                 print(f"[diag] elements={len(elements)} | features={len(geojson.get('features', []))}")
                 save_geojson(geojson, region, category)
                 run_stats["geojson_written"] += 1
-                if request_delay_seconds > 0:
-                    time.sleep(request_delay_seconds)
-                    print(f"[sleep] {request_delay_seconds}s before next request")
+                delay_seconds = request_delay_seconds + random.uniform(JITTER_MIN_SECONDS, JITTER_MAX_SECONDS)
+                time.sleep(delay_seconds)
+                print(f"[sleep] {delay_seconds:.2f}s before next request")
             except Exception as exc:  # noqa: BLE001
                 endpoint = getattr(exc, "endpoint", None)
-                attempt = getattr(exc, "attempt", None)
                 context_parts = [
                     f"region={region['id']}",
                     f"country={region['country']}",
@@ -1245,9 +1254,8 @@ def run(
                 ]
                 context = " / ".join(context_parts)
                 endpoint_text = f" | endpoint={endpoint}" if endpoint else ""
-                attempt_text = f" | attempt={attempt}" if attempt else ""
-                print(f"[error] {context}{endpoint_text}{attempt_text} | {exc}")
-                msg = f"{context}{endpoint_text}{attempt_text} | {exc}"
+                print(f"[error] {context}{endpoint_text} | {exc}")
+                msg = f"{context}{endpoint_text} | {exc}"
                 failures.append(msg)
                 run_stats["failed_fetches"] += 1
                 continue
@@ -1259,6 +1267,11 @@ def run(
         "[summary] "
         f"Completed: {run_stats['successful_fetches']} successful, "
         f"{run_stats['failed_fetches']} failed, {run_stats['skipped_fetches']} skipped"
+    )
+    print(
+        "[summary] "
+        f"smoke_ok={len(healthy_endpoints)}/{len(endpoints)} "
+        f"| rescued_by_failover={run_stats['rescued_by_failover']}"
     )
     print(f"[summary] total_attempts={run_stats['total_attempts']}")
     print(f"[summary] endpoints_used={', '.join(endpoints_used) if endpoints_used else '-'}")
