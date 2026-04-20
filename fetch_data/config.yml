@@ -51,6 +51,30 @@ countries:
       - id: si044
         label: Obalno-kraška
         match_value: SI044
+  al:
+    label: Albania
+    iso3166_1: AL
+    country_admin_level: 2
+    country_scope_strategy: area-iso
+    region_admin_level: 4
+    region_boundary: administrative
+    region_match_key: name
+    regions:
+      - id: al-north
+        region: north
+        label: Shqipëria Veriore
+        match_value: Shqipëria Veriore
+        query_name_regex: ^Shqipëria Veriore$
+      - id: al-center
+        region: center
+        label: Shqipëria Qendrore
+        match_value: Shqipëria Qendrore
+        query_name_regex: ^Shqipëria Qendrore$
+      - id: al-south
+        region: south
+        label: Shqipëria Jugore
+        match_value: Shqipëria Jugore
+        query_name_regex: ^Shqipëria Jugore$
   croatia:
     label: Croatia
     iso3166_1: HR
