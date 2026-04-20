@@ -1360,6 +1360,54 @@ countries:
         label: Northern Ireland
         region: northern_ireland
         iso3166_2: GB-NIR
+  gr:
+    label: Griechenland
+    iso3166_1: GR
+    country_admin_level: 2
+    region_admin_level: 5
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: relation-iso-area
+    regions:
+      - code: gr-a
+        label: GR-A
+        iso3166_2: GR-A
+      - code: gr-b
+        label: GR-B
+        iso3166_2: GR-B
+      - code: gr-c
+        label: GR-C
+        iso3166_2: GR-C
+      - code: gr-d
+        label: GR-D
+        iso3166_2: GR-D
+      - code: gr-e
+        label: GR-E
+        iso3166_2: GR-E
+      - code: gr-f
+        label: GR-F
+        iso3166_2: GR-F
+      - code: gr-g
+        label: GR-G
+        iso3166_2: GR-G
+      - code: gr-h
+        label: GR-H
+        iso3166_2: GR-H
+      - code: gr-i
+        label: GR-I
+        iso3166_2: GR-I
+      - code: gr-j
+        label: GR-J
+        iso3166_2: GR-J
+      - code: gr-k
+        label: GR-K
+        iso3166_2: GR-K
+      - code: gr-l
+        label: GR-L
+        iso3166_2: GR-L
+      - code: gr-m
+        label: GR-M
+        iso3166_2: GR-M
 regions:
   - id: de-baden-wuerttemberg
     label: Baden-Württemberg
