@@ -900,6 +900,27 @@ countries:
       - code: pl-32
         label: Zachodniopomorskie
         iso3166_2: PL-32
+  bosnia_herzegovina:
+    label: Bosnien Herzegowina
+    iso3166_1: BA
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - id: ba-brc
+        code: ba-brc
+        label: Brčko distrikt
+        iso3166_2: BA-BRC
+      - id: ba-bih
+        code: ba-bih
+        label: Federacija Bosne i Hercegovine
+        iso3166_2: BA-BIH
+      - id: ba-srp
+        code: ba-srp
+        label: Republika Srpska
+        iso3166_2: BA-SRP
   romania:
     label: Romania
     iso3166_1: RO
