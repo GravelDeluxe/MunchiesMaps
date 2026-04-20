@@ -387,22 +387,28 @@ def build_country_area_selector(region: Dict[str, Any], match_type: str) -> str 
     country_admin_level = normalize_text(region.get("country_admin_level")) or "2"
     country_iso = get_country_iso_code(region)
     country_scope_strategy = normalize_text(region.get("country_scope_strategy")).lower()
+    if country_iso and country_scope_strategy == "relation-iso-area" and match_type == "exact":
+        return (
+            f"relation[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"]"
+            f"[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"]->.country;\n"
+            ".country map_to_area -> .countryArea;"
+        )
     if country_iso and country_scope_strategy == "area-iso" and match_type == "exact":
         return (
             f"area[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"][\"admin_level\"=\"{country_admin_level}\"]"
             "[\"boundary\"=\"administrative\"]"
-            "->.country;"
+            "->.countryArea;"
         )
     if country_iso:
         return (
             f"relation[\"boundary\"=\"administrative\"][\"admin_level\"=\"{country_admin_level}\"]"
             f"[\"ISO3166-1\"=\"{overpass_escape(country_iso)}\"]->.countryRel;\n"
-            ".countryRel map_to_area -> .country;"
+            ".countryRel map_to_area -> .countryArea;"
         )
     country_selector = build_country_scope_selector(region, match_type, ".countryRel")
     if not country_selector:
         return None
-    return "\n".join([country_selector, ".countryRel map_to_area -> .country;"])
+    return "\n".join([country_selector, ".countryRel map_to_area -> .countryArea;"])
 
 
 def build_exact_relation_selector(name: str, admin_level: str, target_var: str, area_scope: str | None = None) -> str:
@@ -432,14 +438,14 @@ def build_country_region_scope(region: Dict[str, Any], match_type: str) -> str |
         admin_level = str(region["admin_level"])
         region_iso = get_region_iso_code(region)
         region_relation_clause = (
-            f"relation(area.country)[\"boundary\"=\"administrative\"][\"admin_level\"=\"{overpass_escape(admin_level)}\"]"
+            f"relation(area.countryArea)[\"boundary\"=\"administrative\"][\"admin_level\"=\"{overpass_escape(admin_level)}\"]"
             f"[\"ISO3166-2\"~\"{overpass_escape(build_region_iso_regex(region_iso))}\"]->.regions;"
         )
     else:
         region_selector = build_region_selector(region, match_type)
         if not region_selector:
             return None
-        region_relation_clause = f"relation(area.country){region_selector}->.regions;"
+        region_relation_clause = f"relation(area.countryArea){region_selector}->.regions;"
     return "\n".join(
         [
             country_selector,
@@ -454,7 +460,7 @@ def build_country_only_scope(region: Dict[str, Any], match_type: str) -> str | N
     country_selector = build_country_area_selector(region, match_type)
     if not country_selector:
         return None
-    return "\n".join([country_selector, ".country -> .searchArea;"])
+    return "\n".join([country_selector, ".countryArea -> .searchArea;"])
 
 
 def build_direct_region_scope(region: Dict[str, Any], match_type: str) -> str | None:

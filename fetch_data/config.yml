@@ -754,6 +754,12 @@ countries:
     country_admin_level: 2
     country_scope_strategy: area-iso
     query_mode: country-only
+  kosovo:
+    label: Kosovo
+    iso3166_1: XK
+    country_admin_level: 2
+    country_scope_strategy: relation-iso-area
+    query_mode: country-only
   portugal:
     label: Portugal
     iso3166_1: PT
