@@ -45,6 +45,7 @@ jobs:
 
       - name: Stage GeoJSON and manifest changes
         if: ${{ github.event.inputs.dry_run != 'true' }}
+        id: staged_changes
         run: |
           set -euo pipefail
 
@@ -58,8 +59,20 @@ jobs:
             git add "${geojson_files[@]}"
           fi
 
+          changed_files="$(git diff --cached --name-only)"
+          if [ -z "$changed_files" ]; then
+            echo "data_changed=false" >> "$GITHUB_OUTPUT"
+            echo "No staged GeoJSON changes."
+          elif printf '%s\n' "$changed_files" | grep -Eq '^resources/geojson/.+\.geojson$'; then
+            echo "data_changed=true" >> "$GITHUB_OUTPUT"
+            echo "Detected staged GeoJSON data changes."
+          else
+            echo "data_changed=false" >> "$GITHUB_OUTPUT"
+            echo "Only metadata/non-GeoJSON changes staged; commit will be skipped."
+          fi
+
       - name: Commit and push changes
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+        if: ${{ github.event.inputs.dry_run != 'true' && steps.staged_changes.outputs.data_changed == 'true' }}
         run: |
           set -euo pipefail
 

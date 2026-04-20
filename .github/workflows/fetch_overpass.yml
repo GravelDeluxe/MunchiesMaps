@@ -103,22 +103,32 @@ jobs:
           echo "Running command: ${cmd_pretty% }"
           "${cmd[@]}"
 
-      - name: Check for geojson changes
+      - name: Check for geojson data changes
         id: geojson_changes
         run: |
           set -euo pipefail
 
           git add resources/geojson
-          if git diff --cached --quiet; then
+          changed_files="$(git diff --cached --name-only)"
+          if [ -z "$changed_files" ]; then
             echo "No changes detected in resources/geojson."
             echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "data_changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "Changes detected in resources/geojson."
+            printf '%s\n' "$changed_files"
             echo "changed=true" >> "$GITHUB_OUTPUT"
+            if printf '%s\n' "$changed_files" | grep -Eq '^resources/geojson/.+\.geojson$'; then
+              echo "Detected changed GeoJSON data files."
+              echo "data_changed=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "Only metadata/non-GeoJSON files changed; skipping writeback."
+              echo "data_changed=false" >> "$GITHUB_OUTPUT"
+            fi
           fi
 
       - name: Direct commit geojson changes
-        if: steps.geojson_changes.outputs.changed == 'true' && steps.run_config.outputs.commit_mode == 'direct_commit'
+        if: steps.geojson_changes.outputs.data_changed == 'true' && steps.run_config.outputs.commit_mode == 'direct_commit'
         run: |
           set -euo pipefail
 
@@ -130,7 +140,7 @@ jobs:
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: Create or update pull request
-        if: steps.geojson_changes.outputs.changed == 'true' && steps.run_config.outputs.commit_mode == 'pull_request'
+        if: steps.geojson_changes.outputs.data_changed == 'true' && steps.run_config.outputs.commit_mode == 'pull_request'
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Update GeoJSON data"
@@ -145,10 +155,13 @@ jobs:
       - name: Log writeback decision
         run: |
           echo "GeoJSON changed: ${{ steps.geojson_changes.outputs.changed }}"
+          echo "GeoJSON data changed: ${{ steps.geojson_changes.outputs.data_changed }}"
           echo "Writeback mode: ${{ steps.run_config.outputs.commit_mode }}"
 
           if [ "${{ steps.geojson_changes.outputs.changed }}" != "true" ]; then
             echo "No writeback performed because no changes were found."
+          elif [ "${{ steps.geojson_changes.outputs.data_changed }}" != "true" ]; then
+            echo "No writeback performed because no GeoJSON data files changed."
           elif [ "${{ steps.run_config.outputs.commit_mode }}" = "pull_request" ]; then
             echo "Writeback performed via pull request workflow."
           else
