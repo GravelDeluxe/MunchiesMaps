@@ -1071,7 +1071,7 @@
       SH: 'Schleswig-Holstein',
       TH: 'Thueringen'
     };
-    const REGION_ORDER = {
+    let REGION_ORDER = {
       de: [
         'de-baden-wuerttemberg', 'de-bayern', 'de-berlin', 'de-brandenburg', 'de-bremen', 'de-hamburg',
         'de-hessen', 'de-mecklenburg-vorpommern', 'de-niedersachsen', 'de-nordrhein-westfalen',
@@ -1152,7 +1152,7 @@
         'gb-eng', 'gb-sct', 'gb-wls', 'gb-nir'
       ]
     };
-    const REGION_COUNTRIES = Object.keys(REGION_ORDER);
+    let REGION_COUNTRIES = Object.keys(REGION_ORDER);
     const REGION_UI_GROUPS = {
       ro: [
         {
@@ -1214,6 +1214,20 @@
         }
       ]
     };
+
+    function syncRegionOrderFromManifest(regions) {
+      if (!Array.isArray(regions) || !regions.length) return;
+      const nextOrder = { ...REGION_ORDER };
+      regions.forEach((region) => {
+        const countryCode = normalizeCountryCode(region?.country || region?.country_label);
+        const regionId = normalizeRegionId(region?.id || region?.region);
+        if (!countryCode || !regionId) return;
+        if (!Array.isArray(nextOrder[countryCode])) nextOrder[countryCode] = [];
+        if (!nextOrder[countryCode].includes(regionId)) nextOrder[countryCode].push(regionId);
+      });
+      REGION_ORDER = nextOrder;
+      REGION_COUNTRIES = Object.keys(REGION_ORDER);
+    }
 
     const CAT_CODE_TO_ID = {
       ff: 'fast_food',
@@ -2702,6 +2716,14 @@
       return buckets;
     }
 
+    function isSingleAreaCountryGroup(group) {
+      if (!group || !Array.isArray(group.regions) || group.regions.length !== 1) return false;
+      const onlyRegion = group.regions[0];
+      const normalizedCountry = normalizeCountryCode(group.countryCode);
+      const normalizedRegionId = normalizeRegionId(onlyRegion?.id || onlyRegion?.region);
+      return Boolean(normalizedCountry && normalizedRegionId && normalizedCountry === normalizedRegionId);
+    }
+
     function getCurrentSelectedRegions() {
       return filterState.bundeslaender;
     }
@@ -2720,6 +2742,7 @@
       groups.forEach((group, countryIndex) => {
         const countryWrapper = document.createElement('div');
         countryWrapper.classList.add('country-group');
+        const singleAreaCountry = isSingleAreaCountryGroup(group);
 
         const countryHeader = document.createElement('div');
         countryHeader.classList.add('country-header');
@@ -2767,24 +2790,33 @@
           renderRegionChecklist(containerId, items, filterState.bundeslaender, setName);
         };
 
-        countryToggleBtn.addEventListener('click', toggleCountry);
+        if (!singleAreaCountry) {
+          countryToggleBtn.addEventListener('click', toggleCountry);
+        } else {
+          countryToggleBtn.disabled = true;
+          countryToggleBtn.setAttribute('aria-expanded', 'false');
+        }
 
         const countryText = document.createElement('span');
         countryText.textContent = group.countryLabel;
-        const chevron = document.createElement('span');
-        chevron.classList.add('chevron');
-        chevron.setAttribute('aria-hidden', 'true');
-        chevron.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
         countryToggleBtn.appendChild(countryText);
-        countryToggleBtn.appendChild(chevron);
+        if (!singleAreaCountry) {
+          const chevron = document.createElement('span');
+          chevron.classList.add('chevron');
+          chevron.setAttribute('aria-hidden', 'true');
+          chevron.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+          countryToggleBtn.appendChild(chevron);
+        }
         countryHeader.appendChild(countryCb);
         countryHeader.appendChild(countryToggleBtn);
 
         const regionsWrapper = document.createElement('div');
         regionsWrapper.classList.add('country-regions');
         const isExpanded = expandedCountries.has(group.countryCode);
-        regionsWrapper.hidden = !isExpanded;
-        countryToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        regionsWrapper.hidden = singleAreaCountry ? true : !isExpanded;
+        if (!singleAreaCountry) {
+          countryToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        }
 
         console.log('[region-filter-country]', {
           country: group.countryLabel,
@@ -2798,62 +2830,64 @@
           });
         }
 
-        const uiBuckets = buildRegionUiBuckets(group);
-        let regionIndex = 0;
-        uiBuckets.forEach((bucket) => {
-          const bucketWrapper = document.createElement('div');
-          bucketWrapper.classList.add('region-ui-group');
-          if (bucket.label) {
-            const bucketTitle = document.createElement('div');
-            bucketTitle.classList.add('region-ui-group-title');
-            bucketTitle.textContent = bucket.label;
-            bucketWrapper.appendChild(bucketTitle);
-          }
+        if (!singleAreaCountry) {
+          const uiBuckets = buildRegionUiBuckets(group);
+          let regionIndex = 0;
+          uiBuckets.forEach((bucket) => {
+            const bucketWrapper = document.createElement('div');
+            bucketWrapper.classList.add('region-ui-group');
+            if (bucket.label) {
+              const bucketTitle = document.createElement('div');
+              bucketTitle.classList.add('region-ui-group-title');
+              bucketTitle.textContent = bucket.label;
+              bucketWrapper.appendChild(bucketTitle);
+            }
 
-          const bucketItems = document.createElement('div');
-          bucketItems.classList.add('region-ui-group-items');
+            const bucketItems = document.createElement('div');
+            bucketItems.classList.add('region-ui-group-items');
 
-          bucket.regions.forEach((region) => {
-            const row = document.createElement('label');
-            row.classList.add('checkrow');
-            const cb = document.createElement('input');
-            cb.type = 'checkbox';
-            cb.value = region.id;
-            cb.checked = currentSelectedSet.has(region.id);
-            cb.id = `${setName}-region-${countryIndex}-${regionIndex}`;
-            regionIndex += 1;
-            cb.addEventListener('change', (e) => {
-              const nextMode = computeManualModeFromCheckbox(region.id, e.target.checked);
-              setManualRegionMode(region.id, nextMode);
-              const changed = refreshEffectiveRegionState({ triggerFilters: false, rerenderChecklist: false, updateUrl: false });
-              renderRegionChecklist(containerId, items, filterState.bundeslaender, setName);
-              if (changed) {
-                triggerApplyFilters();
-                if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+            bucket.regions.forEach((region) => {
+              const row = document.createElement('label');
+              row.classList.add('checkrow');
+              const cb = document.createElement('input');
+              cb.type = 'checkbox';
+              cb.value = region.id;
+              cb.checked = currentSelectedSet.has(region.id);
+              cb.id = `${setName}-region-${countryIndex}-${regionIndex}`;
+              regionIndex += 1;
+              cb.addEventListener('change', (e) => {
+                const nextMode = computeManualModeFromCheckbox(region.id, e.target.checked);
+                setManualRegionMode(region.id, nextMode);
+                const changed = refreshEffectiveRegionState({ triggerFilters: false, rerenderChecklist: false, updateUrl: false });
+                renderRegionChecklist(containerId, items, filterState.bundeslaender, setName);
+                if (changed) {
+                  triggerApplyFilters();
+                  if (typeof debouncedUrlUpdate === 'function') debouncedUrlUpdate();
+                }
+              });
+
+              const text = document.createElement('span');
+              text.textContent = region.label || region.id;
+              const mode = getRegionSelectionMode(region.id);
+              row.dataset.regionMode = mode;
+              if (mode === 'forcedOn') {
+                row.title = 'Manually activated';
+              } else if (mode === 'forcedOff') {
+                row.title = 'Manually deactivated';
+              } else if (autoActiveRegionIds.has(region.id)) {
+                row.title = 'Automatically active (viewport)';
+              } else {
+                row.title = 'Automatically inactive (outside viewport)';
               }
+              row.appendChild(cb);
+              row.appendChild(text);
+              bucketItems.appendChild(row);
             });
 
-            const text = document.createElement('span');
-            text.textContent = region.label || region.id;
-            const mode = getRegionSelectionMode(region.id);
-            row.dataset.regionMode = mode;
-            if (mode === 'forcedOn') {
-              row.title = 'Manually activated';
-            } else if (mode === 'forcedOff') {
-              row.title = 'Manually deactivated';
-            } else if (autoActiveRegionIds.has(region.id)) {
-              row.title = 'Automatically active (viewport)';
-            } else {
-              row.title = 'Automatically inactive (outside viewport)';
-            }
-            row.appendChild(cb);
-            row.appendChild(text);
-            bucketItems.appendChild(row);
+            bucketWrapper.appendChild(bucketItems);
+            regionsWrapper.appendChild(bucketWrapper);
           });
-
-          bucketWrapper.appendChild(bucketItems);
-          regionsWrapper.appendChild(bucketWrapper);
-        });
+        }
 
         countryWrapper.appendChild(countryHeader);
         countryWrapper.appendChild(regionsWrapper);
@@ -5211,6 +5245,7 @@
       runBadgeDiagnostics();
 
       manifestData = await loadManifest();
+      syncRegionOrderFromManifest(manifestData.regions);
 
       categoryLabelMap = (manifestData.categories || []).reduce((acc, cat) => {
         acc[cat.id] = cat.label;
