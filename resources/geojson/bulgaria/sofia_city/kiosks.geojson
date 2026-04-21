@@ -1401,6 +1401,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          23.3670099,
+          42.6656332
+        ]
+      },
+      "properties": {
+        "id": 2700976129,
+        "osm_type": "node",
+        "name": "Minimart",
+        "opening_hours": "Mo-Su 07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           23.3583504,
           42.6266789
         ]
@@ -2764,8 +2780,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.2993011,
-          42.7297229
+          23.299277,
+          42.7297268
         ]
       },
       "properties": {
@@ -2872,8 +2888,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3388539,
-          42.6380733
+          23.3388557,
+          42.6381043
         ]
       },
       "properties": {
@@ -3873,6 +3889,21 @@
         "id": 4543868849,
         "osm_type": "node",
         "opening_hours": "Mo-Fr 09:30-19:00; Sa 10:00-14:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3304688,
+          42.6903436
+        ]
+      },
+      "properties": {
+        "id": 4545520839,
+        "osm_type": "node",
+        "opening_hours": "09:00-20:00"
       }
     },
     {
@@ -6305,7 +6336,7 @@
       "properties": {
         "id": 6033816385,
         "osm_type": "node",
-        "opening_hours": "Mo-Fr, Su 07:30-22:00"
+        "opening_hours": "Mo-Fr 07:30-22:00; Sa,Su 08:00-21:00"
       }
     },
     {
@@ -8259,22 +8290,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.2481221,
-          42.726822
-        ]
-      },
-      "properties": {
-        "id": 7166715945,
-        "osm_type": "node",
-        "name": "Кам маркет",
-        "opening_hours": "Mo-Sa 08:00-21:00; Su 08:30-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           23.368113,
           42.6472356
         ]
@@ -8707,8 +8722,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.4043404,
-          42.6510234
+          23.4042772,
+          42.6510081
         ]
       },
       "properties": {
@@ -8765,8 +8780,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3413656,
-          42.8005276
+          23.3413826,
+          42.8005475
         ]
       },
       "properties": {
@@ -9243,8 +9258,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3536241,
-          42.6730516
+          23.3536523,
+          42.6730023
         ]
       },
       "properties": {
@@ -9459,15 +9474,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3389067,
-          42.6380522
+          23.338907,
+          42.6380679
         ]
       },
       "properties": {
         "id": 8849199366,
         "osm_type": "node",
         "name": "Dudi market",
-        "opening_hours": "Mo-Su 07:30-21:00"
+        "opening_hours": "Mo-Sa 07:30-21:00"
       }
     },
     {
@@ -9526,8 +9541,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.4040823,
-          42.6514308
+          23.4040309,
+          42.6513159
         ]
       },
       "properties": {
@@ -10762,7 +10777,7 @@
       "properties": {
         "id": 10841736782,
         "osm_type": "node",
-        "opening_hours": "PH,Mo-Su 06:30-21:30"
+        "opening_hours": "Mo-Su,PH 06:30-20:30"
       }
     },
     {
@@ -11377,8 +11392,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.299338,
-          42.6862083
+          23.2992535,
+          42.6861777
         ]
       },
       "properties": {
@@ -16021,7 +16036,7 @@
         "id": 12620814753,
         "osm_type": "node",
         "name": "Rodeo 2",
-        "opening_hours": "08:00-20:00"
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa,Su 08:00-19:00"
       }
     },
     {
@@ -16846,14 +16861,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3101908,
-          42.6916338
+          23.3101938,
+          42.6916428
         ]
       },
       "properties": {
         "id": 12897613162,
         "osm_type": "node",
         "name": "Minimart",
+        "brand": "Minimart",
         "opening_hours": "Mo-Su 07:00-22:00"
       }
     },
@@ -17324,6 +17340,7 @@
       "properties": {
         "id": 13051912879,
         "osm_type": "node",
+        "name": "ICO Vape fast and tasty shop",
         "opening_hours": "24/7"
       }
     },
@@ -17621,8 +17638,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3207472,
-          42.7125966
+          23.3206966,
+          42.7124932
         ]
       },
       "properties": {
@@ -17749,7 +17766,8 @@
         "id": 13189075281,
         "osm_type": "node",
         "name": "Minimart",
-        "brand": "Minimart"
+        "brand": "Minimart",
+        "opening_hours": "Mo-Su 07:00-22:00"
       }
     },
     {
@@ -18441,7 +18459,8 @@
       },
       "properties": {
         "id": 13470400601,
-        "osm_type": "node"
+        "osm_type": "node",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -18531,7 +18550,8 @@
         "id": 13509510401,
         "osm_type": "node",
         "name": "Minimart",
-        "brand": "Minimart"
+        "brand": "Minimart",
+        "opening_hours": "Mo-Su,PH 07:00-22:00"
       }
     },
     {
@@ -18727,15 +18747,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3032906,
-          42.6858169
+          23.3033646,
+          42.6859054
         ]
       },
       "properties": {
         "id": 13585085726,
         "osm_type": "node",
         "name": "Minimart",
-        "brand": "Minimart"
+        "brand": "Minimart",
+        "opening_hours": "07:00-22:00"
       }
     },
     {
@@ -18795,7 +18816,8 @@
         "id": 13594941659,
         "osm_type": "node",
         "name": "Minimart",
-        "brand": "Minimart"
+        "brand": "Minimart",
+        "opening_hours": "Mo-Su,PH 07:00-22:00"
       }
     },
     {
@@ -18839,7 +18861,8 @@
       },
       "properties": {
         "id": 13595324806,
-        "osm_type": "node"
+        "osm_type": "node",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -18975,6 +18998,309 @@
         "name": "Minimart",
         "brand": "Minimart",
         "opening_hours": "07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3493011,
+          42.6651086
+        ]
+      },
+      "properties": {
+        "id": 13681365264,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 07:00-20:00; Sa,Su 08:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3491916,
+          42.6650758
+        ]
+      },
+      "properties": {
+        "id": 13681370776,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.341121,
+          42.6483186
+        ]
+      },
+      "properties": {
+        "id": 13682193879,
+        "osm_type": "node",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.328299,
+          42.6867787
+        ]
+      },
+      "properties": {
+        "id": 13685941603,
+        "osm_type": "node",
+        "name": "Minimart",
+        "brand": "Minimart"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3398029,
+          42.6467522
+        ]
+      },
+      "properties": {
+        "id": 13703545532,
+        "osm_type": "node",
+        "name": "Stuttgard",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.339072,
+          42.6459615
+        ]
+      },
+      "properties": {
+        "id": 13703784290,
+        "osm_type": "node",
+        "opening_hours": "Mo-Sa 09:00-20:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3431814,
+          42.6464167
+        ]
+      },
+      "properties": {
+        "id": 13703791009,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 08:00-22:00; Sa,Su 08:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.336082,
+          42.6439836
+        ]
+      },
+      "properties": {
+        "id": 13708367545,
+        "osm_type": "node",
+        "opening_hours": "Mo-Su 07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.340558,
+          42.6444797
+        ]
+      },
+      "properties": {
+        "id": 13711477348,
+        "osm_type": "node",
+        "name": "Moly Shop",
+        "opening_hours": "Mo-Su 06:00-24:00+"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3384578,
+          42.6378611
+        ]
+      },
+      "properties": {
+        "id": 13713971344,
+        "osm_type": "node",
+        "opening_hours": "Mo-Su 08:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3383877,
+          42.6375401
+        ]
+      },
+      "properties": {
+        "id": 13713971937,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa,Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.338089,
+          42.6373174
+        ]
+      },
+      "properties": {
+        "id": 13713974792,
+        "osm_type": "node",
+        "opening_hours": "Mo-Sa 07:30-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.341798,
+          42.6420406
+        ]
+      },
+      "properties": {
+        "id": 13713981641,
+        "osm_type": "node",
+        "name": "Моят магазин",
+        "opening_hours": "Mo-Sa 07:00-23:00; Su 08:00-23:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3388555,
+          42.6412023
+        ]
+      },
+      "properties": {
+        "id": 13713983720,
+        "osm_type": "node",
+        "name": "Kiko Shop",
+        "opening_hours": "Mo-Fr 07:00-22:00; Sa 07:00-21:00; Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.338455,
+          42.6363633
+        ]
+      },
+      "properties": {
+        "id": 13713988905,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 07:30-21:30; Sa,Su 08:00-21:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.323071,
+          42.6704094
+        ]
+      },
+      "properties": {
+        "id": 13715729325,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3939719,
+          42.6569446
+        ]
+      },
+      "properties": {
+        "id": 13719255777,
+        "osm_type": "node",
+        "name": "Minimart",
+        "brand": "Minimart",
+        "opening_hours": "Mo-Su 07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3583022,
+          42.6571265
+        ]
+      },
+      "properties": {
+        "id": 13729487355,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3544933,
+          42.6645825
+        ]
+      },
+      "properties": {
+        "id": 13730215669,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3789914,
+          42.6205423
+        ]
+      },
+      "properties": {
+        "id": 13731949143,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa 09:00-18:00"
       }
     },
     {
