@@ -116,8 +116,12 @@ def main() -> int:
         print("[missing-fetch] dry-run enabled; no fetch executed.")
         return 0
 
-    run(region_filter=region_ids, category_filter=categories, country_filter=None)
-    return 0
+    try:
+        run(region_filter=region_ids, category_filter=categories, country_filter=None)
+        return 0
+    except RuntimeError as exc:
+        print(f"[missing-fetch] aborted: {exc}")
+        return 1
 
 
 if __name__ == "__main__":

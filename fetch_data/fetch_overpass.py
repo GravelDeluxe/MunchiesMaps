@@ -25,6 +25,12 @@ REQUEST_CONNECT_TIMEOUT = 20
 REQUEST_READ_TIMEOUT = 90
 JITTER_MIN_SECONDS = 0.5
 JITTER_MAX_SECONDS = 1.5
+SMOKE_TEST_RETRIES = 3
+SMOKE_RETRY_JITTER_MIN_SECONDS = 1.0
+SMOKE_RETRY_JITTER_MAX_SECONDS = 2.0
+REQUEST_HEADERS = {
+    "User-Agent": "MunchiesMaps/alpha (https://github.com/MarkusCouch/MunchiesMaps)"
+}
 TAG_WHITELIST: Dict[str, List[str]] = {
     "fuel": ["name", "brand", "opening_hours"],
     "supermarkets": ["name", "brand", "opening_hours"],
@@ -677,6 +683,7 @@ def request_with_retry(
             response = requests.post(
                 endpoint,
                 data={"data": query},
+                headers=REQUEST_HEADERS,
                 timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT),
             )
         except (requests.Timeout, requests.ConnectionError) as exc:
@@ -1027,20 +1034,56 @@ def smoke_test_endpoints(endpoints: List[str]) -> List[str]:
     smoke_query = build_smoke_test_query()
     healthy: List[str] = []
     for endpoint in endpoints:
-        try:
-            response = requests.post(
-                endpoint,
-                data={"data": smoke_query},
-                timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT),
-            )
-            if response.status_code in FAILOVER_STATUS_CODES:
-                print(f"[smoke] failed | endpoint={endpoint} | status={response.status_code}")
+        endpoint_ok = False
+        for attempt in range(1, SMOKE_TEST_RETRIES + 1):
+            if attempt > 1:
+                jitter = random.uniform(SMOKE_RETRY_JITTER_MIN_SECONDS, SMOKE_RETRY_JITTER_MAX_SECONDS)
+                print(
+                    f"[smoke] retry_wait | endpoint={endpoint} | attempt={attempt}/{SMOKE_TEST_RETRIES} "
+                    f"| jitter={jitter:.2f}s"
+                )
+                time.sleep(jitter)
+            try:
+                response = requests.post(
+                    endpoint,
+                    data={"data": smoke_query},
+                    headers=REQUEST_HEADERS,
+                    timeout=(REQUEST_CONNECT_TIMEOUT, REQUEST_READ_TIMEOUT),
+                )
+                if response.status_code in {406, 504}:
+                    print(
+                        f"[smoke] transient_failure | endpoint={endpoint} "
+                        f"| status={response.status_code} | attempt={attempt}/{SMOKE_TEST_RETRIES}"
+                    )
+                    continue
+                if response.status_code in FAILOVER_STATUS_CODES:
+                    print(
+                        f"[smoke] failed | endpoint={endpoint} "
+                        f"| status={response.status_code} | attempt={attempt}/{SMOKE_TEST_RETRIES}"
+                    )
+                    continue
+                response.raise_for_status()
+                print(
+                    f"[smoke] ok | endpoint={endpoint} | status={response.status_code} "
+                    f"| attempt={attempt}/{SMOKE_TEST_RETRIES}"
+                )
+                healthy.append(endpoint)
+                endpoint_ok = True
+                break
+            except requests.Timeout as exc:
+                print(
+                    f"[smoke] transient_failure | endpoint={endpoint} "
+                    f"| exception={type(exc).__name__} | attempt={attempt}/{SMOKE_TEST_RETRIES}"
+                )
                 continue
-            response.raise_for_status()
-            print(f"[smoke] ok | endpoint={endpoint} | status={response.status_code}")
-            healthy.append(endpoint)
-        except requests.RequestException as exc:
-            print(f"[smoke] failed | endpoint={endpoint} | exception={type(exc).__name__}: {exc}")
+            except requests.RequestException as exc:
+                print(
+                    f"[smoke] failed | endpoint={endpoint} | exception={type(exc).__name__}: {exc} "
+                    f"| attempt={attempt}/{SMOKE_TEST_RETRIES}"
+                )
+                continue
+        if not endpoint_ok:
+            print(f"[smoke] unhealthy | endpoint={endpoint} | retries={SMOKE_TEST_RETRIES}")
     print(f"[smoke] healthy_endpoints={len(healthy)}/{len(endpoints)}")
     return healthy
 
@@ -1147,8 +1190,55 @@ def run(
     )
     print(f"[run] Endpoints: {endpoints_display}")
     healthy_endpoints = smoke_test_endpoints(endpoints)
+    degraded_mode_used = False
     if not healthy_endpoints:
-        raise RuntimeError("Smoke tests failed for all configured endpoints. Aborting early.")
+        degraded_mode_used = True
+        print("[warn] No healthy endpoints → entering degraded mode")
+        if not selected_regions or not selected_categories:
+            raise RuntimeError("No usable endpoints after degraded mode. Aborting.")
+        probe_region = selected_regions[0]
+        probe_category, probe_func_name = selected_categories[0]
+        probe_template_func = get_category_function(probe_func_name)
+        probe_body = probe_template_func()
+        probe_attempts = build_query_attempts(probe_region)
+        probe_success = False
+        for probe_try, probe_attempt in enumerate(probe_attempts[:2], start=1):
+            probe_query = build_query(
+                probe_region,
+                probe_category,
+                probe_body,
+                timeout,
+                mode=probe_attempt["mode"],
+                match_type=probe_attempt["match_type"],
+            )
+            print(
+                "[degraded] probe "
+                f"{probe_try}/2 | region={probe_region['id']} | category={probe_category} "
+                f"| mode={probe_attempt['mode']} | match_type={probe_attempt['match_type']}"
+            )
+            try:
+                request_with_retry(
+                    endpoints,
+                    probe_query,
+                    timeout,
+                    context={
+                        "region": probe_region["id"],
+                        "country": probe_region["country"],
+                        "category": probe_category,
+                        "query_attempt": f"degraded-{probe_try}",
+                    },
+                    run_stats=run_stats,
+                )
+                probe_success = True
+                print("[degraded] probe_success=yes")
+                break
+            except Exception as exc:  # noqa: BLE001
+                print(f"[degraded] probe_success=no | reason={type(exc).__name__}: {exc}")
+        if probe_success:
+            healthy_endpoints = endpoints
+            print("[degraded] continuing with full endpoint list after successful probe")
+        else:
+            raise RuntimeError("No usable endpoints after degraded mode. Aborting.")
 
     for region_index, region in enumerate(selected_regions, start=1):
         print(
@@ -1273,6 +1363,13 @@ def run(
         f"smoke_ok={len(healthy_endpoints)}/{len(endpoints)} "
         f"| rescued_by_failover={run_stats['rescued_by_failover']}"
     )
+    print(
+        "[summary] "
+        f"endpoints healthy: {len(healthy_endpoints)}/{len(endpoints)}"
+    )
+    print(f"[summary] successful fetches: {run_stats['successful_fetches']}")
+    print(f"[summary] failed fetches: {run_stats['failed_fetches']}")
+    print(f"[summary] degraded mode used: {'yes' if degraded_mode_used else 'no'}")
     print(f"[summary] total_attempts={run_stats['total_attempts']}")
     print(f"[summary] endpoints_used={', '.join(endpoints_used) if endpoints_used else '-'}")
     print(f"[summary] geojson_written={run_stats['geojson_written']}")
@@ -1283,7 +1380,7 @@ def run(
 
     if run_stats["successful_fetches"] == 0 and run_stats["failed_fetches"] > 0:
         print("[summary] No successful fetches -> exiting with error")
-        raise RuntimeError("No successful fetches; all attempted fetches failed.")
+        raise RuntimeError("All fetches failed. Aborting.")
 
     if failures:
         print(f"[warn] Completed with {len(failures)} failures:")
