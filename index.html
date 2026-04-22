@@ -4220,6 +4220,12 @@
       return normalized ? 'Unknown' : '';
     }
 
+    function formatFastFoodCuisine(cuisine) {
+      const raw = (cuisine || '').toString().trim();
+      if (!raw) return '';
+      return raw.replaceAll(';', ', ');
+    }
+
     function isLikelyUrl(value) {
       if (typeof value !== 'string') return false;
       const v = value.trim();
@@ -4270,6 +4276,7 @@
       const other = categoryId === 'fast_food'
         ? [
             renderField('Brand', p.brand, 'brand'),
+            renderField('Cuisine', formatFastFoodCuisine(p.cuisine), 'cuisine'),
             renderField('Opening hours', p.opening_hours, 'opening_hours'),
             renderField('Phone', p.phone, 'phone'),
             renderField('Website', p.website, 'website'),
