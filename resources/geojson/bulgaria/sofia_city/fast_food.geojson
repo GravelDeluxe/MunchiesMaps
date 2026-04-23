@@ -234,8 +234,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3414289,
-          42.8006383
+          23.3414276,
+          42.8006253
         ]
       },
       "properties": {
@@ -1673,15 +1673,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.2720568,
-          42.67115
+          23.2720256,
+          42.671169
         ]
       },
       "properties": {
         "id": 3686236281,
         "osm_type": "node",
-        "name": "Софийска баница",
         "opening_hours": "Mo-Fr 06:00-14:00; Sa-Su off",
+        "operator": "Браке ЕООД",
         "cuisine": "banitsa",
         "chain": "unknown"
       }
@@ -1817,6 +1817,7 @@
         "id": 3976109067,
         "osm_type": "node",
         "name": "RepEat",
+        "opening_hours": "Mo-Fr 08:00-20:00",
         "chain": "unknown"
       }
     },
@@ -3966,6 +3967,7 @@
       "properties": {
         "id": 4980845626,
         "osm_type": "node",
+        "cuisine": "turkish",
         "chain": "unknown"
       }
     },
@@ -4793,8 +4795,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.32122,
-          42.7118549
+          23.3212219,
+          42.7118578
         ]
       },
       "properties": {
@@ -4874,23 +4876,6 @@
         "name": "Софийска баница",
         "opening_hours": "Mo-Su 07:00-18:00",
         "cuisine": "banitza",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          23.339789,
-          42.6445402
-        ]
-      },
-      "properties": {
-        "id": 6033823198,
-        "osm_type": "node",
-        "name": "Закуски \"Вега\"",
-        "opening_hours": "24/7",
         "chain": "unknown"
       }
     },
@@ -5349,7 +5334,7 @@
         "osm_type": "node",
         "name": "Domino's",
         "brand": "Domino's",
-        "opening_hours": "PH,Mo-Su 11:00-23:00",
+        "opening_hours": "Mo-Su,PH 11:00-22:30",
         "website": "https://www.dominos.bg/",
         "brand:wikidata": "Q839466",
         "cuisine": "pizza",
@@ -5472,7 +5457,7 @@
         "id": 6444000457,
         "osm_type": "node",
         "name": "Шеф Шами",
-        "opening_hours": "PH,Mo-Su 10:00-22:00",
+        "opening_hours": "Mo-Su,PH 10:00-22:00",
         "chain": "unknown"
       }
     },
@@ -8071,6 +8056,7 @@
       "properties": {
         "id": 10045193484,
         "osm_type": "node",
+        "name": "My Picnic",
         "cuisine": "sandwich",
         "chain": "unknown"
       }
@@ -9008,24 +8994,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3171691,
-          42.694756
-        ]
-      },
-      "properties": {
-        "id": 10306910194,
-        "osm_type": "node",
-        "name": "Big Panda",
-        "opening_hours": "Mo-Su 10:00-21:00",
-        "cuisine": "asian",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           23.2761643,
           42.7189202
         ]
@@ -9563,6 +9531,23 @@
         "id": 10867683697,
         "osm_type": "node",
         "opening_hours": "11:00-22:00",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3418591,
+          42.6488125
+        ]
+      },
+      "properties": {
+        "id": 10899591335,
+        "osm_type": "node",
+        "name": "Tasty Kebab",
+        "opening_hours": "24/7",
         "chain": "unknown"
       }
     },
@@ -10855,21 +10840,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3396206,
-          42.6439917
-        ]
-      },
-      "properties": {
-        "id": 11241214366,
-        "osm_type": "node",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           23.2860489,
           42.6781243
         ]
@@ -11477,8 +11447,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3420926,
-          42.6498631
+          23.3420753,
+          42.6499468
         ]
       },
       "properties": {
@@ -12439,6 +12409,22 @@
         "name": "Скаратъ",
         "opening_hours": "Mo-Fr 09:00-19:00; Sa 09:00-15:00",
         "cuisine": "grill",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3170908,
+          42.7057963
+        ]
+      },
+      "properties": {
+        "id": 11940402073,
+        "osm_type": "node",
+        "name": "Хляб & хора",
         "chain": "unknown"
       }
     },
@@ -13594,6 +13580,39 @@
         "osm_type": "node",
         "name": "Eli's gözleme",
         "opening_hours": "Mo-Su 08:00-22:00",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3578805,
+          42.6571166
+        ]
+      },
+      "properties": {
+        "id": 12379764025,
+        "osm_type": "node",
+        "cuisine": "juice",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3580148,
+          42.6571189
+        ]
+      },
+      "properties": {
+        "id": 12379764029,
+        "osm_type": "node",
+        "name": "Papi Fresh",
+        "cuisine": "juice",
         "chain": "unknown"
       }
     },
@@ -15061,8 +15080,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3526109,
-          42.6696421
+          23.3526092,
+          42.6696416
         ]
       },
       "properties": {
@@ -15096,8 +15115,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3526786,
-          42.669508
+          23.3526769,
+          42.6695075
         ]
       },
       "properties": {
@@ -16017,8 +16036,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3211307,
-          42.7119657
+          23.3214181,
+          42.7117896
         ]
       },
       "properties": {
@@ -16082,8 +16101,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.3214022,
-          42.712003
+          23.3214094,
+          42.7120138
         ]
       },
       "properties": {
@@ -17351,6 +17370,189 @@
         "id": 13661487715,
         "osm_type": "node",
         "name": "Хапката",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3492498,
+          42.6650902
+        ]
+      },
+      "properties": {
+        "id": 13681401017,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 07:00-19:00",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3408282,
+          42.6482997
+        ]
+      },
+      "properties": {
+        "id": 13682176423,
+        "osm_type": "node",
+        "name": "Via Perollini",
+        "opening_hours": "Mo-Fr 11:00-22:00; Sa,Su 16:00-22:00",
+        "cuisine": "pizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.341537,
+          42.6499625
+        ]
+      },
+      "properties": {
+        "id": 13682199697,
+        "osm_type": "node",
+        "name": "Coffee Station",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3410453,
+          42.6483167
+        ]
+      },
+      "properties": {
+        "id": 13682203114,
+        "osm_type": "node",
+        "name": "Evolution 7",
+        "opening_hours": "Tu-Su 11:00-22:00",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3618821,
+          42.6832329
+        ]
+      },
+      "properties": {
+        "id": 13691761182,
+        "osm_type": "node",
+        "name": "Пицата на улица \"Гео Милев\"",
+        "opening_hours": "Mo-Fr 09:00-19:30",
+        "cuisine": "pizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4006259,
+          42.6539906
+        ]
+      },
+      "properties": {
+        "id": 13694930179,
+        "osm_type": "node",
+        "name": "Исос Дюнер",
+        "cuisine": "kebab;balkan",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4836775,
+          42.7543948
+        ]
+      },
+      "properties": {
+        "id": 13707929626,
+        "osm_type": "node",
+        "name": "Диана",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3397296,
+          42.6443721
+        ]
+      },
+      "properties": {
+        "id": 13711423098,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3395797,
+          42.6448381
+        ]
+      },
+      "properties": {
+        "id": 13711462546,
+        "osm_type": "node",
+        "name": "Sofia Cheese Steak",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.339384,
+          42.6427434
+        ]
+      },
+      "properties": {
+        "id": 13711507042,
+        "osm_type": "node",
+        "name": "Столь",
+        "opening_hours": "10:00-22:00",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.3158059,
+          42.6523341
+        ]
+      },
+      "properties": {
+        "id": 13738169582,
+        "osm_type": "node",
+        "name": "Ловна Спирка",
         "chain": "unknown"
       }
     },
