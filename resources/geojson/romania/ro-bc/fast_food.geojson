@@ -18,6 +18,24 @@
         "opening_hours": "Mo-Th,Su 10:00-21:00; Fr-Sa 10:00-22:00",
         "operator": "US Food Network",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.1107993,
+          46.5568576
+        ]
+      },
+      "properties": {
+        "id": 1849557067,
+        "osm_type": "node",
+        "name": "Farkas",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -34,6 +52,7 @@
         "id": 3354997019,
         "osm_type": "node",
         "name": "Fast Food la Bianca",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -50,6 +69,7 @@
         "id": 4616434658,
         "osm_type": "node",
         "name": "Fast Food la Dobrotă",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -68,6 +88,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -84,6 +105,7 @@
         "id": 5880278258,
         "osm_type": "node",
         "name": "Fast Food",
+        "cuisine": "burger;international",
         "chain": "unknown"
       }
     },
@@ -100,6 +122,7 @@
         "id": 6129421449,
         "osm_type": "node",
         "name": "La Irina",
+        "cuisine": "kebab;burger;regional",
         "chain": "unknown"
       }
     },
@@ -116,6 +139,7 @@
         "id": 7475995657,
         "osm_type": "node",
         "name": "Pizza Luca",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -132,6 +156,7 @@
         "id": 9386314946,
         "osm_type": "node",
         "name": "Pizza Bonito",
+        "cuisine": "pizza;shawarma",
         "chain": "unknown"
       }
     },
@@ -184,6 +209,7 @@
         "opening_hours": "Mo-Su 10:00-21:00",
         "operator": "CALIFORNIA FRESH FLAVORS",
         "brand:wikidata": "Q752941",
+        "cuisine": "tex-mex",
         "chain": "unknown"
       }
     },
@@ -200,6 +226,7 @@
         "id": 10587201399,
         "osm_type": "node",
         "name": "Gourmet Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -216,6 +243,7 @@
         "id": 10607650202,
         "osm_type": "node",
         "name": "Pronto Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -248,6 +276,7 @@
         "osm_type": "node",
         "name": "Sushi Master",
         "opening_hours": "Mo-Su 10:00-21:30",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -267,6 +296,7 @@
         "opening_hours": "Mo-Su 09:00-22:00",
         "phone": "0756654654",
         "website": "https://planeturbanfood.ro/",
+        "cuisine": "wings;burger;fries",
         "chain": "unknown"
       }
     },
@@ -285,6 +315,7 @@
         "name": "Shaormeria Băneasa",
         "opening_hours": "Mo-Su 09:00-23:00",
         "phone": "0757741419",
+        "cuisine": "shawarma",
         "chain": "unknown"
       }
     },
@@ -319,6 +350,7 @@
       "properties": {
         "id": 13629303121,
         "osm_type": "node",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -336,6 +368,7 @@
         "osm_type": "way",
         "name": "Cantina universitatii",
         "opening_hours": "Mo-Fr 09:00-16:00",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -355,6 +388,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 07:00-24:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -372,6 +406,7 @@
         "osm_type": "way",
         "name": "Cantina Colegiului Economic „Ion Ghica\"",
         "operator": "Colegiul Economic „Ion Ghica\" Bacău",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -398,6 +433,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          26.1109357,
+          46.5568129
+        ]
+      },
+      "properties": {
+        "id": 1243646797,
+        "osm_type": "way",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           26.9044542,
           46.5693634
         ]
@@ -406,6 +456,7 @@
         "id": 1382869423,
         "osm_type": "way",
         "name": "Cantina Colegiului Național „Ferdinand I\"",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     }
