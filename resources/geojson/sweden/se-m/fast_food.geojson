@@ -47,6 +47,7 @@
         "brand": "Burger King",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -69,6 +70,7 @@
         "website": "https://www.max.se/hitta-max/restauranger/helsingborg-city/",
         "operator": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -87,6 +89,7 @@
         "name": "McDonald's Lockarp",
         "website": "http://www.mcdonalds.se",
         "operator": "McDonald's",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -106,6 +109,7 @@
         "brand": "McDonald's",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -174,6 +178,7 @@
         "opening_hours": "24/7",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -194,6 +199,7 @@
         "opening_hours": "Mo-Th 07:00-24:00; Fr-Sa 07:00-02:00; Su 07:00-24:00",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -211,6 +217,7 @@
         "osm_type": "node",
         "name": "Bebanko Pizzeria",
         "opening_hours": "Mo-Th 15:00-21:00; Fr-Su 14:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -227,6 +234,7 @@
         "id": 401542285,
         "osm_type": "node",
         "name": "Viking Pizzeria",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -245,6 +253,7 @@
         "name": "Sibylla",
         "brand": "Sibylla",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -297,6 +306,7 @@
         "opening_hours": "Mo-Fr 10:00-22:00; Sa,Su 10:00-18:00",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -317,6 +327,7 @@
         "opening_hours": "Mo,Tu 10:00-24:00, We,Th 10:00-01:00, Fr 10:00-04:00, Sa 11:00-04:00, Su 11:00-24:00",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -350,6 +361,7 @@
         "osm_type": "node",
         "name": "Ramona Pizzeria och Restaurang",
         "opening_hours": "Mo-Fr 11:00-14:00, 16:30-21:00; Sa, Su 16:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -369,6 +381,7 @@
         "brand": "Burger King",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -386,6 +399,23 @@
         "osm_type": "node",
         "name": "Samurai",
         "opening_hours": "Mo-Sa 11:00-21:00, Su 12:00-21:00",
+        "cuisine": "sushi",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.0185096,
+          55.6069633
+        ]
+      },
+      "properties": {
+        "id": 444882355,
+        "osm_type": "node",
+        "name": "Shawarma House",
         "chain": "unknown"
       }
     },
@@ -405,6 +435,7 @@
         "opening_hours": "Mo-Th 11:00-22:00; Fr-Sa 11:00-23:00; Su 11:00-22:00",
         "phone": "+46 40 78316",
         "website": "https://www.amanos.se/",
+        "cuisine": "pizza;kebab;burger",
         "chain": "unknown"
       }
     },
@@ -423,6 +454,7 @@
         "name": "Burger King Höllviken",
         "opening_hours": "Mo-Su 10:00-21:00",
         "operator": "Burger King",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -441,6 +473,7 @@
         "name": "Thai Way",
         "opening_hours": "Mo-Fr 11:00-14:00",
         "website": "http://www.thaiway.se/meny.html",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -457,6 +490,7 @@
         "id": 461300173,
         "osm_type": "node",
         "name": "Restaurang Amadeus",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -475,6 +509,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -491,6 +526,7 @@
         "id": 482804794,
         "osm_type": "node",
         "name": "Pad Thai",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -507,6 +543,7 @@
         "id": 482858917,
         "osm_type": "node",
         "name": "Thaivagnen",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -525,6 +562,7 @@
         "name": "Olympiagrillen",
         "phone": "+46-42-147762",
         "website": "https://www.facebook.com/pages/OLYMPIAGRILLEN/172491612809515",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -544,6 +582,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 07:00-02:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -562,6 +601,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -596,6 +636,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -632,6 +673,7 @@
         "opening_hours": "Su-Th 10:00-24:00, Fr,Sa 10:00-04:00",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -664,6 +706,7 @@
         "id": 601563968,
         "osm_type": "node",
         "name": "Vellinge kebabvagn",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -680,6 +723,7 @@
         "id": 601563970,
         "osm_type": "node",
         "name": "Simple Eatery",
+        "cuisine": "burger;vietnamese",
         "chain": "unknown"
       }
     },
@@ -712,6 +756,7 @@
         "id": 649056261,
         "osm_type": "node",
         "name": "Pizzeria Venedig",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -744,6 +789,7 @@
         "id": 656642160,
         "osm_type": "node",
         "name": "Diné Burgers",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -760,6 +806,7 @@
         "id": 656642172,
         "osm_type": "node",
         "name": "Pizzeria Bomb",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -776,6 +823,7 @@
         "id": 658739381,
         "osm_type": "node",
         "name": "City Wok",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -793,6 +841,7 @@
         "osm_type": "node",
         "name": "Pizzeria Lamare",
         "opening_hours": "Mo-Fr 10:00-22:00; Sa,Su 13:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -809,6 +858,7 @@
         "id": 671298896,
         "osm_type": "node",
         "name": "Babylon pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -826,6 +876,7 @@
         "osm_type": "node",
         "name": "Olympia Pub & Pizzeria",
         "opening_hours": "Mo-Fr 11:00-22:00; Sa-Su 12:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -842,6 +893,7 @@
         "id": 715788235,
         "osm_type": "node",
         "name": "Pizzeria Torino",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -858,6 +910,7 @@
         "id": 717410162,
         "osm_type": "node",
         "name": "Pizzeria Cleopatra",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -874,6 +927,7 @@
         "id": 717704322,
         "osm_type": "node",
         "name": "Restaurang Pizzeria Tigris",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -890,6 +944,7 @@
         "id": 762834444,
         "osm_type": "node",
         "name": "Pizzeria Rondellen",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -907,6 +962,7 @@
         "osm_type": "node",
         "name": "Hedens Pizzeria - Pastamannen",
         "opening_hours": "Mo-Fr 11:00-21:00; Sa,Su 13:00-21:00",
+        "cuisine": "pizza;pasta",
         "chain": "unknown"
       }
     },
@@ -928,6 +984,7 @@
         "phone": "+46 431 80525",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -944,6 +1001,7 @@
         "id": 792387214,
         "osm_type": "node",
         "name": "Vero",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -978,6 +1036,7 @@
         "osm_type": "node",
         "name": "Rydebäcks pizzeria",
         "opening_hours": "Mo-Th 14:00-21:00; Fr,Sa 12:30-22:00; Su 12:30-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -996,6 +1055,7 @@
         "name": "Pizzeria Premiere",
         "opening_hours": "Mo-Fr 11:00-22:00; Sa-Su 12:00-22:00",
         "phone": "+46-43180999",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1013,6 +1073,7 @@
         "osm_type": "node",
         "name": "Pizzeria Napolitana",
         "opening_hours": "Mo-Fr 11:00-22:00; Sa-Su 12:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1029,6 +1090,7 @@
         "id": 826216209,
         "osm_type": "node",
         "name": "Thai In",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -1045,6 +1107,7 @@
         "id": 834568366,
         "osm_type": "node",
         "name": "Kulltorps pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1064,6 +1127,7 @@
         "opening_hours": "11:00-20:00",
         "phone": "+46 431 12 34 1",
         "operator": "Sibylla",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1080,6 +1144,7 @@
         "id": 845263300,
         "osm_type": "node",
         "name": "Grillkök Hong Kong",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -1097,6 +1162,7 @@
         "osm_type": "node",
         "name": "Pizzeria Venezia",
         "opening_hours": "Mo-Su 16:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1116,6 +1182,7 @@
         "brand": "Burger King",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -1135,6 +1202,7 @@
         "opening_hours": "Mo-Fr 11:00-22:00; Sa-Su 12:00-22:00",
         "phone": "+46 42 132063",
         "website": "https://www.ringstorppizzeria.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1154,6 +1222,7 @@
         "opening_hours": "Mo-Fr 16:00-21:30; Sa-Su 14:00-21:30",
         "phone": "+46 42 375100",
         "website": "https://www.lapizza.dk/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1173,6 +1242,7 @@
         "opening_hours": "Mo-Fr 16:00-21:00; Sa-Su 13:00-21:00",
         "phone": "+46 42 768 88",
         "website": "http://www.fujisushi.se",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -1189,6 +1259,7 @@
         "id": 973777039,
         "osm_type": "node",
         "name": "Vitabykiosken & Pizza",
+        "cuisine": "fast-food;pizza",
         "chain": "unknown"
       }
     },
@@ -1206,6 +1277,7 @@
         "osm_type": "node",
         "name": "Istra",
         "opening_hours": "Mo-Su 11:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1275,6 +1347,7 @@
         "opening_hours": "Mo-Fr 16:00-22:00",
         "phone": "+46 42 132927",
         "website": "https://www.palermopizzeria.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1292,6 +1365,7 @@
         "osm_type": "node",
         "name": "Högaborgs pizzeria",
         "phone": "+46 42 121995",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1308,6 +1382,7 @@
         "id": 1069564846,
         "osm_type": "node",
         "name": "Hasses",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1325,6 +1400,7 @@
         "osm_type": "node",
         "name": "Pizzeria Ljungdala",
         "opening_hours": "Mo 15:00-21:00; Tu-Th,Su 11:00-21:00; Fr-Sa 11:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1341,6 +1417,7 @@
         "id": 1150877903,
         "osm_type": "node",
         "name": "Wok On Fire",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -1357,6 +1434,7 @@
         "id": 1150877939,
         "osm_type": "node",
         "name": "Kebab King",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1376,6 +1454,7 @@
         "opening_hours": "Tu-Fr 16:00-22:00; Sa-Su 14:00-22:00",
         "phone": "+46 42 122545",
         "website": "https://www.lapizza.dk/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1395,6 +1474,7 @@
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://www.polsemannen.se/enheter/centralstationen-malmo/",
         "operator": "Pølsemannen",
+        "cuisine": "sausage;hot_dog",
         "chain": "unknown"
       }
     },
@@ -1411,6 +1491,7 @@
         "id": 1189981039,
         "osm_type": "node",
         "name": "Söder Pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1429,6 +1510,7 @@
         "name": "Ramlösa Pizzeria",
         "opening_hours": "Mo-Fr 16:00-22:00; Sa,Su 14:00-22:00",
         "phone": "+46 42 29 36 20",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1448,6 +1530,7 @@
         "opening_hours": "Mo-Fr 11:00-20:00, Sa-Su 12:00-20:00",
         "phone": "046-18 80 80",
         "website": "https://sushi2go.se",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -1465,6 +1548,7 @@
         "osm_type": "node",
         "name": "Lilla Valvet",
         "phone": "+4646184550",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1482,6 +1566,7 @@
         "osm_type": "node",
         "name": "Thai Way",
         "opening_hours": "Mo-Fr 11:00-19:00; Sa 12:00-19:00",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -1515,6 +1600,7 @@
         "id": 1231107910,
         "osm_type": "node",
         "name": "Elinebergs restaurang och pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1534,6 +1620,7 @@
         "brand": "Pizza Express",
         "opening_hours": "Mo-Fr 11:00-21:00; Sa-Su 12:00-22:00",
         "phone": "+46 42 215202",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1553,6 +1640,7 @@
         "opening_hours": "Mo-Fr 16:00-22:00; Sa-Su 13:00-22:00",
         "phone": "+46 42 291118",
         "website": "http://lepizzabianco.com/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1569,6 +1657,7 @@
         "id": 1286550431,
         "osm_type": "node",
         "name": "Kebab House",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1585,6 +1674,7 @@
         "id": 1286550592,
         "osm_type": "node",
         "name": "Wokway",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -1602,6 +1692,7 @@
         "osm_type": "node",
         "name": "Restaurang & Pizzeria Milano",
         "phone": "+46 42 290101",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1619,6 +1710,7 @@
         "osm_type": "node",
         "name": "Pastamannen",
         "opening_hours": "Mo-Fr 11:00-15:00",
+        "cuisine": "pasta",
         "chain": "unknown"
       }
     },
@@ -1635,6 +1727,7 @@
         "id": 1327907989,
         "osm_type": "node",
         "name": "Tågaborgs pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1651,6 +1744,7 @@
         "id": 1329680444,
         "osm_type": "node",
         "name": "Cavolo Nero",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1668,6 +1762,7 @@
         "osm_type": "node",
         "name": "Pizzabox",
         "opening_hours": "Mo-Th 15:00-21:00; Fr 15:00-22:00; Sa 13:00-22:00; Su 13:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1684,6 +1779,7 @@
         "id": 1364437548,
         "osm_type": "node",
         "name": "Restaurang Såmer",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -1703,6 +1799,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Fr 09:00-24:00; Sa 10:00-24:00; Su 10:00-23:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -1719,6 +1816,7 @@
         "id": 1385696595,
         "osm_type": "node",
         "name": "Korvhuset",
+        "cuisine": "sausages",
         "chain": "unknown"
       }
     },
@@ -1737,6 +1835,7 @@
         "name": "Sandhammarens Fyrgrill",
         "opening_hours": "Mo-Fr 11:00-15:00",
         "website": "https://sandhammarensfyrgrill.se",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -1753,6 +1852,7 @@
         "id": 1399608687,
         "osm_type": "node",
         "name": "Värnhems pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1769,6 +1869,7 @@
         "id": 1399612006,
         "osm_type": "node",
         "name": "Lazio",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1785,6 +1886,7 @@
         "id": 1405825762,
         "osm_type": "node",
         "name": "Smack",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -1802,6 +1904,7 @@
         "osm_type": "node",
         "name": "Grillen gobiten",
         "operator": "Scan",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1818,6 +1921,7 @@
         "id": 1413846179,
         "osm_type": "node",
         "name": "Pizzeria Adria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1852,6 +1956,7 @@
         "osm_type": "node",
         "name": "Pizzeria Adria",
         "phone": "+46 431 19522",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1870,6 +1975,7 @@
         "name": "Norra hamnen pizzeria",
         "phone": "+46 42 145545",
         "website": "https://www.norrahamnenpizzeria.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1886,6 +1992,7 @@
         "id": 1492519569,
         "osm_type": "node",
         "name": "Wakki's",
+        "cuisine": "pizza;pasta",
         "chain": "unknown"
       }
     },
@@ -1902,6 +2009,7 @@
         "id": 1492519607,
         "osm_type": "node",
         "name": "Grillpunkten",
+        "cuisine": "burger;kebab",
         "chain": "unknown"
       }
     },
@@ -1919,6 +2027,7 @@
         "osm_type": "node",
         "name": "Gröna pärlan",
         "phone": "+46 42 283900",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1939,6 +2048,7 @@
         "opening_hours": "Su-Th 06:30-24:00; Fr-Sa 06:30-04:00",
         "operator": "Tinni Richter AB",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -1955,6 +2065,7 @@
         "id": 1495922940,
         "osm_type": "node",
         "name": "Team Pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1972,6 +2083,7 @@
         "osm_type": "node",
         "name": "Pasta Stationen",
         "opening_hours": "Mo-Sa 08:00-19:00",
+        "cuisine": "pasta",
         "chain": "unknown"
       }
     },
@@ -1994,6 +2106,7 @@
         "website": "https://sibylla.se/om-sibylla/Hitta-vara-kok/helsingborg/",
         "operator": "Sibylla",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2010,6 +2123,7 @@
         "id": 1565136917,
         "osm_type": "node",
         "name": "Pizzeria Bella",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2060,6 +2174,7 @@
         "osm_type": "node",
         "name": "Jannis Pizza",
         "website": "http://www.jannispizza.com/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2076,6 +2191,7 @@
         "id": 1628413971,
         "osm_type": "node",
         "name": "Pizzeria Oden",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2092,6 +2208,7 @@
         "id": 1634155101,
         "osm_type": "node",
         "name": "Pizzeria Vikingen",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2108,6 +2225,7 @@
         "id": 1666461992,
         "osm_type": "node",
         "name": "La Perla Pizza",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2129,6 +2247,7 @@
         "website": "https://burgerking.se/restauranger/malmo/",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -2145,6 +2264,7 @@
         "id": 1668970752,
         "osm_type": "node",
         "name": "Trollebergsgrillen",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2162,6 +2282,7 @@
         "osm_type": "node",
         "name": "Mariedalsgrillen",
         "opening_hours": "Mo-Th 10:00-24:00, Fr,Sa 10:00-03:00, Su 11:00-24:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2181,6 +2302,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 08:00-23:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2197,6 +2319,7 @@
         "id": 1677336009,
         "osm_type": "node",
         "name": "Chao",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -2233,6 +2356,7 @@
         "opening_hours": "Mo-Fr 11:00-19:00; Sa 12:00-19:00; Su off",
         "phone": "+46 40 12 07 11",
         "website": "https://www.asuka.se/",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -2252,6 +2376,7 @@
         "opening_hours": "Mo-Fr 08:00-16:00",
         "website": "https://www.orklafoods.se/vartkok",
         "operator": "Orkla Foods",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2269,6 +2394,7 @@
         "osm_type": "node",
         "name": "Sofra",
         "opening_hours": "Mo-Fr 08:00-21:00; Sa 10:00-21:00; Su 10:00-20:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2287,6 +2413,7 @@
         "name": "Spazio",
         "opening_hours": "Mo-Su 08:00-22:30",
         "website": "https://spazio.nu/",
+        "cuisine": "italian;pasta",
         "chain": "unknown"
       }
     },
@@ -2303,6 +2430,7 @@
         "id": 1680808540,
         "osm_type": "node",
         "name": "Maltes Mackor",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2319,6 +2447,7 @@
         "id": 1680808746,
         "osm_type": "node",
         "name": "Hamngatans Grill",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2336,6 +2465,7 @@
         "osm_type": "node",
         "name": "Restaruang Tangjong",
         "opening_hours": "Mo-Fr 11:30-21:00; Sa-Su 15:00-21:00",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -2353,6 +2483,7 @@
         "osm_type": "node",
         "name": "Clemens Falafel",
         "opening_hours": "Mo-Th 10:00-22:00; Fr 10:00-04:00; Sa 11:00-04:00; Su 11:00-22:00",
+        "cuisine": "falafel",
         "chain": "unknown"
       }
     },
@@ -2391,6 +2522,7 @@
         "phone": "+46 40 616 07 70",
         "website": "http://restaurants.subway.com",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2427,6 +2559,7 @@
         "osm_type": "node",
         "name": "New York Pizza",
         "brand": "New York Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2459,6 +2592,7 @@
         "id": 1726889267,
         "osm_type": "node",
         "name": "Gyros Pita",
+        "cuisine": "greek",
         "chain": "unknown"
       }
     },
@@ -2475,6 +2609,7 @@
         "id": 1730423963,
         "osm_type": "node",
         "name": "China Box",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -2509,6 +2644,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2527,6 +2663,7 @@
         "name": "Påarps restaurang och pizzeria",
         "opening_hours": "Mo-Th 16:00-21:00; Fr 16:00-22:00; Sa-Su 14:00-22:00",
         "phone": "+46 42 229696",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2560,6 +2697,7 @@
         "id": 1756603252,
         "osm_type": "node",
         "name": "DAU vietnamese cuisine",
+        "cuisine": "vietnamese",
         "chain": "unknown"
       }
     },
@@ -2576,6 +2714,7 @@
         "id": 1759016498,
         "osm_type": "node",
         "name": "Restaurang & Pizzeria Boden",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2593,6 +2732,7 @@
         "osm_type": "node",
         "name": "Orvars Korvar",
         "phone": "+46 40 79965",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2625,6 +2765,7 @@
         "osm_type": "node",
         "name": "Kvarterskrog & pizzeria Bårslöv",
         "phone": "+46 42 229303",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2642,6 +2783,7 @@
         "osm_type": "node",
         "name": "Verona",
         "opening_hours": "Mo-Fr 11:30-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2659,6 +2801,7 @@
         "osm_type": "node",
         "name": "Torgkiosken",
         "opening_hours": "16:00-21:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2677,6 +2820,7 @@
         "name": "Sibylla",
         "brand": "Sibylla",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2696,6 +2840,7 @@
         "opening_hours": "Tu-Fr 12:00-20:00; Sa,Su 13:00-20:00",
         "phone": "0416-133 14",
         "website": "https://blentarppizzeria.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2715,6 +2860,7 @@
         "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00",
         "phone": "+46 42 123301",
         "website": "http://www.holgerdanske.se/",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2732,6 +2878,7 @@
         "osm_type": "node",
         "name": "Chaplin Grill",
         "opening_hours": "Mo-Fr 10:00-22:00; Sa,Su 11:00-22:00",
+        "cuisine": "barbecue",
         "chain": "unknown"
       }
     },
@@ -2748,6 +2895,7 @@
         "id": 1828994966,
         "osm_type": "node",
         "name": "Milano",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2765,6 +2913,7 @@
         "osm_type": "node",
         "name": "Pizzaboden",
         "opening_hours": "Tu-Th 16:00-21:00; Fr 11:30-21:00; Sa,Su 12:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2814,6 +2963,7 @@
         "osm_type": "node",
         "name": "Popeye Grill",
         "opening_hours": "Mo-Fr 11:00-23:00+, Sa 11:00-24:00+",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2830,6 +2980,7 @@
         "id": 1855380939,
         "osm_type": "node",
         "name": "Nobelfalafel",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2862,6 +3013,7 @@
         "id": 1934607835,
         "osm_type": "node",
         "name": "Buhres lucka",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2880,6 +3032,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -2898,6 +3051,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2914,6 +3068,7 @@
         "id": 1950482401,
         "osm_type": "node",
         "name": "Ramsåsa Grillen",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2930,6 +3085,7 @@
         "id": 1963450815,
         "osm_type": "node",
         "name": "Löddes Pizza",
+        "cuisine": "pizza;burger",
         "chain": "unknown"
       }
     },
@@ -2982,6 +3138,7 @@
         "name": "Max",
         "brand": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2998,6 +3155,7 @@
         "id": 1999377694,
         "osm_type": "node",
         "name": "Pizzeria Amore",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3015,6 +3173,7 @@
         "osm_type": "node",
         "name": "Schnitzel & Burgare",
         "phone": "+46-42-816 54",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -3062,6 +3221,7 @@
         "id": 2100687256,
         "osm_type": "node",
         "name": "Robertos",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3081,6 +3241,7 @@
         "opening_hours": "Mo-Fr 11:00-14:30,16:30-19:00; Sa 12:00-19:30",
         "phone": "+46768698888",
         "website": "https://fengssondumplingshouse.se",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -3096,6 +3257,7 @@
       "properties": {
         "id": 2176934011,
         "osm_type": "node",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3128,6 +3290,7 @@
         "id": 2206705120,
         "osm_type": "node",
         "name": "Lomma Kebab och Falafel",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3145,6 +3308,7 @@
         "osm_type": "node",
         "name": "Shwarma King",
         "opening_hours": "Su-Th 11:00-22:00, Fr,Sa 11:00-05:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3162,6 +3326,7 @@
         "osm_type": "node",
         "name": "Kebab & Falafel Time",
         "opening_hours": "Mo-Th 11:00-21:00; Fr 11:00-22:00; Sa 15:00-22:00; Su 15:00-21:00",
+        "cuisine": "kebab;falafel;shawarma",
         "chain": "unknown"
       }
     },
@@ -3180,6 +3345,7 @@
         "name": "Hamlets baguette",
         "opening_hours": "Mo-Fr 10:00-17:00",
         "phone": "+46 760-67 31 10",
+        "cuisine": "sandwich;falafel;burger;kebab",
         "chain": "unknown"
       }
     },
@@ -3196,6 +3362,7 @@
         "id": 2368845866,
         "osm_type": "node",
         "name": "Pizzeria Vellinge",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3212,6 +3379,7 @@
         "id": 2375926169,
         "osm_type": "node",
         "name": "Pizzeria Empoli",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3231,6 +3399,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00; Su 11:00-17:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3248,6 +3417,7 @@
         "osm_type": "node",
         "name": "Bäck's Burger",
         "website": "https://www.xn--bcksburger-q5a.se/",
+        "cuisine": "burger;pizza",
         "chain": "unknown"
       }
     },
@@ -3264,6 +3434,7 @@
         "id": 2398871034,
         "osm_type": "node",
         "name": "Jalla Jalla",
+        "cuisine": "falafel",
         "chain": "unknown"
       }
     },
@@ -3299,6 +3470,7 @@
         "brand": "Sibylla",
         "opening_hours": "Sep-May: Mo-Su,PH 10:30-21:00; Jun-Aug: Mo-Su,PH 10:30-22:00",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -3318,6 +3490,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 09:00-24:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3334,6 +3507,7 @@
         "id": 2424183983,
         "osm_type": "node",
         "name": "Lyckans Pizza & Take away",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3351,6 +3525,7 @@
         "osm_type": "node",
         "name": "Gröna Huset",
         "opening_hours": "Mo-Fr 11:30-21:00; Sa,Su 14:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3366,6 +3541,7 @@
       "properties": {
         "id": 2582222084,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3384,6 +3560,7 @@
         "name": "Bollen i rullen",
         "opening_hours": "Mo-Su 10:00-22:00",
         "phone": "072-025 00 25",
+        "cuisine": "kebab;falafel",
         "chain": "unknown"
       }
     },
@@ -3416,6 +3593,7 @@
         "id": 2715607889,
         "osm_type": "node",
         "name": "Shah's Halal Food",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3432,6 +3610,7 @@
         "id": 2715612084,
         "osm_type": "node",
         "name": "Burek & Ćevapi Mästarna",
+        "cuisine": "balkan",
         "chain": "unknown"
       }
     },
@@ -3466,6 +3645,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3484,6 +3664,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3518,6 +3699,7 @@
         "name": "Neptungrillen",
         "phone": "+4646294930",
         "website": "https://neptunipizza.com",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -3534,6 +3716,7 @@
         "id": 3170405429,
         "osm_type": "node",
         "name": "Sushi",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -3550,6 +3733,7 @@
         "id": 3328208712,
         "osm_type": "node",
         "name": "Pizzeria capri",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3567,6 +3751,7 @@
         "osm_type": "node",
         "name": "Bollen i rullen",
         "opening_hours": "Mo-Th 11:00-22:00; Fr 11:00-04:00; Su 11:00-22:00",
+        "cuisine": "kebab;falafel;pizza",
         "chain": "unknown"
       }
     },
@@ -3616,6 +3801,7 @@
         "osm_type": "node",
         "name": "Vegenat",
         "opening_hours": "Mo-Su 09:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3632,6 +3818,7 @@
         "id": 3410302000,
         "osm_type": "node",
         "name": "Restaurang Linero Pizzeria & Pub",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3648,6 +3835,7 @@
         "id": 3413938812,
         "osm_type": "node",
         "name": "Beddinge restaurang & pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3663,6 +3851,7 @@
       "properties": {
         "id": 3440857572,
         "osm_type": "node",
+        "cuisine": "pasta",
         "chain": "unknown"
       }
     },
@@ -3697,6 +3886,7 @@
         "osm_type": "node",
         "name": "Kågeröds Pizzeria",
         "website": "https://kagerodspizzeria.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3713,6 +3903,7 @@
         "id": 3473354977,
         "osm_type": "node",
         "name": "Södervärn Salladsbar",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -3730,6 +3921,7 @@
         "osm_type": "node",
         "name": "Snabbt & gott",
         "opening_hours": "Mo-Fr 10:00-19:00; Sat-Su 10:00-18:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -3746,6 +3938,7 @@
         "id": 3473354981,
         "osm_type": "node",
         "name": "Salles Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -3763,6 +3956,7 @@
         "osm_type": "node",
         "name": "Falafel Bagdad",
         "opening_hours": "Mo-Su 10:00-23:00",
+        "cuisine": "middle_eastern;kebab;falafel",
         "chain": "unknown"
       }
     },
@@ -3779,6 +3973,7 @@
         "id": 3569468493,
         "osm_type": "node",
         "opening_hours": "Tu-Fr 11:00-21:00; Sa,Su 12:00-21:00; Mo off",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -3827,6 +4022,7 @@
         "id": 3577359399,
         "osm_type": "node",
         "name": "Thaiboden",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -3846,6 +4042,7 @@
         "opening_hours": "Tu-Th 15:30-21:00; Fr 15:30-21:30; Sa 13:00-21:30; Su 13:00-21:00",
         "phone": "+46 431-100 53",
         "website": "http://smpizza.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3863,6 +4060,7 @@
         "osm_type": "node",
         "name": "Yazhou Express",
         "website": "http://express.yazhou.se/",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -3879,6 +4077,7 @@
         "id": 3644973997,
         "osm_type": "node",
         "name": "Råå Pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3895,6 +4094,7 @@
         "id": 3693536962,
         "osm_type": "node",
         "name": "Arlövs kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3913,6 +4113,7 @@
         "name": "Robin's Pizzeria",
         "phone": "+46 451 742054",
         "website": "https://www.facebook.com/RobinsPizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3931,6 +4132,7 @@
         "name": "Rondellgrillen",
         "opening_hours": "09:00-18:00",
         "phone": "+46 451 23120",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -3947,6 +4149,7 @@
         "id": 3744530430,
         "osm_type": "node",
         "name": "Hasslarps pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3963,6 +4166,7 @@
         "id": 3745046908,
         "osm_type": "node",
         "name": "Picco Bello",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3978,6 +4182,7 @@
       "properties": {
         "id": 3777446761,
         "osm_type": "node",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3995,6 +4200,7 @@
         "osm_type": "node",
         "name": "Lindängens thai food",
         "phone": "+46-40-19 25 90",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -4011,6 +4217,7 @@
         "id": 3786483531,
         "osm_type": "node",
         "name": "Eva's",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4031,6 +4238,7 @@
         "opening_hours": "Mo-Th 10:00-24:00, Fr-Sa 10:00-02:00, Su 10:00-24:00",
         "website": "https://www.kfc.nu/hitta-oss/kfc-lockarp/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4049,6 +4257,7 @@
         "name": "L'Acquafarina",
         "opening_hours": "We-Fr 16:00-20:00; Sa,Su 13:00-20:00",
         "phone": "+4672-316 50 40",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4065,6 +4274,7 @@
         "id": 3941412623,
         "osm_type": "node",
         "name": "Bosniska Ćevapćići",
+        "cuisine": "bosnian;kebab",
         "chain": "unknown"
       }
     },
@@ -4081,6 +4291,7 @@
         "id": 3986086966,
         "osm_type": "node",
         "name": "La Soupe",
+        "cuisine": "soup",
         "chain": "unknown"
       }
     },
@@ -4100,6 +4311,7 @@
         "opening_hours": "Mo-Fr 11:00-22:00; Sa-Su 12:00-22:00",
         "phone": "+46 42 131819",
         "website": "https://www.pizzeriamonalisa.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4117,6 +4329,7 @@
         "osm_type": "node",
         "name": "Bingo",
         "opening_hours": "Mo-Fr 11:00-22:00; Sa,Su 12:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4134,6 +4347,7 @@
         "osm_type": "node",
         "name": "Värnhems falafel",
         "opening_hours": "Mo-Su 10:00-00:00",
+        "cuisine": "arab;kebab",
         "chain": "unknown"
       }
     },
@@ -4166,6 +4380,7 @@
         "id": 4037719311,
         "osm_type": "node",
         "name": "Alanya",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -4182,6 +4397,7 @@
         "id": 4037719312,
         "osm_type": "node",
         "name": "Maguro",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -4216,6 +4432,7 @@
         "osm_type": "node",
         "name": "Palaza grill",
         "opening_hours": "Mo-Sa 10:00-24:00, Su 11:00-23:00",
+        "cuisine": "pizza;burger;falafel;kebab",
         "chain": "unknown"
       }
     },
@@ -4233,6 +4450,7 @@
         "osm_type": "node",
         "name": "Two Forks Hummus Shop",
         "phone": "+46 73 841 17 77",
+        "cuisine": "mellanöstern",
         "chain": "unknown"
       }
     },
@@ -4248,7 +4466,8 @@
       "properties": {
         "id": 4254748253,
         "osm_type": "node",
-        "name": "Darbare Wali",
+        "name": "Sahak",
+        "cuisine": "middle_eastern",
         "chain": "unknown"
       }
     },
@@ -4284,6 +4503,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Fr 07:00-21:00, Sa-Su 09:00-21:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4303,6 +4523,7 @@
         "opening_hours": "Mo-Fr 13:00-21:00; Sa-Su 11:00-21:00",
         "phone": "+46-40-430250",
         "website": "http://vikingarlov.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4338,6 +4559,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Sa 10:00-22:00; Su 11:00-21:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4369,6 +4591,7 @@
       "properties": {
         "id": 4450552332,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4385,6 +4608,7 @@
         "id": 4453696830,
         "osm_type": "node",
         "name": "Vä Pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4401,6 +4625,7 @@
         "id": 4455587910,
         "osm_type": "node",
         "name": "Köpinge Pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4434,6 +4659,7 @@
         "osm_type": "node",
         "name": "Pizza House & Grill",
         "opening_hours": "Mo-Th 10:00-23:00; Sa 10:00-02:00, Su 10:00-22:00",
+        "cuisine": "kebab;falafel;pizza",
         "chain": "unknown"
       }
     },
@@ -4453,6 +4679,7 @@
         "opening_hours": "Tu-Fr 14:00-22:00; Sa-Su 13:00-22:00",
         "phone": "+4640974439",
         "website": "https://www.tiamopizza.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4469,6 +4696,7 @@
         "id": 4523429890,
         "osm_type": "node",
         "name": "Malmö Kebab",
+        "cuisine": "kebab;turkish;falafel",
         "chain": "unknown"
       }
     },
@@ -4488,6 +4716,7 @@
         "opening_hours": "Mo-Fr 11:00-21:00; Sa-Su 15:00-21:00",
         "phone": "+46 40-91 30 70",
         "website": "https://www.helsingburger.se/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4508,6 +4737,7 @@
         "opening_hours": "Mo-Fr 08:30-22:00; Sa,Su 10:00-20:00",
         "website": "https://restaurants.subway.com/sweden/malmo/masttorget-1",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4524,6 +4754,7 @@
         "id": 4610147523,
         "osm_type": "node",
         "name": "Pak Indo Box",
+        "cuisine": "indian",
         "chain": "unknown"
       }
     },
@@ -4543,6 +4774,7 @@
         "brand": "Domino's",
         "website": "https://www.dominos.se/",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4561,6 +4793,7 @@
         "name": "Sibylla",
         "brand": "Sibylla",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4577,6 +4810,7 @@
         "id": 4879450090,
         "osm_type": "node",
         "name": "Falafel Beirut",
+        "cuisine": "kebab;falafel",
         "chain": "unknown"
       }
     },
@@ -4597,6 +4831,7 @@
         "opening_hours": "Mo-Th 09:00-22:00, Fr 09:00-04:00, Sa 10:00-04:00, Su 10:00-22:00",
         "phone": "+46-728866807",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4617,6 +4852,7 @@
         "phone": "+46-5591013890",
         "website": "https://www.tacobar.se/",
         "brand:wikidata": "Q10689652",
+        "cuisine": "tex-mex",
         "chain": "unknown"
       }
     },
@@ -4649,6 +4885,7 @@
         "id": 5318761147,
         "osm_type": "node",
         "name": "Falafel Triangeln N.1",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4669,6 +4906,7 @@
         "opening_hours": "Mo-Su 11:00-23:00",
         "phone": "+46 40 90123",
         "website": "https://www.dominos.se/stores/Katrinelund.php",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4688,6 +4926,7 @@
         "brand": "Domino's",
         "opening_hours": "PH,Mo-Su 11:00-23:00",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4707,6 +4946,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Th 09:00-24:00; Fr-Sa 09:00-05:00, Su 09:00-24:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4726,6 +4966,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Fr 09:00-22:00; Sa 10:00-22:00; Su 10:00-20:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4742,6 +4983,7 @@
         "id": 5520988585,
         "osm_type": "node",
         "name": "Kebabkungen",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4759,6 +5001,7 @@
         "osm_type": "node",
         "name": "Orvars Burger & More",
         "opening_hours": "Mo-Th 11:00-14:00,17:00-20:00, Fr 11:00-14:00,17:00-21:00, Sa 12:00-21:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4777,6 +5020,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4796,6 +5040,7 @@
         "brand": "Domino's",
         "opening_hours": "Mo-Su 11:00-01:00",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4846,6 +5091,7 @@
         "id": 5714913199,
         "osm_type": "node",
         "name": "Hässleholmsgrillen",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4865,6 +5111,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Fr 10:00-21:00; Sa 11:00-21:00; Su 11:00-19:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4899,6 +5146,7 @@
         "name": "LED Café",
         "opening_hours": "Mo-Fr 08:00-15:00",
         "website": "https://www.dsek.se/cafe",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4918,6 +5166,7 @@
         "opening_hours": "Mo-Fr 10:00-14:00",
         "website": "https://www.grontogott.se/vara-restauranger/",
         "operator": "Grontogott i Lund AB",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -4936,6 +5185,7 @@
         "name": "Milans Korvkiosk På Hven",
         "opening_hours": "Seasonal",
         "website": "https://www.facebook.com/pages/Milans-Korvkiosk-På-Hven/1107716905955587",
+        "cuisine": "korv",
         "chain": "unknown"
       }
     },
@@ -4953,6 +5203,7 @@
         "osm_type": "node",
         "name": "Rondell Pizzeria",
         "opening_hours": "Mo-Su 11:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4972,6 +5223,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Su 10:00-21:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -5004,6 +5256,7 @@
         "id": 6250400769,
         "osm_type": "node",
         "name": "Wok Kitchen",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -5020,6 +5273,7 @@
         "id": 6250400771,
         "osm_type": "node",
         "name": "Via Piazza",
+        "cuisine": "pizza;pasta",
         "chain": "unknown"
       }
     },
@@ -5039,6 +5293,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Fr 10:00-20:00, Sa 10:00-19:00, Su 10:00-18:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -5059,6 +5314,7 @@
         "opening_hours": "10:00-24:00",
         "website": "https://burgerking.se/restaurants/hassleholm/",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -5076,6 +5332,7 @@
         "osm_type": "node",
         "name": "Korvhuset",
         "website": "https://www.korvhuset.com/",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -5096,6 +5353,7 @@
         "opening_hours": "Su-Tu 11:00-21:00, We,Th 11:00-23:00, Fr,Sa 11:00-04:00",
         "website": "https://www.germandonerkebab.com/",
         "brand:wikidata": "Q112913418",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5150,6 +5408,7 @@
         "opening_hours": "Mo-Fr 11:00-19:00; Sa-Su 11:00-16:00",
         "website": "https://www.polsemannen.se/enheter/harald-nyborg-svagertorp/",
         "operator": "Pølsemannen",
+        "cuisine": "sausage;hot_dog",
         "chain": "unknown"
       }
     },
@@ -5168,6 +5427,7 @@
         "name": "Pizzeria Helena",
         "opening_hours": "Mo 18:00-22:00; Tu-Su 16:00-22:00",
         "phone": "+4640-12 30 09",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5187,6 +5447,7 @@
         "brand": "Max",
         "opening_hours": "Su-Th 10:00-03:00, Fr,Sa 10:00-04:00",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -5206,6 +5467,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 09:00-24:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -5225,6 +5487,7 @@
         "brand": "Max",
         "opening_hours": "Su-Th 10:00-02:00, Fr,Sa 10:00-03:00",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -5243,6 +5506,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -5263,6 +5527,7 @@
         "opening_hours": "Mo-Su 10:00-00:00",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -5298,6 +5563,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -5346,6 +5612,7 @@
       "properties": {
         "id": 6661088989,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5362,6 +5629,7 @@
         "id": 6693436331,
         "osm_type": "node",
         "name": "Aladdins kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5378,6 +5646,7 @@
         "id": 6697985174,
         "osm_type": "node",
         "name": "Pizzeria Shaplin",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5396,6 +5665,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5415,6 +5685,7 @@
         "brand": "ChopChop",
         "opening_hours": "PH,Mo-Su 11:00-21:00",
         "brand:wikidata": "Q104631081",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -5447,6 +5718,7 @@
         "id": 6772719783,
         "osm_type": "node",
         "name": "Allan's Fresh Food",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -5499,6 +5771,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Su 10:00-22:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -5516,6 +5789,7 @@
         "osm_type": "node",
         "name": "Åhus Pizzeria",
         "website": "http://www.ahuspizzeria.se/",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -5532,6 +5806,7 @@
         "id": 6918598727,
         "osm_type": "node",
         "name": "Näsum´s Pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5548,6 +5823,7 @@
         "id": 6926065208,
         "osm_type": "node",
         "name": "Pölsemannen",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -5564,6 +5840,7 @@
         "id": 6926065209,
         "osm_type": "node",
         "name": "Pölsemannen",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -5584,6 +5861,7 @@
         "opening_hours": "Mo-Th 11:00-20:00; Fr,Sa 11:00-21:00; Su 12:00-20:00",
         "operator": "German Döner Kebab",
         "brand:wikidata": "Q112913418",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5601,6 +5879,7 @@
         "osm_type": "node",
         "name": "Bellezza Pizzeria",
         "phone": "+4640163434",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5618,6 +5897,7 @@
         "osm_type": "node",
         "name": "Bosniska Köket",
         "opening_hours": "Mo-Fr 11:00-19:00; Sa 11:00-18:00; Su 12:00-18:00",
+        "cuisine": "burger;bosnian;balkan",
         "chain": "unknown"
       }
     },
@@ -5634,6 +5914,7 @@
         "id": 7283438895,
         "osm_type": "node",
         "name": "Habayeb",
+        "cuisine": "middle_eastern;kebab;falafel",
         "chain": "unknown"
       }
     },
@@ -5667,6 +5948,7 @@
         "osm_type": "node",
         "name": "Tornet Pizzeria",
         "opening_hours": "Mo-Su 11:00-23:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5683,6 +5965,7 @@
         "id": 7500699334,
         "osm_type": "node",
         "name": "Al-Shami",
+        "cuisine": "syrian;arab:manakish",
         "chain": "unknown"
       }
     },
@@ -5699,6 +5982,7 @@
         "id": 7648265214,
         "osm_type": "node",
         "name": "Burger Mob",
+        "cuisine": "hamburger",
         "chain": "unknown"
       }
     },
@@ -5715,6 +5999,7 @@
         "id": 7695161936,
         "osm_type": "node",
         "name": "Kebabvagnen",
+        "cuisine": "kebab;falafel",
         "chain": "unknown"
       }
     },
@@ -5731,6 +6016,7 @@
         "id": 7791158765,
         "osm_type": "node",
         "name": "Sopi Burek House",
+        "cuisine": "balkan",
         "chain": "unknown"
       }
     },
@@ -5748,6 +6034,7 @@
         "osm_type": "node",
         "name": "Katarinalund Grill",
         "phone": "+46 707889747",
+        "cuisine": "balkan",
         "chain": "unknown"
       }
     },
@@ -5765,6 +6052,7 @@
         "osm_type": "node",
         "name": "Adam's Pizzeria",
         "website": "https://adamspizzeria.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5784,6 +6072,7 @@
         "opening_hours": "Mo-Th 10:00-20:00, Fr-Su 10:00-21:00",
         "phone": "+46 729 19 41 98",
         "website": "https://www.lagreen.se/",
+        "cuisine": "sandwich;salad",
         "chain": "unknown"
       }
     },
@@ -5801,6 +6090,7 @@
         "osm_type": "node",
         "name": "Salads and Smoothies",
         "opening_hours": "Mo-Th 07:00-17:00, Fr 07:00-15:00",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -5817,6 +6107,7 @@
         "id": 8072027418,
         "osm_type": "node",
         "name": "Pizzeria Forno a Legna",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5833,6 +6124,7 @@
         "id": 8072027423,
         "osm_type": "node",
         "name": "grönt o’ gott",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -5849,6 +6141,7 @@
         "id": 8072638355,
         "osm_type": "node",
         "name": "Chaplin Grill",
+        "cuisine": "kebab;falafel",
         "chain": "unknown"
       }
     },
@@ -5867,6 +6160,7 @@
         "name": "Milano Pizzeria",
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+4640920255",
+        "cuisine": "pizza;burger;kebab",
         "chain": "unknown"
       }
     },
@@ -5885,6 +6179,7 @@
         "name": "Pizzeria Pompei",
         "phone": "+4640268945",
         "website": "https://www.pizzeriapompei.nu/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5901,6 +6196,7 @@
         "id": 8078205800,
         "osm_type": "node",
         "name": "Mr Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5920,6 +6216,7 @@
         "opening_hours": "Su-Th 10:00-00:30; Fr-Sa 10:00-03:45",
         "phone": "0704755141",
         "website": "https://shawarmaspecialisten.com",
+        "cuisine": "middle_eastern;shawarma;kebab;falafel",
         "chain": "unknown"
       }
     },
@@ -5936,6 +6233,7 @@
         "id": 8084686644,
         "osm_type": "node",
         "name": "piri piri",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5968,6 +6266,7 @@
         "id": 8453482158,
         "osm_type": "node",
         "name": "Freakin' Fries",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -6052,6 +6351,7 @@
         "name": "Matfabrikens Livs och Delikatesser - Korv Olle",
         "website": "https://korvolle.se/places/korvolle-dockan/",
         "operator": "Matfabriken i Västra Hamnen AB / Korv Olle",
+        "cuisine": "korv",
         "chain": "unknown"
       }
     },
@@ -6084,6 +6384,7 @@
         "id": 9153134416,
         "osm_type": "node",
         "name": "Österlengrill",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6100,6 +6401,7 @@
         "id": 9270780750,
         "osm_type": "node",
         "name": "Allans food truck",
+        "cuisine": "falafel;kebab;fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -6116,6 +6418,7 @@
         "id": 9496120729,
         "osm_type": "node",
         "name": "Pastamannen",
+        "cuisine": "pasta;salad",
         "chain": "unknown"
       }
     },
@@ -6198,6 +6501,7 @@
         "id": 9682624800,
         "osm_type": "node",
         "name": "Cameron's pastastuga",
+        "cuisine": "pasta",
         "chain": "unknown"
       }
     },
@@ -6215,6 +6519,7 @@
         "osm_type": "node",
         "name": "Pizzeria Parma",
         "opening_hours": "PH,Tu-Su 14:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6263,6 +6568,7 @@
         "id": 9918995764,
         "osm_type": "node",
         "name": "Pizzastugan",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6295,6 +6601,7 @@
         "osm_type": "node",
         "name": "Sumo Kitchen",
         "opening_hours": "Mo-Fr 11:30-20:00; Sa 12:00-20:00; Su off",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -6312,6 +6619,7 @@
         "osm_type": "node",
         "name": "Bangkok Street Thai Take Away",
         "opening_hours": "Tu-Fr 11:00-14:00; Su 17:00-20:00; PH off",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -6344,6 +6652,7 @@
         "id": 9949485305,
         "osm_type": "node",
         "name": "glassfabrik Signes",
+        "cuisine": "ice_cream",
         "chain": "unknown"
       }
     },
@@ -6361,6 +6670,7 @@
         "osm_type": "node",
         "name": "Mix & Eat",
         "opening_hours": "Mo-Fr 11:00-15:00",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -6378,6 +6688,7 @@
         "osm_type": "node",
         "name": "Le Mani",
         "opening_hours": "Mo-Fr 08:30-15:00",
+        "cuisine": "italian;salad;panini;pasta",
         "chain": "unknown"
       }
     },
@@ -6395,6 +6706,7 @@
         "osm_type": "node",
         "name": "Bjuv's Pasta & Gril",
         "opening_hours": "Mo-Fr 11:00-21:00; Sa-Su 12:00-21:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6413,6 +6725,7 @@
         "name": "Ribban Green Golf",
         "opening_hours": "Su-Th 12:00-18:00, Fr-Sa 12:00-19:00",
         "website": "https://www.ribbangreengolf.se/street-kitchen",
+        "cuisine": "burger;fish_and_chips;sausage;salad",
         "chain": "unknown"
       }
     },
@@ -6447,6 +6760,7 @@
         "id": 10108064136,
         "osm_type": "node",
         "name": "Östervärnsgrillen",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6464,6 +6778,7 @@
         "osm_type": "node",
         "name": "Falafel City",
         "opening_hours": "Mo-Fr 10:00-22:00; Sa,Su 11:00-22:00",
+        "cuisine": "mellanöstern",
         "chain": "unknown"
       }
     },
@@ -6481,6 +6796,7 @@
         "osm_type": "node",
         "name": "Street Fam",
         "website": "https://www.facebook.com/streetfam.se/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6499,6 +6815,7 @@
         "name": "Jack's Gatukök",
         "opening_hours": "Mo-Fr 11:30-20:00; Sa-Su 12:00-17:00",
         "website": "https://www.jacksgatukok.se/",
+        "cuisine": "burger;hot_dog",
         "chain": "unknown"
       }
     },
@@ -6516,6 +6833,7 @@
         "osm_type": "node",
         "name": "Mix n Go Salads",
         "opening_hours": "Mo-Fr 10:00-15:00; Sa 11:00-15:00",
+        "cuisine": "salad_bar",
         "chain": "unknown"
       }
     },
@@ -6551,6 +6869,7 @@
         "osm_type": "node",
         "name": "Aqua Sushi",
         "website": "https://aquasushi.se/",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -6569,6 +6888,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -6585,6 +6905,7 @@
         "id": 10754116896,
         "osm_type": "node",
         "name": "Mr Mix Falafel",
+        "cuisine": "falafel",
         "chain": "unknown"
       }
     },
@@ -6603,6 +6924,7 @@
         "name": "Taco Bar",
         "brand": "Taco Bar",
         "brand:wikidata": "Q10689652",
+        "cuisine": "tex-mex",
         "chain": "unknown"
       }
     },
@@ -6621,6 +6943,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6637,6 +6960,7 @@
         "id": 10756703300,
         "osm_type": "node",
         "name": "Boom Bagel",
+        "cuisine": "bagel;sandwich",
         "chain": "unknown"
       }
     },
@@ -6655,6 +6979,7 @@
         "name": "Meet and Eat",
         "phone": "0046760577007",
         "website": "https://meetneat.se/",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -6674,6 +6999,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Fr 10:00-21:00; Sa,Su 10:00-19:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -6693,6 +7019,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+4646144200",
         "website": "https://olympialund.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6708,6 +7035,7 @@
       "properties": {
         "id": 10934200837,
         "osm_type": "node",
+        "cuisine": "burger;hot_dog;kebab",
         "chain": "unknown"
       }
     },
@@ -6726,6 +7054,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -6758,6 +7087,7 @@
         "osm_type": "node",
         "name": "Shawarma xpert",
         "opening_hours": "Mo-Sa 10:30-02:00; Su 11:00-02:00",
+        "cuisine": "kebab;shawarma;falafel",
         "chain": "unknown"
       }
     },
@@ -6776,6 +7106,7 @@
         "name": "Africa Daily Market",
         "opening_hours": "Mo-Sa 11:00-18:30, Su 11:00-17:00",
         "website": "https://africadailymarket.se/hitta-oss/",
+        "cuisine": "västafrikansk",
         "chain": "unknown"
       }
     },
@@ -6792,6 +7123,7 @@
         "id": 11262930038,
         "osm_type": "node",
         "name": "Västgrillen",
+        "cuisine": "balkan;grill",
         "chain": "unknown"
       }
     },
@@ -6810,6 +7142,7 @@
         "name": "Smash Burger",
         "phone": "+46 73 9134830",
         "website": "https://www.smashburgerstp.com/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6828,6 +7161,7 @@
         "name": "Smash Burger",
         "phone": "+46 76 3237070",
         "website": "https://www.smashburgerstp.com/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6846,6 +7180,7 @@
         "name": "Smash Burger",
         "phone": "+46 72 3131220",
         "website": "https://www.smashburgerstp.com/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6881,6 +7216,7 @@
         "name": "Taco Bar",
         "brand": "Taco Bar",
         "brand:wikidata": "Q10689652",
+        "cuisine": "tex-mex",
         "chain": "unknown"
       }
     },
@@ -6900,6 +7236,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Sa 10:00-20:00; Su 11:00-18:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6918,6 +7255,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -6936,6 +7274,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6952,6 +7291,7 @@
         "id": 11544141710,
         "osm_type": "node",
         "name": "Naked Juicebar",
+        "cuisine": "juice",
         "chain": "unknown"
       }
     },
@@ -6970,6 +7310,7 @@
         "name": "Max",
         "brand": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6987,6 +7328,7 @@
         "osm_type": "node",
         "name": "The Pita Spot",
         "opening_hours": "Mo-Th 10:00-22:00; Fr 10:00-23:00; Sa 12:00-23:00; Su 12:00-21:00",
+        "cuisine": "international",
         "chain": "unknown"
       }
     },
@@ -7019,6 +7361,7 @@
         "id": 11905057486,
         "osm_type": "node",
         "name": "Klippans Pizzahus",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7035,6 +7378,7 @@
         "id": 11917808520,
         "osm_type": "node",
         "name": "Kajdo Sushi",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -7051,6 +7395,7 @@
         "id": 11922488622,
         "osm_type": "node",
         "name": "King Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7069,6 +7414,7 @@
         "name": "Pizza Hut Express",
         "brand": "Pizza Hut",
         "brand:wikidata": "Q191615",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7087,6 +7433,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7104,6 +7451,7 @@
         "osm_type": "node",
         "name": "Röda Kiosken",
         "opening_hours": "Tu-Su 11:00-18:00",
+        "cuisine": "hot_dog;ice_cream;burger",
         "chain": "unknown"
       }
     },
@@ -7121,6 +7469,7 @@
         "osm_type": "node",
         "name": "Fredmans",
         "opening_hours": "Mo-Su 13:00-19:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7138,6 +7487,7 @@
         "osm_type": "node",
         "name": "Grub Shack Burgers",
         "opening_hours": "Mo-Fr 10:00-20:00; Sa,Su 10:00-18:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7154,6 +7504,7 @@
         "id": 12094810395,
         "osm_type": "node",
         "name": "Haru - Sushi & Sallad",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -7170,6 +7521,7 @@
         "id": 12100103736,
         "osm_type": "node",
         "name": "burgRs",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7186,6 +7538,7 @@
         "id": 12100103737,
         "osm_type": "node",
         "name": "Taste of Damascus",
+        "cuisine": "syrian;arab;kebab;shawarma",
         "chain": "unknown"
       }
     },
@@ -7202,6 +7555,7 @@
         "id": 12106772001,
         "osm_type": "node",
         "name": "Fresh Grind",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -7218,6 +7572,7 @@
         "id": 12107656148,
         "osm_type": "node",
         "name": "Kebab Time",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7234,6 +7589,7 @@
         "id": 12107739818,
         "osm_type": "node",
         "name": "Cafe Grön",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -7251,6 +7607,7 @@
         "osm_type": "node",
         "name": "Holy Cains",
         "opening_hours": "Mo-Th,Su 10:00-23:00; Fr-Sa 10:00-24:00",
+        "cuisine": "kebab;burger",
         "chain": "unknown"
       }
     },
@@ -7267,6 +7624,7 @@
         "id": 12134311781,
         "osm_type": "node",
         "name": "X Falafel",
+        "cuisine": "falafel;middle_eastern",
         "chain": "unknown"
       }
     },
@@ -7282,6 +7640,7 @@
       "properties": {
         "id": 12139597398,
         "osm_type": "node",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -7298,6 +7657,7 @@
         "id": 12162315273,
         "osm_type": "node",
         "name": "Nikos Gyros",
+        "cuisine": "gyros;greek",
         "chain": "unknown"
       }
     },
@@ -7331,6 +7691,7 @@
         "osm_type": "node",
         "name": "Eva's",
         "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-17:00; Su 08:00-16:00",
+        "cuisine": "kebab;pizza;falafel",
         "chain": "unknown"
       }
     },
@@ -7350,6 +7711,7 @@
         "opening_hours": "Tu-Th 16:00-22:00; Fr 16:00-00:00; Sa 12:00-00:00",
         "phone": "+46 72-966 68 32",
         "website": "https://grisendraken.se/kristianstad",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7366,6 +7728,7 @@
         "id": 12443754493,
         "osm_type": "node",
         "name": "Birria De Res Food Truck",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -7382,6 +7745,7 @@
         "id": 12487224100,
         "osm_type": "node",
         "name": "Knake",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -7400,6 +7764,7 @@
         "name": "Andys Burgers",
         "opening_hours": "Mo-Th 11:00-21:00; Fr 11:00-22:00; Sa 11:30-22:00; Su 11:30-20:00",
         "website": "https://www.andysburgers.se/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7432,6 +7797,7 @@
         "id": 12814044098,
         "osm_type": "node",
         "name": "Palats",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -7448,6 +7814,7 @@
         "id": 12816700828,
         "osm_type": "node",
         "opening_hours": "Mo-Su 10:00-20:00",
+        "cuisine": "pizza;ice_cream",
         "chain": "unknown"
       }
     },
@@ -7464,6 +7831,7 @@
         "id": 12822870552,
         "osm_type": "node",
         "name": "Bella Donna",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7496,6 +7864,7 @@
         "id": 12879030031,
         "osm_type": "node",
         "name": "Lavolia Pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7513,6 +7882,7 @@
         "osm_type": "node",
         "name": "Mister York",
         "brand": "mister_york",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7529,6 +7899,7 @@
         "id": 13014857199,
         "osm_type": "node",
         "name": "Shah's Halal Food",
+        "cuisine": "middle_eastern",
         "chain": "unknown"
       }
     },
@@ -7626,6 +7997,7 @@
         "id": 13136362427,
         "osm_type": "node",
         "name": "Mister York",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7642,6 +8014,7 @@
         "id": 13142694468,
         "osm_type": "node",
         "name": "Biggie Burgers",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7658,6 +8031,7 @@
         "id": 13159386592,
         "osm_type": "node",
         "name": "Kiosko Import",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7692,6 +8066,7 @@
         "osm_type": "node",
         "name": "Burger Station",
         "opening_hours": "Mo-Fr 11:00-22:00; Sa,Su 11:00-23:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7724,6 +8099,7 @@
         "id": 13301909748,
         "osm_type": "node",
         "name": "Killebergs Pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7740,6 +8116,7 @@
         "id": 13338784401,
         "osm_type": "node",
         "name": "The Gem",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7756,6 +8133,7 @@
         "id": 13518159215,
         "osm_type": "node",
         "name": "Crazy Food",
+        "cuisine": "falafel;burger",
         "chain": "unknown"
       }
     },
@@ -7773,6 +8151,7 @@
         "osm_type": "node",
         "name": "Grillrullen Landskrona",
         "phone": "0700524163",
+        "cuisine": "burger;kebab",
         "chain": "unknown"
       }
     },
@@ -7791,6 +8170,7 @@
         "name": "Bästa Falafel",
         "opening_hours": "Mo-Th,Su 10:30-23:00; Fr 10:30-01:00; Sa 11:00-01:00",
         "phone": "0739777460",
+        "cuisine": "pizza;falafel",
         "chain": "unknown"
       }
     },
@@ -7824,6 +8204,7 @@
         "osm_type": "node",
         "name": "Manos Locos",
         "opening_hours": "Sa 17:00-20:00; Su 09:00-17:00",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -7841,6 +8222,7 @@
         "osm_type": "node",
         "name": "Pastamannen",
         "opening_hours": "Mo-Fr 11:00-18:00; PH off",
+        "cuisine": "pasta",
         "chain": "unknown"
       }
     },
@@ -7857,6 +8239,7 @@
         "id": 40658252,
         "osm_type": "way",
         "name": "Kina & Thai gatukök",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -7873,6 +8256,7 @@
         "id": 44524500,
         "osm_type": "way",
         "name": "Aptiten",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7893,6 +8277,7 @@
         "website": "http://www.mcdonalds.se",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7929,6 +8314,7 @@
         "phone": "+45 73 141 78 66",
         "website": "https://www.mikearvblompizza.com/",
         "operator": "Mike Arvblom",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7948,6 +8334,7 @@
         "brand": "McDonald's",
         "opening_hours": "24/7",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7967,6 +8354,7 @@
         "brand": "Max",
         "operator": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7986,6 +8374,7 @@
         "brand": "KFC",
         "opening_hours": "Fr,Sa 10:00-24:00; Su-Th 10:00-23:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -8006,6 +8395,7 @@
         "opening_hours": "Su-Th 10:00-23:00, Fr,Sa 10:00-24:00",
         "operator": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8038,6 +8428,7 @@
         "id": 88750423,
         "osm_type": "way",
         "name": "Balkan Grill",
+        "cuisine": "balkan",
         "chain": "unknown"
       }
     },
@@ -8054,6 +8445,7 @@
         "id": 88798881,
         "osm_type": "way",
         "name": "Kryddan",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8076,6 +8468,7 @@
         "website": "https://www.sibylla.se/om-sibylla/Hitta-vara-kok/lund/",
         "operator": "Sibylla",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8096,6 +8489,7 @@
         "opening_hours": "Mo-Su 10:00-23:00",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -8143,6 +8537,7 @@
         "id": 99364980,
         "osm_type": "way",
         "name": "Falafel Mästaren Restaurang",
+        "cuisine": "kebab;falafel;lebanese",
         "chain": "unknown"
       }
     },
@@ -8191,6 +8586,7 @@
         "id": 102209307,
         "osm_type": "way",
         "name": "Burek King Ćevapi",
+        "cuisine": "balkan",
         "chain": "unknown"
       }
     },
@@ -8209,6 +8605,7 @@
         "name": "Lussebäckens Gatukök & Pizzeria",
         "opening_hours": "Mo-Su 11:00-21:00",
         "phone": "+46 42 210174",
+        "cuisine": "burger;pizza",
         "chain": "unknown"
       }
     },
@@ -8227,6 +8624,7 @@
         "name": "Batteritorget Kök Pub Glass",
         "phone": "+46 72 302 30 83",
         "website": "https://www.facebook.com/Batteritorget/",
+        "cuisine": "burger;ice_cream;seafood",
         "chain": "unknown"
       }
     },
@@ -8243,6 +8641,7 @@
         "id": 115613093,
         "osm_type": "way",
         "name": "Asian- & Thai Fast Food",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -8262,6 +8661,7 @@
         "brand": "Burger King",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -8282,6 +8682,7 @@
         "opening_hours": "24/7",
         "phone": "+46 42 180045",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8299,6 +8700,7 @@
         "osm_type": "way",
         "name": "Gula Kiosken",
         "opening_hours": "Mo-Fr 11:00-22:00; Sa,Su 00:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8330,6 +8732,7 @@
         "id": 159635009,
         "osm_type": "way",
         "name": "Falafel No 1",
+        "cuisine": "falafel",
         "chain": "unknown"
       }
     },
@@ -8349,6 +8752,7 @@
         "brand": "Sibylla",
         "opening_hours": "Su-Th 11:00-03:00, Fr,Sa 11:00-05:00",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8381,6 +8785,7 @@
         "osm_type": "way",
         "name": "Kajsa's Grill",
         "opening_hours": "Mo-Th 10:30-18:00; Fr 10:30-17:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8397,6 +8802,7 @@
         "id": 170138013,
         "osm_type": "way",
         "name": "Sorrento",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8433,6 +8839,7 @@
         "opening_hours": "Fr,Sa 10:00-04:00, Su-Th 10:00-03:00",
         "operator": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8453,6 +8860,7 @@
         "opening_hours": "PH,Mo-Su 07:00-02:00",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8488,6 +8896,7 @@
         "opening_hours": "Mo-Th 11:00-21:00; Fr 11:00-22:00; Sa 12:00-22:00; Su 12:00-21:00",
         "phone": "+46 40 41 24 55",
         "website": "https://burgerstar.se/",
+        "cuisine": "salad;swedish_husman;pizza;burger",
         "chain": "unknown"
       }
     },
@@ -8506,6 +8915,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8522,6 +8932,7 @@
         "id": 218458955,
         "osm_type": "way",
         "name": "Oxie Grill och Pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8538,6 +8949,7 @@
         "id": 219542107,
         "osm_type": "way",
         "name": "Rekas burgers",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8557,6 +8969,7 @@
         "brand": "Burger King",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -8578,6 +8991,7 @@
         "phone": "+46-40407309",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8594,6 +9008,7 @@
         "id": 222481700,
         "osm_type": "way",
         "name": "Highway Pizza",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -8626,6 +9041,7 @@
         "id": 230677614,
         "osm_type": "way",
         "name": "Heleneholms gatukök",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8644,6 +9060,7 @@
         "name": "Malmös Burek&Cevapi",
         "opening_hours": "Mo-Sa 10:00-20:00; Su 11:00-20:00",
         "phone": "0736779141",
+        "cuisine": "balkan",
         "chain": "unknown"
       }
     },
@@ -8660,6 +9077,7 @@
         "id": 232186349,
         "osm_type": "way",
         "name": "Pastastationen",
+        "cuisine": "pasta",
         "chain": "unknown"
       }
     },
@@ -8677,6 +9095,7 @@
         "osm_type": "way",
         "name": "Grillstationen",
         "opening_hours": "Mo-Th 11:00-20:00; Fr,Sa 11:00-21:00; Su 11:00-20:00",
+        "cuisine": "burger;fast_food",
         "chain": "unknown"
       }
     },
@@ -8693,6 +9112,7 @@
         "id": 235026319,
         "osm_type": "way",
         "name": "Café Blå Kiosken",
+        "cuisine": "ice_cream",
         "chain": "unknown"
       }
     },
@@ -8708,6 +9128,7 @@
       "properties": {
         "id": 235031305,
         "osm_type": "way",
+        "cuisine": "ice_cream",
         "chain": "unknown"
       }
     },
@@ -8727,6 +9148,7 @@
         "brand": "Max",
         "operator": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8743,6 +9165,7 @@
         "id": 237104852,
         "osm_type": "way",
         "name": "Börjes Grill",
+        "cuisine": "burger;ice_cream",
         "chain": "unknown"
       }
     },
@@ -8759,6 +9182,7 @@
         "id": 239180678,
         "osm_type": "way",
         "name": "Akka grillen",
+        "cuisine": "burger,_pizza,_kebab",
         "chain": "unknown"
       }
     },
@@ -8809,6 +9233,7 @@
         "name": "Sibylla",
         "brand": "Sibylla",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8825,6 +9250,7 @@
         "id": 245954910,
         "osm_type": "way",
         "name": "Österports Gatukök",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8860,6 +9286,7 @@
         "name": "Chikos gatukök",
         "phone": "+4641360305",
         "website": "https://chikos.se/",
+        "cuisine": "burger;diner;hot_dog",
         "chain": "unknown"
       }
     },
@@ -8893,6 +9320,7 @@
         "id": 288705825,
         "osm_type": "way",
         "name": "Babylon Grill",
+        "cuisine": "kebab;falafel",
         "chain": "unknown"
       }
     },
@@ -8958,6 +9386,7 @@
         "osm_type": "way",
         "name": "FKS",
         "phone": "+46 73-912 75 32",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8990,6 +9419,7 @@
         "id": 336366815,
         "osm_type": "way",
         "name": "Super Falafel",
+        "cuisine": "kebab;falafel",
         "chain": "unknown"
       }
     },
@@ -9008,6 +9438,7 @@
         "name": "Sibylla",
         "brand": "Sibylla",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9027,6 +9458,7 @@
         "brand": "Subway",
         "operator": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich;salad",
         "chain": "unknown"
       }
     },
@@ -9044,6 +9476,7 @@
         "osm_type": "way",
         "name": "Segevångs falafel och kebab",
         "opening_hours": "Mo-Fr 10:00-22:00; Sa,Su 11:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9075,6 +9508,7 @@
         "id": 358542359,
         "osm_type": "way",
         "name": "Pastamannen",
+        "cuisine": "pasta",
         "chain": "unknown"
       }
     },
@@ -9113,6 +9547,7 @@
         "website": "https://www.max.se/max_i_vala-vala.aspx",
         "operator": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9133,6 +9568,7 @@
         "opening_hours": "Mo 10:00-22:00; Tu-Fr 10:00-00:00; Sa-Su 10:00-22:00",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -9186,6 +9622,7 @@
         "opening_hours": "Fr,Sa 10:00-02:00, Su-Th 10:00-24:00",
         "operator": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9222,6 +9659,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+46 42 28 40 66",
         "website": "https://regnbagenspizzeria.se/",
+        "cuisine": "burger;pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -9256,6 +9694,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -9290,6 +9729,7 @@
         "name": "Hyllinge Pizzeria",
         "opening_hours": "Mo-Su 11:00-21:00",
         "website": "https://hyllingepizzeria.se/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9306,6 +9746,7 @@
         "id": 424484008,
         "osm_type": "way",
         "name": "Kronborgs falafel",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9322,6 +9763,7 @@
         "id": 432764294,
         "osm_type": "way",
         "name": "Nobel Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9338,6 +9780,7 @@
         "id": 483507709,
         "osm_type": "way",
         "name": "Käk Thai",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -9373,6 +9816,7 @@
         "brand": "Sibylla",
         "phone": "+46-42-78500",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9440,6 +9884,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Su 10:00-00:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -9458,6 +9903,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -9479,6 +9925,7 @@
         "website": "https://chopchop.se/restauranger/lockarp/",
         "operator": "Chop Chop",
         "brand:wikidata": "Q104631081",
+        "cuisine": "asian;chinese;thai",
         "chain": "unknown"
       }
     },
@@ -9496,6 +9943,7 @@
         "osm_type": "way",
         "name": "Statsfalafel & Grill",
         "opening_hours": "Mo-Th 10:00-23:00; Fr,Sa 11:00-24:00; Su 11:00-23:00",
+        "cuisine": "falafel;kebab",
         "chain": "unknown"
       }
     },
@@ -9515,6 +9963,7 @@
         "brand": "KFC",
         "operator": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -9535,6 +9984,7 @@
         "opening_hours": "Mo-Su 07:00-24:00",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -9554,6 +10004,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Su 10:00-24:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -9572,6 +10023,7 @@
         "name": "Sibylla",
         "brand": "Sibylla",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9590,6 +10042,7 @@
         "name": "Fridhems Falafel",
         "opening_hours": "Mo-Su 10:00-22:00",
         "phone": "+46769777646",
+        "cuisine": "falafel",
         "chain": "unknown"
       }
     },
@@ -9608,6 +10061,7 @@
         "name": "Max",
         "brand": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9626,6 +10080,7 @@
         "name": "Sibylla",
         "brand": "Sibylla",
         "brand:wikidata": "Q488643",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9644,6 +10099,7 @@
         "name": "Max",
         "brand": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9662,6 +10118,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -9678,6 +10135,7 @@
         "id": 926225600,
         "osm_type": "way",
         "name": "Bellevue Kebab & Falafel",
+        "cuisine": "kebab;falafel",
         "chain": "unknown"
       }
     },
@@ -9694,6 +10152,7 @@
         "id": 945148552,
         "osm_type": "way",
         "name": "Pasthai",
+        "cuisine": "pasta;thai",
         "chain": "unknown"
       }
     },
@@ -9710,6 +10169,7 @@
         "id": 945148554,
         "osm_type": "way",
         "name": "Peters gatukök",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9729,6 +10189,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+4640969090",
         "operator": "Snabbt & Gott",
+        "cuisine": "hot_dog",
         "chain": "unknown"
       }
     },
@@ -9745,6 +10206,7 @@
         "id": 999605984,
         "osm_type": "way",
         "name": "Köpenhamns Falafel",
+        "cuisine": "falafel",
         "chain": "unknown"
       }
     },
@@ -9762,6 +10224,7 @@
         "osm_type": "way",
         "name": "Runda grillen",
         "opening_hours": "Mo-Su 11:00-00:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9797,6 +10260,7 @@
         "opening_hours": "Mo-Su 15:30-21:30",
         "phone": "+46 46 307872",
         "website": "www.nöbbelövspizzeria.com",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9816,6 +10280,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Fr 09:00-21:00; Sa-Su 09:00-20:30",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -9832,6 +10297,7 @@
         "id": 1021081218,
         "osm_type": "way",
         "name": "Primo no.1",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9851,6 +10317,7 @@
         "brand": "Shah's Halal Food",
         "website": "https://www.shahshalalfood.se/lund-se/",
         "brand:wikidata": "Q135009954",
+        "cuisine": "middle_eastern",
         "chain": "unknown"
       }
     },
@@ -9884,6 +10351,7 @@
         "osm_type": "way",
         "name": "Falafillo Grillo",
         "opening_hours": "Mo-Th 10:00-22:00; Fr 10:00-05:00, Sa 11:00-05:00, Su 11:00-20:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9901,6 +10369,7 @@
         "osm_type": "way",
         "name": "Lundafalafel",
         "opening_hours": "Mo-Sa 11:00-04:00, Su 12:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9935,6 +10404,7 @@
         "osm_type": "way",
         "name": "Mårtens Pizzeria",
         "opening_hours": "Su-Th 11:00-22:00; Fr,Sa 11:00-23:00",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -9954,6 +10424,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Fr 09:00-20:00; Sa 10:00-19:00; Su 11:00-19:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -9971,6 +10442,7 @@
         "osm_type": "way",
         "name": "New York Pizza",
         "brand": "New York Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9988,6 +10460,7 @@
         "osm_type": "way",
         "name": "Dimas Pizzeria",
         "phone": "+4646-12 66 46",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -10009,6 +10482,7 @@
         "website": "https://www.dominos.se/butiker/lund",
         "operator": "Dominos",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -10027,6 +10501,7 @@
         "name": "Tugg",
         "opening_hours": "Mo-Th 11:00-21:00; Fr 11:00-22:00; Sa 12:00-22:00; Su 12:00-20:00",
         "website": "https://malmo.tuggburgers.se/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10044,6 +10519,7 @@
         "osm_type": "way",
         "name": "Chaplin kebab & falafel",
         "opening_hours": "Mo-Fr 10:00-22:00; Sa-Su 11:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10064,6 +10540,7 @@
         "phone": "+46 451 36 24 0",
         "website": "https://www.mcdonalds.se",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -10085,6 +10562,7 @@
         "website": "https://www.max.se/hitta-max/restauranger/malmo-stortorget/",
         "operator": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10104,6 +10582,7 @@
         "brand": "KFC",
         "operator": "NSP Gallus AB",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -10153,6 +10632,7 @@
         "id": 1101663737,
         "osm_type": "way",
         "name": "Sibylla",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10171,6 +10651,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -10189,6 +10670,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -10207,6 +10689,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -10228,6 +10711,7 @@
         "website": "https://www.max.se/sv/Hitta-Max/Restauranger/Kristianstad-Kristianstad/",
         "operator": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10277,6 +10761,7 @@
         "osm_type": "way",
         "name": "Mister York",
         "opening_hours": "Mo-Fr 11:00-20:00; Sa-Su 11:00-21:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10298,6 +10783,7 @@
         "phone": "+46 40 44 22 30",
         "website": "https://www.max.se/hitta-max/restauranger/malmo-7-midhem/",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10317,6 +10803,7 @@
         "opening_hours": "Mo-Fr 10:30-21:00, Sa-Su 11:00-21:00",
         "website": "https://chopchop.se/",
         "brand:wikidata": "Q104631081",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -10332,6 +10819,7 @@
       "properties": {
         "id": 1379187969,
         "osm_type": "way",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -10348,6 +10836,7 @@
         "id": 1393358595,
         "osm_type": "way",
         "name": "Shawarma Baghdad",
+        "cuisine": "arab",
         "chain": "unknown"
       }
     },
@@ -10364,6 +10853,7 @@
         "id": 1427641557,
         "osm_type": "way",
         "name": "Falaafilo",
+        "cuisine": "falafel;kebab;burger",
         "chain": "unknown"
       }
     }
