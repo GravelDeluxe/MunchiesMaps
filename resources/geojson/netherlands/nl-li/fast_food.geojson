@@ -17,6 +17,7 @@
         "brand": "Burger King",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -36,6 +37,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 11:00-23:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -107,6 +109,7 @@
         "name": "Restaria Helden",
         "opening_hours": "Tu-Su 11:30-20:30",
         "website": "https://www.restariahelden.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -125,6 +128,7 @@
         "name": "Fritüre Delnoye",
         "opening_hours": "Tu-Sa 12:00-21:00",
         "phone": "+31 43 308 0209",
+        "cuisine": "regional;burger",
         "chain": "unknown"
       }
     },
@@ -145,6 +149,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -166,6 +171,7 @@
         "phone": "+31 475 301 311",
         "website": "https://www.kfc.nl/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -184,6 +190,7 @@
         "name": "Happy Frites Broekhem",
         "phone": "+31 43 8556975",
         "website": "https://happyfrites.eu/broekhem/",
+        "cuisine": "regional;friture",
         "chain": "unknown"
       }
     },
@@ -232,6 +239,7 @@
         "id": 444634766,
         "osm_type": "node",
         "name": "La Marmite",
+        "cuisine": "frites",
         "chain": "unknown"
       }
     },
@@ -248,6 +256,7 @@
         "id": 477386034,
         "osm_type": "node",
         "name": "Frietkot",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -264,6 +273,7 @@
         "id": 508572108,
         "osm_type": "node",
         "name": "Im Cardinal",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -283,6 +293,7 @@
         "brand": "AnyTyme",
         "phone": "+31 77 467 3823",
         "website": "https://www.anytyme.nl/vestigingen/anytyme-de-fijnproever",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -300,6 +311,7 @@
         "osm_type": "node",
         "name": "Het Centrum",
         "phone": "+31 77 467 3236",
+        "cuisine": "friture;burger",
         "chain": "unknown"
       }
     },
@@ -346,6 +358,7 @@
       "properties": {
         "id": 564104725,
         "osm_type": "node",
+        "cuisine": "fries",
         "chain": "unknown"
       }
     },
@@ -402,6 +415,7 @@
         "phone": "+31 475 568460",
         "website": "https://www.bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -418,6 +432,7 @@
         "id": 672569763,
         "osm_type": "node",
         "name": "Jeruzalem",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -439,6 +454,7 @@
         "phone": "+31 45 5431565",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -492,7 +508,25 @@
         "phone": "+31 495 632 754",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.6926868,
+          50.8467821
+        ]
+      },
+      "properties": {
+        "id": 945421095,
+        "osm_type": "node",
+        "name": "Le Smash",
+        "cuisine": "burger",
+        "chain": "unknown"
       }
     },
     {
@@ -586,6 +620,7 @@
       "properties": {
         "id": 1117935131,
         "osm_type": "node",
+        "cuisine": "greek",
         "chain": "unknown"
       }
     },
@@ -602,6 +637,7 @@
         "id": 1290390738,
         "osm_type": "node",
         "name": "John's Foodstore",
+        "cuisine": "american",
         "chain": "unknown"
       }
     },
@@ -619,6 +655,7 @@
         "osm_type": "node",
         "name": "'t Smulpaleis",
         "opening_hours": "12:00-20:00",
+        "cuisine": "ice_cream;burger;friture",
         "chain": "unknown"
       }
     },
@@ -687,6 +724,7 @@
         "id": 1317493221,
         "osm_type": "node",
         "name": "De Friterie",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -770,6 +808,7 @@
         "id": 1399025015,
         "osm_type": "node",
         "name": "Friture de Wien",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -817,6 +856,7 @@
         "id": 1531184188,
         "osm_type": "node",
         "name": "IJssalon Da Giovanni",
+        "cuisine": "ice_cream",
         "chain": "unknown"
       }
     },
@@ -851,6 +891,7 @@
         "name": "Nalin Grill House",
         "opening_hours": "Tu 12:00-22:00; We,Th 15:30-22:00; Fr-Su 12:00-22:00",
         "phone": "+31 43 855 3992",
+        "cuisine": "turkish;kebab;mediterranean",
         "chain": "unknown"
       }
     },
@@ -883,6 +924,7 @@
         "id": 1706089490,
         "osm_type": "node",
         "name": "Caddy's",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -899,6 +941,7 @@
         "id": 1706100570,
         "osm_type": "node",
         "name": "Big Snack De Steege",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -998,6 +1041,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -1047,6 +1091,7 @@
         "osm_type": "node",
         "name": "Snackbar Don Bosco",
         "operator": "Snackpoint",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1082,6 +1127,7 @@
         "name": "De Patatterie",
         "phone": "+31 478 585 810",
         "website": "https://www.depatatterie.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1099,6 +1145,7 @@
         "osm_type": "node",
         "name": "De Hoender",
         "phone": "+31 478 582 757",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1139,6 +1186,7 @@
         "phone": "+31 45 531 3013",
         "website": "https://mcdonaldsrestaurant.nl/landgraaf",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -1157,6 +1205,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1189,6 +1238,7 @@
         "id": 2262984252,
         "osm_type": "node",
         "name": "Cafetaria de Klein",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1207,6 +1257,7 @@
         "name": "The Döner Company",
         "brand": "The Döner Company",
         "brand:wikidata": "Q108923682",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1224,6 +1275,7 @@
         "osm_type": "node",
         "name": "Cafetaria 't Heukske",
         "website": "https://www.hetheukske.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1258,6 +1310,7 @@
         "name": "Kwalitaria",
         "brand": "Kwalitaria",
         "brand:wikidata": "Q108923597",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1276,6 +1329,7 @@
         "name": "'t Trefpunt",
         "opening_hours": "Tu-Su 16:00-22:00, We,Fr 11:30-13:30",
         "website": "https://www.eet.nu/kelpen-oler/friture-t-trefpunt/website",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1295,6 +1349,7 @@
         "brand": "Domino's",
         "website": "https://www.dominos.nl/winkel/nl-roermond-30687",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1311,6 +1366,7 @@
         "id": 2407677100,
         "osm_type": "node",
         "name": "Stadsfriterie",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -1327,6 +1383,7 @@
         "id": 2407680216,
         "osm_type": "node",
         "name": "Yildrim",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1376,6 +1433,7 @@
         "id": 2671348022,
         "osm_type": "node",
         "name": "Broodjeszaak Doedels",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -1392,6 +1450,7 @@
         "id": 2680320900,
         "osm_type": "node",
         "name": "Cafetaria Jaco",
+        "cuisine": "cafetaria",
         "chain": "unknown"
       }
     },
@@ -1412,6 +1471,7 @@
         "opening_hours": "Mo-Sa 10:00-20:00; Su 11:00-20:00",
         "phone": "+31 478 785 326",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -1465,6 +1525,7 @@
         "osm_type": "node",
         "name": "La Promenade",
         "phone": "+31 478 586 964",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1484,6 +1545,7 @@
         "opening_hours": "Mo-Th 16:00-22:00; Fr-Su 14:00-22:00",
         "phone": "+31 478 785643",
         "website": "https://www.foodiezvenray.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1500,6 +1562,7 @@
         "id": 2751159973,
         "osm_type": "node",
         "name": "Cafetaria Wilfred",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1519,6 +1582,7 @@
         "opening_hours": "We-Sa 12:00-20:00; Su 16:00-20:00",
         "phone": "+31 478 745015",
         "website": "https://www.restariasnack-koning.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1538,6 +1602,7 @@
         "opening_hours": "Tu-Su 16:30-21:00",
         "phone": "+31 46 888 5649",
         "website": "https://www.snackpointputh-online.nl/",
+        "cuisine": "friture;ice_cream",
         "chain": "unknown"
       }
     },
@@ -1587,6 +1652,7 @@
         "osm_type": "node",
         "name": "De Kolibrie",
         "website": "https://www.snackpointkolibrie.nl/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -1604,6 +1670,7 @@
         "osm_type": "node",
         "name": "Öz.Side",
         "opening_hours": "Mo,We 13:00-22:00; Tu off; Th-Su 12:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1621,6 +1688,7 @@
         "osm_type": "node",
         "name": "Cafetaria 't Hukske",
         "website": "http://www.hethukske.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1640,6 +1708,7 @@
         "opening_hours": "Mo 11:30-20:00, We-Fr 11:30-20:00, Sa-Su 11:30-21:00",
         "phone": "+31 77 390 5745",
         "website": "https://depetatbar.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1709,6 +1778,7 @@
         "phone": "+31 77 240 0240",
         "website": "https://www.dominos.nl/winkel/nl-horst-30954",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1747,6 +1817,7 @@
         "opening_hours": "Mo 14:00-21:00; Tu-Th 15:00-21:00; Fr-Su 13:00-21:00",
         "phone": "+31 77 390 5065",
         "website": "https://horst.mrsushi.nl/",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -1768,6 +1839,7 @@
         "phone": "+31 77 352 6614",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -1803,6 +1875,7 @@
         "id": 2792438479,
         "osm_type": "node",
         "name": "Amon",
+        "cuisine": "pizza;burger;kebab",
         "chain": "unknown"
       }
     },
@@ -1842,6 +1915,7 @@
         "phone": "+31 46 451 7975",
         "website": "https://www.snackpoint-munstergeleen.nl/",
         "operator": "Snackpoint",
+        "cuisine": "friture;burger",
         "chain": "unknown"
       }
     },
@@ -1858,6 +1932,7 @@
         "id": 2793010388,
         "osm_type": "node",
         "name": "Snackbar Kenny's",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1890,6 +1965,7 @@
         "id": 2793381529,
         "osm_type": "node",
         "name": "Cafetaria 't Centrum",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1906,6 +1982,7 @@
         "id": 2793411112,
         "osm_type": "node",
         "name": "Snackpoint Yvonne",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -1971,6 +2048,7 @@
         "osm_type": "node",
         "name": "Eetwinkel de frietkroam",
         "website": "https://eetwinkeldefrietkroam.nl/",
+        "cuisine": "burger;ice_cream;regional;salad;sandwich",
         "chain": "unknown"
       }
     },
@@ -1989,6 +2067,7 @@
         "name": "Spare Rib Express",
         "brand": "Spare Rib Express",
         "brand:wikidata": "Q108923605",
+        "cuisine": "barbecue",
         "chain": "unknown"
       }
     },
@@ -2008,6 +2087,7 @@
         "brand": "Kipperij",
         "website": "https://www.kipperij.nl/vestiging/maastricht/",
         "brand:wikidata": "Q134722152",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -2024,6 +2104,7 @@
         "id": 2799668493,
         "osm_type": "node",
         "name": "Cafetaria 't Pleintje",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -2094,6 +2175,7 @@
         "opening_hours": "Mo-We 12:00-22:00; Su, Th 12:00-22:30; Fr-Sa 12:00-23:00",
         "website": "https://www.newyorkpizza.nl/vestigingen/pizza-bestellen-maastricht-brusselse-poort",
         "brand:wikidata": "Q2639128",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2112,6 +2194,7 @@
         "name": "Isis Maastricht",
         "opening_hours": "Su-Th 16:00-02:00; Fr-Sa 16:00-04:00",
         "phone": "+31 43 321 7295",
+        "cuisine": "turkish",
         "chain": "unknown"
       }
     },
@@ -2129,6 +2212,7 @@
         "osm_type": "node",
         "name": "Toko Jogya",
         "website": "https://www.tokojogya.nl/",
+        "cuisine": "indonesian",
         "chain": "unknown"
       }
     },
@@ -2164,6 +2248,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 09:00-24:00; Fr 09:00-01:00; Sa 09:00-02:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2185,6 +2270,7 @@
         "phone": "+31 43 321 6747",
         "website": "https://www.dominos.nl/winkel/nl-maastrichtkoninginemmaplein-30621",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2255,6 +2341,7 @@
         "opening_hours": "Su-We 12:00-21:00; Th-Sa 12:00-22:00",
         "phone": "+31 6 82947127",
         "website": "https://www.with-love-burrito.nl/",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -2311,6 +2398,7 @@
         "brand": "KFC",
         "website": "https://kfc.nl/maastricht",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -2344,6 +2432,7 @@
         "osm_type": "node",
         "name": "Oak Berry",
         "website": "https://www.oakberry.com/en-NL#products",
+        "cuisine": "juice;smoothie",
         "chain": "unknown"
       }
     },
@@ -2362,6 +2451,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2382,6 +2472,7 @@
         "opening_hours": "Mo-Th,Su 16:00-22:00; Fr-Sa 16:00-23:00",
         "website": "https://www.tacomundo.com/vestigingen/maastricht",
         "brand:wikidata": "Q108923671",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -2401,6 +2492,7 @@
         "opening_hours": "Su-Th 16:00-01:30; Fr-Sa 16:00-02:30",
         "phone": "+31 43 321 2310",
         "website": "https://amigo-maastricht.nl/",
+        "cuisine": "turkish",
         "chain": "unknown"
       }
     },
@@ -2420,6 +2512,7 @@
         "opening_hours": "We-Mo,PH 16:00-23:00; Fr,Sa 23:00-00:00; Tu off",
         "phone": "+31 46 449 1168",
         "website": "https://www.cafetariaayasofya.nl/",
+        "cuisine": "pizza;pasta;doner",
         "chain": "unknown"
       }
     },
@@ -2439,6 +2532,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 10:00-24:00; Fr,Sa 10:00-01:00 open \"Restaurant\"",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2458,6 +2552,7 @@
         "opening_hours": "Su-We 12:00-22:00; Th-Sa 12:00-23:00",
         "phone": "+31 6 10232335",
         "website": "http://babsburritos.nl",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -2479,6 +2574,7 @@
         "phone": "+31 43 3561660",
         "website": "https://bufkes.nl/broodjes-maastricht/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2495,6 +2591,7 @@
         "id": 2810246150,
         "osm_type": "node",
         "name": "De Overweg",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2514,6 +2611,7 @@
         "brand": "McDonald's",
         "opening_hours": "07:00-23:00 open \"Restaurant\" || Su-Th 07:00-02:00; Fr,Sa 07:00-04:00 open \"McDrive\"",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2535,6 +2633,7 @@
         "phone": "+31 43 325 4600",
         "website": "https://www.newyorkpizza.nl/Store/Details?storeName=order-pizzamaastricht-scharnerweg",
         "brand:wikidata": "Q2639128",
+        "cuisine": "italian;italian_pizza;pasta;pizza",
         "chain": "unknown"
       }
     },
@@ -2553,6 +2652,7 @@
         "name": "Bancale 61 Pizzeria Napoletana",
         "phone": "+31 6 41476476",
         "website": "https://bancale61.com/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2570,6 +2670,7 @@
         "osm_type": "node",
         "name": "Preuverie De Toren",
         "website": "https://preuverie.nl",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2587,6 +2688,7 @@
         "osm_type": "node",
         "name": "Restaria Miep",
         "opening_hours": "Tu,Th,Sa-Su 16:00-21:00; We,Fr 12:00-21:00",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2608,6 +2710,7 @@
         "phone": "+31 475 410 002",
         "website": "https://mcdonaldsrestaurant.nl/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2646,6 +2749,7 @@
         "opening_hours": "Tu-Su 16:30-21:00",
         "phone": "+31 6 13530808",
         "website": "https://snackpoint.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2662,6 +2766,7 @@
         "id": 2812255713,
         "osm_type": "node",
         "name": "Aan de mért",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2681,6 +2786,7 @@
         "opening_hours": "Tu-Su 16:00-22:00",
         "phone": "+31 45 544 5314",
         "website": "https://www.cafetariabocholtz.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2717,6 +2823,7 @@
         "name": "Bistro A gen kirk",
         "opening_hours": "Tu-Su 16:00-20:00; Mo off;",
         "website": "https://tuutjevanruudje.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2736,6 +2843,7 @@
         "opening_hours": "Th-Tu 16:00-20:00",
         "phone": "+31 45 405 1219",
         "website": "https://www.anytyme.nl/Cafetarias/AnyTyme-t-Haantje-anytime-is-snacktime.htm",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2752,6 +2860,7 @@
         "id": 2814569648,
         "osm_type": "node",
         "name": "Janny's Cafetaria",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2768,6 +2877,7 @@
         "id": 2815563179,
         "osm_type": "node",
         "name": "Cafetaria Lily",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2834,6 +2944,7 @@
         "osm_type": "node",
         "name": "Snackpoint 't Parapluke",
         "website": "https://www.snackpoint-parapluke.nl/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2869,6 +2980,7 @@
         "opening_hours": "Tu-Su 16:00-21:00",
         "phone": "+31 43 763 2984",
         "website": "http://kennysfriterie.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2885,6 +2997,7 @@
         "id": 2816573872,
         "osm_type": "node",
         "name": "Friture Gilissen",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2921,6 +3034,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2939,6 +3053,7 @@
         "name": "Snack Drive In",
         "phone": "+31 45 525 3858",
         "website": "http://www.snackdrivein.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -2956,6 +3071,7 @@
         "osm_type": "node",
         "name": "Cafetaria Friture De Nieuwe Egge",
         "phone": "+31 45 525 9986",
+        "cuisine": "fast_food",
         "chain": "unknown"
       }
     },
@@ -2975,6 +3091,7 @@
         "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-17:00; Su off",
         "phone": "+31 45 575 4847",
         "website": "http://boerbiet.nl/",
+        "cuisine": "burger;sandwich",
         "chain": "unknown"
       }
     },
@@ -2996,6 +3113,7 @@
         "phone": "+31 45 562 2640",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3015,6 +3133,7 @@
         "opening_hours": "Tu-Su 16:30-21:30",
         "phone": "+31 43 750 2649",
         "website": "https://www.snackpoint-bunde.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3063,6 +3182,7 @@
         "id": 2822975817,
         "osm_type": "node",
         "name": "'t Hoentje",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3079,6 +3199,7 @@
         "id": 2822977824,
         "osm_type": "node",
         "name": "Tropical",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3098,6 +3219,7 @@
         "opening_hours": "We-Mo 16:30-22:00",
         "phone": "+31 45 524 2298",
         "website": "https://dereukender.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3114,6 +3236,7 @@
         "id": 2823376326,
         "osm_type": "node",
         "name": "Cafetaria Wienandsroa",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3133,6 +3256,7 @@
         "opening_hours": "Mo-Su 14:00-22:00",
         "phone": "+31 24 696 3666",
         "website": "https://www.eethuisilforno.nl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3149,6 +3273,7 @@
         "id": 2824792719,
         "osm_type": "node",
         "name": "Snackbar Hulsberg",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3184,6 +3309,7 @@
         "opening_hours": "Fr,Sa 12:00-22:00; Su 12:00-21:00",
         "phone": "+31 24 358 4511",
         "website": "https://www.donerci.nl/",
+        "cuisine": "friture;ice_cream;kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -3200,6 +3326,7 @@
         "id": 2826793561,
         "osm_type": "node",
         "name": "Marhaba",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3232,6 +3359,7 @@
         "id": 2826794448,
         "osm_type": "node",
         "name": "Cafetaria Istanbul",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3250,6 +3378,7 @@
         "name": "Friterie Kunderkruis",
         "opening_hours": "Mo-Su 16:00-21:00",
         "website": "https://www.friteriekunderkruis.nl/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3269,6 +3398,7 @@
         "opening_hours": "Tu-Fr 07:30-17:30; Sa 08:00-17:00",
         "phone": "+31 6 2701 6423",
         "website": "https://tankshopkunderberg.nl/",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3288,6 +3418,7 @@
         "opening_hours": "Tu-Su 16:00-21:30",
         "phone": "+31 45 5754551",
         "website": "https://www.haantjevoerendaal.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3325,6 +3456,7 @@
         "brand": "AnyTyme",
         "opening_hours": "Tu-Su 16:00-21:00",
         "brand:wikidata": "Q116172805",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3342,6 +3474,7 @@
         "osm_type": "node",
         "name": "Happy Frites Welten",
         "opening_hours": "Tu-Th 16:00-21:00; Fr 12:00-21:00; Sa-Su 16:00-21:00",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3358,6 +3491,7 @@
         "id": 2827790962,
         "osm_type": "node",
         "name": "'t Pannetje",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3378,6 +3512,7 @@
         "opening_hours": "Mo-Sa 10:00-19:00; Su 11:00-19:00",
         "phone": "+31 46 428 2446",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3416,6 +3551,7 @@
         "opening_hours": "Mo-Th,Su 16:00-20:00;Fr,Sa 16:00-20:30",
         "phone": "+31 46 4746923",
         "website": "https://www.dekloesgeleen.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3432,6 +3568,7 @@
         "id": 2830177345,
         "osm_type": "node",
         "name": "Grillroom Tawor",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3448,6 +3585,7 @@
         "id": 2830187687,
         "osm_type": "node",
         "name": "eufraat",
+        "cuisine": "kebab;pizza;shoarma;salad",
         "chain": "unknown"
       }
     },
@@ -3466,6 +3604,7 @@
         "name": "'t Frituurke",
         "opening_hours": "Mo 12:00-21:00, We-Sa 11:00-21:00, Su 12:00-21:00",
         "phone": "+31 46 475 1274",
+        "cuisine": "fries;friture",
         "chain": "unknown"
       }
     },
@@ -3482,6 +3621,7 @@
         "id": 2830192547,
         "osm_type": "node",
         "name": "Jammie Jammie",
+        "cuisine": "kebab;pizza;shoarma",
         "chain": "unknown"
       }
     },
@@ -3500,6 +3640,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3516,6 +3657,7 @@
         "id": 2830197714,
         "osm_type": "node",
         "name": "Dehliz",
+        "cuisine": "kebab;shoarma;pizza",
         "chain": "unknown"
       }
     },
@@ -3551,6 +3693,7 @@
         "name": "Kwalitaria",
         "brand": "Kwalitaria",
         "brand:wikidata": "Q108923597",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -3569,6 +3712,7 @@
         "name": "New York Pizza",
         "brand": "New York Pizza",
         "brand:wikidata": "Q2639128",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3601,6 +3745,7 @@
         "id": 2834735409,
         "osm_type": "node",
         "name": "Friture",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -3636,6 +3781,7 @@
         "opening_hours": "Mo-Fr 08:00-19:00; Th 08:00-22:00; Sa 09:00-19:00; Su 10:00-17:00",
         "phone": "+31 495 745 033",
         "website": "https://doedels.nl",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3654,6 +3800,7 @@
         "name": "New York Pizza",
         "brand": "New York Pizza",
         "brand:wikidata": "Q2639128",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3670,6 +3817,7 @@
         "id": 2838696480,
         "osm_type": "node",
         "name": "Cafetaria De Rotonde",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -3692,6 +3840,7 @@
         "website": "https://KFC.nl",
         "operator": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -3709,6 +3858,7 @@
         "osm_type": "node",
         "name": "Friture Holka",
         "phone": "+31 45 5223410",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3726,6 +3876,7 @@
         "osm_type": "node",
         "name": "Broodjeszaak Bufkes",
         "website": "https://bufkes.nl",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3746,6 +3897,7 @@
         "phone": "+31 45 205 2011",
         "website": "https://www.anytyme.nl/Cafetarias/AnyTyme-t-Smulhoekje-anytime-is-snacktime.htm",
         "brand:wikidata": "Q116172805",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3762,6 +3914,7 @@
         "id": 2842047731,
         "osm_type": "node",
         "name": "Frituur de Lange",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3778,6 +3931,7 @@
         "id": 2842209682,
         "osm_type": "node",
         "name": "Op de Mert",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3794,6 +3948,7 @@
         "id": 2842211091,
         "osm_type": "node",
         "name": "Cafetaria 't Kuulke",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3814,6 +3969,7 @@
         "opening_hours": "Mo-Th 16:00-22:00; Fr-Sa 11:30-22:00; Su 15:00-22:00",
         "website": "https://www.tacomundo.com/vestigingen/heerlen",
         "brand:wikidata": "Q108923671",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -3833,6 +3989,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-We 08:00-22:00; Th 08:00-22:30; Fr 08:00-24:00; Sa 08:00-01:00; Su 10:00-22:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3852,6 +4009,7 @@
         "brand": "Domino's",
         "opening_hours": "Th-Sa 11:00-24:00; Mo-We,Su 11:30-22:00",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3871,6 +4029,7 @@
         "opening_hours": "Tu-Su 12:00-18:45; Mo off",
         "phone": "+31 45 579 0022",
         "website": "https://www.pammetje.com",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3891,6 +4050,7 @@
         "phone": "+31 45 5712340",
         "website": "https://www.newyorkpizza.nl/vestigingen/pizza-bestellen-heerlen-honigmannstraat",
         "brand:wikidata": "Q2639128",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3909,6 +4069,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3925,6 +4086,7 @@
         "id": 2846520905,
         "osm_type": "node",
         "name": "Friture Ilona",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3946,6 +4108,7 @@
         "phone": "+31 45 5412771",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3965,6 +4128,7 @@
         "opening_hours": "Fr-We 15:00-19:50 \"was open until 21:00, I assume 19:50 is now due to covid. Need to check in early 2022 again\"",
         "phone": "+31 6 86325762",
         "website": "https://www.fritureheerlerbaan.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -3982,6 +4146,7 @@
         "osm_type": "node",
         "name": "Cafetaria Moesel",
         "website": "https://cafetariamoesel.nl",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -3998,6 +4163,7 @@
         "id": 2849431947,
         "osm_type": "node",
         "name": "Cafetaria De Smulpaap",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4030,6 +4196,7 @@
         "id": 2849445399,
         "osm_type": "node",
         "name": "Cafetaria Winkelmolen",
+        "cuisine": "snackbar",
         "chain": "unknown"
       }
     },
@@ -4048,6 +4215,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4064,6 +4232,7 @@
         "id": 2849893392,
         "osm_type": "node",
         "name": "Smulhoven",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4097,6 +4266,7 @@
         "id": 2865744313,
         "osm_type": "node",
         "name": "Cafetaria D'r Prick",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -4113,6 +4283,7 @@
         "id": 2866387351,
         "osm_type": "node",
         "name": "Amazing Sushi",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -4129,6 +4300,7 @@
         "id": 2866397724,
         "osm_type": "node",
         "name": "Happy Days",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -4161,6 +4333,7 @@
         "id": 2866406258,
         "osm_type": "node",
         "name": "Bon Appetit",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4194,6 +4367,7 @@
         "osm_type": "node",
         "name": "Friture Anita",
         "opening_hours": "Tu-Su 16:00-21:30",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -4211,6 +4385,7 @@
         "osm_type": "node",
         "name": "Le Couvert",
         "opening_hours": "Su, Tu-Fr 15:30-22:00; Sa 12:00-22:00",
+        "cuisine": "burger;friture",
         "chain": "unknown"
       }
     },
@@ -4227,6 +4402,7 @@
         "id": 2870629931,
         "osm_type": "node",
         "name": "Friture Laura",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4245,6 +4421,7 @@
         "name": "Cafetaria de nieuwe gracht",
         "opening_hours": "We-Su 12:00-20:00",
         "website": "https://www.cafetariadenieuwegrachtkerkrade.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -4265,6 +4442,7 @@
         "opening_hours": "Su-Th 07:00-24:00; Fr-Sa 07:00-01:00 open \"Restaurant\" || Su-Th 07:00-01:00; Fr-Sa 07:00-02:00 open \"McDrive\"",
         "website": "https://www.mcdonalds.com/nl/nl-nl/location/kerkrade/mcdonalds-kerkrade/euregiopark-6/850183.html",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4281,6 +4459,7 @@
         "id": 2873476013,
         "osm_type": "node",
         "name": "Mr. Rai Sushi",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -4297,6 +4476,7 @@
         "id": 2873482708,
         "osm_type": "node",
         "name": "Friture Het Panhuis",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -4316,6 +4496,7 @@
         "opening_hours": "We-Su 16:00-23:00",
         "phone": "+31 45 569 1275",
         "website": "https://www.oudwaubach.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -4350,6 +4531,7 @@
         "id": 2882470762,
         "osm_type": "node",
         "name": "Friture Yummy Yummy",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -4370,6 +4552,7 @@
         "phone": "+31 45 2007070",
         "website": "https://www.kipperij.nl/vestiging/kipperij-landgraaf/",
         "brand:wikidata": "Q134722152",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4388,6 +4571,7 @@
         "name": "'t Sunplein",
         "opening_hours": "Tu-Fr 12:00-23:00; Sa-Su 14:00-23:00",
         "operator": "Anytime",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4407,6 +4591,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Sa 09:00-19:00; Su 11:00-19:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4428,6 +4613,7 @@
         "phone": "+31 45 210 0120",
         "website": "https://www.dominos.nl/winkel/nl-landgraaf-30705",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4465,6 +4651,7 @@
         "phone": "+31 46 451 7186",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4486,6 +4673,7 @@
         "phone": "+31 46 439 8896",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4506,6 +4694,7 @@
         "opening_hours": "Mo-Su 16:00-20:00; Th-Fr 11:00-13:00",
         "phone": "+31 46 485 4750",
         "brand:wikidata": "Q116172805",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -4525,6 +4714,7 @@
         "opening_hours": "Th-Fr 09:00-19:00, Sa 10:00-15:00",
         "phone": "+31 46 888 1666",
         "website": "http://www.broodjebruin.nl",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4540,6 +4730,7 @@
       "properties": {
         "id": 2887921849,
         "osm_type": "node",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -4558,6 +4749,7 @@
         "name": "Alanya",
         "opening_hours": "Tu 16:00-23:15; Nov 01-Apr 01 closed; We-Th 16:00-23:15; Fr-Sa 16:00-01:45; Su 16:00-23:15",
         "phone": "+31 77 390 3767",
+        "cuisine": "pizza;turkish",
         "chain": "unknown"
       }
     },
@@ -4577,6 +4769,7 @@
         "opening_hours": "Mo-Su 11:00-21:00",
         "phone": "+31 77 473 2649",
         "website": "https://www.cafetariatcentrum.nl/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4648,6 +4841,7 @@
         "osm_type": "node",
         "name": "Cafetaria Biej de meule",
         "website": "https://www.biejdemeule.nl/",
+        "cuisine": "friture;lunch;ice_cream",
         "chain": "unknown"
       }
     },
@@ -4666,6 +4860,7 @@
         "name": "El Medina",
         "phone": "+31 475 534 620",
         "website": "http://www.el-medina.nl/",
+        "cuisine": "kebab;pizza;pasta",
         "chain": "unknown"
       }
     },
@@ -4700,6 +4895,7 @@
         "name": "PORT SAID",
         "opening_hours": "Mo-Fr 00:00-00:25,16:00-24:00; Sa,Su 00:00-02:25,16:00-24:00",
         "website": "https://www.portsaid-herkenbosch.nl/menu",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4751,6 +4947,7 @@
         "phone": "+31 77 382 6008",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4771,6 +4968,7 @@
         "opening_hours": "Mo-Su 11:00-24:00",
         "phone": "+31 77 351 9691",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4791,6 +4989,7 @@
         "phone": "+31 77 351 9784",
         "website": "https://backusamgrenzübergang.de/",
         "operator": "Backus aan de Grens V.O.F.",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -4811,6 +5010,7 @@
         "phone": "+31 77 208 3136",
         "website": "https://www.newyorkpizza.nl/vestigingen/pizza-bestellen-venlo-monseigneur-nolensplein",
         "brand:wikidata": "Q2639128",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4830,6 +5030,7 @@
         "opening_hours": "Tu-Sa 11:00-21:00; Su 16:00-21:00",
         "phone": "+31 77 351 9887",
         "website": "https://www.cafetariahoegewaeg.nl",
+        "cuisine": "fish_and_chips;burger",
         "chain": "unknown"
       }
     },
@@ -4866,6 +5067,7 @@
         "phone": "+31 475 581 788",
         "website": "https://www.snackpointhaor.nl/",
         "operator": "Snackpoint",
+        "cuisine": "burger;regional",
         "chain": "unknown"
       }
     },
@@ -4883,6 +5085,7 @@
         "osm_type": "node",
         "name": "Cafetaria 't Dorp",
         "phone": "+31 475 581 220",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -4899,6 +5102,7 @@
         "id": 2929491262,
         "osm_type": "node",
         "name": "Elltaria",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -4917,8 +5121,9 @@
         "name": "Sushi 8",
         "brand": "Sushi 8",
         "phone": "+31 6 45665548",
-        "website": "https://heythuysen.sushi-eight.nl/",
+        "website": "https://heythuysen.sushi-eight.nl",
         "brand:wikidata": "Q134398513",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -4952,6 +5157,7 @@
         "osm_type": "node",
         "name": "Frituur de Parade",
         "phone": "+31 77 879 5651",
+        "cuisine": "chicken;pizza",
         "chain": "unknown"
       }
     },
@@ -4973,6 +5179,7 @@
         "phone": "+31 77 3548787",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4990,6 +5197,7 @@
         "osm_type": "node",
         "name": "Pommes Meister",
         "website": "https://www.pommesmeister-venlo.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5006,6 +5214,7 @@
         "id": 2931120634,
         "osm_type": "node",
         "name": "Maison Frites",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5022,6 +5231,7 @@
         "id": 2931121231,
         "osm_type": "node",
         "name": "Fisch Express",
+        "cuisine": "fish",
         "chain": "unknown"
       }
     },
@@ -5058,6 +5268,7 @@
         "opening_hours": "Tu-Su 12:00-22:00",
         "website": "http://cigkoftem.nl/",
         "brand:wikidata": "Q106597459",
+        "cuisine": "turkish",
         "chain": "unknown"
       }
     },
@@ -5092,6 +5303,7 @@
         "id": 2931252330,
         "osm_type": "node",
         "name": "Steakhouse Pizzeria Sedra",
+        "cuisine": "pizza;steak_house;middle_eastern",
         "chain": "unknown"
       }
     },
@@ -5108,6 +5320,7 @@
         "id": 2933369352,
         "osm_type": "node",
         "opening_hours": "10:00-18:00",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5142,6 +5355,7 @@
         "name": "Fritessalon Remunj",
         "opening_hours": "Tu-We 14:00-23:00; Th 12:00-23:00; Fr-Sa 12:00-02-00; Su 16:00-23:00",
         "phone": "+31 6 42941806",
+        "cuisine": "fries",
         "chain": "unknown"
       }
     },
@@ -5158,6 +5372,7 @@
         "id": 2933460087,
         "osm_type": "node",
         "name": "Het Frietkot",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5174,6 +5389,7 @@
         "id": 2933462029,
         "osm_type": "node",
         "name": "Luna Piena",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5224,6 +5440,7 @@
         "id": 2933463455,
         "osm_type": "node",
         "name": "Arabyana",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -5240,6 +5457,7 @@
         "id": 2933475328,
         "osm_type": "node",
         "name": "Grillroom Amon",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5259,6 +5477,7 @@
         "opening_hours": "Su-We 16:00-00:30; Th-Sa 16:00-02:00",
         "phone": "+31 475 319 318",
         "website": "https://eethuis-rosario.nl/",
+        "cuisine": "kebab;italian;pasta;pizza",
         "chain": "unknown"
       }
     },
@@ -5278,6 +5497,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo 10:00-23:00; Tu-Th 09:30-23:00; Fr-Sa 09:30-24:00; Su 11:00-23:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -5296,6 +5516,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -5313,6 +5534,7 @@
         "osm_type": "node",
         "name": "Wenda's Eethoekje",
         "opening_hours": "Mo,Th,Fr 11:30-13:30,16:30-20:00; Sa-Su 16:30-20:00",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5329,6 +5551,7 @@
         "id": 2933479107,
         "osm_type": "node",
         "name": "Eethuis de Kraanpoort",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5345,6 +5568,7 @@
         "id": 2933479147,
         "osm_type": "node",
         "name": "Yeslooo Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5361,6 +5585,7 @@
         "id": 2935413293,
         "osm_type": "node",
         "name": "Friture De Brede Weg",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5378,6 +5603,7 @@
         "osm_type": "node",
         "name": "Cafetaria Donderberg",
         "opening_hours": "Mo-Fr 12:00-23:00; Sa,Su 16:00-23:00",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5394,6 +5620,7 @@
         "id": 2937346979,
         "osm_type": "node",
         "name": "de Snackhoek cafetaria",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5426,6 +5653,7 @@
         "id": 2937766191,
         "osm_type": "node",
         "name": "Friture Martha",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5445,6 +5673,7 @@
         "brand": "McDonald's",
         "opening_hours": "07:00-23:00 open \"Restaurant\" || Su-Th 07:00-01:00; Fr,Sa 07:00-02:00 open \"McDrive\"",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -5461,6 +5690,7 @@
         "id": 2943885668,
         "osm_type": "node",
         "name": "Snackbar de Stevel",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5478,6 +5708,7 @@
         "osm_type": "node",
         "name": "Friture 't Vaer",
         "website": "https://friturevaer.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5497,6 +5728,7 @@
         "opening_hours": "Tu-Th 16:30-20:30; Fr 11:30-13:30,16:30-20:30; Sa 11:30-13:30,16:30-22:00; Su 16:30-22:00",
         "phone": "+31 77 465 7317",
         "website": "https://www.e-food.nl/skin/basic/maasbree/restaria-maasbree/start",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5551,6 +5783,7 @@
         "brand": "McDonald's",
         "opening_hours": "07:00-23:00 open \"Restaurant\" || 07:00-24:00 open \"McDrive\"",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -5567,6 +5800,7 @@
         "id": 3000189651,
         "osm_type": "node",
         "name": "Keuben",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -5599,6 +5833,7 @@
         "id": 3000846303,
         "osm_type": "node",
         "name": "Friture Fu Seng",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -5617,6 +5852,7 @@
         "name": "Plaza Beringe",
         "opening_hours": "Tu-Fr 10:30-21:00, Sa 12:00-21:00, Su 13:00-21:00",
         "website": "https://www.plazaberinge.nl/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -5634,6 +5870,7 @@
         "osm_type": "node",
         "name": "De Lekkerbek",
         "website": "https://www.eet.nu/beringe/de-lekkerbek",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -5650,6 +5887,7 @@
         "id": 3009032810,
         "osm_type": "node",
         "name": "Anytime",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5666,6 +5904,7 @@
         "id": 3009032816,
         "osm_type": "node",
         "name": "Cafetaria Kerkstraat",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5687,6 +5926,7 @@
         "phone": "+31 77 7820110",
         "website": "https://bufkes.nl",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -5707,6 +5947,7 @@
         "phone": "+31 77 240 2400",
         "website": "https://www.dominos.nl/winkel/nl-panningen-30936",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5723,6 +5964,7 @@
         "id": 3009034735,
         "osm_type": "node",
         "name": "Verona",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5738,6 +5980,7 @@
       "properties": {
         "id": 3009037471,
         "osm_type": "node",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -5756,6 +5999,7 @@
         "name": "Kwalitaria",
         "brand": "Kwalitaria",
         "brand:wikidata": "Q108923597",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5772,6 +6016,7 @@
         "id": 3009042336,
         "osm_type": "node",
         "name": "'t Strötje",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5843,6 +6088,7 @@
         "opening_hours": "Mo-Th 16:00-22:00; Sa 16:00-00:00; Su 16:00-22:00; Fr 11:30-00:00",
         "phone": "+31 478 743 101",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5882,6 +6128,7 @@
         "website": "https://www.burgerking.nl/store-locator/store/17649/markt-71--maastricht----6211-cl",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -5917,6 +6164,7 @@
         "opening_hours": "Tu-Su 16:30-20:30",
         "phone": "+31 43 311 6645",
         "website": "https://www.happyfrites.eu/ransdaal/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -5936,6 +6184,7 @@
         "opening_hours": "Mo 13:00-18:00; Tu-Fr 10:00-18:00; Sa 09:00-17:00",
         "phone": "+31 77 351 0308",
         "website": "https://www.indradjaja.nl/indradjaja_086.htm",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -5953,6 +6202,7 @@
         "osm_type": "node",
         "name": "AnyTyme",
         "operator": "Chinees Indisch Restaurant Lotus",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -6002,6 +6252,7 @@
         "name": "Egem",
         "phone": "+31 77 374 4698",
         "website": "https://www.pizzeriaegem.nl",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6021,6 +6272,7 @@
         "brand": "Kwalitaria",
         "website": "https://kwalitaria.nl/",
         "brand:wikidata": "Q108923597",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6037,6 +6289,7 @@
         "id": 4254883380,
         "osm_type": "node",
         "name": "Cafetaria 't Hepke",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6072,6 +6325,7 @@
         "brand": "KFC",
         "opening_hours": "Su-Th 11:00-22:00; Fr,Sa 11:00-23:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -6093,6 +6347,7 @@
         "phone": "+31 43 3212475",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6114,6 +6369,7 @@
         "phone": "+31 495 626 283",
         "website": "https://www.subway.com/nl-nl/findastore?zip=6031RS",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6132,6 +6388,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6149,6 +6406,7 @@
         "osm_type": "node",
         "name": "Eethuis Hagerhof",
         "website": "https://www.eethuishagerhof-venlo.nl",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6165,6 +6423,7 @@
         "id": 4691998386,
         "osm_type": "node",
         "name": "Pizza Pronto",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6199,6 +6458,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6267,6 +6527,7 @@
         "brand": "Burger King",
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -6283,6 +6544,7 @@
         "id": 4868334612,
         "osm_type": "node",
         "name": "Patty 'n Bun",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6343,6 +6605,7 @@
       "properties": {
         "id": 4937334866,
         "osm_type": "node",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6381,6 +6644,7 @@
         "opening_hours": "Mo-Sa 09:00-18:00; Su 10:00-18:00",
         "phone": "+31 77 205 8730",
         "website": "https://greenbarn.nl/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -6402,6 +6666,7 @@
         "phone": "+31 45 575 4400",
         "website": "https://restaurants.subway.com/nl/nederland/heerlen/in-de-cramer-160",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6439,6 +6704,7 @@
         "opening_hours": "Mo-Su 08:00-22:00",
         "phone": "+31 88 377 8884",
         "brand:wikidata": "Q847743",
+        "cuisine": "donut;coffee_shop",
         "chain": "unknown"
       }
     },
@@ -6460,6 +6726,7 @@
         "phone": "+31 46 433 2139",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6478,6 +6745,7 @@
         "name": "New York Pizza",
         "brand": "New York Pizza",
         "brand:wikidata": "Q2639128",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6499,6 +6767,7 @@
         "phone": "+31 45 720 0947",
         "website": "https://bufkes.nl",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6520,6 +6789,7 @@
         "phone": "+31 45 303 0651",
         "website": "https://www.newyorkpizza.nl/vestigingen/pizza-bestellen-brunssum-kennedylaan",
         "brand:wikidata": "Q2639128",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6538,6 +6808,7 @@
         "name": "Friture Du-Nord",
         "opening_hours": "Tu-Su 14:00-21:00",
         "website": "https://www.friture-dunord.com/",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -6591,6 +6862,7 @@
         "phone": "+31 43 2100202",
         "website": "https://www.dominos.nl/winkel/nl-maastrichtamby-30740",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6610,6 +6882,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Fr 09:00-20:30; Sa-Su 08:30-21:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -6628,6 +6901,7 @@
         "name": "The Döner Company",
         "brand": "The Döner Company",
         "brand:wikidata": "Q108923682",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6645,6 +6919,7 @@
         "osm_type": "node",
         "name": "Saladin",
         "website": "https://www.saladin-heerlen.nl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6664,6 +6939,7 @@
         "opening_hours": "Mo-Th 16:00-23:00; Fr 16:00-24:00; Sa 12:00-24:00; Su 14:30-23:00",
         "phone": "+31 475 401 863",
         "website": "https://www.mrjohnny.nl/",
+        "cuisine": "friture;ice_cream;burger;chicken",
         "chain": "unknown"
       }
     },
@@ -6683,6 +6959,7 @@
         "opening_hours": "We-Fr 12:00-24:00; Sa-Su 15:00-23:00",
         "phone": "+31 45 522 2728",
         "website": "http://frietjenico.nl",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -6702,6 +6979,7 @@
         "opening_hours": "Mo-Sa 11:30-20:00, Su 14:00-20:00",
         "phone": "+31 495 535 853",
         "website": "https://www.restariaweert.nl/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6718,6 +6996,7 @@
         "id": 5578247533,
         "osm_type": "node",
         "name": "JOS.",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6736,6 +7015,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6752,6 +7032,7 @@
         "id": 5695991821,
         "osm_type": "node",
         "name": "Friedt",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -6824,6 +7105,7 @@
         "name": "Seyfi Döner Mobiele Kebabzaak",
         "opening_hours": "Fr-Sa 14:00-19:00",
         "phone": "+31 6 50122402",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6840,6 +7122,7 @@
         "id": 6160013830,
         "osm_type": "node",
         "name": "Jeruzalem",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -6856,6 +7139,7 @@
         "id": 6161587189,
         "osm_type": "node",
         "name": "Friterie aon de Kirk",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -6877,6 +7161,7 @@
         "phone": "+31 46 433 29 15",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6895,6 +7180,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -6928,6 +7214,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -6944,6 +7231,7 @@
         "id": 6598833159,
         "osm_type": "node",
         "name": "Mr. Friet",
+        "cuisine": "fries;ice_cream",
         "chain": "unknown"
       }
     },
@@ -6962,6 +7250,7 @@
         "name": "Café De Bosrand",
         "opening_hours": "Mo-We 10:00-22:00; Fr-Su 10:00-24:00",
         "website": "https://www.cafebosrand.nl/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -6980,6 +7269,7 @@
         "name": "Cafetaria 't Fort",
         "opening_hours": "Tu-We,Fr-Su 09:00-21:30; Th 15:00-20:00; Mo 16:00-21:30",
         "phone": "+31 478 201 702",
+        "cuisine": "friture;burger",
         "chain": "unknown"
       }
     },
@@ -6996,6 +7286,7 @@
         "id": 6783917909,
         "osm_type": "node",
         "name": "TiramiSu",
+        "cuisine": "italian",
         "chain": "unknown"
       }
     },
@@ -7015,6 +7306,7 @@
         "brand": "McDonald's",
         "opening_hours": "07:00-02:00 open \"Restaurant\" || Su-Th 07:00-02:00; Fr,Sa 07:00-04:00 open \"McDrive\"",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7033,6 +7325,7 @@
         "name": "Dunkin'",
         "brand": "Dunkin'",
         "brand:wikidata": "Q847743",
+        "cuisine": "donut;coffee_shop",
         "chain": "unknown"
       }
     },
@@ -7067,6 +7360,7 @@
         "brand": "Subway",
         "website": "https://www.subway.com",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7085,6 +7379,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -7104,6 +7399,7 @@
         "brand": "Bufkes",
         "opening_hours": "Mo 11:00-17:00; Tu-Fr 10:00-17:00; Sa 10:00-17:00; ,12:00-17:00",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7121,6 +7417,7 @@
         "osm_type": "node",
         "name": "Friture Ritho",
         "phone": "+31 475 551 470",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -7142,6 +7439,7 @@
         "phone": "+31 475 123 456",
         "website": "https://bufkes.nl",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7180,6 +7478,7 @@
         "phone": "+31 475 543 002",
         "website": "https://www.mcarthurglen.com/nl/designer-outlet-roermond/en/stores/pommes-frites/",
         "operator": "Bufkes",
+        "cuisine": "chips",
         "chain": "unknown"
       }
     },
@@ -7196,6 +7495,7 @@
         "id": 8622819717,
         "osm_type": "node",
         "name": "Cafetaria Hoogvonderen",
+        "cuisine": "ice_cream",
         "chain": "unknown"
       }
     },
@@ -7214,6 +7514,7 @@
         "name": "Snackbar",
         "opening_hours": "Mo,Fr 12:00-21:00; Tu-Th,Sa,Su 12:00-20:00",
         "operator": "Roompot",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -7248,6 +7549,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7284,6 +7586,7 @@
         "phone": "+31 43 3272522",
         "website": "https://www.kippie.nl/winkels/maastricht",
         "brand:wikidata": "Q65970311",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -7303,6 +7606,7 @@
         "opening_hours": "Tu-Su 16:45-22:00",
         "phone": "+31 43 737 0094",
         "website": "https://dmvaals.nl",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7338,6 +7642,7 @@
         "brand": "Domino's",
         "website": "https://www.dominos.nl/winkel/nl-kerkradetheaterplein-30835",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7354,6 +7659,7 @@
         "id": 10108297126,
         "osm_type": "node",
         "name": "Koala Express",
+        "cuisine": "netherland",
         "chain": "unknown"
       }
     },
@@ -7373,6 +7679,7 @@
         "brand": "Smullers",
         "opening_hours": "Tu-Th 12:00-19:00; Mo,Fr-Su off",
         "brand:wikidata": "Q92552501",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -7406,6 +7713,7 @@
         "id": 10539028261,
         "osm_type": "node",
         "name": "Friterie Heidegoud",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -7424,6 +7732,7 @@
         "name": "Musti Kebab",
         "opening_hours": "11:00 - 21:30",
         "website": "https://www.musti-kebab-maastricht.nl/contact",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7456,6 +7765,7 @@
         "id": 11062858760,
         "osm_type": "node",
         "name": "Cigkofteci",
+        "cuisine": "turkish",
         "chain": "unknown"
       }
     },
@@ -7474,6 +7784,7 @@
         "name": "Fermo Grillhaus",
         "opening_hours": "11:00-22:00; We off",
         "phone": "+31 77 851 5192",
+        "cuisine": "regional;pizza;fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -7491,6 +7802,7 @@
         "osm_type": "node",
         "name": "Pom Pom Frites",
         "opening_hours": "Th-Sa 12:00-18:00; Mo-We off",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -7540,6 +7852,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7574,6 +7887,7 @@
         "name": "De Plataan",
         "opening_hours": "Tu-Sa 12:00-21:00; Su 13:00-21:00",
         "phone": "+31 24 696 2097",
+        "cuisine": "snackbar;ice_cream",
         "chain": "unknown"
       }
     },
@@ -7590,6 +7904,7 @@
         "id": 11360098068,
         "osm_type": "node",
         "name": "Maico Snack & Bubble Tea",
+        "cuisine": "regional;asian;bubble_tea",
         "chain": "unknown"
       }
     },
@@ -7609,6 +7924,7 @@
         "opening_hours": "Mo-Sa 12:00-13:30,16:30-23:00; PH,Su 16:30-23:00",
         "phone": "+31 77 351 5163",
         "website": "http://cafetaria-deprins.nl/",
+        "cuisine": "fries;burger",
         "chain": "unknown"
       }
     },
@@ -7625,6 +7941,7 @@
         "id": 11365136183,
         "osm_type": "node",
         "name": "Orlunch",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7646,6 +7963,7 @@
         "phone": "+31 43 408 4888",
         "website": "https://mcdonaldsrestaurant.nl/gronsveld/restaurants/mcdonalds-gronsveld",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7685,6 +8003,7 @@
         "opening_hours": "Mo 10:00-18:00; Tu-Sa 09:00-18:00",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7706,6 +8025,7 @@
         "phone": "+31 475 206 044",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7725,6 +8045,7 @@
         "brand": "Bufkes",
         "opening_hours": "Mo-Sa 10:00-16:00; Su 10:00-15:00",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7746,6 +8067,7 @@
         "phone": "+31 475 300 272",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7767,6 +8089,7 @@
         "phone": "+31 45 5354888",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7788,6 +8111,7 @@
         "phone": "+31 45 5320006",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7809,6 +8133,7 @@
         "phone": "+31 495 520742",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7830,6 +8155,7 @@
         "phone": "+31 6 25532290",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7851,6 +8177,7 @@
         "phone": "+31 478 561047",
         "website": "https://bufkes.nl/",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7903,6 +8230,7 @@
         "phone": "+31 45 2084885",
         "website": "https://www.newyorkpizza.nl/vestigingen/pizza-bestellen-eygelshoven-terbruggen",
         "operator": "New York Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7974,6 +8302,7 @@
         "brand": "Smullers",
         "opening_hours": "Mo-Fr 12:00-19:00; Sa,Su off",
         "brand:wikidata": "Q92552501",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -8022,6 +8351,7 @@
         "id": 12823276505,
         "osm_type": "node",
         "name": "I Siciliani",
+        "cuisine": "italian",
         "chain": "unknown"
       }
     },
@@ -8074,6 +8404,7 @@
         "phone": "+31 45 2084252",
         "website": "https://www.kippie.nl/winkels/heerlen",
         "brand:wikidata": "Q65970311",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -8094,6 +8425,7 @@
         "phone": "+31 46 4340000",
         "website": "https://www.kipperij.nl/vestiging/kipperij-beek/",
         "brand:wikidata": "Q134722152",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -8145,6 +8477,7 @@
         "name": "burgerme",
         "brand": "burgerme",
         "brand:wikidata": "Q108866856",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8165,6 +8498,7 @@
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://kfc.nl",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -8183,6 +8517,7 @@
         "name": "Cafetaria De Bus",
         "opening_hours": "We-Su,PH 16:00-21:00",
         "phone": "+31 46 474 8969",
+        "cuisine": "fries",
         "chain": "unknown"
       }
     },
@@ -8201,6 +8536,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8289,6 +8625,7 @@
         "opening_hours": "Mo-Su 11:00-21:00",
         "phone": "+31 45 2084254",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -8308,6 +8645,7 @@
         "opening_hours": "Mo-Th 16:00-22:00; Tu off; Fr-Su 15:30-22:00",
         "phone": "+31 45 511 6243",
         "website": "https://yoyobocholtz.sitedish.shop",
+        "cuisine": "chinese;friture;burger;asian",
         "chain": "unknown"
       }
     },
@@ -8327,6 +8665,7 @@
         "opening_hours": "Tu-Fr 09:00-15:00",
         "phone": "+31 45 200 1723",
         "website": "https://www.broodjes-bar.nl",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -8345,6 +8684,7 @@
         "name": "Wok To Go",
         "brand": "Wok To Go",
         "brand:wikidata": "Q125169083",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -8379,6 +8719,7 @@
         "name": "Bufkes",
         "brand": "Bufkes",
         "brand:wikidata": "Q124348748",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -8433,6 +8774,7 @@
         "brand": "McDonald's",
         "opening_hours": "07:00-23:00 open \"Restaurant\" || Su-Th 07:00-01:00; Fr,Sa 07:00-02:00 open \"McDrive\"",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8468,6 +8810,7 @@
         "name": "Kebab XL",
         "opening_hours": "Mo-Su 12:00-21:00",
         "phone": "+31 43 356 0667",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8487,6 +8830,7 @@
         "opening_hours": "Tu-Th 12:00-13:30, 16:30-21:00; Fr-Su 12:00-13:30, 16:00-21:00; Su,PH 16:00-21:00",
         "phone": "+31 475 461 037",
         "website": "https://fritureboom.nl",
+        "cuisine": "friture;ice_cream",
         "chain": "unknown"
       }
     },
@@ -8504,6 +8848,7 @@
         "osm_type": "way",
         "name": "Cafetaria Oase",
         "phone": "+31 6 43202775",
+        "cuisine": "friture",
         "chain": "unknown"
       }
     },
@@ -8539,6 +8884,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 07:00-24:00; Fr-Sa 07:00-01:00 open \"Restaurant\" || Su-Th 07:00-01:00; Fr-Sa 07:00-02:00 open \"McDrive\"",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8555,6 +8901,7 @@
         "id": 283153755,
         "osm_type": "way",
         "name": "Grillroom Trabzon",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8573,6 +8920,7 @@
         "name": "The Döner Company",
         "brand": "The Döner Company",
         "brand:wikidata": "Q108923682",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8592,6 +8940,7 @@
         "brand": "McDonald's",
         "opening_hours": "07:00-23:00 open \"Restaurant\" || Su-Th 07:00-24:00; Fr,Sa 07:00-02:00 open \"McDrive\"",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8611,6 +8960,7 @@
         "brand": "McDonald's",
         "opening_hours": "07:00-23:00 open \"Restaurant\" || 07:00-24:00 open \"McDrive\"",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8630,6 +8980,7 @@
         "opening_hours": "Tu-Th 11:30-20:00; Fr-Su 11:30-21:00",
         "phone": "+31 475 724 002",
         "website": "https://www.restariagashoes.nl/",
+        "cuisine": "friture;ice_cream",
         "chain": "unknown"
       }
     },
@@ -8663,6 +9014,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
