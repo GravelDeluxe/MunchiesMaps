@@ -15,6 +15,7 @@
         "osm_type": "node",
         "name": "Kevin. Pizzeria",
         "phone": "+48 58 6642555",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -66,6 +67,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-al-grunwaldzka-141",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -85,6 +87,7 @@
         "brand": "KFC",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -102,6 +105,7 @@
         "osm_type": "node",
         "name": "My Kebab",
         "opening_hours": "Mo-Th 10:30-01:30; Fr-Sa 10:30-02:00; Su 10:30-01:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -134,6 +138,7 @@
         "id": 595656612,
         "osm_type": "node",
         "name": "Jesc Burger",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -151,6 +156,7 @@
         "osm_type": "node",
         "name": "Skipper",
         "opening_hours": "We-Mo 12:00-20:00",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -168,6 +174,7 @@
         "osm_type": "node",
         "name": "Original Burger",
         "website": "http://www.originalburger.pl/eng",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -183,6 +190,7 @@
       "properties": {
         "id": 841661069,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -198,6 +206,7 @@
       "properties": {
         "id": 842566865,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -214,6 +223,7 @@
         "id": 974826729,
         "osm_type": "node",
         "name": "Mąka i Piwo",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -246,6 +256,7 @@
         "id": 1305094698,
         "osm_type": "node",
         "name": "U Patrzałków",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -262,22 +273,7 @@
         "id": 1309361009,
         "osm_type": "node",
         "name": "Pierogarnia Jedynka",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.8714515,
-          54.5804436
-        ]
-      },
-      "properties": {
-        "id": 1358654458,
-        "osm_type": "node",
-        "name": "Gringos Amigos",
+        "cuisine": "dumplings",
         "chain": "unknown"
       }
     },
@@ -294,6 +290,7 @@
         "id": 1359939246,
         "osm_type": "node",
         "name": "Róża Wiatrów",
+        "cuisine": "fish",
         "chain": "unknown"
       }
     },
@@ -344,6 +341,7 @@
         "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-18:00; Su off",
         "phone": "+48 58 344 39 36",
         "website": "http://www.barmacius.pl",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -360,6 +358,7 @@
         "id": 1366733959,
         "osm_type": "node",
         "name": "Bar Arturo",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -376,6 +375,7 @@
         "id": 1366733961,
         "osm_type": "node",
         "name": "Bar Hanka",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -392,6 +392,7 @@
         "id": 1366733963,
         "osm_type": "node",
         "name": "Bar Samoschwał",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -408,6 +409,7 @@
         "id": 1366784637,
         "osm_type": "node",
         "name": "Jolanta",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -424,6 +426,7 @@
         "id": 1366784639,
         "osm_type": "node",
         "name": "Karczma dell'Opera",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -440,6 +443,7 @@
         "id": 1366784644,
         "osm_type": "node",
         "name": "Pod Papugami",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -458,6 +462,7 @@
         "name": "Smakosz",
         "opening_hours": "Mo-Su 09:30-22:00",
         "website": "https://bar-smakosz.pl",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -474,6 +479,7 @@
         "id": 1366784646,
         "osm_type": "node",
         "name": "Tawerna Bar Morski",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -490,6 +496,7 @@
         "id": 1366784647,
         "osm_type": "node",
         "name": "U Kojota",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -507,6 +514,7 @@
         "osm_type": "node",
         "name": "Bosman",
         "phone": "+48 505 091 568",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -523,6 +531,7 @@
         "id": 1371587037,
         "osm_type": "node",
         "name": "Gofry",
+        "cuisine": "gofry",
         "chain": "unknown"
       }
     },
@@ -539,6 +548,7 @@
         "id": 1371587114,
         "osm_type": "node",
         "name": "Ika",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -555,6 +565,7 @@
         "id": 1371587252,
         "osm_type": "node",
         "name": "u Alexa",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -571,6 +582,7 @@
         "id": 1371682028,
         "osm_type": "node",
         "name": "Fishmor",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -587,6 +599,7 @@
         "id": 1371682057,
         "osm_type": "node",
         "name": "Jedzenie z pieca",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -603,6 +616,7 @@
         "id": 1371706184,
         "osm_type": "node",
         "name": "u Mietka",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -619,6 +633,7 @@
         "id": 1371719573,
         "osm_type": "node",
         "name": "Bistro Pizza",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -650,6 +665,7 @@
       "properties": {
         "id": 1371736329,
         "osm_type": "node",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -669,6 +685,7 @@
         "opening_hours": "Mo-Su 12:00-19:00",
         "phone": "+48 536 520 562",
         "website": "https://bar-karolinka.business.site/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -701,6 +718,7 @@
         "id": 1380946777,
         "osm_type": "node",
         "name": "TeleMorele",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -735,6 +753,7 @@
         "id": 1434163396,
         "osm_type": "node",
         "name": "Izmir",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -767,6 +786,7 @@
         "id": 1474916891,
         "osm_type": "node",
         "name": "NAZAR",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -784,6 +804,7 @@
         "osm_type": "node",
         "name": "Pizzeria Simba",
         "website": "https://www.pizzeria-simba.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -804,6 +825,7 @@
         "opening_hours": "Mo-Su 10:00-23:00;Sa 11:00-22:00",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -820,6 +842,7 @@
         "id": 1694376407,
         "osm_type": "node",
         "name": "Pizzeria Five",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -839,6 +862,7 @@
         "opening_hours": "Mo-Fr 12:00-22:00; Sa-Su 12:00-20:00",
         "phone": "+48586253747",
         "website": "http://www.facebook.com/pizzeriaszajbowetrio/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -858,6 +882,7 @@
         "opening_hours": "Mo-Fr 12:00-19:00; Sa 12:00-18:00",
         "phone": "+48 789 397 797",
         "website": "https://www.facebook.com/Maccheroni-w%C5%82oskie-bistro-makaronowe-1465465143717447/",
+        "cuisine": "italian",
         "chain": "unknown"
       }
     },
@@ -922,6 +947,7 @@
         "id": 1774349320,
         "osm_type": "node",
         "name": "Bar Tip Top",
+        "cuisine": "kebab;pizza;burger;zapiekanki",
         "chain": "unknown"
       }
     },
@@ -940,6 +966,7 @@
         "name": "Tawerna Orłowska",
         "phone": "+48 58 6222220",
         "website": "https://www.tawernaorlowska.pl/",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -958,6 +985,7 @@
         "name": "Row-Ryb",
         "opening_hours": "09:00-20:00",
         "phone": "+48 59 8141903",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -977,6 +1005,7 @@
         "opening_hours": "12:00-21:00, PH,Mo-Su 12:00-22:00",
         "phone": "+48 881 447 100",
         "website": "https://www.kreskamaki.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -997,6 +1026,7 @@
         "phone": "+48 58 660 06 60",
         "website": "https://www.tino.pl/",
         "operator": "Telepizzeria Tino",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1015,6 +1045,7 @@
         "name": "Sole Sycylia",
         "opening_hours": "Mo-Sa 12:00-22:00; Su 13:00-21:00",
         "website": "https://solesycylia.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1031,6 +1062,7 @@
         "id": 1794635472,
         "osm_type": "node",
         "name": "Aleppo",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1053,6 +1085,7 @@
         "website": "https://www.telepizza.pl/miasto/gda%C5%84sk.html",
         "operator": "TelePizza",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1069,6 +1102,7 @@
         "id": 1806878984,
         "osm_type": "node",
         "name": "Sultan",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1091,6 +1125,7 @@
         "website": "https://www.mcdonalds.pl/pl/restauracje",
         "operator": "McDonalds",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -1126,6 +1161,7 @@
         "name": "McTomas",
         "opening_hours": "Mo-Su 11:00-21:40",
         "website": "http://www.pizzeriamctomas.pl",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1142,6 +1178,7 @@
         "id": 1833105868,
         "osm_type": "node",
         "name": "Kebab Kama",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1160,6 +1197,7 @@
         "name": "Manufaktura Smaku",
         "opening_hours": "Mo-Th 12:00-22:00; Fr-Su 12:00-23:00",
         "phone": "+48 58 777 44 44",
+        "cuisine": "italian;pizza",
         "chain": "unknown"
       }
     },
@@ -1179,6 +1217,7 @@
         "opening_hours": "Sa-Th12:00-21:30; Fr,Sa 12:00-22:30",
         "phone": "+48 575 600 770",
         "website": "https://ideolo-pizza.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1250,6 +1289,7 @@
         "website": "https://kfc.pl/en/restaurants/kfc-gdansk-ch-auchan-889",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -1269,6 +1309,7 @@
         "brand": "Statoil",
         "opening_hours": "24/7",
         "operator": "Statoil",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1288,6 +1329,7 @@
         "opening_hours": "Tu-Su 12:00-21:00",
         "phone": "+48513564555",
         "website": "https://www.rekawmace.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1304,6 +1346,7 @@
         "id": 2027168579,
         "osm_type": "node",
         "name": "Kurczak z rożna",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -1320,6 +1363,7 @@
         "id": 2035469918,
         "osm_type": "node",
         "name": "Lena Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1351,6 +1395,7 @@
         "id": 2035558205,
         "osm_type": "node",
         "name": "Kebab Sułtan",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1367,6 +1412,7 @@
         "id": 2046176728,
         "osm_type": "node",
         "name": "Gustoso",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1415,6 +1461,7 @@
         "id": 2200311252,
         "osm_type": "node",
         "name": "Jedyny Taki Kebab w Mieście",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1431,6 +1478,7 @@
         "id": 2208135168,
         "osm_type": "node",
         "name": "Pizzeria MAJA",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1447,6 +1495,7 @@
         "id": 2226357680,
         "osm_type": "node",
         "name": "Smażalnia u rybaka",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -1464,6 +1513,7 @@
         "osm_type": "node",
         "name": "Red Devil",
         "opening_hours": "Mo-We,Su 12:00-23:00; Th 12:00-01:00; Fr-Sa 12:00-03:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1481,6 +1531,7 @@
         "osm_type": "node",
         "name": "U Juliusza",
         "opening_hours": "Mo-Su 11:00-19:00",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -1535,6 +1586,7 @@
         "opening_hours": "Mo-Su 10:00-20:00",
         "phone": "+48 58 556 34 69",
         "website": "https://kmar.pl/",
+        "cuisine": "polish;regional",
         "chain": "unknown"
       }
     },
@@ -1551,6 +1603,7 @@
         "id": 2324539971,
         "osm_type": "node",
         "name": "Don Corleone",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1567,6 +1620,7 @@
         "id": 2324567196,
         "osm_type": "node",
         "name": "Smaki Powiśla",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -1600,6 +1654,7 @@
         "id": 2331024482,
         "osm_type": "node",
         "name": "Smażalnia Ryb u Maćka",
+        "cuisine": "fish",
         "chain": "unknown"
       }
     },
@@ -1635,6 +1690,7 @@
         "opening_hours": "Mo-Fr 12:00-19:00; Sa, Su 13:00-18:00",
         "phone": "+48730320342",
         "website": "https://www.facebook.com/Szalony-Widelec-101562702162613/",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -1651,6 +1707,7 @@
         "id": 2338338473,
         "osm_type": "node",
         "name": "Kebab u Turka",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1669,6 +1726,7 @@
         "name": "Brooklyn Pizza",
         "opening_hours": "Mo,Su 12:00-23:00; Tu-Sa 11:00-23:00",
         "website": "https://brooklynpizza.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1686,6 +1744,7 @@
         "osm_type": "node",
         "name": "Nazar Kebab",
         "opening_hours": "Mo-Th 10:00-01:00; Fr, Sa 10:00-02:00; Su 10:00-24:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1720,6 +1779,7 @@
         "name": "Naleśnikarnia Fanaberia",
         "opening_hours": "Mo-Sa 10:00-21:00; Su 11:00-20:00",
         "website": "https://www.nalesnikarnia-fanaberia.pl/",
+        "cuisine": "crepe",
         "chain": "unknown"
       }
     },
@@ -1736,6 +1796,7 @@
         "id": 2356377029,
         "osm_type": "node",
         "name": "Goodvalley Grill",
+        "cuisine": "american",
         "chain": "unknown"
       }
     },
@@ -1785,6 +1846,7 @@
         "osm_type": "node",
         "name": "Pizzeria Restauracja Dziobak PePe",
         "opening_hours": "Mo-Sa 08:00-22:00; Su 09:00-20:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1803,6 +1865,7 @@
         "name": "Bar Przystań",
         "opening_hours": "Mo-Su,PH off",
         "website": "http://www.pizzeria-przystan.zeglarz-gdynia.pl",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1850,6 +1913,7 @@
         "id": 2454137949,
         "osm_type": "node",
         "name": "Maxx Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1866,6 +1930,7 @@
         "id": 2454647982,
         "osm_type": "node",
         "name": "Julia",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1883,6 +1948,7 @@
         "osm_type": "node",
         "name": "Cuda Wianki",
         "opening_hours": "Mo-Fr 11:00-19:00; Sa-Su 12:00-19:00",
+        "cuisine": "pancake",
         "chain": "unknown"
       }
     },
@@ -1900,6 +1966,7 @@
         "osm_type": "node",
         "name": "Bar mleczny Syrena",
         "opening_hours": "Mo-Fr 08:00-18:00; Sa off; Su 09:00-17:00",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -1934,6 +2001,7 @@
         "osm_type": "node",
         "name": "Kebab Laamh",
         "opening_hours": "Mo-Sa 10:30-03:00; Su 12:00-02:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1951,6 +2019,7 @@
         "osm_type": "node",
         "name": "Kebab u Wezyra",
         "opening_hours": "Fr-Sa 11:00-24:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1971,6 +2040,7 @@
         "opening_hours": "Su-Th 10:30-03:00, Fr,Sa 10:30-05:00",
         "website": "http://zahirkebab.pl/",
         "brand:wikidata": "Q116148750",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1987,6 +2057,7 @@
         "id": 2469924070,
         "osm_type": "node",
         "name": "Bufet",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2005,6 +2076,7 @@
         "name": "StarMarks Kebab Wejherowo",
         "phone": "+48 518 108 374",
         "operator": "StarMarks Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2023,6 +2095,7 @@
         "name": "Jedyny Taki Kebab w Mieście",
         "phone": "+48 508 161 657",
         "website": "info@jedynytakikebab.pl",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2039,6 +2112,7 @@
         "id": 2489960703,
         "osm_type": "node",
         "name": "Manufaktura Smaku",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2073,6 +2147,7 @@
         "osm_type": "node",
         "name": "Bar u Senwickich",
         "opening_hours": "Mo-Fr 09:00-19:00; Sa,Su 10:00-18:00",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -2090,6 +2165,7 @@
         "osm_type": "node",
         "name": "Mąka i Kawa",
         "opening_hours": "Mo-Fr 09:00-20:00; Sa-Su 12:00-19:00",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2123,6 +2199,7 @@
         "id": 2612027552,
         "osm_type": "node",
         "name": "Pizzeria Gdynianka",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2140,6 +2217,7 @@
         "osm_type": "node",
         "name": "Pizzeria Królewska",
         "opening_hours": "Mo-Sa 10:00-21:00; Su 12:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2156,6 +2234,7 @@
         "id": 2614888982,
         "osm_type": "node",
         "name": "Orio Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2192,6 +2271,7 @@
         "opening_hours": "Mo-Th 10:00-21:00; Fr-Sa 10:00-22:00; Su 10:00-20:00",
         "operator": "AmRest",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -2212,6 +2292,7 @@
         "opening_hours": "Mo-Th 10:00-21:00; Fr-Sa 10:00-22:00; Su 10:00-20:00",
         "operator": "AmRest",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -2229,6 +2310,7 @@
         "osm_type": "node",
         "name": "Bar 3 Smaki",
         "opening_hours": "08:00-16:00",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2246,6 +2328,7 @@
         "osm_type": "node",
         "name": "Bar Akademicki",
         "opening_hours": "Mo-Fr 11:00-18:00; Sa 11:00-17:00; Su off",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2262,6 +2345,7 @@
         "id": 2675611822,
         "osm_type": "node",
         "name": "Marko",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2294,6 +2378,7 @@
         "id": 2821792744,
         "osm_type": "node",
         "name": "Zapiekanki 3miasto",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2311,6 +2396,7 @@
         "osm_type": "node",
         "name": "Sushi Home",
         "opening_hours": "Mo-Su 12:00-21:00",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -2408,6 +2494,7 @@
         "osm_type": "node",
         "name": "SurfBurger",
         "opening_hours": "Mo-Th 12:00-21:00; Fr-Sa 12:00-23:00; Su 12:00-21:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2424,6 +2511,7 @@
         "id": 2914786824,
         "osm_type": "node",
         "name": "Bar mleczny \"Perełka\"",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2445,6 +2533,7 @@
         "website": "https://mcdonalds.pl/",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2463,6 +2552,7 @@
         "name": "Czerwony Piec",
         "opening_hours": "Mo-Th 12:00-22:00; Fr-Sa 12:00-23:00; Su 12:00-20:00",
         "website": "https://www.czerwonypiec.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2479,6 +2569,7 @@
         "id": 2960679206,
         "osm_type": "node",
         "name": "Kebab Lamh",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2513,6 +2604,7 @@
         "name": "U Jadzi",
         "opening_hours": "Apr-Sep: 10:00-20:00",
         "operator": "Andrzej Kawa",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -2545,6 +2637,7 @@
         "osm_type": "node",
         "name": "U Macieja",
         "opening_hours": "Mo-Su 08:00-21:00",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -2560,6 +2653,7 @@
       "properties": {
         "id": 3006750699,
         "osm_type": "node",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -2576,6 +2670,7 @@
         "id": 3006900462,
         "osm_type": "node",
         "name": "Albatros",
+        "cuisine": "pizza;polish;regional",
         "chain": "unknown"
       }
     },
@@ -2655,6 +2750,7 @@
         "id": 3022041044,
         "osm_type": "node",
         "name": "Doner Chicken Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2688,6 +2784,7 @@
         "id": 3024958082,
         "osm_type": "node",
         "name": "Pizza u Smakosza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2708,6 +2805,7 @@
         "phone": "+48 502 454 687",
         "website": "https://www.facebook.com/cukierniaskorcz?locale=pl_PL",
         "operator": "Małgorzata i Janusz Włodarczk",
+        "cuisine": "pizza;coffee_shop;kebab",
         "chain": "unknown"
       }
     },
@@ -2743,6 +2841,7 @@
         "opening_hours": "Mo-Sa 11:00-22:00; Su 12:00-22:00",
         "phone": "+48 501 977 199",
         "website": "https://oreganogdynia.eatbu.com/?lang=pl",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2758,6 +2857,7 @@
       "properties": {
         "id": 3034713822,
         "osm_type": "node",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2775,6 +2875,7 @@
         "osm_type": "node",
         "name": "Alanya Kebap",
         "opening_hours": "Mo-We 10:00-02:30; Th 10:00-03:00; Fr 10:00-05:00; Sa 10:00-05:30; Su 11:00-02:30",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2791,6 +2892,7 @@
         "id": 3042795025,
         "osm_type": "node",
         "name": "Pizzeria Roma",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2807,6 +2909,7 @@
         "id": 3050906421,
         "osm_type": "node",
         "name": "Baranola",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2826,6 +2929,7 @@
         "opening_hours": "Mo-Sa 11:00-22:00; Su 14:00-21:00",
         "phone": "+48586252266",
         "website": "http://pizzeriavito.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2842,6 +2946,7 @@
         "id": 3071510086,
         "osm_type": "node",
         "name": "Izmir Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2858,6 +2963,7 @@
         "id": 3079682215,
         "osm_type": "node",
         "name": "U Szwagra",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2876,6 +2982,7 @@
         "name": "Bar Szofera",
         "opening_hours": "Mo-Su 10:00-22:00",
         "phone": "+48606294113",
+        "cuisine": "pizza;kebab;polish",
         "chain": "unknown"
       }
     },
@@ -2922,6 +3029,7 @@
       "properties": {
         "id": 3089880478,
         "osm_type": "node",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -2940,6 +3048,7 @@
         "name": "Pizzeria Bella",
         "opening_hours": "Mo-Su 11:00-21:00",
         "website": "https://www.pizzabella.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2955,6 +3064,7 @@
       "properties": {
         "id": 3129591355,
         "osm_type": "node",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2972,6 +3082,7 @@
         "osm_type": "node",
         "name": "Zain_Kebab",
         "opening_hours": "Mo-Th,Su 10:00-02:00; Fr-Sa 10:00-05:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2988,6 +3099,7 @@
         "id": 3234054670,
         "osm_type": "node",
         "name": "Tendur",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3006,6 +3118,7 @@
         "name": "Loveat",
         "opening_hours": "Mo-Fr 07:00-17:00",
         "website": "www.loveat.pl",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3025,6 +3138,7 @@
         "opening_hours": "Mo-Fr 09:00-18:00; Sa 10:00-17:00",
         "phone": "+48 508 478 038",
         "website": "https://www.facebook.com/Bar-Mleczny-Fala-111366793843901",
+        "cuisine": "regional;polish",
         "chain": "unknown"
       }
     },
@@ -3075,6 +3189,7 @@
         "id": 3559252724,
         "osm_type": "node",
         "name": "Lappetitoso",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3109,6 +3224,7 @@
         "osm_type": "node",
         "name": "Pepe Pizza",
         "opening_hours": "Mo-Sa 11:00-22:00; Su 12:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3126,6 +3242,7 @@
         "osm_type": "node",
         "name": "Bep Viet",
         "opening_hours": "Mo-Fr 11:00-22:00; Sa,Su 12:00-22:00",
+        "cuisine": "vietnamese",
         "chain": "unknown"
       }
     },
@@ -3160,6 +3277,7 @@
         "osm_type": "node",
         "name": "Pizza Subito",
         "opening_hours": "Mo-Fr 10:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3177,6 +3295,7 @@
         "osm_type": "node",
         "name": "Burger Stacja",
         "opening_hours": "Mo-Th 11:00-23:00; Fr 11:00-24:00; Sa 12:00-24:00; Su 12:00-22:00",
+        "cuisine": "burger;fries",
         "chain": "unknown"
       }
     },
@@ -3195,6 +3314,7 @@
         "name": "Pierogi lwowskie",
         "opening_hours": "Mo-Sa 11:00-19:00",
         "phone": "+48 693 171 905",
+        "cuisine": "dumpling",
         "chain": "unknown"
       }
     },
@@ -3214,6 +3334,7 @@
         "opening_hours": "Mo-Th,Su 12:00-21:30; Fr-Sa 12:00-22:30",
         "phone": "+48 577 300 855",
         "website": "https://ideolo-pizza.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3233,6 +3354,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-23:00; Sa 03:00-23:00; Su 03:00-22:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3249,6 +3371,7 @@
         "id": 3631091178,
         "osm_type": "node",
         "name": "Gold Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3265,6 +3388,7 @@
         "id": 3637745986,
         "osm_type": "node",
         "name": "Przystań Rybacka",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -3283,6 +3407,7 @@
         "name": "Bar Turystyczny",
         "opening_hours": "08:00-18:00",
         "website": "http://bar-turystyczny.pl/",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -3299,6 +3424,7 @@
         "id": 3657462630,
         "osm_type": "node",
         "name": "Kebab Grill",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3330,6 +3456,7 @@
       "properties": {
         "id": 3667142399,
         "osm_type": "node",
+        "cuisine": "zapiekanki",
         "chain": "unknown"
       }
     },
@@ -3362,6 +3489,7 @@
         "osm_type": "node",
         "name": "Surf Burger",
         "opening_hours": "Mo-Su 12:00-22:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -3381,6 +3509,7 @@
         "opening_hours": "Mo-Th 12:00-22:00; Fr-Sa 12:00-1:00; Su 12:00-22:00",
         "phone": "+48 58 526 06 06",
         "website": "https://surfburger.pl/lokalizacja/gdansk",
+        "cuisine": "burger;fries",
         "chain": "unknown"
       }
     },
@@ -3444,6 +3573,7 @@
         "id": 3690505871,
         "osm_type": "node",
         "name": "Da Vinci",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3588,6 +3718,7 @@
         "id": 3696484923,
         "osm_type": "node",
         "name": "Restauracja Sabroso",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3651,6 +3782,7 @@
         "osm_type": "node",
         "name": "Fusion Kebab",
         "operator": "Fusion Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3702,6 +3834,7 @@
         "osm_type": "node",
         "name": "Gruby Benek",
         "opening_hours": "Mo-Th 10:00-23:00; Fr,Sa 10:00-24:00; Su 12:00-23:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3719,6 +3852,7 @@
         "osm_type": "node",
         "name": "Pizzeria \"Il Pepperone\"",
         "phone": "+48 59 862 32 32",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3735,6 +3869,7 @@
         "id": 3842565522,
         "osm_type": "node",
         "name": "Olivka",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3803,6 +3938,7 @@
         "osm_type": "node",
         "name": "Tina",
         "opening_hours": "Mo-Su 12:00-21:30",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3837,6 +3973,7 @@
         "name": "Pub & Pizzeria Gusto",
         "opening_hours": "Tu-Th 12:00-22:00; Fr, Sa 12:00-00:00; Su 12:00-23:00",
         "phone": "+48 881 201 222",
+        "cuisine": "pizza;burger",
         "chain": "unknown"
       }
     },
@@ -3854,6 +3991,7 @@
         "osm_type": "node",
         "name": "Kakadu",
         "opening_hours": "Mo-Su 10:00-19:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3873,6 +4011,7 @@
         "opening_hours": "Su-Th 12:00-21:00; Fr-Sa 12:00-23:00",
         "phone": "+48 501 033 731",
         "website": "https://www.tabupizza.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3943,6 +4082,7 @@
         "opening_hours": "Mo-Sa 11:00-19:00",
         "phone": "+48 731 222 300",
         "website": "http://www.looksfera.org",
+        "cuisine": "savory_pancakes;coffee_shop;crepe",
         "chain": "unknown"
       }
     },
@@ -4055,6 +4195,7 @@
         "id": 3972697991,
         "osm_type": "node",
         "name": "Sułtan",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4190,6 +4331,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Su 10:00-21:00; Su 10:00-20:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4207,6 +4349,7 @@
         "osm_type": "node",
         "name": "Alanya Kebab",
         "opening_hours": "Mo-Su 10:00-21:00; Su 10:00-20:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4226,6 +4369,7 @@
         "brand": "KFC",
         "opening_hours": "Mo-Su 10:00-21:00; Su 10:00-20:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4243,6 +4387,7 @@
         "osm_type": "node",
         "name": "Gdyńska Zapiekanka",
         "opening_hours": "Mo-Th 10:00-24:00; Fr-Sa 10:00-03:00, Su 11:00-24:00",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -4306,6 +4451,7 @@
         "id": 4087710466,
         "osm_type": "node",
         "name": "Pekin",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -4326,6 +4472,7 @@
         "opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-20:00",
         "website": "https://www.berlindonerkebap.com/restauracje/gdansk/auchan-gdansk",
         "brand:wikidata": "Q126195313",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4346,6 +4493,7 @@
         "opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-20:00",
         "website": "https://pizzahut.pl/",
         "brand:wikidata": "Q191615",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4364,6 +4512,7 @@
         "name": "Zen-Thai",
         "opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-20:00",
         "website": "http://www.zenthai.pl/",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -4382,6 +4531,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4398,6 +4548,7 @@
         "id": 4152928137,
         "osm_type": "node",
         "name": "Kebab Hut",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4415,6 +4566,7 @@
         "osm_type": "node",
         "name": "Pizza & Kebab FENIX",
         "phone": "+48 518 277 866",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4432,6 +4584,7 @@
         "osm_type": "node",
         "name": "Bar Azja",
         "opening_hours": "Mo-Su 10:00-21:00",
+        "cuisine": "vietnamese",
         "chain": "unknown"
       }
     },
@@ -4465,6 +4618,7 @@
         "id": 4219975335,
         "osm_type": "node",
         "name": "Go-Ibo",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -4481,6 +4635,7 @@
         "id": 4219975336,
         "osm_type": "node",
         "name": "Kambuz",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -4500,6 +4655,7 @@
         "opening_hours": "Mo-Su 12:00-22:00",
         "phone": "+48 577 203 303",
         "website": "https://fornorosapizza.business.site/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4517,6 +4673,7 @@
         "osm_type": "node",
         "name": "Neptun",
         "opening_hours": "Mo-Fr 09:00-18:00; Sa-Su 09:00-18:00",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -4564,6 +4721,7 @@
         "id": 4296965890,
         "osm_type": "node",
         "name": "Pizzeria Ciao-Ciao",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4583,6 +4741,7 @@
         "opening_hours": "Tu-Su 12:00-23:00",
         "phone": "+48572380083",
         "website": "https://www.facebook.com/pg/Hellas-Gyradiko-Gdynia-712694442421465/",
+        "cuisine": "greek",
         "chain": "unknown"
       }
     },
@@ -4601,6 +4760,7 @@
         "name": "Wędzone Ryby",
         "opening_hours": "Mo-Su 18:00-20:00",
         "operator": "Gospodarstwo Rybackie Dębki",
+        "cuisine": "fish",
         "chain": "unknown"
       }
     },
@@ -4621,6 +4781,7 @@
         "opening_hours": "Mo-Sa 08:30-21:30; Su 11:00-19:00",
         "operator": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4642,6 +4803,7 @@
         "website": "https://restaurants.subway.com/pl/polska/pm/gdansk/obroncow-wybrzeza-1",
         "operator": "AKSUB Adrian Klein",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4659,6 +4821,7 @@
         "osm_type": "node",
         "name": "Mövenpick",
         "operator": "Mövenpick",
+        "cuisine": "ice_cream",
         "chain": "unknown"
       }
     },
@@ -4675,6 +4838,7 @@
         "id": 4341714601,
         "osm_type": "node",
         "name": "Tendur Grill & Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4692,6 +4856,7 @@
         "osm_type": "node",
         "name": "Pyra Bar",
         "opening_hours": "Mo-Su 11:00-21:00; Fr,Sa 11:00-22:00",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -4784,6 +4949,7 @@
         "id": 4353755087,
         "osm_type": "node",
         "name": "Pizza Furgon",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4801,6 +4967,7 @@
         "osm_type": "node",
         "name": "U Jarosi",
         "opening_hours": "Tu-Su 11:00-19:00",
+        "cuisine": "fish;ice_cream;regional",
         "chain": "unknown"
       }
     },
@@ -4836,6 +5003,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4854,6 +5022,7 @@
         "name": "Pasibus",
         "brand": "Pasibus",
         "brand:wikidata": "Q110428053",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4872,6 +5041,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4907,6 +5077,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdynia/gdynia-kazimierza-gorskiego-2",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4939,6 +5110,7 @@
         "id": 4379472748,
         "osm_type": "node",
         "name": "Salad Story",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -4973,6 +5145,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4989,6 +5162,7 @@
         "id": 4379472752,
         "osm_type": "node",
         "name": "Thai Wok",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -5005,6 +5179,7 @@
         "id": 4389238147,
         "osm_type": "node",
         "name": "SurfBurger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -5023,6 +5198,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -5091,6 +5267,7 @@
         "id": 4463516795,
         "osm_type": "node",
         "name": "Asia Hoanmy",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -5110,6 +5287,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Fr 09:30-21:00; Sa 10:00-21:00; Su 10:00-20:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -5126,6 +5304,7 @@
         "id": 4463516811,
         "osm_type": "node",
         "name": "Grand Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5142,6 +5321,7 @@
         "id": 4463516838,
         "osm_type": "node",
         "name": "Pierogi i Spólka",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -5162,6 +5342,7 @@
         "opening_hours": "Mo-Th 10:00-21:00; Fr 11:00-21:00; Sa 10:00-21:00; Su 11:00-21:00",
         "phone": "+48 22 536 36 36",
         "brand:wikidata": "Q191615",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5196,6 +5377,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -5215,6 +5397,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/starogard-gdanski/starogard-gdanski-ul-droga-nowowiejska-2",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -5248,6 +5431,7 @@
         "id": 4583024295,
         "osm_type": "node",
         "name": "HolyBurger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -5266,6 +5450,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -5301,6 +5486,7 @@
         "opening_hours": "Mo-We 12:00-23:00; Th 12:00-24:00; Fr 00:00-02:00,12:00-24:00; Sa 00:00-04:00,12:00-24:00; Su 00:00-04:00,12:00-23:00",
         "phone": "+48 58 691 98 60",
         "website": "http://www.kultkebab.pl/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5318,6 +5504,7 @@
         "osm_type": "node",
         "name": "Mc Kebab",
         "phone": "+48 55 620 05 54",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5354,6 +5541,7 @@
         "phone": "+48 58 71 81 333",
         "website": "https://stefano.com.pl/",
         "operator": "PIZZERIA STEFANO - TOMASZ KACZOR",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5386,6 +5574,7 @@
         "id": 4922068885,
         "osm_type": "node",
         "name": "Kraftowa Osowa",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5421,6 +5610,7 @@
         "id": 4946877108,
         "osm_type": "node",
         "name": "Kebab Jerusalem",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5440,6 +5630,7 @@
         "brand": "Domino's",
         "opening_hours": "Su-Th 12:00-23:00; Fr,Sa 11:00-23:00",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5456,6 +5647,7 @@
         "id": 4992152067,
         "osm_type": "node",
         "name": "Lena Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5472,6 +5664,7 @@
         "id": 5017039075,
         "osm_type": "node",
         "name": "Ha-Noi",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -5509,6 +5702,7 @@
         "brand": "Telepizza",
         "opening_hours": "Su-Th 11:00-23:00; Fr,Sa 11:00-24:00",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5528,6 +5722,7 @@
         "brand": "Domino's",
         "opening_hours": "Mo-Th 11:00-23:00; Fr-Sa 11:00-24:00; Su 11:00-23:00",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5544,6 +5739,7 @@
         "id": 5032159371,
         "osm_type": "node",
         "name": "La Vera",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5559,6 +5755,7 @@
       "properties": {
         "id": 5042001823,
         "osm_type": "node",
+        "cuisine": "pasta",
         "chain": "unknown"
       }
     },
@@ -5576,6 +5773,7 @@
         "osm_type": "node",
         "name": "Berlin Doner Kebap",
         "opening_hours": "Mo-Sa 09:00-21:00; Su 09:30-20:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5595,6 +5793,7 @@
         "brand": "KFC",
         "opening_hours": "Mo-Sa 09:00-21:00; Su 09:30-20:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -5613,6 +5812,7 @@
         "name": "Bar Karmazyn",
         "opening_hours": "Mo-Su 10:00-23:00",
         "website": "https://barkarmazyn.pl/",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -5629,6 +5829,7 @@
         "id": 5079159534,
         "osm_type": "node",
         "name": "Berlin Doner Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5645,6 +5846,7 @@
         "id": 5082102502,
         "osm_type": "node",
         "name": "Targowa",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5662,6 +5864,7 @@
         "osm_type": "node",
         "name": "Czeburek & Kebab",
         "opening_hours": "Mo-Su 10:00-20:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5696,6 +5899,7 @@
         "id": 5119317176,
         "osm_type": "node",
         "name": "Sushi Poke Go",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -5712,6 +5916,7 @@
         "id": 5164750128,
         "osm_type": "node",
         "name": "Asia Hung",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -5728,6 +5933,7 @@
         "id": 5164750129,
         "osm_type": "node",
         "name": "Berlin Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5746,6 +5952,7 @@
         "name": "Imbiss Istanbul Döner Kebap",
         "opening_hours": "24/7",
         "phone": "+48 58 556 66 33",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5764,6 +5971,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -5784,6 +5992,7 @@
         "opening_hours": "Mo,Fr 12:30-21:45; Tu-Th 12:30-20:45; Sa 13:00-21:45; Su 13:00-20:45",
         "website": "https://www.facebook.com/texaschickengdynia/",
         "brand:wikidata": "Q1089932",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -5803,6 +6012,7 @@
         "brand": "Domino's",
         "opening_hours": "Su-Th 12:00-23:00, Fr,Sa 12:00-01:00",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5820,6 +6030,7 @@
         "osm_type": "node",
         "name": "Leniwa Baba",
         "opening_hours": "Mo-Su 11:00-18:00",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -5838,6 +6049,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -5855,6 +6067,7 @@
         "osm_type": "node",
         "name": "Vinissimo Restaurant & Wine Bar",
         "opening_hours": "Mo-Su 12:00-21:00",
+        "cuisine": "international",
         "chain": "unknown"
       }
     },
@@ -5925,6 +6138,7 @@
         "brand": "Sushi Story",
         "opening_hours": "Mo-Su 11:00-22:00",
         "brand:wikidata": "Q119213347",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -5941,6 +6155,7 @@
         "id": 5392715127,
         "osm_type": "node",
         "name": "Imad Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5957,6 +6172,7 @@
         "id": 5586145483,
         "osm_type": "node",
         "name": "Kebab Center",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5974,6 +6190,7 @@
         "osm_type": "node",
         "name": "Smashynski",
         "phone": "+48 453 448 886",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -5993,6 +6210,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-ul-targ-sienny-7-poziom-1",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -6011,6 +6229,7 @@
         "name": "Berlin Döner Kebap",
         "brand": "Berlin Döner Kebap",
         "brand:wikidata": "Q126195313",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6029,6 +6248,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -6047,6 +6267,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -6066,6 +6287,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-ul-targ-sienny-7-poziom-2",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -6086,6 +6308,7 @@
         "opening_hours": "04:00-23:00",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-ul-slowackiego-210",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -6136,6 +6359,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6152,6 +6376,7 @@
         "id": 5777959262,
         "osm_type": "node",
         "name": "Berlin Döner Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6184,6 +6409,7 @@
         "id": 5799486570,
         "osm_type": "node",
         "name": "Pizza Corner",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6200,6 +6426,7 @@
         "id": 5799486571,
         "osm_type": "node",
         "name": "Balkanero",
+        "cuisine": "tapas;greek",
         "chain": "unknown"
       }
     },
@@ -6216,6 +6443,7 @@
         "id": 5799486572,
         "osm_type": "node",
         "name": "Bombay",
+        "cuisine": "indian",
         "chain": "unknown"
       }
     },
@@ -6232,6 +6460,7 @@
         "id": 5799486573,
         "osm_type": "node",
         "name": "Bao Boy",
+        "cuisine": "japanese",
         "chain": "unknown"
       }
     },
@@ -6248,6 +6477,7 @@
         "id": 5799486574,
         "osm_type": "node",
         "name": "Bahn Mi Nook",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6264,6 +6494,7 @@
         "id": 5799486575,
         "osm_type": "node",
         "name": "Morze Pasta",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -6312,6 +6543,7 @@
         "id": 5799486578,
         "osm_type": "node",
         "name": "Mexicali",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -6345,6 +6577,7 @@
         "osm_type": "node",
         "name": "Drewutnia",
         "opening_hours": "Mo-Tu off; We-Su 12:00-19:00",
+        "cuisine": "fish;fish_and_chips;friture",
         "chain": "unknown"
       }
     },
@@ -6379,6 +6612,7 @@
         "name": "Chilli Kebab & Grill",
         "opening_hours": "Mo-Su 11:00-23:00",
         "operator": "Azmir Trade Mohammed Imranul Sumon",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6430,6 +6664,7 @@
         "osm_type": "node",
         "name": "Lena Kebab",
         "opening_hours": "Mo-Su 10:00-24:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6448,6 +6683,7 @@
         "name": "Park Café",
         "opening_hours": "Mo-Fr 07:30-19:00",
         "website": "https://parkcafegdynia.pl",
+        "cuisine": "polish;breakfast;international",
         "chain": "unknown"
       }
     },
@@ -6466,6 +6702,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -6485,6 +6722,7 @@
         "opening_hours": "Mo-Su 10:00-17:30",
         "phone": "+48505173555",
         "website": "https://bistrobarfestival.pl",
+        "cuisine": "regional;polish",
         "chain": "unknown"
       }
     },
@@ -6502,6 +6740,7 @@
         "osm_type": "node",
         "name": "Karczma Kczewo",
         "opening_hours": "Mo-Su 10:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6520,6 +6759,7 @@
         "name": "Baltiq Kebab",
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://www.facebook.com/DAS.KEBAB/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6537,6 +6777,7 @@
         "osm_type": "node",
         "name": "Delta Kebab",
         "website": "https://www.deltakeb.pl/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6553,6 +6794,7 @@
         "id": 6044958908,
         "osm_type": "node",
         "name": "Kobra Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6569,6 +6811,7 @@
         "id": 6109715166,
         "osm_type": "node",
         "name": "Byka za rogi",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6585,6 +6828,7 @@
         "id": 6173340748,
         "osm_type": "node",
         "name": "Dorsz & Przyjaciele",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -6601,6 +6845,7 @@
         "id": 6173340751,
         "osm_type": "node",
         "name": "Marineros",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -6620,6 +6865,7 @@
         "opening_hours": "Mo-Su 12:00-21:00",
         "phone": "+48 730 827 827",
         "website": "https://www.facebook.com/burgermajster/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6639,6 +6885,7 @@
         "opening_hours": "Tu-Su 12:00-22:00; Fr,Sa 12:00-23:00",
         "phone": "+48585574994",
         "website": "https://rogata.gda.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6656,6 +6903,7 @@
         "osm_type": "node",
         "name": "Bar mleczny Stągiewna",
         "opening_hours": "Mo-Su 09:00-19:30",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -6675,6 +6923,7 @@
         "opening_hours": "Tu-Fr 13:00-21:00; Sa 12:00-22:00; Su12:00-20:00",
         "phone": "+48 506 779 582",
         "website": "https://www.beattczew.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6693,6 +6942,7 @@
         "name": "Przystanek Zupa",
         "opening_hours": "Mo-Sa 08:00-19:00; Su 11:00-18:00",
         "phone": "+48505803930",
+        "cuisine": "soup",
         "chain": "unknown"
       }
     },
@@ -6729,6 +6979,7 @@
         "opening_hours": "Mo-Su 10:00-23:00; Fr,Sa 10:00-24:00",
         "phone": "+48 690 944 687",
         "website": "https://www.facebook.com/profile.php?id=100089806924341",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6748,6 +6999,7 @@
         "opening_hours": "Mo-Fr 07:00-17:00",
         "phone": "+48530168783",
         "website": "http://www.loveat.pl/",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6764,6 +7016,7 @@
         "id": 6387478774,
         "osm_type": "node",
         "name": "Kurczak z rożna",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -6814,6 +7067,7 @@
         "osm_type": "node",
         "name": "Loveat",
         "opening_hours": "Mo-Fr 06:30-17:00",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -6834,6 +7088,7 @@
         "opening_hours": "Su,Mo 11:00-23:00, Fr,Sa 11:00-24:00",
         "phone": "+48585010001",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6851,6 +7106,7 @@
         "osm_type": "node",
         "name": "Kebab House",
         "opening_hours": "Mo-Th 09:00-22:00; Fr,Sa 09:00-23:00; Su,PH 12:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6885,6 +7141,7 @@
         "osm_type": "node",
         "name": "Skandal Pizza & Burger",
         "opening_hours": "Mo-Th 12:00-22:00; Fr,Sa 12:00-23:00; PH 12:00-21:00",
+        "cuisine": "burger;italian_pizza",
         "chain": "unknown"
       }
     },
@@ -6901,6 +7158,7 @@
         "id": 6551126182,
         "osm_type": "node",
         "name": "Kebab Way",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6917,6 +7175,7 @@
         "id": 6562963613,
         "osm_type": "node",
         "name": "Smażalnia Bałtycka",
+        "cuisine": "fish",
         "chain": "unknown"
       }
     },
@@ -6933,6 +7192,7 @@
         "id": 6564354136,
         "osm_type": "node",
         "name": "u Grubego",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6949,6 +7209,7 @@
         "id": 6564354140,
         "osm_type": "node",
         "name": "Bar Rybka",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -6965,6 +7226,7 @@
         "id": 6575454406,
         "osm_type": "node",
         "name": "Alanya",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6983,6 +7245,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7001,6 +7264,7 @@
         "name": "Pizza Hut Express",
         "brand": "Pizza Hut",
         "brand:wikidata": "Q191615",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7052,6 +7316,7 @@
         "osm_type": "node",
         "name": "Bar Gaweł",
         "opening_hours": "Mo-Fr 09:00-17:30; Sa 11:00-16:00",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -7069,6 +7334,7 @@
         "osm_type": "node",
         "name": "MIM Kebab",
         "opening_hours": "Mo-Su 10:00-23:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7086,6 +7352,7 @@
         "osm_type": "node",
         "name": "Góra lodowa",
         "opening_hours": "Mo-Su 12:00-18:00",
+        "cuisine": "ice_cream",
         "chain": "unknown"
       }
     },
@@ -7106,6 +7373,7 @@
         "phone": "+48 519 075 634",
         "website": "http://subway.pl/",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7126,6 +7394,7 @@
         "phone": "+48 519 075 683",
         "website": "http://subway.pl/",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7146,6 +7415,7 @@
         "phone": "+48 519 075 692",
         "website": "http://subway.pl/",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7167,6 +7437,7 @@
         "phone": "+48 519 075 664",
         "website": "http://subway.pl/",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7186,6 +7457,7 @@
         "opening_hours": "Mo-Fr 12:00-22:00; Sa,Su 11:00-22:30",
         "phone": "+48730255603",
         "website": "https://50sburger.pl/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7218,6 +7490,7 @@
         "id": 6635276781,
         "osm_type": "node",
         "name": "Sexy Bull",
+        "cuisine": "burger;fries",
         "chain": "unknown"
       }
     },
@@ -7234,6 +7507,7 @@
         "id": 6681602245,
         "osm_type": "node",
         "name": "Bar \"Łosoś\"",
+        "cuisine": "fish_and_chips;polish",
         "chain": "unknown"
       }
     },
@@ -7250,6 +7524,7 @@
         "id": 6683233027,
         "osm_type": "node",
         "name": "Restauracyjka Morskie Smaki",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -7267,6 +7542,7 @@
         "osm_type": "node",
         "name": "GOFRownia",
         "website": "https://www.facebook.com/GOFRowniaGdynia/",
+        "cuisine": "waffle",
         "chain": "unknown"
       }
     },
@@ -7285,6 +7561,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -7300,6 +7577,7 @@
       "properties": {
         "id": 6747197318,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7448,6 +7726,7 @@
         "opening_hours": "Mo,Tu off; We-Su 12:00-20:00",
         "phone": "+48 735 752 204",
         "website": "https://www.facebook.com/Autopizza-675749149293119/",
+        "cuisine": "pizza;italian;sandwich",
         "chain": "unknown"
       }
     },
@@ -7480,6 +7759,7 @@
         "id": 7160970285,
         "osm_type": "node",
         "name": "Queen Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7497,6 +7777,7 @@
         "osm_type": "node",
         "name": "Bar Mleczny",
         "opening_hours": "Mo-Fr 08:00-18:00; Sa-Su 11:00-18:00",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -7514,6 +7795,7 @@
         "osm_type": "node",
         "name": "Stołówka Gdańska",
         "opening_hours": "Mo-Fr 11:00-18:00; Sa-Su 11:00-17:00",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -7530,6 +7812,7 @@
         "id": 7327635019,
         "osm_type": "node",
         "name": "Fryta Bar",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7563,6 +7846,7 @@
         "name": "Telepizza",
         "brand": "Telepizza",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7599,6 +7883,7 @@
         "osm_type": "node",
         "name": "Checkers",
         "brand": "Kebsik",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7617,6 +7902,7 @@
         "name": "Kebap House",
         "opening_hours": "Mo-Th 09:00-22:00; Fr-Sa 09:00-23:00; Su 12:00-22:00",
         "phone": "+48598403032",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7634,6 +7920,7 @@
         "osm_type": "node",
         "name": "Carmnik",
         "opening_hours": "Th-Sa 16:00-03:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7651,6 +7938,7 @@
         "osm_type": "node",
         "name": "House Of Seitan",
         "opening_hours": "Th-Sa 16:00-03:00",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -7668,6 +7956,7 @@
         "osm_type": "node",
         "name": "Pizza Truck",
         "opening_hours": "Th-Sa 16:00-03:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7685,6 +7974,7 @@
         "osm_type": "node",
         "name": "Nie/Mięsny",
         "opening_hours": "Th-Sa 16:00-03:00",
+        "cuisine": "burger;sandwich",
         "chain": "unknown"
       }
     },
@@ -7702,6 +7992,7 @@
         "osm_type": "node",
         "name": "Dos Amigos",
         "opening_hours": "Th-Sa 16:00-03:00",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -7719,6 +8010,7 @@
         "osm_type": "node",
         "name": "ŁąBus",
         "opening_hours": "Th-Sa 16:00-03:00",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -7735,6 +8027,7 @@
         "id": 7685502591,
         "osm_type": "node",
         "name": "Bar \"Klif\"",
+        "cuisine": "fish",
         "chain": "unknown"
       }
     },
@@ -7750,6 +8043,7 @@
       "properties": {
         "id": 7705895770,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7766,6 +8060,7 @@
         "id": 7717617250,
         "osm_type": "node",
         "name": "Kobo Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7782,6 +8077,7 @@
         "id": 7761603025,
         "osm_type": "node",
         "name": "Przystanek Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7814,6 +8110,7 @@
         "id": 7780753961,
         "osm_type": "node",
         "name": "Smażalnia Rybacka",
+        "cuisine": "fish;fish_and_chips;polish",
         "chain": "unknown"
       }
     },
@@ -7830,6 +8127,7 @@
         "id": 7797090325,
         "osm_type": "node",
         "name": "Kebab Orientation",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7863,6 +8161,7 @@
         "id": 7834794076,
         "osm_type": "node",
         "name": "Smoked everyday",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7881,6 +8180,7 @@
         "name": "Kebab King",
         "brand": "Kebab King",
         "brand:wikidata": "Q113093758",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7901,6 +8201,7 @@
         "opening_hours": "Mo-Su 09:00-24:00; Fr,Sa 09:00-02:00",
         "website": "https://kebabking.pl",
         "brand:wikidata": "Q113093758",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7917,6 +8218,7 @@
         "id": 7997411414,
         "osm_type": "node",
         "name": "Sakhawat Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7934,6 +8236,7 @@
         "osm_type": "node",
         "name": "CMChicken",
         "opening_hours": "Mo-Th 11:00-22:00; Fr-Su 11:00-23:00",
+        "cuisine": "chicken;noodle;wings",
         "chain": "unknown"
       }
     },
@@ -7966,6 +8269,7 @@
         "id": 8032794351,
         "osm_type": "node",
         "name": "o Qrcze!",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -7986,6 +8290,7 @@
         "phone": "+48 790 258 666",
         "website": "https://www.burgerstory.pl/",
         "operator": "PL Burger sp. z o.o.",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8002,6 +8307,7 @@
         "id": 8043910541,
         "osm_type": "node",
         "name": "Mim Kebab & Grill",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8018,6 +8324,7 @@
         "id": 8325464042,
         "osm_type": "node",
         "name": "Sklep Siesta",
+        "cuisine": "hot_dog",
         "chain": "unknown"
       }
     },
@@ -8035,6 +8342,7 @@
         "osm_type": "node",
         "name": "Loveat",
         "opening_hours": "Mo-Fr 06:30-17:00",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -8053,6 +8361,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8071,6 +8380,7 @@
         "name": "Pizza Hut Express",
         "brand": "Pizza Hut",
         "brand:wikidata": "Q191615",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8105,6 +8415,7 @@
         "name": "Berlin Döner Kebap",
         "brand": "Berlin Döner Kebap",
         "brand:wikidata": "Q126195313",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8122,6 +8433,7 @@
         "osm_type": "node",
         "name": "Pasha Kebab",
         "opening_hours": "Mo-Su 09:00-23:00",
+        "cuisine": "arab",
         "chain": "unknown"
       }
     },
@@ -8142,6 +8454,7 @@
         "phone": "+48 22 316 37 37",
         "website": "https://kebabking.pl",
         "brand:wikidata": "Q113093758",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8176,6 +8489,7 @@
         "name": "yummy.buly",
         "opening_hours": "Mo-Th 12:00-18:30; Fr 12:00-20:00; Sa,Su 11:00-20:00; PH off",
         "phone": "+48734802712",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8194,6 +8508,7 @@
         "name": "Pizza Furgon",
         "phone": "+48 730 015 161",
         "website": "https://www.pizzafurgon.com/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8210,6 +8525,7 @@
         "id": 8796676868,
         "osm_type": "node",
         "name": "Mar-Hub",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -8226,6 +8542,7 @@
         "id": 8804320582,
         "osm_type": "node",
         "name": "Złota Rybka",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -8242,6 +8559,7 @@
         "id": 8807310979,
         "osm_type": "node",
         "name": "Ko Bo",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -8258,6 +8576,7 @@
         "id": 8807319874,
         "osm_type": "node",
         "name": "Smażalnia Bosmańska",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -8274,6 +8593,7 @@
         "id": 8850764718,
         "osm_type": "node",
         "name": "Kebab Zone",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8290,6 +8610,7 @@
         "id": 8890765259,
         "osm_type": "node",
         "name": "Dragon",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8308,6 +8629,7 @@
         "name": "Max",
         "brand": "Max",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8324,6 +8646,7 @@
         "id": 8938769116,
         "osm_type": "node",
         "name": "Wędzarnia U Mieci",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -8340,6 +8663,7 @@
         "id": 8942223804,
         "osm_type": "node",
         "name": "Wędzarnia U Braci",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -8357,6 +8681,7 @@
         "osm_type": "node",
         "name": "Ali Kebab",
         "phone": "+48 601 747 239",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -8375,6 +8700,7 @@
         "name": "Berlin Döner Kebap",
         "brand": "Berlin Döner Kebap",
         "brand:wikidata": "Q126195313",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8407,6 +8733,7 @@
         "id": 8946532637,
         "osm_type": "node",
         "name": "Bubble Guys",
+        "cuisine": "bubble_tea",
         "chain": "unknown"
       }
     },
@@ -8423,6 +8750,7 @@
         "id": 8946532646,
         "osm_type": "node",
         "name": "Na Zdrowie!",
+        "cuisine": "juice",
         "chain": "unknown"
       }
     },
@@ -8439,6 +8767,7 @@
         "id": 8946532651,
         "osm_type": "node",
         "name": "BoboQ",
+        "cuisine": "juice",
         "chain": "unknown"
       }
     },
@@ -8455,6 +8784,7 @@
         "id": 8960147970,
         "osm_type": "node",
         "name": "Salad Story",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -8471,6 +8801,7 @@
         "id": 8960147971,
         "osm_type": "node",
         "name": "Bubble Joy",
+        "cuisine": "juice",
         "chain": "unknown"
       }
     },
@@ -8487,6 +8818,7 @@
         "id": 8996988066,
         "osm_type": "node",
         "name": "Bar u Szweda Smażalnia Ryb",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -8503,6 +8835,7 @@
         "id": 9002393713,
         "osm_type": "node",
         "name": "Szisz Kebab",
+        "cuisine": "kebab;burger",
         "chain": "unknown"
       }
     },
@@ -8551,6 +8884,7 @@
         "id": 9011988955,
         "osm_type": "node",
         "name": "Słomka",
+        "cuisine": "coffee_shop;diner;hotdog;ice_cream",
         "chain": "unknown"
       }
     },
@@ -8567,6 +8901,7 @@
         "id": 9029201908,
         "osm_type": "node",
         "name": "Kebab Center Bytów",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8583,6 +8918,7 @@
         "id": 9045662326,
         "osm_type": "node",
         "name": "Kebab Center",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8602,6 +8938,7 @@
         "brand": "KFC",
         "opening_hours": "Mo-Su 09:00-22:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -8618,6 +8955,7 @@
         "id": 9165169716,
         "osm_type": "node",
         "name": "WIS Kebab",
+        "cuisine": "arab",
         "chain": "unknown"
       }
     },
@@ -8637,6 +8975,7 @@
         "brand": "KFC",
         "opening_hours": "Mo-Su 09:00-23:00, PH,Mo-Su 09:00-23:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -8654,6 +8993,7 @@
         "osm_type": "node",
         "name": "Pierożek",
         "phone": "+48 55 276 25 44",
+        "cuisine": "regional;burger",
         "chain": "unknown"
       }
     },
@@ -8687,6 +9027,7 @@
         "id": 9407858276,
         "osm_type": "node",
         "name": "u Tymka",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -8703,6 +9044,7 @@
         "id": 9407858277,
         "osm_type": "node",
         "name": "Ryba Piła i Tańczyła",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -8721,6 +9063,7 @@
         "name": "Kebab King",
         "brand": "Kebab King",
         "brand:wikidata": "Q113093758",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8754,6 +9097,7 @@
         "id": 9407914225,
         "osm_type": "node",
         "name": "Centrala Rybna",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -8771,25 +9115,7 @@
         "osm_type": "node",
         "name": "Waga Smaków",
         "opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-20:00",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.6069645,
-          54.3770473
-        ]
-      },
-      "properties": {
-        "id": 9415606961,
-        "osm_type": "node",
-        "name": "Subway",
-        "brand": "Subway",
-        "opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-20:00",
-        "brand:wikidata": "Q244457",
+        "cuisine": "regional;international",
         "chain": "unknown"
       }
     },
@@ -8806,6 +9132,7 @@
         "id": 9424208793,
         "osm_type": "node",
         "name": "Bryza",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -8841,6 +9168,7 @@
         "name": "Pizza Hut Express",
         "brand": "Pizza Hut",
         "brand:wikidata": "Q191615",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8857,6 +9185,7 @@
         "id": 9457949059,
         "osm_type": "node",
         "name": "Noor",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8923,6 +9252,7 @@
         "id": 9660717617,
         "osm_type": "node",
         "name": "Goku Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8957,6 +9287,7 @@
         "osm_type": "node",
         "name": "Kebab Drwal",
         "opening_hours": "Mo-Su 12:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8974,6 +9305,7 @@
         "osm_type": "node",
         "name": "Hona Kebab",
         "opening_hours": "Mo-Sa 10:00-21:00; Su 10:00-20:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8991,6 +9323,7 @@
         "osm_type": "node",
         "name": "Waga smaków",
         "opening_hours": "Mo-Su 10:00-20:00",
+        "cuisine": "regional;international",
         "chain": "unknown"
       }
     },
@@ -9009,6 +9342,7 @@
         "name": "Berlin Döner Kebap",
         "brand": "Berlin Döner Kebap",
         "brand:wikidata": "Q126195313",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9026,6 +9360,7 @@
         "osm_type": "node",
         "name": "Kurczak z Rożna",
         "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-19:00",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -9044,6 +9379,7 @@
         "name": "Kapsalon",
         "opening_hours": "Mo-Su 11:30-22:30",
         "website": "https://kapsalon-brusy.eatbu.com/?lang=pl",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9061,6 +9397,7 @@
         "osm_type": "node",
         "name": "Patio Kebab",
         "phone": "+48 538 293 148",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9076,6 +9413,7 @@
       "properties": {
         "id": 9848659082,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9094,6 +9432,7 @@
         "name": "Kebab & Frytki belgijskie",
         "opening_hours": "Mo-Su 11:30-02:00",
         "website": "https://m.facebook.com/KebabFrytki-Belgijskie-861631867516783/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9126,6 +9465,7 @@
         "osm_type": "node",
         "name": "La Pasta",
         "opening_hours": "Mo-Su 11:30-19:30",
+        "cuisine": "pasta",
         "chain": "unknown"
       }
     },
@@ -9143,6 +9483,7 @@
         "osm_type": "node",
         "name": "Kebab King",
         "brand": "Kebab King",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9159,6 +9500,7 @@
         "id": 9907569525,
         "osm_type": "node",
         "name": "Kebab Center",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9178,6 +9520,7 @@
         "brand": "Berlin Döner Kebap",
         "website": "https://www.berlindonerkebap.com/",
         "brand:wikidata": "Q126195313",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9195,6 +9538,7 @@
         "osm_type": "node",
         "name": "Kali Orexi",
         "opening_hours": "Mo,We,Fr,Sa 11:00-00:00; Tu 11:00-23:30; Th 11:30-00:00; Su 15:00-23:30",
+        "cuisine": "greek",
         "chain": "unknown"
       }
     },
@@ -9227,6 +9571,7 @@
         "id": 10016994092,
         "osm_type": "node",
         "name": "Kebab Hut",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9261,6 +9606,7 @@
         "name": "Desi Kebab",
         "opening_hours": "Mo-Su 10:00-22:00",
         "phone": "+48 515 579 222",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9293,6 +9639,7 @@
         "id": 10054484668,
         "osm_type": "node",
         "name": "Szufla Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9309,6 +9656,7 @@
         "id": 10056801358,
         "osm_type": "node",
         "name": "Wielki Kebab 9",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9328,6 +9676,7 @@
         "opening_hours": "Mo-Sa 11:30-20:30; Su 12:00-19:00",
         "phone": "+48 883 270 579",
         "website": "https://bafra-kebab-banino.business.site",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9345,6 +9694,7 @@
         "osm_type": "node",
         "name": "Kebab Lamh",
         "opening_hours": "Mo-Su 09:00-01:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9363,6 +9713,7 @@
         "name": "Chochla",
         "opening_hours": "Mo-Sa 11:00-19:00; Su 11:00-18:00",
         "website": "https://www.chochla.online",
+        "cuisine": "soup",
         "chain": "unknown"
       }
     },
@@ -9379,6 +9730,7 @@
         "id": 10116676376,
         "osm_type": "node",
         "name": "Rednek Pulled Pork & Beef Burgers",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9397,6 +9749,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -9415,6 +9768,7 @@
         "name": "Express Pizza",
         "opening_hours": "Mo-Su 12:00-22:00",
         "website": "https://www.expresspizza.pl/pizzeria-gdansk",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9465,6 +9819,7 @@
         "name": "Kebab DRWAL",
         "opening_hours": "Mo-Su 12:00-22:00",
         "phone": "+48 534 807 317",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9481,6 +9836,7 @@
         "id": 10565360643,
         "osm_type": "node",
         "name": "Big Boba",
+        "cuisine": "juice",
         "chain": "unknown"
       }
     },
@@ -9515,6 +9871,7 @@
         "id": 10648611675,
         "osm_type": "node",
         "name": "Smooth the Fruit",
+        "cuisine": "juice",
         "chain": "unknown"
       }
     },
@@ -9531,6 +9888,7 @@
         "id": 10649018276,
         "osm_type": "node",
         "name": "Adem Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9547,6 +9905,7 @@
         "id": 10657323835,
         "osm_type": "node",
         "name": "STAR KEBAB",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9563,6 +9922,7 @@
         "id": 10658462963,
         "osm_type": "node",
         "name": "Sushi dla Mnie",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -9598,6 +9958,7 @@
         "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-21:00",
         "phone": "+48882805355",
         "website": "https://donerkingkebab.pl/index.php/skarszewy/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9615,6 +9976,7 @@
         "osm_type": "node",
         "name": "Burger Chata",
         "website": "https://burger-chata.business.site/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9631,6 +9993,7 @@
         "id": 10698038135,
         "osm_type": "node",
         "name": "Bistro Skandal",
+        "cuisine": "burger;pizza",
         "chain": "unknown"
       }
     },
@@ -9651,6 +10014,7 @@
         "phone": "+48 668 338 332",
         "website": "https://www.3burger.pl/",
         "operator": "3Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9670,6 +10034,7 @@
         "opening_hours": "Mo-Th 10:00-23:00; Fr-Sa 10:00-00:00; Su 11:00-23:00",
         "phone": "+48 733 470 684",
         "website": "https://princekebab.com/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9687,6 +10052,7 @@
         "osm_type": "node",
         "name": "Gruby Benek",
         "opening_hours": "Mo-Sa 10:00-23:00; Su 12:00-23:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9703,6 +10069,7 @@
         "id": 10716539155,
         "osm_type": "node",
         "name": "World Kebab 24h",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9721,6 +10088,7 @@
         "name": "Bafra Kebab",
         "opening_hours": "Mo-Sa 09:00-21:00",
         "website": "https://www.bafrakebab.pl/m/points",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9785,6 +10153,7 @@
         "id": 10766964354,
         "osm_type": "node",
         "name": "Pizzeria Piccolo",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9818,6 +10187,7 @@
         "id": 10774856974,
         "osm_type": "node",
         "name": "Bafra Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9834,6 +10204,7 @@
         "id": 10797722731,
         "osm_type": "node",
         "name": "Gorące Gary",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -9867,6 +10238,7 @@
         "id": 10855684887,
         "osm_type": "node",
         "name": "Jedyny taki w mieście",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9900,6 +10272,7 @@
         "id": 10948784798,
         "osm_type": "node",
         "name": "Kebab Super King",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9918,6 +10291,7 @@
         "name": "Pizzatopia",
         "opening_hours": "Su-Th 11:00-01:00; Fr-Sa 11:00-2:00",
         "website": "https://pizzatopia.com",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9939,6 +10313,7 @@
         "phone": "+48 729 424 901",
         "website": "https://mimkebab.pl/restauracja.php?r=10",
         "operator": "M. S. Hoque Sp. z o.o.",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9958,6 +10333,7 @@
         "opening_hours": "Tu-Su 12:00-22:00; Fr,Sa 12:00-23:00",
         "phone": "+48 58 627 00 00",
         "website": "https://www.pomidorpizza.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9990,6 +10366,7 @@
         "id": 11037143805,
         "osm_type": "node",
         "name": "KIERUNEK Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10008,6 +10385,7 @@
         "name": "Yolo Kebab",
         "opening_hours": "Mo-Th,Su 12:00-22:00; Fr-Sa 12:00-23:00",
         "phone": "+48 536 950 304",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10027,6 +10405,7 @@
         "brand": "Subway",
         "opening_hours": "24/7",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -10045,6 +10424,7 @@
         "name": "Aladdin Kebab",
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+48 696 856 660",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10062,6 +10442,7 @@
         "osm_type": "node",
         "name": "Hambasie na wypasie",
         "opening_hours": "PH,Tu-Su 13:00-24:00; Mo 15:00-24:00",
+        "cuisine": "american;fries",
         "chain": "unknown"
       }
     },
@@ -10080,6 +10461,7 @@
         "name": "Aladdin Kebab",
         "opening_hours": "Mo-Su 10:00-22:00; PH off",
         "phone": "+48 882 001 084",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10111,6 +10493,7 @@
         "id": 11119861557,
         "osm_type": "node",
         "name": "Bafra Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10129,6 +10512,7 @@
         "name": "Bafra Kebab",
         "brand": "Bafra Kebab",
         "brand:wikidata": "Q130582122",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10176,6 +10560,7 @@
         "id": 11148378549,
         "osm_type": "node",
         "name": "Bar przy Porcie",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -10208,6 +10593,7 @@
         "id": 11154394301,
         "osm_type": "node",
         "name": "Kebab Expert",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10240,6 +10626,7 @@
         "id": 11169624992,
         "osm_type": "node",
         "name": "Kurczak z rożna",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -10259,6 +10646,7 @@
         "phone": "+48729488392",
         "website": "https://fatima-kebab.pl",
         "operator": "Fatima Food sp. z o. o.",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10275,6 +10663,7 @@
         "id": 11170037148,
         "osm_type": "node",
         "name": "Kurczak z rożna",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -10292,6 +10681,7 @@
         "osm_type": "node",
         "name": "Kebab Emporium",
         "opening_hours": "Mo-Sa 10:00-24:00, Su 11:00-23:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10308,6 +10698,7 @@
         "id": 11178735337,
         "osm_type": "node",
         "name": "Burgerownia",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10325,6 +10716,7 @@
         "osm_type": "node",
         "name": "Loveat",
         "opening_hours": "Mo-Fr 06:00-16:00",
+        "cuisine": "juice",
         "chain": "unknown"
       }
     },
@@ -10344,6 +10736,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/nowy-dwor-gdanski/nowy-dwor-gdanski-ul-warszawska-2i",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -10360,6 +10753,7 @@
         "id": 11262981314,
         "osm_type": "node",
         "opening_hours": "Mo-Su 07:00-19:00",
+        "cuisine": "polish;sandwich;cake",
         "chain": "unknown"
       }
     },
@@ -10413,6 +10807,7 @@
         "opening_hours": "Mo-Su 13:00-22:00",
         "phone": "+48 536 182 440",
         "website": "https://papagyros.pl/",
+        "cuisine": "greek",
         "chain": "unknown"
       }
     },
@@ -10428,6 +10823,7 @@
       "properties": {
         "id": 11327478294,
         "osm_type": "node",
+        "cuisine": "hot_dog;waffle;ice_cream;casserole",
         "chain": "unknown"
       }
     },
@@ -10462,6 +10858,7 @@
         "name": "Ideolo Pizza",
         "phone": "+48 577 100 550",
         "website": "https://ideolo-pizza.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -10481,6 +10878,7 @@
         "opening_hours": "Mo-Sa 12:00-21:00; Su 13:00-20:00",
         "phone": "+48 58 532 02 95",
         "website": "https://pizzeriaparasolka.com/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -10500,6 +10898,7 @@
         "opening_hours": "Tu-Th 12:00-21:00; Fr-Sa 12:00-22:00; Su 12:00-20:00",
         "phone": "+48 664 475 639",
         "website": "https://www.chonotu-burger.pl",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10517,6 +10916,7 @@
         "osm_type": "node",
         "name": "Ostry Kebson",
         "phone": "+48 511 637 219",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10533,6 +10933,7 @@
         "id": 11491715548,
         "osm_type": "node",
         "name": "Papa Gyros",
+        "cuisine": "greek",
         "chain": "unknown"
       }
     },
@@ -10549,6 +10950,7 @@
         "id": 11491802533,
         "osm_type": "node",
         "name": "United Chicken",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -10581,6 +10983,7 @@
         "id": 11495546741,
         "osm_type": "node",
         "name": "Indie Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10598,6 +11001,7 @@
         "osm_type": "node",
         "name": "Crazy Bubble",
         "opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-20:00",
+        "cuisine": "bubble_tea",
         "chain": "unknown"
       }
     },
@@ -10615,6 +11019,7 @@
         "osm_type": "node",
         "name": "Crazy Bubble",
         "opening_hours": "Mo-Su 10:00-21:00; Su 10:00-20:00",
+        "cuisine": "bubble_tea",
         "chain": "unknown"
       }
     },
@@ -10632,6 +11037,7 @@
         "osm_type": "node",
         "name": "The Burgers",
         "opening_hours": "Mo-Su 10:00-21:00; Su 10:00-20:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10649,6 +11055,7 @@
         "osm_type": "node",
         "name": "Pizza Po Sąsiedzku",
         "phone": "+48 505 111 120",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -10665,6 +11072,7 @@
         "id": 11577557946,
         "osm_type": "node",
         "name": "Pizza Rodzinna",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -10684,6 +11092,7 @@
         "opening_hours": "Tu-Su 13:00-22:00",
         "website": "http://kebab-trojkat.pl/",
         "brand:wikidata": "Q116148750",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10700,6 +11109,7 @@
         "id": 11587776642,
         "osm_type": "node",
         "name": "Classic Kebab & Grill",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10716,6 +11126,7 @@
         "id": 11619619476,
         "osm_type": "node",
         "name": "Got Off Grill",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10732,6 +11143,7 @@
         "id": 11631785875,
         "osm_type": "node",
         "name": "Got Off Grill",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10748,6 +11160,7 @@
         "id": 11650330458,
         "osm_type": "node",
         "name": "U Gacka",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -10764,6 +11177,7 @@
         "id": 11653360101,
         "osm_type": "node",
         "name": "Świeżo Upieczeni",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -10783,6 +11197,7 @@
         "brand": "KFC",
         "opening_hours": "Mo-Su 08:00-22:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -10799,6 +11214,7 @@
         "id": 11665952529,
         "osm_type": "node",
         "name": "Pizza Point",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -10816,6 +11232,7 @@
         "osm_type": "node",
         "name": "DENIZ Turecki kebab",
         "phone": "+48 729 303 879",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10833,6 +11250,7 @@
         "osm_type": "node",
         "name": "Kebab XL",
         "phone": "+48 608 277 772",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10868,6 +11286,7 @@
         "opening_hours": "Mo-Su 12:00-21:00",
         "phone": "+48 530 663 253",
         "website": "https://surfburger.pl",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10884,6 +11303,7 @@
         "id": 11775724113,
         "osm_type": "node",
         "name": "Bafra Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10900,6 +11320,7 @@
         "id": 11787389068,
         "osm_type": "node",
         "name": "Kebab King",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10918,6 +11339,7 @@
         "name": "Loveat",
         "opening_hours": "Mo-Fr 06:30-16:00",
         "website": "http://www.loveat.pl/",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -10934,6 +11356,7 @@
         "id": 11805972529,
         "osm_type": "node",
         "name": "Kebabas",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10950,6 +11373,7 @@
         "id": 11807056238,
         "osm_type": "node",
         "name": "Doner King Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10985,6 +11409,7 @@
         "opening_hours": "Su-Th 09:00-02:00; Fr-Sa 09:00-05:00",
         "phone": "+48690274001",
         "website": "https://www.madokebab.pl/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11000,6 +11425,7 @@
       "properties": {
         "id": 11886526348,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11018,6 +11444,7 @@
         "name": "Kebab Way",
         "opening_hours": "Mo-Sa 10:00-20:00; Su 11:00-20:00",
         "website": "https://www.kebabway.eu/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11033,6 +11460,7 @@
       "properties": {
         "id": 11886526362,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11049,6 +11477,7 @@
         "id": 11904741021,
         "osm_type": "node",
         "name": "Na Bogato",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -11065,6 +11494,7 @@
         "id": 11904741022,
         "osm_type": "node",
         "name": "Mobile Pizza Italiana",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -11083,6 +11513,7 @@
         "name": "Lviv Croissants",
         "brand": "Lviv Croissants",
         "brand:wikidata": "Q116871093",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -11099,6 +11530,7 @@
         "id": 11928271650,
         "osm_type": "node",
         "name": "Crazy Bubble",
+        "cuisine": "bubble_tea",
         "chain": "unknown"
       }
     },
@@ -11115,6 +11547,7 @@
         "id": 11928271654,
         "osm_type": "node",
         "name": "Tommy's Burgers",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -11132,6 +11565,7 @@
         "osm_type": "node",
         "name": "Piach i Woda",
         "opening_hours": "Mo-Su 10:00-23:00",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -11149,6 +11583,7 @@
         "osm_type": "node",
         "name": "Noor Kebab",
         "opening_hours": "Su-Th 11:00-01:00; Fr-Sa 11:00-03:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11165,6 +11600,7 @@
         "id": 11952525405,
         "osm_type": "node",
         "name": "Strażak",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11183,6 +11619,7 @@
         "name": "Burger Club",
         "opening_hours": "Mo-Sa 11:00-21:00; Su 11:00-20:00",
         "phone": "+48 502 753 374",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -11200,6 +11637,7 @@
         "osm_type": "node",
         "name": "New Mack Kebab & Restaurant",
         "opening_hours": "Mo-Su 10:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11236,6 +11674,7 @@
         "opening_hours": "Mo-Th 12:00-21:30; Fr-Sa 12:00-22:30; Su 12:00-21:30",
         "phone": "+48530663353",
         "website": "https://www.surfburger.pl/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -11255,6 +11694,7 @@
         "opening_hours": "Mo-Su 12:00-22:00",
         "phone": "+48573741417",
         "website": "https://www.pizzeriaczarnaperla.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -11274,6 +11714,7 @@
         "opening_hours": "Su-Th 12:00-21:30; Fr-Sa 12:00-22:30",
         "phone": "+48577700175",
         "website": "https://ideolo-pizza.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -11290,6 +11731,7 @@
         "id": 12029446055,
         "osm_type": "node",
         "name": "Dada Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11306,6 +11748,7 @@
         "id": 12033856192,
         "osm_type": "node",
         "name": "NaŻarty Kebab Kraftowy",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11325,6 +11768,7 @@
         "opening_hours": "Mo-Fr 10:00-24:00; Sa 00:00-01:00,10:00-24:00; Su 00:00-01:00,10:00-23:00",
         "phone": "+48 729 345 161",
         "website": "https://www.facebook.com/profile.php?id=100039535164543",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11341,6 +11785,7 @@
         "id": 12046920981,
         "osm_type": "node",
         "name": "Misja Burrito",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -11359,6 +11804,7 @@
         "name": "Easy Food Kebab Przywidz",
         "opening_hours": "Mo-Su 11:00-20:00",
         "phone": "+48 606 131 555",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11397,6 +11843,7 @@
         "opening_hours": "Mo-Su 12:00-23:00",
         "phone": "+48 739515730",
         "website": "https://www.kebabcenter-chojnice.pl/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11498,6 +11945,7 @@
         "name": "Papa Gyros",
         "opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-20:00",
         "website": "https://papagyros.pl/",
+        "cuisine": "greek",
         "chain": "unknown"
       }
     },
@@ -11531,6 +11979,7 @@
         "id": 12115534152,
         "osm_type": "node",
         "name": "Pizza Amore",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -11548,6 +11997,7 @@
         "osm_type": "node",
         "name": "Babette",
         "website": "https://pracowniababette.pl/",
+        "cuisine": "soup",
         "chain": "unknown"
       }
     },
@@ -11565,6 +12015,7 @@
         "osm_type": "node",
         "name": "Kebab Lamh",
         "opening_hours": "Su-Th 10:00-24:00, Fr,Sa 10:00-02:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11596,6 +12047,7 @@
       "properties": {
         "id": 12136941960,
         "osm_type": "node",
+        "cuisine": "seafood;fries;meat;fish",
         "chain": "unknown"
       }
     },
@@ -11612,6 +12064,7 @@
         "id": 12136956392,
         "osm_type": "node",
         "name": "Lodostany",
+        "cuisine": "ice_cream;coffee;waffle",
         "chain": "unknown"
       }
     },
@@ -11631,6 +12084,7 @@
         "opening_hours": "Tu-Sa 12:00-22:00",
         "phone": "+48 666 175 705",
         "website": "https://www.chilichill.pl/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11647,6 +12101,7 @@
         "id": 12151275541,
         "osm_type": "node",
         "name": "Roll Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11665,6 +12120,7 @@
         "name": "Roots Kebab",
         "opening_hours": "11:00-22:00",
         "phone": "+48 600 977 240",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11681,6 +12137,7 @@
         "id": 12162300358,
         "osm_type": "node",
         "name": "Music Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -11713,6 +12170,7 @@
         "id": 12176706579,
         "osm_type": "node",
         "name": "Lays Kebab & Burger",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11732,6 +12190,7 @@
         "opening_hours": "Su-Th 10:00-00:00; Fr-Sa 10:00-02:00",
         "phone": "+48 729 320 511",
         "website": "https://www.deltakeb.pl",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11749,6 +12208,7 @@
         "osm_type": "node",
         "name": "Kebab IZMIR",
         "phone": "+48 576 034 432",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11798,6 +12258,7 @@
       "properties": {
         "id": 12216023925,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11815,6 +12276,7 @@
         "osm_type": "node",
         "name": "Kolejny",
         "opening_hours": "Tu-Sa 12:00-21:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11835,6 +12297,7 @@
         "phone": "+48 732 756 778",
         "website": "https://www.pierozkidimsum.pl/",
         "operator": "Zhaoc Youyu Sp. z o.o.",
+        "cuisine": "chinese;dumplings",
         "chain": "unknown"
       }
     },
@@ -11852,6 +12315,7 @@
         "osm_type": "node",
         "name": "Buła i spóła",
         "opening_hours": "Mo-Fr 10:00-18:00",
+        "cuisine": "burger;sandwich",
         "chain": "unknown"
       }
     },
@@ -11869,6 +12333,7 @@
         "osm_type": "node",
         "name": "Kebab Drwal",
         "opening_hours": "Mo-Su 12:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11904,6 +12369,7 @@
         "opening_hours": "12:00-21:00",
         "phone": "+48 503 179 650",
         "website": "https://www.facebook.com/pizzadiamadeo/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -11920,6 +12386,7 @@
         "id": 12320972401,
         "osm_type": "node",
         "name": "Langos",
+        "cuisine": "hungarian",
         "chain": "unknown"
       }
     },
@@ -11936,6 +12403,7 @@
         "id": 12321101511,
         "osm_type": "node",
         "name": "Kebab AmAm",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11952,6 +12420,7 @@
         "id": 12324795267,
         "osm_type": "node",
         "name": "Masa",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -12002,6 +12471,7 @@
         "name": "Kebab King",
         "brand": "Kebab King",
         "brand:wikidata": "Q113093758",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12021,6 +12491,7 @@
         "opening_hours": "Fr-Sa 12:00-00:00; Su-Th 12:00-22:00",
         "phone": "+48574699272",
         "website": "https://www.facebook.com/REDNEKPulledPork/",
+        "cuisine": "burger;sandwich",
         "chain": "unknown"
       }
     },
@@ -12037,6 +12508,7 @@
         "id": 12392512099,
         "osm_type": "node",
         "name": "Nażarty Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -12053,6 +12525,7 @@
         "id": 12392512204,
         "osm_type": "node",
         "name": "Sister's Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12072,6 +12545,7 @@
         "opening_hours": "Mo-Fr 13:00-19:00; Sa 13:00-20:00; Su 12:00-20:00",
         "phone": "+48 880 576 780",
         "website": "htpp://cafeniespodzianka.pl",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -12089,6 +12563,7 @@
         "osm_type": "node",
         "name": "SHMartel",
         "opening_hours": "Mo-Fr 13:00-22:00; Sa,Su 12:00-22:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -12105,6 +12580,7 @@
         "id": 12444445643,
         "osm_type": "node",
         "name": "Am Am Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12121,6 +12597,7 @@
         "id": 12444472201,
         "osm_type": "node",
         "name": "Pizza Cat",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -12141,6 +12618,7 @@
         "phone": "+48886300207",
         "website": "https://www.zahirkebab.pl/",
         "brand:wikidata": "Q116148750",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12190,6 +12668,7 @@
         "osm_type": "node",
         "name": "Kebab Orient",
         "website": "https://www.kebaborientstraszyn.pl/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12209,22 +12688,7 @@
         "opening_hours": "Mo-Su 10:00-23:",
         "phone": "+48 721 840 533",
         "website": "https://halal-kebab.pl/",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.6509392,
-          54.3520775
-        ]
-      },
-      "properties": {
-        "id": 12495503474,
-        "osm_type": "node",
-        "name": "El Medina",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12240,6 +12704,7 @@
       "properties": {
         "id": 12498253885,
         "osm_type": "node",
+        "cuisine": "waffle",
         "chain": "unknown"
       }
     },
@@ -12257,6 +12722,7 @@
         "osm_type": "node",
         "name": "Zapiekarnia Pyszniewski",
         "opening_hours": "Tu-Su",
+        "cuisine": "european",
         "chain": "unknown"
       }
     },
@@ -12273,6 +12739,7 @@
         "id": 12512105152,
         "osm_type": "node",
         "name": "Aloha Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12289,6 +12756,7 @@
         "id": 12512105153,
         "osm_type": "node",
         "name": "Kto Napoli",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -12305,6 +12773,7 @@
         "id": 12512105154,
         "osm_type": "node",
         "name": "Toje Wół",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -12322,6 +12791,7 @@
         "osm_type": "node",
         "name": "Chili Chill",
         "opening_hours": "Mo off; Tu-Su 12:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12338,6 +12808,7 @@
         "id": 12521643076,
         "osm_type": "node",
         "name": "Kebab Habibi",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12354,6 +12825,7 @@
         "id": 12527803395,
         "osm_type": "node",
         "name": "Smash Smaż Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -12370,6 +12842,7 @@
         "id": 12536484431,
         "osm_type": "node",
         "name": "Panie Janie",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -12386,6 +12859,7 @@
         "id": 12537469646,
         "osm_type": "node",
         "name": "Lena Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12402,6 +12876,7 @@
         "id": 12539485248,
         "osm_type": "node",
         "name": "Bafra Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12418,6 +12893,7 @@
         "id": 12549829410,
         "osm_type": "node",
         "name": "Stopiątka",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -12436,6 +12912,7 @@
         "name": "Silver Dragon",
         "opening_hours": "Mo-Sa 09:00-21:00",
         "website": "https://www.silverdragon.pl",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -12471,6 +12948,7 @@
         "opening_hours": "Mo-Th 12:00-21:00; Fr-Su 12:00-22:00",
         "phone": "+48 884 646 222",
         "website": "https://www.oxburgergdansk.pl/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -12487,6 +12965,7 @@
         "id": 12593359203,
         "osm_type": "node",
         "name": "Bafra Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12503,6 +12982,7 @@
         "id": 12602218534,
         "osm_type": "node",
         "name": "Włoski Luj",
+        "cuisine": "italian",
         "chain": "unknown"
       }
     },
@@ -12522,6 +13002,7 @@
         "opening_hours": "Su-We 10:00-00:00; Th-Sa 10:00-02:00",
         "phone": "+48 579 211 635",
         "website": "https://www.facebook.com/SABAKEBAB/?ref=page_internal",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12538,6 +13019,7 @@
         "id": 12639440915,
         "osm_type": "node",
         "name": "Zapiekarnia",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -12553,6 +13035,7 @@
       "properties": {
         "id": 12647824736,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12569,6 +13052,7 @@
         "id": 12649877154,
         "osm_type": "node",
         "name": "Pepe and Roni",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -12602,6 +13086,7 @@
         "osm_type": "node",
         "name": "BD Star Kebab",
         "phone": "+48 729 676 701",
+        "cuisine": "kebab;burger",
         "chain": "unknown"
       }
     },
@@ -12619,6 +13104,7 @@
         "osm_type": "node",
         "name": "t-pizza express",
         "operator": "telepizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -12635,6 +13121,7 @@
         "id": 12702264240,
         "osm_type": "node",
         "name": "Kraving Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12653,6 +13140,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -12669,6 +13157,7 @@
         "id": 12772010129,
         "osm_type": "node",
         "name": "Tłustosz",
+        "cuisine": "kebab;burger",
         "chain": "unknown"
       }
     },
@@ -12686,6 +13175,7 @@
         "osm_type": "node",
         "name": "Oriental Kebs",
         "opening_hours": "Tu-Th,Su 12:00-19:00; Fr,Sa 12:00-20:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12717,6 +13207,7 @@
         "id": 12820363061,
         "osm_type": "node",
         "name": "Foka",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -12749,6 +13240,7 @@
         "id": 12828291699,
         "osm_type": "node",
         "name": "Pastrami and Smash",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -12766,6 +13258,7 @@
         "osm_type": "node",
         "name": "Pewex",
         "opening_hours": "Tu-Sa 12:00-20:00",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -12782,6 +13275,7 @@
         "id": 12828772294,
         "osm_type": "node",
         "name": "Friends Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12830,6 +13324,7 @@
         "id": 12842649294,
         "osm_type": "node",
         "name": "Friends Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12847,6 +13342,7 @@
         "osm_type": "node",
         "name": "Kebab Center",
         "opening_hours": "Su-Th 10:00-23:00; Fr,Sa 10:00-24:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12866,6 +13362,7 @@
         "opening_hours": "Mo-Sa 11:00-21:00; Su 12:00-21:00",
         "phone": "+48 728 215 102",
         "website": "https://donerkingkebab.pl/zblewo/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12882,6 +13379,7 @@
         "id": 12862561697,
         "osm_type": "node",
         "name": "Roll kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12898,6 +13396,7 @@
         "id": 12862621601,
         "osm_type": "node",
         "name": "Queen Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12914,6 +13413,7 @@
         "id": 12862621610,
         "osm_type": "node",
         "name": "Kebab Center",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12930,6 +13430,7 @@
         "id": 12868337818,
         "osm_type": "node",
         "name": "Pizzarium 01",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -12948,6 +13449,7 @@
         "name": "Popeyes",
         "brand": "Popeyes",
         "brand:wikidata": "Q1330910",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -12964,6 +13466,7 @@
         "id": 12868656189,
         "osm_type": "node",
         "name": "Drwal",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12980,6 +13483,7 @@
         "id": 12868656190,
         "osm_type": "node",
         "name": "Taksim",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -12996,6 +13500,7 @@
         "id": 12873858370,
         "osm_type": "node",
         "name": "Shmartel",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -13012,6 +13517,7 @@
         "id": 12875225701,
         "osm_type": "node",
         "name": "Bar Mleczny Kefirek",
+        "cuisine": "regional;polish",
         "chain": "unknown"
       }
     },
@@ -13047,6 +13553,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "phone": "+48 729 606 486",
         "website": "https://www.greatkebab.pl/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13063,6 +13570,7 @@
         "id": 12894568344,
         "osm_type": "node",
         "opening_hours": "11:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -13082,6 +13590,7 @@
         "opening_hours": "Mo-Fr 10:00-23:00; Sa 10:00-24:00; Su 10:00-23:00",
         "phone": "+48739624368",
         "website": "https://www.facebook.com/profile.php?id=61555026540295",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13114,6 +13623,7 @@
         "id": 12917698540,
         "osm_type": "node",
         "name": "Kebab Center",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13131,6 +13641,7 @@
         "osm_type": "node",
         "name": "Włoszczyzna Morena",
         "opening_hours": "Mo-Sa 12:00-22:00; Su 12:00-20:00",
+        "cuisine": "italian",
         "chain": "unknown"
       }
     },
@@ -13147,6 +13658,7 @@
         "id": 12956509896,
         "osm_type": "node",
         "name": "Cowboy Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -13163,6 +13675,7 @@
         "id": 12964567134,
         "osm_type": "node",
         "name": "Asia Anan",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -13179,6 +13692,7 @@
         "id": 12964567135,
         "osm_type": "node",
         "name": "Kebab Wybrzeże",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13195,6 +13709,7 @@
         "id": 12974278635,
         "osm_type": "node",
         "name": "Shaik Kebab Express",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13211,6 +13726,7 @@
         "id": 12974278642,
         "osm_type": "node",
         "name": "Mega Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13227,6 +13743,7 @@
         "id": 12974278643,
         "osm_type": "node",
         "name": "Agado",
+        "cuisine": "dumplings",
         "chain": "unknown"
       }
     },
@@ -13243,6 +13760,7 @@
         "id": 12974278645,
         "osm_type": "node",
         "name": "Panda Wok",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -13278,6 +13796,7 @@
         "osm_type": "node",
         "name": "Kebab Jerusalem",
         "opening_hours": "Mo-Th 10:00-03:00; Fr-Sa 10:00-05:00; Su 10:00-03:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13295,6 +13814,7 @@
         "osm_type": "node",
         "name": "Kebab Meister",
         "opening_hours": "Mo-Th 12:00-22:00; Fr-Sa 12:00-02:00; Su 12:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13310,6 +13830,7 @@
       "properties": {
         "id": 12997411621,
         "osm_type": "node",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -13328,6 +13849,7 @@
         "name": "Kurka Rurka",
         "opening_hours": "Mo-Su 12:00-21:00",
         "phone": "+48 661 949 242",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13345,6 +13867,7 @@
         "osm_type": "node",
         "opening_hours": "Mo-Su11:00-22:00",
         "phone": "+48 660 488 718",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13361,6 +13884,7 @@
         "id": 13013083061,
         "osm_type": "node",
         "name": "Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13392,6 +13916,7 @@
         "id": 13017299603,
         "osm_type": "node",
         "name": "Ogień i Woda",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -13408,6 +13933,7 @@
         "id": 13017299606,
         "osm_type": "node",
         "name": "Kebab Club",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13424,6 +13950,7 @@
         "id": 13017299617,
         "osm_type": "node",
         "name": "Wiczlinianka",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -13441,6 +13968,7 @@
         "osm_type": "node",
         "name": "Burgermania",
         "opening_hours": "Mo-Su 12:00-20:00",
+        "cuisine": "american",
         "chain": "unknown"
       }
     },
@@ -13457,6 +13985,7 @@
         "id": 13028533925,
         "osm_type": "node",
         "name": "Zapiekanki",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -13473,6 +14002,7 @@
         "id": 13028533930,
         "osm_type": "node",
         "name": "Zakręcony Ziemniak",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -13489,6 +14019,7 @@
         "id": 13030635375,
         "osm_type": "node",
         "name": "Lay's Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13507,6 +14038,7 @@
         "name": "Zahir Kebab",
         "brand": "Zahir Kebab",
         "brand:wikidata": "Q116148750",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13525,6 +14057,7 @@
         "name": "Pasibus",
         "opening_hours": "Su-Th 11:00-23:00;Fr-Sa 11:00-01:00",
         "website": "https://pasibus.pl/lokalizacje/gdansk/pasibus-gdansk-stagiewna/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -13557,6 +14090,7 @@
         "id": 13056040946,
         "osm_type": "node",
         "name": "Fiszka",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -13573,6 +14107,7 @@
         "id": 13057368819,
         "osm_type": "node",
         "name": "Surf Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -13591,6 +14126,7 @@
         "name": "Sakhawat",
         "opening_hours": "Mo-Sa 09:00-24:00; Su 10:00-22:00",
         "phone": "+48 530 077 580",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13607,6 +14143,7 @@
         "id": 13057542709,
         "osm_type": "node",
         "name": "Tlen",
+        "cuisine": "juice",
         "chain": "unknown"
       }
     },
@@ -13623,6 +14160,7 @@
         "id": 13059339379,
         "osm_type": "node",
         "name": "Nóz Widelec Łyżka",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -13639,6 +14177,7 @@
         "id": 13059339382,
         "osm_type": "node",
         "name": "Fiszka",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -13671,6 +14210,7 @@
         "id": 13076126452,
         "osm_type": "node",
         "name": "Kebab DRWAL",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13686,6 +14226,7 @@
       "properties": {
         "id": 13076290327,
         "osm_type": "node",
+        "cuisine": "fries;zapikanki;gofry",
         "chain": "unknown"
       }
     },
@@ -13702,6 +14243,7 @@
         "id": 13084510410,
         "osm_type": "node",
         "name": "World Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13721,6 +14263,7 @@
         "opening_hours": "We-Su 12:00-20:00; Su 12:00-22:00",
         "phone": "+48 510650478",
         "website": "https://www.controlfood.pl/",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -13737,6 +14280,7 @@
         "id": 13096418861,
         "osm_type": "node",
         "name": "Mood Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -13753,6 +14297,7 @@
         "id": 13106669534,
         "osm_type": "node",
         "name": "Pekin",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -13772,6 +14317,7 @@
         "opening_hours": "Mo-Fr 12:00-22:00",
         "phone": "+48 786 668 883",
         "website": "https://kebabwladyslawowo.eatbu.com/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13788,6 +14334,7 @@
         "id": 13125005962,
         "osm_type": "node",
         "name": "Fiszteria",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -13804,6 +14351,7 @@
         "id": 13125005965,
         "osm_type": "node",
         "name": "Ryba Bar",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -13853,6 +14401,7 @@
         "osm_type": "node",
         "name": "U Brata",
         "phone": "+48 723 119 537",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13871,6 +14420,7 @@
         "name": "Przystanek Zapiekanka",
         "opening_hours": "Mo-Th 12:00-20:00; Fr,Sa 12:00-21:00; Su 12:00-18:00",
         "website": "https://przystanek-zapiekanka.menu.pl/",
+        "cuisine": "zapiekanka",
         "chain": "unknown"
       }
     },
@@ -13889,6 +14439,7 @@
         "name": "Szybka Polska Kura",
         "opening_hours": "Mo-Sa 11:00-18:00",
         "phone": "+48 513 191 805",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -13922,6 +14473,7 @@
         "osm_type": "node",
         "name": "Altin Kebap",
         "opening_hours": "Mo-Su 11:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13937,6 +14489,7 @@
       "properties": {
         "id": 13345726111,
         "osm_type": "node",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -13953,6 +14506,7 @@
         "id": 13345726117,
         "osm_type": "node",
         "name": "Stash Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -13971,6 +14525,7 @@
         "name": "Bafra Kebab",
         "brand": "Bafra Kebab",
         "brand:wikidata": "Q130582122",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14005,6 +14560,7 @@
         "id": 13463274862,
         "osm_type": "node",
         "name": "FatLab burgery",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -14038,6 +14594,7 @@
         "id": 13531542209,
         "osm_type": "node",
         "name": "Altin Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14055,6 +14612,7 @@
         "osm_type": "node",
         "name": "Izmir",
         "website": "https://www.kebabizmir.pl/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14071,6 +14629,7 @@
         "id": 13580417766,
         "osm_type": "node",
         "name": "SABA KEBAB & GRILL BAR",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14090,6 +14649,7 @@
         "opening_hours": "Su-Th 12:00-21:00; Fr-Sa 12:00-22:00",
         "phone": "664 130 249",
         "website": "https://kebabisto.pl/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14108,6 +14668,7 @@
         "name": "Tygrysek Hassando Kebab",
         "opening_hours": "Mo-Su 12:00-22:00",
         "phone": "535 097 134",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14124,6 +14685,7 @@
         "id": 13615016875,
         "osm_type": "node",
         "name": "Kebab Meister",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14156,6 +14718,7 @@
         "id": 13638958134,
         "osm_type": "node",
         "name": "Turkish Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14171,6 +14734,7 @@
       "properties": {
         "id": 13638958160,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14187,6 +14751,7 @@
         "id": 13638958162,
         "osm_type": "node",
         "name": "Tom's Bar",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -14203,6 +14768,7 @@
         "id": 13639409083,
         "osm_type": "node",
         "name": "Burger Stacja",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -14222,6 +14788,7 @@
         "opening_hours": "Tu-Fr 12:00-21:00; Sa 12:00-22:00; Su 12:00-21:00",
         "phone": "607 708 080",
         "website": "https://gregs.pl/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -14240,6 +14807,7 @@
         "name": "Kebab Gowino",
         "opening_hours": "Mo-Su 12:00–21:00",
         "phone": "575666903",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14257,6 +14825,7 @@
         "osm_type": "node",
         "name": "Orio Kebab",
         "phone": "+48 731 846 023",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14273,6 +14842,7 @@
         "id": 13721073729,
         "osm_type": "node",
         "name": "Jaka Pizza Wariacie",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -14289,6 +14859,24 @@
         "id": 13728042865,
         "osm_type": "node",
         "name": "Kebab Artizan",
+        "cuisine": "kebab",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5603834,
+          54.4429312
+        ]
+      },
+      "properties": {
+        "id": 13742142660,
+        "osm_type": "node",
+        "name": "Miki Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14311,6 +14899,7 @@
         "website": "https://mcdonalds.pl/restauracje/pomorskie/chojnice/chojnice-ul-szeroka-6",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14331,6 +14920,7 @@
         "phone": "+48 503 666 707",
         "website": "https://www.mimkebab.pl/",
         "operator": "M.S HOQUE sp. z o.o.",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14350,6 +14940,7 @@
         "brand": "KFC",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -14368,6 +14959,7 @@
         "name": "Punto Pizza",
         "phone": "+48530133530",
         "website": "https://www.facebook.com/PuntoPizzaGdansk",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -14390,6 +14982,7 @@
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-al-grunwaldzka-527",
         "operator": "Twinstar Sp. z o.o.",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14411,6 +15004,7 @@
         "phone": "+48 668 281 403",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/slupsk/slupsk-ul-szczecinska-36-i",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14431,6 +15025,7 @@
         "phone": "+48 22 536 36 36",
         "website": "kfc.pl",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -14452,6 +15047,7 @@
         "phone": "+48 694 495 912",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-ul-chlopska-18",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14473,6 +15069,7 @@
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk-oliwa/gdansk-oliwa-ul-bazynskiego-2",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14493,6 +15090,7 @@
         "opening_hours": "Mo-Su 07:00-00:00",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk-morena/gdansk-morena-ul-jaskowa-dolina-134",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14514,6 +15112,7 @@
         "phone": "+48 504 803 996",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-ul-kartuska",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14536,6 +15135,7 @@
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdynia/gdynia-morska-409",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14555,6 +15155,7 @@
         "opening_hours": "Mo-Sa 12:00-21:30; Su 11:00-21:00",
         "phone": "+48 737 184 444",
         "website": "https://www.dzielniczanka.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -14576,6 +15177,7 @@
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdynia/gdynia-ul-morska-58",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14595,6 +15197,7 @@
         "brand": "KFC",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -14615,6 +15218,7 @@
         "opening_hours": "Mo-Su 09:00-24:00",
         "operator": "AmRest",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -14631,6 +15235,7 @@
         "id": 139842614,
         "osm_type": "way",
         "name": "Delta Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14649,6 +15254,7 @@
         "name": "Dos Amigos",
         "opening_hours": "Su-Fr 11:00-22:00; Sa 11:00-23:00",
         "website": "https://dosamigos.pl/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14670,6 +15276,7 @@
         "website": "https://mcdonalds.pl/restauracje/pomorskie/rumia/rumia-ul-grunwaldzka-2a",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14689,6 +15296,7 @@
         "opening_hours": "Mo-Sa 11:00-22:00; Su 12:00-22:00",
         "phone": "+48 58 665 00 00",
         "website": "https://tino.pl/gdynia-obluze/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -14706,6 +15314,7 @@
         "osm_type": "way",
         "name": "Kebab Bisco",
         "website": "https://m.facebook.com/profile.php?id=706357046167121",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14722,6 +15331,7 @@
         "id": 164842868,
         "osm_type": "way",
         "name": "Bar nad Zatoką",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -14741,6 +15351,7 @@
         "brand": "KFC",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -14773,6 +15384,7 @@
         "id": 167850561,
         "osm_type": "way",
         "name": "Bar u rybaka",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -14788,6 +15400,7 @@
       "properties": {
         "id": 167850572,
         "osm_type": "way",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -14804,6 +15417,7 @@
         "id": 169523591,
         "osm_type": "way",
         "name": "Kurczak z rożna",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -14824,6 +15438,7 @@
         "opening_hours": "Mo-Sa 12:00-22:30; Su 12:00-22:00",
         "website": "http://www.stacjano7.pl/",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -14843,27 +15458,8 @@
         "brand": "KFC",
         "website": "kfc.pl",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.552095,
-          54.3218646
-        ]
-      },
-      "properties": {
-        "id": 179594391,
-        "osm_type": "way",
-        "name": "McDonald's",
-        "brand": "McDonald's",
-        "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-ul-przywidzka-6c",
-        "operator": "McDonald's",
-        "brand:wikidata": "Q38076",
-        "chain": "mcdonalds"
       }
     },
     {
@@ -14885,6 +15481,7 @@
         "website": "https://kfc.pl/",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -14906,6 +15503,7 @@
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdynia-klif/gdynia-klif-al-zwyciestwa-256",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14914,8 +15512,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.3927449,
-          54.7180301
+          18.3927365,
+          54.718026
         ]
       },
       "properties": {
@@ -14926,6 +15524,7 @@
         "website": "https://mcdonalds.pl/restauracje/pomorskie/puck/puck-ul-10-lutego-45",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -14945,6 +15544,7 @@
         "brand": "KFC",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -14961,6 +15561,7 @@
         "id": 215232498,
         "osm_type": "way",
         "name": "Wielki Kebab 8",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -14979,6 +15580,7 @@
         "name": "Pizzeria GrubyBenek",
         "opening_hours": "Mo-Th 10:00-23:00; Fr-Sa 10:00-24:00; Su 12:00-23:00",
         "website": "https://www.grubybenek.pl/restauracja/gruby-benek-koscierzyna--2",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -14997,6 +15599,7 @@
         "name": "Lolo Thaijolo",
         "opening_hours": "Mo-Sa 11:30-21:00; Su 11:30-19:00",
         "website": "https://thaijolo.pl/",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -15016,7 +15619,29 @@
         "opening_hours": "Mo-Sa 11:00-22:00; Su 12:00-22:00",
         "phone": "+48 58 625 15 15",
         "website": "https://www.pizzeriaibis.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.5520025,
+          54.3218635
+        ]
+      },
+      "properties": {
+        "id": 229801422,
+        "osm_type": "way",
+        "name": "McDonald's",
+        "brand": "McDonald's",
+        "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-ul-przywidzka-6c",
+        "operator": "McDonald's",
+        "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "chain": "mcdonalds"
       }
     },
     {
@@ -15034,6 +15659,7 @@
         "name": "Pi Stacja",
         "phone": "+48 790 828 881",
         "website": "https://314stacja.pl",
+        "cuisine": "burger;kebab;fish;ice_cream;polish",
         "chain": "unknown"
       }
     },
@@ -15068,6 +15694,7 @@
         "name": "New York Pizza",
         "opening_hours": "Mo-Th 16:00-22:00; Fr 16:00-00:00; Sa 12:00-00:00; Su 12:00-22:00",
         "phone": "+48535694694",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -15087,6 +15714,7 @@
         "opening_hours": "Su-Th 11:00-22:00; Fr-Sa 12:00-23:00",
         "phone": "+48794502526",
         "website": "https://dosamigos.pl/",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -15117,6 +15745,7 @@
       "properties": {
         "id": 238502188,
         "osm_type": "way",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -15137,6 +15766,7 @@
         "opening_hours": "Mo-Su 06:00-23:00",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-ul-odyseusza-16",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -15172,6 +15802,7 @@
         "opening_hours": "Mo-Sa 11:00-21:30; Su 12:00-21:30",
         "phone": "+48609850984",
         "website": "http://www.omaggio.pl/pizzeria-gdynia-redlowo.html",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -15192,6 +15823,7 @@
         "opening_hours": "Su-Th 07:00-23:00, Fr,Sa 07:00-01:00",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/malbork/malbork-ul-piastowska-2",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -15208,6 +15840,7 @@
         "id": 261514030,
         "osm_type": "way",
         "name": "Zapiekarnik Malbork",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -15225,6 +15858,7 @@
         "osm_type": "way",
         "name": "Kebab KK's",
         "opening_hours": "Su-Th 10:00-23:00, Fr,Sa 10:00-24:00",
+        "cuisine": "turkish",
         "chain": "unknown"
       }
     },
@@ -15276,6 +15910,7 @@
         "opening_hours": "Mo-Su 07:00-00:00",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/tczew/tczew-ul-braci-grimm-1a",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -15292,6 +15927,7 @@
         "id": 285544330,
         "osm_type": "way",
         "name": "Stacja Hel",
+        "cuisine": "beer;burger;fish;ice_cream",
         "chain": "unknown"
       }
     },
@@ -15313,6 +15949,7 @@
         "website": "https://kfc.pl/",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -15329,6 +15966,7 @@
         "id": 288448405,
         "osm_type": "way",
         "name": "Zrollowany",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -15363,6 +16001,7 @@
         "name": "Smażalnia ryb \"u Pirata\"",
         "opening_hours": "Mo-Su 12:00-19:00",
         "phone": "+48 504 649 310",
+        "cuisine": "fish_and_chips;burger",
         "chain": "unknown"
       }
     },
@@ -15379,6 +16018,7 @@
         "id": 290027122,
         "osm_type": "way",
         "name": "Buła Dżem",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -15396,6 +16036,7 @@
         "osm_type": "way",
         "name": "Papierowe Bistro",
         "phone": "+48 575 255 370",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -15412,6 +16053,7 @@
         "id": 293099943,
         "osm_type": "way",
         "name": "Damar Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -15429,6 +16071,7 @@
         "osm_type": "way",
         "name": "Chyba Ryba",
         "opening_hours": "Mo-Su 12:00-21:00",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -15448,6 +16091,7 @@
         "opening_hours": "Mo-Su 12:00-20:30",
         "phone": "+48530888363",
         "website": "http://barpulpet.pl/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -15515,6 +16159,7 @@
         "name": "Lisia Chatka",
         "opening_hours": "Mo-Fr 10:00-18:00; Sa-Su 13:00-18:00",
         "website": "https://www.lisiachatka.pl/",
+        "cuisine": "sandwich;burger",
         "chain": "unknown"
       }
     },
@@ -15547,6 +16192,7 @@
         "id": 302966153,
         "osm_type": "way",
         "name": "McBar",
+        "cuisine": "burger;kebab",
         "chain": "unknown"
       }
     },
@@ -15566,6 +16212,7 @@
         "opening_hours": "Mo-Th 12:00-23:00; Fr 12:00-24:00; Sa 00:00-01:00,12:00-24:00; Su 00:00-01:00,12:00-23:00",
         "phone": "+48 77 359 74 44",
         "website": "https://po-kawalku.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -15582,6 +16229,7 @@
         "id": 312216295,
         "osm_type": "way",
         "name": "KEBAB KING ROYAL",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -15617,6 +16265,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-swietokrzyska-2",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -15666,6 +16315,7 @@
         "id": 351265954,
         "osm_type": "way",
         "name": "Smażalnia Ryb",
+        "cuisine": "fish",
         "chain": "unknown"
       }
     },
@@ -15727,6 +16377,7 @@
         "id": 351505803,
         "osm_type": "way",
         "name": "Gruba Ryba",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -15871,6 +16522,7 @@
         "name": "Smażalnia ryb \"U Bolka\"",
         "opening_hours": "Mo-Su 11:00-21:00",
         "phone": "+48 604230282",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -15888,6 +16540,7 @@
         "osm_type": "way",
         "name": "Burger Bistro",
         "phone": "+48 501 271 319",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -15923,6 +16576,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Sa 09:00-23:00; Su 10:00-22:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -15958,6 +16612,7 @@
         "opening_hours": "Mo-Sa 12:00-22:00; Su 12:00-21:00",
         "phone": "+48690533335",
         "website": "http://pogorzanka.pl/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -15974,6 +16629,7 @@
         "id": 434626897,
         "osm_type": "way",
         "name": "Kapitan Fred",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -15990,6 +16646,7 @@
         "id": 437169157,
         "osm_type": "way",
         "name": "Bar Hobbitów",
+        "cuisine": "barbecue",
         "chain": "unknown"
       }
     },
@@ -16010,6 +16667,7 @@
         "opening_hours": "Mo-Su 07:00-24:00",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -16041,6 +16699,7 @@
         "id": 471227499,
         "osm_type": "way",
         "name": "Sorento",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -16061,6 +16720,7 @@
         "opening_hours": "Su-We 07:00-23:00; Th-Sa 07:00-00:00",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/pruszcz-gdanski/pruszcz-gdanski-ul-grunwaldzka-97-a",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -16109,6 +16769,7 @@
         "id": 516336672,
         "osm_type": "way",
         "name": "Bar Przystań",
+        "cuisine": "barbecue",
         "chain": "unknown"
       }
     },
@@ -16128,6 +16789,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Su 07:00-23:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -16148,6 +16810,7 @@
         "website": "https://mcdonalds.pl/restauracje/pomorskie/lebork/lebork-ul-boleslawa-krzywoustego-47",
         "operator": "McDonalds",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -16165,6 +16828,7 @@
         "osm_type": "way",
         "name": "Pani Burger",
         "opening_hours": "Mo-Sa 11:00-20:15",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -16181,6 +16845,7 @@
         "id": 529525053,
         "osm_type": "way",
         "name": "Burger Hause",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -16201,6 +16866,7 @@
         "opening_hours": "Mo-Su 00:00-00:30, 06:30-24:00",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -16220,6 +16886,7 @@
         "opening_hours": "Mo-Su 12:00-21:00",
         "phone": "+48727170173",
         "website": "https://www.sushitokyowejherowo.pl/",
+        "cuisine": "sushi;japanese",
         "chain": "unknown"
       }
     },
@@ -16236,6 +16903,7 @@
         "id": 581947535,
         "osm_type": "way",
         "name": "U Jadzi",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -16252,6 +16920,7 @@
         "id": 600317183,
         "osm_type": "way",
         "name": "MIM",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -16267,10 +16936,11 @@
       "properties": {
         "id": 611307074,
         "osm_type": "way",
-        "name": "MAX Premium Burgers",
+        "name": "Max Premium Burgers",
         "brand": "Max",
         "opening_hours": "Su-Th 09:00-00:00; Fr-Sa 09:00-01:00",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -16303,6 +16973,7 @@
         "id": 618013228,
         "osm_type": "way",
         "name": "Kurczak z Rożna",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -16322,6 +16993,7 @@
         "opening_hours": "Mo-Fr 12:00-19:00; Sa-Su off",
         "phone": "+48 513 027 967",
         "operator": "Mała Gastronomia Anita Frąckowiak",
+        "cuisine": "fast_food;chicken;kebab",
         "chain": "unknown"
       }
     },
@@ -16341,6 +17013,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/czluchow/czluchow-ul-koszalinska-1l",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -16359,6 +17032,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -16441,6 +17115,7 @@
         "osm_type": "way",
         "name": "U Krasnoluda",
         "opening_hours": "Mo-Su 13:00-18:00",
+        "cuisine": "burger;chicken",
         "chain": "unknown"
       }
     },
@@ -16457,6 +17132,7 @@
         "id": 888210773,
         "osm_type": "way",
         "name": "Sanczes BurgerBar",
+        "cuisine": "burger;chicken;american",
         "chain": "unknown"
       }
     },
@@ -16476,6 +17152,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/wladyslawowo/wladyslawowo-ul-starowiejska-31",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -16493,6 +17170,7 @@
         "osm_type": "way",
         "name": "Gruba ryba",
         "opening_hours": "Mo-Fr 11:00-19:00",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -16524,6 +17202,7 @@
       "properties": {
         "id": 930004882,
         "osm_type": "way",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -16560,6 +17239,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/koscierzyna/koscierzyna-ul-chojnicka-76",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -16596,6 +17276,7 @@
         "brand": "KFC",
         "opening_hours": "Mo-Su 09:00-24:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -16615,6 +17296,7 @@
         "opening_hours": "Mo-Su-11:00-21:00",
         "phone": "+48 511 551 125",
         "website": "https://schabowyiburger.pl/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -16631,6 +17313,7 @@
         "id": 972962957,
         "osm_type": "way",
         "name": "Max Doner Kebab",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -16666,6 +17349,7 @@
         "opening_hours": "Mo-Su 06:00-00:00",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/wejherowo/wejherowo-ul-tartaczna-1",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -16686,6 +17370,7 @@
         "opening_hours": "Mo-Su 06:00-24:00",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/kosakowo/kosakowo-pulkownika-stanislawa-dabka-338",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -16704,6 +17389,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -16722,6 +17408,7 @@
         "name": "Bafra Kebab",
         "brand": "Bafra Kebab",
         "brand:wikidata": "Q130582122",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -16743,6 +17430,7 @@
         "phone": "+48 58 501 26 50",
         "website": "https://www.maxpremiumburgers.pl/znajdz-max/restauracje/max-gdask-osowa/",
         "brand:wikidata": "Q1912172",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -16777,6 +17465,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -16795,6 +17484,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -16814,6 +17504,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/gdansk/gdansk-ul-uczniowska-30a",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -16847,6 +17538,7 @@
         "name": "Kreska Mąki",
         "phone": "+48881447203",
         "website": "https://kreskamaki.pl/wp-content/uploads/menu-3.png",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -16869,6 +17561,7 @@
         "website": "https://kfc.pl/",
         "operator": "AmRest",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -16887,6 +17580,7 @@
         "name": "BERLIN DÖNER KEBAP",
         "opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-20:00",
         "website": "https://www.berlindonerkebap.com/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -16908,6 +17602,7 @@
         "phone": "+48 59 842 12 91",
         "website": "http://subway.pl",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -16926,6 +17621,7 @@
         "name": "Olimp",
         "opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-20:00",
         "website": "https://olimprest.pl/",
+        "cuisine": "diner",
         "chain": "unknown"
       }
     },
@@ -16942,6 +17638,7 @@
         "id": 1118849387,
         "osm_type": "way",
         "name": "IMA Sushi",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -16958,6 +17655,7 @@
         "id": 1118849388,
         "osm_type": "way",
         "name": "Pizza Hut Express",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -16993,6 +17691,7 @@
         "opening_hours": "Mo-Sa 09:00-21:00; Su 09:00-20:00",
         "phone": "+48 59 842 14 65",
         "website": "http://lotosslupsk.pl",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -17014,6 +17713,7 @@
         "phone": "+48 533 345 668",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/slupsk/slupsk-ul-gdynska-2",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -17049,6 +17749,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/ulkowy/ulkowy-polna-55",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -17068,6 +17769,7 @@
         "brand": "McDonald's",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/kleszczewko/kleszczewko-pomorska-72",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -17087,6 +17789,7 @@
         "brand": "KFC",
         "opening_hours": "Mo-Su 08:00-23:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -17103,6 +17806,7 @@
         "id": 1180319521,
         "osm_type": "way",
         "name": "Smażalnia ryb",
+        "cuisine": "fish",
         "chain": "unknown"
       }
     },
@@ -17124,6 +17828,7 @@
         "phone": "+48 538 132 624",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/kwidzyn/kwidzyn-ul-malborska-123",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -17141,6 +17846,7 @@
         "osm_type": "way",
         "name": "Pizza i spółka",
         "opening_hours": "Tu-Th,Su 12:00-21:00; Fr,Sa 12:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -17157,6 +17863,7 @@
         "id": 1263578150,
         "osm_type": "way",
         "name": "Mufasa Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -17172,6 +17879,7 @@
       "properties": {
         "id": 1274596716,
         "osm_type": "way",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -17189,6 +17897,7 @@
         "osm_type": "way",
         "name": "Smażalnia Rybna",
         "opening_hours": "Mo-Su 14:00-18:00",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -17223,6 +17932,7 @@
         "opening_hours": "Mo-Fr 08:00-19:00; Sa,Su 09:00-19:00",
         "phone": "+48 515 050 565",
         "website": "https://m.facebook.com/Bar-familijny-KOS-1524598421015003/",
+        "cuisine": "polish",
         "chain": "unknown"
       }
     },
@@ -17245,6 +17955,7 @@
         "website": "https://mcdonalds.pl/restauracje/pomorskie/kamien/kamien-ul-pod-lasem-20",
         "operator": "AmRest Sp. z o.o.",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -17264,6 +17975,7 @@
         "brand": "KFC",
         "operator": "AmRest Sp. z o.o.",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -17285,6 +17997,7 @@
         "phone": "+48 888 392 468",
         "website": "https://mcdonalds.pl/restauracje/pomorskie/bytow/bytow-ul-ksiedza-dr-boleslawa-domanskiego-1",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -17301,6 +18014,7 @@
         "id": 1391537021,
         "osm_type": "way",
         "name": "World Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -17337,6 +18051,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 06:00-24:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -17352,9 +18067,6 @@
       "properties": {
         "id": 1467742236,
         "osm_type": "way",
-        "name": "KFC",
-        "brand": "KFC",
-        "brand:wikidata": "Q524757",
         "chain": "unknown"
       }
     },
