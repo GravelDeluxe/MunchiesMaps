@@ -210,12 +210,17 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
 
             if not raw_country_regions:
                 query_mode = normalize_text(raw_country.get("query_mode")).lower() or "country-only"
+                country_id = normalize_text(raw_country.get("id")) or str(country_key)
+                country_region = normalize_text(raw_country.get("region")) or str(country_key)
+                country_path = normalize_text(raw_country.get("path")) or get_geojson_path(
+                    str(country_key), country_region
+                )
                 country_regions.append(
                     {
-                        "id": str(country_key),
+                        "id": country_id,
                         "label": country_label,
-                        "region": str(country_key),
-                        "path": get_geojson_path(str(country_key), str(country_key)),
+                        "region": country_region,
+                        "path": country_path,
                         "country": str(country_key),
                         "country_label": country_label,
                         "area_name": country_label,
@@ -227,7 +232,7 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                         "query_name_regex": None,
                         "country_iso": iso3166_1,
                         "country_admin_level": country_admin_level,
-                        "country_scope_strategy": country_scope_strategy or "area-iso",
+                        "country_scope_strategy": country_scope_strategy or None,
                         "region_code": str(country_key),
                         "region_iso3166_2": None,
                         "region_scope_strategy": None,
