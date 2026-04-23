@@ -64,6 +64,7 @@
         "id": 1306028901,
         "osm_type": "node",
         "name": "Kroštula",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -206,6 +207,7 @@
         "id": 1912944796,
         "osm_type": "node",
         "name": "Pizzeria Feta",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -222,6 +224,7 @@
         "id": 1934162713,
         "osm_type": "node",
         "name": "44'12N 14'50E",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -269,6 +272,7 @@
         "id": 2378753555,
         "osm_type": "node",
         "name": "American Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -286,6 +290,7 @@
         "osm_type": "node",
         "name": "Ema",
         "opening_hours": "10:00-01:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -449,6 +454,7 @@
         "id": 2420977524,
         "osm_type": "node",
         "name": "Slad",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -481,6 +487,7 @@
         "id": 2424501108,
         "osm_type": "node",
         "name": "Panda",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -497,21 +504,7 @@
         "id": 2427730859,
         "osm_type": "node",
         "name": "Vrša",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.4449889,
-          43.9377274
-        ]
-      },
-      "properties": {
-        "id": 2432262895,
-        "osm_type": "node",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -575,6 +568,7 @@
         "id": 2767962480,
         "osm_type": "node",
         "name": "Pekarna Kod Pere",
+        "cuisine": "burger;chicken;pizza;regional",
         "chain": "unknown"
       }
     },
@@ -616,6 +610,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          15.4472724,
+          43.9394742
+        ]
+      },
+      "properties": {
+        "id": 3012927653,
+        "osm_type": "node",
+        "name": "Grill Mama Neda",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           15.1209989,
           44.2573689
         ]
@@ -624,6 +634,7 @@
         "id": 3338059331,
         "osm_type": "node",
         "name": "Beach Bar Monika",
+        "cuisine": "coffee_shop;sandwich;regional",
         "chain": "unknown"
       }
     },
@@ -691,6 +702,7 @@
         "name": "Obala",
         "opening_hours": "Mo-Su 07:00-24:00",
         "operator": "Pekarna \"Stanovi\"",
+        "cuisine": "burger;ice_cream;pizza;regional",
         "chain": "unknown"
       }
     },
@@ -706,6 +718,7 @@
       "properties": {
         "id": 3716084640,
         "osm_type": "node",
+        "cuisine": "ice_cream",
         "chain": "unknown"
       }
     },
@@ -774,6 +787,7 @@
         "phone": "+385 23 233 172",
         "operator": "Globalna hrana d.o.o.",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -792,6 +806,7 @@
         "name": "Grizli",
         "opening_hours": "Mo-Su 07:00-22:00",
         "website": "http://bolidgrizli.eatbu.com",
+        "cuisine": "burger;croatian",
         "chain": "unknown"
       }
     },
@@ -968,6 +983,7 @@
         "osm_type": "node",
         "name": "Stari Grad",
         "website": "https://www.facebook.com/pages/Fast-Food-Stari-Grad-/1432708586943254",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -1017,6 +1033,7 @@
         "id": 4912943023,
         "osm_type": "node",
         "name": "Zizou",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1035,6 +1052,7 @@
         "name": "Papica Burger House",
         "opening_hours": "Mo-Sa 10:30-23:00; Su 16:00-23:00",
         "phone": "+385 23 312 957",
+        "cuisine": "burger;sandwich",
         "chain": "unknown"
       }
     },
@@ -1066,6 +1084,7 @@
         "id": 4958157536,
         "osm_type": "node",
         "name": "Beach Bar",
+        "cuisine": "pizza;burger",
         "chain": "unknown"
       }
     },
@@ -1114,6 +1133,7 @@
         "osm_type": "node",
         "name": "Fast food Nana",
         "opening_hours": "24/7",
+        "cuisine": "burger;pizza",
         "chain": "unknown"
       }
     },
@@ -1147,6 +1167,7 @@
         "osm_type": "node",
         "name": "Beach Bar Marija",
         "operator": "Tomislav Anic",
+        "cuisine": "burger;pasta",
         "chain": "unknown"
       }
     },
@@ -1226,6 +1247,7 @@
         "id": 5828999349,
         "osm_type": "node",
         "name": "Fish & Chips",
+        "cuisine": "fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -1243,6 +1265,7 @@
         "osm_type": "node",
         "name": "Zvonimir",
         "opening_hours": "Mo-Su 07:00-24:00",
+        "cuisine": "pizza;burger;sandwich",
         "chain": "unknown"
       }
     },
@@ -1260,6 +1283,7 @@
         "osm_type": "node",
         "name": "Dino",
         "opening_hours": "Mo-Su 09:00-23:00",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -1327,6 +1351,7 @@
         "opening_hours": "Mo-Su 12:00-23:00",
         "phone": "+38599-604-8588",
         "website": "https://www.madduck.com.hr/",
+        "cuisine": "burger;pizza",
         "chain": "unknown"
       }
     },
@@ -1359,6 +1384,7 @@
         "osm_type": "node",
         "name": "Čarli",
         "opening_hours": "Mo-Su 12:00-24:00",
+        "cuisine": "regional;burger;sandwich",
         "chain": "unknown"
       }
     },
@@ -1376,6 +1402,7 @@
         "osm_type": "node",
         "name": "Afrika",
         "opening_hours": "Mo-Su 17:00-02:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1408,6 +1435,7 @@
         "id": 7752467156,
         "osm_type": "node",
         "name": "Fast food Dora",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1535,6 +1563,7 @@
         "id": 9183261146,
         "osm_type": "node",
         "name": "Pizzeria No. 1",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1583,6 +1612,7 @@
         "id": 9985967865,
         "osm_type": "node",
         "name": "Croatia grill",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -1601,6 +1631,7 @@
         "name": "LB Street Food",
         "phone": "095 510 8520",
         "website": "https://www.facebook.com/profile.php?id=100068621422987",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1618,6 +1649,7 @@
         "osm_type": "node",
         "name": "Pizza & Burger Bar D-Mol 7",
         "opening_hours": "Mo-Su,PH 12:00-23:00",
+        "cuisine": "burger;pizza",
         "chain": "unknown"
       }
     },
@@ -1666,6 +1698,7 @@
         "id": 11014636972,
         "osm_type": "node",
         "name": "Beach Bar Demos Hydra",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1686,6 +1719,7 @@
         "opening_hours": "Mo-Su 08:30-22:30",
         "phone": "+385 23 400 320",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -1702,6 +1736,7 @@
         "id": 11099630436,
         "osm_type": "node",
         "name": "Garfild fast food",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1765,6 +1800,7 @@
         "id": 11916820491,
         "osm_type": "node",
         "name": "Kum",
+        "cuisine": "greek;kebab",
         "chain": "unknown"
       }
     },
@@ -1783,6 +1819,7 @@
         "name": "RIKA",
         "opening_hours": "Oct-Apr Mo-Fr 00:00-02:00,07:00-24:00; Oct-May Fr-Sa 00:00-24:00; May-Sep 00:00-24:00",
         "operator": "Latisana j.d.o.o.",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1800,6 +1837,7 @@
         "osm_type": "node",
         "name": "ALTERNATIVA",
         "opening_hours": "Mo-Su,PH 10:00-21:00",
+        "cuisine": "snacks",
         "chain": "unknown"
       }
     },
@@ -1831,6 +1869,7 @@
       "properties": {
         "id": 12105337659,
         "osm_type": "node",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1897,6 +1936,7 @@
         "name": "Pizzaria NItro",
         "phone": "+385919040843",
         "website": "https://pizzeria-nitro.eatbu.com",
+        "cuisine": "pizza;barbecue;burger;sandwich",
         "chain": "unknown"
       }
     },
@@ -1913,6 +1953,7 @@
         "id": 12241368828,
         "osm_type": "node",
         "name": "Jaz",
+        "cuisine": "burger;sandwich",
         "chain": "unknown"
       }
     },
@@ -1930,6 +1971,7 @@
         "osm_type": "node",
         "name": "Meštar kebab",
         "opening_hours": "17:00-24:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1962,37 +2004,6 @@
         "id": 13329465448,
         "osm_type": "node",
         "name": "Pepes",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.3788598,
-          44.1049047
-        ]
-      },
-      "properties": {
-        "id": 13713901367,
-        "osm_type": "node",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.3167224,
-          44.0442493
-        ]
-      },
-      "properties": {
-        "id": 13714468442,
-        "osm_type": "node",
-        "name": "Maredo",
         "chain": "unknown"
       }
     },
@@ -2056,6 +2067,7 @@
         "id": 303205452,
         "osm_type": "way",
         "name": "Mala Luka-Kali",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2088,6 +2100,7 @@
         "id": 625057377,
         "osm_type": "way",
         "name": "pizzeria Mareta",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2108,6 +2121,7 @@
         "opening_hours": "Mo-Su 09:00-01:00",
         "phone": "099 384 9905",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -2138,6 +2152,7 @@
       "properties": {
         "id": 1191648818,
         "osm_type": "way",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
