@@ -167,8 +167,8 @@
         "id": 752613065,
         "osm_type": "node",
         "name": "Πεϊνιρλί Ιωνίας",
-        "opening_hours": "Mo-Fr 08:00-17:00; Sa 08:00-15:30",
-        "phone": "21 0646 2854",
+        "opening_hours": "Mo-Fr 08:30-16:00; Sa 09:00-15:30",
+        "phone": "+3021 0646 2854",
         "chain": "unknown"
       }
     },
@@ -797,6 +797,7 @@
       "properties": {
         "id": 2021572764,
         "osm_type": "node",
+        "name": "eat & sip",
         "chain": "unknown"
       }
     },
@@ -2866,14 +2867,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.7219216,
-          37.962828
+          23.7218459,
+          37.9628811
         ]
       },
       "properties": {
         "id": 3485516440,
         "osm_type": "node",
-        "name": "Ο Καλύβας",
+        "name": "Καλύβας",
+        "cuisine": "greek",
         "chain": "unknown"
       }
     },
@@ -3096,7 +3098,7 @@
         "id": 3584498307,
         "osm_type": "node",
         "name": "Brothers",
-        "phone": "+30 210 4523263",
+        "phone": "+30 2104523263",
         "chain": "unknown"
       }
     },
@@ -6366,8 +6368,11 @@
       "properties": {
         "id": 4050376792,
         "osm_type": "node",
-        "name": "Just Burgers",
-        "cuisine": "burger",
+        "name": "me kolonaki",
+        "opening_hours": "Mo-Su 08:00-23:00",
+        "phone": "+30 21 0724 2588",
+        "website": "http://meathens.com",
+        "cuisine": "breakfast;coffee_shop;sandwich;tea",
         "chain": "unknown"
       }
     },
@@ -10180,23 +10185,6 @@
         "id": 4872849487,
         "osm_type": "node",
         "name": "Roma pizza",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          23.7256069,
-          37.9651697
-        ]
-      },
-      "properties": {
-        "id": 4895316597,
-        "osm_type": "node",
-        "name": "Δια χειρός",
-        "cuisine": "crepe",
         "chain": "unknown"
       }
     },
@@ -14052,6 +14040,23 @@
         "brand": "Γρηγόρης",
         "brand:wikidata": "Q62273834",
         "cuisine": "sandwich",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.7222672,
+          37.9631159
+        ]
+      },
+      "properties": {
+        "id": 6522290400,
+        "osm_type": "node",
+        "name": "Κουλουράδες",
+        "cuisine": "koulouri;sandwich",
         "chain": "unknown"
       }
     },
@@ -17936,7 +17941,7 @@
       "properties": {
         "id": 9673906817,
         "osm_type": "node",
-        "name": "δια χειρός",
+        "name": "Δια χειρός",
         "chain": "unknown"
       }
     },
@@ -25155,6 +25160,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          23.7758998,
+          37.9935279
+        ]
+      },
+      "properties": {
+        "id": 12925942403,
+        "osm_type": "node",
+        "name": "Geusi Mam",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           23.7270354,
           37.9761723
         ]
@@ -26444,6 +26465,25 @@
         "id": 13664723388,
         "osm_type": "node",
         "name": "Gorillas Crepes",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8125265,
+          38.0728256
+        ]
+      },
+      "properties": {
+        "id": 13698583664,
+        "osm_type": "node",
+        "name": "Gordo",
+        "opening_hours": "Mo-Su 12:30-02:00",
+        "phone": "+302108010723",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
