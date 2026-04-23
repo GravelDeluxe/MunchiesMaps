@@ -33,22 +33,30 @@ Automation scripts for pulling OpenStreetMap data and exporting it as GeoJSON fo
 You can optionally limit a run:
 
 - `--regions` comma-separated region IDs
-- `--categories` comma-separated categories
+- `--layers` comma-separated layers/categories
+- `--categories` legacy alias for `--layers`
 - `--countries` comma-separated country IDs
+- `--dry-run` execute fetches without writing GeoJSON/manifest files
 - `--verbose-query` prints the full Overpass query before each request
 
 Examples:
 
-- `python fetch_overpass.py --regions de-berlin,cz-praha --categories fast_food`
+- `python fetch_overpass.py --regions de-berlin,cz-praha --layers fast_food`
 - `python fetch_overpass.py --countries czechia`
 - `python fetch_overpass.py --countries austria`
 - `python fetch_overpass.py --countries croatia`
 - `python fetch_overpass.py --countries italy`
-- `python fetch_overpass.py --regions cz-praha --categories fuel --verbose-query`
-- `python fetch_overpass.py --countries croatia --categories fuel --verbose-query`
-- `python fetch_overpass.py --regions it-25 --categories fuel --verbose-query`
-- `python fetch_overpass.py --countries france --categories fuel --verbose-query`
-- `python fetch_overpass.py --countries denmark --categories fuel --verbose-query`
+- `python fetch_overpass.py --regions cz-praha --layers fuel --verbose-query`
+- `python fetch_overpass.py --countries croatia --layers fuel --verbose-query`
+- `python fetch_overpass.py --regions it-25 --layers fuel --verbose-query`
+- `python fetch_overpass.py --countries france --layers fuel --verbose-query`
+- `python fetch_overpass.py --countries denmark --layers fuel --verbose-query`
+
+The script writes run artifacts to `artifacts/`:
+
+- `fetch_failures.json` / `fetch_failures.csv`: structured non-updated region/layer entries
+- `fetch_results.json`: successful updates with feature counts and output files
+- `fetch_summary.md`: compact summary for GitHub Actions job summaries
 
 ## Administrative boundary resolution
 

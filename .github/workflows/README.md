@@ -3,6 +3,7 @@
 Automation for keeping GeoJSON data up to date.
 
 - `fetch_overpass.yml` installs the fetch scripts, runs the Overpass queries, and writes regenerated data from `resources/geojson/`.
+- `fetch_matrix.yml` runs the same fetch script as a country-level matrix job (`fail-fast: false`) and uploads per-country failure/result artifacts.
 - The workflow can be started manually via **Actions → Fetch Overpass Data → Run workflow**.
 - The existing scheduled run remains active on `0 1 1 * *` and uses defaults (no manual inputs required).
 
@@ -16,6 +17,28 @@ Automation for keeping GeoJSON data up to date.
 - `commit_mode`: `pull_request` (default) or `direct_commit`
 
 If an input is left empty, the fetch script runs without that filter.
+
+## Matrix workflow (`fetch_matrix.yml`)
+
+`fetch_matrix.yml` supports optional `workflow_dispatch` inputs:
+
+- `countries`: comma-separated country ids (empty = all configured countries)
+- `layers`: comma-separated layers (empty = all configured layers)
+- `regions`: comma-separated region ids/slugs (empty = all regions per country)
+- `dry_run`: `true`/`false` (skip data writes + PR creation when `true`)
+
+Each matrix job writes and uploads:
+
+- `artifacts/fetch_failures_<country>.json` and `.csv`
+- `artifacts/fetch_results_<country>.json`
+- `artifacts/fetch_summary_<country>.md`
+
+Example manual run for only `fast_food` in `gb,pl,tr`:
+
+- `countries`: `gb,pl,tr`
+- `layers`: `fast_food`
+- `regions`: *(empty)*
+- `dry_run`: `false`
 
 ## Common manual examples
 

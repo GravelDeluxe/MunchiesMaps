@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import random
 import re
@@ -20,6 +21,7 @@ import overpass_templates
 CONFIG_PATH = Path(__file__).resolve().parent / "config.yml"
 ROOT_DIR = Path(__file__).resolve().parent.parent
 RESOURCE_DIR = ROOT_DIR / "resources" / "geojson"
+ARTIFACTS_DIR = ROOT_DIR / "artifacts"
 FAILOVER_STATUS_CODES = {406, 429, 500, 502, 503, 504}
 REQUEST_CONNECT_TIMEOUT = 20
 REQUEST_READ_TIMEOUT = 90
@@ -72,6 +74,16 @@ PHASE1_COUNTRY_KEY_TO_ISO = {
     "switzerland": "CH",
     "czechia": "CZ",
 }
+
+
+class FetchRequestError(RuntimeError):
+    """Structured request error with failure classification."""
+
+    def __init__(self, message: str, *, status: str, endpoint: str | None = None, attempts: int = 0) -> None:
+        super().__init__(message)
+        self.status = status
+        self.endpoint = endpoint
+        self.attempts = attempts
 
 
 def normalize_text(value: Any) -> str:
@@ -662,6 +674,7 @@ def request_with_retry(
     _ = timeout
     last_exc: Exception | None = None
     last_endpoint: str | None = None
+    last_status = "exception"
     context = context or {}
     context_region = context.get("region", "-")
     context_category = context.get("category", "-")
@@ -688,6 +701,7 @@ def request_with_retry(
             )
         except (requests.Timeout, requests.ConnectionError) as exc:
             last_exc = exc
+            last_status = "timeout" if isinstance(exc, requests.Timeout) else "exception"
             print(
                 "[req] "
                 f"Exception={type(exc).__name__} | Endpoint={endpoint} | failover=next"
@@ -695,6 +709,7 @@ def request_with_retry(
             continue
         except requests.RequestException as exc:
             last_exc = exc
+            last_status = "http_error"
             print(
                 "[req] "
                 f"Exception={type(exc).__name__} | Endpoint={endpoint} | failover=abort"
@@ -703,6 +718,7 @@ def request_with_retry(
 
         if response.status_code in FAILOVER_STATUS_CODES:
             last_exc = requests.HTTPError(f"Overpass returned status {response.status_code}.")
+            last_status = "http_error"
             print(
                 "[req] "
                 f"Status={response.status_code} | Endpoint={endpoint} | failover=next"
@@ -713,7 +729,13 @@ def request_with_retry(
             print("[error] Overpass HTTP 400 (Bad Request).")
             print("[error] Likely Overpass syntax error in generated query")
             print(f"[error] Full query:\n{query}")
-        response.raise_for_status()
+        try:
+            response.raise_for_status()
+        except requests.HTTPError as exc:
+            last_exc = exc
+            last_status = "http_error"
+            print(f"[req] Exception=HTTPError | Endpoint={endpoint} | failover=next")
+            continue
         text = response.text or ""
         stripped = text.lstrip()
         content_type = response.headers.get("Content-Type", "")
@@ -726,6 +748,7 @@ def request_with_retry(
                 f"{endpoint}: status={response.status_code}, content-type={content_type}, "
                 f"body_prefix={text[:200]!r}"
             )
+            last_status = "parse_error"
             print(f"[req] Exception=NonJsonResponse | Endpoint={endpoint} | failover=next")
             continue
         try:
@@ -745,14 +768,23 @@ def request_with_retry(
                 f"{endpoint}: status={response.status_code}, content-type={content_type}, "
                 f"body_prefix={text[:200]!r}"
             )
+            last_status = "parse_error"
             print("[req] Exception=InvalidJSON | Endpoint={endpoint} | failover=next")
             continue
 
     if last_exc is None:
-        raise RuntimeError("All Overpass endpoints failed. Last error: unknown.")
-    error = RuntimeError(f"All Overpass endpoints failed. Last error: {last_exc}")
-    setattr(error, "endpoint", last_endpoint)
-    raise error
+        raise FetchRequestError(
+            "All Overpass endpoints failed. Last error: unknown.",
+            status=last_status,
+            endpoint=last_endpoint,
+            attempts=len(endpoints),
+        )
+    raise FetchRequestError(
+        f"All Overpass endpoints failed. Last error: {last_exc}",
+        status=last_status,
+        endpoint=last_endpoint,
+        attempts=len(endpoints),
+    )
 
 
 def filter_tags_for_category(tags: Dict[str, Any], category: str) -> Dict[str, Any]:
@@ -989,12 +1021,17 @@ def parse_csv_filter(value: str | None) -> set[str]:
     """Parse a comma-separated filter value."""
     if value is None:
         return set()
-    return {item.strip() for item in value.split(",") if item.strip()}
+    return {normalize_filter_token(item) for item in value.split(",") if item.strip()}
 
 
 def normalize_filter_token(value: Any) -> str:
     """Normalize filter tokens for case-insensitive matching."""
     return normalize_text(value).lower()
+
+
+def utc_timestamp() -> str:
+    """Return current UTC timestamp in ISO format."""
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
 
 def get_country_aliases(region: Dict[str, Any]) -> set[str]:
@@ -1016,6 +1053,41 @@ def matches_country_filter(region: Dict[str, Any], country_filter: set[str]) -> 
     if not country_filter:
         return True
     return bool(get_country_aliases(region) & country_filter)
+
+
+def get_region_aliases(region: Dict[str, Any]) -> set[str]:
+    """Return normalized aliases that identify a region."""
+    aliases = {
+        normalize_filter_token(region.get("id")),
+        normalize_filter_token(region.get("region")),
+        normalize_filter_token(region.get("label")),
+        normalize_filter_token(region.get("area_name")),
+    }
+    return {alias for alias in aliases if alias}
+
+
+def matches_region_filter(region: Dict[str, Any], region_filter: set[str]) -> bool:
+    """Return whether region matches any provided region filter token."""
+    if not region_filter:
+        return True
+    return bool(get_region_aliases(region) & region_filter)
+
+
+def write_json(path: Path, payload: Any) -> None:
+    """Write a JSON payload with UTF-8 encoding."""
+    ensure_directory(path.parent)
+    with path.open("w", encoding="utf-8") as output_file:
+        json.dump(payload, output_file, ensure_ascii=False, indent=2)
+
+
+def write_csv(path: Path, rows: List[Dict[str, Any]], fieldnames: List[str]) -> None:
+    """Write structured CSV rows."""
+    ensure_directory(path.parent)
+    with path.open("w", encoding="utf-8", newline="") as output_file:
+        writer = csv.DictWriter(output_file, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({field: row.get(field, "") for field in fieldnames})
 
 
 def build_smoke_test_query() -> str:
@@ -1090,13 +1162,14 @@ def smoke_test_endpoints(endpoints: List[str]) -> List[str]:
 
 def run(
     region_filter: set[str] | None = None,
-    category_filter: set[str] | None = None,
+    layer_filter: set[str] | None = None,
     country_filter: set[str] | None = None,
     verbose_query: bool = False,
-) -> None:
+    dry_run: bool = False,
+) -> int:
     """Run the fetch process for all configured regions and categories."""
     region_filter = region_filter or set()
-    category_filter = category_filter or set()
+    layer_filter = layer_filter or set()
     country_filter = {normalize_filter_token(token) for token in (country_filter or set()) if token}
 
     config = load_config()
@@ -1126,13 +1199,13 @@ def run(
     selected_regions = [
         region
         for region in regions
-        if (not region_filter or region["id"] in region_filter)
+        if matches_region_filter(region, region_filter)
         and matches_country_filter(region, country_filter)
     ]
     selected_categories = [
         (category, func_name)
         for category, func_name in categories.items()
-        if not category_filter or category in category_filter
+        if not layer_filter or normalize_filter_token(category) in layer_filter
     ]
 
     matched_countries = sorted({region["country"] for region in selected_regions})
@@ -1166,12 +1239,39 @@ def run(
     if region_filter and not selected_regions:
         raise ValueError(f"No regions matched --regions filter: {', '.join(sorted(region_filter))}")
 
-    if category_filter and not selected_categories:
-        raise ValueError(f"No categories matched --categories filter: {', '.join(sorted(category_filter))}")
+    if layer_filter and not selected_categories:
+        raise ValueError(f"No categories matched --layers filter: {', '.join(sorted(layer_filter))}")
 
     ensure_directory(RESOURCE_DIR)
 
-    failures: List[str] = []
+    failures: List[Dict[str, Any]] = []
+    results: List[Dict[str, Any]] = []
+    def flush_artifacts() -> None:
+        artifacts_failures_json = ARTIFACTS_DIR / "fetch_failures.json"
+        artifacts_failures_csv = ARTIFACTS_DIR / "fetch_failures.csv"
+        artifacts_results_json = ARTIFACTS_DIR / "fetch_results.json"
+        summary_path = ARTIFACTS_DIR / "fetch_summary.md"
+        write_json(artifacts_failures_json, failures)
+        write_csv(
+            artifacts_failures_csv,
+            failures,
+            ["country", "region", "layer", "status", "error_message", "endpoint", "attempt_count", "timestamp_utc"],
+        )
+        write_json(artifacts_results_json, results)
+        failed_lines = "\n".join(
+            f"- `{item['country']}/{item['region']}:{item['layer']}` → `{item['status']}`"
+            for item in failures[:50]
+        )
+        summary = (
+            "## Fetch Summary\n"
+            f"- Successful updates: **{len(results)}**\n"
+            f"- Failed updates: **{len(failures)}**\n"
+            f"- Dry run: **{'yes' if dry_run else 'no'}**\n"
+            + ("### Failed region/layer updates\n" + failed_lines + "\n" if failures else "No failures.\n")
+        )
+        summary_path.write_text(summary, encoding="utf-8")
+        print(f"[artifacts] Wrote {artifacts_failures_json.relative_to(ROOT_DIR)}")
+        print(f"[artifacts] Wrote {artifacts_results_json.relative_to(ROOT_DIR)}")
     run_stats: Dict[str, Any] = {
         "total_attempts": 0,
         "successful_fetches": 0,
@@ -1195,7 +1295,20 @@ def run(
         degraded_mode_used = True
         print("[warn] No healthy endpoints → entering degraded mode")
         if not selected_regions or not selected_categories:
-            raise RuntimeError("No usable endpoints after degraded mode. Aborting.")
+            failures.append(
+                {
+                    "country": "",
+                    "region": "",
+                    "layer": "",
+                    "status": "exception",
+                    "error_message": "No usable endpoints after degraded mode. Aborting.",
+                    "endpoint": "",
+                    "attempt_count": 0,
+                    "timestamp_utc": utc_timestamp(),
+                }
+            )
+            flush_artifacts()
+            return 1
         probe_region = selected_regions[0]
         probe_category, probe_func_name = selected_categories[0]
         probe_template_func = get_category_function(probe_func_name)
@@ -1238,7 +1351,20 @@ def run(
             healthy_endpoints = endpoints
             print("[degraded] continuing with full endpoint list after successful probe")
         else:
-            raise RuntimeError("No usable endpoints after degraded mode. Aborting.")
+            failures.append(
+                {
+                    "country": probe_region["country"],
+                    "region": probe_region["id"],
+                    "layer": probe_category,
+                    "status": "exception",
+                    "error_message": "No usable endpoints after degraded mode. Aborting.",
+                    "endpoint": "",
+                    "attempt_count": 0,
+                    "timestamp_utc": utc_timestamp(),
+                }
+            )
+            flush_artifacts()
+            return 1
 
     for region_index, region in enumerate(selected_regions, start=1):
         print(
@@ -1246,7 +1372,7 @@ def run(
             f"id={region['id']} | country={region['country']} | label={region['label']}"
         )
         region_categories_raw = region.get("categories")
-        if category_filter:
+        if layer_filter:
             region_categories = list(selected_categories)
         elif isinstance(region_categories_raw, list) and region_categories_raw:
             allowed_region_categories = {
@@ -1259,6 +1385,8 @@ def run(
             ]
         else:
             region_categories = list(selected_categories)
+        if not region_categories:
+            print(f"[cat]   No categories selected for region={region['id']} after filters")
         for category_index, (category, func_name) in enumerate(region_categories, start=1):
             template_func = get_category_function(func_name)
             print(
@@ -1273,7 +1401,9 @@ def run(
 
                 elements: List[Dict[str, Any]] = []
                 fallback_used = False
+                completed_attempts = 0
                 for attempt_index, attempt in enumerate(attempts, start=1):
+                    completed_attempts = attempt_index
                     mode = attempt["mode"]
                     match_type = attempt["match_type"]
                     region_query = attempt["region_query"]
@@ -1330,13 +1460,39 @@ def run(
                     print("[query] Fallback succeeded.")
                 geojson = convert_to_geojson(elements, category)
                 print(f"[diag] elements={len(elements)} | features={len(geojson.get('features', []))}")
-                save_geojson(geojson, region, category)
-                run_stats["geojson_written"] += 1
+                updated_file = str((RESOURCE_DIR / str(region["path"]) / f"{category}.geojson").relative_to(ROOT_DIR))
+                if dry_run:
+                    print(f"[dry-run] Skipping write for {updated_file}")
+                else:
+                    save_geojson(geojson, region, category)
+                    run_stats["geojson_written"] += 1
+                results.append(
+                    {
+                        "country": region["country"],
+                        "region": region["id"],
+                        "layer": category,
+                        "status": "success",
+                        "feature_count": len(geojson.get("features", [])),
+                        "updated_file": updated_file,
+                        "endpoint": endpoints_used[-1] if (endpoints_used := sorted(run_stats["endpoints_used"])) else "",
+                        "attempt_count": completed_attempts,
+                        "timestamp_utc": utc_timestamp(),
+                    }
+                )
                 delay_seconds = request_delay_seconds + random.uniform(JITTER_MIN_SECONDS, JITTER_MAX_SECONDS)
                 time.sleep(delay_seconds)
                 print(f"[sleep] {delay_seconds:.2f}s before next request")
             except Exception as exc:  # noqa: BLE001
                 endpoint = getattr(exc, "endpoint", None)
+                status = "exception"
+                if isinstance(exc, FetchRequestError):
+                    status = exc.status
+                elif isinstance(exc, requests.Timeout):
+                    status = "timeout"
+                elif isinstance(exc, requests.HTTPError):
+                    status = "http_error"
+                elif isinstance(exc, ValueError):
+                    status = "parse_error"
                 context_parts = [
                     f"region={region['id']}",
                     f"country={region['country']}",
@@ -1345,12 +1501,25 @@ def run(
                 context = " / ".join(context_parts)
                 endpoint_text = f" | endpoint={endpoint}" if endpoint else ""
                 print(f"[error] {context}{endpoint_text} | {exc}")
-                msg = f"{context}{endpoint_text} | {exc}"
-                failures.append(msg)
+                failures.append(
+                    {
+                        "country": region["country"],
+                        "region": region["id"],
+                        "layer": category,
+                        "status": status,
+                        "error_message": str(exc),
+                        "endpoint": endpoint or "",
+                        "attempt_count": getattr(exc, "attempts", 0),
+                        "timestamp_utc": utc_timestamp(),
+                    }
+                )
                 run_stats["failed_fetches"] += 1
                 continue
 
-    save_manifest(regions, categories)
+    if dry_run:
+        print("[dry-run] Skipping manifest write")
+    else:
+        save_manifest(regions, categories)
 
     endpoints_used = sorted(run_stats["endpoints_used"])
     print(
@@ -1376,19 +1545,29 @@ def run(
     if run_stats["failed_fetches"] > 0:
         print(f"[summary] All endpoints failed for {run_stats['failed_fetches']} fetches")
         for failure in failures[:5]:
-            print(f"[summary] failure_example={failure}")
+            print(
+                "[summary] failure_example="
+                f"{failure['country']}/{failure['region']}/{failure['layer']}:{failure['status']}"
+            )
+
+    flush_artifacts()
 
     if run_stats["successful_fetches"] == 0 and run_stats["failed_fetches"] > 0:
         print("[summary] No successful fetches -> exiting with error")
-        raise RuntimeError("All fetches failed. Aborting.")
+        return 1
 
     if failures:
         print(f"[warn] Completed with {len(failures)} failures:")
         for failure in failures:
-            print(f"[warn] {failure}")
+            print(
+                "[warn] "
+                f"{failure['country']}/{failure['region']}:{failure['layer']} "
+                f"| {failure['status']} | {failure['error_message']}"
+            )
         if fail_on_error:
-            raise RuntimeError("Fetch completed with failures; see log summary.")
+            return 1
         print("[warn] Best-effort mode: continuing despite failures (fail_on_error=false).")
+    return 0
 
 
 def main() -> None:
@@ -1399,7 +1578,11 @@ def main() -> None:
     )
     parser.add_argument(
         "--categories",
-        help="Comma-separated categories (example: fast_food,supermarkets)",
+        help="Comma-separated categories/layers (deprecated alias for --layers).",
+    )
+    parser.add_argument(
+        "--layers",
+        help="Comma-separated layers (example: fast_food,supermarkets)",
     )
     parser.add_argument(
         "--countries",
@@ -1410,15 +1593,24 @@ def main() -> None:
         action="store_true",
         help="Print full Overpass query text before each request.",
     )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Run fetch logic but do not write GeoJSON/manifest files.",
+    )
     args = parser.parse_args()
+    layer_input = args.layers or args.categories
 
     try:
-        run(
+        exit_code = run(
             region_filter=parse_csv_filter(args.regions),
-            category_filter=parse_csv_filter(args.categories),
+            layer_filter=parse_csv_filter(layer_input),
             country_filter=parse_csv_filter(args.countries),
             verbose_query=args.verbose_query,
+            dry_run=args.dry_run,
         )
+        if exit_code != 0:
+            sys.exit(exit_code)
     except Exception as exc:  # noqa: BLE001
         print(f"[error] {exc}")
         sys.exit(1)
