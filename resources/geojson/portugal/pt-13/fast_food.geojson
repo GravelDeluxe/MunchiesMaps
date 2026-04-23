@@ -64,6 +64,7 @@
         "name": "Telepizza",
         "brand": "Telepizza",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -100,6 +101,7 @@
         "opening_hours": "Mo-Su 10:00-05:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_884519",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -120,6 +122,7 @@
         "opening_hours": "Mo-Th,Su 08:00-05:00; Fr,Sa 08:00-06:00; PH -1 day 08:00-06:00",
         "website": "https://www.mcdonalds.pt/restaurantes/imperial-aliados-porto/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -137,6 +140,7 @@
         "osm_type": "node",
         "name": "Go To Coffee & Food",
         "opening_hours": "Mo-Su 05:30-22:00",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -155,6 +159,7 @@
         "name": "Telepizza",
         "brand": "Telepizza",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -172,6 +177,7 @@
         "osm_type": "node",
         "name": "Charanga",
         "opening_hours": "Mo-Th 12:00-15:00,19:00-22:00; Fr,Sa 12:00-15:00,19:00-23:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -234,6 +240,7 @@
         "id": 1719138563,
         "osm_type": "node",
         "name": "Cozinha da Avenida - Take Away",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -252,6 +259,7 @@
         "name": "Telepizza",
         "brand": "Telepizza",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -268,6 +276,7 @@
         "id": 1947025080,
         "osm_type": "node",
         "name": "Villa's Sandes",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -304,6 +313,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/gaia-mafamude-drive/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -320,6 +330,7 @@
         "id": 2083921189,
         "osm_type": "node",
         "name": "Mon Ami",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -353,6 +364,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -405,6 +417,7 @@
         "opening_hours": "Mo-Su 10:00-23:00",
         "website": "https://www.mcdonalds.pt/restaurantes/vila-do-conde-porto-fashion-outlet/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -424,6 +437,7 @@
         "brand": "Wok to Walk",
         "opening_hours": "Mo-Su 10:00-23:00",
         "brand:wikidata": "Q4020634",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -444,6 +458,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_886585",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -463,6 +478,7 @@
         "opening_hours": "Mo-Su 12:00-23:00",
         "phone": "+351 22 316 0614",
         "website": "https://www.facebook.com/tiofafahamburgueria",
+        "cuisine": "burger;fast_food",
         "chain": "unknown"
       }
     },
@@ -483,6 +499,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_10668",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -500,6 +517,7 @@
         "osm_type": "node",
         "name": "Leitão Gadelho",
         "opening_hours": "Tu off",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -535,6 +553,7 @@
         "opening_hours": "Mo-We 11:00-15:30; Th-Sa 11:00- 00:00",
         "phone": "+351 916 018770",
         "website": "http://www.asandeira.pt/",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -592,23 +611,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -8.6053098,
-          41.1467919
-        ]
-      },
-      "properties": {
-        "id": 3757912781,
-        "osm_type": "node",
-        "name": "Chapa Quente",
-        "opening_hours": "18:00-23:00",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -8.3072068,
           41.1952559
         ]
@@ -616,6 +618,7 @@
       "properties": {
         "id": 3896080385,
         "osm_type": "node",
+        "cuisine": "burger;sandwich",
         "chain": "unknown"
       }
     },
@@ -631,6 +634,7 @@
       "properties": {
         "id": 3896080393,
         "osm_type": "node",
+        "cuisine": "burger;sandwich;kebab",
         "chain": "unknown"
       }
     },
@@ -649,6 +653,7 @@
         "name": "Telepizza",
         "brand": "Telepizza",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -669,6 +674,7 @@
         "opening_hours": "Mo-Su 10:00-21:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_14102",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -701,6 +707,7 @@
         "id": 4361252116,
         "osm_type": "node",
         "name": "Mimmo's Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -719,6 +726,7 @@
         "name": "Telepizza",
         "brand": "Telepizza",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -736,6 +744,7 @@
         "osm_type": "node",
         "name": "Munchie",
         "opening_hours": "Mo,We-Fr 12:00-16:00,19:00-23:00; Tu off; Sa-Su 12:00-23:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -770,6 +779,7 @@
         "name": "Mr. Pizza Porto 1",
         "brand": "Mr. Pizza",
         "opening_hours": "Mo-Su 12:00-23:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -787,6 +797,7 @@
         "osm_type": "node",
         "name": "Lunatic Burger",
         "opening_hours": "Su-Th 20:00-04:00, Fr,Sa 20:00-04:30",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -806,6 +817,7 @@
         "opening_hours": "Mo-Su 12:00-02:00",
         "phone": "+351 22 830 4500",
         "operator": "telepizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -841,6 +853,7 @@
         "name": "Taco Bell",
         "brand": "Taco Bell",
         "brand:wikidata": "Q752941",
+        "cuisine": "tex-mex",
         "chain": "unknown"
       }
     },
@@ -857,6 +870,7 @@
         "id": 4979534443,
         "osm_type": "node",
         "name": "Casa das Sandes",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -876,6 +890,7 @@
         "brand": "KFC",
         "website": "https://www.kfc.pt/encontra-a-tua-kfc/kfc-porto/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -892,6 +907,7 @@
         "id": 5120089180,
         "osm_type": "node",
         "name": "Churrasqueira Marechal",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -908,6 +924,7 @@
         "id": 5175588793,
         "osm_type": "node",
         "name": "Pizza & Drinks",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -925,6 +942,7 @@
         "osm_type": "node",
         "name": "Amanhecer",
         "opening_hours": "Mo-Sa 07:00-20:00",
+        "cuisine": "burger;sandwich;breakfast;hotdog;grill;portuguese;tea;cake;coffee_shop;diner;tapas",
         "chain": "unknown"
       }
     },
@@ -959,6 +977,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -975,6 +994,7 @@
         "id": 6516745632,
         "osm_type": "node",
         "name": "Relax burguer",
+        "cuisine": "burger;sandwich;chicken;ice_cream;american",
         "chain": "unknown"
       }
     },
@@ -1025,6 +1045,7 @@
         "id": 6691927688,
         "osm_type": "node",
         "name": "Maximus",
+        "cuisine": "barbecue",
         "chain": "unknown"
       }
     },
@@ -1042,6 +1063,7 @@
         "osm_type": "node",
         "name": "Domino's Pizza",
         "opening_hours": "Th-Su 11:30-23:00, Fr,Sa 11:30-24:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1061,6 +1083,7 @@
         "opening_hours": "Mo-Fr 12:00-16:00,18:30-23:00, Sa-Su 12:00-23:00",
         "phone": "+351 252 618 609",
         "website": "https://degema.pt/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1093,6 +1116,7 @@
         "id": 6938350574,
         "osm_type": "node",
         "name": "Caffriccio",
+        "cuisine": "cake;sandwich",
         "chain": "unknown"
       }
     },
@@ -1109,6 +1133,7 @@
         "id": 7070431974,
         "osm_type": "node",
         "name": "petiscos.com",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1129,6 +1154,7 @@
         "opening_hours": "Mo-Su 11:30-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_81218",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -1163,6 +1189,7 @@
         "name": "Telepizza",
         "brand": "Telepizza",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1183,6 +1210,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_64676",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -1199,6 +1227,7 @@
         "id": 8586055027,
         "osm_type": "node",
         "name": "TGB - The Good Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1215,6 +1244,7 @@
         "id": 8660198381,
         "osm_type": "node",
         "name": "Toastle",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -1235,6 +1265,7 @@
         "opening_hours": "Mo-Th,Su 08:00-00:00; Fr,Sa 08:00-01:00; PH -1 day 08:00-01:00",
         "website": "https://www.mcdonalds.pt/restaurantes/ribeira-porto/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -1251,6 +1282,7 @@
         "id": 8769265633,
         "osm_type": "node",
         "name": "Churrasqueira Portuguesa D. Henrique",
+        "cuisine": "steak_house",
         "chain": "unknown"
       }
     },
@@ -1267,6 +1299,7 @@
         "id": 8839964698,
         "osm_type": "node",
         "name": "Al-Hassan Kebab & Pizza",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -1336,6 +1369,7 @@
         "brand": "Telepizza",
         "opening_hours": "Su-Th 12:00-23:00; PH,Fr,Sa 12:00-24:00",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1352,6 +1386,7 @@
         "id": 9028462474,
         "osm_type": "node",
         "name": "Tropical Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1368,6 +1403,7 @@
         "id": 9033241933,
         "osm_type": "node",
         "name": "Dickens",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1402,6 +1438,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1422,6 +1459,7 @@
         "opening_hours": "Mo-Su 11:30-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_90070",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -1442,6 +1480,7 @@
         "phone": "+351 210109109",
         "website": "https://www.dominospizza.pt/",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1463,6 +1502,7 @@
         "phone": "+351 252143921",
         "website": "https://www.telepizza.pt/pizzarias/detalles?sid=03678&store=telepizza-santo-tirso",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1481,6 +1521,7 @@
         "name": "Casa Guedes",
         "phone": "+351 222 055 083",
         "website": "https://cafesantiago.pt/",
+        "cuisine": "local;portuguese;sandwich;steak_house",
         "chain": "unknown"
       }
     },
@@ -1513,6 +1554,7 @@
         "id": 9748463922,
         "osm_type": "node",
         "name": "Maynard's",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1529,6 +1571,7 @@
         "id": 9748463923,
         "osm_type": "node",
         "name": "Solo Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1547,6 +1590,7 @@
         "name": "Domino's",
         "brand": "Domino's",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1566,6 +1610,7 @@
         "brand": "IKEA",
         "opening_hours": "Mo-Su 10:00-21:30",
         "brand:wikidata": "Q54078",
+        "cuisine": "swedish",
         "chain": "unknown"
       }
     },
@@ -1582,6 +1627,7 @@
         "id": 9929399838,
         "osm_type": "node",
         "name": "Portaló",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -1598,6 +1644,7 @@
         "id": 9930370017,
         "osm_type": "node",
         "name": "taste",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1614,6 +1661,7 @@
         "id": 9934180301,
         "osm_type": "node",
         "name": "Sicario",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -1646,6 +1694,7 @@
         "id": 9939072117,
         "osm_type": "node",
         "name": "Indian italian",
+        "cuisine": "indian",
         "chain": "unknown"
       }
     },
@@ -1661,6 +1710,7 @@
       "properties": {
         "id": 9939521217,
         "osm_type": "node",
+        "cuisine": "ice_cream",
         "chain": "unknown"
       }
     },
@@ -1694,6 +1744,7 @@
         "osm_type": "node",
         "brand": "The Good Burger",
         "opening_hours": "11:00-24:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1712,6 +1763,7 @@
         "name": "Wok to Walk",
         "brand": "Wok to Walk",
         "brand:wikidata": "Q4020634",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -1731,6 +1783,7 @@
         "brand": "Malvón",
         "opening_hours": "Mo-Su 10:30-22:30",
         "brand:wikidata": "Q109877196",
+        "cuisine": "empanada",
         "chain": "unknown"
       }
     },
@@ -1747,6 +1800,7 @@
         "id": 9983737377,
         "osm_type": "node",
         "name": "Marianus",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1763,6 +1817,7 @@
         "id": 9983737381,
         "osm_type": "node",
         "name": "Rocky",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1797,6 +1852,7 @@
         "name": "Oakberry Açaí bowls",
         "brand": "Oakberry Açaí bowls",
         "brand:wikidata": "Q104870840",
+        "cuisine": "açaí",
         "chain": "unknown"
       }
     },
@@ -1813,6 +1869,7 @@
         "id": 9988792814,
         "osm_type": "node",
         "name": "Hamburgeria",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1828,6 +1885,7 @@
       "properties": {
         "id": 9988792815,
         "osm_type": "node",
+        "cuisine": "hot_dog",
         "chain": "unknown"
       }
     },
@@ -1844,6 +1902,7 @@
         "id": 9992582741,
         "osm_type": "node",
         "name": "Mama & Papá",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1864,6 +1923,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "website": "https://www.mcdonalds.pt/restaurantes/campus-s-joao/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -1880,6 +1940,7 @@
         "id": 10102856259,
         "osm_type": "node",
         "name": "BD Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1898,6 +1959,7 @@
         "name": "Malvón",
         "brand": "Malvón",
         "brand:wikidata": "Q109877196",
+        "cuisine": "empanada",
         "chain": "unknown"
       }
     },
@@ -1914,6 +1976,7 @@
         "id": 10174002738,
         "osm_type": "node",
         "name": "frango.com",
+        "cuisine": "portuguese",
         "chain": "unknown"
       }
     },
@@ -1931,6 +1994,7 @@
         "osm_type": "node",
         "name": "Tayyebah",
         "opening_hours": "13:00-05:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1947,6 +2011,7 @@
         "id": 10234491204,
         "osm_type": "node",
         "name": "Berlim & Doughnuts",
+        "cuisine": "donut",
         "chain": "unknown"
       }
     },
@@ -1967,6 +2032,7 @@
         "opening_hours": "Mo-Th,Su 12:00-23:00; Fr,Sa 12:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_9239",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -1983,6 +2049,7 @@
         "id": 10241095906,
         "osm_type": "node",
         "name": "h3",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2002,6 +2069,7 @@
         "brand": "KFC",
         "website": "https://www.kfc.pt/encontra-a-tua-kfc/kfc-alameda-shop-spot/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -2022,6 +2090,7 @@
         "opening_hours": "Mo-Th,Su 10:00-23:00; Fr,Sa 10:00-00:00; PH -1 day 10:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/porto-alameda-shopping/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2040,6 +2109,7 @@
         "name": "Pans & Company",
         "brand": "Pans & Company",
         "brand:wikidata": "Q11697586",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2058,6 +2128,7 @@
         "name": "Wok to Walk",
         "brand": "Wok to Walk",
         "brand:wikidata": "Q4020634",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -2090,6 +2161,7 @@
         "id": 10248239438,
         "osm_type": "node",
         "name": "h3",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2110,6 +2182,7 @@
         "opening_hours": "Mo-Su 10:00-23:00; PH -1 day 10:00-22:00",
         "website": "https://www.mcdonalds.pt/restaurantes/via-catarina/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2128,6 +2201,7 @@
         "name": "Pans & Company",
         "brand": "Pans & Company",
         "brand:wikidata": "Q11697586",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2146,6 +2220,7 @@
         "name": "Wok to Walk",
         "brand": "Wok to Walk",
         "brand:wikidata": "Q4020634",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -2162,6 +2237,7 @@
         "id": 10248399256,
         "osm_type": "node",
         "name": "Companhia",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2178,6 +2254,7 @@
         "id": 10248399266,
         "osm_type": "node",
         "name": "h3",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2194,6 +2271,7 @@
         "id": 10248399273,
         "osm_type": "node",
         "name": "Joshua's Shoarma Grill",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2213,6 +2291,7 @@
         "brand": "KFC",
         "website": "https://www.kfc.pt/encontra-a-tua-kfc/kfc-arrabida-shopping/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -2233,6 +2312,7 @@
         "opening_hours": "Mo-Su 10:00-23:00",
         "website": "https://www.mcdonalds.pt/restaurantes/arrabida-shopping/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2251,6 +2331,7 @@
         "name": "Pans & Company",
         "brand": "Pans & Company",
         "brand:wikidata": "Q11697586",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2267,6 +2348,7 @@
         "id": 10248419053,
         "osm_type": "node",
         "name": "Hamburgueria DeGema",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2287,6 +2369,7 @@
         "opening_hours": "Mo-Su 10:00-23:00",
         "website": "https://www.mcdonalds.pt/restaurantes/maia-shopping/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2305,6 +2388,7 @@
         "name": "Pans & Company",
         "brand": "Pans & Company",
         "brand:wikidata": "Q11697586",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2323,6 +2407,7 @@
         "name": "Taco Bell",
         "brand": "Taco Bell",
         "brand:wikidata": "Q752941",
+        "cuisine": "tex-mex",
         "chain": "unknown"
       }
     },
@@ -2341,6 +2426,7 @@
         "name": "Wok to Walk",
         "brand": "Wok to Walk",
         "brand:wikidata": "Q4020634",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -2357,6 +2443,7 @@
         "id": 10393233721,
         "osm_type": "node",
         "name": "Pizza Mania",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2373,6 +2460,7 @@
         "id": 10725816516,
         "osm_type": "node",
         "name": "MBH",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2409,6 +2497,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/valongo/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2429,6 +2518,7 @@
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://www.mcdonalds.pt/restaurantes/pacos-ferreira/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2445,6 +2535,7 @@
         "id": 11319732036,
         "osm_type": "node",
         "name": "Boutique das Sandes",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2495,6 +2586,7 @@
         "id": 11415531764,
         "osm_type": "node",
         "name": "Berlim & Doughnuts",
+        "cuisine": "donut",
         "chain": "unknown"
       }
     },
@@ -2513,6 +2605,7 @@
         "name": "Oakberry Açaí bowls",
         "brand": "Oakberry Açaí bowls",
         "brand:wikidata": "Q104870840",
+        "cuisine": "açaí",
         "chain": "unknown"
       }
     },
@@ -2530,6 +2623,7 @@
         "osm_type": "node",
         "name": "Lu’Kat Focacceria",
         "opening_hours": "Tu-Fr 12:00-17:00; Sa 09:30-17:00; Su 09:30-12:00",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2564,6 +2658,7 @@
         "osm_type": "node",
         "name": "Curb",
         "opening_hours": "12:00-15:00,18:00-22:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2583,6 +2678,7 @@
         "brand": "KFC",
         "website": "https://www.kfc.pt/encontra-a-tua-kfc/kfc-circunvalacao-s-joao/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -2601,6 +2697,7 @@
         "name": "Taco Bell",
         "brand": "Taco Bell",
         "brand:wikidata": "Q752941",
+        "cuisine": "tex-mex",
         "chain": "unknown"
       }
     },
@@ -2621,6 +2718,7 @@
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_883031",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -2703,6 +2801,7 @@
         "id": 11951001045,
         "osm_type": "node",
         "name": "Pizzeria Mamma Nostra",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2723,6 +2822,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_884825",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -2776,6 +2876,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/gaia-vilar-paraiso/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2792,6 +2893,7 @@
         "id": 12424879097,
         "osm_type": "node",
         "name": "Atelier dos Presuntos",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2808,6 +2910,7 @@
         "id": 12430373574,
         "osm_type": "node",
         "name": "Lobbb",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2824,6 +2927,7 @@
         "id": 12461769813,
         "osm_type": "node",
         "name": "Fillin' Good",
+        "cuisine": "empanada",
         "chain": "unknown"
       }
     },
@@ -2840,6 +2944,7 @@
         "id": 12590514400,
         "osm_type": "node",
         "name": "Meia Banana",
+        "cuisine": "portuguese",
         "chain": "unknown"
       }
     },
@@ -2858,6 +2963,7 @@
         "name": "Açaí Concept",
         "brand": "Açaí Concept",
         "brand:wikidata": "Q110138105",
+        "cuisine": "açaí",
         "chain": "unknown"
       }
     },
@@ -2907,6 +3013,7 @@
         "name": "DeGema Hamburgueria",
         "phone": "+351 253 216113",
         "operator": "DeGema Invicta, Lda",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2944,6 +3051,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_241027",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -2961,6 +3069,7 @@
         "osm_type": "node",
         "name": "One Star Donuts",
         "opening_hours": "Mo-We,Fr 10:30-17:00; Su 12:00-17:00",
+        "cuisine": "donut",
         "chain": "unknown"
       }
     },
@@ -2977,6 +3086,7 @@
         "id": 13169135229,
         "osm_type": "node",
         "name": "Sabor Gaucho",
+        "cuisine": "barbecue;brazilian",
         "chain": "unknown"
       }
     },
@@ -2993,6 +3103,7 @@
         "id": 13169135239,
         "osm_type": "node",
         "name": "h3 new hamburgology",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -3025,6 +3136,7 @@
         "id": 13169135256,
         "osm_type": "node",
         "name": "Companhia das Sandes",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3042,6 +3154,7 @@
         "osm_type": "node",
         "name": "Domino's",
         "brand": "Domino's",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3094,6 +3207,7 @@
         "opening_hours": "Mo-Su 11:30-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_90800",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3110,6 +3224,7 @@
         "id": 13310761001,
         "osm_type": "node",
         "name": "Bengal Café & Snacks",
+        "cuisine": "indian",
         "chain": "unknown"
       }
     },
@@ -3129,6 +3244,7 @@
         "opening_hours": "Mo-Su 10:00-22:00; Sa 12:00-22:00; Su off",
         "phone": "+351 916947747",
         "website": "https://www.facebook.com/casadassandessts",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3149,6 +3265,7 @@
         "opening_hours": "Mo-Th,Su 10:00-23:00; Fr,Sa 10:00-00:00; PH -1 day 10:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/marco-de-canaveses/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3196,6 +3313,7 @@
         "id": 13665399632,
         "osm_type": "node",
         "name": "Galinha do Mercado",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -3214,6 +3332,7 @@
         "name": "Açaí Concept",
         "brand": "Açaí Concept",
         "brand:wikidata": "Q110138105",
+        "cuisine": "açaí",
         "chain": "unknown"
       }
     },
@@ -3231,6 +3350,7 @@
         "osm_type": "node",
         "name": "Sollo Pizza",
         "opening_hours": "Mo-Sa 12:00-15:30, Mo-Sa 18:30-22:00, Su 18:30-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3256,23 +3376,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -8.4777731,
-          41.3472676
-        ]
-      },
-      "properties": {
-        "id": 13732962248,
-        "osm_type": "node",
-        "name": "Casa do Açaí",
-        "opening_hours": "Mo-Fr 11:00-21:00; Sa-Su 15:00-21:00; PH off",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -8.7056426,
           41.192356
         ]
@@ -3285,6 +3388,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/leca-da-palmeira/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3305,6 +3409,7 @@
         "opening_hours": "07:00-01:00",
         "website": "https://www.mcdonalds.pt/restaurantes/vila-do-conde/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3325,6 +3430,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/ermesinde/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3345,6 +3451,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/maia-centro/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3365,6 +3472,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/maia/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3385,6 +3493,7 @@
         "opening_hours": "11:30-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_90071",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3405,6 +3514,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_9845",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3458,6 +3568,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/felgueiras/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3478,6 +3589,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_11008",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3498,6 +3610,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_8862",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3516,6 +3629,7 @@
         "name": "Pans & Company",
         "brand": "Pans & Company",
         "brand:wikidata": "Q11697586",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3553,6 +3667,7 @@
         "opening_hours": "Mo-Th,Su 08:00-00:00; Fr,Sa 08:00-02:00; PH -1 day 08:00-02:00",
         "website": "https://www.mcdonalds.pt/restaurantes/penafiel/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3573,6 +3688,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/gaia-fojo/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3589,6 +3705,7 @@
         "id": 383005957,
         "osm_type": "way",
         "name": "Roulote Bar",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3609,6 +3726,7 @@
         "opening_hours": "Mo-Su 11:30-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_10658",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3629,6 +3747,7 @@
         "opening_hours": "Mo-Th,Su 11:30-23:00; Fr,Sa 11:30-03:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_13157",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3649,6 +3768,7 @@
         "opening_hours": "24/7",
         "website": "https://www.mcdonalds.pt/restaurantes/circunvalacao/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3669,6 +3789,7 @@
         "opening_hours": "Mo,Th-Su 08:00-00:00; Tu 08:00-18:00; We 11:00-00:00; PH -1 day 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/rio-tinto/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3689,6 +3810,7 @@
         "opening_hours": "Mo-Su 11:30-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_64679",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3726,6 +3848,7 @@
         "opening_hours": "Mo-Su 11:30-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_61216",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3745,6 +3868,7 @@
         "brand": "KFC",
         "website": "https://www.kfc.pt/encontra-a-tua-kfc/kfc-gaia-centro/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -3765,6 +3889,7 @@
         "opening_hours": "Mo-Su,PH 08:00-24:00",
         "website": "https://www.mcdonalds.pt/restaurantes/antas/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3785,6 +3910,7 @@
         "opening_hours": "Mo-Su 11:30-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_240708",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3805,6 +3931,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_62620",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3825,6 +3952,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_72337",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3845,6 +3973,7 @@
         "opening_hours": "Mo-Su 11:30-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_61219",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3865,6 +3994,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/matosinhos/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -3885,6 +4015,7 @@
         "opening_hours": "Su-Th 11:30-23:00; Fr 11:30-24:00; Sa 11:30-24:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_64677",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3916,6 +4047,7 @@
         "id": 825029342,
         "osm_type": "way",
         "name": "Churrasqueira das carvalheiras",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -3937,6 +4069,7 @@
         "website": "https://www.kfc.pt/encontra-a-tua-kfc/kfc-campo-24-agosto/",
         "operator": "IberSol",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -3955,6 +4088,7 @@
         "name": "Telepizza",
         "brand": "Telepizza",
         "brand:wikidata": "Q2699863",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3974,6 +4108,7 @@
         "brand": "KFC",
         "website": "https://www.kfc.pt/encontra-a-tua-kfc/kfc-ermesinde/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -3995,6 +4130,7 @@
         "website": "https://www.mcdonalds.pt/restaurantes/boavista/",
         "operator": "McDonalds",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4015,6 +4151,7 @@
         "opening_hours": "Mo-Su 11:30-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_64678",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4035,6 +4172,7 @@
         "opening_hours": "Mo-Th,Su 08:00-00:00; Fr,Sa 08:00-01:00; PH -1 day 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/paredes/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4055,6 +4193,7 @@
         "opening_hours": "Mo-Su 11:30-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_77252",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4075,6 +4214,7 @@
         "opening_hours": "Mo-Su 10:00-23:00",
         "website": "https://www.mcdonalds.pt/restaurantes/matosinhos-marshopping/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4091,6 +4231,7 @@
         "id": 1119070449,
         "osm_type": "way",
         "name": "Wafflemania",
+        "cuisine": "waffle",
         "chain": "unknown"
       }
     },
@@ -4109,6 +4250,7 @@
         "name": "Taco Bell",
         "brand": "Taco Bell",
         "brand:wikidata": "Q752941",
+        "cuisine": "tex-mex",
         "chain": "unknown"
       }
     },
@@ -4127,6 +4269,7 @@
         "name": "Wok to Walk",
         "brand": "Wok to Walk",
         "brand:wikidata": "Q4020634",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -4147,6 +4290,7 @@
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_10436",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4165,6 +4309,7 @@
         "name": "Pans & Company",
         "brand": "Pans & Company",
         "brand:wikidata": "Q11697586",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4181,6 +4326,7 @@
         "id": 1119070506,
         "osm_type": "way",
         "name": "Joshua's Shoarma Grill",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4202,6 +4348,7 @@
         "website": "https://www.mcdonalds.pt/restaurantes/santo-tirso/",
         "operator": "McDonal's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4222,6 +4369,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/povoa-varzim/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4242,6 +4390,7 @@
         "opening_hours": "Mo-Su 11:30-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_239124",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4277,6 +4426,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_878990",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4293,6 +4443,7 @@
         "id": 1220159491,
         "osm_type": "way",
         "name": "Mega Bar Nandita 2 Silvia",
+        "cuisine": "burger;sandwich;kebab;hot_dog",
         "chain": "unknown"
       }
     },
@@ -4313,6 +4464,7 @@
         "opening_hours": "Mo-Su 11:30-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_883007",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4333,6 +4485,7 @@
         "opening_hours": "Mo-Su 11:00-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_61218",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4353,6 +4506,7 @@
         "opening_hours": "Mo-Th,Su 11:30-23:00; Fr,Sa 11:30-23:30",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_89012",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4373,6 +4527,7 @@
         "opening_hours": "Mo-Su 11:30-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_89576",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4393,6 +4548,7 @@
         "opening_hours": "Mo-Su 08:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/gondomar/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4413,6 +4569,7 @@
         "opening_hours": "Mo-Su 11:30-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_883030",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4465,6 +4622,7 @@
         "opening_hours": "Mo-Th,Su 11:30-23:00; Fr,Sa 11:30-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_235594",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4533,6 +4691,7 @@
         "opening_hours": "Mo-Su 11:30-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_882988",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4553,6 +4712,7 @@
         "opening_hours": "Mo-Su 10:00-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_8108",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4571,6 +4731,7 @@
         "name": "Taco Bell",
         "brand": "Taco Bell",
         "brand:wikidata": "Q752941",
+        "cuisine": "tex-mex",
         "chain": "unknown"
       }
     },
@@ -4589,6 +4750,7 @@
         "name": "Pans & Company",
         "brand": "Pans & Company",
         "brand:wikidata": "Q11697586",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4608,6 +4770,7 @@
         "brand": "KFC",
         "website": "https://www.kfc.pt/encontra-a-tua-kfc/kfc-norteshopping/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4626,6 +4789,7 @@
         "name": "Wok to Walk",
         "brand": "Wok to Walk",
         "brand:wikidata": "Q4020634",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -4646,6 +4810,7 @@
         "opening_hours": "Mo-Th,Su 10:00-23:00; Fr,Sa 10:00-00:00; PH -1 day 10:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/norteshopping/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4662,6 +4827,7 @@
         "id": 1368464134,
         "osm_type": "way",
         "name": "Sr. Frango da Guia",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4678,6 +4844,7 @@
         "id": 1368464136,
         "osm_type": "way",
         "name": "Munchie",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4694,6 +4861,7 @@
         "id": 1368464144,
         "osm_type": "way",
         "name": "H3 New Hamburgology",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4712,6 +4880,7 @@
         "name": "Poke House",
         "brand": "Poke House",
         "brand:wikidata": "Q123399421",
+        "cuisine": "poke",
         "chain": "unknown"
       }
     },
@@ -4748,6 +4917,7 @@
         "opening_hours": "PH,Mo-Su 12:00-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_81188",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4768,6 +4938,7 @@
         "opening_hours": "Mo-Su 10:00-23:00",
         "website": "https://www.mcdonalds.pt/restaurantes/gaiashopping/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -4788,6 +4959,7 @@
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_242358",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4806,6 +4978,7 @@
         "name": "Pans & Company",
         "brand": "Pans & Company",
         "brand:wikidata": "Q11697586",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4822,6 +4995,7 @@
         "id": 1413037257,
         "osm_type": "way",
         "name": "Vitaminas",
+        "cuisine": "sandwich;soup;salad",
         "chain": "unknown"
       }
     },
@@ -4840,6 +5014,7 @@
         "name": "Taco Bell",
         "brand": "Taco Bell",
         "brand:wikidata": "Q752941",
+        "cuisine": "tex-mex",
         "chain": "unknown"
       }
     },
@@ -4856,6 +5031,7 @@
         "id": 1413042427,
         "osm_type": "way",
         "name": "Frango da Guia",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4872,6 +5048,7 @@
         "id": 1413042428,
         "osm_type": "way",
         "name": "Companhia",
+        "cuisine": "sandwich;soup;salad",
         "chain": "unknown"
       }
     },
@@ -4890,6 +5067,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4908,6 +5086,7 @@
         "name": "Wok to Walk",
         "brand": "Wok to Walk",
         "brand:wikidata": "Q4020634",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -4924,6 +5103,7 @@
         "id": 1413046326,
         "osm_type": "way",
         "name": "Talho burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -4975,6 +5155,7 @@
         "brand": "KFC",
         "website": "https://www.kfc.pt/encontra-a-tua-kfc/kfc-parque-nascente/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4993,6 +5174,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -5013,6 +5195,7 @@
         "opening_hours": "Mo-Th,Su 11:30-23:00; Fr,Sa 11:30-00:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_8826",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -5031,6 +5214,7 @@
         "name": "Wok to Walk",
         "brand": "Wok to Walk",
         "brand:wikidata": "Q4020634",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -5051,6 +5235,7 @@
         "opening_hours": "Mo-Su 10:00-00:00",
         "website": "https://www.mcdonalds.pt/restaurantes/gondomar-parque-nascente/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -5071,6 +5256,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "website": "https://www.mcdonalds.pt/restaurantes/bom-sucesso/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -5091,6 +5277,7 @@
         "opening_hours": "Mo-Su 11:00-01:00",
         "website": "https://www.mcdonalds.pt/restaurantes/trofa/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -5107,6 +5294,7 @@
         "id": 1460376694,
         "osm_type": "way",
         "name": "The Good Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5127,6 +5315,7 @@
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://www.burgerking.pt/pt/store-locator/store/restaurant_89853",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     }
