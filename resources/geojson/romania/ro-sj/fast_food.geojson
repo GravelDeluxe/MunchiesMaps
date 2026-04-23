@@ -14,6 +14,7 @@
         "id": 6071759930,
         "osm_type": "node",
         "name": "Pappy's Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -96,6 +97,7 @@
         "opening_hours": "Mo-Su 10:00-21:00",
         "operator": "US Food Network",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -116,6 +118,7 @@
         "website": "https://www.mesopotamia.ro",
         "operator": "Set-Corporation SRL",
         "brand:wikidata": "Q130717694",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -147,6 +150,7 @@
         "id": 7223452412,
         "osm_type": "node",
         "name": "Popasul Goțiu",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -166,6 +170,7 @@
         "brand": "Magic Burger",
         "phone": "+40 756 014 141",
         "website": "http://magicburger.ro",
+        "cuisine": "burger;chicken",
         "chain": "unknown"
       }
     },
@@ -182,6 +187,7 @@
         "id": 10004149926,
         "osm_type": "node",
         "name": "Magic Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -199,6 +205,7 @@
         "osm_type": "node",
         "name": "Magic Burger",
         "website": "https://magicburger.ro",
+        "cuisine": "burger;shawarma;chicken",
         "chain": "unknown"
       }
     },
@@ -246,6 +253,7 @@
         "id": 13073965024,
         "osm_type": "node",
         "name": "Big Mike Burgers",
+        "cuisine": "burger;fries;shawarma",
         "chain": "unknown"
       }
     },
@@ -307,6 +315,7 @@
         "id": 13634436889,
         "osm_type": "node",
         "name": "Pizza & Panini",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -315,8 +324,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.8744934,
-          47.1445138
+          22.8741557,
+          47.1449078
         ]
       },
       "properties": {
@@ -361,6 +370,37 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          22.7846659,
+          47.2333022
+        ]
+      },
+      "properties": {
+        "id": 13718376686,
+        "osm_type": "node",
+        "cuisine": "chicken",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.0550383,
+          47.2025549
+        ]
+      },
+      "properties": {
+        "id": 13732139383,
+        "osm_type": "node",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           23.0573902,
           47.1986596
         ]
@@ -371,6 +411,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -387,6 +428,7 @@
         "id": 1422615953,
         "osm_type": "way",
         "name": "În pauză",
+        "cuisine": "pizza;hot_dog",
         "chain": "unknown"
       }
     }
