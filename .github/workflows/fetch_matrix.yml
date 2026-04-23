@@ -1,0 +1,217 @@
+name: "Fetch Overpass Data (Matrix by Country)"
+
+on:
+  workflow_dispatch:
+    inputs:
+      countries:
+        description: "Optional comma-separated country ids, e.g. gb,pl,tr"
+        required: false
+        default: ""
+        type: string
+      layers:
+        description: "Optional comma-separated layers, e.g. fast_food,fuel"
+        required: false
+        default: ""
+        type: string
+      regions:
+        description: "Optional comma-separated region ids/slugs, e.g. england,wales"
+        required: false
+        default: ""
+        type: string
+      dry_run:
+        description: "Run without writing GeoJSON/manifest and without PR creation"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: fetch-matrix-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  prepare-matrix:
+    name: Prepare country matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.build.outputs.matrix }}
+      has_countries: ${{ steps.build.outputs.has_countries }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build country matrix from config + optional filter
+        id: build
+        env:
+          INPUT_COUNTRIES: ${{ github.event.inputs.countries || '' }}
+        run: |
+          set -euo pipefail
+
+          python - <<'PY'
+          import json
+          import os
+          import yaml
+
+          def parse_csv(value: str) -> list[str]:
+              return [item.strip().lower() for item in value.split(',') if item.strip()]
+
+          with open('fetch_data/config.yml', 'r', encoding='utf-8') as fh:
+              config = yaml.safe_load(fh) or {}
+
+          configured = []
+          countries_cfg = config.get('countries', {})
+          if isinstance(countries_cfg, dict):
+              configured = sorted(str(key).strip().lower() for key in countries_cfg.keys() if str(key).strip())
+
+          requested = parse_csv(os.environ.get('INPUT_COUNTRIES', ''))
+          if requested:
+              requested_set = set(requested)
+              selected = [country for country in configured if country in requested_set]
+          else:
+              selected = configured
+
+          matrix = {'include': [{'country': country} for country in selected]}
+          has_countries = 'true' if selected else 'false'
+
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as out:
+              out.write(f"matrix={json.dumps(matrix, separators=(',', ':'))}\n")
+              out.write(f"has_countries={has_countries}\n")
+
+          print(f"Configured countries: {configured}")
+          print(f"Requested countries: {requested or '<all>'}")
+          print(f"Selected countries: {selected or '<none>'}")
+          PY
+
+  fetch-by-country:
+    name: Fetch (${{ matrix.country }})
+    needs: prepare-matrix
+    if: needs.prepare-matrix.outputs.has_countries == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.prepare-matrix.outputs.matrix) }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r fetch_data/requirements.txt
+
+      - name: Smoke test scripts
+        run: |
+          python -m py_compile \
+            scripts/check_missing_json.py \
+            fetch_data/fetch_overpass.py \
+            fetch_data/fetch_missing_overpass.py
+
+      - name: Run filtered fetch for matrix country
+        id: run_fetch
+        env:
+          INPUT_LAYERS: ${{ github.event.inputs.layers || '' }}
+          INPUT_REGIONS: ${{ github.event.inputs.regions || '' }}
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          set +e
+
+          mkdir -p artifacts
+          cmd=(python fetch_data/fetch_overpass.py --countries "${{ matrix.country }}")
+
+          if [ -n "${INPUT_LAYERS}" ]; then
+            cmd+=(--layers "${INPUT_LAYERS}")
+          fi
+
+          if [ -n "${INPUT_REGIONS}" ]; then
+            cmd+=(--regions "${INPUT_REGIONS}")
+          fi
+
+          if [ "${INPUT_DRY_RUN}" = "true" ]; then
+            cmd+=(--dry-run)
+          fi
+
+          printf -v cmd_pretty '%q ' "${cmd[@]}"
+          echo "Running command: ${cmd_pretty% }"
+          "${cmd[@]}"
+          exit_code=$?
+
+          cp -f artifacts/fetch_failures.json "artifacts/fetch_failures_${{ matrix.country }}.json" 2>/dev/null || true
+          cp -f artifacts/fetch_failures.csv "artifacts/fetch_failures_${{ matrix.country }}.csv" 2>/dev/null || true
+          cp -f artifacts/fetch_results.json "artifacts/fetch_results_${{ matrix.country }}.json" 2>/dev/null || true
+          cp -f artifacts/fetch_summary.md "artifacts/fetch_summary_${{ matrix.country }}.md" 2>/dev/null || true
+
+          echo "exit_code=${exit_code}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Append compact job summary
+        if: always()
+        run: |
+          {
+            echo "## Matrix result for ${{ matrix.country }}"
+            if [ -f "artifacts/fetch_summary_${{ matrix.country }}.md" ]; then
+              cat "artifacts/fetch_summary_${{ matrix.country }}.md"
+            else
+              echo "- No summary artifact produced by script."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload fetch artifacts (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fetch-artifacts-${{ matrix.country }}
+          if-no-files-found: warn
+          path: |
+            artifacts/fetch_failures_${{ matrix.country }}.json
+            artifacts/fetch_failures_${{ matrix.country }}.csv
+            artifacts/fetch_results_${{ matrix.country }}.json
+            artifacts/fetch_summary_${{ matrix.country }}.md
+
+      # Keep existing writeback behavior style: create a PR when GeoJSON changed.
+      - name: Detect GeoJSON changes
+        if: steps.run_fetch.outputs.exit_code == '0' && github.event.inputs.dry_run != 'true'
+        id: geojson_changes
+        run: |
+          set -euo pipefail
+          git add resources/geojson
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Create pull request for matrix country
+        if: steps.geojson_changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Update GeoJSON data for ${{ matrix.country }}"
+          title: "Update GeoJSON data for ${{ matrix.country }}"
+          body: |
+            Automated GeoJSON update for matrix country run.
+
+            - Country: `${{ matrix.country }}`
+            - Layers input: `${{ github.event.inputs.layers || '' }}`
+            - Regions input: `${{ github.event.inputs.regions || '' }}`
+            - Dry run: `${{ github.event.inputs.dry_run }}`
+            - Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          branch: data/fetch-matrix-${{ matrix.country }}-${{ github.run_id }}-${{ github.run_attempt }}
+          base: main
+          add-paths: |
+            resources/geojson
+
+      - name: Fail job if fetch script failed
+        if: steps.run_fetch.outputs.exit_code != '0'
+        run: |
+          echo "Fetch returned non-zero exit code: ${{ steps.run_fetch.outputs.exit_code }}"
+          exit 1
