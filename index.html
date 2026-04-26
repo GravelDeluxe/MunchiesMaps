@@ -2616,8 +2616,8 @@
     const DEFAULT_GPX_RADIUS_KM = 0.3;
     const SAVED_GPX_ROUTE_KEY = 'munchiesmaps.savedGpxRoute';
     const OFFLINE_PACKAGE_VERSION = '1.1.0';
-    const OFFLINE_TILE_SNAPSHOT_DEFAULT = true;
-    const OFFLINE_TILE_SNAPSHOT_LIMIT = 80;
+    const OFFLINE_TILE_SNAPSHOT_DEFAULT = false;
+    const OFFLINE_TILE_SNAPSHOT_LIMIT = 30;
     const OFFLINE_TILE_SNAPSHOT_BUFFER_METERS = 600;
     const GPX_KM_MARKER_INTERVAL_KM = 5;
     const gpxState = {
@@ -3728,6 +3728,7 @@
         category: point.categoryId || 'default',
         properties: {
           name: props.name || '',
+          description: props.description || '',
           opening_hours: props.opening_hours || '',
           access: props.access || '',
           operator: props.operator || '',
@@ -3735,7 +3736,14 @@
           website: props.website || '',
           url: props.url || '',
           cuisine: props.cuisine || '',
-          brand: props.brand || ''
+          brand: props.brand || '',
+          phone: props.phone || '',
+          chain: props.chain || '',
+          shelter_type: props.shelter_type || '',
+          covered: props.covered || '',
+          bench: props.bench || '',
+          table: props.table || '',
+          capacity: props.capacity || ''
         }
       };
     }
@@ -3796,26 +3804,21 @@
       if (!activeBaseLayer || typeof activeBaseLayer.getTileUrl !== 'function') return buildGridTexturePackage();
       if (!Array.isArray(routeLatlngs) || !routeLatlngs.length) return buildGridTexturePackage();
       const baseZoom = Math.max(0, Math.floor(map.getZoom()));
-      const zoomLevels = [baseZoom];
-      if (baseZoom > 0) zoomLevels.push(baseZoom - 1);
       const bounds = buildBufferedRouteBounds(routeLatlngs);
       const requested = [];
       const seen = new Set();
-      for (const z of zoomLevels) {
-        for (const coords of buildTileCoordsForBounds(bounds, z)) {
-          const key = `${coords.z}/${coords.x}/${coords.y}`;
-          if (seen.has(key)) continue;
-          requested.push(coords);
-          seen.add(key);
-          if (requested.length >= maxTiles) break;
-        }
+      for (const coords of buildTileCoordsForBounds(bounds, baseZoom)) {
+        const key = `${coords.z}/${coords.x}/${coords.y}`;
+        if (seen.has(key)) continue;
+        requested.push(coords);
+        seen.add(key);
         if (requested.length >= maxTiles) break;
       }
       const tiles = [];
       for (const coords of requested) {
         try {
           const url = activeBaseLayer.getTileUrl(coords);
-          const res = await fetch(url, { mode: 'cors' });
+          const res = await fetch(url, { mode: 'cors', cache: 'no-store' });
           if (!res.ok) continue;
           const blob = await res.blob();
           const dataUrl = await new Promise((resolve) => {
@@ -3889,6 +3892,10 @@
     }
 
     function applyOfflineTexture(pkg) {
+      if (navigator.onLine) {
+        clearOfflineTexture();
+        return;
+      }
       clearOfflineTexture();
       if (!pkg?.mapTexture || pkg.mapTexture.type !== 'tiles' || !Array.isArray(pkg.mapTexture.tiles) || pkg.mapTexture.tiles.length === 0) {
         map.getContainer().style.background = 'radial-gradient(circle at 25% 25%, rgba(255,255,255,0.06), transparent 30%), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), #111';
@@ -3986,7 +3993,7 @@
         propsRef: {
           ...(poi.properties || {}),
           categoryId: poi.category || 'default',
-          categoryLabel: categoryLabelMap[poi.category]
+          categoryLabel: categoryLabelMap[poi.category] || markerLabel(poi.category, poi.properties || {})
         }
       })).filter((point) => Number.isFinite(point.lat) && Number.isFinite(point.lng));
       rebuildGridIndex(activePoints);
@@ -4821,17 +4828,8 @@
       return badgeType;
     }
 
-    function getLayerMarkerIcon(layerKey, featureProps = {}, options = {}) {
+    function getLayerMarkerIcon(layerKey, featureProps = {}, _options = {}) {
       const { key, config } = getLayerIconConfig(layerKey, featureProps);
-      if (options.iconSource) {
-        return L.icon({
-          iconUrl: options.iconSource,
-          iconSize: [24, 24],
-          iconAnchor: [12, 12],
-          popupAnchor: [0, -10],
-          className: 'mm-marker-offline-image'
-        });
-      }
       const size = config.size || DEFAULT_MARKER_SIZE;
       const iconSize = config.iconSize || DEFAULT_MARKER_ICON_SIZE;
       const badgeType = appState.showBadges ? getBadgeType(key, featureProps) : null;
@@ -5715,8 +5713,8 @@
       on(qs('#gpxApplyBtn'), 'click', () => { handleGpxApply().catch(err => console.error(err)); });
       on(qs('#resetAllBtn'), 'click', resetAllFilters);
     })().catch(err => {
-      console.error(err);
-      alert("Loading error: " + (err.message || err));
+      console.warn('Loading warning:', err);
+      showMapToast('Loading warning. Running in reduced mode.');
       map.setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom);
     });
   </script>

@@ -119,6 +119,7 @@
         tx.objectStore(STORE_NAME).put(pkg);
         tx.oncomplete = () => resolve(true);
         tx.onerror = () => reject(tx.error || new Error('saveOfflineRoute failed'));
+        tx.onabort = () => reject(tx.error || new Error('saveOfflineRoute transaction aborted'));
       });
     } catch (err) {
       console.warn('[offline-store] saveOfflineRoute failed, using fallback.', err);
@@ -130,18 +131,19 @@
   }
 
   async function loadOfflineRoute(id) {
-    if (!id) return null;
-    const db = await openDb();
-    if (!db || !(await ensureRoutesStore(db))) {
-      const map = readFallbackMap();
-      return map[id] || null;
-    }
     try {
+      if (!id) return null;
+      const db = await openDb();
+      if (!db || !(await ensureRoutesStore(db))) {
+        const map = readFallbackMap();
+        return map[id] || null;
+      }
       return await new Promise((resolve, reject) => {
         const tx = db.transaction(STORE_NAME, 'readonly');
         const req = tx.objectStore(STORE_NAME).get(id);
         req.onsuccess = () => resolve(req.result || null);
         req.onerror = () => reject(req.error || new Error('loadOfflineRoute failed'));
+        tx.onabort = () => reject(tx.error || new Error('loadOfflineRoute transaction aborted'));
       });
     } catch (err) {
       console.warn('[offline-store] loadOfflineRoute failed, using fallback.', err);
@@ -166,6 +168,7 @@
         tx.objectStore(STORE_NAME).delete(id);
         tx.oncomplete = () => resolve(true);
         tx.onerror = () => reject(tx.error || new Error('deleteOfflineRoute failed'));
+        tx.onabort = () => reject(tx.error || new Error('deleteOfflineRoute transaction aborted'));
       });
     } catch (err) {
       console.warn('[offline-store] deleteOfflineRoute failed, using fallback.', err);
@@ -178,12 +181,12 @@
   }
 
   async function listOfflineRoutes() {
-    const db = await openDb();
-    if (!db || !(await ensureRoutesStore(db))) {
-      const map = readFallbackMap();
-      return Object.values(map || {}).sort((a, b) => (b?.createdAt || 0) - (a?.createdAt || 0));
-    }
     try {
+      const db = await openDb();
+      if (!db || !(await ensureRoutesStore(db))) {
+        const map = readFallbackMap();
+        return Object.values(map || {}).sort((a, b) => (b?.createdAt || 0) - (a?.createdAt || 0));
+      }
       return await new Promise((resolve, reject) => {
         const tx = db.transaction(STORE_NAME, 'readonly');
         const req = tx.objectStore(STORE_NAME).getAll();
@@ -193,11 +196,13 @@
           resolve(rows);
         };
         req.onerror = () => reject(req.error || new Error('listOfflineRoutes failed'));
+        tx.onabort = () => reject(tx.error || new Error('listOfflineRoutes transaction aborted'));
       });
     } catch (err) {
-      console.warn('[offline-store] listOfflineRoutes failed, returning empty list.', err);
+      console.warn('[offline-store] listOfflineRoutes failed, using fallback list.', err);
       notifyOfflineReset();
-      return [];
+      const map = readFallbackMap();
+      return Object.values(map || {}).sort((a, b) => (b?.createdAt || 0) - (a?.createdAt || 0));
     }
   }
 
