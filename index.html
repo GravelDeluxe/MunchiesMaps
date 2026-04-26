@@ -2572,6 +2572,16 @@
       attribution: '&copy; OpenStreetMap contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
     });
 
+    let tileOfflineNoticeShown = false;
+    const handleTileLayerError = () => {
+      if (navigator.onLine || tileOfflineNoticeShown) return;
+      tileOfflineNoticeShown = true;
+      showMapToast('Map tiles are unavailable offline.');
+      console.warn('Map tiles are unavailable offline.');
+    };
+    LIGHT_TILES.on('tileerror', handleTileLayerError);
+    DARK_TILES.on('tileerror', handleTileLayerError);
+
     baseLayers = { light: LIGHT_TILES, dark: DARK_TILES };
 
     const initialTheme = window.__isDarkTheme === true;
@@ -5341,7 +5351,13 @@
       setupSharedViewPrompt();
       runBadgeDiagnostics();
 
-      manifestData = await loadManifest();
+      try {
+        manifestData = await loadManifest();
+      } catch (err) {
+        console.warn('Manifest unavailable, continuing with empty data:', err);
+        showMapToast('Offline manifest unavailable. Showing app shell only.');
+        manifestData = { regions: [], bundeslaender: [], categories: [] };
+      }
       syncRegionOrderFromManifest(manifestData.regions);
 
       categoryLabelMap = (manifestData.categories || []).reduce((acc, cat) => {
