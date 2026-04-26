@@ -3841,6 +3841,10 @@
         return buildGridTexturePackage();
       }
       const baseZoom = Math.max(0, Math.floor(map.getZoom()));
+      const mapCenter = map.getCenter();
+      const mapBounds = map.getBounds?.();
+      const snapshotCenter = [mapCenter.lat, mapCenter.lng];
+      const snapshotBounds = mapBounds && mapBounds.getWest ? [mapBounds.getWest(), mapBounds.getSouth(), mapBounds.getEast(), mapBounds.getNorth()] : null;
       let requested = [];
       const seen = new Set();
       for (const coords of buildTileCoordsForBounds(bounds, baseZoom)) {
@@ -3888,6 +3892,10 @@
       return {
         type: 'tiles',
         tileSize: 256,
+        zoom: baseZoom,
+        center: snapshotCenter,
+        bounds: snapshotBounds,
+        fallbackColor: '#111',
         attribution: activeBaseLayer.options?.attribution || '',
         tiles
       };
@@ -3960,46 +3968,49 @@
       const tileMap = new Map((pkg.mapTexture.tiles || []).map((tile) => [`${tile.z}/${tile.x}/${tile.y}`, tile.dataUrl]));
       offlineTextureLayer = L.gridLayer({
         tileSize: Number(pkg.mapTexture.tileSize) || 256,
-        noWrap: true
+        noWrap: false,
+        opacity: 1
       });
-      const paintGridFallback = (ctx, size) => {
-        ctx.fillStyle = '#111';
-        ctx.fillRect(0, 0, size, size);
-        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(size / 2, 0);
-        ctx.lineTo(size / 2, size);
-        ctx.moveTo(0, size / 2);
-        ctx.lineTo(size, size / 2);
-        ctx.stroke();
-      };
+      let createTileLogCount = 0;
       offlineTextureLayer.createTile = function createTile(coords, done) {
-        const tile = document.createElement('canvas');
         const size = Number(pkg.mapTexture.tileSize) || 256;
-        tile.width = size;
-        tile.height = size;
-        const ctx = tile.getContext('2d');
         const key = `${coords.z}/${coords.x}/${coords.y}`;
         const dataUrl = tileMap.get(key);
-        if (dataUrl) {
-          const img = new Image();
-          img.src = dataUrl;
-          img.onload = () => {
-            ctx.drawImage(img, 0, 0, size, size);
-            if (typeof done === 'function') done(null, tile);
-          };
-          img.onerror = () => {
-            paintGridFallback(ctx, size);
-            if (typeof done === 'function') done(null, tile);
-          };
-        } else {
-          paintGridFallback(ctx, size);
-          if (typeof done === 'function') done(null, tile);
+        if (createTileLogCount < 20) {
+          console.log('[offline-tiles] createTile', { key, hit: Boolean(dataUrl) });
+          createTileLogCount += 1;
         }
+        const tile = document.createElement('img');
+        tile.width = size;
+        tile.height = size;
+        tile.alt = '';
+
+        if (!dataUrl) {
+          const fallback = document.createElement('canvas');
+          fallback.width = size;
+          fallback.height = size;
+          const ctx = fallback.getContext('2d');
+          ctx.fillStyle = pkg.mapTexture.fallbackColor || '#111';
+          ctx.fillRect(0, 0, size, size);
+          ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+          ctx.lineWidth = 1;
+          ctx.strokeRect(0, 0, size, size);
+          setTimeout(() => done?.(null, fallback), 0);
+          return fallback;
+        }
+
+        tile.onload = () => done?.(null, tile);
+        tile.onerror = () => {
+          console.warn('[offline-tiles] dataUrl image failed', key);
+          done?.(null, tile);
+        };
+        tile.src = dataUrl;
         return tile;
       };
       offlineTextureLayer.addTo(map);
+      if (offlineTextureLayer.bringToBack) {
+        offlineTextureLayer.bringToBack();
+      }
     }
 
     async function loadSavedRouteFromCache() {
@@ -4021,6 +4032,13 @@
     function renderOfflineRoutePackage(pkg) {
       if (!pkg?.route?.latlngs?.length) return false;
       const shouldUseOfflineTexture = navigator.onLine === false;
+      const hasTileTexture = pkg?.mapTexture?.type === 'tiles' && Array.isArray(pkg?.mapTexture?.tiles) && pkg.mapTexture.tiles.length > 0;
+      const snapshotZoom = hasTileTexture ? (Number.isFinite(pkg.mapTexture.zoom) ? pkg.mapTexture.zoom : pkg.mapTexture.tiles[0]?.z) : null;
+      const snapshotCenter = hasTileTexture
+        ? (Array.isArray(pkg.mapTexture.center) && Number.isFinite(pkg.mapTexture.center[0]) && Number.isFinite(pkg.mapTexture.center[1])
+            ? pkg.mapTexture.center
+            : pkg.view?.center)
+        : null;
       if (shouldUseOfflineTexture && activeBaseLayer && map.hasLayer(activeBaseLayer)) {
         map.removeLayer(activeBaseLayer);
       } else {
@@ -4038,6 +4056,16 @@
       gpxState.points = appState.gpxTrackLatLngs.map((ll) => ({ lat: ll.lat, lon: ll.lng }));
       gpxState.sampledPoints = downsamplePoints(gpxState.points);
       gpxState.bbox = Array.isArray(pkg.route.bbox) ? pkg.route.bbox : computeExpandedBBox(gpxState.sampledPoints, gpxState.radiusMeters);
+      if (shouldUseOfflineTexture && hasTileTexture && Number.isFinite(snapshotZoom) && Array.isArray(snapshotCenter)) {
+        map.setView(snapshotCenter, snapshotZoom, { animate: false });
+        console.log('[offline-tiles] applying', {
+          savedZoom: snapshotZoom,
+          currentZoom: map.getZoom(),
+          center: map.getCenter(),
+          tileCount: pkg.mapTexture.tiles.length
+        });
+        applyOfflineTexture(pkg);
+      }
 
       const trackGeoJson = {
         type: 'FeatureCollection',
@@ -4066,9 +4094,13 @@
       })).filter((point) => Number.isFinite(point.lat) && Number.isFinite(point.lng));
       rebuildGridIndex(activePoints);
       updateClusteringForViewport();
-      if (shouldUseOfflineTexture) applyOfflineTexture(pkg);
+      if (shouldUseOfflineTexture && (!hasTileTexture || !Number.isFinite(snapshotZoom) || !Array.isArray(snapshotCenter))) {
+        applyOfflineTexture(pkg);
+      }
       if (Array.isArray(pkg.view?.center) && Number.isFinite(pkg.view.center[0]) && Number.isFinite(pkg.view.center[1])) {
-        map.setView(pkg.view.center, Number.isFinite(pkg.view.zoom) ? pkg.view.zoom : 12, { animate: false });
+        if (!(shouldUseOfflineTexture && hasTileTexture)) {
+          map.setView(pkg.view.center, Number.isFinite(pkg.view.zoom) ? pkg.view.zoom : 12, { animate: false });
+        }
       } else {
         fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
       }
