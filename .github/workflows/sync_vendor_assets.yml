@@ -1,0 +1,43 @@
+name: Sync vendor assets
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-vendor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Sync vendor assets
+        run: npm run sync-vendor
+
+      - name: Check vendor assets
+        run: npm run check-vendor
+
+      - name: Commit generated vendor assets
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add vendor package.json package-lock.json scripts sw.js index.html .github/workflows/sync_vendor_assets.yml README.md
+            git commit -m "Sync local vendor assets"
+            git push
+          else
+            echo "No vendor asset changes to commit."
+          fi

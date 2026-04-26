@@ -1108,9 +1108,14 @@
     const qs = (selector, root = document) => root.querySelector(selector);
     const qsa = (selector, root = document) => Array.from(root.querySelectorAll(selector));
     const on = (el, event, handler, options) => el && el.addEventListener(event, handler, options);
-    if (typeof window.L === 'undefined') {
+    if (!window.L || typeof L.map !== 'function' || typeof L.marker !== 'function' || typeof L.divIcon !== 'function') {
       document.body.innerHTML = '<div class="app-fallback"><div class="app-fallback__card"><strong>Map libraries unavailable.</strong><p>Please reload and try again.</p></div></div>';
-      throw new Error('Leaflet unavailable');
+      throw new Error('Leaflet unavailable or incomplete');
+    }
+
+    if (typeof L.markerClusterGroup !== 'function') {
+      document.body.innerHTML = '<div class="app-fallback"><div class="app-fallback__card"><strong>Map libraries unavailable.</strong><p>Please reload and try again.</p></div></div>';
+      throw new Error('Leaflet.markercluster unavailable or incomplete');
     }
 
     const THEME_KEY = 'theme';
