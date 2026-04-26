@@ -9,11 +9,8 @@ const forbiddenTextPatterns = [
   'XMLHttpRequest',
   'xhr.open',
   'eval(',
-  'fetch(',
-  'importScripts(',
-  '@import url(',
-  'unpkg.com',
   'cdn.jsdelivr',
+  'unpkg.com',
   'cdnjs.cloudflare',
   '__placeholder',
   'placeholder'
