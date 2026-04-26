@@ -639,57 +639,23 @@
       opacity: 0;
       pointer-events: none;
     }
-    .support-trigger {
-      width: 100%;
-      border: none;
-      background: none;
-      text-align: left;
-      font: inherit;
-    }
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-    .modal.hidden {
-      display: none;
-    }
-    .modal-content {
-      background: #1e1e1e;
-      color: white;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 320px;
-      text-align: center;
-      position: relative;
-      margin: 16px;
-    }
-    .modal-close {
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      color: white;
-      cursor: pointer;
+    .support-text {
+      margin: 10px 0 8px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
     }
     .donate-button {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 10px 16px;
-      background: #0070ba;
-      color: white;
-      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--btn-border);
+      background: var(--action-bg);
+      color: var(--text);
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
     }
 
     .drawer-reset-btn { width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 750; color: var(--text); }
@@ -1084,7 +1050,7 @@
         </div>
         <div class="section" id="feedbackSection">
           <div class="accordion-header" data-target="feedbackBody" aria-expanded="false" role="button" tabindex="0">
-            <span>Feedback</span>
+            <span>Feedback &amp; Support ♥️</span>
             <span class="chevron">⌄</span>
           </div>
           <div class="accordion-body" id="feedbackBody">
@@ -1105,12 +1071,18 @@
               <div class="feedback-helper">For quick thoughts, bug reports, and data issues.</div>
               <div class="feedback-status" id="quickFeedbackStatus" aria-live="polite"></div>
             </form>
+            <p class="support-text">
+              This project is shaped by your feedback. If you’d like to support it, you can do so below ♥️
+            </p>
+            <a
+              href="https://www.paypal.com/donate/?hosted_button_id=PAFKTVQM4XA3C"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="donate-button"
+            >
+              Donate via Paypal
+            </a>
           </div>
-        </div>
-        <div class="section" id="supportSection">
-          <button type="button" class="accordion-header support-trigger" id="support-button">
-            <span>Support</span>
-          </button>
         </div>
       </div>
       <div class="drawer-about" aria-label="About">
@@ -1122,24 +1094,6 @@
       </div>
     </div>
   </aside>
-  <div id="support-modal" class="modal hidden">
-    <div class="modal-content">
-      <button class="modal-close">×</button>
-      <p>
-        Munchies Maps is meant to be free and stay independent.
-        If you like the Map and want to support me you can send me a donation down below ♥️
-      </p>
-      <a
-        href="https://www.paypal.com/donate/?hosted_button_id=PAFKTVQM4XA3C"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="donate-button"
-      >
-        Donate via Paypal
-      </a>
-    </div>
-  </div>
-
   <script src="./vendor/leaflet/leaflet.js"></script>
   <script src="./vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
   <script src="./vendor/opening_hours/opening_hours.min.js"></script>
@@ -2436,21 +2390,6 @@
       dismissBtn.addEventListener('click', () => {
         pendingSharedViewSeen = true;
         updateSharedViewPromptVisibility();
-      });
-    }
-
-    const modal = document.getElementById('support-modal');
-    const openBtn = document.getElementById('support-button');
-    const closeBtn = modal ? modal.querySelector('.modal-close') : null;
-
-    if (modal && openBtn && closeBtn) {
-      openBtn.onclick = () => modal.classList.remove('hidden');
-      closeBtn.onclick = () => modal.classList.add('hidden');
-      modal.onclick = (e) => {
-        if (e.target === modal) modal.classList.add('hidden');
-      };
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') modal.classList.add('hidden');
       });
     }
 
