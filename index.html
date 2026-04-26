@@ -286,7 +286,7 @@
       height: 100dvh;
       width: auto;
       max-width: min(92vw, 420px);
-      min-width: 260px;
+      min-width: min(280px, 92vw);
       background: var(--panel);
       box-shadow: -2px 0 16px rgba(0,0,0,0.2);
       transform: translateX(100%);
@@ -344,6 +344,10 @@
       color: var(--text);
     }
     .accordion-header span { flex: 1; }
+    #feedbackSection .accordion-header span:first-child {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
     .accordion-header .chevron {
       transition: transform 0.2s ease;
       display: inline-flex;
