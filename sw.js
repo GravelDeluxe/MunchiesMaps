@@ -1,10 +1,10 @@
-const STATIC_CACHE = 'munchiesmaps-static-v2';
-const GEOJSON_CACHE = 'munchiesmaps-geojson-v1';
+const STATIC_CACHE = 'munchiesmaps-static-v3';
+const GEOJSON_CACHE = 'munchiesmaps-geojson-v2';
 
 const SCOPE_URL = new URL(self.registration.scope);
 const APP_SHELL_URL = new URL('./index.html', SCOPE_URL).toString();
 const APP_ROOT_URL = new URL('./', SCOPE_URL).toString();
-
+const GEOJSON_BASE_PATH = new URL('./resources/geojson/', SCOPE_URL).pathname;
 
 const VENDOR_ASSETS = [
   './vendor/leaflet/leaflet.css',
@@ -19,17 +19,9 @@ const VENDOR_ASSETS = [
   './vendor/leaflet.markercluster/leaflet.markercluster.js',
   './vendor/opening_hours/opening_hours.min.js',
   './vendor/fontawesome/css/all.min.css',
-  './vendor/fontawesome/webfonts/.gitkeep'
-];
-
-const EXTERNAL_VENDOR_URLS = [
-  'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
-  'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
-  'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css',
-  'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css',
-  'https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js',
-  'https://cdn.jsdelivr.net/npm/opening_hours@3.6.0/opening_hours.min.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'
+  './vendor/fontawesome/webfonts/fa-solid-900.woff2',
+  './vendor/fontawesome/webfonts/fa-regular-400.woff2',
+  './vendor/fontawesome/webfonts/fa-brands-400.woff2'
 ];
 
 const APP_SHELL_CANDIDATES = [
@@ -66,11 +58,6 @@ function isStaticAssetRequest(requestUrl) {
   return /\.(?:css|js|mjs|json|webmanifest|png|jpg|jpeg|svg|gif|webp|ico|woff2?|ttf)$/i.test(pathname);
 }
 
-
-function isExternalVendorRequest(requestUrl) {
-  return EXTERNAL_VENDOR_URLS.includes(requestUrl.toString());
-}
-
 function isExternalMapTileRequest(requestUrl) {
   const host = requestUrl.hostname;
   return /(?:tile|tiles|basemaps?)\./i.test(host) || /(?:\/tiles?\/|\/tile\/)/i.test(requestUrl.pathname);
@@ -79,15 +66,44 @@ function isExternalMapTileRequest(requestUrl) {
 function isGeoJsonRequest(requestUrl) {
   if (requestUrl.origin !== self.location.origin) return false;
   const scopePath = SCOPE_URL.pathname;
-  const geoBasePath = new URL('./resources/geojson/', SCOPE_URL).pathname;
-  return requestUrl.pathname.startsWith(geoBasePath) || requestUrl.pathname.startsWith(`${scopePath}resources/geojson/`);
+  return requestUrl.pathname.startsWith(GEOJSON_BASE_PATH) || requestUrl.pathname.startsWith(`${scopePath}resources/geojson/`);
+}
+
+function toNormalizedGeoJsonRequest(inputRequest) {
+  const url = new URL(inputRequest.url);
+  return new Request(`${url.origin}${url.pathname}`);
+}
+
+function createOfflineGeoJsonFallback(requestUrl) {
+  const isManifest = requestUrl.pathname.endsWith('/manifest.json');
+  if (isManifest) {
+    console.warn('[sw] manifest.json unavailable offline:', requestUrl.toString());
+    return new Response(JSON.stringify({ regions: [], bundeslaender: [], categories: [] }), {
+      status: 503,
+      statusText: 'Service Unavailable',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-store'
+      }
+    });
+  }
+
+  console.warn('[sw] GeoJSON unavailable offline:', requestUrl.toString());
+  return new Response(JSON.stringify({ type: 'FeatureCollection', features: [] }), {
+    status: 503,
+    statusText: 'Service Unavailable',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'no-store'
+    }
+  });
 }
 
 async function safePrecache(cache, urlLike) {
   try {
     const request = new Request(new URL(urlLike, SCOPE_URL).toString(), { cache: 'reload' });
     const response = await fetch(request);
-    if (isCacheableResponse(response, isExternalVendorRequest(new URL(request.url)))) {
+    if (isCacheableResponse(response)) {
       await cache.put(request, response);
     }
   } catch (error) {
@@ -100,7 +116,6 @@ self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(STATIC_CACHE);
     await Promise.all(APP_SHELL_CANDIDATES.map((asset) => safePrecache(cache, asset)));
-    await Promise.all(EXTERNAL_VENDOR_URLS.map((asset) => safePrecache(cache, asset)));
     console.log('[sw] install done');
     self.skipWaiting();
   })());
@@ -162,18 +177,42 @@ async function handleNavigationRequest(event) {
   }
 }
 
+async function matchGeoJsonFromCache(cache, request, normalizedRequest) {
+  const byRequest = await cache.match(request);
+  if (byRequest) return byRequest;
+
+  const byNormalized = await cache.match(normalizedRequest);
+  if (byNormalized) return byNormalized;
+
+  const keys = await cache.keys();
+  const path = new URL(request.url).pathname;
+  const fallbackMatch = keys.find((key) => {
+    try {
+      return new URL(key.url).pathname === path;
+    } catch (_) {
+      return false;
+    }
+  });
+  return fallbackMatch ? cache.match(fallbackMatch) : undefined;
+}
+
 async function handleGeoJsonRequest(event) {
   const cache = await caches.open(GEOJSON_CACHE);
+  const normalizedRequest = toNormalizedGeoJsonRequest(event.request);
+  const requestUrl = new URL(event.request.url);
+
   try {
     const networkResponse = await fetch(event.request);
     if (isCacheableResponse(networkResponse)) {
       await cache.put(event.request, networkResponse.clone());
+      await cache.put(normalizedRequest, networkResponse.clone());
     }
     return networkResponse;
   } catch (error) {
-    const cached = await cache.match(event.request);
+    const cached = await matchGeoJsonFromCache(cache, event.request, normalizedRequest);
     if (cached) return cached;
-    throw error;
+
+    return createOfflineGeoJsonFallback(requestUrl);
   }
 }
 
@@ -183,7 +222,7 @@ async function handleStaticAssetRequest(event) {
   if (cached) return cached;
 
   const networkResponse = await fetch(event.request);
-  if (isCacheableResponse(networkResponse, isExternalVendorRequest(new URL(event.request.url)))) {
+  if (isCacheableResponse(networkResponse)) {
     await cache.put(event.request, networkResponse.clone());
   }
   return networkResponse;
@@ -208,7 +247,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  if (isExternalVendorRequest(requestUrl) || isStaticAssetRequest(requestUrl)) {
+  if (isStaticAssetRequest(requestUrl)) {
     event.respondWith(handleStaticAssetRequest(event));
   }
 });
