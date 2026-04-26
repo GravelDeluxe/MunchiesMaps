@@ -1,0 +1,15 @@
+{
+  "name": "munchiesmaps",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "sync-vendor": "node scripts/sync-vendor-assets.mjs",
+    "check-vendor": "node scripts/check-vendor-assets.mjs"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "6.5.2",
+    "leaflet": "1.9.4",
+    "leaflet.markercluster": "1.5.3",
+    "opening_hours": "3.6.0"
+  }
+}

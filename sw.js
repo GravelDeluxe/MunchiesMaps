@@ -1,4 +1,4 @@
-const STATIC_CACHE = 'munchiesmaps-static-v5';
+const STATIC_CACHE = 'munchiesmaps-static-v6';
 const GEOJSON_CACHE = 'munchiesmaps-geojson-v2';
 
 const SCOPE_URL = new URL(self.registration.scope);
