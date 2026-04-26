@@ -2621,9 +2621,12 @@
     const DEFAULT_GPX_RADIUS_KM = 0.3;
     const SAVED_GPX_ROUTE_KEY = 'munchiesmaps.savedGpxRoute';
     const OFFLINE_PACKAGE_VERSION = '1.1.0';
-    const OFFLINE_TILE_SNAPSHOT_DEFAULT = false;
-    const OFFLINE_TILE_SNAPSHOT_LIMIT = 30;
-    const OFFLINE_TILE_SNAPSHOT_BUFFER_METERS = 600;
+    const OFFLINE_TILE_SNAPSHOT_DEFAULT = true;
+    const OFFLINE_TILE_SNAPSHOT_LIMIT = 40;
+    const OFFLINE_TILE_SNAPSHOT_BUFFER_RATIO = 0.15;
+    const OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG = 0.01;
+    const OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES = 500 * 1024;
+    const OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES = 6 * 1024 * 1024;
     const GPX_KM_MARKER_INTERVAL_KM = 5;
     const gpxState = {
       points: [],
@@ -3767,23 +3770,29 @@
       return Math.floor((1 - Math.log(Math.tan(rad) + (1 / Math.cos(rad))) / Math.PI) / 2 * (2 ** z));
     }
 
-    function buildBufferedRouteBounds(routeLatlngs) {
-      const routeBounds = L.latLngBounds(routeLatlngs.map(([lat, lng]) => L.latLng(lat, lng)));
-      const center = routeBounds.getCenter();
-      const latPadding = OFFLINE_TILE_SNAPSHOT_BUFFER_METERS / 111320;
-      const cosCenter = Math.cos((center.lat * Math.PI) / 180);
-      const lonPadding = OFFLINE_TILE_SNAPSHOT_BUFFER_METERS / Math.max(111320 * Math.max(Math.abs(cosCenter), 0.2), 1);
-      const sw = L.latLng(
-        clamp(routeBounds.getSouth() - latPadding, -85, 85),
-        clamp(routeBounds.getWest() - lonPadding, -180, 180)
-      );
-      const ne = L.latLng(
-        clamp(routeBounds.getNorth() + latPadding, -85, 85),
-        clamp(routeBounds.getEast() + lonPadding, -180, 180)
-      );
-      const buffered = L.latLngBounds(sw, ne);
-      buffered.extend(map.getBounds());
-      return buffered;
+    function buildBufferedBoundsFromBBox(routeBBox) {
+      if (!Array.isArray(routeBBox) || routeBBox.length !== 4) return null;
+      const minLat = Number(routeBBox[0]);
+      const minLng = Number(routeBBox[1]);
+      const maxLat = Number(routeBBox[2]);
+      const maxLng = Number(routeBBox[3]);
+      if (![minLat, minLng, maxLat, maxLng].every(Number.isFinite)) return null;
+      const latSpan = Math.max(Math.abs(maxLat - minLat), OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG);
+      const lngSpan = Math.max(Math.abs(maxLng - minLng), OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG);
+      const latPad = Math.max(latSpan * OFFLINE_TILE_SNAPSHOT_BUFFER_RATIO, OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG);
+      const lngPad = Math.max(lngSpan * OFFLINE_TILE_SNAPSHOT_BUFFER_RATIO, OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG);
+      const south = clamp(Math.min(minLat, maxLat) - latPad, -85, 85);
+      const north = clamp(Math.max(minLat, maxLat) + latPad, -85, 85);
+      const west = clamp(Math.min(minLng, maxLng) - lngPad, -180, 180);
+      const east = clamp(Math.max(minLng, maxLng) + lngPad, -180, 180);
+      return L.latLngBounds(L.latLng(south, west), L.latLng(north, east));
+    }
+
+    function buildOfflineTileBounds(routeBBox) {
+      const fromRouteBBox = buildBufferedBoundsFromBBox(routeBBox);
+      if (fromRouteBBox) return fromRouteBBox;
+      if (map?.getBounds) return map.getBounds();
+      return null;
     }
 
     function buildTileCoordsForBounds(bounds, zoom) {
@@ -3805,39 +3814,77 @@
       return coordsList.map(({ x, y, z }) => ({ x, y, z }));
     }
 
-    async function tryBuildTileSnapshotTexture(routeLatlngs, maxTiles = OFFLINE_TILE_SNAPSHOT_LIMIT) {
-      if (!activeBaseLayer || typeof activeBaseLayer.getTileUrl !== 'function') return buildGridTexturePackage();
-      if (!Array.isArray(routeLatlngs) || !routeLatlngs.length) return buildGridTexturePackage();
+    function estimateDataUrlBytes(dataUrl) {
+      if (typeof dataUrl !== 'string') return 0;
+      const payload = dataUrl.includes(',') ? dataUrl.slice(dataUrl.indexOf(',') + 1) : dataUrl;
+      return Math.ceil((payload.length * 3) / 4);
+    }
+
+    async function blobToDataUrl(blob) {
+      return new Promise((resolve) => {
+        const fr = new FileReader();
+        fr.onload = () => resolve(fr.result);
+        fr.onerror = () => resolve('');
+        fr.readAsDataURL(blob);
+      });
+    }
+
+    async function tryBuildTileSnapshotTexture(routeBBox, maxTiles = OFFLINE_TILE_SNAPSHOT_LIMIT) {
+      console.log('[offline-tiles] snapshot start');
+      if (!activeBaseLayer || typeof activeBaseLayer.getTileUrl !== 'function') {
+        console.log('[offline-tiles] using grid fallback');
+        return buildGridTexturePackage();
+      }
+      const bounds = buildOfflineTileBounds(routeBBox);
+      if (!bounds) {
+        console.log('[offline-tiles] using grid fallback');
+        return buildGridTexturePackage();
+      }
       const baseZoom = Math.max(0, Math.floor(map.getZoom()));
-      const bounds = buildBufferedRouteBounds(routeLatlngs);
-      const requested = [];
+      let requested = [];
       const seen = new Set();
       for (const coords of buildTileCoordsForBounds(bounds, baseZoom)) {
         const key = `${coords.z}/${coords.x}/${coords.y}`;
         if (seen.has(key)) continue;
-        requested.push(coords);
+        requested.push({ ...coords });
         seen.add(key);
-        if (requested.length >= maxTiles) break;
+      }
+      console.log('[offline-tiles] candidate tiles', requested.length);
+      if (requested.length > maxTiles) {
+        console.warn('[offline-tiles] tile limit reached');
+        requested = requested.slice(0, maxTiles);
       }
       const tiles = [];
+      let totalBytes = 0;
       for (const coords of requested) {
         try {
           const url = activeBaseLayer.getTileUrl(coords);
-          const res = await fetch(url, { mode: 'cors', cache: 'no-store' });
-          if (!res.ok) continue;
+          if (!url) throw new Error('missing tile URL');
+          const res = await fetch(url, { mode: 'cors', cache: 'force-cache' });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const blob = await res.blob();
-          const dataUrl = await new Promise((resolve) => {
-            const fr = new FileReader();
-            fr.onload = () => resolve(fr.result);
-            fr.onerror = () => resolve('');
-            fr.readAsDataURL(blob);
-          });
-          if (typeof dataUrl === 'string' && dataUrl.startsWith('data:')) tiles.push({ ...coords, dataUrl });
+          if (blob.size > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) throw new Error('tile too large');
+          const dataUrl = await blobToDataUrl(blob);
+          const estimatedBytes = estimateDataUrlBytes(dataUrl);
+          if (!dataUrl || !dataUrl.startsWith('data:')) throw new Error('invalid data URL');
+          if (estimatedBytes > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) throw new Error('encoded tile too large');
+          if ((totalBytes + estimatedBytes) > OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES) {
+            console.warn('[offline-tiles] tile limit reached');
+            break;
+          }
+          totalBytes += estimatedBytes;
+          tiles.push({ ...coords, dataUrl });
+          console.log('[offline-tiles] tile saved', coords.z, coords.x, coords.y);
         } catch (err) {
-          // Ignore per-tile failures and fallback to grid if needed.
+          console.log('[offline-tiles] tile failed', coords.z, coords.x, coords.y);
         }
       }
-      if (!tiles.length) return buildGridTexturePackage();
+      if (!tiles.length) {
+        console.log('[offline-tiles] snapshot complete', 0);
+        console.log('[offline-tiles] using grid fallback');
+        return buildGridTexturePackage();
+      }
+      console.log('[offline-tiles] snapshot complete', tiles.length);
       return {
         type: 'tiles',
         tileSize: 256,
@@ -3852,6 +3899,7 @@
       const lats = latlngs.map((pt) => pt[0]);
       const lngs = latlngs.map((pt) => pt[1]);
       const pois = activePoints.map(freezePoiForOffline).filter(Boolean);
+      const routeBBox = [Math.min(...lats), Math.min(...lngs), Math.max(...lats), Math.max(...lngs)];
       return {
         id: `route-${Date.now().toString(36)}`,
         createdAt: Date.now(),
@@ -3859,7 +3907,7 @@
         route: {
           gpxRaw: rawText || '',
           latlngs,
-          bbox: [Math.min(...lats), Math.min(...lngs), Math.max(...lats), Math.max(...lngs)],
+          bbox: routeBBox,
           radius: gpxState.radiusMeters
         },
         view: { center: [map.getCenter().lat, map.getCenter().lng], zoom: map.getZoom() },
@@ -3868,7 +3916,7 @@
           regions: Array.from(filterState.bundeslaender || [])
         },
         pois,
-        mapTexture: OFFLINE_TILE_SNAPSHOT_DEFAULT ? await tryBuildTileSnapshotTexture(latlngs) : buildGridTexturePackage()
+        mapTexture: OFFLINE_TILE_SNAPSHOT_DEFAULT ? await tryBuildTileSnapshotTexture(routeBBox) : buildGridTexturePackage()
       };
     }
 
@@ -3903,15 +3951,29 @@
       }
       clearOfflineTexture();
       if (!pkg?.mapTexture || pkg.mapTexture.type !== 'tiles' || !Array.isArray(pkg.mapTexture.tiles) || pkg.mapTexture.tiles.length === 0) {
+        console.log('[offline-tiles] using grid fallback');
         map.getContainer().style.background = 'radial-gradient(circle at 25% 25%, rgba(255,255,255,0.06), transparent 30%), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), #111';
         map.getContainer().style.backgroundSize = 'auto, 32px 32px, 32px 32px, auto';
         return;
       }
+      console.log('[offline-tiles] using saved tile layer');
       const tileMap = new Map((pkg.mapTexture.tiles || []).map((tile) => [`${tile.z}/${tile.x}/${tile.y}`, tile.dataUrl]));
       offlineTextureLayer = L.gridLayer({
         tileSize: Number(pkg.mapTexture.tileSize) || 256,
         noWrap: true
       });
+      const paintGridFallback = (ctx, size) => {
+        ctx.fillStyle = '#111';
+        ctx.fillRect(0, 0, size, size);
+        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(size / 2, 0);
+        ctx.lineTo(size / 2, size);
+        ctx.moveTo(0, size / 2);
+        ctx.lineTo(size, size / 2);
+        ctx.stroke();
+      };
       offlineTextureLayer.createTile = function createTile(coords, done) {
         const tile = document.createElement('canvas');
         const size = Number(pkg.mapTexture.tileSize) || 256;
@@ -3922,17 +3984,18 @@
         const dataUrl = tileMap.get(key);
         if (dataUrl) {
           const img = new Image();
-          img.crossOrigin = 'anonymous';
           img.src = dataUrl;
           img.onload = () => {
             ctx.drawImage(img, 0, 0, size, size);
             if (typeof done === 'function') done(null, tile);
           };
           img.onerror = () => {
+            paintGridFallback(ctx, size);
             if (typeof done === 'function') done(null, tile);
           };
-        } else if (typeof done === 'function') {
-          done(null, tile);
+        } else {
+          paintGridFallback(ctx, size);
+          if (typeof done === 'function') done(null, tile);
         }
         return tile;
       };
@@ -3970,7 +4033,7 @@
       gpxState.rawText = pkg.route.gpxRaw || '';
       gpxState.radiusMeters = Number(pkg.route.radius) || (DEFAULT_GPX_RADIUS_KM * 1000);
       appState.hasImportedGpx = true;
-      appState.isOfflineMode = true;
+      appState.isOfflineMode = shouldUseOfflineTexture;
       appState.gpxTrackLatLngs = pkg.route.latlngs.map(([lat, lng]) => L.latLng(lat, lng));
       gpxState.points = appState.gpxTrackLatLngs.map((ll) => ({ lat: ll.lat, lon: ll.lng }));
       gpxState.sampledPoints = downsamplePoints(gpxState.points);
