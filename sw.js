@@ -56,14 +56,17 @@ async function safePrecache(cache, urlLike) {
 }
 
 self.addEventListener('install', (event) => {
+  console.log('[sw] install start');
   event.waitUntil((async () => {
     const cache = await caches.open(STATIC_CACHE);
     await Promise.all(APP_SHELL_CANDIDATES.map((asset) => safePrecache(cache, asset)));
+    console.log('[sw] install done');
     self.skipWaiting();
   })());
 });
 
 self.addEventListener('activate', (event) => {
+  console.log('[sw] activate');
   event.waitUntil((async () => {
     const cacheNames = await caches.keys();
     await Promise.all(
@@ -81,6 +84,7 @@ self.addEventListener('activate', (event) => {
 });
 
 async function handleNavigationRequest(event) {
+  console.log('[sw] navigation fetch intercepted', event.request.url);
   const staticCache = await caches.open(STATIC_CACHE);
 
   try {
@@ -104,9 +108,11 @@ async function handleNavigationRequest(event) {
       (await staticCache.match(APP_SHELL_URL, { ignoreSearch: true }));
 
     if (cachedShell) {
+      console.log('[sw] offline app shell fallback used');
       return cachedShell;
     }
 
+    console.warn('[sw] app shell missing');
     return new Response('Offline', {
       status: 503,
       statusText: 'Service Unavailable',
