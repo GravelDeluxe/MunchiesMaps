@@ -1,4 +1,4 @@
-const STATIC_CACHE = 'munchiesmaps-static-v4';
+const STATIC_CACHE = 'munchiesmaps-static-v5';
 const GEOJSON_CACHE = 'munchiesmaps-geojson-v2';
 
 const SCOPE_URL = new URL(self.registration.scope);
@@ -133,7 +133,7 @@ self.addEventListener('activate', (event) => {
     );
 
     if (self.registration.navigationPreload) {
-      await self.registration.navigationPreload.enable();
+      await self.registration.navigationPreload.disable();
     }
 
     await self.clients.claim();
@@ -141,40 +141,36 @@ self.addEventListener('activate', (event) => {
 });
 
 async function handleNavigationRequest(event) {
-  console.log('[sw] navigation fetch intercepted', event.request.url);
+  console.log('[sw] navigation intercepted', event.request.url);
   const staticCache = await caches.open(STATIC_CACHE);
 
   try {
-    const preload = await event.preloadResponse;
-    if (preload) {
-      if (isCacheableResponse(preload)) {
-        await staticCache.put(APP_SHELL_URL, preload.clone());
-      }
-      return preload;
-    }
-
     const networkResponse = await fetch(event.request);
     if (isCacheableResponse(networkResponse)) {
       await staticCache.put(APP_SHELL_URL, networkResponse.clone());
     }
     return networkResponse;
-  } catch (_) {
+  } catch (err) {
+    console.warn('[sw] navigation network failed, using cache', err);
+
     const cachedShell =
       (await staticCache.match(APP_SHELL_URL)) ||
       (await staticCache.match(APP_ROOT_URL)) ||
-      (await staticCache.match(APP_SHELL_URL, { ignoreSearch: true }));
+      (await caches.match(APP_SHELL_URL)) ||
+      (await caches.match(APP_ROOT_URL));
 
     if (cachedShell) {
       console.log('[sw] offline app shell fallback used');
       return cachedShell;
     }
 
-    console.warn('[sw] app shell missing');
-    return new Response('Offline', {
+    return new Response(
+      '<!doctype html><title>Munchies Maps offline</title><h1>Munchies Maps offline shell missing</h1><p>Please open the app once while online.</p>',
+      {
       status: 503,
-      statusText: 'Service Unavailable',
-      headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-    });
+      headers: { 'Content-Type': 'text/html; charset=utf-8' }
+      }
+    );
   }
 }
 
