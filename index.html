@@ -630,13 +630,6 @@
     .feedback-status.is-visible { display: block; }
     .feedback-status[data-status="error"] { color: #dc2626; }
     .feedback-status[data-status="success"] { color: #16a34a; }
-    .feedback-link a {
-      color: var(--text);
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .feedback-link a:hover,
-    .feedback-link a:focus { text-decoration: underline; }
     .feedback-honeypot {
       position: absolute;
       left: -10000px;
@@ -645,6 +638,58 @@
       height: 1px;
       opacity: 0;
       pointer-events: none;
+    }
+    .support-trigger {
+      width: 100%;
+      border: none;
+      background: none;
+      text-align: left;
+      font: inherit;
+    }
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .modal.hidden {
+      display: none;
+    }
+    .modal-content {
+      background: #1e1e1e;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 320px;
+      text-align: center;
+      position: relative;
+      margin: 16px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+    }
+    .donate-button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 16px;
+      background: #0070ba;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .drawer-reset-btn { width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 750; color: var(--text); }
@@ -1057,15 +1102,15 @@
               <textarea id="quickFeedbackMessage" class="feedback-textarea" placeholder="What didn’t work or felt confusing?"></textarea>
               <input type="text" id="quickFeedbackHoneypot" name="website" class="feedback-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <button type="submit" class="feedback-send" id="quickFeedbackSend">Send</button>
-              <div class="feedback-helper">For quick thoughts. Bugs &amp; data issues belong on GitHub.</div>
+              <div class="feedback-helper">For quick thoughts, bug reports, and data issues.</div>
               <div class="feedback-status" id="quickFeedbackStatus" aria-live="polite"></div>
             </form>
-            <div class="feedback-link">
-              <a href="https://github.com/MarkusCouch/MunchiesMaps/issues/new" id="reportIssueLink" target="_blank" rel="noopener noreferrer">Report issue (GitHub)</a>
-              <span aria-hidden="true"> · </span>
-              <a href="https://github.com/MarkusCouch/MunchiesMaps/issues" target="_blank" rel="noopener noreferrer">View issues</a>
-            </div>
           </div>
+        </div>
+        <div class="section" id="supportSection">
+          <button type="button" class="accordion-header support-trigger" id="support-button">
+            <span>Support</span>
+          </button>
         </div>
       </div>
       <div class="drawer-about" aria-label="About">
@@ -1077,6 +1122,23 @@
       </div>
     </div>
   </aside>
+  <div id="support-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close">×</button>
+      <p>
+        Munchies Maps is meant to be free and stay independent.
+        If you like the Map and want to support me you can send me a donation down below ♥️
+      </p>
+      <a
+        href="https://www.paypal.com/donate/?hosted_button_id=PAFKTVQM4XA3C"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="donate-button"
+      >
+        Donate via Paypal
+      </a>
+    </div>
+  </div>
 
   <script src="./vendor/leaflet/leaflet.js"></script>
   <script src="./vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
@@ -1100,10 +1162,6 @@
     const QUICK_FEEDBACK_STORAGE_KEY = 'quickFeedbackLastSubmit';
     const INTRO_HIDE_KEY = 'munchiesMapsHideIntro';
     const SHARE_SCHEMA_VERSION = "2";
-    const GH_OWNER = "MarkusCouch";
-    const GH_REPO = "MunchiesMaps";
-    const GH_NEW_ISSUE_URL = `https://github.com/${GH_OWNER}/${GH_REPO}/issues/new`;
-    const GH_DEFAULT_LABELS = "bug,alpha";
     const SHARE_URL_UPDATE_DEBOUNCE_MS = 300;
 
     const STATE_CODE_TO_ID = {
@@ -1387,7 +1445,7 @@
       'Open any POI directly in Google Maps for navigation',
       'Open shelters in Mapy.cz for additional details and direct routing',
       'Dark mode and mobile-friendly interface',
-      'Community feedback via GitHub or feedback form'
+      'Community feedback via the built-in feedback form'
     ];
 
     const INTRO_ALPHA_TITLE = 'Alpha status & feedback';
@@ -2174,33 +2232,6 @@
       }
     }
 
-    function buildIssueBody(deepLink) {
-      return [
-        '### What happened?',
-        '',
-        '### Expected behavior',
-        '',
-        '### Steps to reproduce',
-        '',
-        '### Map view (deep link)',
-        deepLink,
-        '',
-        '### App',
-        `Version: ${APP_VERSION}`,
-        `Theme: ${document.documentElement.dataset.theme || 'light'}`,
-        `Timestamp: ${new Date().toISOString()}`,
-        `User agent: ${navigator.userAgent}`
-      ].join('\n');
-    }
-
-    function buildGithubIssueUrl({ title, body, labels } = {}) {
-      const params = new URLSearchParams();
-      if (title) params.set('title', title);
-      if (body) params.set('body', body);
-      if (labels) params.set('labels', labels);
-      return `${GH_NEW_ISSUE_URL}?${params.toString()}`;
-    }
-
     async function copyToClipboard(text) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(text);
@@ -2379,21 +2410,6 @@
       });
     }
 
-    function setupReportIssueLink() {
-      const reportLink = document.getElementById('reportIssueLink');
-      if (!reportLink) return;
-      reportLink.addEventListener('click', (e) => {
-        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-        e.preventDefault();
-        const center = map.getCenter();
-        const deepLink = buildShareUrl();
-        const title = `Bug report: ${toFixedCoord(center.lat)}, ${toFixedCoord(center.lng)} (z${map.getZoom()})`;
-        const body = buildIssueBody(deepLink);
-        const url = buildGithubIssueUrl({ title, body, labels: GH_DEFAULT_LABELS });
-        window.open(url, '_blank', 'noopener,noreferrer');
-      });
-    }
-
     function updateSharedViewPromptVisibility() {
       const promptEl = document.getElementById('sharedViewPrompt');
       if (!promptEl) return;
@@ -2420,6 +2436,21 @@
       dismissBtn.addEventListener('click', () => {
         pendingSharedViewSeen = true;
         updateSharedViewPromptVisibility();
+      });
+    }
+
+    const modal = document.getElementById('support-modal');
+    const openBtn = document.getElementById('support-button');
+    const closeBtn = modal ? modal.querySelector('.modal-close') : null;
+
+    if (modal && openBtn && closeBtn) {
+      openBtn.onclick = () => modal.classList.remove('hidden');
+      closeBtn.onclick = () => modal.classList.add('hidden');
+      modal.onclick = (e) => {
+        if (e.target === modal) modal.classList.add('hidden');
+      };
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') modal.classList.add('hidden');
       });
     }
 
@@ -2520,7 +2551,7 @@
             if (sendBtn) sendBtn.disabled = false;
           }, 1200);
         } else {
-          setStatus('Could not send. Please try again or use GitHub Issues.', 'error');
+          setStatus('Could not send. Please try again.', 'error');
           if (sendBtn) sendBtn.disabled = false;
         }
       });
@@ -5364,7 +5395,6 @@
       setupGpxExportButton();
       setupQuickFeedbackForm();
       setupSharePopover();
-      setupReportIssueLink();
       setupSharedViewPrompt();
       runBadgeDiagnostics();
 
