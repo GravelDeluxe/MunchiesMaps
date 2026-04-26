@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, stat } from 'node:fs/promises';
+import { copyFile, mkdir, readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 
@@ -33,6 +33,69 @@ async function collectFontReferences(fontAwesomeCssPath) {
   const cssSource = await readFile(fontAwesomeCssPath, 'utf8');
   const matches = cssSource.matchAll(/\.\.\/webfonts\/([^)"'?#]+\.(?:woff2?|ttf|eot|otf|svg))(?:[?#][^)"']*)?/gi);
   return [...new Set(Array.from(matches, (match) => match[1]))];
+}
+
+function isOpeningHoursTextValid(text) {
+  const forbiddenPatterns = [
+    'XMLHttpRequest',
+    'xhr.open',
+    'eval(',
+    'cdn.jsdelivr',
+    'unpkg.com',
+    'cdnjs.cloudflare',
+    '__placeholder',
+    'placeholder'
+  ];
+
+  return text.includes('opening_hours') && !forbiddenPatterns.some((pattern) => text.includes(pattern));
+}
+
+async function isValidOpeningHoursAsset(fullPath) {
+  try {
+    const info = await stat(fullPath);
+    if (!info.isFile() || info.size <= 0) return false;
+
+    const text = await readFile(fullPath, 'utf8');
+    return isOpeningHoursTextValid(text);
+  } catch {
+    return false;
+  }
+}
+
+async function findOpeningHoursSource() {
+  const candidateRelativePaths = [
+    'node_modules/opening_hours/build/opening_hours.min.js',
+    'node_modules/opening_hours/build/opening_hours.js',
+    'node_modules/opening_hours/opening_hours.min.js',
+    'node_modules/opening_hours/opening_hours.js',
+    'node_modules/opening_hours/dist/opening_hours.min.js',
+    'node_modules/opening_hours/dist/opening_hours.js'
+  ];
+
+  for (const candidate of candidateRelativePaths) {
+    const fullPath = abs(candidate);
+    if (await isValidOpeningHoursAsset(fullPath)) {
+      return fullPath;
+    }
+  }
+
+  const openingHoursRoot = abs('node_modules/opening_hours');
+  try {
+    const entries = await readdir(openingHoursRoot, { recursive: true, withFileTypes: true });
+    for (const entry of entries) {
+      if (!entry.isFile()) continue;
+      if (!/^opening_hours.*\.js$/i.test(entry.name)) continue;
+
+      const candidate = path.join(entry.parentPath, entry.name);
+      if (await isValidOpeningHoursAsset(candidate)) {
+        return candidate;
+      }
+    }
+  } catch {
+    // opening_hours package may not exist in node_modules.
+  }
+
+  return null;
 }
 
 async function main() {
@@ -73,31 +136,24 @@ async function main() {
     copied
   );
 
-  const openingHoursCandidates = [
-    'node_modules/opening_hours/build/opening_hours.min.js',
-    'node_modules/opening_hours/opening_hours.min.js',
-    'node_modules/opening_hours/dist/opening_hours.min.js'
-  ];
+  const openingHoursTargetRelativePath = 'vendor/opening_hours/opening_hours.min.js';
+  const openingHoursTarget = abs(openingHoursTargetRelativePath);
 
-  let openingHoursSource;
-  for (const candidate of openingHoursCandidates) {
-    try {
-      openingHoursSource = await ensureSourceExists(candidate);
-      break;
-    } catch {
-      // Try the next candidate.
+  if (await isValidOpeningHoursAsset(openingHoursTarget)) {
+    console.log('Keeping existing vendor/opening_hours/opening_hours.min.js');
+  } else {
+    const openingHoursSource = await findOpeningHoursSource();
+
+    if (!openingHoursSource) {
+      throw new Error(
+        'No valid opening_hours source found. Existing vendor/opening_hours/opening_hours.min.js is missing or invalid.'
+      );
     }
-  }
 
-  if (!openingHoursSource) {
-    throw new Error(
-      `Missing vendor source: ${openingHoursCandidates.join(' OR ')}\nRun npm install first.`
-    );
+    await mkdir(abs('vendor/opening_hours'), { recursive: true });
+    await copyFile(openingHoursSource, openingHoursTarget);
+    copied.push(`${path.relative(ROOT, openingHoursSource)} -> ${openingHoursTargetRelativePath}`);
   }
-
-  await mkdir(abs('vendor/opening_hours'), { recursive: true });
-  await copyFile(openingHoursSource, abs('vendor/opening_hours/opening_hours.min.js'));
-  copied.push(`${path.relative(ROOT, openingHoursSource)} -> vendor/opening_hours/opening_hours.min.js`);
 
   const fontAwesomeCssRelativePath = 'node_modules/@fortawesome/fontawesome-free/css/all.min.css';
   await copyFileChecked(fontAwesomeCssRelativePath, 'vendor/fontawesome/css/all.min.css', copied);
