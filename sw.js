@@ -1,4 +1,4 @@
-const STATIC_CACHE = 'munchiesmaps-static-v3';
+const STATIC_CACHE = 'munchiesmaps-static-v4';
 const GEOJSON_CACHE = 'munchiesmaps-geojson-v2';
 
 const SCOPE_URL = new URL(self.registration.scope);
@@ -27,6 +27,7 @@ const VENDOR_ASSETS = [
 const APP_SHELL_CANDIDATES = [
   './',
   './index.html',
+  './js/offline-route-store.js',
   './manifest.webmanifest',
   './favicon.ico',
   './favicon.png',
