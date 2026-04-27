@@ -2646,13 +2646,16 @@
     const SAVED_GPX_ROUTE_KEY = 'munchiesmaps.savedGpxRoute';
     const OFFLINE_PACKAGE_VERSION = '1.1.0';
     const OFFLINE_TILE_SNAPSHOT_DEFAULT = true;
-    const OFFLINE_TILE_SNAPSHOT_LIMIT = 40;
     const OFFLINE_TILE_SNAPSHOT_ZOOM_OFFSET = 1;
     const OFFLINE_TILE_SNAPSHOT_MAX_ZOOM = 18;
     const OFFLINE_TILE_SNAPSHOT_BUFFER_RATIO = 0.15;
     const OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG = 0.01;
     const OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES = 500 * 1024;
-    const OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES = 6 * 1024 * 1024;
+    const OFFLINE_TILE_MAX_TOTAL_BYTES_BASIC = 30 * 1024 * 1024;
+    const OFFLINE_TILE_MAX_TOTAL_BYTES_STANDARD = 60 * 1024 * 1024;
+    const OFFLINE_TILE_MAX_TOTAL_BYTES_HIGH = 100 * 1024 * 1024;
+    const OFFLINE_TILE_MAX_ABSOLUTE_COUNT_IOS = 1200;
+    const OFFLINE_TILE_MAX_ABSOLUTE_COUNT_DESKTOP = 1200;
     const OFFLINE_TILE_COVERAGE_MODES = {
       routeCorridor: 'route-corridor',
       routeBoundingBox: 'route-bbox'
@@ -2661,28 +2664,32 @@
       off: {
         enabled: false,
         zoomOffset: 0,
-        tileLimit: 0,
+        maxTotalBytes: 0,
+        corridorBufferTiles: 0,
         label: 'Off',
         description: 'Route and POIs only'
       },
       basic: {
         enabled: true,
-        zoomOffset: 0,
-        tileLimit: 40,
+        zoomOffset: 1,
+        maxTotalBytes: OFFLINE_TILE_MAX_TOTAL_BYTES_BASIC,
+        corridorBufferTiles: 0,
         label: 'Basic',
-        description: 'Current zoom, low storage'
+        description: 'Higher detail, low storage'
       },
       standard: {
         enabled: true,
         zoomOffset: 1,
-        tileLimit: 80,
+        maxTotalBytes: OFFLINE_TILE_MAX_TOTAL_BYTES_STANDARD,
+        corridorBufferTiles: 1,
         label: 'Standard',
         description: 'Sharper map, moderate storage'
       },
       high: {
         enabled: true,
-        zoomOffset: 1,
-        tileLimit: 150,
+        zoomOffset: 2,
+        maxTotalBytes: OFFLINE_TILE_MAX_TOTAL_BYTES_HIGH,
+        corridorBufferTiles: 1,
         label: 'High',
         description: 'More detail, higher storage'
       }
@@ -3894,29 +3901,22 @@
     }
 
     function getRouteCorridorTileCoords(latlngs, zoom, {
-      bufferMeters = 250,
-      maxTiles = 40
+      corridorBufferTiles = 0
     } = {}) {
       const points = (Array.isArray(latlngs) ? latlngs : [])
         .map((pt) => L.latLng(pt?.lat ?? pt?.[0], pt?.lng ?? pt?.[1]))
         .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lng));
       if (!points.length) return [];
-      const sampled = downsamplePoints(points, 1000);
+      const sampled = downsamplePoints(points, 2000);
       const world = 2 ** zoom;
-      const origin = tileCenterLatLng(0, 0, zoom);
-      const eastTile = tileCenterLatLng(1, 0, zoom);
-      const southTile = tileCenterLatLng(0, 1, zoom);
-      const tileWidthMeters = Math.max(1, haversineMeters(origin.lat, origin.lng, origin.lat, eastTile.lng));
-      const tileHeightMeters = Math.max(1, haversineMeters(origin.lat, origin.lng, southTile.lat, origin.lng));
-      const radiusX = Math.max(0, Math.ceil(bufferMeters / tileWidthMeters));
-      const radiusY = Math.max(0, Math.ceil(bufferMeters / tileHeightMeters));
+      const radius = Math.max(0, Math.floor(corridorBufferTiles));
       const seen = new Set();
       const ordered = [];
       sampled.forEach((latlng) => {
         const x = clamp(lon2tile(latlng.lng, zoom), 0, world - 1);
         const y = clamp(lat2tile(latlng.lat, zoom), 0, world - 1);
-        for (let dx = -radiusX; dx <= radiusX; dx += 1) {
-          for (let dy = -radiusY; dy <= radiusY; dy += 1) {
+        for (let dx = -radius; dx <= radius; dx += 1) {
+          for (let dy = -radius; dy <= radius; dy += 1) {
             const nx = x + dx;
             const ny = y + dy;
             if (nx < 0 || ny < 0 || nx >= world || ny >= world) continue;
@@ -3924,12 +3924,10 @@
             if (seen.has(key)) continue;
             seen.add(key);
             ordered.push({ x: nx, y: ny, z: zoom });
-            if (ordered.length >= maxTiles) return;
           }
-          if (ordered.length >= maxTiles) return;
         }
       });
-      return ordered.slice(0, maxTiles);
+      return ordered;
     }
 
     function estimateDataUrlBytes(dataUrl) {
@@ -4103,15 +4101,7 @@
     }
 
     function getOfflineMapDetailPreset(detail) {
-      const preset = OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.basic;
-      if (!(typeof isIOS === 'function' && isIOS())) return preset;
-      if (detail === 'off' || detail === 'basic') return preset;
-      return {
-        ...preset,
-        zoomOffset: 0,
-        tileLimit: 40,
-        iosSafeMode: true
-      };
+      return OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.basic;
     }
 
     function fetchWithTimeout(url, options = {}, timeoutMs = 5000) {
@@ -4138,7 +4128,8 @@
     async function tryBuildTileSnapshotTexture(routeBBox, {
       latlngs = [],
       zoomOffset = 0,
-      maxTiles = 40,
+      maxTotalBytes = OFFLINE_TILE_MAX_TOTAL_BYTES_BASIC,
+      corridorBufferTiles = 0,
       detail = 'basic',
       coverage = OFFLINE_TILE_COVERAGE_MODES.routeCorridor
     } = {}) {
@@ -4146,13 +4137,7 @@
       const isIosDevice = typeof isIOS === 'function' && isIOS();
       const tileFetchConcurrency = isIosDevice ? 1 : 4;
       const tileFetchTimeoutMs = isIosDevice ? null : 5000;
-      const effectiveZoomOffset = isIosDevice ? 0 : zoomOffset;
-      const effectiveMaxTiles = isIosDevice
-        ? Math.min(maxTiles, 40)
-        : maxTiles;
-      if (isIosDevice && maxTiles > effectiveMaxTiles) {
-        console.warn('[offline-tiles] iOS tile limit capped', { requestedLimit: maxTiles, effectiveMaxTiles });
-      }
+      const absoluteSafetyLimit = isIosDevice ? OFFLINE_TILE_MAX_ABSOLUTE_COUNT_IOS : OFFLINE_TILE_MAX_ABSOLUTE_COUNT_DESKTOP;
       if (!activeBaseLayer || typeof activeBaseLayer.getTileUrl !== 'function') {
         console.log('[offline-tiles] using grid fallback');
         return buildGridTexturePackage();
@@ -4163,7 +4148,10 @@
         return buildGridTexturePackage();
       }
       const currentZoom = Math.max(0, Math.floor(map.getZoom()));
-      const snapshotZoom = Math.min(currentZoom + effectiveZoomOffset, OFFLINE_TILE_SNAPSHOT_MAX_ZOOM);
+      const snapshotZoom = Math.min(
+        currentZoom + zoomOffset,
+        OFFLINE_TILE_SNAPSHOT_MAX_ZOOM
+      );
       const mapCenter = map.getCenter();
       const snapshotCenter = [mapCenter.lat, mapCenter.lng];
       const snapshotBounds = [
@@ -4176,8 +4164,7 @@
       const useRouteCorridor = coverage === OFFLINE_TILE_COVERAGE_MODES.routeCorridor;
       if (useRouteCorridor) {
         requested = getRouteCorridorTileCoords(latlngs, snapshotZoom, {
-          bufferMeters: 250,
-          maxTiles: effectiveMaxTiles
+          corridorBufferTiles
         });
       }
       if (!requested.length) {
@@ -4189,30 +4176,37 @@
           seen.add(key);
         }
       }
+
+      if (requested.length > absoluteSafetyLimit) {
+        console.warn('[offline-tiles] absolute safety tile count reached', {
+          requested: requested.length,
+          absoluteSafetyLimit,
+          detail,
+          snapshotZoom
+        });
+        requested = requested.slice(0, absoluteSafetyLimit);
+      }
+
       console.log('[offline-tiles] selection mode', {
         mode: useRouteCorridor ? OFFLINE_TILE_SELECTION_MODE : OFFLINE_TILE_COVERAGE_MODES.routeBoundingBox,
         candidates: requested.length,
-        zoom: snapshotZoom
+        zoom: snapshotZoom,
+        corridorBufferTiles,
+        absoluteSafetyLimit
       });
-      console.log('[offline-tiles] candidate tiles', requested.length);
-      if (requested.length > effectiveMaxTiles) {
-        console.warn('[offline-tiles] tile limit reached');
-        requested = requested.slice(0, effectiveMaxTiles);
-      }
       console.log('[offline-tiles] snapshot zoom', {
         sourceViewZoom: currentZoom,
         snapshotZoom,
-        requestedMaxTiles: maxTiles,
-        effectiveMaxTiles,
         zoomOffset,
-        effectiveZoomOffset,
         tileFetchConcurrency,
         tileFetchTimeoutMs,
-        isIosDevice
+        isIosDevice,
+        maxTotalBytes
       });
+
       const tiles = [];
       let totalBytes = 0;
-      let limitReached = false;
+      let budgetReached = false;
       let failedCount = 0;
       const tileStats = {
         requested: requested.length,
@@ -4222,30 +4216,30 @@
         detail,
         snapshotZoom,
         sourceViewZoom: currentZoom,
+        maxTotalBytes,
         methods: {},
         errors: {},
-        fallbackAttempts: 0
+        fallbackAttempts: 0,
+        budgetReached: false
       };
 
       const saveTileFromDataUrl = (coords, dataUrl, method = 'fetch') => {
         const estimatedBytes = estimateDataUrlBytes(dataUrl);
         if (estimatedBytes > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) throw new Error('encoded tile too large');
-        if ((totalBytes + estimatedBytes) > OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES) {
-          limitReached = true;
-          console.warn('[offline-tiles] tile limit reached');
+        if ((totalBytes + estimatedBytes) > maxTotalBytes) {
+          budgetReached = true;
+          tileStats.budgetReached = true;
+          console.warn('[offline-tiles] byte budget reached', {
+            totalBytes,
+            maxTotalBytes,
+            savedTiles: tiles.length
+          });
           return;
         }
         totalBytes += estimatedBytes;
         tiles.push({ ...coords, dataUrl });
         tileStats.saved += 1;
         tileStats.methods[method] = (tileStats.methods[method] || 0) + 1;
-        console.log('[offline-tiles] tile saved', {
-          z: coords.z,
-          x: coords.x,
-          y: coords.y,
-          method,
-          bytes: estimatedBytes
-        });
       };
 
       const recordTileFailure = (coords, url, err) => {
@@ -4265,7 +4259,7 @@
 
       if (isIosDevice) {
         for (const coords of requested) {
-          if (limitReached) break;
+          if (budgetReached) break;
           let url = '';
           try {
             url = activeBaseLayer.getTileUrl(coords);
@@ -4287,7 +4281,7 @@
         }
       } else {
         const tileTasks = requested.map((coords) => async () => {
-          if (limitReached) return;
+          if (budgetReached) return;
           const url = activeBaseLayer.getTileUrl(coords);
           try {
             if (!url) throw new Error('missing tile URL');
@@ -4308,6 +4302,7 @@
       }
 
       tileStats.saved = tiles.length;
+      tileStats.totalBytes = totalBytes;
       console.log('[offline-tiles] snapshot complete', tileStats);
       if (!tiles.length) {
         console.log('[offline-tiles] using grid fallback');
@@ -4317,15 +4312,20 @@
         type: 'tiles',
         tileSize: 256,
         detail,
+        sourceViewZoom: currentZoom,
         baseZoom: snapshotZoom,
         zoom: snapshotZoom,
-        sourceViewZoom: currentZoom,
-        minZoom: snapshotZoom,
-        maxZoom: snapshotZoom + 2,
+        zoomOffset,
+        minAvailableZoom: snapshotZoom,
+        maxAvailableZoom: snapshotZoom,
         center: snapshotCenter,
+        routeBbox: routeBBox,
         bounds: snapshotBounds,
         fallbackColor: '#111',
         attribution: activeBaseLayer.options?.attribution || '',
+        maxTotalBytes,
+        totalBytes,
+        budgetReached,
         tiles
       };
     }
@@ -4349,7 +4349,8 @@
         mapTexture = await tryBuildTileSnapshotTexture(routeBBox, {
           latlngs,
           zoomOffset: preset.zoomOffset,
-          maxTiles: preset.tileLimit,
+          maxTotalBytes: preset.maxTotalBytes,
+          corridorBufferTiles: preset.corridorBufferTiles,
           detail,
           coverage
         });
@@ -4378,7 +4379,7 @@
         offlineSaveMeta: {
           detail,
           coverage,
-          iosSafeMode: Boolean(preset.iosSafeMode)
+          iosSafeMode: false
         }
       };
     }
@@ -4400,6 +4401,8 @@
           ok: true,
           id: pkg.id,
           tileCount: pkg.mapTexture?.tiles?.length || 0,
+          totalBytes: pkg.mapTexture?.totalBytes || 0,
+          budgetReached: Boolean(pkg.mapTexture?.budgetReached),
           textureType: pkg.mapTexture?.type || 'grid',
           detail,
           iosSafeMode: Boolean(pkg.offlineSaveMeta?.iosSafeMode)
@@ -4434,6 +4437,33 @@
       }
       console.log('[offline-tiles] using saved tile layer');
       const tileMap = new Map((pkg.mapTexture.tiles || []).map((tile) => [`${tile.z}/${tile.x}/${tile.y}`, tile.dataUrl]));
+      const availableZooms = Array.from(new Set((pkg.mapTexture.tiles || []).map((tile) => Number(tile.z)).filter(Number.isFinite))).sort((a, b) => a - b);
+      const loadDataUrlImage = (dataUrl) => new Promise((resolve) => {
+        if (!dataUrl) {
+          resolve(null);
+          return;
+        }
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = dataUrl;
+      });
+      const drawFallbackGrid = (ctx, size, color = (pkg.mapTexture.fallbackColor || '#111')) => {
+        ctx.fillStyle = color;
+        ctx.fillRect(0, 0, size, size);
+        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(0, 0, size, size);
+        const step = Math.max(16, Math.floor(size / 4));
+        ctx.beginPath();
+        for (let i = step; i < size; i += step) {
+          ctx.moveTo(i, 0);
+          ctx.lineTo(i, size);
+          ctx.moveTo(0, i);
+          ctx.lineTo(size, i);
+        }
+        ctx.stroke();
+      };
       const getParentTileMatch = (coords) => {
         for (let parentZ = coords.z - 1; parentZ >= 0; parentZ -= 1) {
           const levelDelta = coords.z - parentZ;
@@ -4454,6 +4484,26 @@
         }
         return null;
       };
+      const getChildrenMatch = (coords) => {
+        const savedZ = availableZooms.find((z) => z > coords.z);
+        if (!Number.isFinite(savedZ)) return null;
+        const dz = savedZ - coords.z;
+        const scale = 2 ** dz;
+        const startX = coords.x * scale;
+        const startY = coords.y * scale;
+        const children = [];
+        for (let dx = 0; dx < scale; dx += 1) {
+          for (let dy = 0; dy < scale; dy += 1) {
+            const x = startX + dx;
+            const y = startY + dy;
+            const key = `${savedZ}/${x}/${y}`;
+            children.push({ key, x, y, dx, dy, dataUrl: tileMap.get(key) || '' });
+          }
+        }
+        if (!children.some((item) => item.dataUrl)) return null;
+        return { savedZ, dz, scale, children };
+      };
+
       offlineTextureLayer = L.gridLayer({
         tileSize: Number(pkg.mapTexture.tileSize) || 256,
         noWrap: false,
@@ -4465,51 +4515,81 @@
         const key = `${coords.z}/${coords.x}/${coords.y}`;
         const dataUrl = tileMap.get(key);
         const parentMatch = dataUrl ? null : getParentTileMatch(coords);
-        if (createTileLogCount < 20) {
-          console.log('[offline-tiles] createTile', { key, hit: Boolean(dataUrl), parentHit: Boolean(parentMatch) });
+        const childrenMatch = (!dataUrl && !parentMatch) ? getChildrenMatch(coords) : null;
+
+        const tileCanvas = document.createElement('canvas');
+        tileCanvas.width = size;
+        tileCanvas.height = size;
+        const ctx = tileCanvas.getContext('2d');
+
+        const logCreateTile = (mode, hit, sourceKeys = []) => {
+          if (createTileLogCount >= 30) return;
+          console.log('[offline-tiles] createTile', {
+            requested: key,
+            mode,
+            hit,
+            sourceKeys
+          });
           createTileLogCount += 1;
-        }
-        const fallback = document.createElement('canvas');
-        fallback.width = size;
-        fallback.height = size;
-        const ctx = fallback.getContext('2d');
+        };
 
-        if (!dataUrl && !parentMatch) {
-          ctx.fillStyle = pkg.mapTexture.fallbackColor || '#111';
-          ctx.fillRect(0, 0, size, size);
-          ctx.strokeStyle = 'rgba(255,255,255,0.06)';
-          ctx.lineWidth = 1;
-          ctx.strokeRect(0, 0, size, size);
-          setTimeout(() => done?.(null, fallback), 0);
-          return fallback;
-        }
-
-        const sourceUrl = dataUrl || parentMatch.parentDataUrl;
-        const tile = document.createElement('img');
-        tile.width = size;
-        tile.height = size;
-        tile.alt = '';
-        tile.onload = () => {
+        (async () => {
           if (dataUrl) {
-            done?.(null, tile);
+            const exact = await loadDataUrlImage(dataUrl);
+            if (exact) {
+              logCreateTile('exact', true, [key]);
+              done?.(null, exact);
+              return;
+            }
+          }
+
+          if (parentMatch) {
+            const parentImg = await loadDataUrlImage(parentMatch.parentDataUrl);
+            if (parentImg) {
+              const scale = 2 ** parentMatch.levelDelta;
+              const srcSize = size / scale;
+              const srcX = (coords.x % scale) * srcSize;
+              const srcY = (coords.y % scale) * srcSize;
+              ctx.imageSmoothingEnabled = true;
+              ctx.drawImage(parentImg, srcX, srcY, srcSize, srcSize, 0, 0, size, size);
+              logCreateTile('parent', true, [parentMatch.parentKey]);
+              done?.(null, tileCanvas);
+              return;
+            }
+          }
+
+          if (childrenMatch) {
+            drawFallbackGrid(ctx, size);
+            const childSize = size / childrenMatch.scale;
+            const sourceKeys = [];
+            await Promise.all(childrenMatch.children.map(async (child) => {
+              if (!child.dataUrl) return;
+              const childImg = await loadDataUrlImage(child.dataUrl);
+              if (!childImg) return;
+              sourceKeys.push(child.key);
+              ctx.drawImage(
+                childImg,
+                child.dx * childSize,
+                child.dy * childSize,
+                childSize,
+                childSize
+              );
+            }));
+            logCreateTile('children', sourceKeys.length > 0, sourceKeys);
+            done?.(null, tileCanvas);
             return;
           }
-          const scale = 2 ** parentMatch.levelDelta;
-          const srcSize = size / scale;
-          const srcX = (coords.x % scale) * srcSize;
-          const srcY = (coords.y % scale) * srcSize;
-          ctx.imageSmoothingEnabled = true;
-          ctx.drawImage(tile, srcX, srcY, srcSize, srcSize, 0, 0, size, size);
-          done?.(null, fallback);
-        };
-        tile.onerror = () => {
-          console.warn('[offline-tiles] dataUrl image failed', dataUrl ? key : parentMatch.parentKey);
-          ctx.fillStyle = pkg.mapTexture.fallbackColor || '#111';
-          ctx.fillRect(0, 0, size, size);
-          done?.(null, fallback);
-        };
-        tile.src = sourceUrl;
-        return dataUrl ? tile : fallback;
+
+          drawFallbackGrid(ctx, size);
+          logCreateTile('fallback', false, []);
+          done?.(null, tileCanvas);
+        })().catch(() => {
+          drawFallbackGrid(ctx, size);
+          logCreateTile('fallback', false, []);
+          done?.(null, tileCanvas);
+        });
+
+        return tileCanvas;
       };
       offlineTextureLayer.addTo(map);
       if (offlineTextureLayer.bringToBack) {
@@ -4792,10 +4872,11 @@
           console.log('[offline-route] save result', result);
           if (result?.ok) {
             if (result.tileCount > 0) {
-              if (result.iosSafeMode) {
-                showMapToast(`Route saved with ${result.tileCount} offline map tiles. iOS safe mode used.`);
+              const sizeMb = (Number(result.totalBytes || 0) / 1024 / 1024).toFixed(1);
+              if (result.budgetReached) {
+                showMapToast(`Route saved with ${result.tileCount} offline map tiles (~${sizeMb} MB, storage limit reached).`);
               } else {
-                showMapToast(`Route saved with ${result.tileCount} offline map tiles.`);
+                showMapToast(`Route saved with ${result.tileCount} offline map tiles (~${sizeMb} MB).`);
               }
             } else {
               showMapToast('Route saved without offline map tiles.');
@@ -4846,25 +4927,13 @@
       const select = document.getElementById('offlineMapDetailSelect');
       const hint = document.getElementById('offlineMapDetailHint');
       if (!select) return;
-      const iOSSafe = typeof isIOS === 'function' && isIOS();
-      const standardOption = select.querySelector('option[value="standard"]');
-      const highOption = select.querySelector('option[value="high"]');
-      if (iOSSafe) {
-        if (standardOption) standardOption.textContent = 'Standard – iOS safe mode (same as Basic)';
-        if (highOption) highOption.textContent = 'High – iOS safe mode (same as Basic)';
-        if (hint) hint.textContent = 'On iOS, Standard and High currently use the same safe tile settings as Basic.';
-      } else if (hint) {
-        hint.textContent = 'Controls how many map tiles are saved with a route. Higher detail uses more storage.';
+      if (hint) {
+        hint.textContent = 'Controls offline map storage budget and detail. Higher detail uses more storage.';
       }
       select.value = getOfflineMapDetailSetting();
       select.addEventListener('change', () => {
         const value = setOfflineMapDetailSetting(select.value);
-        const preset = getOfflineMapDetailPreset(value);
-        if (preset.iosSafeMode) {
-          showMapToast(`Offline map detail: ${OFFLINE_MAP_DETAIL_PRESETS[value].label} (iOS safe mode = Basic).`);
-        } else {
-          showMapToast(`Offline map detail: ${OFFLINE_MAP_DETAIL_PRESETS[value].label}`);
-        }
+        showMapToast(`Offline map detail: ${OFFLINE_MAP_DETAIL_PRESETS[value].label}`);
       });
     }
 
