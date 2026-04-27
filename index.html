@@ -4044,8 +4044,15 @@
     } = {}) {
       console.log('[offline-tiles] snapshot start');
       const isIosDevice = typeof isIOS === 'function' && isIOS();
-      const tileFetchConcurrency = isIosDevice ? 2 : 4;
-      const tileFetchTimeoutMs = isIosDevice ? 10000 : 5000;
+      const tileFetchConcurrency = isIosDevice ? 1 : 4;
+      const tileFetchTimeoutMs = isIosDevice ? null : 5000;
+      const effectiveZoomOffset = isIosDevice ? 0 : zoomOffset;
+      const effectiveMaxTiles = isIosDevice
+        ? Math.min(maxTiles, 40)
+        : maxTiles;
+      if (isIosDevice && maxTiles > effectiveMaxTiles) {
+        console.warn('[offline-tiles] iOS tile limit capped', { requestedLimit: maxTiles, effectiveMaxTiles });
+      }
       if (isIosDevice && detail === 'high') {
         console.warn('[offline-tiles] high detail on iOS may use significant storage');
       }
@@ -4059,7 +4066,7 @@
         return buildGridTexturePackage();
       }
       const currentZoom = Math.max(0, Math.floor(map.getZoom()));
-      const snapshotZoom = Math.min(currentZoom + zoomOffset, OFFLINE_TILE_SNAPSHOT_MAX_ZOOM);
+      const snapshotZoom = Math.min(currentZoom + effectiveZoomOffset, OFFLINE_TILE_SNAPSHOT_MAX_ZOOM);
       const mapCenter = map.getCenter();
       const snapshotCenter = [mapCenter.lat, mapCenter.lng];
       const snapshotBounds = [
@@ -4077,14 +4084,17 @@
         seen.add(key);
       }
       console.log('[offline-tiles] candidate tiles', requested.length);
-      if (requested.length > maxTiles) {
+      if (requested.length > effectiveMaxTiles) {
         console.warn('[offline-tiles] tile limit reached');
-        requested = requested.slice(0, maxTiles);
+        requested = requested.slice(0, effectiveMaxTiles);
       }
       console.log('[offline-tiles] snapshot zoom', {
         sourceViewZoom: currentZoom,
         snapshotZoom,
-        maxTiles,
+        requestedMaxTiles: maxTiles,
+        effectiveMaxTiles,
+        zoomOffset,
+        effectiveZoomOffset,
         tileFetchConcurrency,
         tileFetchTimeoutMs,
         isIosDevice
@@ -4092,70 +4102,102 @@
       const tiles = [];
       let totalBytes = 0;
       let limitReached = false;
+      let failedCount = 0;
       const tileStats = {
         requested: requested.length,
         saved: 0,
         failed: 0,
+        ios: isIosDevice,
+        detail,
+        snapshotZoom,
+        sourceViewZoom: currentZoom,
         methods: {},
         errors: {},
         fallbackAttempts: 0
       };
-      const tileTasks = requested.map((coords) => async () => {
-        if (limitReached) return;
-        const url = activeBaseLayer.getTileUrl(coords);
-        try {
-          if (!url) throw new Error('missing tile URL');
-          const loaded = await fetchTileDataUrl(url, {
-            timeoutMs: tileFetchTimeoutMs,
-            size: Number(activeBaseLayer.options?.tileSize) || 256
-          });
-          if (loaded.fallbackTried) tileStats.fallbackAttempts += 1;
-          if (!loaded.ok) {
-            throw new Error(`${loaded.name || ''} ${loaded.error || 'tile-load-failed'}`.trim());
-          }
-          const dataUrl = loaded.dataUrl;
-          const estimatedBytes = loaded.bytes;
-          if (estimatedBytes > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) throw new Error('encoded tile too large');
-          if ((totalBytes + estimatedBytes) > OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES) {
-            limitReached = true;
-            console.warn('[offline-tiles] tile limit reached');
-            return;
-          }
-          totalBytes += estimatedBytes;
-          tiles.push({ ...coords, dataUrl });
-          tileStats.saved += 1;
-          tileStats.methods[loaded.method] = (tileStats.methods[loaded.method] || 0) + 1;
-          console.log('[offline-tiles] tile saved', {
-            z: coords.z,
-            x: coords.x,
-            y: coords.y,
-            method: loaded.method,
-            bytes: estimatedBytes
-          });
-        } catch (err) {
-          tileStats.failed += 1;
-          const reason = err?.message || err?.name || 'unknown';
-          tileStats.errors[reason] = (tileStats.errors[reason] || 0) + 1;
-          console.log('[offline-tiles] tile failed', {
-            z: coords.z,
-            x: coords.x,
-            y: coords.y,
-            url,
-            name: err?.name,
-            message: err?.message
-          });
+
+      const saveTileFromDataUrl = (coords, dataUrl, method = 'fetch') => {
+        const estimatedBytes = estimateDataUrlBytes(dataUrl);
+        if (estimatedBytes > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) throw new Error('encoded tile too large');
+        if ((totalBytes + estimatedBytes) > OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES) {
+          limitReached = true;
+          console.warn('[offline-tiles] tile limit reached');
+          return;
         }
-      });
-      await runTaskQueue(tileTasks, tileFetchConcurrency);
-      console.log('[offline-tiles] snapshot complete', {
-        detail,
-        requested: tileStats.requested,
-        saved: tileStats.saved,
-        failed: tileStats.failed,
-        methods: tileStats.methods,
-        errors: tileStats.errors,
-        fallbackAttempts: tileStats.fallbackAttempts
-      });
+        totalBytes += estimatedBytes;
+        tiles.push({ ...coords, dataUrl });
+        tileStats.saved += 1;
+        tileStats.methods[method] = (tileStats.methods[method] || 0) + 1;
+        console.log('[offline-tiles] tile saved', {
+          z: coords.z,
+          x: coords.x,
+          y: coords.y,
+          method,
+          bytes: estimatedBytes
+        });
+      };
+
+      const recordTileFailure = (coords, url, err) => {
+        failedCount += 1;
+        tileStats.failed = failedCount;
+        const reason = err?.message || err?.name || 'unknown';
+        tileStats.errors[reason] = (tileStats.errors[reason] || 0) + 1;
+        console.log('[offline-tiles] tile failed', {
+          z: coords.z,
+          x: coords.x,
+          y: coords.y,
+          url,
+          name: err?.name,
+          message: err?.message
+        });
+      };
+
+      if (isIosDevice) {
+        for (const coords of requested) {
+          if (limitReached) break;
+          let url = '';
+          try {
+            url = activeBaseLayer.getTileUrl(coords);
+            if (!url) throw new Error('missing tile URL');
+            const res = await fetch(url, { mode: 'cors' });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const blob = await res.blob();
+            if (blob.size > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) {
+              throw new Error(`tile too large: ${blob.size}`);
+            }
+            const dataUrl = await blobToDataUrl(blob);
+            if (!dataUrl || !dataUrl.startsWith('data:')) {
+              throw new Error('invalid fetch data URL');
+            }
+            saveTileFromDataUrl(coords, dataUrl, 'fetch');
+          } catch (err) {
+            recordTileFailure(coords, url, err);
+          }
+        }
+      } else {
+        const tileTasks = requested.map((coords) => async () => {
+          if (limitReached) return;
+          const url = activeBaseLayer.getTileUrl(coords);
+          try {
+            if (!url) throw new Error('missing tile URL');
+            const loaded = await fetchTileDataUrl(url, {
+              timeoutMs: tileFetchTimeoutMs,
+              size: Number(activeBaseLayer.options?.tileSize) || 256
+            });
+            if (loaded.fallbackTried) tileStats.fallbackAttempts += 1;
+            if (!loaded.ok) {
+              throw new Error(`${loaded.name || ''} ${loaded.error || 'tile-load-failed'}`.trim());
+            }
+            saveTileFromDataUrl(coords, loaded.dataUrl, loaded.method);
+          } catch (err) {
+            recordTileFailure(coords, url, err);
+          }
+        });
+        await runTaskQueue(tileTasks, tileFetchConcurrency);
+      }
+
+      tileStats.saved = tiles.length;
+      console.log('[offline-tiles] snapshot complete', tileStats);
       if (!tiles.length) {
         console.log('[offline-tiles] using grid fallback');
         return buildGridTexturePackage();
