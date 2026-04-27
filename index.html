@@ -4104,6 +4104,38 @@
       return OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.basic;
     }
 
+    function getEffectiveOfflineMapDetailPreset(detail) {
+      const base = OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.basic;
+      const ios = typeof isIOS === 'function' && isIOS();
+
+      if (!ios) {
+        return {
+          ...base,
+          detail,
+          iosSafeMode: false
+        };
+      }
+
+      if (detail === 'off') {
+        return {
+          ...base,
+          detail,
+          iosSafeMode: true
+        };
+      }
+
+      return {
+        ...OFFLINE_MAP_DETAIL_PRESETS.basic,
+        detail,
+        zoomOffset: 0,
+        maxTotalBytes: OFFLINE_TILE_MAX_TOTAL_BYTES_BASIC,
+        corridorBufferTiles: 0,
+        iosSafeMode: true,
+        label: base.label || 'Basic',
+        description: 'iOS stable mode'
+      };
+    }
+
     function fetchWithTimeout(url, options = {}, timeoutMs = 5000) {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -4135,6 +4167,13 @@
     } = {}) {
       console.log('[offline-tiles] snapshot start');
       const isIosDevice = typeof isIOS === 'function' && isIOS();
+      console.log('[offline-tiles] effective preset', {
+        detail,
+        zoomOffset,
+        maxTotalBytes,
+        corridorBufferTiles,
+        isIosDevice
+      });
       const tileFetchConcurrency = isIosDevice ? 1 : 4;
       const tileFetchTimeoutMs = isIosDevice ? null : 5000;
       const absoluteSafetyLimit = isIosDevice ? OFFLINE_TILE_MAX_ABSOLUTE_COUNT_IOS : OFFLINE_TILE_MAX_ABSOLUTE_COUNT_DESKTOP;
@@ -4186,6 +4225,19 @@
         });
         requested = requested.slice(0, absoluteSafetyLimit);
       }
+      if (isIosDevice && requested.length > 40) {
+        console.warn('[offline-tiles] iOS stable candidate cap applied', {
+          requested: requested.length,
+          cappedTo: 40,
+          detail,
+          snapshotZoom
+        });
+        requested = requested.slice(0, 40);
+      }
+      console.log('[offline-tiles] candidates after platform limits', {
+        count: requested.length,
+        isIosDevice
+      });
 
       console.log('[offline-tiles] selection mode', {
         mode: useRouteCorridor ? OFFLINE_TILE_SELECTION_MODE : OFFLINE_TILE_COVERAGE_MODES.routeBoundingBox,
@@ -4304,6 +4356,16 @@
       tileStats.saved = tiles.length;
       tileStats.totalBytes = totalBytes;
       console.log('[offline-tiles] snapshot complete', tileStats);
+      console.log('[offline-tiles] snapshot complete', {
+        requested: tileStats.requested,
+        saved: tiles.length,
+        failed: failedCount,
+        ios: isIosDevice,
+        detail,
+        snapshotZoom,
+        sourceViewZoom: currentZoom,
+        totalBytes
+      });
       if (!tiles.length) {
         console.log('[offline-tiles] using grid fallback');
         return buildGridTexturePackage();
@@ -4339,7 +4401,7 @@
       const pois = activePoints.map(freezePoiForOffline).filter(Boolean);
       const routeBBox = [Math.min(...lats), Math.min(...lngs), Math.max(...lats), Math.max(...lngs)];
       const detail = getOfflineMapDetailSetting();
-      const preset = getOfflineMapDetailPreset(detail);
+      const preset = getEffectiveOfflineMapDetailPreset(detail);
       const coverage = getOfflineTileCoverageSetting();
       console.log('[offline-route] save setting', { detail, preset });
       let mapTexture = buildGridTexturePackage();
@@ -4379,7 +4441,7 @@
         offlineSaveMeta: {
           detail,
           coverage,
-          iosSafeMode: false
+          iosSafeMode: Boolean(preset.iosSafeMode)
         }
       };
     }
@@ -4873,7 +4935,9 @@
           if (result?.ok) {
             if (result.tileCount > 0) {
               const sizeMb = (Number(result.totalBytes || 0) / 1024 / 1024).toFixed(1);
-              if (result.budgetReached) {
+              if (result.iosSafeMode) {
+                showMapToast(`Route saved with ${result.tileCount} offline map tiles. iOS stable mode used.`);
+              } else if (result.budgetReached) {
                 showMapToast(`Route saved with ${result.tileCount} offline map tiles (~${sizeMb} MB, storage limit reached).`);
               } else {
                 showMapToast(`Route saved with ${result.tileCount} offline map tiles (~${sizeMb} MB).`);
@@ -4927,13 +4991,26 @@
       const select = document.getElementById('offlineMapDetailSelect');
       const hint = document.getElementById('offlineMapDetailHint');
       if (!select) return;
-      if (hint) {
+      const isIosDevice = typeof isIOS === 'function' && isIOS();
+      if (hint && isIosDevice) {
+        hint.textContent = 'On iOS, all detail levels currently use the stable Basic tile mode.';
+      } else if (hint) {
         hint.textContent = 'Controls offline map storage budget and detail. Higher detail uses more storage.';
+      }
+      if (isIosDevice) {
+        const standardOption = select.querySelector('option[value="standard"]');
+        const highOption = select.querySelector('option[value="high"]');
+        if (standardOption) standardOption.textContent = 'Standard – iOS stable mode';
+        if (highOption) highOption.textContent = 'High – iOS stable mode';
       }
       select.value = getOfflineMapDetailSetting();
       select.addEventListener('change', () => {
         const value = setOfflineMapDetailSetting(select.value);
-        showMapToast(`Offline map detail: ${OFFLINE_MAP_DETAIL_PRESETS[value].label}`);
+        const preset = getEffectiveOfflineMapDetailPreset(value);
+        const label = preset.iosSafeMode && value !== 'off'
+          ? `${OFFLINE_MAP_DETAIL_PRESETS[value].label} (iOS stable mode)`
+          : OFFLINE_MAP_DETAIL_PRESETS[value].label;
+        showMapToast(`Offline map detail: ${label}`);
       });
     }
 
