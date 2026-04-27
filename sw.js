@@ -60,11 +60,15 @@ function isStaticAssetRequest(requestUrl) {
   return /\.(?:css|js|mjs|json|webmanifest|png|jpg|jpeg|svg|gif|webp|ico|woff2?|ttf)$/i.test(pathname);
 }
 
-function isTileRequest(requestUrl) {
+function isExternalMapTileRequest(requestUrl) {
   const host = requestUrl.hostname;
+  const path = requestUrl.pathname;
+
   return host.includes('tile.openstreetmap.org')
     || host.includes('basemaps.cartocdn.com')
-    || host.includes('cartocdn.com');
+    || host.includes('cartocdn.com')
+    || /(?:tile|tiles|basemaps?)\./i.test(host)
+    || /(?:\/tiles?\/|\/tile\/)/i.test(path);
 }
 
 function isGeoJsonRequest(requestUrl) {
@@ -129,9 +133,14 @@ self.addEventListener('activate', (event) => {
   console.log('[sw] activate');
   event.waitUntil((async () => {
     const cacheNames = await caches.keys();
+    const KEEP_CACHES = new Set([
+      STATIC_CACHE,
+      GEOJSON_CACHE,
+      OFFLINE_TILE_CACHE_NAME
+    ]);
     await Promise.all(
       cacheNames
-        .filter((name) => name !== STATIC_CACHE && name !== GEOJSON_CACHE && name !== OFFLINE_TILE_CACHE_NAME)
+        .filter((name) => !KEEP_CACHES.has(name))
         .map((name) => caches.delete(name))
     );
 
@@ -228,7 +237,7 @@ async function handleStaticAssetRequest(event) {
   return networkResponse;
 }
 
-async function handleTileRequest(event) {
+async function handleOfflineTileRequest(event) {
   const cache = await caches.open(OFFLINE_TILE_CACHE_NAME);
   const cached = await cache.match(event.request, { ignoreVary: true }) || await cache.match(event.request.url, { ignoreVary: true });
   if (cached) return cached;
@@ -240,6 +249,7 @@ async function handleTileRequest(event) {
     }
     return response;
   } catch (error) {
+    console.warn('[sw] offline tile unavailable', event.request.url);
     return new Response('', {
       status: 504,
       statusText: 'Offline tile unavailable'
@@ -257,13 +267,13 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  if (isGeoJsonRequest(requestUrl)) {
-    event.respondWith(handleGeoJsonRequest(event));
+  if (isExternalMapTileRequest(requestUrl)) {
+    event.respondWith(handleOfflineTileRequest(event));
     return;
   }
 
-  if (isTileRequest(requestUrl)) {
-    event.respondWith(handleTileRequest(event));
+  if (isGeoJsonRequest(requestUrl)) {
+    event.respondWith(handleGeoJsonRequest(event));
     return;
   }
 
