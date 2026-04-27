@@ -1010,7 +1010,7 @@
                     <option value="high">High – more detail</option>
                   </select>
                 </div>
-                <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved along the route at the selected detail level. Other zoom levels use scaled saved tiles.</p>
+                <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved along the route at the selected detail level. A coarse surrounding map is saved for context.</p>
                 <div class="gpx-row">
                   <label for="offlineTileCoverageSelect">Offline tile coverage</label>
                   <select id="offlineTileCoverageSelect">
@@ -2670,6 +2670,9 @@
     const OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES = 600 * 1024;
     const OFFLINE_TILE_SNAPSHOT_BUFFER_RATIO = 0.15;
     const OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG = 0.01;
+    const OFFLINE_CONTEXT_TILE_ZOOM = 10;
+    const OFFLINE_CONTEXT_BBOX_BUFFER_RATIO = 0.35;
+    const OFFLINE_CONTEXT_TILE_ENABLED = true;
     const OFFLINE_TILE_CACHE_NAME = 'munchiesmaps-offline-tiles-v1';
     const OFFLINE_TILE_PROVIDER = {
       id: 'osm-light',
@@ -4236,24 +4239,40 @@
       onProgress = null
     } = {}) {
       if (!enabled) return buildGridTexturePackage();
-      const effectiveZoom = Number.isFinite(snapshotZoom)
+      const routeZoom = Number.isFinite(snapshotZoom)
         ? Math.max(0, Math.floor(snapshotZoom))
         : OFFLINE_TILE_SNAPSHOT_ZOOM;
-      const coordsList = getRouteCorridorTileCoords(latlngs, effectiveZoom, {
+      const contextZoom = Number.isFinite(OFFLINE_CONTEXT_TILE_ZOOM)
+        ? Math.max(0, Math.floor(OFFLINE_CONTEXT_TILE_ZOOM))
+        : 10;
+      const routeCoords = getRouteCorridorTileCoords(latlngs, routeZoom, {
         corridorBufferTiles
       });
-      const requested = coordsList.length
-        ? dedupeTileCoords(coordsList)
-        : buildTileCoordsForBounds(buildBufferedBoundsFromBBox(routeBBox), effectiveZoom);
+      const routeCandidates = routeCoords.length
+        ? dedupeTileCoords(routeCoords)
+        : buildTileCoordsForBounds(buildBufferedBoundsFromBBox(routeBBox), routeZoom);
+      const contextBounds = (OFFLINE_CONTEXT_TILE_ENABLED && enabled)
+        ? buildBufferedBoundsFromBBox(routeBBox, OFFLINE_CONTEXT_BBOX_BUFFER_RATIO)
+        : null;
+      const contextCandidates = contextBounds
+        ? dedupeTileCoords(buildTileCoordsForBounds(contextBounds, contextZoom))
+        : [];
+      const requested = [
+        ...routeCandidates.map((coords) => ({ ...coords, role: 'route' })),
+        ...contextCandidates.map((coords) => ({ ...coords, role: 'context' }))
+      ];
       const tiles = [];
       let totalBytes = 0;
       let failed = 0;
+      let routeTileCount = 0;
+      let contextTileCount = 0;
       onProgress?.({
         phase: 'planning',
-        snapshotZoom: effectiveZoom,
+        snapshotZoom: routeZoom,
+        contextZoom,
         totalPlanned: requested.length,
-        routeCandidates: requested.length,
-        contextCandidates: 0
+        routeCandidates: routeCandidates.length,
+        contextCandidates: contextCandidates.length
       });
       for (let i = 0; i < requested.length; i += 1) {
         const coords = requested[i];
@@ -4282,9 +4301,15 @@
           tiles.push({
             x: coords.x,
             y: coords.y,
-            z: effectiveZoom,
+            z: coords.z,
+            role: coords.role || 'route',
             dataUrl: loaded.dataUrl
           });
+          if (coords.role === 'context') {
+            contextTileCount += 1;
+          } else {
+            routeTileCount += 1;
+          }
         } catch (err) {
           failed += 1;
           console.warn('[offline-tiles] dataUrl tile failed', {
@@ -4308,14 +4333,17 @@
         tileSize: 256,
         tileProvider: OFFLINE_TILE_PROVIDER.id,
         tileProviderTemplate: OFFLINE_TILE_PROVIDER.template,
-        baseZoom: effectiveZoom,
-        zoom: effectiveZoom,
-        snapshotZoom: effectiveZoom,
-        minAvailableZoom: effectiveZoom,
-        maxAvailableZoom: effectiveZoom,
+        baseZoom: routeZoom,
+        zoom: routeZoom,
+        snapshotZoom: routeZoom,
+        contextZoom,
+        minAvailableZoom: Math.min(routeZoom, contextZoom),
+        maxAvailableZoom: routeZoom,
         fallbackColor: '#3b4252',
         attribution: OFFLINE_TILE_PROVIDER.attribution,
         totalBytes,
+        routeTileCount,
+        contextTileCount,
         tiles
       };
     }
@@ -4479,12 +4507,31 @@
         return;
       }
       map.getContainer().dataset.offlineTileMode = 'tiles';
-      const tileMap = new Map(
-        pkg.mapTexture.tiles
-          .filter((tile) => tile?.dataUrl)
-          .map((tile) => [`${tile.z}/${tile.x}/${tile.y}`, tile.dataUrl])
-      );
-      const baseZoom = Number(pkg.mapTexture.baseZoom) || OFFLINE_TILE_SNAPSHOT_ZOOM;
+      const routeTileMap = new Map();
+      const contextTileMap = new Map();
+      const allTileMap = new Map();
+      const availableZooms = new Set();
+      (pkg.mapTexture.tiles || []).forEach((tile) => {
+        if (!tile?.dataUrl) return;
+        const key = `${tile.z}/${tile.x}/${tile.y}`;
+        const role = tile.role || 'route';
+        allTileMap.set(key, tile.dataUrl);
+        availableZooms.add(Number(tile.z));
+        if (role === 'context') {
+          contextTileMap.set(key, tile.dataUrl);
+        } else {
+          routeTileMap.set(key, tile.dataUrl);
+        }
+      });
+      const routeZoom = Number.isFinite(pkg.mapTexture.snapshotZoom)
+        ? Number(pkg.mapTexture.snapshotZoom)
+        : Number(pkg.mapTexture.baseZoom) || OFFLINE_TILE_SNAPSHOT_ZOOM;
+      const contextZoom = Number.isFinite(pkg.mapTexture.contextZoom)
+        ? Number(pkg.mapTexture.contextZoom)
+        : OFFLINE_CONTEXT_TILE_ZOOM;
+      const maxAvailableZoom = Number.isFinite(pkg.mapTexture.maxAvailableZoom)
+        ? Number(pkg.mapTexture.maxAvailableZoom)
+        : routeZoom;
       const drawFallbackGrid = (ctx, size, color = (pkg.mapTexture.fallbackColor || '#3b4252')) => {
         ctx.fillStyle = color;
         ctx.fillRect(0, 0, size, size);
@@ -4516,120 +4563,39 @@
         canvas.height = size;
         return canvas;
       };
-      const createCssTileFromUrl = (url, size, {
-        sourceSize = size,
-        offsetX = 0,
-        offsetY = 0,
-        mode = 'exact-url'
-      } = {}) => {
-        const div = document.createElement('div');
-        div.style.width = `${size}px`;
-        div.style.height = `${size}px`;
-        div.style.backgroundImage = `url("${url}")`;
-        div.style.backgroundRepeat = 'no-repeat';
-        div.style.backgroundSize = `${sourceSize}px ${sourceSize}px`;
-        div.style.backgroundPosition = `-${offsetX}px -${offsetY}px`;
-        div.style.backgroundColor = '#3b4252';
-        div.dataset.tileUrl = url;
-        div.dataset.offlineTile = 'url';
-        div.dataset.offlineTileMode = mode || 'exact-url';
-        return div;
-      };
-      const createCssMosaicTile = (children, size, scale, fallbackColor) => {
-        const container = document.createElement('div');
-        container.style.width = `${size}px`;
-        container.style.height = `${size}px`;
-        container.style.position = 'relative';
-        container.style.overflow = 'hidden';
-        container.style.background = fallbackColor || '#3b4252';
-        const childSize = size / scale;
-        children.forEach((child) => {
-          if (!child.url) return;
-          const childDiv = document.createElement('div');
-          childDiv.style.position = 'absolute';
-          childDiv.style.left = `${child.dx * childSize}px`;
-          childDiv.style.top = `${child.dy * childSize}px`;
-          childDiv.style.width = `${childSize}px`;
-          childDiv.style.height = `${childSize}px`;
-          childDiv.style.backgroundImage = `url("${child.url}")`;
-          childDiv.style.backgroundSize = `${childSize}px ${childSize}px`;
-          childDiv.style.backgroundRepeat = 'no-repeat';
-          childDiv.dataset.tileUrl = child.url;
-          childDiv.dataset.offlineTile = 'url-child';
-          childDiv.dataset.offlineTileMode = 'url-child';
-          container.appendChild(childDiv);
-        });
-        return container;
-      };
-      const getParentTileMatch = (coords) => {
-        const routeZoom = Number.isFinite(pkg.mapTexture.routeZoom) ? pkg.mapTexture.routeZoom : null;
-        const contextZoom = Number.isFinite(pkg.mapTexture.contextZoom) ? pkg.mapTexture.contextZoom : null;
+      function findBestParentDataUrl(coords) {
         for (let parentZ = coords.z - 1; parentZ >= 0; parentZ -= 1) {
-          const levelDelta = coords.z - parentZ;
-          const parentX = Math.floor(coords.x / (2 ** levelDelta));
-          const parentY = Math.floor(coords.y / (2 ** levelDelta));
-          const parentKey = `${parentZ}/${parentX}/${parentY}`;
-          const routeParent = pickEntry(parentKey, 'route');
-          const contextParent = pickEntry(parentKey, 'context');
-          let parentEntry = null;
-
-          if (Number.isFinite(routeZoom) && coords.z >= routeZoom) {
-            parentEntry = routeParent || contextParent || null;
-          } else if (Number.isFinite(routeZoom) && coords.z < routeZoom) {
-            const canUseContextBand = Number.isFinite(contextZoom) ? parentZ >= contextZoom : true;
-            parentEntry = (canUseContextBand ? (contextParent || null) : null) || routeParent || contextParent || null;
-          } else {
-            parentEntry = routeParent || contextParent || null;
-          }
-
-          if (parentEntry?.dataUrl || parentEntry?.url) {
+          const delta = coords.z - parentZ;
+          const parentX = Math.floor(coords.x / (2 ** delta));
+          const parentY = Math.floor(coords.y / (2 ** delta));
+          const key = `${parentZ}/${parentX}/${parentY}`;
+          const routeDataUrl = routeTileMap.get(key);
+          if (routeDataUrl) {
             return {
+              dataUrl: routeDataUrl,
+              key,
               parentZ,
               parentX,
               parentY,
-              parentKey,
-              parentDataUrl: parentEntry.dataUrl || '',
-              parentUrl: parentEntry.url || '',
-              parentRole: parentEntry.role,
-              levelDelta
+              delta,
+              role: 'route'
+            };
+          }
+          const contextDataUrl = contextTileMap.get(key);
+          if (contextDataUrl) {
+            return {
+              dataUrl: contextDataUrl,
+              key,
+              parentZ,
+              parentX,
+              parentY,
+              delta,
+              role: 'context'
             };
           }
         }
         return null;
-      };
-      const getChildrenMatch = (coords) => {
-        const MAX_CHILD_MOSAIC_DELTA = 2;
-        const savedZ = availableZooms.find((z) => z > coords.z && (z - coords.z) <= MAX_CHILD_MOSAIC_DELTA);
-        if (!Number.isFinite(savedZ)) return null;
-        const dz = savedZ - coords.z;
-        if (dz > MAX_CHILD_MOSAIC_DELTA) return null;
-        const scale = 2 ** dz;
-        const startX = coords.x * scale;
-        const startY = coords.y * scale;
-        const children = [];
-        for (let dx = 0; dx < scale; dx += 1) {
-          for (let dy = 0; dy < scale; dy += 1) {
-            const x = startX + dx;
-            const y = startY + dy;
-            const key = `${savedZ}/${x}/${y}`;
-            const routeEntry = pickEntry(key, 'route');
-            const contextEntry = pickEntry(key, 'context');
-            const entry = routeEntry || contextEntry;
-            children.push({
-              key,
-              x,
-              y,
-              dx,
-              dy,
-              dataUrl: entry?.dataUrl || '',
-              url: entry?.url || '',
-              role: entry?.role || 'context'
-            });
-          }
-        }
-        if (!children.some((item) => item.dataUrl || item.url)) return null;
-        return { savedZ, dz, scale, children };
-      };
+      }
 
       offlineTextureLayer = L.gridLayer({
         tileSize: Number(pkg.mapTexture.tileSize) || 256,
@@ -4639,7 +4605,9 @@
       offlineTextureLayer.createTile = function createTile(coords, done) {
         const size = Number(pkg.mapTexture.tileSize) || 256;
         const key = `${coords.z}/${coords.x}/${coords.y}`;
-        const exact = tileMap.get(key);
+        const routeExact = routeTileMap.get(key);
+        const contextExact = contextTileMap.get(key);
+        const exact = routeExact || contextExact || allTileMap.get(key);
         if (exact) {
           const img = document.createElement('img');
           img.width = size;
@@ -4657,14 +4625,11 @@
         const ctx = tileCanvas.getContext('2d');
         (async () => {
           drawFallbackGrid(ctx, size);
-          if (coords.z > baseZoom) {
-            const delta = coords.z - baseZoom;
-            const parentX = Math.floor(coords.x / (2 ** delta));
-            const parentY = Math.floor(coords.y / (2 ** delta));
-            const parentDataUrl = tileMap.get(`${baseZoom}/${parentX}/${parentY}`);
-            const parentImg = await loadImageFromDataUrl(parentDataUrl);
+          const parentMatch = findBestParentDataUrl(coords);
+          if (parentMatch?.dataUrl) {
+            const parentImg = await loadImageFromDataUrl(parentMatch.dataUrl);
             if (parentImg) {
-              const scale = 2 ** delta;
+              const scale = 2 ** parentMatch.delta;
               const srcSize = size / scale;
               const srcX = (coords.x % scale) * srcSize;
               const srcY = (coords.y % scale) * srcSize;
@@ -4674,15 +4639,37 @@
               return;
             }
           }
-          if (coords.z < baseZoom) {
-            const delta = baseZoom - coords.z;
+          if (coords.z < maxAvailableZoom) {
+            let mosaicZoom = null;
+            if (coords.z < contextZoom && Number.isFinite(contextZoom)) {
+              mosaicZoom = contextZoom;
+            }
+            if (coords.z < routeZoom && Number.isFinite(routeZoom)) {
+              mosaicZoom = Math.max(mosaicZoom || 0, routeZoom);
+            }
+            if (!Number.isFinite(mosaicZoom)) {
+              const higherZooms = Array.from(availableZooms).filter((z) => Number.isFinite(z) && z > coords.z);
+              if (higherZooms.length) mosaicZoom = Math.max(...higherZooms);
+            }
+            if (!Number.isFinite(mosaicZoom) || mosaicZoom <= coords.z) {
+              done?.(null, tileCanvas);
+              return;
+            }
+            const delta = mosaicZoom - coords.z;
+            if (delta > 3) {
+              done?.(null, tileCanvas);
+              return;
+            }
             const scale = 2 ** delta;
             const startX = coords.x * scale;
             const startY = coords.y * scale;
             const childSize = size / scale;
             for (let dx = 0; dx < scale; dx += 1) {
               for (let dy = 0; dy < scale; dy += 1) {
-                const dataUrl = tileMap.get(`${baseZoom}/${startX + dx}/${startY + dy}`);
+                const childKey = `${mosaicZoom}/${startX + dx}/${startY + dy}`;
+                const dataUrl = routeTileMap.get(childKey)
+                  || contextTileMap.get(childKey)
+                  || allTileMap.get(childKey);
                 if (!dataUrl) continue;
                 const childImg = await loadImageFromDataUrl(dataUrl);
                 if (!childImg) continue;
@@ -5025,10 +5012,17 @@
             const result = await saveCurrentRouteToCache({
               onProgress: (progress) => {
                 if (progress?.phase === 'planning') {
+                  const routeCount = Number(progress?.routeCandidates || 0);
+                  const contextCount = Number(progress?.contextCandidates || 0);
+                  const hasRoleCounts = routeCount > 0 || contextCount > 0;
                   setOfflineSaveProgress(
                     progress?.snapshotZoom != null
-                      ? `Preparing ${progress.totalPlanned} map tiles at zoom ${progress.snapshotZoom}…`
-                      : `Preparing ${progress.totalPlanned} map tiles…`
+                      ? (hasRoleCounts
+                        ? `Preparing ${progress.totalPlanned} map tiles (${routeCount} route, ${contextCount} context) at zoom ${progress.snapshotZoom}…`
+                        : `Preparing ${progress.totalPlanned} map tiles at zoom ${progress.snapshotZoom}…`)
+                      : (hasRoleCounts
+                        ? `Preparing ${progress.totalPlanned} map tiles (${routeCount} route, ${contextCount} context)…`
+                        : `Preparing ${progress.totalPlanned} map tiles…`)
                   );
                   return;
                 }
