@@ -1005,12 +1005,12 @@
                   <label for="offlineMapDetailSelect">Offline map detail</label>
                   <select id="offlineMapDetailSelect">
                     <option value="off">Off – route and POIs only</option>
-                    <option value="basic" selected>Basic – zoom 13 route tiles</option>
-                    <option value="standard">Standard – zoom 13 route tiles</option>
-                    <option value="high">High – zoom 13 route tiles</option>
+                    <option value="basic" selected>Basic – zoom 14 route tiles</option>
+                    <option value="standard">Standard – zoom 14 route tiles</option>
+                    <option value="high">High – zoom 14 route tiles</option>
                   </select>
                 </div>
-                <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved at zoom level 13 along the route. Other zoom levels use scaled saved tiles.</p>
+                <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved at zoom level 14 along the route. Other zoom levels use scaled saved tiles.</p>
                 <div class="gpx-row">
                   <label for="offlineTileCoverageSelect">Offline tile coverage</label>
                   <select id="offlineTileCoverageSelect">
@@ -2664,7 +2664,7 @@
     const SAVED_GPX_ROUTE_KEY = 'munchiesmaps.savedGpxRoute';
     const OFFLINE_PACKAGE_VERSION = '1.2.0';
     const OFFLINE_TILE_SNAPSHOT_DEFAULT = true;
-    const OFFLINE_TILE_SNAPSHOT_ZOOM = 13;
+    const OFFLINE_TILE_SNAPSHOT_ZOOM = 14;
     const OFFLINE_TILE_CORRIDOR_BUFFER_TILES = 1;
     const OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES = 60 * 1024 * 1024;
     const OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES = 600 * 1024;
@@ -2698,7 +2698,7 @@
         maxTotalBytes: OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES,
         corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'Basic',
-        description: 'Route tiles at zoom 13. Other zoom levels use scaled offline tiles.'
+        description: 'Route tiles at zoom 14. Other zoom levels use scaled offline tiles.'
       },
       standard: {
         enabled: true,
@@ -2707,7 +2707,7 @@
         maxTotalBytes: OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES,
         corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'Standard',
-        description: 'Route tiles at zoom 13. Other zoom levels use scaled offline tiles.'
+        description: 'Route tiles at zoom 14. Other zoom levels use scaled offline tiles.'
       },
       high: {
         enabled: true,
@@ -2716,7 +2716,7 @@
         maxTotalBytes: OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES,
         corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'High',
-        description: 'Route tiles at zoom 13. Other zoom levels use scaled offline tiles.'
+        description: 'Route tiles at zoom 14. Other zoom levels use scaled offline tiles.'
       }
     };
     const GPX_KM_MARKER_INTERVAL_KM = 5;
@@ -5094,13 +5094,13 @@
       if (!select) return;
       const isIosDevice = typeof isIOS === 'function' && isIOS();
       if (hint) {
-        hint.textContent = 'Offline maps are saved at zoom level 13 along the route. Other zoom levels use scaled saved tiles.';
+        hint.textContent = 'Offline maps are saved at zoom level 14 along the route. Other zoom levels use scaled saved tiles.';
       }
       if (isIosDevice) {
         const standardOption = select.querySelector('option[value="standard"]');
         const highOption = select.querySelector('option[value="high"]');
-        if (standardOption) standardOption.textContent = 'Standard – zoom 13 route tiles';
-        if (highOption) highOption.textContent = 'High – zoom 13 route tiles';
+        if (standardOption) standardOption.textContent = 'Standard – zoom 14 route tiles';
+        if (highOption) highOption.textContent = 'High – zoom 14 route tiles';
       }
       select.value = getOfflineMapDetailSetting();
       select.addEventListener('change', () => {
