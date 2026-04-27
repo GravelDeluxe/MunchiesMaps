@@ -1733,6 +1733,13 @@
 
     function updateMapTheme(theme) {
       if (!window.map || !baseLayers) return;
+      if (navigator.onLine === false || window.appState?.isOfflineMode === true) {
+        if (activeBaseLayer && map.hasLayer(activeBaseLayer)) {
+          map.removeLayer(activeBaseLayer);
+        }
+        activeBaseLayer = null;
+        return;
+      }
       const target = theme === 'dark' ? 'dark' : 'light';
       const nextLayer = baseLayers[target];
       if (!nextLayer) return;
@@ -2606,7 +2613,12 @@
 
     let tileOfflineNoticeShown = false;
     const handleTileLayerError = () => {
-      if (navigator.onLine || tileOfflineNoticeShown) return;
+      if (navigator.onLine) return;
+      if (offlineTextureLayer || window.appState?.hasImportedGpx || window.appState?.isOfflineMode) {
+        console.warn('[offline-tiles] suppressed base tile error while offline package is active');
+        return;
+      }
+      if (tileOfflineNoticeShown) return;
       tileOfflineNoticeShown = true;
       showMapToast('Map tiles are unavailable offline.');
       console.warn('Map tiles are unavailable offline.');
@@ -2618,6 +2630,10 @@
 
     const initialTheme = window.__isDarkTheme === true;
     applyTheme(initialTheme);
+    if (navigator.onLine === false && activeBaseLayer && map.hasLayer(activeBaseLayer)) {
+      map.removeLayer(activeBaseLayer);
+      activeBaseLayer = null;
+    }
 
     const MANIFEST_URL = `resources/geojson/manifest.json?v=${APP_VERSION}`;
 
@@ -3835,7 +3851,7 @@
     }
 
     function buildGridTexturePackage() {
-      return { type: 'grid', fallbackColor: '#111' };
+      return { type: 'grid', fallbackColor: '#2b2f36' };
     }
 
     function clamp(value, min, max) {
@@ -4217,6 +4233,7 @@
         const cache = await caches.open(cacheName);
         const existing = await cache.match(url);
         if (existing) {
+          console.log('[offline-tiles] cache hit', { url });
           return {
             ok: true,
             method: 'cache-hit',
@@ -4479,7 +4496,8 @@
             totalPlanned,
             saved: tiles.length,
             failed: tileStats.failed,
-            totalBytes
+            totalBytes,
+            cacheHits: tileStats.methods['cache-hit'] || 0
           });
         }
       };
@@ -4557,7 +4575,7 @@
         routeStart,
         routeBbox: routeBBox,
         bounds: snapshotBounds,
-        fallbackColor: '#111',
+        fallbackColor: '#2b2f36',
         attribution: activeBaseLayer.options?.attribution || '',
         maxTotalBytes,
         totalBytes,
@@ -4699,7 +4717,7 @@
       clearOfflineTexture();
       if (!pkg?.mapTexture || pkg.mapTexture.type !== 'tiles' || !Array.isArray(pkg.mapTexture.tiles) || pkg.mapTexture.tiles.length === 0) {
         console.log('[offline-tiles] using grid fallback');
-        map.getContainer().style.background = 'radial-gradient(circle at 25% 25%, rgba(255,255,255,0.06), transparent 30%), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), #111';
+        map.getContainer().style.background = 'radial-gradient(circle at 25% 25%, rgba(255,255,255,0.08), transparent 35%), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), #2b2f36';
         map.getContainer().style.backgroundSize = 'auto, 32px 32px, 32px 32px, auto';
         return;
       }
@@ -4761,10 +4779,10 @@
         img.onerror = () => resolve(null);
         img.src = dataUrl;
       });
-      const drawFallbackGrid = (ctx, size, color = (pkg.mapTexture.fallbackColor || '#111')) => {
+      const drawFallbackGrid = (ctx, size, color = (pkg.mapTexture.fallbackColor || '#2b2f36')) => {
         ctx.fillStyle = color;
         ctx.fillRect(0, 0, size, size);
-        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+        ctx.strokeStyle = 'rgba(255,255,255,0.14)';
         ctx.lineWidth = 1;
         ctx.strokeRect(0, 0, size, size);
         const step = Math.max(16, Math.floor(size / 4));
@@ -4777,7 +4795,7 @@
         }
         ctx.stroke();
       };
-      const createFallbackCanvas = (size, color = (pkg.mapTexture.fallbackColor || '#111')) => {
+      const createFallbackCanvas = (size, color = (pkg.mapTexture.fallbackColor || '#2b2f36')) => {
         const canvas = document.createElement('canvas');
         canvas.width = size;
         canvas.height = size;
@@ -4803,7 +4821,9 @@
         div.style.backgroundRepeat = 'no-repeat';
         div.style.backgroundSize = `${sourceSize}px ${sourceSize}px`;
         div.style.backgroundPosition = `-${offsetX}px -${offsetY}px`;
-        div.style.backgroundColor = pkg.mapTexture.fallbackColor || '#111';
+        div.style.backgroundColor = pkg.mapTexture.fallbackColor || '#2b2f36';
+        div.dataset.tileUrl = url;
+        div.dataset.offlineTile = 'url';
         return div;
       };
       const createCssMosaicTile = (children, size, scale, fallbackColor) => {
@@ -4812,7 +4832,7 @@
         container.style.height = `${size}px`;
         container.style.position = 'relative';
         container.style.overflow = 'hidden';
-        container.style.background = fallbackColor || '#111';
+        container.style.background = fallbackColor || '#2b2f36';
         const childSize = size / scale;
         children.forEach((child) => {
           if (!child.url) return;
@@ -4825,6 +4845,8 @@
           childDiv.style.backgroundImage = `url("${child.url}")`;
           childDiv.style.backgroundSize = `${childSize}px ${childSize}px`;
           childDiv.style.backgroundRepeat = 'no-repeat';
+          childDiv.dataset.tileUrl = child.url;
+          childDiv.dataset.offlineTile = 'url-child';
           container.appendChild(childDiv);
         });
         return container;
@@ -4915,20 +4937,21 @@
         const parentMatch = !exactEntry ? getParentTileMatch(coords) : null;
         const childrenMatch = (!exactEntry && !parentMatch) ? getChildrenMatch(coords) : null;
 
-        const logCreateTile = (mode, hit, sourceKeys = []) => {
+        const logCreateTile = (mode, hit, sourceKeys = [], details = {}) => {
           if (createTileLogCount >= 50) return;
           console.log('[offline-tiles] createTile', {
             requested: key,
             mode,
             hit,
-            sourceKeys
+            sourceKeys,
+            ...details
           });
           createTileLogCount += 1;
         };
 
         if (exactEntry?.url) {
           const tile = createCssTileFromUrl(exactEntry.url, size);
-          logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact-url', true, [key]);
+          logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact-url', true, [key], { exactUrl: exactEntry.url });
           setTimeout(() => done?.(null, tile), 0);
           return tile;
         }
@@ -4979,7 +5002,7 @@
               offsetX,
               offsetY
             });
-            logCreateTile('url-parent', true, [parentMatch.parentKey]);
+            logCreateTile('url-parent', true, [parentMatch.parentKey], { parentUrl: parentMatch.parentUrl });
             done?.(null, tile);
             return;
           }
@@ -4992,7 +5015,9 @@
               const hasRouteChild = sourceKeys.some((sourceKey) => routeKeySet.has(sourceKey));
               const hasContextChild = sourceKeys.some((sourceKey) => contextKeySet.has(sourceKey));
               const mode = hasRouteChild ? 'url-children' : (hasContextChild ? 'context' : 'url-children');
-              logCreateTile(mode, sourceKeys.length > 0, sourceKeys);
+              logCreateTile(mode, sourceKeys.length > 0, sourceKeys, {
+                childrenUrls: childrenMatch.children.map((child) => child.url).filter(Boolean)
+              });
               done?.(null, urlTile);
               return;
             }
@@ -5028,6 +5053,26 @@
         offlineTextureLayer.bringToBack();
       }
       redrawOfflineTilesSoon();
+    }
+
+    async function debugOfflineTileCacheForPackage(pkg, sampleSize = 10) {
+      try {
+        const cache = await caches.open(OFFLINE_TILE_CACHE_NAME);
+        const sample = (pkg?.mapTexture?.tiles || []).slice(0, sampleSize);
+        const results = [];
+        for (const tile of sample) {
+          const match = tile.url ? await cache.match(tile.url) : null;
+          results.push({
+            key: `${tile.z}/${tile.x}/${tile.y}`,
+            role: tile.role,
+            hasUrl: Boolean(tile.url),
+            cached: Boolean(match)
+          });
+        }
+        console.log('[offline-tiles] cache sample', results);
+      } catch (err) {
+        console.warn('[offline-tiles] cache sample failed', err);
+      }
     }
 
     async function loadSavedRouteFromCache() {
@@ -5094,8 +5139,14 @@
             ? pkg.mapTexture.routeZoom
             : (Number.isFinite(snapshotZoom) ? snapshotZoom : null))
         : null;
-      if (shouldUseOfflineTexture && activeBaseLayer && map.hasLayer(activeBaseLayer)) {
-        map.removeLayer(activeBaseLayer);
+      if (shouldUseOfflineTexture) {
+        Object.values(baseLayers || {}).forEach((layer) => {
+          if (layer && map.hasLayer(layer)) map.removeLayer(layer);
+        });
+        if (activeBaseLayer && map.hasLayer(activeBaseLayer)) {
+          map.removeLayer(activeBaseLayer);
+        }
+        activeBaseLayer = null;
       } else {
         clearOfflineTexture();
         applyTheme(document.documentElement.dataset.theme === 'dark');
@@ -5115,6 +5166,7 @@
       map.setMaxZoom(19);
       if (shouldUseOfflineTexture && hasTileTexture && Number.isFinite(startupZoom) && Array.isArray(snapshotCenter)) {
         map.setView(snapshotCenter, startupZoom, { animate: false });
+        debugOfflineTileCacheForPackage(pkg);
         console.log('[offline-tiles] applying', {
           baseZoom: pkg.mapTexture.baseZoom,
           sourceViewZoom: pkg.mapTexture.sourceViewZoom,
@@ -5335,7 +5387,7 @@
                 }
                 const roleLabel = progress?.phase === 'context' ? 'context' : 'route';
                 setOfflineSaveProgress(
-                  `Saving offline map tiles (${roleLabel}): ${progress?.processed || 0}/${progress?.totalPlanned || 0} processed, ${progress?.saved || 0} saved, ${progress?.failed || 0} failed…`
+                  `Saving offline map tiles (${roleLabel}): ${progress?.processed || 0}/${progress?.totalPlanned || 0} processed, ${progress?.saved || 0} saved (${progress?.cacheHits || 0} cache hits), ${progress?.failed || 0} failed…`
                 );
               }
             });
@@ -5351,8 +5403,8 @@
                 }
                 setOfflineSaveProgress(
                   hasReliableSize
-                    ? `Saved ${result.routeTileCount || 0} route tiles and ${result.contextTileCount || 0} context tiles (~${sizeMb} MB).`
-                    : `Saved ${result.routeTileCount || 0} route tiles and ${result.contextTileCount || 0} context tiles.`
+                    ? `Saved ${result.routeTileCount || 0} route tiles and ${result.contextTileCount || 0} context tiles (~${sizeMb} MB, including cache hits).`
+                    : `Saved ${result.routeTileCount || 0} route tiles and ${result.contextTileCount || 0} context tiles (including cache hits).`
                 );
               } else {
                 showMapToast('Route saved without offline map tiles.');
