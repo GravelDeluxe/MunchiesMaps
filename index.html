@@ -4492,9 +4492,12 @@
           routeTileMap.set(key, tile.dataUrl);
         }
       });
-      const routeZoom = Number.isFinite(pkg.mapTexture.snapshotZoom)
-        ? Number(pkg.mapTexture.snapshotZoom)
-        : Number(pkg.mapTexture.baseZoom) || OFFLINE_TILE_SNAPSHOT_ZOOM;
+      const routeZoom = Number(pkg.mapTexture.snapshotZoom)
+        || Number(pkg.mapTexture.baseZoom)
+        || OFFLINE_TILE_SNAPSHOT_ZOOM;
+      const contextZoom = Number(pkg.mapTexture.contextZoom)
+        || OFFLINE_CONTEXT_TILE_ZOOM;
+      let createTileLogCount = 0;
       const drawFallbackGrid = (ctx, size, color = (pkg.mapTexture.fallbackColor || '#3b4252')) => {
         ctx.fillStyle = color;
         ctx.fillRect(0, 0, size, size);
@@ -4511,112 +4514,124 @@
         }
         ctx.stroke();
       };
-      const createFallbackCanvas = (size, color = (pkg.mapTexture.fallbackColor || '#3b4252')) => {
-        const canvas = document.createElement('canvas');
-        canvas.width = size;
-        canvas.height = size;
-        const ctx = canvas.getContext('2d');
-        drawFallbackGrid(ctx, size, color);
-        canvas.dataset.offlineTileMode = 'fallback';
-        return canvas;
-      };
-      const createBlankCanvas = (size) => {
-        const canvas = document.createElement('canvas');
-        canvas.width = size;
-        canvas.height = size;
-        return canvas;
-      };
-      function findBestParentDataUrl(coords, {
-        includeRoute = true,
-        includeContext = true
-      } = {}) {
-        for (let parentZ = coords.z - 1; parentZ >= 0; parentZ -= 1) {
-          const delta = coords.z - parentZ;
-          const parentX = Math.floor(coords.x / (2 ** delta));
-          const parentY = Math.floor(coords.y / (2 ** delta));
-          const key = `${parentZ}/${parentX}/${parentY}`;
-          const routeDataUrl = includeRoute ? routeTileMap.get(key) : null;
-          if (routeDataUrl && includeRoute) {
-            return {
-              dataUrl: routeDataUrl,
-              key,
-              parentZ,
-              parentX,
-              parentY,
-              delta,
-              role: 'route'
-            };
-          }
-          const contextDataUrl = includeContext ? contextTileMap.get(key) : null;
-          if (contextDataUrl && includeContext) {
-            return {
-              dataUrl: contextDataUrl,
-              key,
-              parentZ,
-              parentX,
-              parentY,
-              delta,
-              role: 'context'
-            };
-          }
+      async function drawContextBaseForTile(ctx, coords, size, contextTiles, contextTileZoom) {
+        drawFallbackGrid(ctx, size);
+
+        if (!Number.isFinite(contextTileZoom)) return false;
+
+        if (coords.z === contextTileZoom) {
+          const dataUrl = contextTiles.get(`${contextTileZoom}/${coords.x}/${coords.y}`);
+          const img = await loadImageFromDataUrl(dataUrl);
+          if (!img) return false;
+          ctx.drawImage(img, 0, 0, size, size);
+          return true;
         }
-        return null;
-      }
 
-      async function drawDataUrlAsExact(ctx, dataUrl, size) {
-        const img = await loadImageFromDataUrl(dataUrl);
-        if (!img) return false;
-        ctx.drawImage(img, 0, 0, size, size);
-        return true;
-      }
+        if (coords.z > contextTileZoom) {
+          const delta = coords.z - contextTileZoom;
+          const scale = 2 ** delta;
+          const parentX = Math.floor(coords.x / scale);
+          const parentY = Math.floor(coords.y / scale);
+          const key = `${contextTileZoom}/${parentX}/${parentY}`;
+          const dataUrl = contextTiles.get(key);
+          const img = await loadImageFromDataUrl(dataUrl);
+          if (!img) return false;
 
-      async function drawParentCrop(ctx, coords, size, parentMatch) {
-        if (!parentMatch?.dataUrl || !Number.isFinite(parentMatch.delta)) return false;
-        const parentImg = await loadImageFromDataUrl(parentMatch.dataUrl);
-        if (!parentImg) return false;
-        const scale = 2 ** parentMatch.delta;
-        const srcSize = size / scale;
-        const srcX = (coords.x % scale) * srcSize;
-        const srcY = (coords.y % scale) * srcSize;
-        ctx.imageSmoothingEnabled = true;
-        ctx.drawImage(parentImg, srcX, srcY, srcSize, srcSize, 0, 0, size, size);
-        return true;
+          const srcSize = size / scale;
+          const srcX = (coords.x % scale) * srcSize;
+          const srcY = (coords.y % scale) * srcSize;
+
+          ctx.imageSmoothingEnabled = true;
+          ctx.drawImage(img, srcX, srcY, srcSize, srcSize, 0, 0, size, size);
+          return true;
+        }
+
+        if (coords.z < contextTileZoom) {
+          const delta = contextTileZoom - coords.z;
+          const scale = 2 ** delta;
+          if (scale > 8) return false;
+
+          const startX = coords.x * scale;
+          const startY = coords.y * scale;
+          const childSize = size / scale;
+          let drewAny = false;
+
+          for (let dx = 0; dx < scale; dx += 1) {
+            for (let dy = 0; dy < scale; dy += 1) {
+              const key = `${contextTileZoom}/${startX + dx}/${startY + dy}`;
+              const dataUrl = contextTiles.get(key);
+              if (!dataUrl) continue;
+              const img = await loadImageFromDataUrl(dataUrl);
+              if (!img) continue;
+
+              ctx.drawImage(img, dx * childSize, dy * childSize, childSize, childSize);
+              drewAny = true;
+            }
+          }
+
+          return drewAny;
+        }
+
+        return false;
       }
 
       async function drawRouteOverlayForTile(ctx, coords, size, routeTiles, routeTileZoom) {
         if (!Number.isFinite(routeTileZoom)) return false;
-        if (coords.z >= routeTileZoom) return false;
-        const delta = routeTileZoom - coords.z;
-        if (delta > 3) return false;
-        const scale = 2 ** delta;
-        if (scale > 8) return false;
 
-        const startX = coords.x * scale;
-        const startY = coords.y * scale;
-        const childSize = size / scale;
-        let drewAny = false;
-
-        for (let dx = 0; dx < scale; dx += 1) {
-          for (let dy = 0; dy < scale; dy += 1) {
-            const x = startX + dx;
-            const y = startY + dy;
-            const key = `${routeTileZoom}/${x}/${y}`;
-            const dataUrl = routeTiles.get(key);
-            if (!dataUrl) continue;
-            const img = await loadImageFromDataUrl(dataUrl);
-            if (!img) continue;
-            ctx.drawImage(
-              img,
-              dx * childSize,
-              dy * childSize,
-              childSize,
-              childSize
-            );
-            drewAny = true;
-          }
+        if (coords.z === routeTileZoom) {
+          const dataUrl = routeTiles.get(`${routeTileZoom}/${coords.x}/${coords.y}`);
+          const img = await loadImageFromDataUrl(dataUrl);
+          if (!img) return false;
+          ctx.drawImage(img, 0, 0, size, size);
+          return true;
         }
 
-        return drewAny;
+        if (coords.z > routeTileZoom) {
+          const delta = coords.z - routeTileZoom;
+          const scale = 2 ** delta;
+          const parentX = Math.floor(coords.x / scale);
+          const parentY = Math.floor(coords.y / scale);
+          const key = `${routeTileZoom}/${parentX}/${parentY}`;
+          const dataUrl = routeTiles.get(key);
+          const img = await loadImageFromDataUrl(dataUrl);
+          if (!img) return false;
+
+          const srcSize = size / scale;
+          const srcX = (coords.x % scale) * srcSize;
+          const srcY = (coords.y % scale) * srcSize;
+
+          ctx.imageSmoothingEnabled = true;
+          ctx.drawImage(img, srcX, srcY, srcSize, srcSize, 0, 0, size, size);
+          return true;
+        }
+
+        if (coords.z < routeTileZoom) {
+          const delta = routeTileZoom - coords.z;
+          const scale = 2 ** delta;
+          if (scale > 8) return false;
+
+          const startX = coords.x * scale;
+          const startY = coords.y * scale;
+          const childSize = size / scale;
+          let drewAny = false;
+
+          for (let dx = 0; dx < scale; dx += 1) {
+            for (let dy = 0; dy < scale; dy += 1) {
+              const key = `${routeTileZoom}/${startX + dx}/${startY + dy}`;
+              const dataUrl = routeTiles.get(key);
+              if (!dataUrl) continue;
+              const img = await loadImageFromDataUrl(dataUrl);
+              if (!img) continue;
+
+              ctx.drawImage(img, dx * childSize, dy * childSize, childSize, childSize);
+              drewAny = true;
+            }
+          }
+
+          return drewAny;
+        }
+
+        return false;
       }
 
       offlineTextureLayer = L.gridLayer({
@@ -4626,50 +4641,32 @@
       });
       offlineTextureLayer.createTile = function createTile(coords, done) {
         const size = Number(pkg.mapTexture.tileSize) || 256;
-        const tileCanvas = createBlankCanvas(size);
+        const tileCanvas = document.createElement('canvas');
+        tileCanvas.width = size;
+        tileCanvas.height = size;
         const ctx = tileCanvas.getContext('2d');
         (async () => {
-          const key = `${coords.z}/${coords.x}/${coords.y}`;
-          const routeExact = routeTileMap.get(key);
-          const contextExact = contextTileMap.get(key);
-          let baseDrawn = false;
-
           drawFallbackGrid(ctx, size);
 
-          // Base layer priority:
-          // 1) context exact, 2) context parent, 3) route exact, 4) route parent, 5) fallback grid
-          if (contextExact) {
-            baseDrawn = await drawDataUrlAsExact(ctx, contextExact, size);
-          }
-          if (!baseDrawn) {
-            const contextParent = findBestParentDataUrl(coords, {
-              includeRoute: false,
-              includeContext: true
-            });
-            baseDrawn = await drawParentCrop(ctx, coords, size, contextParent);
-          }
-          if (!baseDrawn && routeExact) {
-            baseDrawn = await drawDataUrlAsExact(ctx, routeExact, size);
-          }
-          if (!baseDrawn) {
-            const routeParent = findBestParentDataUrl(coords, {
-              includeRoute: true,
-              includeContext: false
-            });
-            baseDrawn = await drawParentCrop(ctx, coords, size, routeParent);
-          }
+          const drewContext = await drawContextBaseForTile(ctx, coords, size, contextTileMap, contextZoom);
+          const drewRoute = await drawRouteOverlayForTile(ctx, coords, size, routeTileMap, routeZoom);
 
-          // Route overlay priority over context.
-          if (coords.z < routeZoom && coords.z >= (routeZoom - 3)) {
-            await drawRouteOverlayForTile(ctx, coords, size, routeTileMap, routeZoom);
+          if (createTileLogCount < 30) {
+            console.log('[offline-tiles] render tile', {
+              requested: `${coords.z}/${coords.x}/${coords.y}`,
+              routeZoom,
+              contextZoom,
+              drewContext,
+              drewRoute
+            });
+            createTileLogCount += 1;
           }
 
           done?.(null, tileCanvas);
-        })().catch(() => {
-          const fallbackCanvas = createFallbackCanvas(size);
-          fallbackCanvas.dataset.offlineTileMode = 'fallback';
-          map.getContainer().dataset.offlineTileMode = 'fallback';
-          done?.(null, fallbackCanvas);
+        })().catch((err) => {
+          console.warn('[offline-tiles] createTile failed', err);
+          drawFallbackGrid(ctx, size);
+          done?.(null, tileCanvas);
         });
         return tileCanvas;
       };
