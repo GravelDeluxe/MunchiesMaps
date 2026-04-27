@@ -1008,7 +1008,14 @@
                     <option value="high">High – more detail, higher storage</option>
                   </select>
                 </div>
-                <p class="option-helper">Controls how many map tiles are saved with a route. Higher detail uses more storage.</p>
+                <p class="option-helper" id="offlineMapDetailHint">Controls how many map tiles are saved with a route. Higher detail uses more storage.</p>
+                <div class="gpx-row">
+                  <label for="offlineTileCoverageSelect">Offline tile coverage</label>
+                  <select id="offlineTileCoverageSelect">
+                    <option value="route-corridor" selected>Route corridor</option>
+                    <option value="route-bbox">Route bounding box</option>
+                  </select>
+                </div>
               </div>
               <div class="gpx-error" id="gpxError" aria-live="polite"></div>
             </div>
@@ -1137,7 +1144,10 @@
     const QUICK_FEEDBACK_STORAGE_KEY = 'quickFeedbackLastSubmit';
     const INTRO_HIDE_KEY = 'munchiesMapsHideIntro';
     const OFFLINE_MAP_DETAIL_KEY = 'offlineMapDetail';
+    const OFFLINE_TILE_COVERAGE_KEY = 'offlineTileCoverage';
     const DEFAULT_OFFLINE_MAP_DETAIL = 'basic';
+    const DEFAULT_OFFLINE_TILE_COVERAGE = 'route-corridor';
+    const OFFLINE_TILE_SELECTION_MODE = 'route-corridor';
     const SHARE_SCHEMA_VERSION = "2";
     const SHARE_URL_UPDATE_DEBOUNCE_MS = 300;
 
@@ -2643,6 +2653,10 @@
     const OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG = 0.01;
     const OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES = 500 * 1024;
     const OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES = 6 * 1024 * 1024;
+    const OFFLINE_TILE_COVERAGE_MODES = {
+      routeCorridor: 'route-corridor',
+      routeBoundingBox: 'route-bbox'
+    };
     const OFFLINE_MAP_DETAIL_PRESETS = {
       off: {
         enabled: false,
@@ -3695,8 +3709,13 @@
 
     async function listSavedOfflineRoutes() {
       if (!window.offlineRouteStore) return [];
-      const rows = await window.offlineRouteStore.listOfflineRoutes();
-      offlineRouteIndex = Array.isArray(rows) ? rows : [];
+      try {
+        const rows = await window.offlineRouteStore.listOfflineRoutes();
+        offlineRouteIndex = Array.isArray(rows) ? rows : [];
+      } catch (err) {
+        console.warn('[offline-route] list failed', err);
+        offlineRouteIndex = [];
+      }
       return offlineRouteIndex;
     }
 
@@ -3860,6 +3879,59 @@
       return coordsList.map(({ x, y, z }) => ({ x, y, z }));
     }
 
+    function tileToBBox(x, y, z) {
+      const n = 2 ** z;
+      const west = (x / n) * 360 - 180;
+      const east = ((x + 1) / n) * 360 - 180;
+      const north = (Math.atan(Math.sinh(Math.PI * (1 - (2 * y) / n))) * 180) / Math.PI;
+      const south = (Math.atan(Math.sinh(Math.PI * (1 - (2 * (y + 1)) / n))) * 180) / Math.PI;
+      return [west, south, east, north];
+    }
+
+    function tileCenterLatLng(x, y, z) {
+      const [west, south, east, north] = tileToBBox(x, y, z);
+      return L.latLng((south + north) / 2, (west + east) / 2);
+    }
+
+    function getRouteCorridorTileCoords(latlngs, zoom, {
+      bufferMeters = 250,
+      maxTiles = 40
+    } = {}) {
+      const points = (Array.isArray(latlngs) ? latlngs : [])
+        .map((pt) => L.latLng(pt?.lat ?? pt?.[0], pt?.lng ?? pt?.[1]))
+        .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lng));
+      if (!points.length) return [];
+      const sampled = downsamplePoints(points, 1000);
+      const world = 2 ** zoom;
+      const origin = tileCenterLatLng(0, 0, zoom);
+      const eastTile = tileCenterLatLng(1, 0, zoom);
+      const southTile = tileCenterLatLng(0, 1, zoom);
+      const tileWidthMeters = Math.max(1, haversineMeters(origin.lat, origin.lng, origin.lat, eastTile.lng));
+      const tileHeightMeters = Math.max(1, haversineMeters(origin.lat, origin.lng, southTile.lat, origin.lng));
+      const radiusX = Math.max(0, Math.ceil(bufferMeters / tileWidthMeters));
+      const radiusY = Math.max(0, Math.ceil(bufferMeters / tileHeightMeters));
+      const seen = new Set();
+      const ordered = [];
+      sampled.forEach((latlng) => {
+        const x = clamp(lon2tile(latlng.lng, zoom), 0, world - 1);
+        const y = clamp(lat2tile(latlng.lat, zoom), 0, world - 1);
+        for (let dx = -radiusX; dx <= radiusX; dx += 1) {
+          for (let dy = -radiusY; dy <= radiusY; dy += 1) {
+            const nx = x + dx;
+            const ny = y + dy;
+            if (nx < 0 || ny < 0 || nx >= world || ny >= world) continue;
+            const key = `${zoom}/${nx}/${ny}`;
+            if (seen.has(key)) continue;
+            seen.add(key);
+            ordered.push({ x: nx, y: ny, z: zoom });
+            if (ordered.length >= maxTiles) return;
+          }
+          if (ordered.length >= maxTiles) return;
+        }
+      });
+      return ordered.slice(0, maxTiles);
+    }
+
     function estimateDataUrlBytes(dataUrl) {
       if (typeof dataUrl !== 'string') return 0;
       const payload = dataUrl.includes(',') ? dataUrl.slice(dataUrl.indexOf(',') + 1) : dataUrl;
@@ -4016,6 +4088,32 @@
       return normalized;
     }
 
+    function getOfflineTileCoverageSetting() {
+      const value = localStorage.getItem(OFFLINE_TILE_COVERAGE_KEY);
+      if (value === OFFLINE_TILE_COVERAGE_MODES.routeBoundingBox) return value;
+      return DEFAULT_OFFLINE_TILE_COVERAGE;
+    }
+
+    function setOfflineTileCoverageSetting(value) {
+      const normalized = value === OFFLINE_TILE_COVERAGE_MODES.routeBoundingBox
+        ? OFFLINE_TILE_COVERAGE_MODES.routeBoundingBox
+        : OFFLINE_TILE_COVERAGE_MODES.routeCorridor;
+      localStorage.setItem(OFFLINE_TILE_COVERAGE_KEY, normalized);
+      return normalized;
+    }
+
+    function getOfflineMapDetailPreset(detail) {
+      const preset = OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.basic;
+      if (!(typeof isIOS === 'function' && isIOS())) return preset;
+      if (detail === 'off' || detail === 'basic') return preset;
+      return {
+        ...preset,
+        zoomOffset: 0,
+        tileLimit: 40,
+        iosSafeMode: true
+      };
+    }
+
     function fetchWithTimeout(url, options = {}, timeoutMs = 5000) {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -4038,9 +4136,11 @@
     }
 
     async function tryBuildTileSnapshotTexture(routeBBox, {
+      latlngs = [],
       zoomOffset = 0,
       maxTiles = 40,
-      detail = 'basic'
+      detail = 'basic',
+      coverage = OFFLINE_TILE_COVERAGE_MODES.routeCorridor
     } = {}) {
       console.log('[offline-tiles] snapshot start');
       const isIosDevice = typeof isIOS === 'function' && isIOS();
@@ -4052,9 +4152,6 @@
         : maxTiles;
       if (isIosDevice && maxTiles > effectiveMaxTiles) {
         console.warn('[offline-tiles] iOS tile limit capped', { requestedLimit: maxTiles, effectiveMaxTiles });
-      }
-      if (isIosDevice && detail === 'high') {
-        console.warn('[offline-tiles] high detail on iOS may use significant storage');
       }
       if (!activeBaseLayer || typeof activeBaseLayer.getTileUrl !== 'function') {
         console.log('[offline-tiles] using grid fallback');
@@ -4076,13 +4173,27 @@
         bounds.getNorth()
       ];
       let requested = [];
-      const seen = new Set();
-      for (const coords of buildTileCoordsForBounds(bounds, snapshotZoom)) {
-        const key = `${coords.z}/${coords.x}/${coords.y}`;
-        if (seen.has(key)) continue;
-        requested.push({ ...coords });
-        seen.add(key);
+      const useRouteCorridor = coverage === OFFLINE_TILE_COVERAGE_MODES.routeCorridor;
+      if (useRouteCorridor) {
+        requested = getRouteCorridorTileCoords(latlngs, snapshotZoom, {
+          bufferMeters: 250,
+          maxTiles: effectiveMaxTiles
+        });
       }
+      if (!requested.length) {
+        const seen = new Set();
+        for (const coords of buildTileCoordsForBounds(bounds, snapshotZoom)) {
+          const key = `${coords.z}/${coords.x}/${coords.y}`;
+          if (seen.has(key)) continue;
+          requested.push({ ...coords });
+          seen.add(key);
+        }
+      }
+      console.log('[offline-tiles] selection mode', {
+        mode: useRouteCorridor ? OFFLINE_TILE_SELECTION_MODE : OFFLINE_TILE_COVERAGE_MODES.routeBoundingBox,
+        candidates: requested.length,
+        zoom: snapshotZoom
+      });
       console.log('[offline-tiles] candidate tiles', requested.length);
       if (requested.length > effectiveMaxTiles) {
         console.warn('[offline-tiles] tile limit reached');
@@ -4228,16 +4339,19 @@
       const pois = activePoints.map(freezePoiForOffline).filter(Boolean);
       const routeBBox = [Math.min(...lats), Math.min(...lngs), Math.max(...lats), Math.max(...lngs)];
       const detail = getOfflineMapDetailSetting();
-      const preset = OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.basic;
+      const preset = getOfflineMapDetailPreset(detail);
+      const coverage = getOfflineTileCoverageSetting();
       console.log('[offline-route] save setting', { detail, preset });
       let mapTexture = buildGridTexturePackage();
       if (!preset.enabled) {
         mapTexture.detail = detail;
       } else {
         mapTexture = await tryBuildTileSnapshotTexture(routeBBox, {
+          latlngs,
           zoomOffset: preset.zoomOffset,
           maxTiles: preset.tileLimit,
-          detail
+          detail,
+          coverage
         });
         if (!mapTexture || mapTexture.type !== 'tiles' || !Array.isArray(mapTexture.tiles) || !mapTexture.tiles.length) {
           mapTexture = buildGridTexturePackage();
@@ -4260,7 +4374,12 @@
           regions: Array.from(filterState.bundeslaender || [])
         },
         pois,
-        mapTexture
+        mapTexture,
+        offlineSaveMeta: {
+          detail,
+          coverage,
+          iosSafeMode: Boolean(preset.iosSafeMode)
+        }
       };
     }
 
@@ -4282,7 +4401,8 @@
           id: pkg.id,
           tileCount: pkg.mapTexture?.tiles?.length || 0,
           textureType: pkg.mapTexture?.type || 'grid',
-          detail
+          detail,
+          iosSafeMode: Boolean(pkg.offlineSaveMeta?.iosSafeMode)
         };
       } catch (err) {
         console.error('[offline-route] save failed', err);
@@ -4403,6 +4523,33 @@
       return renderOfflineRoutePackage(pkg);
     }
 
+    async function autoLoadSavedRouteWhenOffline() {
+      if (navigator.onLine !== false) return false;
+      if (!window.offlineRouteStore) return false;
+      if (appState.hasImportedGpx) return false;
+
+      try {
+        const pkg = await getMostRecentSavedRoute();
+        if (!pkg) {
+          console.log('[offline-route] auto-load skipped: no saved route');
+          return false;
+        }
+
+        const ok = renderOfflineRoutePackage(pkg);
+        if (ok) {
+          console.log('[offline-route] auto-loaded saved route');
+          showMapToast('Saved route loaded for offline use.');
+          return true;
+        }
+
+        console.warn('[offline-route] auto-load failed: invalid package');
+        return false;
+      } catch (err) {
+        console.warn('[offline-route] auto-load failed', err);
+        return false;
+      }
+    }
+
     async function clearSavedRouteCache() {
       const pkg = await getMostRecentSavedRoute();
       if (!pkg) return;
@@ -4444,12 +4591,10 @@
       gpxState.points = appState.gpxTrackLatLngs.map((ll) => ({ lat: ll.lat, lon: ll.lng }));
       gpxState.sampledPoints = downsamplePoints(gpxState.points);
       gpxState.bbox = Array.isArray(pkg.route.bbox) ? pkg.route.bbox : computeExpandedBBox(gpxState.sampledPoints, gpxState.radiusMeters);
+      map.setMinZoom(0);
+      map.setMaxZoom(19);
       if (shouldUseOfflineTexture && hasTileTexture && Number.isFinite(snapshotZoom) && Array.isArray(snapshotCenter)) {
-        const minZoom = Number.isFinite(pkg.mapTexture.minZoom) ? pkg.mapTexture.minZoom : snapshotZoom;
-        const maxZoom = Number.isFinite(pkg.mapTexture.maxZoom) ? pkg.mapTexture.maxZoom : snapshotZoom + 2;
         map.setView(snapshotCenter, snapshotZoom, { animate: false });
-        map.setMinZoom(minZoom);
-        map.setMaxZoom(maxZoom);
         console.log('[offline-tiles] applying', {
           baseZoom: pkg.mapTexture.baseZoom,
           sourceViewZoom: pkg.mapTexture.sourceViewZoom,
@@ -4647,7 +4792,11 @@
           console.log('[offline-route] save result', result);
           if (result?.ok) {
             if (result.tileCount > 0) {
-              showMapToast(`Route saved with ${result.tileCount} offline map tiles.`);
+              if (result.iosSafeMode) {
+                showMapToast(`Route saved with ${result.tileCount} offline map tiles. iOS safe mode used.`);
+              } else {
+                showMapToast(`Route saved with ${result.tileCount} offline map tiles.`);
+              }
             } else {
               showMapToast('Route saved without offline map tiles.');
             }
@@ -4695,11 +4844,37 @@
 
     function setupOfflineMapDetailControl() {
       const select = document.getElementById('offlineMapDetailSelect');
+      const hint = document.getElementById('offlineMapDetailHint');
       if (!select) return;
+      const iOSSafe = typeof isIOS === 'function' && isIOS();
+      const standardOption = select.querySelector('option[value="standard"]');
+      const highOption = select.querySelector('option[value="high"]');
+      if (iOSSafe) {
+        if (standardOption) standardOption.textContent = 'Standard – iOS safe mode (same as Basic)';
+        if (highOption) highOption.textContent = 'High – iOS safe mode (same as Basic)';
+        if (hint) hint.textContent = 'On iOS, Standard and High currently use the same safe tile settings as Basic.';
+      } else if (hint) {
+        hint.textContent = 'Controls how many map tiles are saved with a route. Higher detail uses more storage.';
+      }
       select.value = getOfflineMapDetailSetting();
       select.addEventListener('change', () => {
         const value = setOfflineMapDetailSetting(select.value);
-        showMapToast(`Offline map detail: ${OFFLINE_MAP_DETAIL_PRESETS[value].label}`);
+        const preset = getOfflineMapDetailPreset(value);
+        if (preset.iosSafeMode) {
+          showMapToast(`Offline map detail: ${OFFLINE_MAP_DETAIL_PRESETS[value].label} (iOS safe mode = Basic).`);
+        } else {
+          showMapToast(`Offline map detail: ${OFFLINE_MAP_DETAIL_PRESETS[value].label}`);
+        }
+      });
+    }
+
+    function setupOfflineTileCoverageControl() {
+      const select = document.getElementById('offlineTileCoverageSelect');
+      if (!select) return;
+      select.value = getOfflineTileCoverageSetting();
+      select.addEventListener('change', () => {
+        const value = setOfflineTileCoverageSetting(select.value);
+        showMapToast(`Offline tile coverage: ${value === OFFLINE_TILE_COVERAGE_MODES.routeBoundingBox ? 'Route bounding box' : 'Route corridor'}`);
       });
     }
 
@@ -6127,6 +6302,7 @@
       setupClusterThresholdControl();
       setupMinPoiZoomControl();
       setupOfflineMapDetailControl();
+      setupOfflineTileCoverageControl();
       setupBadgeToggle();
       setupHideNoBadgesToggle();
       setupIncludeMissingToggle();
@@ -6163,13 +6339,6 @@
 
       if (!navigator.onLine) {
         appState.isOfflineMode = true;
-        const recentOfflineRoute = await getMostRecentSavedRoute();
-        if (recentOfflineRoute) {
-          renderOfflineRoutePackage(recentOfflineRoute);
-          showMapToast('Offline route loaded.');
-        } else {
-          showMapToast('No offline route available');
-        }
         manifestData = { regions: [], bundeslaender: [], categories: [] };
       } else {
         try {
@@ -6216,6 +6385,7 @@
       refreshEffectiveRegionState({ triggerFilters: false, rerenderChecklist: true, updateUrl: false });
       map.whenReady(() => map.invalidateSize());
       await applyFilters();
+      await autoLoadSavedRouteWhenOffline();
 
       on(qs('#catSelectAll'), 'click', () => selectAll(manifestData.categories, filterState.kategorien, 'catList', 'cat'));
       on(qs('#catSelectNone'), 'click', () => selectNone(filterState.kategorien, 'catList', 'cat', manifestData.categories));
