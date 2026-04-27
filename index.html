@@ -4331,6 +4331,7 @@
       const routeBBox = [Math.min(...lats), Math.min(...lngs), Math.max(...lats), Math.max(...lngs)];
       const detail = getOfflineMapDetailSetting();
       const preset = getEffectiveOfflineMapDetailPreset(detail);
+      const coverage = getOfflineTileCoverageSetting();
       console.log('[offline-route] save setting', { detail, preset });
       let mapTexture = buildGridTexturePackage();
       if (!preset.enabled) {
@@ -5032,12 +5033,15 @@
                 showMapToast('Route saved without offline map tiles.');
                 setOfflineSaveProgress('Route saved without offline map tiles.');
               }
-            } else if (result?.reason === 'no-route' || result?.reason === 'no-raw-gpx') {
-              showMapToast('No route to save.');
-              setOfflineSaveProgress('Could not save route.');
             } else {
-              showMapToast('Could not save route.');
-              setOfflineSaveProgress('Could not save route.');
+              console.warn('[offline-route] save failed reason', result?.reason);
+              if (result?.reason === 'no-route' || result?.reason === 'no-raw-gpx') {
+                showMapToast('No route to save.');
+                setOfflineSaveProgress(`Could not save route: ${result?.reason || 'unknown error'}`);
+              } else {
+                showMapToast('Could not save route.');
+                setOfflineSaveProgress(`Could not save route: ${result?.reason || 'unknown error'}`);
+              }
             }
             refreshGpxUiState();
           } finally {
