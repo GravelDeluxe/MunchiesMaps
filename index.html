@@ -999,6 +999,7 @@
                 </div>
                 <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
                 <button type="button" class="gpx-export" id="gpxSaveBtn">Save route</button>
+                <div id="offlineSaveProgress" class="option-helper" aria-live="polite"></div>
                 <div class="gpx-row">
                   <label for="offlineMapDetailSelect">Offline map detail</label>
                   <select id="offlineMapDetailSelect">
@@ -4150,7 +4151,8 @@
       maxTotalBytes = OFFLINE_TILE_MAX_TOTAL_BYTES_BASIC,
       corridorBufferTiles = 0,
       detail = 'basic',
-      coverage = OFFLINE_TILE_COVERAGE_MODES.routeCorridor
+      coverage = OFFLINE_TILE_COVERAGE_MODES.routeCorridor,
+      onProgress = null
     } = {}) {
       console.log('[offline-tiles] snapshot start');
       const isIosDevice = typeof isIOS === 'function' && isIOS();
@@ -4228,11 +4230,19 @@
         routeCandidates: routeCandidates.length,
         contextCandidates: contextCandidates.length
       });
+      const totalPlanned = routeCandidates.length + contextCandidates.length;
+      onProgress?.({
+        phase: 'planning',
+        routeCandidates: routeCandidates.length,
+        contextCandidates: contextCandidates.length,
+        totalPlanned
+      });
 
       const tiles = [];
       let totalBytes = 0;
       let budgetReached = false;
       let failedCount = 0;
+      let processed = 0;
       const tileStats = {
         requested: routeCandidates.length + contextCandidates.length,
         saved: 0,
@@ -4316,6 +4326,16 @@
           saveTileFromDataUrl(coords, loaded.dataUrl, role, loaded.method);
         } catch (err) {
           recordTileFailure(coords, url, err);
+        } finally {
+          processed += 1;
+          onProgress?.({
+            phase: role,
+            processed,
+            totalPlanned,
+            saved: tiles.length,
+            failed: failedCount,
+            totalBytes
+          });
         }
       };
 
@@ -4373,7 +4393,7 @@
       };
     }
 
-    async function buildOfflineRoutePackage(rawText) {
+    async function buildOfflineRoutePackage(rawText, { onProgress } = {}) {
       console.log('[offline-route] save start');
       const latlngs = (appState.gpxTrackLatLngs || []).map((pt) => [pt.lat ?? pt[0], pt.lng ?? pt[1]]).filter((pt) => Number.isFinite(pt[0]) && Number.isFinite(pt[1]));
       if (!latlngs.length) return null;
@@ -4396,7 +4416,8 @@
           maxTotalBytes: preset.maxTotalBytes,
           corridorBufferTiles: preset.corridorBufferTiles,
           detail,
-          coverage
+          coverage,
+          onProgress
         });
         if (!mapTexture || mapTexture.type !== 'tiles' || !Array.isArray(mapTexture.tiles) || !mapTexture.tiles.length) {
           mapTexture = buildGridTexturePackage();
@@ -4428,12 +4449,12 @@
       };
     }
 
-    async function saveCurrentRouteToCache() {
+    async function saveCurrentRouteToCache({ onProgress } = {}) {
       if (!appState.hasImportedGpx) return { ok: false, reason: 'no-route' };
       const rawText = (typeof gpxState.rawText === 'string' && gpxState.rawText.trim()) ? gpxState.rawText.trim() : buildRawGpxFromTrackLatLngs();
       if (!rawText) return { ok: false, reason: 'no-raw-gpx' };
       try {
-        const pkg = await buildOfflineRoutePackage(rawText);
+        const pkg = await buildOfflineRoutePackage(rawText, { onProgress });
         if (!pkg) return { ok: false, reason: 'package-failed' };
         await window.offlineRouteStore.saveOfflineRoute(pkg);
         activeOfflineRouteId = pkg.id;
@@ -5004,27 +5025,58 @@
       }
       if (saveBtn) {
         saveBtn.addEventListener('click', async () => {
+          const progressEl = document.getElementById('offlineSaveProgress');
+          const setOfflineSaveProgress = (text) => {
+            if (progressEl) progressEl.textContent = text;
+          };
           saveBtn.disabled = true;
-          showMapToast('Saving route for offline use…');
-          const result = await saveCurrentRouteToCache();
-          console.log('[offline-route] save result', result);
-          if (result?.ok) {
-            if (result.tileCount > 0) {
-              const sizeMb = (Number(result.totalBytes || 0) / 1024 / 1024).toFixed(1);
-              if (result.budgetReached) {
-                showMapToast(`Route saved with ${result.tileCount} offline map tiles (~${sizeMb} MB, storage limit reached).`);
-              } else {
-                showMapToast(`Route saved with ${result.routeTileCount || 0} route tiles and ${result.contextTileCount || 0} context tiles (~${sizeMb} MB).`);
+          try {
+            setOfflineSaveProgress('Preparing offline route package…');
+            showMapToast('Saving route for offline use…');
+            const result = await saveCurrentRouteToCache({
+              onProgress: (progress) => {
+                if (progress?.phase === 'planning') {
+                  if (progress.totalPlanned > 300) {
+                    setOfflineSaveProgress(`Preparing ${progress.totalPlanned} map tiles. This may take a while, especially on iPhone…`);
+                    return;
+                  }
+                  setOfflineSaveProgress(
+                    `Preparing ${progress.totalPlanned} map tiles (${progress.routeCandidates} route, ${progress.contextCandidates} context)…`
+                  );
+                  return;
+                }
+                const mb = (Number(progress?.totalBytes || 0) / 1024 / 1024).toFixed(1);
+                const roleLabel = progress?.phase === 'context' ? 'context' : 'route';
+                setOfflineSaveProgress(
+                  `Saving offline map tiles (${roleLabel}): ${progress?.processed || 0}/${progress?.totalPlanned || 0} processed, ${progress?.saved || 0} saved, ${progress?.failed || 0} failed (~${mb} MB)…`
+                );
               }
+            });
+            console.log('[offline-route] save result', result);
+            if (result?.ok) {
+              if (result.tileCount > 0) {
+                const sizeMb = (Number(result.totalBytes || 0) / 1024 / 1024).toFixed(1);
+                if (result.budgetReached) {
+                  showMapToast(`Route saved with ${result.tileCount} offline map tiles (~${sizeMb} MB, storage limit reached).`);
+                } else {
+                  showMapToast(`Route saved with ${result.routeTileCount || 0} route tiles and ${result.contextTileCount || 0} context tiles (~${sizeMb} MB).`);
+                }
+                setOfflineSaveProgress(`Saved ${result.routeTileCount || 0} route tiles and ${result.contextTileCount || 0} context tiles (${sizeMb} MB).`);
+              } else {
+                showMapToast('Route saved without offline map tiles.');
+                setOfflineSaveProgress('Route saved without offline map tiles.');
+              }
+            } else if (result?.reason === 'no-route' || result?.reason === 'no-raw-gpx') {
+              showMapToast('No route to save.');
+              setOfflineSaveProgress('Could not save route.');
             } else {
-              showMapToast('Route saved without offline map tiles.');
+              showMapToast('Could not save route.');
+              setOfflineSaveProgress('Could not save route.');
             }
-          } else if (result?.reason === 'no-route' || result?.reason === 'no-raw-gpx') {
-            showMapToast('No route to save.');
-          } else {
-            showMapToast('Could not save route.');
+            refreshGpxUiState();
+          } finally {
+            saveBtn.disabled = false;
           }
-          refreshGpxUiState();
         });
       }
       if (loadSavedBtn) {
