@@ -1005,12 +1005,12 @@
                   <label for="offlineMapDetailSelect">Offline map detail</label>
                   <select id="offlineMapDetailSelect">
                     <option value="off">Off – route and POIs only</option>
-                    <option value="basic" selected>Basic – route tiles up to zoom 12, low storage</option>
-                    <option value="standard">Standard – route tiles up to zoom 13, moderate storage</option>
-                    <option value="high">High – route tiles up to zoom 14, higher storage</option>
+                    <option value="basic" selected>Basic – zoom 13 route tiles</option>
+                    <option value="standard">Standard – zoom 13 route tiles</option>
+                    <option value="high">High – zoom 13 route tiles</option>
                   </select>
                 </div>
-                <p class="option-helper" id="offlineMapDetailHint">Controls how many map tiles are saved with a route. Higher zooms use scaled offline tiles when needed.</p>
+                <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved at zoom level 13 along the route. Other zoom levels use scaled saved tiles.</p>
                 <div class="gpx-row">
                   <label for="offlineTileCoverageSelect">Offline tile coverage</label>
                   <select id="offlineTileCoverageSelect">
@@ -2662,19 +2662,21 @@
 
     const DEFAULT_GPX_RADIUS_KM = 0.3;
     const SAVED_GPX_ROUTE_KEY = 'munchiesmaps.savedGpxRoute';
-    const OFFLINE_PACKAGE_VERSION = '1.1.0';
+    const OFFLINE_PACKAGE_VERSION = '1.2.0';
     const OFFLINE_TILE_SNAPSHOT_DEFAULT = true;
-    const OFFLINE_TILE_SNAPSHOT_MAX_ZOOM = 18;
+    const OFFLINE_TILE_SNAPSHOT_ZOOM = 13;
+    const OFFLINE_TILE_CORRIDOR_BUFFER_TILES = 1;
+    const OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES = 60 * 1024 * 1024;
+    const OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES = 600 * 1024;
     const OFFLINE_TILE_SNAPSHOT_BUFFER_RATIO = 0.15;
-    const OFFLINE_TILE_CONTEXT_BUFFER_RATIO = 0.25;
     const OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG = 0.01;
-    const OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES = 500 * 1024;
     const OFFLINE_TILE_CACHE_NAME = 'munchiesmaps-offline-tiles-v1';
-    const OFFLINE_TILE_MAX_TOTAL_BYTES_BASIC = 30 * 1024 * 1024;
-    const OFFLINE_TILE_MAX_TOTAL_BYTES_STANDARD = 60 * 1024 * 1024;
-    const OFFLINE_TILE_MAX_TOTAL_BYTES_HIGH = 100 * 1024 * 1024;
-    const OFFLINE_TILE_MAX_ABSOLUTE_COUNT_IOS = 1200;
-    const OFFLINE_TILE_MAX_ABSOLUTE_COUNT_DESKTOP = 1200;
+    const OFFLINE_TILE_PROVIDER = {
+      id: 'osm-light',
+      template: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      subdomains: ['a', 'b', 'c'],
+      attribution: '&copy; OpenStreetMap contributors'
+    };
     const OFFLINE_TILE_COVERAGE_MODES = {
       routeCorridor: 'route-corridor',
       routeBoundingBox: 'route-bbox'
@@ -2682,8 +2684,8 @@
     const OFFLINE_MAP_DETAIL_PRESETS = {
       off: {
         enabled: false,
-        routeZoom: 12,
-        contextZoom: 8,
+        routeZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        contextZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
         maxTotalBytes: 0,
         corridorBufferTiles: 0,
         label: 'Off',
@@ -2691,30 +2693,30 @@
       },
       basic: {
         enabled: true,
-        routeZoom: 12,
-        contextZoom: 8,
-        maxTotalBytes: OFFLINE_TILE_MAX_TOTAL_BYTES_BASIC,
-        corridorBufferTiles: 0,
+        routeZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        contextZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        maxTotalBytes: OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES,
+        corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'Basic',
-        description: 'Route tiles up to zoom 12. Higher zooms use scaled offline tiles.'
+        description: 'Route tiles at zoom 13. Other zoom levels use scaled offline tiles.'
       },
       standard: {
         enabled: true,
-        routeZoom: 13,
-        contextZoom: 9,
-        maxTotalBytes: OFFLINE_TILE_MAX_TOTAL_BYTES_STANDARD,
-        corridorBufferTiles: 0,
+        routeZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        contextZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        maxTotalBytes: OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES,
+        corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'Standard',
-        description: 'Route tiles up to zoom 13. Higher zooms use scaled offline tiles.'
+        description: 'Route tiles at zoom 13. Other zoom levels use scaled offline tiles.'
       },
       high: {
         enabled: true,
-        routeZoom: 14,
-        contextZoom: 9,
-        maxTotalBytes: OFFLINE_TILE_MAX_TOTAL_BYTES_HIGH,
-        corridorBufferTiles: 1,
+        routeZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        contextZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        maxTotalBytes: OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES,
+        corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'High',
-        description: 'Route tiles up to zoom 14. Higher zooms use scaled offline tiles.'
+        description: 'Route tiles at zoom 13. Other zoom levels use scaled offline tiles.'
       }
     };
     const GPX_KM_MARKER_INTERVAL_KM = 5;
@@ -3928,6 +3930,16 @@
       return L.latLng((south + north) / 2, (west + east) / 2);
     }
 
+    function getOfflineTileUrl(coords) {
+      const subdomains = OFFLINE_TILE_PROVIDER.subdomains || ['a'];
+      const subdomain = subdomains[Math.abs(coords.x + coords.y) % subdomains.length];
+      return OFFLINE_TILE_PROVIDER.template
+        .replace('{s}', subdomain)
+        .replace('{z}', String(coords.z))
+        .replace('{x}', String(coords.x))
+        .replace('{y}', String(coords.y));
+    }
+
     function getRouteCorridorTileCoords(latlngs, zoom, {
       corridorBufferTiles = 0
     } = {}) {
@@ -4224,385 +4236,92 @@
         .finally(() => clearTimeout(timer));
     }
 
-    async function cacheOfflineTileUrl(url, {
-      cacheName = OFFLINE_TILE_CACHE_NAME,
-      timeoutMs = 10000,
-      forceRefresh = false
-    } = {}) {
-      if (!url) return { ok: false, error: 'missing-url', bytes: 0 };
-
-      try {
-        const cache = await caches.open(cacheName);
-        if (forceRefresh) {
-          await cache.delete(url, { ignoreVary: true });
-        } else {
-          const existing = await cache.match(url, { ignoreVary: true });
-          if (existing) {
-            console.log('[offline-tiles] cache hit', { url });
-            return {
-              ok: true,
-              method: 'cache-hit',
-              bytes: Number(existing.headers.get('content-length')) || 0
-            };
-          }
-          const crossCacheHit = await caches.match(url, { ignoreVary: true });
-          if (crossCacheHit) {
-            await cache.put(url, crossCacheHit.clone());
-            return {
-              ok: true,
-              method: 'cache',
-              bytes: Number(crossCacheHit.headers.get('content-length')) || 0
-            };
-          }
-        }
-
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
-        let response;
-        try {
-          response = await fetch(url, {
-            mode: 'no-cors',
-            cache: forceRefresh ? 'reload' : 'force-cache',
-            signal: controller.signal
-          });
-        } finally {
-          clearTimeout(timer);
-        }
-
-        if (!response) {
-          return { ok: false, error: 'no-response', bytes: 0 };
-        }
-
-        await cache.put(url, response.clone());
-
-        return {
-          ok: true,
-          method: response.type === 'opaque' ? 'opaque-cache' : 'network-cache',
-          bytes: Number(response.headers.get('content-length')) || 0
-        };
-      } catch (err) {
-        return {
-          ok: false,
-          error: err?.message || err?.name || 'cache-failed',
-          name: err?.name || '',
-          bytes: 0
-        };
-      }
-    }
-
-    async function runTaskQueue(tasks, limit = 4) {
-      if (!Array.isArray(tasks) || !tasks.length) return;
-      let index = 0;
-      const workerCount = Math.min(Math.max(1, limit), tasks.length);
-      const workers = Array.from({ length: workerCount }, async () => {
-        while (index < tasks.length) {
-          const current = index;
-          index += 1;
-          await tasks[current]();
-        }
-      });
-      await Promise.all(workers);
-    }
-
     async function tryBuildTileSnapshotTexture(routeBBox, {
       latlngs = [],
-      routeZoom = 12,
-      contextZoom = 8,
-      maxTotalBytes = OFFLINE_TILE_MAX_TOTAL_BYTES_BASIC,
-      corridorBufferTiles = 0,
-      detail = 'basic',
-      coverage = OFFLINE_TILE_COVERAGE_MODES.routeCorridor,
-      onProgress = null,
-      forceRefreshTiles = false
+      enabled = true,
+      onProgress = null
     } = {}) {
-      console.log('[offline-tiles] snapshot start');
-      const isIosDevice = typeof isIOS === 'function' && isIOS();
-      const sourceViewZoom = Math.max(0, Math.floor(map.getZoom()));
-      const routeSnapshotZoom = clamp(Math.floor(routeZoom), 0, OFFLINE_TILE_SNAPSHOT_MAX_ZOOM);
-      const contextSnapshotZoom = clamp(Math.floor(contextZoom), 0, OFFLINE_TILE_SNAPSHOT_MAX_ZOOM);
-      const routeStart = Array.isArray(latlngs) && latlngs.length >= 1 && Number.isFinite(latlngs[0]?.[0]) && Number.isFinite(latlngs[0]?.[1])
-        ? [latlngs[0][0], latlngs[0][1]]
-        : null;
-      const mapCenter = map.getCenter();
-      const snapshotCenter = routeStart || [mapCenter.lat, mapCenter.lng];
-      console.log('[offline-tiles] effective preset', {
-        detail,
-        routeZoom: routeSnapshotZoom,
-        contextZoom: contextSnapshotZoom,
-        maxTotalBytes,
-        corridorBufferTiles,
-        isIosDevice
+      if (!enabled) return buildGridTexturePackage();
+      const coordsList = getRouteCorridorTileCoords(latlngs, OFFLINE_TILE_SNAPSHOT_ZOOM, {
+        corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES
       });
-      const tileFetchConcurrency = isIosDevice ? 1 : 4;
-      const tileFetchTimeoutMs = isIosDevice ? 10000 : 5000;
-      const absoluteSafetyLimit = isIosDevice ? OFFLINE_TILE_MAX_ABSOLUTE_COUNT_IOS : OFFLINE_TILE_MAX_ABSOLUTE_COUNT_DESKTOP;
-      if (!activeBaseLayer || typeof activeBaseLayer.getTileUrl !== 'function') {
-        console.log('[offline-tiles] using grid fallback');
-        return buildGridTexturePackage();
-      }
-      const routeBounds = buildBufferedBoundsFromBBox(routeBBox, OFFLINE_TILE_SNAPSHOT_BUFFER_RATIO) || map?.getBounds?.() || null;
-      const contextBounds = buildBufferedBoundsFromBBox(routeBBox, OFFLINE_TILE_CONTEXT_BUFFER_RATIO)
-        || (routeBounds?.pad ? routeBounds.pad(0.25) : routeBounds);
-      if (!routeBounds || !contextBounds) {
-        console.log('[offline-tiles] using grid fallback');
-        return buildGridTexturePackage();
-      }
-      const snapshotBounds = [contextBounds.getWest(), contextBounds.getSouth(), contextBounds.getEast(), contextBounds.getNorth()];
-      let routeCandidates = [];
-      const useRouteCorridor = coverage === OFFLINE_TILE_COVERAGE_MODES.routeCorridor;
-      if (useRouteCorridor) {
-        routeCandidates = getRouteCorridorTileCoords(latlngs, routeSnapshotZoom, {
-          corridorBufferTiles
-        });
-      }
-      if (!routeCandidates.length) {
-        routeCandidates = buildTileCoordsForBounds(routeBounds, routeSnapshotZoom);
-      }
-      routeCandidates = dedupeTileCoords(routeCandidates);
-      let contextCandidates = dedupeTileCoords(buildTileCoordsForBounds(contextBounds, contextSnapshotZoom));
-
-      if (routeCandidates.length > absoluteSafetyLimit) {
-        console.warn('[offline-tiles] absolute safety tile count reached', {
-          target: 'route',
-          requested: routeCandidates.length,
-          absoluteSafetyLimit,
-          detail,
-          snapshotZoom: routeSnapshotZoom
-        });
-        routeCandidates = routeCandidates.slice(0, absoluteSafetyLimit);
-      }
-      if (contextCandidates.length > absoluteSafetyLimit) {
-        console.warn('[offline-tiles] absolute safety tile count reached', {
-          target: 'context',
-          requested: contextCandidates.length,
-          absoluteSafetyLimit,
-          detail,
-          snapshotZoom: contextSnapshotZoom
-        });
-        contextCandidates = contextCandidates.slice(0, absoluteSafetyLimit);
-      }
-      console.log('[offline-tiles] snapshot plan', {
-        detail,
-        routeZoom: routeSnapshotZoom,
-        contextZoom: contextSnapshotZoom,
-        corridorBufferTiles,
-        maxTotalBytes,
-        mode: useRouteCorridor ? OFFLINE_TILE_SELECTION_MODE : OFFLINE_TILE_COVERAGE_MODES.routeBoundingBox,
-        routeCandidates: routeCandidates.length,
-        contextCandidates: contextCandidates.length
-      });
-      const totalPlanned = routeCandidates.length + contextCandidates.length;
-      onProgress?.({
-        phase: 'planning',
-        routeCandidates: routeCandidates.length,
-        contextCandidates: contextCandidates.length,
-        totalPlanned
-      });
-
+      const requested = coordsList.length
+        ? dedupeTileCoords(coordsList)
+        : buildTileCoordsForBounds(buildBufferedBoundsFromBBox(routeBBox), OFFLINE_TILE_SNAPSHOT_ZOOM);
       const tiles = [];
       let totalBytes = 0;
-      let budgetReached = false;
-      const tileStats = {
-        requested: routeCandidates.length + contextCandidates.length,
-        processed: 0,
-        saved: 0,
-        failed: 0,
-        ios: isIosDevice,
-        detail,
-        routeZoom: routeSnapshotZoom,
-        contextZoom: contextSnapshotZoom,
-        sourceViewZoom,
-        maxTotalBytes,
-        methods: {},
-        roles: { route: 0, context: 0 },
-        errors: {},
-        fallbackAttempts: 0,
-        budgetReached: false,
-        preflight: { attempted: 0, saved: 0, failed: 0 },
-        lastError: ''
-      };
-      const processedTileKeys = new Set();
-
-      const saveTileMeta = (coords, url, role, method = 'cache', estimatedBytes = 0) => {
-        const safeBytes = Number.isFinite(estimatedBytes) && estimatedBytes > 0 ? estimatedBytes : 0;
-        if ((totalBytes + safeBytes) > maxTotalBytes) {
-          budgetReached = true;
-          tileStats.budgetReached = true;
-          console.warn('[offline-tiles] byte budget reached', {
-            totalBytes,
-            maxTotalBytes,
-            savedTiles: tiles.length
-          });
-          return;
-        }
-        totalBytes += safeBytes;
-        tiles.push({ ...coords, role, url });
-        tileStats.saved += 1;
-        tileStats.roles[role] = (tileStats.roles[role] || 0) + 1;
-        tileStats.methods[method] = (tileStats.methods[method] || 0) + 1;
-      };
-
-      const recordTileFailure = (coords, url, err) => {
-        tileStats.failed += 1;
-        const reason = err?.message || err?.name || 'unknown';
-        tileStats.lastError = reason;
-        tileStats.errors[reason] = (tileStats.errors[reason] || 0) + 1;
-        console.log('[offline-tiles] tile failed', {
-          z: coords.z,
-          x: coords.x,
-          y: coords.y,
-          url,
-          name: err?.name,
-          message: err?.message
-        });
-      };
-
-      const processTile = async (coords, role) => {
-        const key = `${coords.z}/${coords.x}/${coords.y}/${role}`;
-        if (budgetReached) {
-          return { ok: false, key, role, method: 'none', bytes: 0, error: 'budget-reached' };
-        }
-        if (processedTileKeys.has(key)) {
-          return { ok: true, key, role, method: 'skipped-processed', bytes: 0, error: '' };
-        }
-        processedTileKeys.add(key);
-        let url = '';
-        try {
-          url = activeBaseLayer.getTileUrl(coords);
-          if (!url) throw new Error('missing tile URL');
-          const cached = await cacheOfflineTileUrl(url, {
-            timeoutMs: isIosDevice ? 15000 : tileFetchTimeoutMs,
-            forceRefresh: forceRefreshTiles
-          });
-          if (!cached.ok) {
-            throw new Error(`${cached.name || ''} ${cached.error || 'tile-cache-failed'}`.trim());
-          }
-          saveTileMeta(coords, url, role, cached.method, cached.bytes);
-          return {
-            ok: true,
-            key,
-            role,
-            method: cached.method || 'cache',
-            bytes: cached.bytes || 0,
-            error: ''
-          };
-        } catch (err) {
-          recordTileFailure(coords, url, err);
-          return {
-            ok: false,
-            key,
-            role,
-            method: 'none',
-            bytes: 0,
-            error: err?.message || err?.name || 'tile-load-failed'
-          };
-        } finally {
-          tileStats.processed += 1;
-          if (tileStats.processed % 10 === 0) {
-            console.log('[offline-tiles] progress', {
-              processed: tileStats.processed,
-              requested: tileStats.requested,
-              saved: tiles.length,
-              failed: tileStats.failed,
-              totalBytes
-            });
-          }
-          onProgress?.({
-            phase: role,
-            processed: tileStats.processed,
-            totalPlanned,
-            saved: tiles.length,
-            failed: tileStats.failed,
-            totalBytes,
-            cacheHits: tileStats.methods['cache-hit'] || 0
-          });
-        }
-      };
-
-      const allCandidates = [
-        ...routeCandidates.map((coords) => ({ coords, role: 'route' })),
-        ...contextCandidates.map((coords) => ({ coords, role: 'context' }))
-      ];
-
-      if (isIosDevice) {
-        const preflightCandidates = allCandidates.slice(0, 5);
-        for (const candidate of preflightCandidates) {
-          if (budgetReached) break;
-          tileStats.preflight.attempted += 1;
-          const preflightResult = await processTile(candidate.coords, candidate.role);
-          if (preflightResult.ok) {
-            tileStats.preflight.saved += 1;
-          } else {
-            tileStats.preflight.failed += 1;
-          }
-        }
-        if (tileStats.preflight.attempted > 0 && tileStats.preflight.saved === 0) {
-          console.warn('[offline-tiles] iOS cache preflight failed', {
-            attempted: tileStats.preflight.attempted,
-            saved: tileStats.preflight.saved,
-            errors: tileStats.errors
-          });
-          return buildGridTexturePackage();
-        }
-
-        for (const coords of routeCandidates) {
-          if (budgetReached) break;
-          await processTile(coords, 'route');
-        }
-        for (const coords of contextCandidates) {
-          if (budgetReached) break;
-          await processTile(coords, 'context');
-        }
-      } else {
-        const routeTasks = routeCandidates.map((coords) => async () => processTile(coords, 'route'));
-        await runTaskQueue(routeTasks, tileFetchConcurrency);
-        if (!budgetReached) {
-          const contextTasks = contextCandidates.map((coords) => async () => processTile(coords, 'context'));
-          await runTaskQueue(contextTasks, tileFetchConcurrency);
-        }
-      }
-
-      tileStats.saved = tiles.length;
-      tileStats.totalBytes = totalBytes;
-      console.log('[offline-tiles] snapshot complete', {
-        requested: tileStats.requested,
-        processed: tileStats.processed,
-        saved: tiles.length,
-        failed: tileStats.failed,
-        preflight: tileStats.preflight,
-        errors: tileStats.errors,
-        totalBytes
+      let failed = 0;
+      onProgress?.({
+        phase: 'planning',
+        totalPlanned: requested.length,
+        routeCandidates: requested.length,
+        contextCandidates: 0
       });
-      if (!tiles.length) {
-        console.log('[offline-tiles] using grid fallback');
-        return buildGridTexturePackage();
+      for (let i = 0; i < requested.length; i += 1) {
+        const coords = requested[i];
+        const url = getOfflineTileUrl(coords);
+        try {
+          const loaded = await fetchTileDataUrl(url, {
+            timeoutMs: 15000,
+            size: 256
+          });
+          if (!loaded.ok || !loaded.dataUrl) {
+            throw new Error(loaded.error || loaded.reason || 'tile-load-failed');
+          }
+          const bytes = estimateDataUrlBytes(loaded.dataUrl);
+          if (bytes > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) {
+            throw new Error('tile too large');
+          }
+          if ((totalBytes + bytes) > OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES) {
+            console.warn('[offline-tiles] dataUrl byte budget reached', {
+              totalBytes,
+              maxTotalBytes: OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES,
+              savedTiles: tiles.length
+            });
+            break;
+          }
+          totalBytes += bytes;
+          tiles.push({
+            x: coords.x,
+            y: coords.y,
+            z: OFFLINE_TILE_SNAPSHOT_ZOOM,
+            dataUrl: loaded.dataUrl
+          });
+        } catch (err) {
+          failed += 1;
+          console.warn('[offline-tiles] dataUrl tile failed', {
+            coords,
+            url,
+            message: err?.message || err?.name || err
+          });
+        }
+        onProgress?.({
+          phase: 'tiles',
+          processed: i + 1,
+          totalPlanned: requested.length,
+          saved: tiles.length,
+          failed,
+          totalBytes
+        });
       }
+      if (!tiles.length) return buildGridTexturePackage();
       return {
         type: 'tiles',
         tileSize: 256,
-        detail,
-        routeZoom: routeSnapshotZoom,
-        contextZoom: contextSnapshotZoom,
-        sourceViewZoom,
-        baseZoom: routeSnapshotZoom,
-        zoom: routeSnapshotZoom,
-        minAvailableZoom: Math.min(routeSnapshotZoom, contextSnapshotZoom),
-        maxAvailableZoom: Math.max(routeSnapshotZoom, contextSnapshotZoom),
-        center: snapshotCenter,
-        routeStart,
-        routeBbox: routeBBox,
-        bounds: snapshotBounds,
+        tileProvider: OFFLINE_TILE_PROVIDER.id,
+        tileProviderTemplate: OFFLINE_TILE_PROVIDER.template,
+        baseZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        zoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        minAvailableZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        maxAvailableZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
         fallbackColor: '#3b4252',
-        attribution: activeBaseLayer.options?.attribution || '',
-        maxTotalBytes,
+        attribution: OFFLINE_TILE_PROVIDER.attribution,
         totalBytes,
-        budgetReached,
-        methods: { ...tileStats.methods },
         tiles
       };
     }
 
-    async function buildOfflineRoutePackage(rawText, { onProgress, forceRefreshTiles = false } = {}) {
+    async function buildOfflineRoutePackage(rawText, { onProgress } = {}) {
       console.log('[offline-route] save start');
       const latlngs = (appState.gpxTrackLatLngs || []).map((pt) => [pt.lat ?? pt[0], pt.lng ?? pt[1]]).filter((pt) => Number.isFinite(pt[0]) && Number.isFinite(pt[1]));
       if (!latlngs.length) return null;
@@ -4612,7 +4331,6 @@
       const routeBBox = [Math.min(...lats), Math.min(...lngs), Math.max(...lats), Math.max(...lngs)];
       const detail = getOfflineMapDetailSetting();
       const preset = getEffectiveOfflineMapDetailPreset(detail);
-      const coverage = getOfflineTileCoverageSetting();
       console.log('[offline-route] save setting', { detail, preset });
       let mapTexture = buildGridTexturePackage();
       if (!preset.enabled) {
@@ -4620,14 +4338,8 @@
       } else {
         mapTexture = await tryBuildTileSnapshotTexture(routeBBox, {
           latlngs,
-          routeZoom: preset.routeZoom,
-          contextZoom: preset.contextZoom,
-          maxTotalBytes: preset.maxTotalBytes,
-          corridorBufferTiles: preset.corridorBufferTiles,
-          detail,
-          coverage,
-          onProgress,
-          forceRefreshTiles
+          enabled: true,
+          onProgress
         });
         if (!mapTexture || mapTexture.type !== 'tiles' || !Array.isArray(mapTexture.tiles) || !mapTexture.tiles.length) {
           mapTexture = buildGridTexturePackage();
@@ -4659,51 +4371,40 @@
       };
     }
 
-    async function saveCurrentRouteToCache({ onProgress, forceRefreshTiles = true } = {}) {
+    async function clearExistingOfflineRoutesAndTiles() {
+      const rows = await listSavedOfflineRoutes();
+      for (const row of rows) {
+        const pkg = await window.offlineRouteStore.loadOfflineRoute(row.id);
+        if (pkg?.mapTexture?.tiles?.length) {
+          await deleteOfflineTilesForPackage(pkg).catch(() => {});
+        }
+        await window.offlineRouteStore.deleteOfflineRoute(row.id);
+      }
+      activeOfflineRouteId = null;
+    }
+
+    async function saveCurrentRouteToCache({ onProgress } = {}) {
       if (!appState.hasImportedGpx) return { ok: false, reason: 'no-route' };
       const rawText = (typeof gpxState.rawText === 'string' && gpxState.rawText.trim()) ? gpxState.rawText.trim() : buildRawGpxFromTrackLatLngs();
       if (!rawText) return { ok: false, reason: 'no-raw-gpx' };
       try {
-        if (forceRefreshTiles) {
-          const previousPkg = await getMostRecentSavedRoute();
-          if (previousPkg) {
-            await deleteOfflineTilesForPackage(previousPkg);
-          }
-        }
-        const pkg = await buildOfflineRoutePackage(rawText, { onProgress, forceRefreshTiles });
+        await clearExistingOfflineRoutesAndTiles();
+        const pkg = await buildOfflineRoutePackage(rawText, { onProgress });
         if (!pkg) return { ok: false, reason: 'package-failed' };
         await window.offlineRouteStore.saveOfflineRoute(pkg);
-        const validation = await validateOfflineTileCacheForPackage(pkg);
-        console.log('[offline-tiles] post-save validation', validation);
         activeOfflineRouteId = pkg.id;
         await listSavedOfflineRoutes();
         setGpxUiMode('cache-found');
         refreshGpxUiState();
         const detail = pkg.mapTexture?.detail || getOfflineMapDetailSetting();
-        const routeTileCount = Array.isArray(pkg.mapTexture?.tiles)
-          ? pkg.mapTexture.tiles.filter((tile) => tile?.role === 'route').length
-          : 0;
-        const contextTileCount = Array.isArray(pkg.mapTexture?.tiles)
-          ? pkg.mapTexture.tiles.filter((tile) => tile?.role === 'context').length
-          : 0;
-        const methods = { ...(pkg.mapTexture?.methods || {}) };
-        const cacheHitCount = (methods['cache-hit'] || 0) + (methods.cache || 0);
-        const downloadedCount = (methods['opaque-cache'] || 0) + (methods['network-cache'] || 0);
         return {
           ok: true,
           id: pkg.id,
           tileCount: pkg.mapTexture?.tiles?.length || 0,
-          routeTileCount,
-          contextTileCount,
-          cacheHitCount,
-          downloadedCount,
-          methods,
           totalBytes: pkg.mapTexture?.totalBytes || 0,
-          budgetReached: Boolean(pkg.mapTexture?.budgetReached),
           textureType: pkg.mapTexture?.type || 'grid',
           detail,
-          iosSafeMode: Boolean(pkg.offlineSaveMeta?.iosSafeMode),
-          validation
+          iosSafeMode: Boolean(pkg.offlineSaveMeta?.iosSafeMode)
         };
       } catch (err) {
         console.error('[offline-route] save failed', err);
@@ -4721,18 +4422,6 @@
       map.getContainer().style.backgroundSize = '';
     }
 
-    async function waitForOfflineTileRuntimeReady() {
-      if (!('serviceWorker' in navigator)) return;
-      if (!navigator.serviceWorker.controller) {
-        console.warn('[offline-tiles] page is not service-worker controlled yet');
-      }
-      try {
-        await navigator.serviceWorker.ready;
-      } catch (err) {
-        console.warn('[offline-tiles] service worker ready wait failed', err);
-      }
-    }
-
     function redrawOfflineTilesSoon() {
       requestAnimationFrame(() => {
         if (offlineTextureLayer?.redraw) offlineTextureLayer.redraw();
@@ -4743,7 +4432,17 @@
       });
     }
 
-    function applyOfflineTexture(pkg, options = {}) {
+    function loadImageFromDataUrl(dataUrl) {
+      return new Promise((resolve) => {
+        if (!dataUrl) return resolve(null);
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = dataUrl;
+      });
+    }
+
+    function applyOfflineTexture(pkg) {
       if (navigator.onLine) {
         clearOfflineTexture();
         return;
@@ -4751,80 +4450,27 @@
       map.getContainer().dataset.offlineTileMode = 'none';
       clearOfflineTexture();
       if (!pkg?.mapTexture || pkg.mapTexture.type !== 'tiles' || !Array.isArray(pkg.mapTexture.tiles) || pkg.mapTexture.tiles.length === 0) {
-        console.log('[offline-tiles] using grid fallback');
+        map.getContainer().dataset.offlineTileMode = 'fallback';
+        map.getContainer().style.background = 'radial-gradient(circle at 25% 25%, rgba(255,255,255,0.18), transparent 35%), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), #3b4252';
+        map.getContainer().style.backgroundSize = 'auto, 32px 32px, 32px 32px, auto';
+        return;
+      }
+      const hasDataUrlTiles = pkg.mapTexture.tiles.some((tile) => typeof tile?.dataUrl === 'string' && tile.dataUrl.startsWith('data:image/'));
+      const hasOnlyUrlTiles = pkg.mapTexture.tiles.some((tile) => tile?.url) && !hasDataUrlTiles;
+      if (!hasDataUrlTiles || hasOnlyUrlTiles) {
+        showMapToast('Saved route uses an old offline map format. Please save it again.');
         map.getContainer().dataset.offlineTileMode = 'fallback';
         map.getContainer().style.background = 'radial-gradient(circle at 25% 25%, rgba(255,255,255,0.18), transparent 35%), linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px), #3b4252';
         map.getContainer().style.backgroundSize = 'auto, 32px 32px, 32px 32px, auto';
         return;
       }
       map.getContainer().dataset.offlineTileMode = 'tiles';
-      console.log('[offline-tiles] using saved tile layer');
-      const cacheValidation = options.cacheValidation || null;
-      const missingUrlSet = new Set((cacheValidation?.missingTiles || []).map((tile) => tile.url).filter(Boolean));
-      const keyEntries = new Map();
-      const routeKeySet = new Set();
-      const contextKeySet = new Set();
-      (pkg.mapTexture.tiles || []).forEach((tile) => {
-        const key = `${tile.z}/${tile.x}/${tile.y}`;
-        const role = tile?.role === 'context' ? 'context' : 'route';
-        const isUrlRenderable = tile.url && !missingUrlSet.has(tile.url);
-        if (!keyEntries.has(key)) keyEntries.set(key, []);
-        keyEntries.get(key).push({
-          key,
-          role,
-          dataUrl: tile.dataUrl,
-          url: isUrlRenderable ? tile.url : '',
-          missingUrl: Boolean(tile.url) && !isUrlRenderable
-        });
-        if (role === 'route') routeKeySet.add(key);
-        if (role === 'context') contextKeySet.add(key);
-      });
-      const hasLegacyDataUrlTiles = (pkg.mapTexture.tiles || []).some((tile) => typeof tile?.dataUrl === 'string' && tile.dataUrl.startsWith('data:'));
-      const hasUrlTiles = (pkg.mapTexture.tiles || []).some((tile) => typeof tile?.url === 'string' && tile.url.length > 0);
-      const pickEntry = (key, preferredRole = null) => {
-        const entries = keyEntries.get(key) || [];
-        if (!entries.length) return null;
-        if (preferredRole) {
-          const preferred = entries.find((entry) => entry.role === preferredRole);
-          if (preferred) return preferred;
-        }
-        return entries.find((entry) => entry.role === 'route') || entries[0];
-      };
-      const availableZooms = Array.from(new Set((pkg.mapTexture.tiles || []).map((tile) => Number(tile.z)).filter(Number.isFinite))).sort((a, b) => a - b);
-      const roleCounts = (pkg.mapTexture.tiles || []).reduce((acc, tile) => {
-        const role = tile?.role === 'context' ? 'context' : 'route';
-        acc[role] = (acc[role] || 0) + 1;
-        return acc;
-      }, { route: 0, context: 0 });
-      console.log('[offline-tiles] render package', {
-        tileCount: pkg.mapTexture.tiles.length,
-        routeZoom: pkg.mapTexture.routeZoom,
-        contextZoom: pkg.mapTexture.contextZoom,
-        baseZoom: pkg.mapTexture.baseZoom,
-        availableZooms,
-        roleCounts,
-        hasUrlTiles,
-        hasLegacyDataUrlTiles
-      });
-      const minAvailableZoom = availableZooms.length ? Math.min(...availableZooms) : null;
-      const maxAvailableZoom = availableZooms.length ? Math.max(...availableZooms) : null;
-      console.log('[offline-tiles] zoom coverage', {
-        availableZooms,
-        minAvailableZoom,
-        maxAvailableZoom,
-        mapMinZoom: map.getMinZoom(),
-        mapMaxZoom: map.getMaxZoom()
-      });
-      const loadDataUrlImage = (dataUrl) => new Promise((resolve) => {
-        if (!dataUrl) {
-          resolve(null);
-          return;
-        }
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = () => resolve(null);
-        img.src = dataUrl;
-      });
+      const tileMap = new Map(
+        pkg.mapTexture.tiles
+          .filter((tile) => tile?.dataUrl)
+          .map((tile) => [`${tile.z}/${tile.x}/${tile.y}`, tile.dataUrl])
+      );
+      const baseZoom = Number(pkg.mapTexture.baseZoom) || OFFLINE_TILE_SNAPSHOT_ZOOM;
       const drawFallbackGrid = (ctx, size, color = (pkg.mapTexture.fallbackColor || '#3b4252')) => {
         ctx.fillStyle = color;
         ctx.fillRect(0, 0, size, size);
@@ -4976,131 +4622,69 @@
         noWrap: false,
         opacity: 1
       });
-      let createTileLogCount = 0;
       offlineTextureLayer.createTile = function createTile(coords, done) {
         const size = Number(pkg.mapTexture.tileSize) || 256;
         const key = `${coords.z}/${coords.x}/${coords.y}`;
-        const preferContext = Number.isFinite(pkg.mapTexture.contextZoom) && coords.z <= pkg.mapTexture.contextZoom;
-        const routeEntry = pickEntry(key, 'route');
-        const contextEntry = pickEntry(key, 'context');
-        const exactEntry = preferContext ? (contextEntry || routeEntry) : (routeEntry || contextEntry);
-        const parentMatch = !exactEntry ? getParentTileMatch(coords) : null;
-        const childrenMatch = (!exactEntry && !parentMatch) ? getChildrenMatch(coords) : null;
-
-        const logCreateTile = (mode, hit, sourceKeys = [], details = {}) => {
-          if (createTileLogCount >= 50) return;
-          console.log('[offline-tiles] createTile', {
-            requested: key,
-            mode,
-            hit,
-            sourceKeys,
-            ...details
-          });
-          createTileLogCount += 1;
-        };
-
-        if (exactEntry?.url) {
-          const tile = createCssTileFromUrl(exactEntry.url, size, { mode: 'exact-url' });
-          logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact-url', true, [key], { exactUrl: exactEntry.url });
-          setTimeout(() => done?.(null, tile), 0);
-          return tile;
-        }
-
-        if (exactEntry?.dataUrl) {
+        const exact = tileMap.get(key);
+        if (exact) {
           const img = document.createElement('img');
           img.width = size;
           img.height = size;
           img.alt = '';
-          img.onload = () => {
-            logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact-dataurl', true, [key]);
-            done?.(null, img);
-          };
+          img.onload = () => done?.(null, img);
           img.onerror = () => {
             const fallback = createFallbackCanvas(size);
-            logCreateTile('fallback', false, [key]);
             done?.(null, fallback);
           };
-          img.src = exactEntry.dataUrl;
+          img.src = exact;
           return img;
         }
-
         const tileCanvas = createBlankCanvas(size);
         const ctx = tileCanvas.getContext('2d');
-
         (async () => {
-          if (parentMatch?.parentDataUrl) {
-            const parentImg = await loadDataUrlImage(parentMatch.parentDataUrl);
+          drawFallbackGrid(ctx, size);
+          if (coords.z > baseZoom) {
+            const delta = coords.z - baseZoom;
+            const parentX = Math.floor(coords.x / (2 ** delta));
+            const parentY = Math.floor(coords.y / (2 ** delta));
+            const parentDataUrl = tileMap.get(`${baseZoom}/${parentX}/${parentY}`);
+            const parentImg = await loadImageFromDataUrl(parentDataUrl);
             if (parentImg) {
-              const scale = 2 ** parentMatch.levelDelta;
+              const scale = 2 ** delta;
               const srcSize = size / scale;
               const srcX = (coords.x % scale) * srcSize;
               const srcY = (coords.y % scale) * srcSize;
               ctx.imageSmoothingEnabled = true;
               ctx.drawImage(parentImg, srcX, srcY, srcSize, srcSize, 0, 0, size, size);
-              logCreateTile(parentMatch.parentRole === 'context' ? 'context' : 'dataurl-parent', true, [parentMatch.parentKey]);
               done?.(null, tileCanvas);
               return;
             }
           }
-          if (parentMatch?.parentUrl && !parentMatch.parentDataUrl) {
-            const scale = 2 ** parentMatch.levelDelta;
-            const sourceSize = size * scale;
-            const offsetX = (coords.x % scale) * size;
-            const offsetY = (coords.y % scale) * size;
-            const tile = createCssTileFromUrl(parentMatch.parentUrl, size, {
-              sourceSize,
-              offsetX,
-              offsetY,
-              mode: 'url-parent'
-            });
-            logCreateTile('url-parent', true, [parentMatch.parentKey], { parentUrl: parentMatch.parentUrl });
-            done?.(null, tile);
-            return;
-          }
-
-          if (childrenMatch) {
-            const sourceKeys = childrenMatch.children.filter((child) => child.dataUrl || child.url).map((child) => child.key);
-            const hasUrlChild = childrenMatch.children.some((child) => child.url);
-            if (hasUrlChild) {
-              const urlTile = createCssMosaicTile(childrenMatch.children, size, childrenMatch.scale, pkg.mapTexture.fallbackColor);
-              const hasRouteChild = sourceKeys.some((sourceKey) => routeKeySet.has(sourceKey));
-              const hasContextChild = sourceKeys.some((sourceKey) => contextKeySet.has(sourceKey));
-              const mode = hasRouteChild ? 'url-children' : (hasContextChild ? 'context' : 'url-children');
-              logCreateTile(mode, sourceKeys.length > 0, sourceKeys, {
-                childrenUrls: childrenMatch.children.map((child) => child.url).filter(Boolean)
-              });
-              done?.(null, urlTile);
-              return;
+          if (coords.z < baseZoom) {
+            const delta = baseZoom - coords.z;
+            const scale = 2 ** delta;
+            const startX = coords.x * scale;
+            const startY = coords.y * scale;
+            const childSize = size / scale;
+            for (let dx = 0; dx < scale; dx += 1) {
+              for (let dy = 0; dy < scale; dy += 1) {
+                const dataUrl = tileMap.get(`${baseZoom}/${startX + dx}/${startY + dy}`);
+                if (!dataUrl) continue;
+                const childImg = await loadImageFromDataUrl(dataUrl);
+                if (!childImg) continue;
+                ctx.drawImage(childImg, dx * childSize, dy * childSize, childSize, childSize);
+              }
             }
-            drawFallbackGrid(ctx, size);
-            const childSize = size / childrenMatch.scale;
-            await Promise.all(childrenMatch.children.map(async (child) => {
-              if (!child.dataUrl) return;
-              const childImg = await loadDataUrlImage(child.dataUrl);
-              if (!childImg) return;
-              ctx.drawImage(childImg, child.dx * childSize, child.dy * childSize, childSize, childSize);
-            }));
-            const hasRouteChild = sourceKeys.some((sourceKey) => routeKeySet.has(sourceKey));
-            const hasContextChild = sourceKeys.some((sourceKey) => contextKeySet.has(sourceKey));
-            const mode = hasRouteChild ? 'dataurl-children' : (hasContextChild ? 'context' : 'dataurl-children');
-            logCreateTile(mode, sourceKeys.length > 0, sourceKeys);
             done?.(null, tileCanvas);
             return;
           }
-
-          const fallbackCanvas = createFallbackCanvas(size);
-          fallbackCanvas.dataset.offlineTileMode = 'fallback';
-          map.getContainer().dataset.offlineTileMode = 'fallback';
-          logCreateTile('fallback', false, []);
-          done?.(null, fallbackCanvas);
+          done?.(null, tileCanvas);
         })().catch(() => {
           const fallbackCanvas = createFallbackCanvas(size);
           fallbackCanvas.dataset.offlineTileMode = 'fallback';
           map.getContainer().dataset.offlineTileMode = 'fallback';
-          logCreateTile('fallback', false, []);
           done?.(null, fallbackCanvas);
         });
-
         return tileCanvas;
       };
       offlineTextureLayer.addTo(map);
@@ -5108,62 +4692,6 @@
         offlineTextureLayer.bringToBack();
       }
       redrawOfflineTilesSoon();
-    }
-
-    async function debugOfflineTileCacheForPackage(pkg, sampleSize = 10) {
-      try {
-        const cache = await caches.open(OFFLINE_TILE_CACHE_NAME);
-        const sample = (pkg?.mapTexture?.tiles || []).slice(0, sampleSize);
-        const results = [];
-        for (const tile of sample) {
-          const match = tile.url ? await cache.match(tile.url) : null;
-          results.push({
-            key: `${tile.z}/${tile.x}/${tile.y}`,
-            role: tile.role,
-            hasUrl: Boolean(tile.url),
-            cached: Boolean(match)
-          });
-        }
-        console.log('[offline-tiles] cache sample', results);
-      } catch (err) {
-        console.warn('[offline-tiles] cache sample failed', err);
-      }
-    }
-
-    async function validateOfflineTileCacheForPackage(pkg) {
-      const tiles = Array.isArray(pkg?.mapTexture?.tiles) ? pkg.mapTexture.tiles : [];
-      const urlTiles = tiles.filter((tile) => typeof tile?.url === 'string' && tile.url.length > 0);
-
-      if (!urlTiles.length || !('caches' in window)) {
-        return {
-          checked: 0,
-          cached: 0,
-          missing: 0,
-          missingTiles: [],
-          ok: false
-        };
-      }
-
-      const cache = await caches.open(OFFLINE_TILE_CACHE_NAME);
-      let cached = 0;
-      const missingTiles = [];
-
-      for (const tile of urlTiles) {
-        const match = await cache.match(tile.url, { ignoreVary: true }) || await caches.match(tile.url, { ignoreVary: true });
-        if (match) {
-          cached += 1;
-        } else {
-          missingTiles.push(tile);
-        }
-      }
-
-      return {
-        checked: urlTiles.length,
-        cached,
-        missing: missingTiles.length,
-        missingTiles,
-        ok: cached > 0 && cached === urlTiles.length
-      };
     }
 
     async function deleteOfflineTilesForPackage(pkg) {
@@ -5309,28 +4837,15 @@
       updateClusteringForViewport();
 
       if (shouldUseOfflineTexture && hasTileTexture) {
-        waitForOfflineTileRuntimeReady().finally(() => {
-          validateOfflineTileCacheForPackage(pkg).then((validation) => {
-            console.log('[offline-tiles] cache validation', validation);
-            if (validation.checked > 0 && validation.cached === 0) {
-              showMapToast('Offline route loaded, but map tiles are missing from cache.');
-            } else if (validation.missing > 0) {
-              showMapToast(`Offline route loaded with ${validation.cached}/${validation.checked} cached map tiles.`);
-            }
-            applyOfflineTexture(pkg, { cacheValidation: validation });
-            fitMapToOfflineRoutePackage(pkg);
-            redrawOfflineTilesSoon();
-          }).catch((err) => {
-            console.warn('[offline-tiles] cache validation failed', err);
-            applyOfflineTexture(pkg);
-            fitMapToOfflineRoutePackage(pkg);
-            redrawOfflineTilesSoon();
-          });
-        });
+        applyOfflineTexture(pkg);
+        fitMapToOfflineRoutePackage(pkg);
+        offlineTextureLayer?.redraw?.();
+        map.invalidateSize(false);
       } else if (shouldUseOfflineTexture) {
         applyOfflineTexture(pkg);
         fitMapToOfflineRoutePackage(pkg);
-        redrawOfflineTilesSoon();
+        offlineTextureLayer?.redraw?.();
+        map.invalidateSize(false);
       } else {
         clearOfflineTexture();
         applyTheme(document.documentElement.dataset.theme === 'dark');
@@ -5483,7 +4998,7 @@
         });
       }
       if (saveBtn) {
-        const handleSaveRoute = async ({ forceRefreshTiles = true } = {}) => {
+        const handleSaveRoute = async () => {
           const progressEl = document.getElementById('offlineSaveProgress');
           const setOfflineSaveProgress = (text) => {
             if (progressEl) progressEl.textContent = text;
@@ -5494,16 +5009,9 @@
             setOfflineSaveProgress('Preparing offline route package…');
             showMapToast('Refreshing and saving offline route…');
             const result = await saveCurrentRouteToCache({
-              forceRefreshTiles,
               onProgress: (progress) => {
                 if (progress?.phase === 'planning') {
-                  if (progress.totalPlanned > 300) {
-                    setOfflineSaveProgress(`Preparing ${progress.totalPlanned} map tiles. This may take a while, especially on iPhone…`);
-                    return;
-                  }
-                  setOfflineSaveProgress(
-                    `Preparing ${progress.totalPlanned} map tiles (${progress.routeCandidates} route, ${progress.contextCandidates} context)…`
-                  );
+                  setOfflineSaveProgress(`Preparing ${progress.totalPlanned} map tiles…`);
                   return;
                 }
                 setOfflineSaveProgress(
@@ -5516,29 +5024,13 @@
               if (result.tileCount > 0) {
                 const sizeMb = (Number(result.totalBytes || 0) / 1024 / 1024).toFixed(1);
                 const hasReliableSize = Number(result.totalBytes || 0) > 0;
-                const downloadedCount = Number(result.downloadedCount || 0);
-                if (result.budgetReached && hasReliableSize) {
-                  showMapToast(`Route saved with ${result.tileCount} offline map tiles (~${sizeMb} MB, storage limit reached).`);
-                } else if (downloadedCount > 0) {
-                  showMapToast(`Route saved with ${downloadedCount} fresh offline map tiles.`);
-                } else {
-                  showMapToast(`Route saved with ${result.tileCount} offline map tiles.`);
-                }
+                showMapToast(`Route saved with ${result.tileCount} offline map tiles.`);
                 setOfflineSaveProgress(
-                  hasReliableSize
-                    ? `Saved ${result.routeTileCount || 0} route tiles and ${result.contextTileCount || 0} context tiles (~${sizeMb} MB).`
-                    : `Saved ${result.routeTileCount || 0} route tiles and ${result.contextTileCount || 0} context tiles.`
+                  hasReliableSize ? `Saved ${result.tileCount} map tiles (~${sizeMb} MB).` : `Saved ${result.tileCount} map tiles.`
                 );
               } else {
                 showMapToast('Route saved without offline map tiles.');
                 setOfflineSaveProgress('Route saved without offline map tiles.');
-              }
-              const validation = result?.validation || null;
-              if (validation?.checked > 0 && validation.cached === 0) {
-                showMapToast('Route saved, but offline map tiles are missing from cache.');
-                setOfflineSaveProgress('Route saved, but offline map tiles are missing from cache.');
-              } else if (validation?.cached >= 0 && validation?.cached < validation?.checked) {
-                setOfflineSaveProgress(`Saved route, but only ${validation.cached}/${validation.checked} map tiles are available offline.`);
               }
             } else if (result?.reason === 'no-route' || result?.reason === 'no-raw-gpx') {
               showMapToast('No route to save.');
@@ -5553,9 +5045,9 @@
             if (refreshTilesBtn) refreshTilesBtn.disabled = false;
           }
         };
-        saveBtn.addEventListener('click', () => handleSaveRoute({ forceRefreshTiles: true }));
+        saveBtn.addEventListener('click', () => handleSaveRoute());
         if (refreshTilesBtn) {
-          refreshTilesBtn.addEventListener('click', () => handleSaveRoute({ forceRefreshTiles: true }));
+          refreshTilesBtn.addEventListener('click', () => handleSaveRoute());
         }
       }
       if (loadSavedBtn) {
@@ -5597,16 +5089,14 @@
       const hint = document.getElementById('offlineMapDetailHint');
       if (!select) return;
       const isIosDevice = typeof isIOS === 'function' && isIOS();
-      if (hint && isIosDevice) {
-        hint.textContent = 'On iOS, all detail levels currently use the stable Basic tile mode.';
-      } else if (hint) {
-        hint.textContent = 'Controls route tile zoom coverage. Higher zooms use scaled offline tiles when needed.';
+      if (hint) {
+        hint.textContent = 'Offline maps are saved at zoom level 13 along the route. Other zoom levels use scaled saved tiles.';
       }
       if (isIosDevice) {
         const standardOption = select.querySelector('option[value="standard"]');
         const highOption = select.querySelector('option[value="high"]');
-        if (standardOption) standardOption.textContent = 'Standard – iOS stable mode (zoom 13 + scaled tiles)';
-        if (highOption) highOption.textContent = 'High – iOS stable mode (zoom 14 + scaled tiles)';
+        if (standardOption) standardOption.textContent = 'Standard – zoom 13 route tiles';
+        if (highOption) highOption.textContent = 'High – zoom 13 route tiles';
       }
       select.value = getOfflineMapDetailSetting();
       select.addEventListener('change', () => {
