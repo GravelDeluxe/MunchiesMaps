@@ -1,5 +1,6 @@
 const STATIC_CACHE = 'munchiesmaps-static-v6';
 const GEOJSON_CACHE = 'munchiesmaps-geojson-v2';
+const OFFLINE_TILE_CACHE_NAME = 'munchiesmaps-offline-tiles-v1';
 
 const SCOPE_URL = new URL(self.registration.scope);
 const APP_SHELL_URL = new URL('./index.html', SCOPE_URL).toString();
@@ -59,9 +60,11 @@ function isStaticAssetRequest(requestUrl) {
   return /\.(?:css|js|mjs|json|webmanifest|png|jpg|jpeg|svg|gif|webp|ico|woff2?|ttf)$/i.test(pathname);
 }
 
-function isExternalMapTileRequest(requestUrl) {
+function isTileRequest(requestUrl) {
   const host = requestUrl.hostname;
-  return /(?:tile|tiles|basemaps?)\./i.test(host) || /(?:\/tiles?\/|\/tile\/)/i.test(requestUrl.pathname);
+  return host.includes('tile.openstreetmap.org')
+    || host.includes('basemaps.cartocdn.com')
+    || host.includes('cartocdn.com');
 }
 
 function isGeoJsonRequest(requestUrl) {
@@ -128,7 +131,7 @@ self.addEventListener('activate', (event) => {
     const cacheNames = await caches.keys();
     await Promise.all(
       cacheNames
-        .filter((name) => name !== STATIC_CACHE && name !== GEOJSON_CACHE)
+        .filter((name) => name !== STATIC_CACHE && name !== GEOJSON_CACHE && name !== OFFLINE_TILE_CACHE_NAME)
         .map((name) => caches.delete(name))
     );
 
@@ -225,6 +228,25 @@ async function handleStaticAssetRequest(event) {
   return networkResponse;
 }
 
+async function handleTileRequest(event) {
+  const cache = await caches.open(OFFLINE_TILE_CACHE_NAME);
+  const cached = await cache.match(event.request, { ignoreVary: true }) || await cache.match(event.request.url, { ignoreVary: true });
+  if (cached) return cached;
+
+  try {
+    const response = await fetch(event.request);
+    if (response) {
+      cache.put(event.request, response.clone()).catch(() => {});
+    }
+    return response;
+  } catch (error) {
+    return new Response('', {
+      status: 504,
+      statusText: 'Offline tile unavailable'
+    });
+  }
+}
+
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
@@ -240,7 +262,8 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  if (isExternalMapTileRequest(requestUrl)) {
+  if (isTileRequest(requestUrl)) {
+    event.respondWith(handleTileRequest(event));
     return;
   }
 
