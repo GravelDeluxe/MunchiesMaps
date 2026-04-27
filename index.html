@@ -4509,6 +4509,19 @@
         return entries.find((entry) => entry.role === 'route') || entries[0];
       };
       const availableZooms = Array.from(new Set((pkg.mapTexture.tiles || []).map((tile) => Number(tile.z)).filter(Number.isFinite))).sort((a, b) => a - b);
+      const roleCounts = (pkg.mapTexture.tiles || []).reduce((acc, tile) => {
+        const role = tile?.role === 'context' ? 'context' : 'route';
+        acc[role] = (acc[role] || 0) + 1;
+        return acc;
+      }, { route: 0, context: 0 });
+      console.log('[offline-tiles] render package', {
+        tileCount: pkg.mapTexture.tiles.length,
+        routeZoom: pkg.mapTexture.routeZoom,
+        contextZoom: pkg.mapTexture.contextZoom,
+        baseZoom: pkg.mapTexture.baseZoom,
+        availableZooms,
+        roleCounts
+      });
       const loadDataUrlImage = (dataUrl) => new Promise((resolve) => {
         if (!dataUrl) {
           resolve(null);
@@ -4535,7 +4548,22 @@
         }
         ctx.stroke();
       };
+      const createFallbackCanvas = (size, color = (pkg.mapTexture.fallbackColor || '#111')) => {
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        drawFallbackGrid(ctx, size, color);
+        return canvas;
+      };
+      const createBlankCanvas = (size) => {
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        return canvas;
+      };
       const getParentTileMatch = (coords) => {
+        const preferContextParent = Number.isFinite(pkg.mapTexture.contextZoom) && coords.z <= pkg.mapTexture.contextZoom;
         for (let parentZ = coords.z - 1; parentZ >= 0; parentZ -= 1) {
           const levelDelta = coords.z - parentZ;
           const parentX = Math.floor(coords.x / (2 ** levelDelta));
@@ -4543,7 +4571,7 @@
           const parentKey = `${parentZ}/${parentX}/${parentY}`;
           const routeParent = pickEntry(parentKey, 'route');
           const contextParent = pickEntry(parentKey, 'context');
-          const parentEntry = routeParent || contextParent;
+          const parentEntry = preferContextParent ? (contextParent || routeParent) : (routeParent || contextParent);
           if (parentEntry?.dataUrl) {
             return {
               parentZ,
@@ -4559,9 +4587,11 @@
         return null;
       };
       const getChildrenMatch = (coords) => {
-        const savedZ = availableZooms.find((z) => z > coords.z);
+        const MAX_CHILD_MOSAIC_DELTA = 2;
+        const savedZ = availableZooms.find((z) => z > coords.z && (z - coords.z) <= MAX_CHILD_MOSAIC_DELTA);
         if (!Number.isFinite(savedZ)) return null;
         const dz = savedZ - coords.z;
+        if (dz > MAX_CHILD_MOSAIC_DELTA) return null;
         const scale = 2 ** dz;
         const startX = coords.x * scale;
         const startY = coords.y * scale;
@@ -4590,16 +4620,12 @@
       offlineTextureLayer.createTile = function createTile(coords, done) {
         const size = Number(pkg.mapTexture.tileSize) || 256;
         const key = `${coords.z}/${coords.x}/${coords.y}`;
+        const preferContext = Number.isFinite(pkg.mapTexture.contextZoom) && coords.z <= pkg.mapTexture.contextZoom;
         const routeEntry = pickEntry(key, 'route');
         const contextEntry = pickEntry(key, 'context');
-        const exactEntry = routeEntry || contextEntry;
+        const exactEntry = preferContext ? (contextEntry || routeEntry) : (routeEntry || contextEntry);
         const parentMatch = exactEntry ? null : getParentTileMatch(coords);
         const childrenMatch = (!exactEntry && !parentMatch) ? getChildrenMatch(coords) : null;
-
-        const tileCanvas = document.createElement('canvas');
-        tileCanvas.width = size;
-        tileCanvas.height = size;
-        const ctx = tileCanvas.getContext('2d');
 
         const logCreateTile = (mode, hit, sourceKeys = []) => {
           if (createTileLogCount >= 30) return;
@@ -4612,16 +4638,28 @@
           createTileLogCount += 1;
         };
 
-        (async () => {
-          if (exactEntry?.dataUrl) {
-            const exact = await loadDataUrlImage(exactEntry.dataUrl);
-            if (exact) {
-              logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact', true, [key]);
-              done?.(null, exact);
-              return;
-            }
-          }
+        if (exactEntry?.dataUrl) {
+          const img = document.createElement('img');
+          img.width = size;
+          img.height = size;
+          img.alt = '';
+          img.onload = () => {
+            logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact', true, [key]);
+            done?.(null, img);
+          };
+          img.onerror = () => {
+            const fallback = createFallbackCanvas(size);
+            logCreateTile('fallback', false, [key]);
+            done?.(null, fallback);
+          };
+          img.src = exactEntry.dataUrl;
+          return img;
+        }
 
+        const tileCanvas = createBlankCanvas(size);
+        const ctx = tileCanvas.getContext('2d');
+
+        (async () => {
           if (parentMatch) {
             const parentImg = await loadDataUrlImage(parentMatch.parentDataUrl);
             if (parentImg) {
@@ -4662,13 +4700,13 @@
             return;
           }
 
-          drawFallbackGrid(ctx, size);
+          const fallbackCanvas = createFallbackCanvas(size);
           logCreateTile('fallback', false, []);
-          done?.(null, tileCanvas);
+          done?.(null, fallbackCanvas);
         })().catch(() => {
-          drawFallbackGrid(ctx, size);
+          const fallbackCanvas = createFallbackCanvas(size);
           logCreateTile('fallback', false, []);
-          done?.(null, tileCanvas);
+          done?.(null, fallbackCanvas);
         });
 
         return tileCanvas;
@@ -4676,6 +4714,12 @@
       offlineTextureLayer.addTo(map);
       if (offlineTextureLayer.bringToBack) {
         offlineTextureLayer.bringToBack();
+      }
+      if (typeof offlineTextureLayer.redraw === 'function') {
+        offlineTextureLayer.redraw();
+      }
+      if (typeof map.invalidateSize === 'function') {
+        map.invalidateSize(false);
       }
     }
 
@@ -4772,6 +4816,11 @@
           tileCount: pkg.mapTexture.tiles.length
         });
         applyOfflineTexture(pkg);
+        setTimeout(() => {
+          if (offlineTextureLayer && typeof offlineTextureLayer.redraw === 'function') {
+            offlineTextureLayer.redraw();
+          }
+        }, 0);
       } else {
         map.setMinZoom(0);
         map.setMaxZoom(19);
