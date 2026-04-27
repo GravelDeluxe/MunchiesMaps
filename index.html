@@ -3918,18 +3918,17 @@
         .map((pt) => L.latLng(pt?.lat ?? pt?.[0], pt?.lng ?? pt?.[1]))
         .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lng));
       if (!points.length) return [];
-      const sampled = downsamplePoints(points, 2000);
       const world = 2 ** zoom;
       const radius = Math.max(0, Math.floor(corridorBufferTiles));
       const seen = new Set();
       const ordered = [];
-      sampled.forEach((latlng) => {
-        const x = clamp(lon2tile(latlng.lng, zoom), 0, world - 1);
-        const y = clamp(lat2tile(latlng.lat, zoom), 0, world - 1);
+      const addLatLngPoint = (latlng) => {
+        const tileX = clamp(lon2tile(latlng.lng, zoom), 0, world - 1);
+        const tileY = clamp(lat2tile(latlng.lat, zoom), 0, world - 1);
         for (let dx = -radius; dx <= radius; dx += 1) {
           for (let dy = -radius; dy <= radius; dy += 1) {
-            const nx = x + dx;
-            const ny = y + dy;
+            const nx = tileX + dx;
+            const ny = tileY + dy;
             if (nx < 0 || ny < 0 || nx >= world || ny >= world) continue;
             const key = `${zoom}/${nx}/${ny}`;
             if (seen.has(key)) continue;
@@ -3937,7 +3936,30 @@
             ordered.push({ x: nx, y: ny, z: zoom });
           }
         }
-      });
+      };
+
+      const sampled = downsamplePoints(points, 2000);
+      for (let idx = 0; idx < sampled.length; idx += 1) {
+        const start = sampled[idx];
+        addLatLngPoint(start);
+        if (idx >= sampled.length - 1) continue;
+        const end = sampled[idx + 1];
+        const tileAX = clamp(lon2tile(start.lng, zoom), 0, world - 1);
+        const tileAY = clamp(lat2tile(start.lat, zoom), 0, world - 1);
+        const tileBX = clamp(lon2tile(end.lng, zoom), 0, world - 1);
+        const tileBY = clamp(lat2tile(end.lat, zoom), 0, world - 1);
+        const steps = Math.max(
+          Math.abs(tileBX - tileAX),
+          Math.abs(tileBY - tileAY),
+          1
+        );
+        for (let i = 0; i <= steps; i += 1) {
+          const t = i / steps;
+          const lat = start.lat + ((end.lat - start.lat) * t);
+          const lng = start.lng + ((end.lng - start.lng) * t);
+          addLatLngPoint(L.latLng(lat, lng));
+        }
+      }
       return ordered;
     }
 
@@ -4647,6 +4669,28 @@
       map.getContainer().style.backgroundSize = '';
     }
 
+    async function waitForOfflineTileRuntimeReady() {
+      if (!('serviceWorker' in navigator)) return;
+      if (!navigator.serviceWorker.controller) {
+        console.warn('[offline-tiles] page is not service-worker controlled yet');
+      }
+      try {
+        await navigator.serviceWorker.ready;
+      } catch (err) {
+        console.warn('[offline-tiles] service worker ready wait failed', err);
+      }
+    }
+
+    function redrawOfflineTilesSoon() {
+      requestAnimationFrame(() => {
+        if (offlineTextureLayer?.redraw) offlineTextureLayer.redraw();
+        if (map?.invalidateSize) map.invalidateSize(false);
+        setTimeout(() => {
+          if (offlineTextureLayer?.redraw) offlineTextureLayer.redraw();
+        }, 250);
+      });
+    }
+
     function applyOfflineTexture(pkg) {
       if (navigator.onLine) {
         clearOfflineTexture();
@@ -4672,6 +4716,7 @@
         if (role === 'context') contextKeySet.add(key);
       });
       const hasLegacyDataUrlTiles = (pkg.mapTexture.tiles || []).some((tile) => typeof tile?.dataUrl === 'string' && tile.dataUrl.startsWith('data:'));
+      const hasUrlTiles = (pkg.mapTexture.tiles || []).some((tile) => typeof tile?.url === 'string' && tile.url.length > 0);
       const pickEntry = (key, preferredRole = null) => {
         const entries = keyEntries.get(key) || [];
         if (!entries.length) return null;
@@ -4693,7 +4738,9 @@
         contextZoom: pkg.mapTexture.contextZoom,
         baseZoom: pkg.mapTexture.baseZoom,
         availableZooms,
-        roleCounts
+        roleCounts,
+        hasUrlTiles,
+        hasLegacyDataUrlTiles
       });
       const minAvailableZoom = availableZooms.length ? Math.min(...availableZooms) : null;
       const maxAvailableZoom = availableZooms.length ? Math.max(...availableZooms) : null;
@@ -4744,8 +4791,47 @@
         canvas.height = size;
         return canvas;
       };
+      const createCssTileFromUrl = (url, size, {
+        sourceSize = size,
+        offsetX = 0,
+        offsetY = 0
+      } = {}) => {
+        const div = document.createElement('div');
+        div.style.width = `${size}px`;
+        div.style.height = `${size}px`;
+        div.style.backgroundImage = `url("${url}")`;
+        div.style.backgroundRepeat = 'no-repeat';
+        div.style.backgroundSize = `${sourceSize}px ${sourceSize}px`;
+        div.style.backgroundPosition = `-${offsetX}px -${offsetY}px`;
+        div.style.backgroundColor = pkg.mapTexture.fallbackColor || '#111';
+        return div;
+      };
+      const createCssMosaicTile = (children, size, scale, fallbackColor) => {
+        const container = document.createElement('div');
+        container.style.width = `${size}px`;
+        container.style.height = `${size}px`;
+        container.style.position = 'relative';
+        container.style.overflow = 'hidden';
+        container.style.background = fallbackColor || '#111';
+        const childSize = size / scale;
+        children.forEach((child) => {
+          if (!child.url) return;
+          const childDiv = document.createElement('div');
+          childDiv.style.position = 'absolute';
+          childDiv.style.left = `${child.dx * childSize}px`;
+          childDiv.style.top = `${child.dy * childSize}px`;
+          childDiv.style.width = `${childSize}px`;
+          childDiv.style.height = `${childSize}px`;
+          childDiv.style.backgroundImage = `url("${child.url}")`;
+          childDiv.style.backgroundSize = `${childSize}px ${childSize}px`;
+          childDiv.style.backgroundRepeat = 'no-repeat';
+          container.appendChild(childDiv);
+        });
+        return container;
+      };
       const getParentTileMatch = (coords) => {
-        const preferContextParent = Number.isFinite(pkg.mapTexture.contextZoom) && coords.z <= pkg.mapTexture.contextZoom;
+        const routeZoom = Number.isFinite(pkg.mapTexture.routeZoom) ? pkg.mapTexture.routeZoom : null;
+        const contextZoom = Number.isFinite(pkg.mapTexture.contextZoom) ? pkg.mapTexture.contextZoom : null;
         for (let parentZ = coords.z - 1; parentZ >= 0; parentZ -= 1) {
           const levelDelta = coords.z - parentZ;
           const parentX = Math.floor(coords.x / (2 ** levelDelta));
@@ -4753,7 +4839,17 @@
           const parentKey = `${parentZ}/${parentX}/${parentY}`;
           const routeParent = pickEntry(parentKey, 'route');
           const contextParent = pickEntry(parentKey, 'context');
-          const parentEntry = preferContextParent ? (contextParent || routeParent) : (routeParent || contextParent);
+          let parentEntry = null;
+
+          if (Number.isFinite(routeZoom) && coords.z >= routeZoom) {
+            parentEntry = routeParent || contextParent || null;
+          } else if (Number.isFinite(routeZoom) && coords.z < routeZoom) {
+            const canUseContextBand = Number.isFinite(contextZoom) ? parentZ >= contextZoom : true;
+            parentEntry = (canUseContextBand ? (contextParent || null) : null) || routeParent || contextParent || null;
+          } else {
+            parentEntry = routeParent || contextParent || null;
+          }
+
           if (parentEntry?.dataUrl || parentEntry?.url) {
             return {
               parentZ,
@@ -4787,10 +4883,19 @@
             const routeEntry = pickEntry(key, 'route');
             const contextEntry = pickEntry(key, 'context');
             const entry = routeEntry || contextEntry;
-            children.push({ key, x, y, dx, dy, dataUrl: entry?.dataUrl || '', role: entry?.role || 'context' });
+            children.push({
+              key,
+              x,
+              y,
+              dx,
+              dy,
+              dataUrl: entry?.dataUrl || '',
+              url: entry?.url || '',
+              role: entry?.role || 'context'
+            });
           }
         }
-        if (!children.some((item) => item.dataUrl)) return null;
+        if (!children.some((item) => item.dataUrl || item.url)) return null;
         return { savedZ, dz, scale, children };
       };
 
@@ -4808,7 +4913,7 @@
         const contextEntry = pickEntry(key, 'context');
         const exactEntry = preferContext ? (contextEntry || routeEntry) : (routeEntry || contextEntry);
         const parentMatch = !exactEntry ? getParentTileMatch(coords) : null;
-        const childrenMatch = (!exactEntry && !parentMatch && hasLegacyDataUrlTiles) ? getChildrenMatch(coords) : null;
+        const childrenMatch = (!exactEntry && !parentMatch) ? getChildrenMatch(coords) : null;
 
         const logCreateTile = (mode, hit, sourceKeys = []) => {
           if (createTileLogCount >= 50) return;
@@ -4822,27 +4927,10 @@
         };
 
         if (exactEntry?.url) {
-          const tileCanvas = createBlankCanvas(size);
-          const ctx = tileCanvas.getContext('2d');
-          const img = new Image();
-          img.onload = () => {
-            try {
-              ctx.drawImage(img, 0, 0, size, size);
-              logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact', true, [key]);
-              done?.(null, tileCanvas);
-            } catch (err) {
-              const fallback = createFallbackCanvas(size);
-              logCreateTile('fallback', false, [key]);
-              done?.(null, fallback);
-            }
-          };
-          img.onerror = () => {
-            const fallback = createFallbackCanvas(size);
-            logCreateTile('fallback', false, [key]);
-            done?.(null, fallback);
-          };
-          img.src = exactEntry.url;
-          return tileCanvas;
+          const tile = createCssTileFromUrl(exactEntry.url, size);
+          logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact-url', true, [key]);
+          setTimeout(() => done?.(null, tile), 0);
+          return tile;
         }
 
         if (exactEntry?.dataUrl) {
@@ -4851,7 +4939,7 @@
           img.height = size;
           img.alt = '';
           img.onload = () => {
-            logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact', true, [key]);
+            logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact-dataurl', true, [key]);
             done?.(null, img);
           };
           img.onerror = () => {
@@ -4882,46 +4970,43 @@
             }
           }
           if (parentMatch?.parentUrl && !parentMatch.parentDataUrl) {
-            const img = document.createElement('img');
-            img.width = size;
-            img.height = size;
-            img.alt = '';
-            img.style.width = `${size}px`;
-            img.style.height = `${size}px`;
-            img.style.objectFit = 'cover';
-            img.onload = () => {
-              logCreateTile('url-parent', true, [parentMatch.parentKey]);
-              done?.(null, img);
-            };
-            img.onerror = () => {
-              const fallback = createFallbackCanvas(size);
-              logCreateTile('fallback', false, [parentMatch.parentKey]);
-              done?.(null, fallback);
-            };
-            img.src = parentMatch.parentUrl;
+            const scale = 2 ** parentMatch.levelDelta;
+            const sourceSize = size * scale;
+            const offsetX = (coords.x % scale) * size;
+            const offsetY = (coords.y % scale) * size;
+            const tile = createCssTileFromUrl(parentMatch.parentUrl, size, {
+              sourceSize,
+              offsetX,
+              offsetY
+            });
+            logCreateTile('url-parent', true, [parentMatch.parentKey]);
+            done?.(null, tile);
             return;
           }
 
           if (childrenMatch) {
+            const sourceKeys = childrenMatch.children.filter((child) => child.dataUrl || child.url).map((child) => child.key);
+            const hasUrlChild = childrenMatch.children.some((child) => child.url);
+            if (hasUrlChild) {
+              const urlTile = createCssMosaicTile(childrenMatch.children, size, childrenMatch.scale, pkg.mapTexture.fallbackColor);
+              const hasRouteChild = sourceKeys.some((sourceKey) => routeKeySet.has(sourceKey));
+              const hasContextChild = sourceKeys.some((sourceKey) => contextKeySet.has(sourceKey));
+              const mode = hasRouteChild ? 'url-children' : (hasContextChild ? 'context' : 'url-children');
+              logCreateTile(mode, sourceKeys.length > 0, sourceKeys);
+              done?.(null, urlTile);
+              return;
+            }
             drawFallbackGrid(ctx, size);
             const childSize = size / childrenMatch.scale;
-            const sourceKeys = [];
             await Promise.all(childrenMatch.children.map(async (child) => {
               if (!child.dataUrl) return;
               const childImg = await loadDataUrlImage(child.dataUrl);
               if (!childImg) return;
-              sourceKeys.push(child.key);
-              ctx.drawImage(
-                childImg,
-                child.dx * childSize,
-                child.dy * childSize,
-                childSize,
-                childSize
-              );
+              ctx.drawImage(childImg, child.dx * childSize, child.dy * childSize, childSize, childSize);
             }));
             const hasRouteChild = sourceKeys.some((sourceKey) => routeKeySet.has(sourceKey));
             const hasContextChild = sourceKeys.some((sourceKey) => contextKeySet.has(sourceKey));
-            const mode = hasRouteChild ? 'children' : (hasContextChild ? 'context' : 'children');
+            const mode = hasRouteChild ? 'dataurl-children' : (hasContextChild ? 'context' : 'dataurl-children');
             logCreateTile(mode, sourceKeys.length > 0, sourceKeys);
             done?.(null, tileCanvas);
             return;
@@ -4942,12 +5027,7 @@
       if (offlineTextureLayer.bringToBack) {
         offlineTextureLayer.bringToBack();
       }
-      if (typeof offlineTextureLayer.redraw === 'function') {
-        offlineTextureLayer.redraw();
-      }
-      if (typeof map.invalidateSize === 'function') {
-        map.invalidateSize(false);
-      }
+      redrawOfflineTilesSoon();
     }
 
     async function loadSavedRouteFromCache() {
@@ -5042,12 +5122,14 @@
           center: map.getCenter(),
           tileCount: pkg.mapTexture.tiles.length
         });
-        applyOfflineTexture(pkg);
-        setTimeout(() => {
-          if (offlineTextureLayer && typeof offlineTextureLayer.redraw === 'function') {
-            offlineTextureLayer.redraw();
-          }
-        }, 0);
+        waitForOfflineTileRuntimeReady().finally(() => {
+          applyOfflineTexture(pkg);
+          setTimeout(() => {
+            if (offlineTextureLayer?.redraw) offlineTextureLayer.redraw();
+            if (map?.invalidateSize) map.invalidateSize(false);
+          }, 50);
+          redrawOfflineTilesSoon();
+        });
       } else {
         map.setMinZoom(0);
         map.setMaxZoom(19);
