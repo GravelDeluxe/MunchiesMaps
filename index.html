@@ -2623,6 +2623,8 @@
     const OFFLINE_PACKAGE_VERSION = '1.1.0';
     const OFFLINE_TILE_SNAPSHOT_DEFAULT = true;
     const OFFLINE_TILE_SNAPSHOT_LIMIT = 40;
+    const OFFLINE_TILE_SNAPSHOT_ZOOM_OFFSET = 1;
+    const OFFLINE_TILE_SNAPSHOT_MAX_ZOOM = 18;
     const OFFLINE_TILE_SNAPSHOT_BUFFER_RATIO = 0.15;
     const OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG = 0.01;
     const OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES = 500 * 1024;
@@ -3840,14 +3842,22 @@
         console.log('[offline-tiles] using grid fallback');
         return buildGridTexturePackage();
       }
-      const baseZoom = Math.max(0, Math.floor(map.getZoom()));
+      const currentZoom = Math.max(0, Math.floor(map.getZoom()));
+      const snapshotZoom = Math.min(
+        currentZoom + OFFLINE_TILE_SNAPSHOT_ZOOM_OFFSET,
+        OFFLINE_TILE_SNAPSHOT_MAX_ZOOM
+      );
       const mapCenter = map.getCenter();
-      const mapBounds = map.getBounds?.();
       const snapshotCenter = [mapCenter.lat, mapCenter.lng];
-      const snapshotBounds = mapBounds && mapBounds.getWest ? [mapBounds.getWest(), mapBounds.getSouth(), mapBounds.getEast(), mapBounds.getNorth()] : null;
+      const snapshotBounds = [
+        bounds.getWest(),
+        bounds.getSouth(),
+        bounds.getEast(),
+        bounds.getNorth()
+      ];
       let requested = [];
       const seen = new Set();
-      for (const coords of buildTileCoordsForBounds(bounds, baseZoom)) {
+      for (const coords of buildTileCoordsForBounds(bounds, snapshotZoom)) {
         const key = `${coords.z}/${coords.x}/${coords.y}`;
         if (seen.has(key)) continue;
         requested.push({ ...coords });
@@ -3858,6 +3868,11 @@
         console.warn('[offline-tiles] tile limit reached');
         requested = requested.slice(0, maxTiles);
       }
+      console.log('[offline-tiles] snapshot zoom', {
+        sourceViewZoom: currentZoom,
+        snapshotZoom,
+        tileCount: requested.length
+      });
       const tiles = [];
       let totalBytes = 0;
       for (const coords of requested) {
@@ -3892,7 +3907,11 @@
       return {
         type: 'tiles',
         tileSize: 256,
-        zoom: baseZoom,
+        baseZoom: snapshotZoom,
+        zoom: snapshotZoom,
+        sourceViewZoom: currentZoom,
+        minZoom: snapshotZoom,
+        maxZoom: snapshotZoom + 2,
         center: snapshotCenter,
         bounds: snapshotBounds,
         fallbackColor: '#111',
@@ -3966,6 +3985,26 @@
       }
       console.log('[offline-tiles] using saved tile layer');
       const tileMap = new Map((pkg.mapTexture.tiles || []).map((tile) => [`${tile.z}/${tile.x}/${tile.y}`, tile.dataUrl]));
+      const getParentTileMatch = (coords) => {
+        for (let parentZ = coords.z - 1; parentZ >= 0; parentZ -= 1) {
+          const levelDelta = coords.z - parentZ;
+          const parentX = Math.floor(coords.x / (2 ** levelDelta));
+          const parentY = Math.floor(coords.y / (2 ** levelDelta));
+          const parentKey = `${parentZ}/${parentX}/${parentY}`;
+          const parentDataUrl = tileMap.get(parentKey);
+          if (parentDataUrl) {
+            return {
+              parentZ,
+              parentX,
+              parentY,
+              parentKey,
+              parentDataUrl,
+              levelDelta
+            };
+          }
+        }
+        return null;
+      };
       offlineTextureLayer = L.gridLayer({
         tileSize: Number(pkg.mapTexture.tileSize) || 256,
         noWrap: false,
@@ -3976,20 +4015,17 @@
         const size = Number(pkg.mapTexture.tileSize) || 256;
         const key = `${coords.z}/${coords.x}/${coords.y}`;
         const dataUrl = tileMap.get(key);
+        const parentMatch = dataUrl ? null : getParentTileMatch(coords);
         if (createTileLogCount < 20) {
-          console.log('[offline-tiles] createTile', { key, hit: Boolean(dataUrl) });
+          console.log('[offline-tiles] createTile', { key, hit: Boolean(dataUrl), parentHit: Boolean(parentMatch) });
           createTileLogCount += 1;
         }
-        const tile = document.createElement('img');
-        tile.width = size;
-        tile.height = size;
-        tile.alt = '';
+        const fallback = document.createElement('canvas');
+        fallback.width = size;
+        fallback.height = size;
+        const ctx = fallback.getContext('2d');
 
-        if (!dataUrl) {
-          const fallback = document.createElement('canvas');
-          fallback.width = size;
-          fallback.height = size;
-          const ctx = fallback.getContext('2d');
+        if (!dataUrl && !parentMatch) {
           ctx.fillStyle = pkg.mapTexture.fallbackColor || '#111';
           ctx.fillRect(0, 0, size, size);
           ctx.strokeStyle = 'rgba(255,255,255,0.06)';
@@ -3999,13 +4035,32 @@
           return fallback;
         }
 
-        tile.onload = () => done?.(null, tile);
-        tile.onerror = () => {
-          console.warn('[offline-tiles] dataUrl image failed', key);
-          done?.(null, tile);
+        const sourceUrl = dataUrl || parentMatch.parentDataUrl;
+        const tile = document.createElement('img');
+        tile.width = size;
+        tile.height = size;
+        tile.alt = '';
+        tile.onload = () => {
+          if (dataUrl) {
+            done?.(null, tile);
+            return;
+          }
+          const scale = 2 ** parentMatch.levelDelta;
+          const srcSize = size / scale;
+          const srcX = (coords.x % scale) * srcSize;
+          const srcY = (coords.y % scale) * srcSize;
+          ctx.imageSmoothingEnabled = true;
+          ctx.drawImage(tile, srcX, srcY, srcSize, srcSize, 0, 0, size, size);
+          done?.(null, fallback);
         };
-        tile.src = dataUrl;
-        return tile;
+        tile.onerror = () => {
+          console.warn('[offline-tiles] dataUrl image failed', dataUrl ? key : parentMatch.parentKey);
+          ctx.fillStyle = pkg.mapTexture.fallbackColor || '#111';
+          ctx.fillRect(0, 0, size, size);
+          done?.(null, fallback);
+        };
+        tile.src = sourceUrl;
+        return dataUrl ? tile : fallback;
       };
       offlineTextureLayer.addTo(map);
       if (offlineTextureLayer.bringToBack) {
@@ -4033,7 +4088,11 @@
       if (!pkg?.route?.latlngs?.length) return false;
       const shouldUseOfflineTexture = navigator.onLine === false;
       const hasTileTexture = pkg?.mapTexture?.type === 'tiles' && Array.isArray(pkg?.mapTexture?.tiles) && pkg.mapTexture.tiles.length > 0;
-      const snapshotZoom = hasTileTexture ? (Number.isFinite(pkg.mapTexture.zoom) ? pkg.mapTexture.zoom : pkg.mapTexture.tiles[0]?.z) : null;
+      const snapshotZoom = hasTileTexture
+        ? (Number.isFinite(pkg.mapTexture.baseZoom)
+            ? pkg.mapTexture.baseZoom
+            : (Number.isFinite(pkg.mapTexture.zoom) ? pkg.mapTexture.zoom : pkg.mapTexture.tiles[0]?.z))
+        : null;
       const snapshotCenter = hasTileTexture
         ? (Array.isArray(pkg.mapTexture.center) && Number.isFinite(pkg.mapTexture.center[0]) && Number.isFinite(pkg.mapTexture.center[1])
             ? pkg.mapTexture.center
@@ -4057,14 +4116,22 @@
       gpxState.sampledPoints = downsamplePoints(gpxState.points);
       gpxState.bbox = Array.isArray(pkg.route.bbox) ? pkg.route.bbox : computeExpandedBBox(gpxState.sampledPoints, gpxState.radiusMeters);
       if (shouldUseOfflineTexture && hasTileTexture && Number.isFinite(snapshotZoom) && Array.isArray(snapshotCenter)) {
+        const minZoom = Number.isFinite(pkg.mapTexture.minZoom) ? pkg.mapTexture.minZoom : snapshotZoom;
+        const maxZoom = Number.isFinite(pkg.mapTexture.maxZoom) ? pkg.mapTexture.maxZoom : snapshotZoom + 2;
         map.setView(snapshotCenter, snapshotZoom, { animate: false });
+        map.setMinZoom(minZoom);
+        map.setMaxZoom(maxZoom);
         console.log('[offline-tiles] applying', {
-          savedZoom: snapshotZoom,
+          baseZoom: pkg.mapTexture.baseZoom,
+          sourceViewZoom: pkg.mapTexture.sourceViewZoom,
           currentZoom: map.getZoom(),
           center: map.getCenter(),
           tileCount: pkg.mapTexture.tiles.length
         });
         applyOfflineTexture(pkg);
+      } else {
+        map.setMinZoom(0);
+        map.setMaxZoom(19);
       }
 
       const trackGeoJson = {
