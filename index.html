@@ -1004,12 +1004,12 @@
                   <label for="offlineMapDetailSelect">Offline map detail</label>
                   <select id="offlineMapDetailSelect">
                     <option value="off">Off – route and POIs only</option>
-                    <option value="basic" selected>Basic – current zoom, low storage</option>
-                    <option value="standard">Standard – sharper map, moderate storage</option>
-                    <option value="high">High – more detail, higher storage</option>
+                    <option value="basic" selected>Basic – route tiles up to zoom 12, low storage</option>
+                    <option value="standard">Standard – route tiles up to zoom 13, moderate storage</option>
+                    <option value="high">High – route tiles up to zoom 14, higher storage</option>
                   </select>
                 </div>
-                <p class="option-helper" id="offlineMapDetailHint">Controls how many map tiles are saved with a route. Higher detail uses more storage.</p>
+                <p class="option-helper" id="offlineMapDetailHint">Controls how many map tiles are saved with a route. Higher zooms use scaled offline tiles when needed.</p>
                 <div class="gpx-row">
                   <label for="offlineTileCoverageSelect">Offline tile coverage</label>
                   <select id="offlineTileCoverageSelect">
@@ -2679,7 +2679,7 @@
         maxTotalBytes: OFFLINE_TILE_MAX_TOTAL_BYTES_BASIC,
         corridorBufferTiles: 0,
         label: 'Basic',
-        description: 'Higher detail, low storage'
+        description: 'Route tiles up to zoom 12. Higher zooms use scaled offline tiles.'
       },
       standard: {
         enabled: true,
@@ -2688,7 +2688,7 @@
         maxTotalBytes: OFFLINE_TILE_MAX_TOTAL_BYTES_STANDARD,
         corridorBufferTiles: 0,
         label: 'Standard',
-        description: 'Sharper map, moderate storage'
+        description: 'Route tiles up to zoom 13. Higher zooms use scaled offline tiles.'
       },
       high: {
         enabled: true,
@@ -2697,7 +2697,7 @@
         maxTotalBytes: OFFLINE_TILE_MAX_TOTAL_BYTES_HIGH,
         corridorBufferTiles: 1,
         label: 'High',
-        description: 'More detail, higher storage'
+        description: 'Route tiles up to zoom 14. Higher zooms use scaled offline tiles.'
       }
     };
     const GPX_KM_MARKER_INTERVAL_KM = 5;
@@ -4695,6 +4695,15 @@
         availableZooms,
         roleCounts
       });
+      const minAvailableZoom = availableZooms.length ? Math.min(...availableZooms) : null;
+      const maxAvailableZoom = availableZooms.length ? Math.max(...availableZooms) : null;
+      console.log('[offline-tiles] zoom coverage', {
+        availableZooms,
+        minAvailableZoom,
+        maxAvailableZoom,
+        mapMinZoom: map.getMinZoom(),
+        mapMaxZoom: map.getMaxZoom()
+      });
       const loadDataUrlImage = (dataUrl) => new Promise((resolve) => {
         if (!dataUrl) {
           resolve(null);
@@ -4745,13 +4754,14 @@
           const routeParent = pickEntry(parentKey, 'route');
           const contextParent = pickEntry(parentKey, 'context');
           const parentEntry = preferContextParent ? (contextParent || routeParent) : (routeParent || contextParent);
-          if (parentEntry?.dataUrl) {
+          if (parentEntry?.dataUrl || parentEntry?.url) {
             return {
               parentZ,
               parentX,
               parentY,
               parentKey,
-              parentDataUrl: parentEntry.dataUrl,
+              parentDataUrl: parentEntry.dataUrl || '',
+              parentUrl: parentEntry.url || '',
               parentRole: parentEntry.role,
               levelDelta
             };
@@ -4797,11 +4807,11 @@
         const routeEntry = pickEntry(key, 'route');
         const contextEntry = pickEntry(key, 'context');
         const exactEntry = preferContext ? (contextEntry || routeEntry) : (routeEntry || contextEntry);
-        const parentMatch = (!exactEntry && hasLegacyDataUrlTiles) ? getParentTileMatch(coords) : null;
+        const parentMatch = !exactEntry ? getParentTileMatch(coords) : null;
         const childrenMatch = (!exactEntry && !parentMatch && hasLegacyDataUrlTiles) ? getChildrenMatch(coords) : null;
 
         const logCreateTile = (mode, hit, sourceKeys = []) => {
-          if (createTileLogCount >= 30) return;
+          if (createTileLogCount >= 50) return;
           console.log('[offline-tiles] createTile', {
             requested: key,
             mode,
@@ -4812,13 +4822,19 @@
         };
 
         if (exactEntry?.url) {
-          const img = document.createElement('img');
-          img.width = size;
-          img.height = size;
-          img.alt = '';
+          const tileCanvas = createBlankCanvas(size);
+          const ctx = tileCanvas.getContext('2d');
+          const img = new Image();
           img.onload = () => {
-            logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact', true, [key]);
-            done?.(null, img);
+            try {
+              ctx.drawImage(img, 0, 0, size, size);
+              logCreateTile(exactEntry.role === 'context' ? 'context' : 'exact', true, [key]);
+              done?.(null, tileCanvas);
+            } catch (err) {
+              const fallback = createFallbackCanvas(size);
+              logCreateTile('fallback', false, [key]);
+              done?.(null, fallback);
+            }
           };
           img.onerror = () => {
             const fallback = createFallbackCanvas(size);
@@ -4826,7 +4842,7 @@
             done?.(null, fallback);
           };
           img.src = exactEntry.url;
-          return img;
+          return tileCanvas;
         }
 
         if (exactEntry?.dataUrl) {
@@ -4851,7 +4867,7 @@
         const ctx = tileCanvas.getContext('2d');
 
         (async () => {
-          if (parentMatch) {
+          if (parentMatch?.parentDataUrl) {
             const parentImg = await loadDataUrlImage(parentMatch.parentDataUrl);
             if (parentImg) {
               const scale = 2 ** parentMatch.levelDelta;
@@ -4860,10 +4876,30 @@
               const srcY = (coords.y % scale) * srcSize;
               ctx.imageSmoothingEnabled = true;
               ctx.drawImage(parentImg, srcX, srcY, srcSize, srcSize, 0, 0, size, size);
-              logCreateTile(parentMatch.parentRole === 'context' ? 'context' : 'parent', true, [parentMatch.parentKey]);
+              logCreateTile(parentMatch.parentRole === 'context' ? 'context' : 'dataurl-parent', true, [parentMatch.parentKey]);
               done?.(null, tileCanvas);
               return;
             }
+          }
+          if (parentMatch?.parentUrl && !parentMatch.parentDataUrl) {
+            const img = document.createElement('img');
+            img.width = size;
+            img.height = size;
+            img.alt = '';
+            img.style.width = `${size}px`;
+            img.style.height = `${size}px`;
+            img.style.objectFit = 'cover';
+            img.onload = () => {
+              logCreateTile('url-parent', true, [parentMatch.parentKey]);
+              done?.(null, img);
+            };
+            img.onerror = () => {
+              const fallback = createFallbackCanvas(size);
+              logCreateTile('fallback', false, [parentMatch.parentKey]);
+              done?.(null, fallback);
+            };
+            img.src = parentMatch.parentUrl;
+            return;
           }
 
           if (childrenMatch) {
@@ -5295,13 +5331,13 @@
       if (hint && isIosDevice) {
         hint.textContent = 'On iOS, all detail levels currently use the stable Basic tile mode.';
       } else if (hint) {
-        hint.textContent = 'Controls offline map storage budget and detail. Higher detail uses more storage.';
+        hint.textContent = 'Controls route tile zoom coverage. Higher zooms use scaled offline tiles when needed.';
       }
       if (isIosDevice) {
         const standardOption = select.querySelector('option[value="standard"]');
         const highOption = select.querySelector('option[value="high"]');
-        if (standardOption) standardOption.textContent = 'Standard – iOS stable mode';
-        if (highOption) highOption.textContent = 'High – iOS stable mode';
+        if (standardOption) standardOption.textContent = 'Standard – iOS stable mode (zoom 13 + scaled tiles)';
+        if (highOption) highOption.textContent = 'High – iOS stable mode (zoom 14 + scaled tiles)';
       }
       select.value = getOfflineMapDetailSetting();
       select.addEventListener('change', () => {
