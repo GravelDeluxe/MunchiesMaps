@@ -2583,11 +2583,13 @@
 
     const LIGHT_TILES = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
+      crossOrigin: 'anonymous',
       attribution: '&copy; OpenStreetMap contributors'
     });
     const DARK_TILES = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 19,
       subdomains: 'abcd',
+      crossOrigin: 'anonymous',
       attribution: '&copy; OpenStreetMap contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
     });
 
@@ -3873,6 +3875,135 @@
       });
     }
 
+    async function tileUrlToDataUrlViaImage(url, size = 256, timeoutMs = 10000) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        let done = false;
+        const timer = setTimeout(() => {
+          if (done) return;
+          done = true;
+          resolve({ ok: false, dataUrl: '', reason: 'image-timeout' });
+        }, timeoutMs);
+
+        img.crossOrigin = 'anonymous';
+        img.decoding = 'async';
+
+        img.onload = () => {
+          if (done) return;
+          try {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+              done = true;
+              clearTimeout(timer);
+              resolve({ ok: false, dataUrl: '', reason: 'canvas-context-unavailable' });
+              return;
+            }
+            ctx.drawImage(img, 0, 0, size, size);
+            const dataUrl = canvas.toDataURL('image/png');
+            done = true;
+            clearTimeout(timer);
+            if (typeof dataUrl === 'string' && dataUrl.startsWith('data:image/')) {
+              resolve({ ok: true, dataUrl, reason: 'image-canvas' });
+            } else {
+              resolve({ ok: false, dataUrl: '', reason: 'invalid-canvas-dataurl' });
+            }
+          } catch (err) {
+            done = true;
+            clearTimeout(timer);
+            resolve({
+              ok: false,
+              dataUrl: '',
+              reason: err?.message || 'canvas-failed',
+              name: err?.name
+            });
+          }
+        };
+
+        img.onerror = () => {
+          if (done) return;
+          done = true;
+          clearTimeout(timer);
+          resolve({ ok: false, dataUrl: '', reason: 'image-error' });
+        };
+
+        img.src = url;
+      });
+    }
+
+    async function fetchTileDataUrl(url, {
+      timeoutMs = 5000,
+      size = 256,
+      preferImageFallback = false
+    } = {}) {
+      const fetchOptions = (typeof isIOS === 'function' && isIOS())
+        ? { mode: 'cors' }
+        : { mode: 'cors', cache: 'force-cache' };
+
+      const tryImageFallback = async (fetchErr) => {
+        console.log('[offline-tiles] fetch failed, trying image fallback', {
+          url,
+          name: fetchErr?.name,
+          message: fetchErr?.message
+        });
+
+        const fallback = await tileUrlToDataUrlViaImage(url, size, Math.max(timeoutMs, 10000));
+        if (fallback.ok) {
+          return {
+            ok: true,
+            dataUrl: fallback.dataUrl,
+            bytes: estimateDataUrlBytes(fallback.dataUrl),
+            method: fallback.reason || 'image-canvas'
+          };
+        }
+
+        return {
+          ok: false,
+          dataUrl: '',
+          bytes: 0,
+          method: 'none',
+          error: fallback.reason || fetchErr?.message || 'tile-load-failed',
+          name: fallback.name || fetchErr?.name || '',
+          fallbackTried: true
+        };
+      };
+
+      if (preferImageFallback) {
+        return tryImageFallback({ name: 'ImageFallbackOnly', message: 'preferImageFallback enabled' });
+      }
+
+      try {
+        const res = await fetchWithTimeout(url, fetchOptions, timeoutMs);
+        if (!res.ok) {
+          console.log('[offline-tiles] tile fetch HTTP error', {
+            url,
+            status: res.status,
+            statusText: res.statusText || ''
+          });
+          throw new Error(`HTTP ${res.status} ${res.statusText || ''}`.trim());
+        }
+        const blob = await res.blob();
+        if (blob.size > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) {
+          throw new Error(`tile too large: ${blob.size}`);
+        }
+        const dataUrl = await blobToDataUrl(blob);
+        if (!dataUrl || !dataUrl.startsWith('data:')) {
+          throw new Error('invalid fetch data URL');
+        }
+        return {
+          ok: true,
+          dataUrl,
+          bytes: estimateDataUrlBytes(dataUrl),
+          method: 'fetch',
+          fallbackTried: false
+        };
+      } catch (fetchErr) {
+        return tryImageFallback(fetchErr);
+      }
+    }
+
     function getOfflineMapDetailSetting() {
       const value = localStorage.getItem(OFFLINE_MAP_DETAIL_KEY);
       if (['off', 'basic', 'standard', 'high'].includes(value)) return value;
@@ -3912,6 +4043,12 @@
       detail = 'basic'
     } = {}) {
       console.log('[offline-tiles] snapshot start');
+      const isIosDevice = typeof isIOS === 'function' && isIOS();
+      const tileFetchConcurrency = isIosDevice ? 2 : 4;
+      const tileFetchTimeoutMs = isIosDevice ? 10000 : 5000;
+      if (isIosDevice && detail === 'high') {
+        console.warn('[offline-tiles] high detail on iOS may use significant storage');
+      }
       if (!activeBaseLayer || typeof activeBaseLayer.getTileUrl !== 'function') {
         console.log('[offline-tiles] using grid fallback');
         return buildGridTexturePackage();
@@ -3947,23 +4084,37 @@
       console.log('[offline-tiles] snapshot zoom', {
         sourceViewZoom: currentZoom,
         snapshotZoom,
-        maxTiles
+        maxTiles,
+        tileFetchConcurrency,
+        tileFetchTimeoutMs,
+        isIosDevice
       });
       const tiles = [];
       let totalBytes = 0;
       let limitReached = false;
+      const tileStats = {
+        requested: requested.length,
+        saved: 0,
+        failed: 0,
+        methods: {},
+        errors: {},
+        fallbackAttempts: 0
+      };
       const tileTasks = requested.map((coords) => async () => {
         if (limitReached) return;
+        const url = activeBaseLayer.getTileUrl(coords);
         try {
-          const url = activeBaseLayer.getTileUrl(coords);
           if (!url) throw new Error('missing tile URL');
-          const res = await fetchWithTimeout(url, { mode: 'cors', cache: 'force-cache' }, 5000);
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const blob = await res.blob();
-          if (blob.size > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) throw new Error('tile too large');
-          const dataUrl = await blobToDataUrl(blob);
-          const estimatedBytes = estimateDataUrlBytes(dataUrl);
-          if (!dataUrl || !dataUrl.startsWith('data:')) throw new Error('invalid data URL');
+          const loaded = await fetchTileDataUrl(url, {
+            timeoutMs: tileFetchTimeoutMs,
+            size: Number(activeBaseLayer.options?.tileSize) || 256
+          });
+          if (loaded.fallbackTried) tileStats.fallbackAttempts += 1;
+          if (!loaded.ok) {
+            throw new Error(`${loaded.name || ''} ${loaded.error || 'tile-load-failed'}`.trim());
+          }
+          const dataUrl = loaded.dataUrl;
+          const estimatedBytes = loaded.bytes;
           if (estimatedBytes > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) throw new Error('encoded tile too large');
           if ((totalBytes + estimatedBytes) > OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES) {
             limitReached = true;
@@ -3972,18 +4123,43 @@
           }
           totalBytes += estimatedBytes;
           tiles.push({ ...coords, dataUrl });
-          console.log('[offline-tiles] tile saved', coords.z, coords.x, coords.y);
-        } catch (_err) {
-          console.log('[offline-tiles] tile failed', coords.z, coords.x, coords.y);
+          tileStats.saved += 1;
+          tileStats.methods[loaded.method] = (tileStats.methods[loaded.method] || 0) + 1;
+          console.log('[offline-tiles] tile saved', {
+            z: coords.z,
+            x: coords.x,
+            y: coords.y,
+            method: loaded.method,
+            bytes: estimatedBytes
+          });
+        } catch (err) {
+          tileStats.failed += 1;
+          const reason = err?.message || err?.name || 'unknown';
+          tileStats.errors[reason] = (tileStats.errors[reason] || 0) + 1;
+          console.log('[offline-tiles] tile failed', {
+            z: coords.z,
+            x: coords.x,
+            y: coords.y,
+            url,
+            name: err?.name,
+            message: err?.message
+          });
         }
       });
-      await runTaskQueue(tileTasks, 4);
+      await runTaskQueue(tileTasks, tileFetchConcurrency);
+      console.log('[offline-tiles] snapshot complete', {
+        detail,
+        requested: tileStats.requested,
+        saved: tileStats.saved,
+        failed: tileStats.failed,
+        methods: tileStats.methods,
+        errors: tileStats.errors,
+        fallbackAttempts: tileStats.fallbackAttempts
+      });
       if (!tiles.length) {
-        console.log('[offline-tiles] snapshot complete', { savedTiles: 0, detail });
         console.log('[offline-tiles] using grid fallback');
         return buildGridTexturePackage();
       }
-      console.log('[offline-tiles] snapshot complete', { savedTiles: tiles.length, detail });
       return {
         type: 'tiles',
         tileSize: 256,
