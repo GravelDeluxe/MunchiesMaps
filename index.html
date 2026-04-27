@@ -999,6 +999,16 @@
                 </div>
                 <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
                 <button type="button" class="gpx-export" id="gpxSaveBtn">Save route</button>
+                <div class="gpx-row">
+                  <label for="offlineMapDetailSelect">Offline map detail</label>
+                  <select id="offlineMapDetailSelect">
+                    <option value="off">Off – route and POIs only</option>
+                    <option value="basic" selected>Basic – current zoom, low storage</option>
+                    <option value="standard">Standard – sharper map, moderate storage</option>
+                    <option value="high">High – more detail, higher storage</option>
+                  </select>
+                </div>
+                <p class="option-helper">Controls how many map tiles are saved with a route. Higher detail uses more storage.</p>
               </div>
               <div class="gpx-error" id="gpxError" aria-live="polite"></div>
             </div>
@@ -1126,6 +1136,8 @@
     const QUICK_FEEDBACK_RATE_LIMIT_MS = 60000;
     const QUICK_FEEDBACK_STORAGE_KEY = 'quickFeedbackLastSubmit';
     const INTRO_HIDE_KEY = 'munchiesMapsHideIntro';
+    const OFFLINE_MAP_DETAIL_KEY = 'offlineMapDetail';
+    const DEFAULT_OFFLINE_MAP_DETAIL = 'basic';
     const SHARE_SCHEMA_VERSION = "2";
     const SHARE_URL_UPDATE_DEBOUNCE_MS = 300;
 
@@ -2629,6 +2641,36 @@
     const OFFLINE_TILE_SNAPSHOT_MIN_BUFFER_DEG = 0.01;
     const OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES = 500 * 1024;
     const OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES = 6 * 1024 * 1024;
+    const OFFLINE_MAP_DETAIL_PRESETS = {
+      off: {
+        enabled: false,
+        zoomOffset: 0,
+        tileLimit: 0,
+        label: 'Off',
+        description: 'Route and POIs only'
+      },
+      basic: {
+        enabled: true,
+        zoomOffset: 0,
+        tileLimit: 40,
+        label: 'Basic',
+        description: 'Current zoom, low storage'
+      },
+      standard: {
+        enabled: true,
+        zoomOffset: 1,
+        tileLimit: 80,
+        label: 'Standard',
+        description: 'Sharper map, moderate storage'
+      },
+      high: {
+        enabled: true,
+        zoomOffset: 1,
+        tileLimit: 150,
+        label: 'High',
+        description: 'More detail, higher storage'
+      }
+    };
     const GPX_KM_MARKER_INTERVAL_KM = 5;
     const gpxState = {
       points: [],
@@ -3831,7 +3873,44 @@
       });
     }
 
-    async function tryBuildTileSnapshotTexture(routeBBox, maxTiles = OFFLINE_TILE_SNAPSHOT_LIMIT) {
+    function getOfflineMapDetailSetting() {
+      const value = localStorage.getItem(OFFLINE_MAP_DETAIL_KEY);
+      if (['off', 'basic', 'standard', 'high'].includes(value)) return value;
+      return DEFAULT_OFFLINE_MAP_DETAIL;
+    }
+
+    function setOfflineMapDetailSetting(value) {
+      const normalized = ['off', 'basic', 'standard', 'high'].includes(value) ? value : DEFAULT_OFFLINE_MAP_DETAIL;
+      localStorage.setItem(OFFLINE_MAP_DETAIL_KEY, normalized);
+      return normalized;
+    }
+
+    function fetchWithTimeout(url, options = {}, timeoutMs = 5000) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      return fetch(url, { ...options, signal: controller.signal })
+        .finally(() => clearTimeout(timer));
+    }
+
+    async function runTaskQueue(tasks, limit = 4) {
+      if (!Array.isArray(tasks) || !tasks.length) return;
+      let index = 0;
+      const workerCount = Math.min(Math.max(1, limit), tasks.length);
+      const workers = Array.from({ length: workerCount }, async () => {
+        while (index < tasks.length) {
+          const current = index;
+          index += 1;
+          await tasks[current]();
+        }
+      });
+      await Promise.all(workers);
+    }
+
+    async function tryBuildTileSnapshotTexture(routeBBox, {
+      zoomOffset = 0,
+      maxTiles = 40,
+      detail = 'basic'
+    } = {}) {
       console.log('[offline-tiles] snapshot start');
       if (!activeBaseLayer || typeof activeBaseLayer.getTileUrl !== 'function') {
         console.log('[offline-tiles] using grid fallback');
@@ -3843,10 +3922,7 @@
         return buildGridTexturePackage();
       }
       const currentZoom = Math.max(0, Math.floor(map.getZoom()));
-      const snapshotZoom = Math.min(
-        currentZoom + OFFLINE_TILE_SNAPSHOT_ZOOM_OFFSET,
-        OFFLINE_TILE_SNAPSHOT_MAX_ZOOM
-      );
+      const snapshotZoom = Math.min(currentZoom + zoomOffset, OFFLINE_TILE_SNAPSHOT_MAX_ZOOM);
       const mapCenter = map.getCenter();
       const snapshotCenter = [mapCenter.lat, mapCenter.lng];
       const snapshotBounds = [
@@ -3871,15 +3947,17 @@
       console.log('[offline-tiles] snapshot zoom', {
         sourceViewZoom: currentZoom,
         snapshotZoom,
-        tileCount: requested.length
+        maxTiles
       });
       const tiles = [];
       let totalBytes = 0;
-      for (const coords of requested) {
+      let limitReached = false;
+      const tileTasks = requested.map((coords) => async () => {
+        if (limitReached) return;
         try {
           const url = activeBaseLayer.getTileUrl(coords);
           if (!url) throw new Error('missing tile URL');
-          const res = await fetch(url, { mode: 'cors', cache: 'force-cache' });
+          const res = await fetchWithTimeout(url, { mode: 'cors', cache: 'force-cache' }, 5000);
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           const blob = await res.blob();
           if (blob.size > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) throw new Error('tile too large');
@@ -3888,25 +3966,28 @@
           if (!dataUrl || !dataUrl.startsWith('data:')) throw new Error('invalid data URL');
           if (estimatedBytes > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) throw new Error('encoded tile too large');
           if ((totalBytes + estimatedBytes) > OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES) {
+            limitReached = true;
             console.warn('[offline-tiles] tile limit reached');
-            break;
+            return;
           }
           totalBytes += estimatedBytes;
           tiles.push({ ...coords, dataUrl });
           console.log('[offline-tiles] tile saved', coords.z, coords.x, coords.y);
-        } catch (err) {
+        } catch (_err) {
           console.log('[offline-tiles] tile failed', coords.z, coords.x, coords.y);
         }
-      }
+      });
+      await runTaskQueue(tileTasks, 4);
       if (!tiles.length) {
-        console.log('[offline-tiles] snapshot complete', 0);
+        console.log('[offline-tiles] snapshot complete', { savedTiles: 0, detail });
         console.log('[offline-tiles] using grid fallback');
         return buildGridTexturePackage();
       }
-      console.log('[offline-tiles] snapshot complete', tiles.length);
+      console.log('[offline-tiles] snapshot complete', { savedTiles: tiles.length, detail });
       return {
         type: 'tiles',
         tileSize: 256,
+        detail,
         baseZoom: snapshotZoom,
         zoom: snapshotZoom,
         sourceViewZoom: currentZoom,
@@ -3921,12 +4002,30 @@
     }
 
     async function buildOfflineRoutePackage(rawText) {
+      console.log('[offline-route] save start');
       const latlngs = (appState.gpxTrackLatLngs || []).map((pt) => [pt.lat ?? pt[0], pt.lng ?? pt[1]]).filter((pt) => Number.isFinite(pt[0]) && Number.isFinite(pt[1]));
       if (!latlngs.length) return null;
       const lats = latlngs.map((pt) => pt[0]);
       const lngs = latlngs.map((pt) => pt[1]);
       const pois = activePoints.map(freezePoiForOffline).filter(Boolean);
       const routeBBox = [Math.min(...lats), Math.min(...lngs), Math.max(...lats), Math.max(...lngs)];
+      const detail = getOfflineMapDetailSetting();
+      const preset = OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.basic;
+      console.log('[offline-route] save setting', { detail, preset });
+      let mapTexture = buildGridTexturePackage();
+      if (!preset.enabled) {
+        mapTexture.detail = detail;
+      } else {
+        mapTexture = await tryBuildTileSnapshotTexture(routeBBox, {
+          zoomOffset: preset.zoomOffset,
+          maxTiles: preset.tileLimit,
+          detail
+        });
+        if (!mapTexture || mapTexture.type !== 'tiles' || !Array.isArray(mapTexture.tiles) || !mapTexture.tiles.length) {
+          mapTexture = buildGridTexturePackage();
+          mapTexture.detail = detail;
+        }
+      }
       return {
         id: `route-${Date.now().toString(36)}`,
         createdAt: Date.now(),
@@ -3943,22 +4042,34 @@
           regions: Array.from(filterState.bundeslaender || [])
         },
         pois,
-        mapTexture: OFFLINE_TILE_SNAPSHOT_DEFAULT ? await tryBuildTileSnapshotTexture(routeBBox) : buildGridTexturePackage()
+        mapTexture
       };
     }
 
     async function saveCurrentRouteToCache() {
-      if (!appState.hasImportedGpx) return false;
+      if (!appState.hasImportedGpx) return { ok: false, reason: 'no-route' };
       const rawText = (typeof gpxState.rawText === 'string' && gpxState.rawText.trim()) ? gpxState.rawText.trim() : buildRawGpxFromTrackLatLngs();
-      if (!rawText) return false;
-      const pkg = await buildOfflineRoutePackage(rawText);
-      if (!pkg) return false;
-      await window.offlineRouteStore.saveOfflineRoute(pkg);
-      activeOfflineRouteId = pkg.id;
-      await listSavedOfflineRoutes();
-      setGpxUiMode('cache-found');
-      refreshGpxUiState();
-      return true;
+      if (!rawText) return { ok: false, reason: 'no-raw-gpx' };
+      try {
+        const pkg = await buildOfflineRoutePackage(rawText);
+        if (!pkg) return { ok: false, reason: 'package-failed' };
+        await window.offlineRouteStore.saveOfflineRoute(pkg);
+        activeOfflineRouteId = pkg.id;
+        await listSavedOfflineRoutes();
+        setGpxUiMode('cache-found');
+        refreshGpxUiState();
+        const detail = pkg.mapTexture?.detail || getOfflineMapDetailSetting();
+        return {
+          ok: true,
+          id: pkg.id,
+          tileCount: pkg.mapTexture?.tiles?.length || 0,
+          textureType: pkg.mapTexture?.type || 'grid',
+          detail
+        };
+      } catch (err) {
+        console.error('[offline-route] save failed', err);
+        return { ok: false, reason: err?.message || 'unknown' };
+      }
     }
 
     let offlineTextureLayer = null;
@@ -4312,12 +4423,22 @@
       }
       if (saveBtn) {
         saveBtn.addEventListener('click', async () => {
-          const ok = await saveCurrentRouteToCache();
-          if (ok) {
-            showMapToast('Route saved locally.');
-          } else {
+          saveBtn.disabled = true;
+          showMapToast('Saving route for offline use…');
+          const result = await saveCurrentRouteToCache();
+          console.log('[offline-route] save result', result);
+          if (result?.ok) {
+            if (result.tileCount > 0) {
+              showMapToast(`Route saved with ${result.tileCount} offline map tiles.`);
+            } else {
+              showMapToast('Route saved without offline map tiles.');
+            }
+          } else if (result?.reason === 'no-route' || result?.reason === 'no-raw-gpx') {
             showMapToast('No route to save.');
+          } else {
+            showMapToast('Could not save route.');
           }
+          refreshGpxUiState();
         });
       }
       if (loadSavedBtn) {
@@ -4351,6 +4472,18 @@
     }
 
 
+
+
+
+    function setupOfflineMapDetailControl() {
+      const select = document.getElementById('offlineMapDetailSelect');
+      if (!select) return;
+      select.value = getOfflineMapDetailSetting();
+      select.addEventListener('change', () => {
+        const value = setOfflineMapDetailSetting(select.value);
+        showMapToast(`Offline map detail: ${OFFLINE_MAP_DETAIL_PRESETS[value].label}`);
+      });
+    }
 
 
 
@@ -5775,6 +5908,7 @@
       setupThemeToggle();
       setupClusterThresholdControl();
       setupMinPoiZoomControl();
+      setupOfflineMapDetailControl();
       setupBadgeToggle();
       setupHideNoBadgesToggle();
       setupIncludeMissingToggle();
