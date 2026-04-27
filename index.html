@@ -376,6 +376,9 @@
       font-size: 12px;
       line-height: 1.4;
     }
+    #offlineSaveProgress {
+      white-space: pre-line;
+    }
     .checklist { display: flex; flex-direction: column; gap: 8px; }
     .checklist .checkrow { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
     .checklist input[type="checkbox"] { width: 16px; height: 16px; }
@@ -1009,6 +1012,7 @@
                     <option value="basic">Low – smaller offline map</option>
                     <option value="standard" selected>Medium – balanced</option>
                     <option value="high">High – more detail</option>
+                    <option value="very_high">Very high – maximum detail</option>
                   </select>
                 </div>
                 <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved along the route at the selected detail level. A coarse surrounding map is included for context.</p>
@@ -2699,6 +2703,13 @@
         corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'High',
         description: 'Zoom 14, higher detail and larger offline package'
+      },
+      very_high: {
+        enabled: true,
+        snapshotZoom: 16,
+        corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
+        label: 'Very high',
+        description: 'Zoom 16, maximum detail and largest offline package'
       }
     };
     const GPX_KM_MARKER_INTERVAL_KM = 5;
@@ -4174,14 +4185,32 @@
 
     function getOfflineMapDetailSetting() {
       const value = localStorage.getItem(OFFLINE_MAP_DETAIL_KEY);
-      if (['off', 'basic', 'standard', 'high'].includes(value)) return value;
+      if (['off', 'basic', 'standard', 'high', 'very_high'].includes(value)) return value;
       return DEFAULT_OFFLINE_MAP_DETAIL;
     }
 
     function setOfflineMapDetailSetting(value) {
-      const normalized = ['off', 'basic', 'standard', 'high'].includes(value) ? value : DEFAULT_OFFLINE_MAP_DETAIL;
+      const normalized = ['off', 'basic', 'standard', 'high', 'very_high'].includes(value) ? value : DEFAULT_OFFLINE_MAP_DETAIL;
       localStorage.setItem(OFFLINE_MAP_DETAIL_KEY, normalized);
       return normalized;
+    }
+
+    function formatOfflineSaveProgress(progress) {
+      const total = Math.max(0, Number(progress?.totalPlanned || 0));
+      const processed = Math.max(0, Number(progress?.processed || 0));
+      const saved = Math.max(0, Number(progress?.saved || 0));
+      const failed = Math.max(0, Number(progress?.failed || 0));
+      const percent = total > 0
+        ? Math.min(100, Math.max(0, Math.round((processed / total) * 100)))
+        : 0;
+      return {
+        percent,
+        total,
+        processed,
+        saved,
+        failed,
+        text: `Saving offline map tiles: ${percent}%\n${total} tiles are loading, ${saved} saved, ${failed} failed`
+      };
     }
 
     function getOfflineMapDetailPreset(detail) {
@@ -4293,6 +4322,8 @@
         }
         onProgress?.({
           phase: 'tiles',
+          snapshotZoom: routeZoom,
+          contextZoom,
           processed: i + 1,
           totalPlanned: requested.length,
           saved: tiles.length,
@@ -4994,23 +5025,15 @@
             const result = await saveCurrentRouteToCache({
               onProgress: (progress) => {
                 if (progress?.phase === 'planning') {
-                  const routeCount = Number(progress?.routeCandidates || 0);
-                  const contextCount = Number(progress?.contextCandidates || 0);
-                  const hasRoleCounts = routeCount > 0 || contextCount > 0;
+                  const total = Number(progress?.totalPlanned || 0);
+                  const snapshotZoom = progress?.snapshotZoom ? ` at zoom ${progress.snapshotZoom}` : '';
                   setOfflineSaveProgress(
-                    progress?.snapshotZoom != null
-                      ? (hasRoleCounts
-                        ? `Preparing ${progress.totalPlanned} map tiles (${routeCount} route, ${contextCount} context) at zoom ${progress.snapshotZoom}…`
-                        : `Preparing ${progress.totalPlanned} map tiles at zoom ${progress.snapshotZoom}…`)
-                      : (hasRoleCounts
-                        ? `Preparing ${progress.totalPlanned} map tiles (${routeCount} route, ${contextCount} context)…`
-                        : `Preparing ${progress.totalPlanned} map tiles…`)
+                    `Preparing offline map tiles${snapshotZoom}…\n${total} tiles are loading, 0 saved, 0 failed`
                   );
                   return;
                 }
-                setOfflineSaveProgress(
-                  `Saving offline map tiles: ${progress?.processed || 0}/${progress?.totalPlanned || 0} processed, ${progress?.saved || 0} saved, ${progress?.failed || 0} failed…`
-                );
+                const formatted = formatOfflineSaveProgress(progress);
+                setOfflineSaveProgress(formatted.text);
               }
             });
             console.log('[offline-route] save result', result);
