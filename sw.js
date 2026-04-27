@@ -60,17 +60,6 @@ function isStaticAssetRequest(requestUrl) {
   return /\.(?:css|js|mjs|json|webmanifest|png|jpg|jpeg|svg|gif|webp|ico|woff2?|ttf)$/i.test(pathname);
 }
 
-function isExternalMapTileRequest(requestUrl) {
-  const host = requestUrl.hostname;
-  const path = requestUrl.pathname;
-
-  return host.includes('tile.openstreetmap.org')
-    || host.includes('basemaps.cartocdn.com')
-    || host.includes('cartocdn.com')
-    || /(?:tile|tiles|basemaps?)\./i.test(host)
-    || /(?:\/tiles?\/|\/tile\/)/i.test(path);
-}
-
 function isGeoJsonRequest(requestUrl) {
   if (requestUrl.origin !== self.location.origin) return false;
   const scopePath = SCOPE_URL.pathname;
@@ -237,26 +226,6 @@ async function handleStaticAssetRequest(event) {
   return networkResponse;
 }
 
-async function handleOfflineTileRequest(event) {
-  const cache = await caches.open(OFFLINE_TILE_CACHE_NAME);
-  const cached = await cache.match(event.request, { ignoreVary: true }) || await cache.match(event.request.url, { ignoreVary: true });
-  if (cached) return cached;
-
-  try {
-    const response = await fetch(event.request);
-    if (response) {
-      cache.put(event.request, response.clone()).catch(() => {});
-    }
-    return response;
-  } catch (error) {
-    console.warn('[sw] offline tile unavailable', event.request.url);
-    return new Response('', {
-      status: 504,
-      statusText: 'Offline tile unavailable'
-    });
-  }
-}
-
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
@@ -264,11 +233,6 @@ self.addEventListener('fetch', (event) => {
 
   if (event.request.mode === 'navigate') {
     event.respondWith(handleNavigationRequest(event));
-    return;
-  }
-
-  if (isExternalMapTileRequest(requestUrl)) {
-    event.respondWith(handleOfflineTileRequest(event));
     return;
   }
 
