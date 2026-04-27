@@ -1004,13 +1004,13 @@
                 <div class="gpx-row">
                   <label for="offlineMapDetailSelect">Offline map detail</label>
                   <select id="offlineMapDetailSelect">
-                    <option value="off">Off – route and POIs only</option>
-                    <option value="basic" selected>Basic – zoom 14 route tiles</option>
-                    <option value="standard">Standard – zoom 14 route tiles</option>
-                    <option value="high">High – zoom 14 route tiles</option>
+                    <option value="off">No map – route and POIs only</option>
+                    <option value="basic">Low – smaller offline map</option>
+                    <option value="standard" selected>Medium – balanced</option>
+                    <option value="high">High – more detail</option>
                   </select>
                 </div>
-                <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved at zoom level 14 along the route. Other zoom levels use scaled saved tiles.</p>
+                <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved along the route at the selected detail level. Other zoom levels use scaled saved tiles.</p>
                 <div class="gpx-row">
                   <label for="offlineTileCoverageSelect">Offline tile coverage</label>
                   <select id="offlineTileCoverageSelect">
@@ -1147,7 +1147,7 @@
     const INTRO_HIDE_KEY = 'munchiesMapsHideIntro';
     const OFFLINE_MAP_DETAIL_KEY = 'offlineMapDetail';
     const OFFLINE_TILE_COVERAGE_KEY = 'offlineTileCoverage';
-    const DEFAULT_OFFLINE_MAP_DETAIL = 'basic';
+    const DEFAULT_OFFLINE_MAP_DETAIL = 'standard';
     const DEFAULT_OFFLINE_TILE_COVERAGE = 'route-corridor';
     const OFFLINE_TILE_SELECTION_MODE = 'route-corridor';
     const SHARE_SCHEMA_VERSION = "2";
@@ -2664,7 +2664,7 @@
     const SAVED_GPX_ROUTE_KEY = 'munchiesmaps.savedGpxRoute';
     const OFFLINE_PACKAGE_VERSION = '1.2.0';
     const OFFLINE_TILE_SNAPSHOT_DEFAULT = true;
-    const OFFLINE_TILE_SNAPSHOT_ZOOM = 14;
+    const OFFLINE_TILE_SNAPSHOT_ZOOM = 13;
     const OFFLINE_TILE_CORRIDOR_BUFFER_TILES = 1;
     const OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES = 60 * 1024 * 1024;
     const OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES = 600 * 1024;
@@ -2684,39 +2684,31 @@
     const OFFLINE_MAP_DETAIL_PRESETS = {
       off: {
         enabled: false,
-        routeZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        contextZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        maxTotalBytes: 0,
+        snapshotZoom: null,
         corridorBufferTiles: 0,
-        label: 'Off',
+        label: 'No map',
         description: 'Route and POIs only'
       },
       basic: {
         enabled: true,
-        routeZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        contextZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        maxTotalBytes: OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES,
+        snapshotZoom: 12,
         corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
-        label: 'Basic',
-        description: 'Route tiles at zoom 14. Other zoom levels use scaled offline tiles.'
+        label: 'Low',
+        description: 'Zoom 12, smaller offline package'
       },
       standard: {
         enabled: true,
-        routeZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        contextZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        maxTotalBytes: OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES,
+        snapshotZoom: 13,
         corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
-        label: 'Standard',
-        description: 'Route tiles at zoom 14. Other zoom levels use scaled offline tiles.'
+        label: 'Medium',
+        description: 'Zoom 13, balanced detail and storage'
       },
       high: {
         enabled: true,
-        routeZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        contextZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        maxTotalBytes: OFFLINE_TILE_SNAPSHOT_MAX_TOTAL_BYTES,
+        snapshotZoom: 14,
         corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'High',
-        description: 'Route tiles at zoom 14. Other zoom levels use scaled offline tiles.'
+        description: 'Zoom 14, higher detail and larger offline package'
       }
     };
     const GPX_KM_MARKER_INTERVAL_KM = 5;
@@ -4217,14 +4209,14 @@
     }
 
     function getOfflineMapDetailPreset(detail) {
-      return OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.basic;
+      return OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.standard;
     }
 
     function getEffectiveOfflineMapDetailPreset(detail) {
-      const base = OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.basic;
+      const base = OFFLINE_MAP_DETAIL_PRESETS[detail] || OFFLINE_MAP_DETAIL_PRESETS.standard;
       return {
         ...base,
-        detail,
+        detail: OFFLINE_MAP_DETAIL_PRESETS[detail] ? detail : 'standard',
         iosSafeMode: typeof isIOS === 'function' && isIOS()
       };
     }
@@ -4239,20 +4231,26 @@
     async function tryBuildTileSnapshotTexture(routeBBox, {
       latlngs = [],
       enabled = true,
+      snapshotZoom = OFFLINE_TILE_SNAPSHOT_ZOOM,
+      corridorBufferTiles = OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
       onProgress = null
     } = {}) {
       if (!enabled) return buildGridTexturePackage();
-      const coordsList = getRouteCorridorTileCoords(latlngs, OFFLINE_TILE_SNAPSHOT_ZOOM, {
-        corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES
+      const effectiveZoom = Number.isFinite(snapshotZoom)
+        ? Math.max(0, Math.floor(snapshotZoom))
+        : OFFLINE_TILE_SNAPSHOT_ZOOM;
+      const coordsList = getRouteCorridorTileCoords(latlngs, effectiveZoom, {
+        corridorBufferTiles
       });
       const requested = coordsList.length
         ? dedupeTileCoords(coordsList)
-        : buildTileCoordsForBounds(buildBufferedBoundsFromBBox(routeBBox), OFFLINE_TILE_SNAPSHOT_ZOOM);
+        : buildTileCoordsForBounds(buildBufferedBoundsFromBBox(routeBBox), effectiveZoom);
       const tiles = [];
       let totalBytes = 0;
       let failed = 0;
       onProgress?.({
         phase: 'planning',
+        snapshotZoom: effectiveZoom,
         totalPlanned: requested.length,
         routeCandidates: requested.length,
         contextCandidates: 0
@@ -4284,7 +4282,7 @@
           tiles.push({
             x: coords.x,
             y: coords.y,
-            z: OFFLINE_TILE_SNAPSHOT_ZOOM,
+            z: effectiveZoom,
             dataUrl: loaded.dataUrl
           });
         } catch (err) {
@@ -4310,10 +4308,11 @@
         tileSize: 256,
         tileProvider: OFFLINE_TILE_PROVIDER.id,
         tileProviderTemplate: OFFLINE_TILE_PROVIDER.template,
-        baseZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        zoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        minAvailableZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
-        maxAvailableZoom: OFFLINE_TILE_SNAPSHOT_ZOOM,
+        baseZoom: effectiveZoom,
+        zoom: effectiveZoom,
+        snapshotZoom: effectiveZoom,
+        minAvailableZoom: effectiveZoom,
+        maxAvailableZoom: effectiveZoom,
         fallbackColor: '#3b4252',
         attribution: OFFLINE_TILE_PROVIDER.attribution,
         totalBytes,
@@ -4331,20 +4330,32 @@
       const routeBBox = [Math.min(...lats), Math.min(...lngs), Math.max(...lats), Math.max(...lngs)];
       const detail = getOfflineMapDetailSetting();
       const preset = getEffectiveOfflineMapDetailPreset(detail);
+      const snapshotZoom = Number.isFinite(preset.snapshotZoom)
+        ? preset.snapshotZoom
+        : OFFLINE_TILE_SNAPSHOT_ZOOM;
       const coverage = getOfflineTileCoverageSetting();
       console.log('[offline-route] save setting', { detail, preset });
       let mapTexture = buildGridTexturePackage();
       if (!preset.enabled) {
         mapTexture.detail = detail;
+        mapTexture.snapshotZoom = null;
       } else {
         mapTexture = await tryBuildTileSnapshotTexture(routeBBox, {
           latlngs,
-          enabled: true,
+          enabled: Boolean(preset.enabled),
+          snapshotZoom,
+          corridorBufferTiles: Number.isFinite(preset.corridorBufferTiles)
+            ? preset.corridorBufferTiles
+            : OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
           onProgress
         });
         if (!mapTexture || mapTexture.type !== 'tiles' || !Array.isArray(mapTexture.tiles) || !mapTexture.tiles.length) {
           mapTexture = buildGridTexturePackage();
           mapTexture.detail = detail;
+          mapTexture.snapshotZoom = null;
+        } else {
+          mapTexture.detail = detail;
+          mapTexture.snapshotZoom = mapTexture.snapshotZoom ?? mapTexture.baseZoom ?? snapshotZoom;
         }
       }
       return {
@@ -4366,6 +4377,7 @@
         mapTexture,
         offlineSaveMeta: {
           detail,
+          snapshotZoom: preset.enabled ? snapshotZoom : null,
           coverage,
           iosSafeMode: Boolean(preset.iosSafeMode)
         }
@@ -4405,6 +4417,7 @@
           totalBytes: pkg.mapTexture?.totalBytes || 0,
           textureType: pkg.mapTexture?.type || 'grid',
           detail,
+          snapshotZoom: pkg.mapTexture?.snapshotZoom || pkg.mapTexture?.baseZoom || null,
           iosSafeMode: Boolean(pkg.offlineSaveMeta?.iosSafeMode)
         };
       } catch (err) {
@@ -5012,7 +5025,11 @@
             const result = await saveCurrentRouteToCache({
               onProgress: (progress) => {
                 if (progress?.phase === 'planning') {
-                  setOfflineSaveProgress(`Preparing ${progress.totalPlanned} map tiles…`);
+                  setOfflineSaveProgress(
+                    progress?.snapshotZoom != null
+                      ? `Preparing ${progress.totalPlanned} map tiles at zoom ${progress.snapshotZoom}…`
+                      : `Preparing ${progress.totalPlanned} map tiles…`
+                  );
                   return;
                 }
                 setOfflineSaveProgress(
@@ -5027,7 +5044,13 @@
                 const hasReliableSize = Number(result.totalBytes || 0) > 0;
                 showMapToast(`Route saved with ${result.tileCount} offline map tiles.`);
                 setOfflineSaveProgress(
-                  hasReliableSize ? `Saved ${result.tileCount} map tiles (~${sizeMb} MB).` : `Saved ${result.tileCount} map tiles.`
+                  hasReliableSize
+                    ? (result.snapshotZoom != null
+                      ? `Saved ${result.tileCount} map tiles at zoom ${result.snapshotZoom} (~${sizeMb} MB).`
+                      : `Saved ${result.tileCount} map tiles (~${sizeMb} MB).`)
+                    : (result.snapshotZoom != null
+                      ? `Saved ${result.tileCount} map tiles at zoom ${result.snapshotZoom}.`
+                      : `Saved ${result.tileCount} map tiles.`)
                 );
               } else {
                 showMapToast('Route saved without offline map tiles.');
@@ -5092,24 +5115,18 @@
       const select = document.getElementById('offlineMapDetailSelect');
       const hint = document.getElementById('offlineMapDetailHint');
       if (!select) return;
-      const isIosDevice = typeof isIOS === 'function' && isIOS();
       if (hint) {
-        hint.textContent = 'Offline maps are saved at zoom level 14 along the route. Other zoom levels use scaled saved tiles.';
-      }
-      if (isIosDevice) {
-        const standardOption = select.querySelector('option[value="standard"]');
-        const highOption = select.querySelector('option[value="high"]');
-        if (standardOption) standardOption.textContent = 'Standard – zoom 14 route tiles';
-        if (highOption) highOption.textContent = 'High – zoom 14 route tiles';
+        hint.textContent = 'Offline maps are saved along the route at the selected detail level. Other zoom levels use scaled saved tiles.';
       }
       select.value = getOfflineMapDetailSetting();
       select.addEventListener('change', () => {
         const value = setOfflineMapDetailSetting(select.value);
         const preset = getEffectiveOfflineMapDetailPreset(value);
-        const label = preset.iosSafeMode && value !== 'off'
-          ? `${OFFLINE_MAP_DETAIL_PRESETS[value].label} (iOS stable mode)`
-          : OFFLINE_MAP_DETAIL_PRESETS[value].label;
-        showMapToast(`Offline map detail: ${label}`);
+        showMapToast(
+          preset.enabled
+            ? `Offline map detail: ${preset.label}`
+            : 'Offline map detail: No map'
+        );
       });
     }
 
