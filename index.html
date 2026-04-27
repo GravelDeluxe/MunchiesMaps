@@ -4084,6 +4084,60 @@
       }
     }
 
+    async function loadTileDataUrlForOffline(url, {
+      isIosDevice = false,
+      timeoutMs = 10000,
+      size = 256
+    } = {}) {
+      if (isIosDevice) {
+        try {
+          const res = await fetch(url, { mode: 'cors' });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const blob = await res.blob();
+          if (blob.size > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) {
+            throw new Error(`tile too large: ${blob.size}`);
+          }
+          const dataUrl = await blobToDataUrl(blob);
+          if (!dataUrl || !dataUrl.startsWith('data:')) {
+            throw new Error('invalid fetch data URL');
+          }
+          return {
+            ok: true,
+            dataUrl,
+            method: 'fetch',
+            bytes: estimateDataUrlBytes(dataUrl)
+          };
+        } catch (fetchErr) {
+          console.log('[offline-tiles] iOS fetch failed, trying image fallback', {
+            url,
+            name: fetchErr?.name,
+            message: fetchErr?.message
+          });
+          const fallback = await tileUrlToDataUrlViaImage(url, size, timeoutMs);
+          if (fallback.ok) {
+            return {
+              ok: true,
+              dataUrl: fallback.dataUrl,
+              method: fallback.reason || 'image-canvas',
+              bytes: estimateDataUrlBytes(fallback.dataUrl)
+            };
+          }
+          return {
+            ok: false,
+            dataUrl: '',
+            method: 'none',
+            error: fallback.reason || fetchErr?.message || 'tile-load-failed',
+            name: fallback.name || fetchErr?.name || ''
+          };
+        }
+      }
+
+      return fetchTileDataUrl(url, {
+        timeoutMs,
+        size
+      });
+    }
+
     function getOfflineMapDetailSetting() {
       const value = localStorage.getItem(OFFLINE_MAP_DETAIL_KEY);
       if (['off', 'basic', 'standard', 'high'].includes(value)) return value;
@@ -4173,7 +4227,7 @@
         isIosDevice
       });
       const tileFetchConcurrency = isIosDevice ? 1 : 4;
-      const tileFetchTimeoutMs = isIosDevice ? null : 5000;
+      const tileFetchTimeoutMs = isIosDevice ? 10000 : 5000;
       const absoluteSafetyLimit = isIosDevice ? OFFLINE_TILE_MAX_ABSOLUTE_COUNT_IOS : OFFLINE_TILE_MAX_ABSOLUTE_COUNT_DESKTOP;
       if (!activeBaseLayer || typeof activeBaseLayer.getTileUrl !== 'function') {
         console.log('[offline-tiles] using grid fallback');
@@ -4241,10 +4295,9 @@
       const tiles = [];
       let totalBytes = 0;
       let budgetReached = false;
-      let failedCount = 0;
-      let processed = 0;
       const tileStats = {
         requested: routeCandidates.length + contextCandidates.length,
+        processed: 0,
         saved: 0,
         failed: 0,
         ios: isIosDevice,
@@ -4257,8 +4310,11 @@
         roles: { route: 0, context: 0 },
         errors: {},
         fallbackAttempts: 0,
-        budgetReached: false
+        budgetReached: false,
+        preflight: { attempted: 0, saved: 0, failed: 0 },
+        lastError: ''
       };
+      const processedTileKeys = new Set();
 
       const saveTileFromDataUrl = (coords, dataUrl, role, method = 'fetch') => {
         const estimatedBytes = estimateDataUrlBytes(dataUrl);
@@ -4281,9 +4337,9 @@
       };
 
       const recordTileFailure = (coords, url, err) => {
-        failedCount += 1;
-        tileStats.failed = failedCount;
+        tileStats.failed += 1;
         const reason = err?.message || err?.name || 'unknown';
+        tileStats.lastError = reason;
         tileStats.errors[reason] = (tileStats.errors[reason] || 0) + 1;
         console.log('[offline-tiles] tile failed', {
           z: coords.z,
@@ -4296,26 +4352,20 @@
       };
 
       const processTile = async (coords, role) => {
-        if (budgetReached) return;
+        const key = `${coords.z}/${coords.x}/${coords.y}/${role}`;
+        if (budgetReached) {
+          return { ok: false, key, role, method: 'none', bytes: 0, error: 'budget-reached' };
+        }
+        if (processedTileKeys.has(key)) {
+          return { ok: true, key, role, method: 'skipped-processed', bytes: 0, error: '' };
+        }
+        processedTileKeys.add(key);
         let url = '';
         try {
           url = activeBaseLayer.getTileUrl(coords);
           if (!url) throw new Error('missing tile URL');
-          if (isIosDevice) {
-            const res = await fetch(url, { mode: 'cors' });
-            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-            const blob = await res.blob();
-            if (blob.size > OFFLINE_TILE_SNAPSHOT_MAX_TILE_BYTES) {
-              throw new Error(`tile too large: ${blob.size}`);
-            }
-            const dataUrl = await blobToDataUrl(blob);
-            if (!dataUrl || !dataUrl.startsWith('data:')) {
-              throw new Error('invalid fetch data URL');
-            }
-            saveTileFromDataUrl(coords, dataUrl, role, 'fetch');
-            return;
-          }
-          const loaded = await fetchTileDataUrl(url, {
+          const loaded = await loadTileDataUrlForOffline(url, {
+            isIosDevice,
             timeoutMs: tileFetchTimeoutMs,
             size: Number(activeBaseLayer.options?.tileSize) || 256
           });
@@ -4324,22 +4374,68 @@
             throw new Error(`${loaded.name || ''} ${loaded.error || 'tile-load-failed'}`.trim());
           }
           saveTileFromDataUrl(coords, loaded.dataUrl, role, loaded.method);
+          return {
+            ok: true,
+            key,
+            role,
+            method: loaded.method || 'unknown',
+            bytes: loaded.bytes || estimateDataUrlBytes(loaded.dataUrl),
+            error: ''
+          };
         } catch (err) {
           recordTileFailure(coords, url, err);
+          return {
+            ok: false,
+            key,
+            role,
+            method: 'none',
+            bytes: 0,
+            error: err?.message || err?.name || 'tile-load-failed'
+          };
         } finally {
-          processed += 1;
+          tileStats.processed += 1;
+          if (tileStats.processed % 10 === 0) {
+            console.log('[offline-tiles] progress', {
+              processed: tileStats.processed,
+              requested: tileStats.requested,
+              saved: tiles.length,
+              failed: tileStats.failed,
+              totalBytes
+            });
+          }
           onProgress?.({
             phase: role,
-            processed,
+            processed: tileStats.processed,
             totalPlanned,
             saved: tiles.length,
-            failed: failedCount,
+            failed: tileStats.failed,
             totalBytes
           });
         }
       };
 
+      const allCandidates = [
+        ...routeCandidates.map((coords) => ({ coords, role: 'route' })),
+        ...contextCandidates.map((coords) => ({ coords, role: 'context' }))
+      ];
+
       if (isIosDevice) {
+        const preflightCandidates = allCandidates.slice(0, 5);
+        for (const candidate of preflightCandidates) {
+          if (budgetReached) break;
+          tileStats.preflight.attempted += 1;
+          const preflightResult = await processTile(candidate.coords, candidate.role);
+          if (preflightResult.ok) {
+            tileStats.preflight.saved += 1;
+          } else {
+            tileStats.preflight.failed += 1;
+          }
+        }
+        if (tileStats.preflight.attempted > 0 && tileStats.preflight.saved === 0) {
+          console.warn('[offline-tiles] iOS preflight failed, aborting tile snapshot', tileStats);
+          return buildGridTexturePackage();
+        }
+
         for (const coords of routeCandidates) {
           if (budgetReached) break;
           await processTile(coords, 'route');
@@ -4360,10 +4456,13 @@
       tileStats.saved = tiles.length;
       tileStats.totalBytes = totalBytes;
       console.log('[offline-tiles] snapshot complete', {
-        ...tileStats,
-        routeTiles: tileStats.roles.route || 0,
-        contextTiles: tileStats.roles.context || 0,
-        totalTiles: tiles.length
+        requested: tileStats.requested,
+        processed: tileStats.processed,
+        saved: tiles.length,
+        failed: tileStats.failed,
+        preflight: tileStats.preflight,
+        errors: tileStats.errors,
+        totalBytes
       });
       if (!tiles.length) {
         console.log('[offline-tiles] using grid fallback');
