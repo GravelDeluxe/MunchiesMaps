@@ -2686,28 +2686,28 @@
       basic: {
         enabled: true,
         snapshotZoom: 12,
-        corridorBufferTiles: null,
+        corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'Low',
         description: 'Zoom 12, smaller offline package'
       },
       standard: {
         enabled: true,
         snapshotZoom: 13,
-        corridorBufferTiles: null,
+        corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'Medium',
         description: 'Zoom 13, balanced detail and storage'
       },
       high: {
         enabled: true,
         snapshotZoom: 14,
-        corridorBufferTiles: null,
+        corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'High',
         description: 'Zoom 14, higher detail and larger offline package'
       },
       very_high: {
         enabled: true,
         snapshotZoom: 16,
-        corridorBufferTiles: null,
+        corridorBufferTiles: OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
         label: 'Very high',
         description: 'Zoom 16, maximum detail and largest offline package'
       }
@@ -3974,32 +3974,6 @@
         .replace('{y}', String(coords.y));
     }
 
-    function getOfflineCorridorBufferKmForZoom(zoom) {
-      const normalizedZoom = Number.isFinite(zoom) ? Math.floor(zoom) : OFFLINE_TILE_SNAPSHOT_ZOOM;
-      if (normalizedZoom >= 15) return 1;
-      if (normalizedZoom >= 13) return 5;
-      if (normalizedZoom >= 11) return 10;
-      if (normalizedZoom >= 9) return 25;
-      if (normalizedZoom >= 7) return 50;
-      return 100;
-    }
-
-    function getCorridorBufferTilesForZoom(zoom, latlngs, corridorBufferTiles) {
-      if (Number.isFinite(corridorBufferTiles)) {
-        return Math.max(0, Math.floor(corridorBufferTiles));
-      }
-      const points = Array.isArray(latlngs) ? latlngs : [];
-      const sample = points.length
-        ? points[Math.floor(points.length / 2)]
-        : null;
-      const sampleLat = Number(sample?.lat ?? sample?.[0]);
-      const lat = Number.isFinite(sampleLat) ? clamp(sampleLat, -85, 85) : 0;
-      const bufferKm = getOfflineCorridorBufferKmForZoom(zoom);
-      const metersPerTile = (156543.03392 * Math.cos((lat * Math.PI) / 180)) / (2 ** zoom);
-      if (!Number.isFinite(metersPerTile) || metersPerTile <= 0) return OFFLINE_TILE_CORRIDOR_BUFFER_TILES;
-      return Math.max(0, Math.ceil((bufferKm * 1000) / metersPerTile));
-    }
-
     function getRouteCorridorTileCoords(latlngs, zoom, {
       corridorBufferTiles = 0
     } = {}) {
@@ -4008,7 +3982,7 @@
         .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lng));
       if (!points.length) return [];
       const world = 2 ** zoom;
-      const radius = getCorridorBufferTilesForZoom(zoom, points, corridorBufferTiles);
+      const radius = Math.max(0, Math.floor(Number(corridorBufferTiles) || 0));
       const seen = new Set();
       const ordered = [];
       const addLatLngPoint = (latlng) => {
@@ -4317,6 +4291,11 @@
       const routeCandidates = dedupeTileCoords(getRouteCorridorTileCoords(latlngs, routeZoom, {
         corridorBufferTiles
       }));
+      console.log('[offline-tiles] route corridor', {
+        snapshotZoom: routeZoom,
+        corridorBufferTiles,
+        routeCandidates: routeCandidates.length
+      });
       const effectiveRouteCandidates = routeCandidates.length
         ? routeCandidates
         : buildTileCoordsForBounds(buildBufferedBoundsFromBBox(routeBBox), routeZoom);
@@ -4442,7 +4421,9 @@
           latlngs,
           enabled: Boolean(preset.enabled),
           snapshotZoom,
-          corridorBufferTiles: preset.corridorBufferTiles,
+          corridorBufferTiles: Number.isFinite(preset.corridorBufferTiles)
+            ? preset.corridorBufferTiles
+            : OFFLINE_TILE_CORRIDOR_BUFFER_TILES,
           onProgress
         });
         if (!mapTexture || mapTexture.type !== 'tiles' || !Array.isArray(mapTexture.tiles) || !mapTexture.tiles.length) {
