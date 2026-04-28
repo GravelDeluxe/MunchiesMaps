@@ -2042,6 +2042,14 @@
       return new Set((Array.isArray(list) ? list : []).map((item) => item.id).filter(Boolean));
     }
 
+    function defaultCategoryIds(list) {
+      return new Set(
+        (Array.isArray(list) ? list : [])
+          .map((item) => item.id)
+          .filter((id) => id && id !== 'accommodation')
+      );
+    }
+
     function setEquals(a, b) {
       if (!(a instanceof Set) || !(b instanceof Set)) return false;
       if (a.size !== b.size) return false;
@@ -2107,7 +2115,7 @@
       regionManualModeById.clear();
 
       filterState.bundeslaender = allIds(data.regions);
-      filterState.kategorien = allIds(data.categories);
+      filterState.kategorien = defaultCategoryIds(data.categories);
 
       if (state.theme === 'light' || state.theme === 'dark') {
         const isDark = state.theme === 'dark';
@@ -2223,8 +2231,8 @@
       const compactState = serializeRegionStateByCountry(regionStateByCountry);
       if (compactState) params.set('s', compactState);
 
-      const allCategories = allIds(manifestData.categories);
-      if (!setEquals(filterState.kategorien, allCategories)) {
+      const defaultCategories = defaultCategoryIds(manifestData.categories);
+      if (!setEquals(filterState.kategorien, defaultCategories)) {
         const tokens = Array.from(filterState.kategorien || [])
           .map((id) => CAT_ID_TO_CODE[id] || id)
           .sort();
@@ -6780,7 +6788,7 @@
         manualModeById: regionManualModeById,
         allRegionIds: (manifestData.regions || []).map((b) => b.id)
       });
-      filterState.kategorien = new Set((manifestData.categories || []).map((c) => c.id));
+      filterState.kategorien = defaultCategoryIds(manifestData.categories);
       renderChecklist('blList', manifestData.regions, filterState.bundeslaender, 'bl');
       renderChecklist('catList', manifestData.categories, filterState.kategorien, 'cat');
       resetGpxState();
@@ -6979,8 +6987,6 @@
         acc[cat.id] = cat.label;
         return acc;
       }, {});
-
-      manifestData.categories.forEach(cat => filterState.kategorien.add(cat.id));
 
       applyShareStateFromUrl(manifestData);
       autoActiveRegionIds = getRegionsIntersectingBounds(map.getBounds(), manifestData);
