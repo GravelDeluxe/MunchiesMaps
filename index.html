@@ -585,7 +585,7 @@
       border: none;
     }
     .gpx-km-marker-label {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       min-width: 18px;
@@ -596,6 +596,8 @@
       background: rgba(255, 255, 255, 0.9);
       color: #b91c1c;
       font: 600 11px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1;
+      text-align: center;
       box-sizing: border-box;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
     }
@@ -3726,9 +3728,10 @@
       clearGpxKilometerMarkers();
       const kilometerMarkers = buildKilometerMarkers(latlngs, intervalKm);
       kilometerMarkers.forEach((entry) => {
+        const markerLabel = String(entry.km);
         const icon = L.divIcon({
           className: 'gpx-km-marker',
-          html: `<span class="gpx-km-marker-label">${entry.km} km</span>`,
+          html: `<span class="gpx-km-marker-label" title="${entry.km} km" aria-label="${entry.km} km">${markerLabel}</span>`,
           iconSize: [22, 22],
           iconAnchor: [11, 11]
         });
