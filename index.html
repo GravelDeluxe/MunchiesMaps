@@ -2713,6 +2713,8 @@
       }
     };
     const GPX_KM_MARKER_INTERVAL_KM = 5;
+    const GPX_KM_MARKER_INTERVALS = [1, 5, 10, 25, 50, 100, 250, 500, 1000];
+    const GPX_MAX_KM_MARKERS = 120;
     const gpxState = {
       points: [],
       sampledPoints: [],
@@ -2721,11 +2723,13 @@
       active: false,
       geoJson: null,
       rawText: null,
-      uiMode: 'standard'
+      uiMode: 'standard',
+      routeLengthKm: 0
     };
     const regionGeometryCache = new Map();
 
     let gpxTrackLayer = null;
+    let currentKmMarkerIntervalKm = null;
 
     const datasetCache = new Map();
     const missingCache = new Set();
@@ -3616,6 +3620,71 @@
       };
     }
 
+    function getBaseKmMarkerIntervalForZoom(zoom) {
+      const z = Number.isFinite(zoom) ? zoom : 12;
+
+      if (z >= 15) return 1;
+      if (z >= 13) return 5;
+      if (z >= 11) return 10;
+      if (z >= 9) return 25;
+      if (z >= 7) return 50;
+      return 100;
+    }
+
+    function getKmMarkerIntervalForZoom(zoom, visibleRouteLengthKm = 0) {
+      const baseInterval = getBaseKmMarkerIntervalForZoom(zoom);
+
+      for (const candidate of GPX_KM_MARKER_INTERVALS) {
+        if (candidate < baseInterval) continue;
+
+        if (!visibleRouteLengthKm || Math.ceil(visibleRouteLengthKm / candidate) <= GPX_MAX_KM_MARKERS) {
+          return candidate;
+        }
+      }
+
+      return GPX_KM_MARKER_INTERVALS[GPX_KM_MARKER_INTERVALS.length - 1] || 100;
+    }
+
+    function computeRouteLengthKm(latlngs) {
+      const points = (Array.isArray(latlngs) ? latlngs : [])
+        .map((pt) => L.latLng(pt?.lat ?? pt?.[0], pt?.lng ?? pt?.[1]))
+        .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lng));
+
+      let meters = 0;
+
+      for (let i = 1; i < points.length; i += 1) {
+        meters += haversineMeters(
+          points[i - 1].lat,
+          points[i - 1].lng,
+          points[i].lat,
+          points[i].lng
+        );
+      }
+
+      return meters / 1000;
+    }
+
+    function computeVisibleRouteLengthKm(latlngs, bounds) {
+      if (!bounds || typeof bounds.contains !== 'function') {
+        return computeRouteLengthKm(latlngs);
+      }
+
+      const points = (Array.isArray(latlngs) ? latlngs : [])
+        .map((pt) => L.latLng(pt?.lat ?? pt?.[0], pt?.lng ?? pt?.[1]))
+        .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lng));
+
+      let meters = 0;
+
+      for (let i = 1; i < points.length; i += 1) {
+        const a = points[i - 1];
+        const b = points[i];
+        if (!bounds.contains(a) && !bounds.contains(b)) continue;
+        meters += haversineMeters(a.lat, a.lng, b.lat, b.lng);
+      }
+
+      return meters / 1000;
+    }
+
     function buildKilometerMarkers(latlngs, intervalKm = GPX_KM_MARKER_INTERVAL_KM) {
       if (!Array.isArray(latlngs) || latlngs.length < 2) return [];
       const intervalMeters = Number(intervalKm) * 1000;
@@ -3653,13 +3722,13 @@
       gpxKilometerMarkerLayer.clearLayers();
     }
 
-    function renderGpxKilometerMarkers(latlngs) {
+    function renderGpxKilometerMarkers(latlngs, { intervalKm = GPX_KM_MARKER_INTERVAL_KM } = {}) {
       clearGpxKilometerMarkers();
-      const kilometerMarkers = buildKilometerMarkers(latlngs, GPX_KM_MARKER_INTERVAL_KM);
+      const kilometerMarkers = buildKilometerMarkers(latlngs, intervalKm);
       kilometerMarkers.forEach((entry) => {
         const icon = L.divIcon({
           className: 'gpx-km-marker',
-          html: `<span class="gpx-km-marker-label">${entry.km}</span>`,
+          html: `<span class="gpx-km-marker-label">${entry.km} km</span>`,
           iconSize: [22, 22],
           iconAnchor: [11, 11]
         });
@@ -3669,6 +3738,51 @@
           keyboard: false
         }).addTo(gpxKilometerMarkerLayer);
       });
+    }
+
+    function refreshGpxKilometerMarkersForZoom({ reason = 'zoom-change' } = {}) {
+      if (
+        !appState?.hasImportedGpx ||
+        !Array.isArray(appState.gpxTrackLatLngs) ||
+        !appState.gpxTrackLatLngs.length
+      ) {
+        return;
+      }
+
+      const routeLengthKm = Number.isFinite(gpxState.routeLengthKm)
+        ? gpxState.routeLengthKm
+        : computeRouteLengthKm(appState.gpxTrackLatLngs);
+      gpxState.routeLengthKm = routeLengthKm;
+
+      const bounds = map?.getBounds?.();
+      const visibleRouteLengthKm = bounds
+        ? computeVisibleRouteLengthKm(appState.gpxTrackLatLngs, bounds)
+        : routeLengthKm;
+      const intervalKm = getKmMarkerIntervalForZoom(map.getZoom(), visibleRouteLengthKm || routeLengthKm);
+
+      console.log('[gpx-km-markers] interval selected', {
+        zoom: map.getZoom(),
+        routeLengthKm,
+        visibleRouteLengthKm,
+        intervalKm,
+        markerLimit: GPX_MAX_KM_MARKERS
+      });
+
+      if (intervalKm === currentKmMarkerIntervalKm) {
+        return;
+      }
+
+      currentKmMarkerIntervalKm = intervalKm;
+
+      console.log('[gpx-km-markers] refresh', {
+        reason,
+        zoom: map.getZoom(),
+        routeLengthKm,
+        visibleRouteLengthKm,
+        intervalKm
+      });
+
+      renderGpxKilometerMarkers(appState.gpxTrackLatLngs, { intervalKm });
     }
 
     function clearGpxTrack() {
@@ -4881,7 +4995,9 @@
         }]
       };
       renderGpxTrack(trackGeoJson);
-      renderGpxKilometerMarkers(appState.gpxTrackLatLngs);
+      gpxState.routeLengthKm = computeRouteLengthKm(appState.gpxTrackLatLngs);
+      currentKmMarkerIntervalKm = null;
+      refreshGpxKilometerMarkersForZoom({ reason: 'offline-route-load' });
       const offlinePois = Array.isArray(pkg.pois) ? pkg.pois : [];
       activePoints = offlinePois.map((poi, index) => ({
         id: `offline-${index}-${poi.category || 'default'}-${Number(poi.lat).toFixed(6)}-${Number(poi.lng).toFixed(6)}`,
@@ -6129,12 +6245,20 @@
     const debouncedViewportUpdate = debounce(() => updateClusteringForViewport(), CLUSTER_DEBOUNCE_MS);
     const debouncedAutoRegionUpdate = debounce(() => updateAutoActiveRegionsFromViewport(), CLUSTER_DEBOUNCE_MS);
     const debouncedUrlUpdate = debounce(() => updateUrlFromCurrentState({ replace: true }), SHARE_URL_UPDATE_DEBOUNCE_MS);
+    const debouncedGpxKmMarkerRefresh = debounce(
+      () => refreshGpxKilometerMarkersForZoom({ reason: 'moveend' }),
+      CLUSTER_DEBOUNCE_MS
+    );
     map.on('moveend', debouncedViewportUpdate);
     map.on('zoomend', debouncedViewportUpdate);
     map.on('moveend', debouncedAutoRegionUpdate);
     map.on('zoomend', debouncedAutoRegionUpdate);
     map.on('moveend', debouncedUrlUpdate);
     map.on('zoomend', debouncedUrlUpdate);
+    map.on('zoomend', () => {
+      refreshGpxKilometerMarkersForZoom({ reason: 'zoomend' });
+    });
+    map.on('moveend', debouncedGpxKmMarkerRefresh);
 
     async function loadGeoJSON(url) {
       const r = await fetch(url);
@@ -6369,6 +6493,8 @@
       gpxState.bbox = null;
       gpxState.geoJson = null;
       gpxState.rawText = null;
+      gpxState.routeLengthKm = 0;
+      currentKmMarkerIntervalKm = null;
       appState.hasImportedGpx = false;
       appState.clusterThresholdAutoDirty = true;
       if (navigator.onLine) appState.isOfflineMode = false;
@@ -6458,8 +6584,9 @@
       console.log('GPX points:', trackPoints.length, 'sampled:', sampled.length, 'radiusMeters:', radiusMeters);
 
       renderGpxTrack(gpxGeoJson);
-      // Rebuild kilometer markers whenever a GPX route changes.
-      renderGpxKilometerMarkers(appState.gpxTrackLatLngs);
+      gpxState.routeLengthKm = computeRouteLengthKm(appState.gpxTrackLatLngs);
+      currentKmMarkerIntervalKm = null;
+      refreshGpxKilometerMarkersForZoom({ reason: 'gpx-import' });
       if (autoSelectRegions && (hasNewFile || hasRawTextInput)) {
         autoSelectRegionsByGpxRoute();
       }
