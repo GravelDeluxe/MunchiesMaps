@@ -2734,7 +2734,8 @@
 
     let filterRunId = 0;
     let applyFiltersTimer = null;
-    let viewportClusterThreshold = parseClusterThreshold(localStorage.getItem(CLUSTER_THRESHOLD_KEY));
+    const storedClusterThresholdValue = localStorage.getItem(CLUSTER_THRESHOLD_KEY);
+    let viewportClusterThreshold = parseClusterThreshold(storedClusterThresholdValue);
     let minPoiZoom = parseMinPoiZoom(localStorage.getItem(MIN_POI_ZOOM_KEY));
     let zoomHintActive = false;
     const CLUSTER_DEBOUNCE_MS = 200;
@@ -2749,6 +2750,8 @@
     let currentMode = null;
     let renderCounter = 0;
     const markerCache = new Map();
+    appState.clusterThresholdManual = appState.clusterThresholdManual ?? Boolean(storedClusterThresholdValue);
+    appState.clusterThresholdAutoDirty = appState.clusterThresholdAutoDirty ?? true;
 
     const ASSUME_24H_LAYERS = new Set(['drinking_water', 'vending_snacks', 'shelters', 'toilets_public']);
     const NIGHT_OPEN_LAYERS = new Set(['supermarkets', 'kiosks', 'fuel', 'bakerys_cafes', 'fast_food']);
@@ -3718,12 +3721,50 @@
       });
     }
 
-    function applyGpxAutoOptions() {
-      if (!map || !gpxState.active) return;
-      setMinPoiZoom(map.getZoom());
+    function recomputeAutoClusterThreshold() {
+      if (!map || !gpxState.active || appState.clusterThresholdManual) return;
       const visibleCount = getVisiblePoiCount(map.getBounds());
-      setClusterThreshold(visibleCount);
-      updateClusteringForViewport();
+      setClusterThreshold(visibleCount, { source: 'auto' });
+    }
+
+    function refreshClusterUiState() {
+      syncClusterThresholdInput();
+      syncMinPoiZoomInput();
+    }
+
+    function refreshRouteDependentClustering({ reason = 'route-change' } = {}) {
+      console.log('[cluster] recompute', {
+        reason,
+        activePoints: activePoints?.length || 0,
+        hasGpx: Boolean(appState?.hasImportedGpx),
+        gpxPoints: appState?.gpxTrackLatLngs?.length || 0,
+        mapZoom: map?.getZoom?.(),
+        bounds: map?.getBounds?.()?.toBBoxString?.(),
+        autoDirty: appState?.clusterThresholdAutoDirty
+      });
+
+      if (Array.isArray(activePoints)) {
+        rebuildGridIndex(activePoints);
+      }
+      if (appState.clusterThresholdAutoDirty) {
+        recomputeAutoClusterThreshold();
+        appState.clusterThresholdAutoDirty = false;
+      }
+      if (typeof updateClusteringForViewport === 'function') {
+        updateClusteringForViewport();
+      }
+      if (typeof refreshClusterUiState === 'function') {
+        refreshClusterUiState();
+      }
+    }
+
+    async function applyCurrentMapFiltersAndClustering({ reason = 'manual-apply', refreshRouteClustering = false } = {}) {
+      await applyFilters();
+      if (refreshRouteClustering) {
+        refreshRouteDependentClustering({ reason });
+      } else {
+        updateClusteringForViewport();
+      }
       if (typeof debouncedUrlUpdate === 'function') {
         debouncedUrlUpdate();
       }
@@ -4814,6 +4855,7 @@
       gpxState.rawText = pkg.route.gpxRaw || '';
       gpxState.radiusMeters = Number(pkg.route.radius) || (DEFAULT_GPX_RADIUS_KM * 1000);
       appState.hasImportedGpx = true;
+      appState.clusterThresholdAutoDirty = true;
       appState.isOfflineMode = shouldUseOfflineTexture;
       appState.gpxTrackLatLngs = pkg.route.latlngs.map(([lat, lng]) => L.latLng(lat, lng));
       gpxState.points = appState.gpxTrackLatLngs.map((ll) => ({ lat: ll.lat, lon: ll.lng }));
@@ -4848,28 +4890,39 @@
         }
       })).filter((point) => Number.isFinite(point.lat) && Number.isFinite(point.lng));
       rebuildGridIndex(activePoints);
-      updateClusteringForViewport();
 
+      let hasFittedToRoute = false;
       if (shouldUseOfflineTexture && hasTileTexture) {
         applyOfflineTexture(pkg);
-        fitMapToOfflineRoutePackage(pkg);
+        hasFittedToRoute = fitMapToOfflineRoutePackage(pkg);
         offlineTextureLayer?.redraw?.();
         map.invalidateSize(false);
       } else if (shouldUseOfflineTexture) {
         applyOfflineTexture(pkg);
-        fitMapToOfflineRoutePackage(pkg);
+        hasFittedToRoute = fitMapToOfflineRoutePackage(pkg);
         offlineTextureLayer?.redraw?.();
         map.invalidateSize(false);
       } else {
         clearOfflineTexture();
         applyTheme(document.documentElement.dataset.theme === 'dark');
-        if (!fitMapToOfflineRoutePackage(pkg)) {
+        hasFittedToRoute = fitMapToOfflineRoutePackage(pkg);
+        if (!hasFittedToRoute) {
           if (Array.isArray(pkg.view?.center) && Number.isFinite(pkg.view.center[0]) && Number.isFinite(pkg.view.center[1])) {
             map.setView(pkg.view.center, Number.isFinite(pkg.view.zoom) ? pkg.view.zoom : 12, { animate: false });
+            hasFittedToRoute = true;
           } else {
-            fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
+            hasFittedToRoute = fitMapToGpxTrack({ padding: 28, maxZoom: 16 });
           }
         }
+      }
+      refreshRouteDependentClustering({ reason: hasFittedToRoute ? 'offline-route-load-after-fit' : 'offline-route-load-no-fit' });
+      if (hasFittedToRoute) {
+        requestAnimationFrame(() => {
+          refreshRouteDependentClustering({ reason: 'offline-route-load-after-fit-raf' });
+          setTimeout(() => {
+            refreshRouteDependentClustering({ reason: 'offline-route-load-after-fit-timeout' });
+          }, 100);
+        });
       }
       setGpxUiMode('cache-found');
       refreshGpxUiState();
@@ -5252,9 +5305,16 @@
       });
     }
 
-    function setClusterThreshold(value) {
+    function setClusterThreshold(value, { source = 'system' } = {}) {
       const clamped = clampClusterThreshold(value);
       viewportClusterThreshold = clamped;
+      if (source === 'manual') {
+        appState.clusterThresholdManual = true;
+        appState.clusterThresholdAutoDirty = false;
+      } else if (source === 'auto') {
+        appState.clusterThresholdManual = false;
+        appState.clusterThresholdAutoDirty = false;
+      }
       syncClusterThresholdInput();
       if (clamped === DEFAULT_CLUSTER_THRESHOLD) {
         localStorage.removeItem(CLUSTER_THRESHOLD_KEY);
@@ -5281,7 +5341,7 @@
       if (!input) return;
 
       const applyThreshold = () => {
-        setClusterThreshold(input.value);
+        setClusterThreshold(input.value, { source: 'manual' });
         updateClusteringForViewport();
       };
 
@@ -6305,6 +6365,7 @@
       gpxState.geoJson = null;
       gpxState.rawText = null;
       appState.hasImportedGpx = false;
+      appState.clusterThresholdAutoDirty = true;
       if (navigator.onLine) appState.isOfflineMode = false;
       appState.gpxTrackLatLngs = [];
       appState.gpxLayer = null;
@@ -6317,7 +6378,7 @@
       if (err) err.textContent = '';
       setGpxUiMode(hasSavedGpxRoute() ? 'cache-found' : 'standard');
       refreshGpxUiState();
-      updateClusteringForViewport();
+      refreshRouteDependentClustering({ reason: 'gpx-reset' });
     }
 
     async function handleGpxApply({ rawGpxText = null, skipFitToTrack = false, autoSelectRegions = true, uiModeAfterApply = 'import-open' } = {}) {
@@ -6382,7 +6443,12 @@
       gpxState.rawText = gpxRawText;
       gpxState.active = true;
       appState.hasImportedGpx = true;
+      appState.clusterThresholdAutoDirty = true;
       appState.gpxTrackLatLngs = trackPoints.map((pt) => L.latLng(pt.lat, pt.lon));
+      console.log('[gpx] route loaded, scheduling cluster refresh', {
+        points: appState.gpxTrackLatLngs?.length || 0,
+        bbox: gpxState.bbox
+      });
 
       console.log('GPX points:', trackPoints.length, 'sampled:', sampled.length, 'radiusMeters:', radiusMeters);
 
@@ -6402,8 +6468,18 @@
       setGpxUiMode(uiModeAfterApply);
       refreshGpxUiState();
 
-      await applyFilters();
-      applyGpxAutoOptions();
+      await applyCurrentMapFiltersAndClustering({
+        reason: hasFittedToTrack ? 'gpx-import-after-fit' : 'gpx-import-no-fit',
+        refreshRouteClustering: true
+      });
+      if (hasFittedToTrack) {
+        requestAnimationFrame(() => {
+          refreshRouteDependentClustering({ reason: 'gpx-import-after-fit-raf' });
+          setTimeout(() => {
+            refreshRouteDependentClustering({ reason: 'gpx-import-after-fit-timeout' });
+          }, 100);
+        });
+      }
     }
 
     function resetAllFilters() {
