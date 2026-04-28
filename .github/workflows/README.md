@@ -27,6 +27,16 @@ If an input is left empty, the fetch script runs without that filter.
 - `regions`: comma-separated region ids/slugs (empty = all regions per country)
 - `dry_run`: `true`/`false` (skip data writes + PR creation when `true`)
 
+Country IDs are validated against `fetch_data/config.yml` and unknown IDs now fail fast with a clear error.
+Current short IDs that are still in use are: `al`, `gr`, `me`, `tr`.
+
+Supported aliases for manual `countries` input:
+- `de`, `deutschland` → `germany`
+- `albania` → `al`
+- `greece` → `gr`
+- `montenegro` → `me`
+- `turkey` → `tr`
+
 Each matrix job writes and uploads:
 
 - `artifacts/fetch_failures_<country>.json` and `.csv`
