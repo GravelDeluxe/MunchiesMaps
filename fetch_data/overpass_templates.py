@@ -116,3 +116,14 @@ def kiosks() -> str:
         );
         """
     ).strip()
+
+
+def accommodation() -> str:
+    """Return Overpass body for accommodation tourism types."""
+    return dedent(
+        f"""
+        (
+          nwr["tourism"~"^(hotel|motel|guest_house|hostel|apartment|chalet|alpine_hut|camp_site|caravan_site)$"]({AREA_ALIAS});
+        );
+        """
+    ).strip()
