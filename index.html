@@ -1395,6 +1395,7 @@
       tp: 'toilets_public',
       dw: 'drinking_water',
       sh: 'shelters',
+      ac: 'accommodation',
       fu: 'fuel',
       sm: 'supermarkets',
       vc: 'vending_snacks',
@@ -1650,6 +1651,13 @@
       toilets_public: { iconClass: 'fa-solid fa-toilet', color: '#2F80ED', label: 'Toilets' },
       drinking_water: { iconClass: 'fa-solid fa-droplet', color: '#56CCF2', label: 'Drinking Water' },
       shelters: { iconClass: 'fa-solid fa-campground', color: '#6FCF97', label: 'Shelter' },
+      accommodation: {
+        iconClass: 'fa-solid fa-bed',
+        color: '#8B5CF6',
+        hoverColor: '#A78BFA',
+        outlineColor: '#A78BFA',
+        label: 'Accommodation'
+      },
       fuel: { iconClass: 'fa-solid fa-gas-pump', color: '#F2C94C', label: 'Fuel' },
       supermarkets: { iconClass: 'fa-solid fa-cart-shopping', color: '#9B51E0', label: 'Supermarkets' },
       // Door-closed uses an access/service metaphor for vending machines (not a food type).
@@ -1669,11 +1677,23 @@
       return layerKey || 'default';
     }
 
+    function isAccommodationCamping(featureProps = {}) {
+      const tourism = String(featureProps?.tourism || '').trim();
+      return tourism === 'camp_site' || tourism === 'caravan_site';
+    }
+
     function getLayerIconConfig(layerKey, featureProps) {
       const resolvedKey = resolveLayerKey(layerKey, featureProps);
+      const baseConfig = LAYER_ICON_CONFIG[resolvedKey] || LAYER_ICON_CONFIG.default;
+      if (resolvedKey === 'accommodation' && isAccommodationCamping(featureProps)) {
+        return {
+          key: resolvedKey,
+          config: { ...baseConfig, iconClass: 'fa-solid fa-campground' }
+        };
+      }
       return {
         key: resolvedKey,
-        config: LAYER_ICON_CONFIG[resolvedKey] || LAYER_ICON_CONFIG.default
+        config: baseConfig
       };
     }
 
@@ -2761,7 +2781,7 @@
     appState.clusterThresholdAutoDirty = appState.clusterThresholdAutoDirty ?? true;
 
     const ASSUME_24H_LAYERS = new Set(['drinking_water', 'vending_snacks', 'shelters', 'toilets_public']);
-    const NIGHT_OPEN_LAYERS = new Set(['supermarkets', 'kiosks', 'fuel', 'bakerys_cafes', 'fast_food']);
+    const NIGHT_OPEN_LAYERS = new Set(['supermarkets', 'kiosks', 'fuel', 'bakerys_cafes', 'fast_food', 'accommodation']);
     const OPEN_24H_PATTERNS = [
       /24\s*\/\s*7/i,
       /24\s*\/\s*24/i,
@@ -5198,6 +5218,7 @@
         kiosks: 'convenience_store',
         vending_snacks: 'control',
         shelters: 'camping',
+        accommodation: 'lodging',
         bakerys_cafes: 'coffee',
         drinking_water: 'water',
         toilets_public: 'restroom',
@@ -5841,6 +5862,9 @@
           .slice(0, 20)
           .map(k => renderField(k, p[k], k))
           .join('');
+      const accommodationTypeField = categoryId === 'accommodation'
+        ? renderField('Accommodation type', p.tourism, 'tourism')
+        : '';
       const mapHref = mapsHref(lat, lng);
       const mapyHref = categoryId === 'shelters'
         ? `https://mapy.com/en/zakladni?x=${encodeURIComponent(lng)}&y=${encodeURIComponent(lat)}&z=17`
@@ -5849,7 +5873,7 @@
         <div class="popup-content">
           <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${escapeHtml(name)}</span></div>
           ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
-          ${other ? `<div class="popup-extra">${other}</div>` : ''}
+          ${(accommodationTypeField || other) ? `<div class="popup-extra">${accommodationTypeField}${other}</div>` : ''}
           <div class="popup-footer">
             <a
               class="open-gmaps"
@@ -6084,7 +6108,8 @@
       const size = config.size || DEFAULT_MARKER_SIZE;
       const iconSize = config.iconSize || DEFAULT_MARKER_ICON_SIZE;
       const badgeType = appState.showBadges ? getBadgeType(key, featureProps) : null;
-      const cacheKey = `${key}-${size}-${iconSize}-${appState.showBadges ? 'badges' : 'nobadges'}-${badgeType || 'none'}`;
+      const iconClassKey = config.iconClass || '';
+      const cacheKey = `${key}-${iconClassKey}-${size}-${iconSize}-${appState.showBadges ? 'badges' : 'nobadges'}-${badgeType || 'none'}`;
       if (MARKER_ICON_CACHE.has(cacheKey)) return MARKER_ICON_CACHE.get(cacheKey);
       const label = markerLabel(key, featureProps);
       const hoverColor = config.hoverColor || config.color;

@@ -53,6 +53,17 @@ TAG_WHITELIST: Dict[str, List[str]] = {
         "description",
         "url",
     ],
+    "accommodation": [
+        "name",
+        "tourism",
+        "opening_hours",
+        "tents",
+        "phone",
+        "contact:phone",
+        "website",
+        "contact:website",
+        "check_date",
+    ],
     "bakerys_cafes": ["name", "brand", "opening_hours", "takeaway", "outdoor_seating"],
     "kiosks": ["name", "brand", "opening_hours"],
 }
@@ -64,6 +75,7 @@ CATEGORY_LABELS: Dict[str, str] = {
     "fast_food": "Fast-Food",
     "vending_snacks": "Vending (Snacks & Drinks)",
     "shelters": "Shelters",
+    "accommodation": "Accommodation",
     "bakerys_cafes": "Bakerys & Cafes",
     "kiosks": "Kiosks",
 }
