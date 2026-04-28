@@ -1613,6 +1613,64 @@ countries:
         label: Northern Ireland
         region: northern_ireland
         iso3166_2: GB-NIR
+  germany:
+    label: Germany
+    iso3166_1: DE
+    country_admin_level: 2
+    region_admin_level: 4
+    region_boundary: administrative
+    region_match_key: iso3166_2
+    region_identifier_strategy: iso3166-2
+    country_scope_strategy: area-iso
+    regions:
+      - code: de-bw
+        label: Baden-Württemberg
+        iso3166_2: DE-BW
+      - code: de-by
+        label: Bayern
+        iso3166_2: DE-BY
+      - code: de-be
+        label: Berlin
+        iso3166_2: DE-BE
+      - code: de-bb
+        label: Brandenburg
+        iso3166_2: DE-BB
+      - code: de-hb
+        label: Bremen
+        iso3166_2: DE-HB
+      - code: de-hh
+        label: Hamburg
+        iso3166_2: DE-HH
+      - code: de-he
+        label: Hessen
+        iso3166_2: DE-HE
+      - code: de-mv
+        label: Mecklenburg-Vorpommern
+        iso3166_2: DE-MV
+      - code: de-ni
+        label: Niedersachsen
+        iso3166_2: DE-NI
+      - code: de-nw
+        label: Nordrhein-Westfalen
+        iso3166_2: DE-NW
+      - code: de-rp
+        label: Rheinland-Pfalz
+        iso3166_2: DE-RP
+      - code: de-sl
+        label: Saarland
+        iso3166_2: DE-SL
+      - code: de-sn
+        label: Sachsen
+        iso3166_2: DE-SN
+      - code: de-st
+        label: Sachsen-Anhalt
+        iso3166_2: DE-ST
+      - code: de-sh
+        label: Schleswig-Holstein
+        iso3166_2: DE-SH
+      - code: de-th
+        label: Thüringen
+        iso3166_2: DE-TH
   gr:
     label: Griechenland
     iso3166_1: GR

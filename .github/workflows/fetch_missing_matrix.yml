@@ -63,12 +63,49 @@ jobs:
           python - <<'PY'
           import json
           import os
+          import yaml
 
-          input_countries = [
-              c.strip().lower()
-              for c in os.environ.get("INPUT_COUNTRIES", "").split(",")
-              if c.strip()
-          ]
+          def parse_csv(value: str) -> list[str]:
+              return [item.strip().lower() for item in value.split(',') if item.strip()]
+
+          def normalize_requested(requested: list[str], configured: list[str]) -> list[str]:
+              configured_set = set(configured)
+              alias_map = {
+                  'de': 'germany',
+                  'deutschland': 'germany',
+                  'albania': 'al',
+                  'greece': 'gr',
+                  'montenegro': 'me',
+                  'turkey': 'tr',
+              }
+              normalized: list[str] = []
+              for country in requested:
+                  target = alias_map.get(country, country)
+                  if target in configured_set:
+                      normalized.append(target)
+                  else:
+                      normalized.append(country)
+              return normalized
+
+          input_countries_raw = parse_csv(os.environ.get("INPUT_COUNTRIES", ""))
+          with open("fetch_data/config.yml", "r", encoding="utf-8") as fh:
+              config = yaml.safe_load(fh) or {}
+          countries_cfg = config.get("countries", {})
+          configured = []
+          if isinstance(countries_cfg, dict):
+              configured = sorted(str(key).strip().lower() for key in countries_cfg.keys() if str(key).strip())
+
+          input_countries = normalize_requested(input_countries_raw, configured)
+          if input_countries:
+              unknown = sorted(set(input_countries) - set(configured))
+              if unknown:
+                  raise SystemExit(
+                      "Unknown country id(s): "
+                      + ", ".join(unknown)
+                      + ". Valid country ids are: "
+                      + ", ".join(configured)
+                  )
+
           with open("missing_report.json", "r", encoding="utf-8") as fh:
               report = json.load(fh)
 
@@ -86,6 +123,9 @@ jobs:
               out.write(f"countries_csv={','.join(countries)}\n")
 
           print(f"Computed matrix: {json.dumps(matrix)}")
+          print(f"Configured countries: {configured}")
+          print(f"Requested countries: {input_countries_raw or '<all>'}")
+          print(f"Normalized countries: {input_countries or '<all>'}")
           print(f"Countries with missing data: {countries if countries else '<none>'}")
           PY
 
