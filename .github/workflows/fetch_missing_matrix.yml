@@ -47,7 +47,9 @@ jobs:
           python -m py_compile \
             scripts/check_missing_json.py \
             fetch_data/fetch_overpass.py \
-            fetch_data/fetch_missing_overpass.py
+            fetch_data/fetch_missing_overpass.py \
+            fetch_data/audit_accommodation.py \
+            scripts/check_geojson_integrity.py
 
       - name: Build country matrix from missing report
         id: build-matrix
@@ -164,13 +166,17 @@ jobs:
           python -m py_compile \
             scripts/check_missing_json.py \
             fetch_data/fetch_overpass.py \
-            fetch_data/fetch_missing_overpass.py
+            fetch_data/fetch_missing_overpass.py \
+            fetch_data/audit_accommodation.py \
+            scripts/check_geojson_integrity.py
 
       - name: Fetch only missing data for matrix country
         run: |
           set -euo pipefail
           echo "Processing country: ${{ matrix.country }}"
-          python fetch_data/fetch_missing_overpass.py --countries "${{ matrix.country }}"
+          python fetch_data/fetch_missing_overpass.py \
+            fetch_data/audit_accommodation.py \
+            scripts/check_geojson_integrity.py --countries "${{ matrix.country }}"
 
       - name: Detect GeoJSON changes for country
         id: country_changes
