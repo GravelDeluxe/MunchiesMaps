@@ -155,8 +155,10 @@ jobs:
         run: |
           set +e
 
-          mkdir -p artifacts
-          cmd=(python fetch_data/fetch_overpass.py --countries "${{ matrix.country }}")
+          mkdir -p artifacts/fetch-failures
+          failure_file="artifacts/fetch-failures/fetch-failures-${{ matrix.country }}.jsonl"
+          : > "${failure_file}"
+          cmd=(python fetch_data/fetch_overpass.py --countries "${{ matrix.country }}" --failure-log-jsonl "${failure_file}")
 
           if [ -n "${INPUT_LAYERS}" ]; then
             cmd+=(--layers "${INPUT_LAYERS}")
@@ -206,6 +208,7 @@ jobs:
             artifacts/fetch_failures_${{ matrix.country }}.csv
             artifacts/fetch_results_${{ matrix.country }}.json
             artifacts/fetch_summary_${{ matrix.country }}.md
+            artifacts/fetch-failures/fetch-failures-${{ matrix.country }}.jsonl
 
       - name: Prepare GeoJSON artifact for matrix country
         if: steps.run_fetch.outputs.exit_code == '0' && github.event.inputs.dry_run != 'true'
@@ -232,16 +235,82 @@ jobs:
           if-no-files-found: error
           path: artifacts/geojson-${{ matrix.country }}/
 
-      - name: Fail job if fetch script failed
-        if: steps.run_fetch.outputs.exit_code != '0'
+  retry_failed_fetches:
+    name: Retry failed fetches
+    needs: [prepare-matrix, fetch-by-country]
+    if: always() && needs.prepare-matrix.outputs.has_countries == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
         run: |
-          echo "Fetch returned non-zero exit code: ${{ steps.run_fetch.outputs.exit_code }}"
-          exit 1
+          python -m pip install --upgrade pip
+          pip install -r fetch_data/requirements.txt
+
+      - name: Download failure artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: fetch-artifacts-*
+          merge-multiple: true
+          path: artifacts/fetch-failures
+
+      - name: Run recovery fetch
+        id: retry
+        run: |
+          set +e
+          python scripts/retry_failed_fetches.py --failures-dir artifacts/fetch-failures --max-workers 1
+          exit_code=$?
+          echo "exit_code=${exit_code}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload post-retry failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fetch-failures-after-retry
+          if-no-files-found: warn
+          path: artifacts/fetch-failures-after-retry.jsonl
+
+      - name: Append recovery summary
+        if: always()
+        run: |
+          {
+            echo "## Recovery Fetch Summary"
+            if [ ! -s artifacts/fetch-failures-after-retry.jsonl ]; then
+              echo "No failed fetch tasks to retry or all retries succeeded."
+            else
+              python - <<'PY'
+              import json
+              from pathlib import Path
+              path = Path('artifacts/fetch-failures-after-retry.jsonl')
+              for line in path.read_text(encoding='utf-8').splitlines()[:50]:
+                  if not line.strip():
+                      continue
+                  try:
+                      row = json.loads(line)
+                  except Exception:
+                      continue
+                  msg = str(row.get('error_message', '')).replace('\n', ' ')[:160]
+                  print(f"- {row.get('country','')}/{row.get('region_key','')}:{row.get('category','')} | {row.get('error_type','')} | {msg}")
+              PY
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail when retry still has failures
+        if: steps.retry.outputs.exit_code != '0'
+        run: exit 1
 
   create-combined-pr:
     name: Create combined GeoJSON PR
-    needs: [prepare-matrix, fetch-by-country]
-    if: always() && needs.prepare-matrix.outputs.has_countries == 'true' && github.event.inputs.dry_run != 'true'
+    needs: [prepare-matrix, fetch-by-country, retry_failed_fetches]
+    if: always() && needs.prepare-matrix.outputs.has_countries == 'true' && github.event.inputs.dry_run != 'true' && needs.retry_failed_fetches.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -300,9 +369,3 @@ jobs:
           base: main
           add-paths: |
             resources/geojson
-
-      - name: Fail workflow when any matrix fetch failed
-        if: needs.fetch-by-country.result != 'success'
-        run: |
-          echo "One or more matrix fetch jobs failed (result: ${{ needs.fetch-by-country.result }})."
-          exit 1

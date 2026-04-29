@@ -42,6 +42,14 @@ Each matrix job writes and uploads:
 - `artifacts/fetch_failures_<country>.json` and `.csv`
 - `artifacts/fetch_results_<country>.json`
 - `artifacts/fetch_summary_<country>.md`
+- `artifacts/fetch-failures/fetch-failures-<country>.jsonl` (machine-readable failed tasks)
+
+After all country jobs finish, `fetch_matrix.yml` runs a recovery step that:
+
+- downloads all failure JSONL artifacts,
+- deduplicates failed tasks (`country + region_key + category`),
+- retries them conservatively (`max_workers=1` with pauses), and
+- fails the workflow only if failures remain in `artifacts/fetch-failures-after-retry.jsonl`.
 
 Example manual run for only `fast_food` in `gb,pl,tr`:
 
