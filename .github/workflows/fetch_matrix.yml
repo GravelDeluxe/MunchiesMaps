@@ -207,10 +207,71 @@ jobs:
             artifacts/fetch_results_${{ matrix.country }}.json
             artifacts/fetch_summary_${{ matrix.country }}.md
 
-      # Keep existing writeback behavior style: create a PR when GeoJSON changed.
-      - name: Detect GeoJSON changes
+      - name: Prepare GeoJSON artifact for matrix country
         if: steps.run_fetch.outputs.exit_code == '0' && github.event.inputs.dry_run != 'true'
-        id: geojson_changes
+        id: geojson_artifact
+        run: |
+          set -euo pipefail
+          git add resources/geojson
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          artifact_dir="artifacts/geojson-${{ matrix.country }}/resources/geojson"
+          mkdir -p "${artifact_dir}"
+          cp -R resources/geojson/. "${artifact_dir}/"
+
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Upload GeoJSON changes artifact
+        if: steps.geojson_artifact.outputs.changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: geojson-changes-${{ matrix.country }}
+          if-no-files-found: error
+          path: artifacts/geojson-${{ matrix.country }}/
+
+      - name: Fail job if fetch script failed
+        if: steps.run_fetch.outputs.exit_code != '0'
+        run: |
+          echo "Fetch returned non-zero exit code: ${{ steps.run_fetch.outputs.exit_code }}"
+          exit 1
+
+  create-combined-pr:
+    name: Create combined GeoJSON PR
+    needs: [prepare-matrix, fetch-by-country]
+    if: always() && needs.prepare-matrix.outputs.has_countries == 'true' && github.event.inputs.dry_run != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download GeoJSON change artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: geojson-changes-*
+          merge-multiple: true
+          path: combined-artifacts
+
+      - name: Restore GeoJSON files from artifacts
+        id: restore_geojson
+        run: |
+          set -euo pipefail
+          if [ ! -d "combined-artifacts/resources/geojson" ]; then
+            echo "has_artifacts=false" >> "$GITHUB_OUTPUT"
+            echo "No GeoJSON change artifacts found; skipping combined PR creation."
+            exit 0
+          fi
+
+          cp -R combined-artifacts/resources/geojson/. resources/geojson/
+          echo "has_artifacts=true" >> "$GITHUB_OUTPUT"
+
+      - name: Detect combined GeoJSON changes
+        if: steps.restore_geojson.outputs.has_artifacts == 'true'
+        id: combined_changes
         run: |
           set -euo pipefail
           git add resources/geojson
@@ -220,27 +281,28 @@ jobs:
           fi
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Create pull request for matrix country
-        if: steps.geojson_changes.outputs.changed == 'true'
+      - name: Create combined pull request
+        if: steps.combined_changes.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "Update GeoJSON data for ${{ matrix.country }}"
-          title: "Update GeoJSON data for ${{ matrix.country }}"
+          commit-message: "Update GeoJSON data from matrix fetch"
+          title: "Update GeoJSON data from matrix fetch"
           body: |
-            Automated GeoJSON update for matrix country run.
+            Automated GeoJSON update from matrix fetch jobs.
 
-            - Country: `${{ matrix.country }}`
+            - Countries input: `${{ github.event.inputs.countries || '' }}`
             - Layers input: `${{ github.event.inputs.layers || '' }}`
             - Regions input: `${{ github.event.inputs.regions || '' }}`
-            - Dry run: `${{ github.event.inputs.dry_run }}`
             - Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          branch: data/fetch-matrix-${{ matrix.country }}-${{ github.run_id }}-${{ github.run_attempt }}
+
+            Matrix country jobs executed independently and their resulting GeoJSON updates were combined into this single pull request.
+          branch: data/fetch-matrix-combined-${{ github.run_id }}-${{ github.run_attempt }}
           base: main
           add-paths: |
             resources/geojson
 
-      - name: Fail job if fetch script failed
-        if: steps.run_fetch.outputs.exit_code != '0'
+      - name: Fail workflow when any matrix fetch failed
+        if: needs.fetch-by-country.result != 'success'
         run: |
-          echo "Fetch returned non-zero exit code: ${{ steps.run_fetch.outputs.exit_code }}"
+          echo "One or more matrix fetch jobs failed (result: ${{ needs.fetch-by-country.result }})."
           exit 1
