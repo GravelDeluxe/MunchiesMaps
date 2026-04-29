@@ -1,0 +1,162 @@
+name: Fetch Stale GeoJSON (Matrix)
+
+on:
+  workflow_dispatch:
+    inputs:
+      country:
+        description: "Optional country key from config.yml, e.g. germany. Empty = all countries"
+        required: false
+        type: string
+      category:
+        description: "Optional category key, e.g. fast_food. Empty = all categories"
+        required: false
+        type: string
+      days:
+        description: "Refresh files older than this number of days. Use -1 to refresh all files."
+        required: true
+        default: "30"
+        type: string
+      retry_attempts:
+        description: "Retry attempts per target within each fetch run"
+        required: true
+        default: "3"
+        type: string
+      recovery_rounds:
+        description: "Number of recovery rounds after the initial fetch"
+        required: true
+        default: "2"
+        type: string
+      max_targets:
+        description: "Optional max targets for test runs"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+      has_targets: ${{ steps.matrix.outputs.has_targets }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -r fetch_data/requirements.txt
+      - name: Validate inputs
+        run: |
+          python - <<'PY'
+          import os
+          def intv(k): return int(os.environ[k])
+          d=intv('DAYS'); r=intv('RETRY'); rr=intv('RECOVERY')
+          assert (d==-1 or d>0), 'days must be -1 or >0'
+          assert r>0, 'retry_attempts must be >0'
+          assert rr>=0, 'recovery_rounds must be >=0'
+          PY
+        env: { DAYS: ${{ inputs.days }}, RETRY: ${{ inputs.retry_attempts }}, RECOVERY: ${{ inputs.recovery_rounds }} }
+      - run: |
+          python scripts/check_stale_json.py --config fetch_data/config.yml --days "${{ inputs.days }}" --output artifacts/stale_targets.json ${{ inputs.country && format('--country {0}', inputs.country) || '' }} ${{ inputs.category && format('--category {0}', inputs.category) || '' }}
+          if [ -n "${{ inputs.max_targets }}" ]; then python - <<'PY'
+          import json
+          p='artifacts/stale_targets.json'; m=int('${{ inputs.max_targets }}')
+          data=json.load(open(p)); json.dump(data[:m], open(p,'w'), indent=2)
+          PY
+          fi
+          python scripts/split_stale_targets.py --input artifacts/stale_targets.json --output-dir artifacts/stale-targets-by-country --matrix-output artifacts/stale_matrix.json
+      - id: matrix
+        run: |
+          MATRIX=$(cat artifacts/stale_matrix.json | tr -d '\n')
+          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+          python - <<'PY'
+          import json
+          m=json.load(open('artifacts/stale_matrix.json'))
+          print('has_targets=' + ('true' if m.get('include') else 'false'))
+          PY >> $GITHUB_OUTPUT
+      - uses: actions/upload-artifact@v4
+        with: {name: stale-prepare, path: artifacts}
+
+  fetch:
+    needs: prepare
+    if: needs.prepare.outputs.has_targets == 'true'
+    strategy: { fail-fast: false, matrix: ${{ fromJson(needs.prepare.outputs.matrix) }} }
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -r fetch_data/requirements.txt
+      - uses: actions/download-artifact@v4
+        with: { name: stale-prepare, path: artifacts }
+      - run: python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "${{ matrix.targets_file }}" --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "artifacts/fetched/${{ matrix.country }}" --failed-output "artifacts/failed/${{ matrix.country }}.json"
+      - uses: actions/upload-artifact@v4
+        with: { name: fetched-initial-${{ matrix.country }}, path: artifacts/fetched/${{ matrix.country }} }
+      - uses: actions/upload-artifact@v4
+        with: { name: failed-initial-${{ matrix.country }}, path: artifacts/failed/${{ matrix.country }}.json }
+
+  recovery:
+    needs: [prepare, fetch]
+    if: needs.prepare.outputs.has_targets == 'true' && fromJson(inputs.recovery_rounds) > 0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -r fetch_data/requirements.txt
+      - uses: actions/download-artifact@v4
+        with: { path: artifacts-download }
+      - name: Recovery rounds (sequential)
+        run: |
+          mkdir -p artifacts/recovery-current
+          cp artifacts-download/stale-prepare/stale_targets.json artifacts/recovery-current/targets.json
+          for round in $(seq 1 "${{ inputs.recovery_rounds }}"); do
+            python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets artifacts/recovery-current/targets.json --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "artifacts/recovery-round-${round}/fetched" --failed-output "artifacts/recovery-round-${round}/failed/failed.json"
+            cp "artifacts/recovery-round-${round}/failed/failed.json" artifacts/recovery-current/targets.json
+            count=$(python - <<'PY'
+            import json
+            d=json.load(open('artifacts/recovery-current/targets.json'))
+            print(len(d))
+            PY
+            )
+            if [ "$count" = "0" ]; then
+              echo "No targets left after recovery round $round"
+              break
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        with: { name: recovery-artifacts, path: artifacts/recovery-round-* }
+
+  create-pr:
+    needs: [prepare, fetch, recovery]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { path: artifacts-download }
+      - run: |
+          mkdir -p artifacts/stale-fetch-failures
+          find artifacts-download -type f -path '*/resources/geojson/*' -print0 | while IFS= read -r -d '' f; do
+            rel=${f#*resources/geojson/}
+            mkdir -p "resources/geojson/$(dirname "$rel")"
+            cp "$f" "resources/geojson/$rel"
+          done
+          find artifacts-download -type f -name '*.json' -path '*failed*' -exec cp {} artifacts/stale-fetch-failures/ \;
+          git add resources/geojson artifacts/stale-fetch-failures || true
+          if git diff --cached --quiet; then echo 'No changes'; exit 0; fi
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          branch: data/stale-refresh-${{ github.run_id }}-${{ github.run_attempt }}
+          title: Refresh stale GeoJSON data
+          commit-message: Refresh stale GeoJSON data
+          body: |
+            Automated stale GeoJSON refresh.
+            - days: `${{ inputs.days }}`
+            - country filter: `${{ inputs.country || 'all' }}`
+            - category filter: `${{ inputs.category || 'all' }}`
+            - retry_attempts: `${{ inputs.retry_attempts }}`
+            - recovery_rounds: `${{ inputs.recovery_rounds }}`
+            Age calculation uses `git log -1 --format=%cI -- <path>`.
