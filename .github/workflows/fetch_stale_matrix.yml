@@ -43,59 +43,129 @@ jobs:
       has_targets: ${{ steps.matrix.outputs.has_targets }}
     steps:
       - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
+        with:
+          fetch-depth: 0
+
       - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
+        with:
+          python-version: "3.11"
+
       - run: pip install -r fetch_data/requirements.txt
+
       - name: Validate inputs
+        env:
+          DAYS: "${{ inputs.days }}"
+          RETRY: "${{ inputs.retry_attempts }}"
+          RECOVERY: "${{ inputs.recovery_rounds }}"
         run: |
           python - <<'PY'
           import os
-          def intv(k): return int(os.environ[k])
-          d=intv('DAYS'); r=intv('RETRY'); rr=intv('RECOVERY')
-          assert (d==-1 or d>0), 'days must be -1 or >0'
-          assert r>0, 'retry_attempts must be >0'
-          assert rr>=0, 'recovery_rounds must be >=0'
+
+          def intv(k):
+              return int(os.environ[k])
+
+          d = intv("DAYS")
+          r = intv("RETRY")
+          rr = intv("RECOVERY")
+
+          assert (d == -1 or d > 0), "days must be -1 or >0"
+          assert r > 0, "retry_attempts must be >0"
+          assert rr >= 0, "recovery_rounds must be >=0"
           PY
-        env: { DAYS: ${{ inputs.days }}, RETRY: ${{ inputs.retry_attempts }}, RECOVERY: ${{ inputs.recovery_rounds }} }
-      - run: |
-          python scripts/check_stale_json.py --config fetch_data/config.yml --days "${{ inputs.days }}" --output artifacts/stale_targets.json ${{ inputs.country && format('--country {0}', inputs.country) || '' }} ${{ inputs.category && format('--category {0}', inputs.category) || '' }}
-          if [ -n "${{ inputs.max_targets }}" ]; then python - <<'PY'
+
+      - name: Build stale matrix inputs
+        env:
+          DAYS: "${{ inputs.days }}"
+          COUNTRY: "${{ inputs.country }}"
+          CATEGORY: "${{ inputs.category }}"
+          MAX_TARGETS: "${{ inputs.max_targets }}"
+        run: |
+          args=(
+            --config fetch_data/config.yml
+            --days "$DAYS"
+            --output artifacts/stale_targets.json
+          )
+
+          if [ -n "$COUNTRY" ]; then
+            args+=(--country "$COUNTRY")
+          fi
+
+          if [ -n "$CATEGORY" ]; then
+            args+=(--category "$CATEGORY")
+          fi
+
+          python scripts/check_stale_json.py "${args[@]}"
+
+          if [ -n "$MAX_TARGETS" ]; then
+            python - <<'PY'
           import json
-          p='artifacts/stale_targets.json'; m=int('${{ inputs.max_targets }}')
-          data=json.load(open(p)); json.dump(data[:m], open(p,'w'), indent=2)
+          import os
+
+          p = "artifacts/stale_targets.json"
+          m = int(os.environ["MAX_TARGETS"])
+
+          with open(p, "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          with open(p, "w", encoding="utf-8") as f:
+              json.dump(data[:m], f, indent=2)
           PY
           fi
-          python scripts/split_stale_targets.py --input artifacts/stale_targets.json --output-dir artifacts/stale-targets-by-country --matrix-output artifacts/stale_matrix.json
+
+          python scripts/split_stale_targets.py \
+            --input artifacts/stale_targets.json \
+            --output-dir artifacts/stale-targets-by-country \
+            --matrix-output artifacts/stale_matrix.json
+
       - id: matrix
         run: |
-          MATRIX=$(cat artifacts/stale_matrix.json | tr -d '\n')
-          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
-          python - <<'PY'
+          python - <<'PY' >> "$GITHUB_OUTPUT"
           import json
-          m=json.load(open('artifacts/stale_matrix.json'))
-          print('has_targets=' + ('true' if m.get('include') else 'false'))
-          PY >> $GITHUB_OUTPUT
+
+          with open("artifacts/stale_matrix.json", "r", encoding="utf-8") as f:
+              matrix = json.load(f)
+
+          print("matrix=" + json.dumps(matrix, separators=(",", ":")))
+          print("has_targets=" + ("true" if matrix.get("include") else "false"))
+          PY
+
       - uses: actions/upload-artifact@v4
-        with: {name: stale-prepare, path: artifacts}
+        with:
+          name: stale-prepare
+          path: artifacts
 
   fetch:
     needs: prepare
     if: needs.prepare.outputs.has_targets == 'true'
-    strategy: { fail-fast: false, matrix: ${{ fromJson(needs.prepare.outputs.matrix) }} }
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
+        with:
+          python-version: "3.11"
+
       - run: pip install -r fetch_data/requirements.txt
+
       - uses: actions/download-artifact@v4
-        with: { name: stale-prepare, path: artifacts }
+        with:
+          name: stale-prepare
+          path: artifacts
+
       - run: python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "${{ matrix.targets_file }}" --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "artifacts/fetched/${{ matrix.country }}" --failed-output "artifacts/failed/${{ matrix.country }}.json"
+
       - uses: actions/upload-artifact@v4
-        with: { name: fetched-initial-${{ matrix.country }}, path: artifacts/fetched/${{ matrix.country }} }
+        with:
+          name: fetched-initial-${{ matrix.country }}
+          path: artifacts/fetched/${{ matrix.country }}
+
       - uses: actions/upload-artifact@v4
-        with: { name: failed-initial-${{ matrix.country }}, path: artifacts/failed/${{ matrix.country }}.json }
+        with:
+          name: failed-initial-${{ matrix.country }}
+          path: artifacts/failed/${{ matrix.country }}.json
 
   recovery:
     needs: [prepare, fetch]
@@ -103,21 +173,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
+        with:
+          python-version: "3.11"
+
       - run: pip install -r fetch_data/requirements.txt
+
       - uses: actions/download-artifact@v4
-        with: { path: artifacts-download }
+        with:
+          path: artifacts-download
+
       - name: Recovery rounds (sequential)
+        env:
+          RECOVERY_ROUNDS: "${{ inputs.recovery_rounds }}"
+          RETRY_ATTEMPTS: "${{ inputs.retry_attempts }}"
         run: |
           mkdir -p artifacts/recovery-current
           cp artifacts-download/stale-prepare/stale_targets.json artifacts/recovery-current/targets.json
-          for round in $(seq 1 "${{ inputs.recovery_rounds }}"); do
-            python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets artifacts/recovery-current/targets.json --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "artifacts/recovery-round-${round}/fetched" --failed-output "artifacts/recovery-round-${round}/failed/failed.json"
+
+          for round in $(seq 1 "$RECOVERY_ROUNDS"); do
+            python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets artifacts/recovery-current/targets.json --retry-attempts "$RETRY_ATTEMPTS" --retry-sleep 30 --output-dir "artifacts/recovery-round-${round}/fetched" --failed-output "artifacts/recovery-round-${round}/failed/failed.json"
             cp "artifacts/recovery-round-${round}/failed/failed.json" artifacts/recovery-current/targets.json
             count=$(python - <<'PY'
             import json
-            d=json.load(open('artifacts/recovery-current/targets.json'))
+
+            with open('artifacts/recovery-current/targets.json', 'r', encoding='utf-8') as f:
+                d = json.load(f)
             print(len(d))
             PY
             )
@@ -126,8 +208,11 @@ jobs:
               break
             fi
           done
+
       - uses: actions/upload-artifact@v4
-        with: { name: recovery-artifacts, path: artifacts/recovery-round-* }
+        with:
+          name: recovery-artifacts
+          path: artifacts/recovery-round-*
 
   create-pr:
     needs: [prepare, fetch, recovery]
@@ -135,8 +220,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/download-artifact@v4
-        with: { path: artifacts-download }
+        with:
+          path: artifacts-download
+
       - run: |
           mkdir -p artifacts/stale-fetch-failures
           find artifacts-download -type f -path '*/resources/geojson/*' -print0 | while IFS= read -r -d '' f; do
@@ -146,7 +234,11 @@ jobs:
           done
           find artifacts-download -type f -name '*.json' -path '*failed*' -exec cp {} artifacts/stale-fetch-failures/ \;
           git add resources/geojson artifacts/stale-fetch-failures || true
-          if git diff --cached --quiet; then echo 'No changes'; exit 0; fi
+          if git diff --cached --quiet; then
+            echo 'No changes'
+            exit 0
+          fi
+
       - uses: peter-evans/create-pull-request@v6
         with:
           branch: data/stale-refresh-${{ github.run_id }}-${{ github.run_attempt }}
