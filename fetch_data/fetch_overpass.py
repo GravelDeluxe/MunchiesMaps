@@ -34,12 +34,12 @@ REQUEST_HEADERS = {
     "User-Agent": "MunchiesMaps/alpha (https://github.com/MarkusCouch/MunchiesMaps)"
 }
 TAG_WHITELIST: Dict[str, List[str]] = {
-    "fuel": ["name", "brand", "opening_hours"],
-    "supermarkets": ["name", "brand", "opening_hours"],
-    "toilets_public": ["name", "opening_hours", "access"],
-    "drinking_water": ["name", "access", "opening_hours", "fee", "seasonal", "operator", "indoor"],
-    "fast_food": ["name", "brand", "opening_hours", "phone", "website", "operator", "brand:wikidata", "cuisine"],
-    "vending_snacks": ["name", "opening_hours", "vending", "products", "brand", "operator"],
+    "fuel": ["name", "brand", "opening_hours", "check_date"],
+    "supermarkets": ["name", "brand", "opening_hours", "check_date"],
+    "toilets_public": ["name", "opening_hours", "access", "check_date"],
+    "drinking_water": ["name", "access", "opening_hours", "fee", "seasonal", "operator", "indoor", "check_date"],
+    "fast_food": ["name", "brand", "opening_hours", "phone", "website", "operator", "brand:wikidata", "cuisine", "check_date"],
+    "vending_snacks": ["name", "opening_hours", "vending", "products", "brand", "operator", "check_date"],
     "shelters": [
         "name",
         "access",
@@ -52,6 +52,7 @@ TAG_WHITELIST: Dict[str, List[str]] = {
         "operator",
         "description",
         "url",
+        "check_date",
     ],
     "accommodation": [
         "name",
@@ -64,8 +65,8 @@ TAG_WHITELIST: Dict[str, List[str]] = {
         "contact:website",
         "check_date",
     ],
-    "bakerys_cafes": ["name", "brand", "opening_hours", "takeaway", "outdoor_seating"],
-    "kiosks": ["name", "brand", "opening_hours"],
+    "bakerys_cafes": ["name", "brand", "opening_hours", "takeaway", "outdoor_seating", "check_date"],
+    "kiosks": ["name", "brand", "opening_hours", "check_date"],
 }
 CATEGORY_LABELS: Dict[str, str] = {
     "fuel": "Fuel stations",
