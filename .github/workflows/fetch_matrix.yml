@@ -144,7 +144,9 @@ jobs:
           python -m py_compile \
             scripts/check_missing_json.py \
             fetch_data/fetch_overpass.py \
-            fetch_data/fetch_missing_overpass.py
+            fetch_data/fetch_missing_overpass.py \
+            fetch_data/audit_accommodation.py \
+            scripts/check_geojson_integrity.py
 
       - name: Run filtered fetch for matrix country
         id: run_fetch

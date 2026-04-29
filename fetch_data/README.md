@@ -71,3 +71,20 @@ The script writes run artifacts to `artifacts/`:
 
 - For new countries/regions, verify `admin_level` empirically with Overpass tests before adding/updating entries.
 - In this project, Czech regions, Austrian regions, Croatian counties, Italian regions, French regions and Danish regions are queried with `admin_level=4`.
+
+
+## Accommodation Audit & Recovery
+
+- Audit only the `accommodation` layer across all configured regions:
+  - `python fetch_data/audit_accommodation.py`
+- Write report to custom path (or disable by passing empty):
+  - `python fetch_data/audit_accommodation.py --json-report artifacts/accommodation_audit.json`
+- Refetch only missing/empty/invalid files for one layer:
+  - `python fetch_data/fetch_overpass.py --layers accommodation --only-missing-or-invalid`
+- Country-scoped recovery example:
+  - `python fetch_data/fetch_overpass.py --countries germany,austria,switzerland,czechia,italy,france,belgium,tr --layers accommodation --only-missing-or-invalid`
+
+Notes:
+- Empty `0-byte` or whitespace-only files are treated as invalid and flagged by the audit/check scripts.
+- A successful Overpass response with no elements still writes a valid empty GeoJSON FeatureCollection (`{"type":"FeatureCollection","features":[]}`).
+- Overpass/request/parse failures do **not** write output and therefore do not overwrite an existing valid file.

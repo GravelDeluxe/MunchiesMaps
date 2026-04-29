@@ -1026,6 +1026,22 @@ def save_geojson(content: Dict[str, Any], region: Dict[str, Any], category: str)
     print(f"[file] Saved (size={size_bytes} bytes)")
 
 
+
+def classify_geojson_file(path: Path) -> str:
+    """Classify file health for selective refetch flows."""
+    if not path.exists():
+        return "missing_file"
+    raw = path.read_text(encoding="utf-8")
+    if not raw.strip():
+        return "empty_file"
+    try:
+        parsed = json.loads(raw)
+    except json.JSONDecodeError:
+        return "invalid_json"
+    if not isinstance(parsed, dict) or parsed.get("type") != "FeatureCollection" or not isinstance(parsed.get("features"), list):
+        return "invalid_feature_collection"
+    return "populated" if parsed.get("features") else "empty_feature_collection"
+
 def get_category_function(name: str):
     """Resolve template function by name from overpass_templates."""
     func = getattr(overpass_templates, name, None)
@@ -1193,6 +1209,7 @@ def run(
     verbose_query: bool = False,
     dry_run: bool = False,
     failure_log_jsonl: str | None = None,
+    only_missing_or_invalid: bool = False,
 ) -> int:
     """Run the fetch process for all configured regions and categories."""
     region_filter = region_filter or set()
@@ -1420,6 +1437,13 @@ def run(
         if not region_categories:
             print(f"[cat]   No categories selected for region={region['id']} after filters")
         for category_index, (category, func_name) in enumerate(region_categories, start=1):
+            if only_missing_or_invalid:
+                target_path = RESOURCE_DIR / str(region["path"]) / f"{category}.geojson"
+                existing_status = classify_geojson_file(target_path)
+                if existing_status in {"populated", "empty_feature_collection"}:
+                    run_stats["skipped_fetches"] += 1
+                    print(f"[skip] Existing valid file: {target_path.relative_to(ROOT_DIR)} | status={existing_status}")
+                    continue
             template_func = get_category_function(func_name)
             print(
                 f"[cat]   ({category_index}/{len(region_categories)}) "
@@ -1647,6 +1671,11 @@ def main() -> None:
         action="store_true",
         help="Run fetch logic but do not write GeoJSON/manifest files.",
     )
+    parser.add_argument(
+        "--only-missing-or-invalid",
+        action="store_true",
+        help="Fetch only files that are missing/empty/invalid JSON or invalid FeatureCollection.",
+    )
     args = parser.parse_args()
     layer_input = args.layers or args.categories
 
@@ -1658,6 +1687,7 @@ def main() -> None:
             verbose_query=args.verbose_query,
             dry_run=args.dry_run,
             failure_log_jsonl=args.failure_log_jsonl,
+            only_missing_or_invalid=args.only_missing_or_invalid,
         )
         if exit_code != 0:
             sys.exit(exit_code)

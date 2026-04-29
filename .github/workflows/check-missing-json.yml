@@ -25,3 +25,6 @@ jobs:
 
       - name: Validate configured GeoJSON files
         run: python scripts/check_missing_json.py
+
+      - name: Validate GeoJSON integrity (non-empty + valid FeatureCollection)
+        run: python scripts/check_geojson_integrity.py
