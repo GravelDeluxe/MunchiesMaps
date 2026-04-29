@@ -83,3 +83,29 @@ Example manual run for only `fast_food` in `gb,pl,tr`:
 - `pull_request` (default): creates/updates a PR with `resources/geojson` changes.
 - `direct_commit`: commits and pushes `resources/geojson` changes directly to the current branch.
 - In both modes, writeback only happens when `resources/geojson` actually changed.
+
+## Stale matrix workflow (`fetch_stale_matrix.yml`)
+
+This workflow is manual-only and refreshes stale GeoJSON files based on **last git commit date per file** (`git log -1 --format=%cI -- <path>`), not `check_date`.
+
+Inputs:
+- `country` (optional)
+- `category` (optional)
+- `days` (`-1` for full refresh, otherwise positive integer)
+- `retry_attempts` (per-target retries)
+- `recovery_rounds` (`0` disables recovery)
+- `max_targets` (optional test limiter)
+
+Behavior:
+- Build stale targets with `scripts/check_stale_json.py`.
+- Split targets into country matrix with `scripts/split_stale_targets.py`.
+- Fetch runs in parallel per country via `fetch_data/fetch_stale_overpass.py` and uploads artifacts only.
+- Optional sequential recovery rounds re-fetch only still-failed targets.
+- Final `create-pr` job merges all fetched artifacts and creates **one single PR** (or no PR if nothing changed).
+
+Examples:
+- Refresh files older than 30 days: `days=30`
+- Full refresh all expected files: `days=-1`
+- Only Germany: `country=germany`
+- Only fast food: `category=fast_food`
+- Two recovery rounds: `recovery_rounds=2`
