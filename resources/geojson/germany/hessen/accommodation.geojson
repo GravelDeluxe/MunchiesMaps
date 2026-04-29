@@ -473,7 +473,7 @@
         "tourism": "hotel",
         "phone": "+49 69 79550",
         "website": "https://www.marriott.de/hotels/travel/fradt-frankfurt-marriott-hotel/",
-        "check_date": "2025-09-19"
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -10185,7 +10185,7 @@
         "tourism": "hotel",
         "phone": "+49 561 43373",
         "website": "https://sova-group.com/hotel-kassel",
-        "check_date": "2024-04-03"
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -10331,7 +10331,7 @@
         "osm_type": "node",
         "name": "25h",
         "tourism": "hotel",
-        "check_date": "2024-04-21"
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -11666,23 +11666,6 @@
         "tourism": "apartment",
         "phone": "+49 6441 921150",
         "website": "https://ferienwohnungen-wetzlar-lahn.de/wohnungen/wohnung-wetzbach/"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.7466901,
-          51.3108048
-        ]
-      },
-      "properties": {
-        "id": 1428700588,
-        "osm_type": "node",
-        "name": "Gaststätte Pension Döblelt",
-        "tourism": "guest_house",
-        "website": "https://schweinsbuehl.com/html/gasthaus_dobelt.html"
       }
     },
     {
@@ -13660,7 +13643,8 @@
         "id": 1769704964,
         "osm_type": "node",
         "name": "Plaza Hotel & Living",
-        "tourism": "hotel"
+        "tourism": "hotel",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -16019,24 +16003,6 @@
         "osm_type": "node",
         "name": "Hotel Trapp",
         "tourism": "hotel"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5175299,
-          50.0809152
-        ]
-      },
-      "properties": {
-        "id": 2339428567,
-        "osm_type": "node",
-        "name": "Hotel Post",
-        "tourism": "hotel",
-        "phone": "+49 69 37010",
-        "website": "http://www.airporthotel-post.de/"
       }
     },
     {
@@ -37349,8 +37315,9 @@
       "properties": {
         "id": 7614141787,
         "osm_type": "node",
-        "name": "Gasthaus Sommerfrische",
-        "tourism": "guest_house"
+        "name": "Gasthaus Sommerfrische\nGasthaus & Pension Döbelt",
+        "tourism": "guest_house",
+        "website": "https://schweinsbuehl.com/gasthaus-doebelt/"
       }
     },
     {
@@ -46650,16 +46617,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5022468,
-          50.5642354
+          8.5021134,
+          50.5641446
         ]
       },
       "properties": {
         "id": 12990557810,
         "osm_type": "node",
         "name": "City Hotel Wetzlar",
-        "tourism": "hotel",
-        "website": "https://www.city-hotel-wetzlar.de/"
+        "tourism": "hotel"
       }
     },
     {
@@ -47588,8 +47554,9 @@
         "osm_type": "node",
         "name": "Thüringer Hof",
         "tourism": "hotel",
+        "opening_hours": "Mo-Fr 17:00-20:00; Sa-Su 10:00-13:00,17:00-20:00",
         "website": "https://www.th%C3%BCringer-hof-wildeck.de",
-        "check_date": "2025-12-25"
+        "check_date": "2026-04-27"
       }
     },
     {
@@ -50243,7 +50210,8 @@
         "name": "Berghotel Deutscher Flieger",
         "tourism": "hotel",
         "phone": "+49 6654 381",
-        "website": "https://.deutscher-flieger.de/"
+        "website": "https://.deutscher-flieger.de/",
+        "check_date": "2026-04-27"
       }
     },
     {
@@ -60642,8 +60610,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.0078482,
-          50.5568727
+          10.0078276,
+          50.5568859
         ]
       },
       "properties": {
@@ -80592,6 +80560,24 @@
         "id": 1349795915,
         "osm_type": "way",
         "tourism": "caravan_site"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7673642,
+          50.8244155
+        ]
+      },
+      "properties": {
+        "id": 1353962531,
+        "osm_type": "way",
+        "name": "Wohnmobilstellplatz Marburg Afföller",
+        "tourism": "caravan_site",
+        "phone": "+49 6421 99120",
+        "website": "https://www.marburg-tourismus.de/"
       }
     },
     {

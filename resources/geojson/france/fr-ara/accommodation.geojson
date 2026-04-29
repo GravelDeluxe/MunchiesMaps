@@ -4929,7 +4929,8 @@
         "osm_type": "node",
         "name": "La Redonde",
         "tourism": "chalet",
-        "website": "https://www.gitelaredonde.com/"
+        "website": "https://www.gitelaredonde.com/",
+        "check_date": "2026-04-27"
       }
     },
     {
@@ -8566,7 +8567,8 @@
         "id": 1802830181,
         "osm_type": "node",
         "name": "Neptune",
-        "tourism": "hotel"
+        "tourism": "hotel",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -33352,7 +33354,8 @@
         "name": "Association Amis du Pic",
         "tourism": "hostel",
         "phone": "+33 4 77 97 53 33",
-        "website": "https://www.giteduprieuredemontverdun.fr/"
+        "website": "https://www.giteduprieuredemontverdun.fr/",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -34839,7 +34842,8 @@
         "osm_type": "node",
         "name": "La Mandra",
         "tourism": "chalet",
-        "website": "https://www.gitelamandra.com/"
+        "website": "https://www.gitelamandra.com/",
+        "check_date": "2026-04-27"
       }
     },
     {
@@ -43309,7 +43313,7 @@
       "properties": {
         "id": 9038312235,
         "osm_type": "node",
-        "name": "Camping de la Pierre à Feu",
+        "name": "Camping de la Sye",
         "tourism": "camp_site",
         "phone": "+33 475767623"
       }
@@ -67976,6 +67980,42 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          3.1084533,
+          45.2764503
+        ]
+      },
+      "properties": {
+        "id": 13773696403,
+        "osm_type": "node",
+        "name": "Gîte de Laurie",
+        "tourism": "hostel",
+        "phone": "+3306 21 60 03 84",
+        "website": "https://www.hautesterrestourisme.fr/fr/fiche/hebergement-collectif/gite-d-etape-et-de-sejour-de-laurie-laurie_TFO4674738/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.0289683,
+          45.2023909
+        ]
+      },
+      "properties": {
+        "id": 13773698701,
+        "osm_type": "node",
+        "name": "Le Fromentou",
+        "tourism": "guest_house",
+        "phone": "+33471206259",
+        "website": "http://www.lefromentou.com"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.6817439,
           44.9503335
         ]
@@ -92415,7 +92455,7 @@
         "osm_type": "way",
         "name": "Gîte du ruisseau",
         "tourism": "chalet",
-        "phone": "+3384509572",
+        "phone": "+33 6 84 50 95 72",
         "website": "https://www.giteduruisseau73.fr"
       }
     },
@@ -138114,24 +138154,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.1725372,
-          46.1559324
-        ]
-      },
-      "properties": {
-        "id": 623215931,
-        "osm_type": "way",
-        "name": "Hôtel-Restaurant Relais de l'Abbaye",
-        "tourism": "hotel",
-        "phone": "+33 4 77 60 00 88",
-        "website": "https://www.relais-abbaye.fr/"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.5126497,
           44.3912253
         ]
@@ -139498,6 +139520,7 @@
         "osm_type": "way",
         "name": "Juliénas Aire de camping-car municipal",
         "tourism": "caravan_site",
+        "tents": "no",
         "website": "https://www.julienas.fr/campings-camping-cars/"
       }
     },
@@ -142267,7 +142290,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.8051412,
+          4.8051365,
           45.257922
         ]
       },
@@ -147054,7 +147077,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4216279,
+          4.4215184,
           44.5481839
         ]
       },
@@ -161443,6 +161466,24 @@
         "name": "Le Cèdre de Soyons",
         "tourism": "hotel",
         "website": "https://www.lecedredesoyons.fr/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.1726953,
+          46.1557802
+        ]
+      },
+      "properties": {
+        "id": 1505406584,
+        "osm_type": "way",
+        "name": "Le Relais de l'Abbaye",
+        "tourism": "hotel",
+        "contact:phone": "+33 4 77 60 00 88",
+        "contact:website": "https://www.relais-abbaye.fr/"
       }
     },
     {
