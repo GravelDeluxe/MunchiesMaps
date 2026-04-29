@@ -2745,6 +2745,15 @@
     const GPX_KM_MARKER_INTERVAL_KM = 5;
     const GPX_KM_MARKER_INTERVALS = [1, 5, 10, 25, 50, 100, 250, 500, 1000];
     const GPX_MAX_KM_MARKERS = 120;
+    const HIDDEN_POI_TAG_KEYS = new Set([
+      'id',
+      'osm_type',
+      'bundeslandid',
+      'categoryid'
+    ]);
+    const POI_FIELD_LABELS = {
+      check_date: 'Last checked'
+    };
     const gpxState = {
       points: [],
       sampledPoints: [],
@@ -2756,6 +2765,15 @@
       uiMode: 'standard',
       routeLengthKm: 0
     };
+
+    function isHiddenPoiTagKey(key) {
+      return HIDDEN_POI_TAG_KEYS.has(String(key || '').toLowerCase());
+    }
+
+    function poiFieldLabel(key) {
+      const normalizedKey = String(key || '').trim();
+      return POI_FIELD_LABELS[normalizedKey] || normalizedKey;
+    }
     const regionGeometryCache = new Map();
 
     let gpxTrackLayer = null;
@@ -5206,6 +5224,7 @@
       if (props.opening_hours) descParts.push(`opening_hours=${props.opening_hours}`);
       if (props.access) descParts.push(`access=${props.access}`);
       if (props.operator) descParts.push(`operator=${props.operator}`);
+      if (props.check_date) descParts.push(`check_date=${props.check_date}`);
       if (props.fee) descParts.push(`fee=${props.fee}`);
       if (props.url) descParts.push(`url=${props.url}`);
       const desc = descParts.length ? descParts.join('; ') : '';
@@ -5866,9 +5885,10 @@
           ].filter(Boolean).join('')
         : Object.keys(p)
           .filter(k => !['name','description','cluster','cluster_id','point_count','point_count_abbreviated'].includes(k))
+          .filter(k => !isHiddenPoiTagKey(k))
           .filter(k => p[k] != null && String(p[k]).trim() !== '')
           .slice(0, 20)
-          .map(k => renderField(k, p[k], k))
+          .map(k => renderField(poiFieldLabel(k), p[k], k))
           .join('');
       const accommodationTypeField = categoryId === 'accommodation'
         ? renderField('Accommodation type', p.tourism, 'tourism')
