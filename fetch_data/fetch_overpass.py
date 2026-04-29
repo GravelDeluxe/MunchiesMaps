@@ -1051,6 +1051,15 @@ def utc_timestamp() -> str:
     return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
 
+def append_jsonl(path: Path | None, payload: Dict[str, Any]) -> None:
+    """Append payload as JSONL line when a destination path is configured."""
+    if path is None:
+        return
+    ensure_directory(path.parent)
+    with path.open("a", encoding="utf-8") as fh:
+        fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
+
+
 def get_country_aliases(region: Dict[str, Any]) -> set[str]:
     """Return normalized aliases that identify a country."""
     aliases = {
@@ -1183,6 +1192,7 @@ def run(
     country_filter: set[str] | None = None,
     verbose_query: bool = False,
     dry_run: bool = False,
+    failure_log_jsonl: str | None = None,
 ) -> int:
     """Run the fetch process for all configured regions and categories."""
     region_filter = region_filter or set()
@@ -1260,6 +1270,11 @@ def run(
         raise ValueError(f"No categories matched --layers filter: {', '.join(sorted(layer_filter))}")
 
     ensure_directory(RESOURCE_DIR)
+
+    failure_log_path = Path(failure_log_jsonl).resolve() if failure_log_jsonl else None
+    if failure_log_path:
+        ensure_directory(failure_log_path.parent)
+        failure_log_path.write_text("", encoding="utf-8")
 
     failures: List[Dict[str, Any]] = []
     results: List[Dict[str, Any]] = []
@@ -1530,6 +1545,19 @@ def run(
                         "timestamp_utc": utc_timestamp(),
                     }
                 )
+                append_jsonl(
+                    failure_log_path,
+                    {
+                        "country": region["country"],
+                        "region_key": region["id"],
+                        "region_name": region.get("label") or "",
+                        "category": category,
+                        "error_type": status,
+                        "error_message": str(exc),
+                        "endpoint": endpoint or "",
+                        "timestamp": utc_timestamp(),
+                    },
+                )
                 run_stats["failed_fetches"] += 1
                 continue
 
@@ -1611,6 +1639,10 @@ def main() -> None:
         help="Print full Overpass query text before each request.",
     )
     parser.add_argument(
+        "--failure-log-jsonl",
+        help="Optional path to write machine-readable per-task failure JSONL records.",
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Run fetch logic but do not write GeoJSON/manifest files.",
@@ -1625,6 +1657,7 @@ def main() -> None:
             country_filter=parse_csv_filter(args.countries),
             verbose_query=args.verbose_query,
             dry_run=args.dry_run,
+            failure_log_jsonl=args.failure_log_jsonl,
         )
         if exit_code != 0:
             sys.exit(exit_code)
