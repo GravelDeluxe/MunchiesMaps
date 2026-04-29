@@ -252,6 +252,10 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                     }
                 )
 
+    countries_set = {normalize_text(r.get("country")) for r in country_regions if r.get("country")}
+    seen_ids = {normalize_text(r.get("id")) for r in country_regions if r.get("id")}
+    seen_paths = {normalize_text(r.get("path")) for r in country_regions if r.get("path")}
+
     raw_regions = config.get("regions")
     if isinstance(raw_regions, list) and raw_regions:
         regions: List[Dict[str, Any]] = []
@@ -296,6 +300,20 @@ def normalize_regions(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                 else:
                     region["region"] = slugify(str(region["label"]))
             region["path"] = get_geojson_path(str(region["country"]), str(region["region"]))
+            legacy_country = normalize_text(region.get("country"))
+            if legacy_country in countries_set:
+                print(
+                    f"[config] Ignoring legacy regions for country={legacy_country} because countries.{legacy_country} exists"
+                )
+                continue
+            region_id_norm = normalize_text(region.get("id"))
+            region_path_norm = normalize_text(region.get("path"))
+            if region_id_norm in seen_ids:
+                raise ValueError(f"Config error: duplicate region id detected: {region['id']}")
+            if region_path_norm in seen_paths:
+                raise ValueError(f"Config error: duplicate region path detected: {region['path']}")
+            seen_ids.add(region_id_norm)
+            seen_paths.add(region_path_norm)
             regions.append(region)
         return [*regions, *country_regions]
 

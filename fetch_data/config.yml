@@ -1,9 +1,9 @@
 overpass:
   endpoints:
-    - "https://overpass.private.coffee/api/interpreter"
-    - "https://overpass-api.de/api/interpreter"
-    - "https://overpass.openstreetmap.ru/api/interpreter"
-    - "https://overpass.kumi.systems/api/interpreter"
+  - https://overpass.private.coffee/api/interpreter
+  - https://overpass-api.de/api/interpreter
+  - https://overpass.openstreetmap.ru/api/interpreter
+  - https://overpass.kumi.systems/api/interpreter
   timeout: 180
   fail_on_error: false
   request_delay_seconds: 0.3
@@ -16,42 +16,42 @@ countries:
     region_boundary: census
     region_match_key: ref:nuts:3
     regions:
-      - id: si031
-        label: Pomurska
-        match_value: SI031
-      - id: si032
-        label: Podravska
-        match_value: SI032
-      - id: si033
-        label: Koroška
-        match_value: SI033
-      - id: si034
-        label: Savinjska
-        match_value: SI034
-      - id: si035
-        label: Zasavska
-        match_value: SI035
-      - id: si036
-        label: Posavska
-        match_value: SI036
-      - id: si037
-        label: Jugovzhodna Slovenija
-        match_value: SI037
-      - id: si038
-        label: Primorsko-notranjska
-        match_value: SI038
-      - id: si041
-        label: Osrednjeslovenska
-        match_value: SI041
-      - id: si042
-        label: Gorenjska
-        match_value: SI042
-      - id: si043
-        label: Goriška
-        match_value: SI043
-      - id: si044
-        label: Obalno-kraška
-        match_value: SI044
+    - id: si031
+      label: Pomurska
+      match_value: SI031
+    - id: si032
+      label: Podravska
+      match_value: SI032
+    - id: si033
+      label: Koroška
+      match_value: SI033
+    - id: si034
+      label: Savinjska
+      match_value: SI034
+    - id: si035
+      label: Zasavska
+      match_value: SI035
+    - id: si036
+      label: Posavska
+      match_value: SI036
+    - id: si037
+      label: Jugovzhodna Slovenija
+      match_value: SI037
+    - id: si038
+      label: Primorsko-notranjska
+      match_value: SI038
+    - id: si041
+      label: Osrednjeslovenska
+      match_value: SI041
+    - id: si042
+      label: Gorenjska
+      match_value: SI042
+    - id: si043
+      label: Goriška
+      match_value: SI043
+    - id: si044
+      label: Obalno-kraška
+      match_value: SI044
   al:
     label: Albania
     iso3166_1: AL
@@ -61,21 +61,21 @@ countries:
     region_boundary: administrative
     region_match_key: name
     regions:
-      - id: al-north
-        region: north
-        label: Shqipëria Veriore
-        match_value: Shqipëria Veriore
-        query_name_regex: ^Shqipëria Veriore$
-      - id: al-center
-        region: center
-        label: Shqipëria Qendrore
-        match_value: Shqipëria Qendrore
-        query_name_regex: ^Shqipëria Qendrore$
-      - id: al-south
-        region: south
-        label: Shqipëria Jugore
-        match_value: Shqipëria Jugore
-        query_name_regex: ^Shqipëria Jugore$
+    - id: al-north
+      region: north
+      label: Shqipëria Veriore
+      match_value: Shqipëria Veriore
+      query_name_regex: ^Shqipëria Veriore$
+    - id: al-center
+      region: center
+      label: Shqipëria Qendrore
+      match_value: Shqipëria Qendrore
+      query_name_regex: ^Shqipëria Qendrore$
+    - id: al-south
+      region: south
+      label: Shqipëria Jugore
+      match_value: Shqipëria Jugore
+      query_name_regex: ^Shqipëria Jugore$
   croatia:
     label: Croatia
     iso3166_1: HR
@@ -85,132 +85,132 @@ countries:
     region_boundary: administrative
     region_match_key: name
     regions:
-      - id: hr-osjecko-baranjska-zupanija
-        region: osjecko-baranjska-zupanija
-        label: Osječko-baranjska županija
-        iso3166_2: HR-14
-        match_value: Osječko-baranjska županija
-        query_name_regex: ^Osječko-baranjska županija$
-      - id: hr-vukovarsko-srijemska-zupanija
-        region: vukovarsko-srijemska-zupanija
-        label: Vukovarsko-srijemska županija
-        iso3166_2: HR-16
-        match_value: Vukovarsko-srijemska županija
-        query_name_regex: ^Vukovarsko-srijemska županija$
-      - id: hr-brodsko-posavska-zupanija
-        region: brodsko-posavska-zupanija
-        label: Brodsko-posavska županija
-        iso3166_2: HR-12
-        match_value: Brodsko-posavska županija
-        query_name_regex: ^Brodsko-posavska županija$
-      - id: hr-viroviticko-podravska-zupanija
-        region: viroviticko-podravska-zupanija
-        label: Virovitičko-podravska županija
-        iso3166_2: HR-10
-        match_value: Virovitičko-podravska županija
-        query_name_regex: ^Virovitičko-podravska županija$
-      - id: hr-pozesko-slavonska-zupanija
-        region: pozesko-slavonska-zupanija
-        label: Požeško-slavonska županija
-        iso3166_2: HR-11
-        match_value: Požeško-slavonska županija
-        query_name_regex: ^Požeško-slavonska županija$
-      - id: hr-sisacko-moslavacka-zupanija
-        region: sisacko-moslavacka-zupanija
-        label: Sisačko-moslavačka županija
-        iso3166_2: HR-03
-        match_value: Sisačko-moslavačka županija
-        query_name_regex: ^Sisačko-moslavačka županija$
-      - id: hr-bjelovarsko-bilogorska-zupanija
-        region: bjelovarsko-bilogorska-zupanija
-        label: Bjelovarsko-bilogorska županija
-        iso3166_2: HR-07
-        match_value: Bjelovarsko-bilogorska županija
-        query_name_regex: ^Bjelovarsko-bilogorska županija$
-      - id: hr-medimurska-zupanija
-        region: medimurska-zupanija
-        label: Međimurska županija
-        iso3166_2: HR-20
-        match_value: Međimurska županija
-        query_name_regex: ^Međimurska županija$
-      - id: hr-koprivnicko-krizevacka-zupanija
-        region: koprivnicko-krizevacka-zupanija
-        label: Koprivničko-križevačka županija
-        iso3166_2: HR-06
-        match_value: Koprivničko-križevačka županija
-        query_name_regex: ^Koprivničko-križevačka županija$
-      - id: hr-varazdinska-zupanija
-        region: varazdinska-zupanija
-        label: Varaždinska županija
-        iso3166_2: HR-05
-        match_value: Varaždinska županija
-        query_name_regex: ^Varaždinska županija$
-      - id: hr-krapinsko-zagorska-zupanija
-        region: krapinsko-zagorska-zupanija
-        label: Krapinsko-zagorska županija
-        iso3166_2: HR-02
-        match_value: Krapinsko-zagorska županija
-        query_name_regex: ^Krapinsko-zagorska županija$
-      - id: hr-grad-zagreb
-        region: grad-zagreb
-        label: Grad Zagreb
-        iso3166_2: HR-21
-        match_value: Grad Zagreb
-        query_name_regex: ^Grad Zagreb$
-      - id: hr-zagrebacka-zupanija
-        region: zagrebacka-zupanija
-        label: Zagrebačka županija
-        iso3166_2: HR-01
-        match_value: Zagrebačka županija
-        query_name_regex: ^Zagrebačka županija$
-      - id: hr-karlovacka-zupanija
-        region: karlovacka-zupanija
-        label: Karlovačka županija
-        iso3166_2: HR-04
-        match_value: Karlovačka županija
-        query_name_regex: ^Karlovačka županija$
-      - id: hr-istarska-zupanija
-        region: istarska-zupanija
-        label: Istarska županija
-        iso3166_2: HR-18
-        match_value: Istarska županija
-        query_name_regex: ^Istarska županija$
-      - id: hr-primorsko-goranska-zupanija
-        region: primorsko-goranska-zupanija
-        label: Primorsko-goranska županija
-        iso3166_2: HR-08
-        match_value: Primorsko-goranska županija
-        query_name_regex: ^Primorsko-goranska županija$
-      - id: hr-licko-senjska-zupanija
-        region: licko-senjska-zupanija
-        label: Ličko-senjska županija
-        iso3166_2: HR-09
-        match_value: Ličko-senjska županija
-        query_name_regex: ^Ličko-senjska županija$
-      - id: hr-zadarska-zupanija
-        region: zadarska-zupanija
-        label: Zadarska županija
-        iso3166_2: HR-13
-        match_value: Zadarska županija
-        query_name_regex: ^Zadarska županija$
-      - id: hr-sibensko-kninska-zupanija
-        region: sibensko-kninska-zupanija
-        label: Šibensko-kninska županija
-        iso3166_2: HR-15
-        match_value: Šibensko-kninska županija
-        query_name_regex: ^Šibensko-kninska županija$
-      - id: hr-splitsko-dalmatinska-zupanija
-        region: splitsko-dalmatinska-zupanija
-        label: Splitsko-dalmatinska županija
-        iso3166_2: HR-17
-        match_value: Splitsko-dalmatinska županija
-        query_name_regex: ^Splitsko-dalmatinska županija$
-      - id: hr-dubrovacko-neretvanska-zupanija
-        region: dubrovacko-neretvanska-zupanija
-        label: Dubrovačko-neretvanska županija
-        iso3166_2: HR-19
-        match_value: Dubrovačko-neretvanska županija
-        query_name_regex: ^Dubrovačko-neretvanska županija$
+    - id: hr-osjecko-baranjska-zupanija
+      region: osjecko-baranjska-zupanija
+      label: Osječko-baranjska županija
+      iso3166_2: HR-14
+      match_value: Osječko-baranjska županija
+      query_name_regex: ^Osječko-baranjska županija$
+    - id: hr-vukovarsko-srijemska-zupanija
+      region: vukovarsko-srijemska-zupanija
+      label: Vukovarsko-srijemska županija
+      iso3166_2: HR-16
+      match_value: Vukovarsko-srijemska županija
+      query_name_regex: ^Vukovarsko-srijemska županija$
+    - id: hr-brodsko-posavska-zupanija
+      region: brodsko-posavska-zupanija
+      label: Brodsko-posavska županija
+      iso3166_2: HR-12
+      match_value: Brodsko-posavska županija
+      query_name_regex: ^Brodsko-posavska županija$
+    - id: hr-viroviticko-podravska-zupanija
+      region: viroviticko-podravska-zupanija
+      label: Virovitičko-podravska županija
+      iso3166_2: HR-10
+      match_value: Virovitičko-podravska županija
+      query_name_regex: ^Virovitičko-podravska županija$
+    - id: hr-pozesko-slavonska-zupanija
+      region: pozesko-slavonska-zupanija
+      label: Požeško-slavonska županija
+      iso3166_2: HR-11
+      match_value: Požeško-slavonska županija
+      query_name_regex: ^Požeško-slavonska županija$
+    - id: hr-sisacko-moslavacka-zupanija
+      region: sisacko-moslavacka-zupanija
+      label: Sisačko-moslavačka županija
+      iso3166_2: HR-03
+      match_value: Sisačko-moslavačka županija
+      query_name_regex: ^Sisačko-moslavačka županija$
+    - id: hr-bjelovarsko-bilogorska-zupanija
+      region: bjelovarsko-bilogorska-zupanija
+      label: Bjelovarsko-bilogorska županija
+      iso3166_2: HR-07
+      match_value: Bjelovarsko-bilogorska županija
+      query_name_regex: ^Bjelovarsko-bilogorska županija$
+    - id: hr-medimurska-zupanija
+      region: medimurska-zupanija
+      label: Međimurska županija
+      iso3166_2: HR-20
+      match_value: Međimurska županija
+      query_name_regex: ^Međimurska županija$
+    - id: hr-koprivnicko-krizevacka-zupanija
+      region: koprivnicko-krizevacka-zupanija
+      label: Koprivničko-križevačka županija
+      iso3166_2: HR-06
+      match_value: Koprivničko-križevačka županija
+      query_name_regex: ^Koprivničko-križevačka županija$
+    - id: hr-varazdinska-zupanija
+      region: varazdinska-zupanija
+      label: Varaždinska županija
+      iso3166_2: HR-05
+      match_value: Varaždinska županija
+      query_name_regex: ^Varaždinska županija$
+    - id: hr-krapinsko-zagorska-zupanija
+      region: krapinsko-zagorska-zupanija
+      label: Krapinsko-zagorska županija
+      iso3166_2: HR-02
+      match_value: Krapinsko-zagorska županija
+      query_name_regex: ^Krapinsko-zagorska županija$
+    - id: hr-grad-zagreb
+      region: grad-zagreb
+      label: Grad Zagreb
+      iso3166_2: HR-21
+      match_value: Grad Zagreb
+      query_name_regex: ^Grad Zagreb$
+    - id: hr-zagrebacka-zupanija
+      region: zagrebacka-zupanija
+      label: Zagrebačka županija
+      iso3166_2: HR-01
+      match_value: Zagrebačka županija
+      query_name_regex: ^Zagrebačka županija$
+    - id: hr-karlovacka-zupanija
+      region: karlovacka-zupanija
+      label: Karlovačka županija
+      iso3166_2: HR-04
+      match_value: Karlovačka županija
+      query_name_regex: ^Karlovačka županija$
+    - id: hr-istarska-zupanija
+      region: istarska-zupanija
+      label: Istarska županija
+      iso3166_2: HR-18
+      match_value: Istarska županija
+      query_name_regex: ^Istarska županija$
+    - id: hr-primorsko-goranska-zupanija
+      region: primorsko-goranska-zupanija
+      label: Primorsko-goranska županija
+      iso3166_2: HR-08
+      match_value: Primorsko-goranska županija
+      query_name_regex: ^Primorsko-goranska županija$
+    - id: hr-licko-senjska-zupanija
+      region: licko-senjska-zupanija
+      label: Ličko-senjska županija
+      iso3166_2: HR-09
+      match_value: Ličko-senjska županija
+      query_name_regex: ^Ličko-senjska županija$
+    - id: hr-zadarska-zupanija
+      region: zadarska-zupanija
+      label: Zadarska županija
+      iso3166_2: HR-13
+      match_value: Zadarska županija
+      query_name_regex: ^Zadarska županija$
+    - id: hr-sibensko-kninska-zupanija
+      region: sibensko-kninska-zupanija
+      label: Šibensko-kninska županija
+      iso3166_2: HR-15
+      match_value: Šibensko-kninska županija
+      query_name_regex: ^Šibensko-kninska županija$
+    - id: hr-splitsko-dalmatinska-zupanija
+      region: splitsko-dalmatinska-zupanija
+      label: Splitsko-dalmatinska županija
+      iso3166_2: HR-17
+      match_value: Splitsko-dalmatinska županija
+      query_name_regex: ^Splitsko-dalmatinska županija$
+    - id: hr-dubrovacko-neretvanska-zupanija
+      region: dubrovacko-neretvanska-zupanija
+      label: Dubrovačko-neretvanska županija
+      iso3166_2: HR-19
+      match_value: Dubrovačko-neretvanska županija
+      query_name_regex: ^Dubrovačko-neretvanska županija$
   hungary:
     label: Hungary
     iso3166_1: HU
@@ -220,66 +220,66 @@ countries:
     region_boundary: administrative
     region_identifier_strategy: iso3166-2
     regions:
-      - id: hu-ba
-        label: Baranya vármegye
-        iso3166_2: HU-BA
-      - id: hu-bk
-        label: Bács-Kiskun vármegye
-        iso3166_2: HU-BK
-      - id: hu-be
-        label: Békés vármegye
-        iso3166_2: HU-BE
-      - id: hu-bz
-        label: Borsod-Abaúj-Zemplén vármegye
-        iso3166_2: HU-BZ
-      - id: hu-bu
-        label: Budapest
-        iso3166_2: HU-BU
-      - id: hu-cs
-        label: Csongrád-Csanád vármegye
-        iso3166_2: HU-CS
-      - id: hu-fe
-        label: Fejér vármegye
-        iso3166_2: HU-FE
-      - id: hu-gs
-        label: Győr-Moson-Sopron vármegye
-        iso3166_2: HU-GS
-      - id: hu-hb
-        label: Hajdú-Bihar vármegye
-        iso3166_2: HU-HB
-      - id: hu-he
-        label: Heves vármegye
-        iso3166_2: HU-HE
-      - id: hu-jn
-        label: Jász-Nagykun-Szolnok vármegye
-        iso3166_2: HU-JN
-      - id: hu-ke
-        label: Komárom-Esztergom vármegye
-        iso3166_2: HU-KE
-      - id: hu-no
-        label: Nógrád vármegye
-        iso3166_2: HU-NO
-      - id: hu-pe
-        label: Pest vármegye
-        iso3166_2: HU-PE
-      - id: hu-so
-        label: Somogy vármegye
-        iso3166_2: HU-SO
-      - id: hu-sz
-        label: Szabolcs-Szatmár-Bereg vármegye
-        iso3166_2: HU-SZ
-      - id: hu-to
-        label: Tolna vármegye
-        iso3166_2: HU-TO
-      - id: hu-va
-        label: Vas vármegye
-        iso3166_2: HU-VA
-      - id: hu-ve
-        label: Veszprém vármegye
-        iso3166_2: HU-VE
-      - id: hu-za
-        label: Zala vármegye
-        iso3166_2: HU-ZA
+    - id: hu-ba
+      label: Baranya vármegye
+      iso3166_2: HU-BA
+    - id: hu-bk
+      label: Bács-Kiskun vármegye
+      iso3166_2: HU-BK
+    - id: hu-be
+      label: Békés vármegye
+      iso3166_2: HU-BE
+    - id: hu-bz
+      label: Borsod-Abaúj-Zemplén vármegye
+      iso3166_2: HU-BZ
+    - id: hu-bu
+      label: Budapest
+      iso3166_2: HU-BU
+    - id: hu-cs
+      label: Csongrád-Csanád vármegye
+      iso3166_2: HU-CS
+    - id: hu-fe
+      label: Fejér vármegye
+      iso3166_2: HU-FE
+    - id: hu-gs
+      label: Győr-Moson-Sopron vármegye
+      iso3166_2: HU-GS
+    - id: hu-hb
+      label: Hajdú-Bihar vármegye
+      iso3166_2: HU-HB
+    - id: hu-he
+      label: Heves vármegye
+      iso3166_2: HU-HE
+    - id: hu-jn
+      label: Jász-Nagykun-Szolnok vármegye
+      iso3166_2: HU-JN
+    - id: hu-ke
+      label: Komárom-Esztergom vármegye
+      iso3166_2: HU-KE
+    - id: hu-no
+      label: Nógrád vármegye
+      iso3166_2: HU-NO
+    - id: hu-pe
+      label: Pest vármegye
+      iso3166_2: HU-PE
+    - id: hu-so
+      label: Somogy vármegye
+      iso3166_2: HU-SO
+    - id: hu-sz
+      label: Szabolcs-Szatmár-Bereg vármegye
+      iso3166_2: HU-SZ
+    - id: hu-to
+      label: Tolna vármegye
+      iso3166_2: HU-TO
+    - id: hu-va
+      label: Vas vármegye
+      iso3166_2: HU-VA
+    - id: hu-ve
+      label: Veszprém vármegye
+      iso3166_2: HU-VE
+    - id: hu-za
+      label: Zala vármegye
+      iso3166_2: HU-ZA
   ireland:
     label: Ireland
     iso3166_1: IE
@@ -288,18 +288,18 @@ countries:
     region_boundary: administrative
     region_identifier_strategy: iso3166-2
     regions:
-      - id: ie-c
-        label: Connacht
-        iso3166_2: IE-C
-      - id: ie-l
-        label: Leinster
-        iso3166_2: IE-L
-      - id: ie-m
-        label: Munster
-        iso3166_2: IE-M
-      - id: ie-u
-        label: Ulster
-        iso3166_2: IE-U
+    - id: ie-c
+      label: Connacht
+      iso3166_2: IE-C
+    - id: ie-l
+      label: Leinster
+      iso3166_2: IE-L
+    - id: ie-m
+      label: Munster
+      iso3166_2: IE-M
+    - id: ie-u
+      label: Ulster
+      iso3166_2: IE-U
   italy:
     label: Italy
     iso3166_1: IT
@@ -308,66 +308,66 @@ countries:
     region_boundary: administrative
     region_identifier_strategy: iso3166-2
     regions:
-      - code: it-65
-        label: Abruzzo
-        iso3166_2: IT-65
-      - code: it-77
-        label: Basilicata
-        iso3166_2: IT-77
-      - code: it-78
-        label: Calabria
-        iso3166_2: IT-78
-      - code: it-72
-        label: Campania
-        iso3166_2: IT-72
-      - code: it-45
-        label: Emilia-Romagna
-        iso3166_2: IT-45
-      - code: it-36
-        label: Friuli Venezia Giulia
-        iso3166_2: IT-36
-      - code: it-62
-        label: Lazio
-        iso3166_2: IT-62
-      - code: it-42
-        label: Liguria
-        iso3166_2: IT-42
-      - code: it-25
-        label: Lombardia
-        iso3166_2: IT-25
-      - code: it-57
-        label: Marche
-        iso3166_2: IT-57
-      - code: it-67
-        label: Molise
-        iso3166_2: IT-67
-      - code: it-21
-        label: Piemonte
-        iso3166_2: IT-21
-      - code: it-75
-        label: Puglia
-        iso3166_2: IT-75
-      - code: it-88
-        label: Sardegna
-        iso3166_2: IT-88
-      - code: it-82
-        label: Sicilia
-        iso3166_2: IT-82
-      - code: it-52
-        label: Toscana
-        iso3166_2: IT-52
-      - code: it-32
-        label: Trentino-Alto Adige/Südtirol
-        iso3166_2: IT-32
-      - code: it-55
-        label: Umbria
-        iso3166_2: IT-55
-      - code: it-23
-        label: Valle d'Aosta/Vallée d'Aoste
-        iso3166_2: IT-23
-      - code: it-34
-        label: Veneto
-        iso3166_2: IT-34
+    - code: it-65
+      label: Abruzzo
+      iso3166_2: IT-65
+    - code: it-77
+      label: Basilicata
+      iso3166_2: IT-77
+    - code: it-78
+      label: Calabria
+      iso3166_2: IT-78
+    - code: it-72
+      label: Campania
+      iso3166_2: IT-72
+    - code: it-45
+      label: Emilia-Romagna
+      iso3166_2: IT-45
+    - code: it-36
+      label: Friuli Venezia Giulia
+      iso3166_2: IT-36
+    - code: it-62
+      label: Lazio
+      iso3166_2: IT-62
+    - code: it-42
+      label: Liguria
+      iso3166_2: IT-42
+    - code: it-25
+      label: Lombardia
+      iso3166_2: IT-25
+    - code: it-57
+      label: Marche
+      iso3166_2: IT-57
+    - code: it-67
+      label: Molise
+      iso3166_2: IT-67
+    - code: it-21
+      label: Piemonte
+      iso3166_2: IT-21
+    - code: it-75
+      label: Puglia
+      iso3166_2: IT-75
+    - code: it-88
+      label: Sardegna
+      iso3166_2: IT-88
+    - code: it-82
+      label: Sicilia
+      iso3166_2: IT-82
+    - code: it-52
+      label: Toscana
+      iso3166_2: IT-52
+    - code: it-32
+      label: Trentino-Alto Adige/Südtirol
+      iso3166_2: IT-32
+    - code: it-55
+      label: Umbria
+      iso3166_2: IT-55
+    - code: it-23
+      label: Valle d'Aosta/Vallée d'Aoste
+      iso3166_2: IT-23
+    - code: it-34
+      label: Veneto
+      iso3166_2: IT-34
   france:
     label: France
     iso3166_1: FR
@@ -376,54 +376,54 @@ countries:
     region_boundary: administrative
     region_identifier_strategy: iso3166-2
     regions:
-      - code: fr-cvl
-        label: Centre-Val de Loire
-        iso3166_2: FR-CVL
-      - code: fr-idf
-        label: Île-de-France
-        iso3166_2: FR-IDF
-      - code: fr-pdl
-        label: Pays de la Loire
-        iso3166_2: FR-PDL
-      - code: fr-pac
-        label: Provence-Alpes-Côte d'Azur
-        iso3166_2: FR-PAC
-      - code: fr-20r
-        label: Corse
-        iso3166_2: FR-20R
-      - code: fr-bre
-        label: Bretagne
-        iso3166_2: FR-BRE
-      - code: fr-976
-        label: Mayotte
-        iso3166_2: FR-976
-      - code: fr-972
-        label: Martinique
-        iso3166_2: FR-972
-      - code: fr-971
-        label: Guadeloupe
-        iso3166_2: FR-971
-      - code: fr-ges
-        label: Grand Est
-        iso3166_2: FR-GES
-      - code: fr-ara
-        label: Auvergne-Rhône-Alpes
-        iso3166_2: FR-ARA
-      - code: fr-bfc
-        label: Bourgogne-Franche-Comté
-        iso3166_2: FR-BFC
-      - code: fr-naq
-        label: Nouvelle-Aquitaine
-        iso3166_2: FR-NAQ
-      - code: fr-occ
-        label: Occitanie
-        iso3166_2: FR-OCC
-      - code: fr-nor
-        label: Normandie
-        iso3166_2: FR-NOR
-      - code: fr-hdf
-        label: Hauts-de-France
-        iso3166_2: FR-HDF
+    - code: fr-cvl
+      label: Centre-Val de Loire
+      iso3166_2: FR-CVL
+    - code: fr-idf
+      label: Île-de-France
+      iso3166_2: FR-IDF
+    - code: fr-pdl
+      label: Pays de la Loire
+      iso3166_2: FR-PDL
+    - code: fr-pac
+      label: Provence-Alpes-Côte d'Azur
+      iso3166_2: FR-PAC
+    - code: fr-20r
+      label: Corse
+      iso3166_2: FR-20R
+    - code: fr-bre
+      label: Bretagne
+      iso3166_2: FR-BRE
+    - code: fr-976
+      label: Mayotte
+      iso3166_2: FR-976
+    - code: fr-972
+      label: Martinique
+      iso3166_2: FR-972
+    - code: fr-971
+      label: Guadeloupe
+      iso3166_2: FR-971
+    - code: fr-ges
+      label: Grand Est
+      iso3166_2: FR-GES
+    - code: fr-ara
+      label: Auvergne-Rhône-Alpes
+      iso3166_2: FR-ARA
+    - code: fr-bfc
+      label: Bourgogne-Franche-Comté
+      iso3166_2: FR-BFC
+    - code: fr-naq
+      label: Nouvelle-Aquitaine
+      iso3166_2: FR-NAQ
+    - code: fr-occ
+      label: Occitanie
+      iso3166_2: FR-OCC
+    - code: fr-nor
+      label: Normandie
+      iso3166_2: FR-NOR
+    - code: fr-hdf
+      label: Hauts-de-France
+      iso3166_2: FR-HDF
   denmark:
     label: Denmark
     iso3166_1: DK
@@ -433,21 +433,21 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: dk-81
-        label: Region Nordjylland
-        iso3166_2: DK-81
-      - code: dk-82
-        label: Region Midtjylland
-        iso3166_2: DK-82
-      - code: dk-83
-        label: Region Syddanmark
-        iso3166_2: DK-83
-      - code: dk-84
-        label: Region Hovedstaden
-        iso3166_2: DK-84
-      - code: dk-85
-        label: Region Sjælland
-        iso3166_2: DK-85
+    - code: dk-81
+      label: Region Nordjylland
+      iso3166_2: DK-81
+    - code: dk-82
+      label: Region Midtjylland
+      iso3166_2: DK-82
+    - code: dk-83
+      label: Region Syddanmark
+      iso3166_2: DK-83
+    - code: dk-84
+      label: Region Hovedstaden
+      iso3166_2: DK-84
+    - code: dk-85
+      label: Region Sjælland
+      iso3166_2: DK-85
   sweden:
     label: Sweden
     iso3166_1: SE
@@ -457,69 +457,69 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: se-bd
-        label: Norrbottens län
-        iso3166_2: SE-BD
-      - code: se-ac
-        label: Västerbottens län
-        iso3166_2: SE-AC
-      - code: se-z
-        label: Jämtlands län
-        iso3166_2: SE-Z
-      - code: se-y
-        label: Västernorrlands län
-        iso3166_2: SE-Y
-      - code: se-x
-        label: Gävleborgs län
-        iso3166_2: SE-X
-      - code: se-w
-        label: Dalarnas län
-        iso3166_2: SE-W
-      - code: se-c
-        label: Uppsala län
-        iso3166_2: SE-C
-      - code: se-u
-        label: Västmanlands län
-        iso3166_2: SE-U
-      - code: se-t
-        label: Örebro län
-        iso3166_2: SE-T
-      - code: se-s
-        label: Värmlands län
-        iso3166_2: SE-S
-      - code: se-o
-        label: Västra Götalands län
-        iso3166_2: SE-O
-      - code: se-f
-        label: Jönköpings län
-        iso3166_2: SE-F
-      - code: se-d
-        label: Södermanlands län
-        iso3166_2: SE-D
-      - code: se-ab
-        label: Stockholms län
-        iso3166_2: SE-AB
-      - code: se-n
-        label: Hallands län
-        iso3166_2: SE-N
-      - code: se-m
-        label: Skåne län
-        iso3166_2: SE-M
-      - code: se-g
-        label: Kronobergs län
-        iso3166_2: SE-G
-      - code: se-k
-        label: Blekinge län
-        iso3166_2: SE-K
-      - code: se-h
-        label: Kalmar län
-        iso3166_2: SE-H
-      - code: se-e
-        label: Östergötlands län
-        iso3166_2: SE-E
-      - code: se-i
-        label: Gotlands län
-        iso3166_2: SE-I
+    - code: se-bd
+      label: Norrbottens län
+      iso3166_2: SE-BD
+    - code: se-ac
+      label: Västerbottens län
+      iso3166_2: SE-AC
+    - code: se-z
+      label: Jämtlands län
+      iso3166_2: SE-Z
+    - code: se-y
+      label: Västernorrlands län
+      iso3166_2: SE-Y
+    - code: se-x
+      label: Gävleborgs län
+      iso3166_2: SE-X
+    - code: se-w
+      label: Dalarnas län
+      iso3166_2: SE-W
+    - code: se-c
+      label: Uppsala län
+      iso3166_2: SE-C
+    - code: se-u
+      label: Västmanlands län
+      iso3166_2: SE-U
+    - code: se-t
+      label: Örebro län
+      iso3166_2: SE-T
+    - code: se-s
+      label: Värmlands län
+      iso3166_2: SE-S
+    - code: se-o
+      label: Västra Götalands län
+      iso3166_2: SE-O
+    - code: se-f
+      label: Jönköpings län
+      iso3166_2: SE-F
+    - code: se-d
+      label: Södermanlands län
+      iso3166_2: SE-D
+    - code: se-ab
+      label: Stockholms län
+      iso3166_2: SE-AB
+    - code: se-n
+      label: Hallands län
+      iso3166_2: SE-N
+    - code: se-m
+      label: Skåne län
+      iso3166_2: SE-M
+    - code: se-g
+      label: Kronobergs län
+      iso3166_2: SE-G
+    - code: se-k
+      label: Blekinge län
+      iso3166_2: SE-K
+    - code: se-h
+      label: Kalmar län
+      iso3166_2: SE-H
+    - code: se-e
+      label: Östergötlands län
+      iso3166_2: SE-E
+    - code: se-i
+      label: Gotlands län
+      iso3166_2: SE-I
   spain:
     label: Spain
     iso3166_1: ES
@@ -529,120 +529,120 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: es-ib
-        label: ES-IB
-        iso3166_2: ES-IB
-      - code: es-ri
-        label: ES-RI
-        iso3166_2: ES-RI
-      - code: es-cb
-        label: ES-CB
-        iso3166_2: ES-CB
-      - code: es-nc
-        label: ES-NC
-        iso3166_2: ES-NC
-      - code: es-as
-        label: ES-AS
-        iso3166_2: ES-AS
-      - code: es-ga
-        label: ES-GA
-        iso3166_2: ES-GA
-      - code: es-cl
-        label: ES-CL
-        iso3166_2: ES-CL
-      - code: es-pv
-        label: ES-PV
-        iso3166_2: ES-PV
-      - code: es-vc
-        label: ES-VC
-        iso3166_2: ES-VC
-      - code: es-an
-        label: ES-AN
-        iso3166_2: ES-AN
-      - code: es-ar
-        label: ES-AR
-        iso3166_2: ES-AR
-      - code: es-mc
-        label: ES-MC
-        iso3166_2: ES-MC
-      - code: es-cn
-        label: ES-CN
-        iso3166_2: ES-CN
-      - code: es-ex
-        label: ES-EX
-        iso3166_2: ES-EX
-      - code: es-cm
-        label: ES-CM
-        iso3166_2: ES-CM
-      - code: es-ct
-        label: ES-CT
-        iso3166_2: ES-CT
-      - code: es-md
-        label: ES-MD
-        iso3166_2: ES-MD
-      - code: es-ce
-        label: ES-CE
-        iso3166_2: ES-CE
-      - code: es-ml
-        label: ES-ML
-        iso3166_2: ES-ML
+    - code: es-ib
+      label: ES-IB
+      iso3166_2: ES-IB
+    - code: es-ri
+      label: ES-RI
+      iso3166_2: ES-RI
+    - code: es-cb
+      label: ES-CB
+      iso3166_2: ES-CB
+    - code: es-nc
+      label: ES-NC
+      iso3166_2: ES-NC
+    - code: es-as
+      label: ES-AS
+      iso3166_2: ES-AS
+    - code: es-ga
+      label: ES-GA
+      iso3166_2: ES-GA
+    - code: es-cl
+      label: ES-CL
+      iso3166_2: ES-CL
+    - code: es-pv
+      label: ES-PV
+      iso3166_2: ES-PV
+    - code: es-vc
+      label: ES-VC
+      iso3166_2: ES-VC
+    - code: es-an
+      label: ES-AN
+      iso3166_2: ES-AN
+    - code: es-ar
+      label: ES-AR
+      iso3166_2: ES-AR
+    - code: es-mc
+      label: ES-MC
+      iso3166_2: ES-MC
+    - code: es-cn
+      label: ES-CN
+      iso3166_2: ES-CN
+    - code: es-ex
+      label: ES-EX
+      iso3166_2: ES-EX
+    - code: es-cm
+      label: ES-CM
+      iso3166_2: ES-CM
+    - code: es-ct
+      label: ES-CT
+      iso3166_2: ES-CT
+    - code: es-md
+      label: ES-MD
+      iso3166_2: ES-MD
+    - code: es-ce
+      label: ES-CE
+      iso3166_2: ES-CE
+    - code: es-ml
+      label: ES-ML
+      iso3166_2: ES-ML
   norway:
     label: Norway
-    iso3166_1: NO
+    iso3166_1: false
     country_admin_level: 2
     region_admin_level: 4
     region_boundary: administrative
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: no-39
-        label: Vestfold
-        iso3166_2: NO-39
-      - code: no-40
-        label: Telemark
-        iso3166_2: NO-40
-      - code: no-11
-        label: Rogaland
-        iso3166_2: NO-11
-      - code: no-31
-        label: Østfold
-        iso3166_2: NO-31
-      - code: no-03
-        label: Oslo
-        iso3166_2: NO-03
-      - code: no-32
-        label: Akershus
-        iso3166_2: NO-32
-      - code: no-56
-        label: Finnmark
-        iso3166_2: NO-56
-      - code: no-50
-        label: Trøndelag
-        iso3166_2: NO-50
-      - code: no-15
-        label: Møre og Romsdal
-        iso3166_2: NO-15
-      - code: no-55
-        label: Troms
-        iso3166_2: NO-55
-      - code: no-18
-        label: Nordland
-        iso3166_2: NO-18
-      - code: no-33
-        label: Buskerud
-        iso3166_2: NO-33
-      - code: no-21
-        label: Svalbard
-        iso3166_2: NO-21
-      - code: no-42
-        label: Agder
-        iso3166_2: NO-42
-      - code: no-34
-        label: Innlandet
-        iso3166_2: NO-34
-      - code: no-46
-        label: Vestland
-        iso3166_2: NO-46
+    - code: no-39
+      label: Vestfold
+      iso3166_2: NO-39
+    - code: no-40
+      label: Telemark
+      iso3166_2: NO-40
+    - code: no-11
+      label: Rogaland
+      iso3166_2: NO-11
+    - code: no-31
+      label: Østfold
+      iso3166_2: NO-31
+    - code: no-03
+      label: Oslo
+      iso3166_2: NO-03
+    - code: no-32
+      label: Akershus
+      iso3166_2: NO-32
+    - code: no-56
+      label: Finnmark
+      iso3166_2: NO-56
+    - code: no-50
+      label: Trøndelag
+      iso3166_2: NO-50
+    - code: no-15
+      label: Møre og Romsdal
+      iso3166_2: NO-15
+    - code: no-55
+      label: Troms
+      iso3166_2: NO-55
+    - code: no-18
+      label: Nordland
+      iso3166_2: NO-18
+    - code: no-33
+      label: Buskerud
+      iso3166_2: NO-33
+    - code: no-21
+      label: Svalbard
+      iso3166_2: NO-21
+    - code: no-42
+      label: Agder
+      iso3166_2: NO-42
+    - code: no-34
+      label: Innlandet
+      iso3166_2: NO-34
+    - code: no-46
+      label: Vestland
+      iso3166_2: NO-46
   finland:
     label: Finland
     iso3166_1: FI
@@ -652,64 +652,63 @@ countries:
     region_identifier_strategy: iso3166-2
     region_scope_strategy: fi-iso3166-2-direct
     regions:
-      - code: fi-01
-        label: FI-01
-        iso3166_2: FI-01
-      - code: fi-02
-        label: FI-02
-        iso3166_2: FI-02
-      - code: fi-03
-        label: FI-03
-        iso3166_2: FI-03
-      - code: fi-04
-        label: FI-04
-        iso3166_2: FI-04
-      - code: fi-05
-        label: FI-05
-        iso3166_2: FI-05
-      - code: fi-06
-        label: FI-06
-        iso3166_2: FI-06
-      - code: fi-07
-        label: FI-07
-        iso3166_2: FI-07
-      - code: fi-08
-        label: FI-08
-        iso3166_2: FI-08
-      - code: fi-09
-        label: FI-09
-        iso3166_2: FI-09
-      - code: fi-10
-        label: FI-10
-        iso3166_2: FI-10
-      - code: fi-11
-        label: FI-11
-        iso3166_2: FI-11
-      - code: fi-12
-        label: FI-12
-        iso3166_2: FI-12
-      - code: fi-13
-        label: FI-13
-        iso3166_2: FI-13
-      - code: fi-14
-        label: FI-14
-        iso3166_2: FI-14
-      - code: fi-15
-        label: FI-15
-        iso3166_2: FI-15
-      - code: fi-16
-        label: FI-16
-        iso3166_2: FI-16
-      - code: fi-17
-        label: FI-17
-        iso3166_2: FI-17
-      - code: fi-18
-        label: FI-18
-        iso3166_2: FI-18
-      - code: fi-19
-        label: FI-19
-        iso3166_2: FI-19
-
+    - code: fi-01
+      label: FI-01
+      iso3166_2: FI-01
+    - code: fi-02
+      label: FI-02
+      iso3166_2: FI-02
+    - code: fi-03
+      label: FI-03
+      iso3166_2: FI-03
+    - code: fi-04
+      label: FI-04
+      iso3166_2: FI-04
+    - code: fi-05
+      label: FI-05
+      iso3166_2: FI-05
+    - code: fi-06
+      label: FI-06
+      iso3166_2: FI-06
+    - code: fi-07
+      label: FI-07
+      iso3166_2: FI-07
+    - code: fi-08
+      label: FI-08
+      iso3166_2: FI-08
+    - code: fi-09
+      label: FI-09
+      iso3166_2: FI-09
+    - code: fi-10
+      label: FI-10
+      iso3166_2: FI-10
+    - code: fi-11
+      label: FI-11
+      iso3166_2: FI-11
+    - code: fi-12
+      label: FI-12
+      iso3166_2: FI-12
+    - code: fi-13
+      label: FI-13
+      iso3166_2: FI-13
+    - code: fi-14
+      label: FI-14
+      iso3166_2: FI-14
+    - code: fi-15
+      label: FI-15
+      iso3166_2: FI-15
+    - code: fi-16
+      label: FI-16
+      iso3166_2: FI-16
+    - code: fi-17
+      label: FI-17
+      iso3166_2: FI-17
+    - code: fi-18
+      label: FI-18
+      iso3166_2: FI-18
+    - code: fi-19
+      label: FI-19
+      iso3166_2: FI-19
   netherlands:
     label: Netherlands
     iso3166_1: NL
@@ -719,42 +718,42 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: nl-fr
-        label: Fryslân
-        iso3166_2: NL-FR
-      - code: nl-fl
-        label: Flevoland
-        iso3166_2: NL-FL
-      - code: nl-dr
-        label: Drenthe
-        iso3166_2: NL-DR
-      - code: nl-ge
-        label: Gelderland
-        iso3166_2: NL-GE
-      - code: nl-ov
-        label: Overijssel
-        iso3166_2: NL-OV
-      - code: nl-nh
-        label: Noord-Holland
-        iso3166_2: NL-NH
-      - code: nl-ut
-        label: Utrecht
-        iso3166_2: NL-UT
-      - code: nl-nb
-        label: Noord-Brabant
-        iso3166_2: NL-NB
-      - code: nl-zh
-        label: Zuid-Holland
-        iso3166_2: NL-ZH
-      - code: nl-li
-        label: Limburg
-        iso3166_2: NL-LI
-      - code: nl-ze
-        label: Zeeland
-        iso3166_2: NL-ZE
-      - code: nl-gr
-        label: Groningen
-        iso3166_2: NL-GR
+    - code: nl-fr
+      label: Fryslân
+      iso3166_2: NL-FR
+    - code: nl-fl
+      label: Flevoland
+      iso3166_2: NL-FL
+    - code: nl-dr
+      label: Drenthe
+      iso3166_2: NL-DR
+    - code: nl-ge
+      label: Gelderland
+      iso3166_2: NL-GE
+    - code: nl-ov
+      label: Overijssel
+      iso3166_2: NL-OV
+    - code: nl-nh
+      label: Noord-Holland
+      iso3166_2: NL-NH
+    - code: nl-ut
+      label: Utrecht
+      iso3166_2: NL-UT
+    - code: nl-nb
+      label: Noord-Brabant
+      iso3166_2: NL-NB
+    - code: nl-zh
+      label: Zuid-Holland
+      iso3166_2: NL-ZH
+    - code: nl-li
+      label: Limburg
+      iso3166_2: NL-LI
+    - code: nl-ze
+      label: Zeeland
+      iso3166_2: NL-ZE
+    - code: nl-gr
+      label: Groningen
+      iso3166_2: NL-GR
   belgium:
     label: Belgium
     iso3166_1: BE
@@ -764,15 +763,15 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: be-vlg
-        label: Vlaanderen
-        iso3166_2: BE-VLG
-      - code: be-bru
-        label: Région de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest
-        iso3166_2: BE-BRU
-      - code: be-wal
-        label: Wallonie
-        iso3166_2: BE-WAL
+    - code: be-vlg
+      label: Vlaanderen
+      iso3166_2: BE-VLG
+    - code: be-bru
+      label: Région de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest
+      iso3166_2: BE-BRU
+    - code: be-wal
+      label: Wallonie
+      iso3166_2: BE-WAL
   luxembourg:
     label: Luxembourg
     iso3166_1: LU
@@ -791,11 +790,11 @@ countries:
     country_admin_level: 2
     country_scope_strategy: area-iso
     regions:
-      - id: macedonia
-        region: macedonia
-        label: Mazedonien
-        admin_level: 2
-        match_value: Mazedonien
+    - id: macedonia
+      region: macedonia
+      label: Mazedonien
+      admin_level: 2
+      match_value: Mazedonien
   portugal:
     label: Portugal
     iso3166_1: PT
@@ -805,86 +804,86 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: pt-01
-        label: Aveiro
-        iso3166_2: PT-01
-        admin_level: 6
-      - code: pt-02
-        label: Beja
-        iso3166_2: PT-02
-        admin_level: 6
-      - code: pt-03
-        label: Braga
-        iso3166_2: PT-03
-        admin_level: 6
-      - code: pt-04
-        label: Braganca
-        iso3166_2: PT-04
-        admin_level: 6
-      - code: pt-05
-        label: Castelo Branco
-        iso3166_2: PT-05
-        admin_level: 6
-      - code: pt-06
-        label: Coimbra
-        iso3166_2: PT-06
-        admin_level: 6
-      - code: pt-07
-        label: Evora
-        iso3166_2: PT-07
-        admin_level: 6
-      - code: pt-08
-        label: Faro
-        iso3166_2: PT-08
-        admin_level: 6
-      - code: pt-09
-        label: Guarda
-        iso3166_2: PT-09
-        admin_level: 6
-      - code: pt-10
-        label: Leiria
-        iso3166_2: PT-10
-        admin_level: 6
-      - code: pt-11
-        label: Lisboa
-        iso3166_2: PT-11
-        admin_level: 6
-      - code: pt-12
-        label: Portalegre
-        iso3166_2: PT-12
-        admin_level: 6
-      - code: pt-13
-        label: Porto
-        iso3166_2: PT-13
-        admin_level: 6
-      - code: pt-14
-        label: Santarem
-        iso3166_2: PT-14
-        admin_level: 6
-      - code: pt-15
-        label: Setubal
-        iso3166_2: PT-15
-        admin_level: 6
-      - code: pt-16
-        label: Viana do Castelo
-        iso3166_2: PT-16
-        admin_level: 6
-      - code: pt-17
-        label: Vila Real
-        iso3166_2: PT-17
-        admin_level: 6
-      - code: pt-18
-        label: Viseu
-        iso3166_2: PT-18
-        admin_level: 6
-      - code: pt-20
-        label: Acores
-        iso3166_2: PT-20
-        admin_level: 4
-      - code: pt-30
-        label: Madeira
-        iso3166_2: PT-30
-        admin_level: 4
+    - code: pt-01
+      label: Aveiro
+      iso3166_2: PT-01
+      admin_level: 6
+    - code: pt-02
+      label: Beja
+      iso3166_2: PT-02
+      admin_level: 6
+    - code: pt-03
+      label: Braga
+      iso3166_2: PT-03
+      admin_level: 6
+    - code: pt-04
+      label: Braganca
+      iso3166_2: PT-04
+      admin_level: 6
+    - code: pt-05
+      label: Castelo Branco
+      iso3166_2: PT-05
+      admin_level: 6
+    - code: pt-06
+      label: Coimbra
+      iso3166_2: PT-06
+      admin_level: 6
+    - code: pt-07
+      label: Evora
+      iso3166_2: PT-07
+      admin_level: 6
+    - code: pt-08
+      label: Faro
+      iso3166_2: PT-08
+      admin_level: 6
+    - code: pt-09
+      label: Guarda
+      iso3166_2: PT-09
+      admin_level: 6
+    - code: pt-10
+      label: Leiria
+      iso3166_2: PT-10
+      admin_level: 6
+    - code: pt-11
+      label: Lisboa
+      iso3166_2: PT-11
+      admin_level: 6
+    - code: pt-12
+      label: Portalegre
+      iso3166_2: PT-12
+      admin_level: 6
+    - code: pt-13
+      label: Porto
+      iso3166_2: PT-13
+      admin_level: 6
+    - code: pt-14
+      label: Santarem
+      iso3166_2: PT-14
+      admin_level: 6
+    - code: pt-15
+      label: Setubal
+      iso3166_2: PT-15
+      admin_level: 6
+    - code: pt-16
+      label: Viana do Castelo
+      iso3166_2: PT-16
+      admin_level: 6
+    - code: pt-17
+      label: Vila Real
+      iso3166_2: PT-17
+      admin_level: 6
+    - code: pt-18
+      label: Viseu
+      iso3166_2: PT-18
+      admin_level: 6
+    - code: pt-20
+      label: Acores
+      iso3166_2: PT-20
+      admin_level: 4
+    - code: pt-30
+      label: Madeira
+      iso3166_2: PT-30
+      admin_level: 4
   poland:
     label: Poland
     iso3166_1: PL
@@ -894,54 +893,54 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: pl-02
-        label: Dolnośląskie
-        iso3166_2: PL-02
-      - code: pl-04
-        label: Kujawsko-Pomorskie
-        iso3166_2: PL-04
-      - code: pl-06
-        label: Lubelskie
-        iso3166_2: PL-06
-      - code: pl-08
-        label: Lubuskie
-        iso3166_2: PL-08
-      - code: pl-10
-        label: Łódzkie
-        iso3166_2: PL-10
-      - code: pl-12
-        label: Małopolskie
-        iso3166_2: PL-12
-      - code: pl-14
-        label: Mazowieckie
-        iso3166_2: PL-14
-      - code: pl-16
-        label: Opolskie
-        iso3166_2: PL-16
-      - code: pl-18
-        label: Podkarpackie
-        iso3166_2: PL-18
-      - code: pl-20
-        label: Podlaskie
-        iso3166_2: PL-20
-      - code: pl-22
-        label: Pomorskie
-        iso3166_2: PL-22
-      - code: pl-24
-        label: Śląskie
-        iso3166_2: PL-24
-      - code: pl-26
-        label: Świętokrzyskie
-        iso3166_2: PL-26
-      - code: pl-28
-        label: Warmińsko-Mazurskie
-        iso3166_2: PL-28
-      - code: pl-30
-        label: Wielkopolskie
-        iso3166_2: PL-30
-      - code: pl-32
-        label: Zachodniopomorskie
-        iso3166_2: PL-32
+    - code: pl-02
+      label: Dolnośląskie
+      iso3166_2: PL-02
+    - code: pl-04
+      label: Kujawsko-Pomorskie
+      iso3166_2: PL-04
+    - code: pl-06
+      label: Lubelskie
+      iso3166_2: PL-06
+    - code: pl-08
+      label: Lubuskie
+      iso3166_2: PL-08
+    - code: pl-10
+      label: Łódzkie
+      iso3166_2: PL-10
+    - code: pl-12
+      label: Małopolskie
+      iso3166_2: PL-12
+    - code: pl-14
+      label: Mazowieckie
+      iso3166_2: PL-14
+    - code: pl-16
+      label: Opolskie
+      iso3166_2: PL-16
+    - code: pl-18
+      label: Podkarpackie
+      iso3166_2: PL-18
+    - code: pl-20
+      label: Podlaskie
+      iso3166_2: PL-20
+    - code: pl-22
+      label: Pomorskie
+      iso3166_2: PL-22
+    - code: pl-24
+      label: Śląskie
+      iso3166_2: PL-24
+    - code: pl-26
+      label: Świętokrzyskie
+      iso3166_2: PL-26
+    - code: pl-28
+      label: Warmińsko-Mazurskie
+      iso3166_2: PL-28
+    - code: pl-30
+      label: Wielkopolskie
+      iso3166_2: PL-30
+    - code: pl-32
+      label: Zachodniopomorskie
+      iso3166_2: PL-32
   bulgaria:
     label: Bulgaria
     iso3166_1: BG
@@ -951,118 +950,118 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: bg-01
-        region: blagoevgrad
-        label: Blagoevgrad
-        iso3166_2: BG-01
-      - code: bg-02
-        region: burgas
-        label: Burgas
-        iso3166_2: BG-02
-      - code: bg-03
-        region: varna
-        label: Varna
-        iso3166_2: BG-03
-      - code: bg-04
-        region: veliko_tarnovo
-        label: Veliko Tarnovo
-        iso3166_2: BG-04
-      - code: bg-05
-        region: vidin
-        label: Vidin
-        iso3166_2: BG-05
-      - code: bg-06
-        region: vratsa
-        label: Vratsa
-        iso3166_2: BG-06
-      - code: bg-07
-        region: gabrovo
-        label: Gabrovo
-        iso3166_2: BG-07
-      - code: bg-08
-        region: dobrich
-        label: Dobrich
-        iso3166_2: BG-08
-      - code: bg-09
-        region: kardzhali
-        label: Kardzhali
-        iso3166_2: BG-09
-      - code: bg-10
-        region: kyustendil
-        label: Kyustendil
-        iso3166_2: BG-10
-      - code: bg-11
-        region: lovech
-        label: Lovech
-        iso3166_2: BG-11
-      - code: bg-12
-        region: montana
-        label: Montana
-        iso3166_2: BG-12
-      - code: bg-13
-        region: pazardzhik
-        label: Pazardzhik
-        iso3166_2: BG-13
-      - code: bg-14
-        region: pernik
-        label: Pernik
-        iso3166_2: BG-14
-      - code: bg-15
-        region: pleven
-        label: Pleven
-        iso3166_2: BG-15
-      - code: bg-16
-        region: plovdiv
-        label: Plovdiv
-        iso3166_2: BG-16
-      - code: bg-17
-        region: razgrad
-        label: Razgrad
-        iso3166_2: BG-17
-      - code: bg-18
-        region: ruse
-        label: Ruse
-        iso3166_2: BG-18
-      - code: bg-19
-        region: silistra
-        label: Silistra
-        iso3166_2: BG-19
-      - code: bg-20
-        region: sliven
-        label: Sliven
-        iso3166_2: BG-20
-      - code: bg-21
-        region: smolyan
-        label: Smolyan
-        iso3166_2: BG-21
-      - code: bg-22
-        region: sofia_city
-        label: Sofia City
-        iso3166_2: BG-22
-      - code: bg-23
-        region: sofia_province
-        label: Sofia Province
-        iso3166_2: BG-23
-      - code: bg-24
-        region: stara_zagora
-        label: Stara Zagora
-        iso3166_2: BG-24
-      - code: bg-25
-        region: targovishte
-        label: Targovishte
-        iso3166_2: BG-25
-      - code: bg-26
-        region: haskovo
-        label: Haskovo
-        iso3166_2: BG-26
-      - code: bg-27
-        region: shumen
-        label: Shumen
-        iso3166_2: BG-27
-      - code: bg-28
-        region: yambol
-        label: Yambol
-        iso3166_2: BG-28
+    - code: bg-01
+      region: blagoevgrad
+      label: Blagoevgrad
+      iso3166_2: BG-01
+    - code: bg-02
+      region: burgas
+      label: Burgas
+      iso3166_2: BG-02
+    - code: bg-03
+      region: varna
+      label: Varna
+      iso3166_2: BG-03
+    - code: bg-04
+      region: veliko_tarnovo
+      label: Veliko Tarnovo
+      iso3166_2: BG-04
+    - code: bg-05
+      region: vidin
+      label: Vidin
+      iso3166_2: BG-05
+    - code: bg-06
+      region: vratsa
+      label: Vratsa
+      iso3166_2: BG-06
+    - code: bg-07
+      region: gabrovo
+      label: Gabrovo
+      iso3166_2: BG-07
+    - code: bg-08
+      region: dobrich
+      label: Dobrich
+      iso3166_2: BG-08
+    - code: bg-09
+      region: kardzhali
+      label: Kardzhali
+      iso3166_2: BG-09
+    - code: bg-10
+      region: kyustendil
+      label: Kyustendil
+      iso3166_2: BG-10
+    - code: bg-11
+      region: lovech
+      label: Lovech
+      iso3166_2: BG-11
+    - code: bg-12
+      region: montana
+      label: Montana
+      iso3166_2: BG-12
+    - code: bg-13
+      region: pazardzhik
+      label: Pazardzhik
+      iso3166_2: BG-13
+    - code: bg-14
+      region: pernik
+      label: Pernik
+      iso3166_2: BG-14
+    - code: bg-15
+      region: pleven
+      label: Pleven
+      iso3166_2: BG-15
+    - code: bg-16
+      region: plovdiv
+      label: Plovdiv
+      iso3166_2: BG-16
+    - code: bg-17
+      region: razgrad
+      label: Razgrad
+      iso3166_2: BG-17
+    - code: bg-18
+      region: ruse
+      label: Ruse
+      iso3166_2: BG-18
+    - code: bg-19
+      region: silistra
+      label: Silistra
+      iso3166_2: BG-19
+    - code: bg-20
+      region: sliven
+      label: Sliven
+      iso3166_2: BG-20
+    - code: bg-21
+      region: smolyan
+      label: Smolyan
+      iso3166_2: BG-21
+    - code: bg-22
+      region: sofia_city
+      label: Sofia City
+      iso3166_2: BG-22
+    - code: bg-23
+      region: sofia_province
+      label: Sofia Province
+      iso3166_2: BG-23
+    - code: bg-24
+      region: stara_zagora
+      label: Stara Zagora
+      iso3166_2: BG-24
+    - code: bg-25
+      region: targovishte
+      label: Targovishte
+      iso3166_2: BG-25
+    - code: bg-26
+      region: haskovo
+      label: Haskovo
+      iso3166_2: BG-26
+    - code: bg-27
+      region: shumen
+      label: Shumen
+      iso3166_2: BG-27
+    - code: bg-28
+      region: yambol
+      label: Yambol
+      iso3166_2: BG-28
   bosnia_herzegovina:
     label: Bosnien Herzegowina
     iso3166_1: BA
@@ -1072,18 +1071,18 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - id: ba-brc
-        code: ba-brc
-        label: Brčko distrikt
-        iso3166_2: BA-BRC
-      - id: ba-bih
-        code: ba-bih
-        label: Federacija Bosne i Hercegovine
-        iso3166_2: BA-BIH
-      - id: ba-srp
-        code: ba-srp
-        label: Republika Srpska
-        iso3166_2: BA-SRP
+    - id: ba-brc
+      code: ba-brc
+      label: Brčko distrikt
+      iso3166_2: BA-BRC
+    - id: ba-bih
+      code: ba-bih
+      label: Federacija Bosne i Hercegovine
+      iso3166_2: BA-BIH
+    - id: ba-srp
+      code: ba-srp
+      label: Republika Srpska
+      iso3166_2: BA-SRP
   romania:
     label: Romania
     iso3166_1: RO
@@ -1093,132 +1092,132 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: ro-ab
-        label: Alba
-        iso3166_2: RO-AB
-      - code: ro-ag
-        label: Argeș
-        iso3166_2: RO-AG
-      - code: ro-ar
-        label: Arad
-        iso3166_2: RO-AR
-      - code: ro-b
-        label: București
-        iso3166_2: RO-B
-      - code: ro-bc
-        label: Bacău
-        iso3166_2: RO-BC
-      - code: ro-bh
-        label: Bihor
-        iso3166_2: RO-BH
-      - code: ro-bn
-        label: Bistrița-Năsăud
-        iso3166_2: RO-BN
-      - code: ro-br
-        label: Brăila
-        iso3166_2: RO-BR
-      - code: ro-bt
-        label: Botoșani
-        iso3166_2: RO-BT
-      - code: ro-bv
-        label: Brașov
-        iso3166_2: RO-BV
-      - code: ro-bz
-        label: Buzău
-        iso3166_2: RO-BZ
-      - code: ro-cj
-        label: Cluj
-        iso3166_2: RO-CJ
-      - code: ro-cl
-        label: Călărași
-        iso3166_2: RO-CL
-      - code: ro-cs
-        label: Caraș-Severin
-        iso3166_2: RO-CS
-      - code: ro-ct
-        label: Constanța
-        iso3166_2: RO-CT
-      - code: ro-cv
-        label: Covasna
-        iso3166_2: RO-CV
-      - code: ro-db
-        label: Dâmbovița
-        iso3166_2: RO-DB
-      - code: ro-dj
-        label: Dolj
-        iso3166_2: RO-DJ
-      - code: ro-gj
-        label: Gorj
-        iso3166_2: RO-GJ
-      - code: ro-gl
-        label: Galați
-        iso3166_2: RO-GL
-      - code: ro-gr
-        label: Giurgiu
-        iso3166_2: RO-GR
-      - code: ro-hd
-        label: Hunedoara
-        iso3166_2: RO-HD
-      - code: ro-hr
-        label: Harghita
-        iso3166_2: RO-HR
-      - code: ro-if
-        label: Ilfov
-        iso3166_2: RO-IF
-      - code: ro-il
-        label: Ialomița
-        iso3166_2: RO-IL
-      - code: ro-is
-        label: Iași
-        iso3166_2: RO-IS
-      - code: ro-mh
-        label: Mehedinți
-        iso3166_2: RO-MH
-      - code: ro-mm
-        label: Maramureș
-        iso3166_2: RO-MM
-      - code: ro-ms
-        label: Mureș
-        iso3166_2: RO-MS
-      - code: ro-nt
-        label: Neamț
-        iso3166_2: RO-NT
-      - code: ro-ot
-        label: Olt
-        iso3166_2: RO-OT
-      - code: ro-ph
-        label: Prahova
-        iso3166_2: RO-PH
-      - code: ro-sb
-        label: Sibiu
-        iso3166_2: RO-SB
-      - code: ro-sj
-        label: Sălaj
-        iso3166_2: RO-SJ
-      - code: ro-sm
-        label: Satu Mare
-        iso3166_2: RO-SM
-      - code: ro-sv
-        label: Suceava
-        iso3166_2: RO-SV
-      - code: ro-tl
-        label: Tulcea
-        iso3166_2: RO-TL
-      - code: ro-tm
-        label: Timiș
-        iso3166_2: RO-TM
-      - code: ro-tr
-        label: Teleorman
-        iso3166_2: RO-TR
-      - code: ro-vl
-        label: Vâlcea
-        iso3166_2: RO-VL
-      - code: ro-vn
-        label: Vrancea
-        iso3166_2: RO-VN
-      - code: ro-vs
-        label: Vaslui
-        iso3166_2: RO-VS
+    - code: ro-ab
+      label: Alba
+      iso3166_2: RO-AB
+    - code: ro-ag
+      label: Argeș
+      iso3166_2: RO-AG
+    - code: ro-ar
+      label: Arad
+      iso3166_2: RO-AR
+    - code: ro-b
+      label: București
+      iso3166_2: RO-B
+    - code: ro-bc
+      label: Bacău
+      iso3166_2: RO-BC
+    - code: ro-bh
+      label: Bihor
+      iso3166_2: RO-BH
+    - code: ro-bn
+      label: Bistrița-Năsăud
+      iso3166_2: RO-BN
+    - code: ro-br
+      label: Brăila
+      iso3166_2: RO-BR
+    - code: ro-bt
+      label: Botoșani
+      iso3166_2: RO-BT
+    - code: ro-bv
+      label: Brașov
+      iso3166_2: RO-BV
+    - code: ro-bz
+      label: Buzău
+      iso3166_2: RO-BZ
+    - code: ro-cj
+      label: Cluj
+      iso3166_2: RO-CJ
+    - code: ro-cl
+      label: Călărași
+      iso3166_2: RO-CL
+    - code: ro-cs
+      label: Caraș-Severin
+      iso3166_2: RO-CS
+    - code: ro-ct
+      label: Constanța
+      iso3166_2: RO-CT
+    - code: ro-cv
+      label: Covasna
+      iso3166_2: RO-CV
+    - code: ro-db
+      label: Dâmbovița
+      iso3166_2: RO-DB
+    - code: ro-dj
+      label: Dolj
+      iso3166_2: RO-DJ
+    - code: ro-gj
+      label: Gorj
+      iso3166_2: RO-GJ
+    - code: ro-gl
+      label: Galați
+      iso3166_2: RO-GL
+    - code: ro-gr
+      label: Giurgiu
+      iso3166_2: RO-GR
+    - code: ro-hd
+      label: Hunedoara
+      iso3166_2: RO-HD
+    - code: ro-hr
+      label: Harghita
+      iso3166_2: RO-HR
+    - code: ro-if
+      label: Ilfov
+      iso3166_2: RO-IF
+    - code: ro-il
+      label: Ialomița
+      iso3166_2: RO-IL
+    - code: ro-is
+      label: Iași
+      iso3166_2: RO-IS
+    - code: ro-mh
+      label: Mehedinți
+      iso3166_2: RO-MH
+    - code: ro-mm
+      label: Maramureș
+      iso3166_2: RO-MM
+    - code: ro-ms
+      label: Mureș
+      iso3166_2: RO-MS
+    - code: ro-nt
+      label: Neamț
+      iso3166_2: RO-NT
+    - code: ro-ot
+      label: Olt
+      iso3166_2: RO-OT
+    - code: ro-ph
+      label: Prahova
+      iso3166_2: RO-PH
+    - code: ro-sb
+      label: Sibiu
+      iso3166_2: RO-SB
+    - code: ro-sj
+      label: Sălaj
+      iso3166_2: RO-SJ
+    - code: ro-sm
+      label: Satu Mare
+      iso3166_2: RO-SM
+    - code: ro-sv
+      label: Suceava
+      iso3166_2: RO-SV
+    - code: ro-tl
+      label: Tulcea
+      iso3166_2: RO-TL
+    - code: ro-tm
+      label: Timiș
+      iso3166_2: RO-TM
+    - code: ro-tr
+      label: Teleorman
+      iso3166_2: RO-TR
+    - code: ro-vl
+      label: Vâlcea
+      iso3166_2: RO-VL
+    - code: ro-vn
+      label: Vrancea
+      iso3166_2: RO-VN
+    - code: ro-vs
+      label: Vaslui
+      iso3166_2: RO-VS
   serbia:
     label: Serbia
     iso3166_1: RS
@@ -1228,81 +1227,81 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: rs-00
-        label: Belgrade
-        iso3166_2: RS-00
-      - code: rs-01
-        label: North Backa District
-        iso3166_2: RS-01
-      - code: rs-02
-        label: Central Banat District
-        iso3166_2: RS-02
-      - code: rs-03
-        label: North Banat District
-        iso3166_2: RS-03
-      - code: rs-04
-        label: South Banat District
-        iso3166_2: RS-04
-      - code: rs-05
-        label: West Backa District
-        iso3166_2: RS-05
-      - code: rs-06
-        label: South Backa District
-        iso3166_2: RS-06
-      - code: rs-07
-        label: Srem District
-        iso3166_2: RS-07
-      - code: rs-08
-        label: Macva District
-        iso3166_2: RS-08
-      - code: rs-09
-        label: Kolubara District
-        iso3166_2: RS-09
-      - code: rs-10
-        label: Podunavlje District
-        iso3166_2: RS-10
-      - code: rs-11
-        label: Branicevo District
-        iso3166_2: RS-11
-      - code: rs-12
-        label: Sumadija District
-        iso3166_2: RS-12
-      - code: rs-13
-        label: Pomoravlje District
-        iso3166_2: RS-13
-      - code: rs-14
-        label: Bor District
-        iso3166_2: RS-14
-      - code: rs-15
-        label: Zajecar District
-        iso3166_2: RS-15
-      - code: rs-16
-        label: Zlatibor District
-        iso3166_2: RS-16
-      - code: rs-17
-        label: Moravica District
-        iso3166_2: RS-17
-      - code: rs-18
-        label: Raska District
-        iso3166_2: RS-18
-      - code: rs-19
-        label: Rasina District
-        iso3166_2: RS-19
-      - code: rs-20
-        label: Nisava District
-        iso3166_2: RS-20
-      - code: rs-21
-        label: Toplica District
-        iso3166_2: RS-21
-      - code: rs-22
-        label: Pirot District
-        iso3166_2: RS-22
-      - code: rs-23
-        label: Jablanica District
-        iso3166_2: RS-23
-      - code: rs-24
-        label: Pcinja District
-        iso3166_2: RS-24
+    - code: rs-00
+      label: Belgrade
+      iso3166_2: RS-00
+    - code: rs-01
+      label: North Backa District
+      iso3166_2: RS-01
+    - code: rs-02
+      label: Central Banat District
+      iso3166_2: RS-02
+    - code: rs-03
+      label: North Banat District
+      iso3166_2: RS-03
+    - code: rs-04
+      label: South Banat District
+      iso3166_2: RS-04
+    - code: rs-05
+      label: West Backa District
+      iso3166_2: RS-05
+    - code: rs-06
+      label: South Backa District
+      iso3166_2: RS-06
+    - code: rs-07
+      label: Srem District
+      iso3166_2: RS-07
+    - code: rs-08
+      label: Macva District
+      iso3166_2: RS-08
+    - code: rs-09
+      label: Kolubara District
+      iso3166_2: RS-09
+    - code: rs-10
+      label: Podunavlje District
+      iso3166_2: RS-10
+    - code: rs-11
+      label: Branicevo District
+      iso3166_2: RS-11
+    - code: rs-12
+      label: Sumadija District
+      iso3166_2: RS-12
+    - code: rs-13
+      label: Pomoravlje District
+      iso3166_2: RS-13
+    - code: rs-14
+      label: Bor District
+      iso3166_2: RS-14
+    - code: rs-15
+      label: Zajecar District
+      iso3166_2: RS-15
+    - code: rs-16
+      label: Zlatibor District
+      iso3166_2: RS-16
+    - code: rs-17
+      label: Moravica District
+      iso3166_2: RS-17
+    - code: rs-18
+      label: Raska District
+      iso3166_2: RS-18
+    - code: rs-19
+      label: Rasina District
+      iso3166_2: RS-19
+    - code: rs-20
+      label: Nisava District
+      iso3166_2: RS-20
+    - code: rs-21
+      label: Toplica District
+      iso3166_2: RS-21
+    - code: rs-22
+      label: Pirot District
+      iso3166_2: RS-22
+    - code: rs-23
+      label: Jablanica District
+      iso3166_2: RS-23
+    - code: rs-24
+      label: Pcinja District
+      iso3166_2: RS-24
   tr:
     label: Türkei
     iso3166_1: TR
@@ -1312,249 +1311,249 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: tr-01
-        label: TR-01
-        iso3166_2: TR-01
-      - code: tr-02
-        label: TR-02
-        iso3166_2: TR-02
-      - code: tr-03
-        label: TR-03
-        iso3166_2: TR-03
-      - code: tr-04
-        label: TR-04
-        iso3166_2: TR-04
-      - code: tr-05
-        label: TR-05
-        iso3166_2: TR-05
-      - code: tr-06
-        label: TR-06
-        iso3166_2: TR-06
-      - code: tr-07
-        label: TR-07
-        iso3166_2: TR-07
-      - code: tr-08
-        label: TR-08
-        iso3166_2: TR-08
-      - code: tr-09
-        label: TR-09
-        iso3166_2: TR-09
-      - code: tr-10
-        label: TR-10
-        iso3166_2: TR-10
-      - code: tr-11
-        label: TR-11
-        iso3166_2: TR-11
-      - code: tr-12
-        label: TR-12
-        iso3166_2: TR-12
-      - code: tr-13
-        label: TR-13
-        iso3166_2: TR-13
-      - code: tr-14
-        label: TR-14
-        iso3166_2: TR-14
-      - code: tr-15
-        label: TR-15
-        iso3166_2: TR-15
-      - code: tr-16
-        label: TR-16
-        iso3166_2: TR-16
-      - code: tr-17
-        label: TR-17
-        iso3166_2: TR-17
-      - code: tr-18
-        label: TR-18
-        iso3166_2: TR-18
-      - code: tr-19
-        label: TR-19
-        iso3166_2: TR-19
-      - code: tr-20
-        label: TR-20
-        iso3166_2: TR-20
-      - code: tr-21
-        label: TR-21
-        iso3166_2: TR-21
-      - code: tr-22
-        label: TR-22
-        iso3166_2: TR-22
-      - code: tr-23
-        label: TR-23
-        iso3166_2: TR-23
-      - code: tr-24
-        label: TR-24
-        iso3166_2: TR-24
-      - code: tr-25
-        label: TR-25
-        iso3166_2: TR-25
-      - code: tr-26
-        label: TR-26
-        iso3166_2: TR-26
-      - code: tr-27
-        label: TR-27
-        iso3166_2: TR-27
-      - code: tr-28
-        label: TR-28
-        iso3166_2: TR-28
-      - code: tr-29
-        label: TR-29
-        iso3166_2: TR-29
-      - code: tr-30
-        label: TR-30
-        iso3166_2: TR-30
-      - code: tr-31
-        label: TR-31
-        iso3166_2: TR-31
-      - code: tr-32
-        label: TR-32
-        iso3166_2: TR-32
-      - code: tr-33
-        label: TR-33
-        iso3166_2: TR-33
-      - code: tr-34
-        label: TR-34
-        iso3166_2: TR-34
-      - code: tr-35
-        label: TR-35
-        iso3166_2: TR-35
-      - code: tr-36
-        label: TR-36
-        iso3166_2: TR-36
-      - code: tr-37
-        label: TR-37
-        iso3166_2: TR-37
-      - code: tr-38
-        label: TR-38
-        iso3166_2: TR-38
-      - code: tr-39
-        label: TR-39
-        iso3166_2: TR-39
-      - code: tr-40
-        label: TR-40
-        iso3166_2: TR-40
-      - code: tr-41
-        label: TR-41
-        iso3166_2: TR-41
-      - code: tr-42
-        label: TR-42
-        iso3166_2: TR-42
-      - code: tr-43
-        label: TR-43
-        iso3166_2: TR-43
-      - code: tr-44
-        label: TR-44
-        iso3166_2: TR-44
-      - code: tr-45
-        label: TR-45
-        iso3166_2: TR-45
-      - code: tr-46
-        label: TR-46
-        iso3166_2: TR-46
-      - code: tr-47
-        label: TR-47
-        iso3166_2: TR-47
-      - code: tr-48
-        label: TR-48
-        iso3166_2: TR-48
-      - code: tr-49
-        label: TR-49
-        iso3166_2: TR-49
-      - code: tr-50
-        label: TR-50
-        iso3166_2: TR-50
-      - code: tr-51
-        label: TR-51
-        iso3166_2: TR-51
-      - code: tr-52
-        label: TR-52
-        iso3166_2: TR-52
-      - code: tr-53
-        label: TR-53
-        iso3166_2: TR-53
-      - code: tr-54
-        label: TR-54
-        iso3166_2: TR-54
-      - code: tr-55
-        label: TR-55
-        iso3166_2: TR-55
-      - code: tr-56
-        label: TR-56
-        iso3166_2: TR-56
-      - code: tr-57
-        label: TR-57
-        iso3166_2: TR-57
-      - code: tr-58
-        label: TR-58
-        iso3166_2: TR-58
-      - code: tr-59
-        label: TR-59
-        iso3166_2: TR-59
-      - code: tr-60
-        label: TR-60
-        iso3166_2: TR-60
-      - code: tr-61
-        label: TR-61
-        iso3166_2: TR-61
-      - code: tr-62
-        label: TR-62
-        iso3166_2: TR-62
-      - code: tr-63
-        label: TR-63
-        iso3166_2: TR-63
-      - code: tr-64
-        label: TR-64
-        iso3166_2: TR-64
-      - code: tr-65
-        label: TR-65
-        iso3166_2: TR-65
-      - code: tr-66
-        label: TR-66
-        iso3166_2: TR-66
-      - code: tr-67
-        label: TR-67
-        iso3166_2: TR-67
-      - code: tr-68
-        label: TR-68
-        iso3166_2: TR-68
-      - code: tr-69
-        label: TR-69
-        iso3166_2: TR-69
-      - code: tr-70
-        label: TR-70
-        iso3166_2: TR-70
-      - code: tr-71
-        label: TR-71
-        iso3166_2: TR-71
-      - code: tr-72
-        label: TR-72
-        iso3166_2: TR-72
-      - code: tr-73
-        label: TR-73
-        iso3166_2: TR-73
-      - code: tr-74
-        label: TR-74
-        iso3166_2: TR-74
-      - code: tr-75
-        label: TR-75
-        iso3166_2: TR-75
-      - code: tr-76
-        label: TR-76
-        iso3166_2: TR-76
-      - code: tr-77
-        label: TR-77
-        iso3166_2: TR-77
-      - code: tr-78
-        label: TR-78
-        iso3166_2: TR-78
-      - code: tr-79
-        label: TR-79
-        iso3166_2: TR-79
-      - code: tr-80
-        label: TR-80
-        iso3166_2: TR-80
-      - code: tr-81
-        label: TR-81
-        iso3166_2: TR-81
+    - code: tr-01
+      label: TR-01
+      iso3166_2: TR-01
+    - code: tr-02
+      label: TR-02
+      iso3166_2: TR-02
+    - code: tr-03
+      label: TR-03
+      iso3166_2: TR-03
+    - code: tr-04
+      label: TR-04
+      iso3166_2: TR-04
+    - code: tr-05
+      label: TR-05
+      iso3166_2: TR-05
+    - code: tr-06
+      label: TR-06
+      iso3166_2: TR-06
+    - code: tr-07
+      label: TR-07
+      iso3166_2: TR-07
+    - code: tr-08
+      label: TR-08
+      iso3166_2: TR-08
+    - code: tr-09
+      label: TR-09
+      iso3166_2: TR-09
+    - code: tr-10
+      label: TR-10
+      iso3166_2: TR-10
+    - code: tr-11
+      label: TR-11
+      iso3166_2: TR-11
+    - code: tr-12
+      label: TR-12
+      iso3166_2: TR-12
+    - code: tr-13
+      label: TR-13
+      iso3166_2: TR-13
+    - code: tr-14
+      label: TR-14
+      iso3166_2: TR-14
+    - code: tr-15
+      label: TR-15
+      iso3166_2: TR-15
+    - code: tr-16
+      label: TR-16
+      iso3166_2: TR-16
+    - code: tr-17
+      label: TR-17
+      iso3166_2: TR-17
+    - code: tr-18
+      label: TR-18
+      iso3166_2: TR-18
+    - code: tr-19
+      label: TR-19
+      iso3166_2: TR-19
+    - code: tr-20
+      label: TR-20
+      iso3166_2: TR-20
+    - code: tr-21
+      label: TR-21
+      iso3166_2: TR-21
+    - code: tr-22
+      label: TR-22
+      iso3166_2: TR-22
+    - code: tr-23
+      label: TR-23
+      iso3166_2: TR-23
+    - code: tr-24
+      label: TR-24
+      iso3166_2: TR-24
+    - code: tr-25
+      label: TR-25
+      iso3166_2: TR-25
+    - code: tr-26
+      label: TR-26
+      iso3166_2: TR-26
+    - code: tr-27
+      label: TR-27
+      iso3166_2: TR-27
+    - code: tr-28
+      label: TR-28
+      iso3166_2: TR-28
+    - code: tr-29
+      label: TR-29
+      iso3166_2: TR-29
+    - code: tr-30
+      label: TR-30
+      iso3166_2: TR-30
+    - code: tr-31
+      label: TR-31
+      iso3166_2: TR-31
+    - code: tr-32
+      label: TR-32
+      iso3166_2: TR-32
+    - code: tr-33
+      label: TR-33
+      iso3166_2: TR-33
+    - code: tr-34
+      label: TR-34
+      iso3166_2: TR-34
+    - code: tr-35
+      label: TR-35
+      iso3166_2: TR-35
+    - code: tr-36
+      label: TR-36
+      iso3166_2: TR-36
+    - code: tr-37
+      label: TR-37
+      iso3166_2: TR-37
+    - code: tr-38
+      label: TR-38
+      iso3166_2: TR-38
+    - code: tr-39
+      label: TR-39
+      iso3166_2: TR-39
+    - code: tr-40
+      label: TR-40
+      iso3166_2: TR-40
+    - code: tr-41
+      label: TR-41
+      iso3166_2: TR-41
+    - code: tr-42
+      label: TR-42
+      iso3166_2: TR-42
+    - code: tr-43
+      label: TR-43
+      iso3166_2: TR-43
+    - code: tr-44
+      label: TR-44
+      iso3166_2: TR-44
+    - code: tr-45
+      label: TR-45
+      iso3166_2: TR-45
+    - code: tr-46
+      label: TR-46
+      iso3166_2: TR-46
+    - code: tr-47
+      label: TR-47
+      iso3166_2: TR-47
+    - code: tr-48
+      label: TR-48
+      iso3166_2: TR-48
+    - code: tr-49
+      label: TR-49
+      iso3166_2: TR-49
+    - code: tr-50
+      label: TR-50
+      iso3166_2: TR-50
+    - code: tr-51
+      label: TR-51
+      iso3166_2: TR-51
+    - code: tr-52
+      label: TR-52
+      iso3166_2: TR-52
+    - code: tr-53
+      label: TR-53
+      iso3166_2: TR-53
+    - code: tr-54
+      label: TR-54
+      iso3166_2: TR-54
+    - code: tr-55
+      label: TR-55
+      iso3166_2: TR-55
+    - code: tr-56
+      label: TR-56
+      iso3166_2: TR-56
+    - code: tr-57
+      label: TR-57
+      iso3166_2: TR-57
+    - code: tr-58
+      label: TR-58
+      iso3166_2: TR-58
+    - code: tr-59
+      label: TR-59
+      iso3166_2: TR-59
+    - code: tr-60
+      label: TR-60
+      iso3166_2: TR-60
+    - code: tr-61
+      label: TR-61
+      iso3166_2: TR-61
+    - code: tr-62
+      label: TR-62
+      iso3166_2: TR-62
+    - code: tr-63
+      label: TR-63
+      iso3166_2: TR-63
+    - code: tr-64
+      label: TR-64
+      iso3166_2: TR-64
+    - code: tr-65
+      label: TR-65
+      iso3166_2: TR-65
+    - code: tr-66
+      label: TR-66
+      iso3166_2: TR-66
+    - code: tr-67
+      label: TR-67
+      iso3166_2: TR-67
+    - code: tr-68
+      label: TR-68
+      iso3166_2: TR-68
+    - code: tr-69
+      label: TR-69
+      iso3166_2: TR-69
+    - code: tr-70
+      label: TR-70
+      iso3166_2: TR-70
+    - code: tr-71
+      label: TR-71
+      iso3166_2: TR-71
+    - code: tr-72
+      label: TR-72
+      iso3166_2: TR-72
+    - code: tr-73
+      label: TR-73
+      iso3166_2: TR-73
+    - code: tr-74
+      label: TR-74
+      iso3166_2: TR-74
+    - code: tr-75
+      label: TR-75
+      iso3166_2: TR-75
+    - code: tr-76
+      label: TR-76
+      iso3166_2: TR-76
+    - code: tr-77
+      label: TR-77
+      iso3166_2: TR-77
+    - code: tr-78
+      label: TR-78
+      iso3166_2: TR-78
+    - code: tr-79
+      label: TR-79
+      iso3166_2: TR-79
+    - code: tr-80
+      label: TR-80
+      iso3166_2: TR-80
+    - code: tr-81
+      label: TR-81
+      iso3166_2: TR-81
   slowakei:
     label: Slowakei
     iso3166_1: SK
@@ -1564,30 +1563,30 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - id: sk-bl
-        label: Bratislavský kraj
-        iso3166_2: SK-BL
-      - id: sk-ta
-        label: Trnavský kraj
-        iso3166_2: SK-TA
-      - id: sk-tc
-        label: Trenčiansky kraj
-        iso3166_2: SK-TC
-      - id: sk-ni
-        label: Nitriansky kraj
-        iso3166_2: SK-NI
-      - id: sk-zi
-        label: Žilinský kraj
-        iso3166_2: SK-ZI
-      - id: sk-bc
-        label: Banskobystrický kraj
-        iso3166_2: SK-BC
-      - id: sk-pv
-        label: Prešovský kraj
-        iso3166_2: SK-PV
-      - id: sk-ki
-        label: Košický kraj
-        iso3166_2: SK-KI
+    - id: sk-bl
+      label: Bratislavský kraj
+      iso3166_2: SK-BL
+    - id: sk-ta
+      label: Trnavský kraj
+      iso3166_2: SK-TA
+    - id: sk-tc
+      label: Trenčiansky kraj
+      iso3166_2: SK-TC
+    - id: sk-ni
+      label: Nitriansky kraj
+      iso3166_2: SK-NI
+    - id: sk-zi
+      label: Žilinský kraj
+      iso3166_2: SK-ZI
+    - id: sk-bc
+      label: Banskobystrický kraj
+      iso3166_2: SK-BC
+    - id: sk-pv
+      label: Prešovský kraj
+      iso3166_2: SK-PV
+    - id: sk-ki
+      label: Košický kraj
+      iso3166_2: SK-KI
   great_britain:
     label: Great Britain
     iso3166_1: GB
@@ -1597,22 +1596,22 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: gb-eng
-        label: England
-        region: england
-        iso3166_2: GB-ENG
-      - code: gb-sct
-        label: Scotland
-        region: scotland
-        iso3166_2: GB-SCT
-      - code: gb-wls
-        label: Wales
-        region: wales
-        iso3166_2: GB-WLS
-      - code: gb-nir
-        label: Northern Ireland
-        region: northern_ireland
-        iso3166_2: GB-NIR
+    - code: gb-eng
+      label: England
+      region: england
+      iso3166_2: GB-ENG
+    - code: gb-sct
+      label: Scotland
+      region: scotland
+      iso3166_2: GB-SCT
+    - code: gb-wls
+      label: Wales
+      region: wales
+      iso3166_2: GB-WLS
+    - code: gb-nir
+      label: Northern Ireland
+      region: northern_ireland
+      iso3166_2: GB-NIR
   germany:
     label: Germany
     iso3166_1: DE
@@ -1623,54 +1622,54 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: area-iso
     regions:
-      - code: de-bw
-        label: Baden-Württemberg
-        iso3166_2: DE-BW
-      - code: de-by
-        label: Bayern
-        iso3166_2: DE-BY
-      - code: de-be
-        label: Berlin
-        iso3166_2: DE-BE
-      - code: de-bb
-        label: Brandenburg
-        iso3166_2: DE-BB
-      - code: de-hb
-        label: Bremen
-        iso3166_2: DE-HB
-      - code: de-hh
-        label: Hamburg
-        iso3166_2: DE-HH
-      - code: de-he
-        label: Hessen
-        iso3166_2: DE-HE
-      - code: de-mv
-        label: Mecklenburg-Vorpommern
-        iso3166_2: DE-MV
-      - code: de-ni
-        label: Niedersachsen
-        iso3166_2: DE-NI
-      - code: de-nw
-        label: Nordrhein-Westfalen
-        iso3166_2: DE-NW
-      - code: de-rp
-        label: Rheinland-Pfalz
-        iso3166_2: DE-RP
-      - code: de-sl
-        label: Saarland
-        iso3166_2: DE-SL
-      - code: de-sn
-        label: Sachsen
-        iso3166_2: DE-SN
-      - code: de-st
-        label: Sachsen-Anhalt
-        iso3166_2: DE-ST
-      - code: de-sh
-        label: Schleswig-Holstein
-        iso3166_2: DE-SH
-      - code: de-th
-        label: Thüringen
-        iso3166_2: DE-TH
+    - code: de-bw
+      label: Baden-Württemberg
+      iso3166_2: DE-BW
+    - code: de-by
+      label: Bayern
+      iso3166_2: DE-BY
+    - code: de-be
+      label: Berlin
+      iso3166_2: DE-BE
+    - code: de-bb
+      label: Brandenburg
+      iso3166_2: DE-BB
+    - code: de-hb
+      label: Bremen
+      iso3166_2: DE-HB
+    - code: de-hh
+      label: Hamburg
+      iso3166_2: DE-HH
+    - code: de-he
+      label: Hessen
+      iso3166_2: DE-HE
+    - code: de-mv
+      label: Mecklenburg-Vorpommern
+      iso3166_2: DE-MV
+    - code: de-ni
+      label: Niedersachsen
+      iso3166_2: DE-NI
+    - code: de-nw
+      label: Nordrhein-Westfalen
+      iso3166_2: DE-NW
+    - code: de-rp
+      label: Rheinland-Pfalz
+      iso3166_2: DE-RP
+    - code: de-sl
+      label: Saarland
+      iso3166_2: DE-SL
+    - code: de-sn
+      label: Sachsen
+      iso3166_2: DE-SN
+    - code: de-st
+      label: Sachsen-Anhalt
+      iso3166_2: DE-ST
+    - code: de-sh
+      label: Schleswig-Holstein
+      iso3166_2: DE-SH
+    - code: de-th
+      label: Thüringen
+      iso3166_2: DE-TH
   gr:
     label: Griechenland
     iso3166_1: GR
@@ -1680,45 +1679,45 @@ countries:
     region_identifier_strategy: iso3166-2
     country_scope_strategy: relation-iso-area
     regions:
-      - code: gr-a
-        label: GR-A
-        iso3166_2: GR-A
-      - code: gr-b
-        label: GR-B
-        iso3166_2: GR-B
-      - code: gr-c
-        label: GR-C
-        iso3166_2: GR-C
-      - code: gr-d
-        label: GR-D
-        iso3166_2: GR-D
-      - code: gr-e
-        label: GR-E
-        iso3166_2: GR-E
-      - code: gr-f
-        label: GR-F
-        iso3166_2: GR-F
-      - code: gr-g
-        label: GR-G
-        iso3166_2: GR-G
-      - code: gr-h
-        label: GR-H
-        iso3166_2: GR-H
-      - code: gr-i
-        label: GR-I
-        iso3166_2: GR-I
-      - code: gr-j
-        label: GR-J
-        iso3166_2: GR-J
-      - code: gr-k
-        label: GR-K
-        iso3166_2: GR-K
-      - code: gr-l
-        label: GR-L
-        iso3166_2: GR-L
-      - code: gr-m
-        label: GR-M
-        iso3166_2: GR-M
+    - code: gr-a
+      label: GR-A
+      iso3166_2: GR-A
+    - code: gr-b
+      label: GR-B
+      iso3166_2: GR-B
+    - code: gr-c
+      label: GR-C
+      iso3166_2: GR-C
+    - code: gr-d
+      label: GR-D
+      iso3166_2: GR-D
+    - code: gr-e
+      label: GR-E
+      iso3166_2: GR-E
+    - code: gr-f
+      label: GR-F
+      iso3166_2: GR-F
+    - code: gr-g
+      label: GR-G
+      iso3166_2: GR-G
+    - code: gr-h
+      label: GR-H
+      iso3166_2: GR-H
+    - code: gr-i
+      label: GR-I
+      iso3166_2: GR-I
+    - code: gr-j
+      label: GR-J
+      iso3166_2: GR-J
+    - code: gr-k
+      label: GR-K
+      iso3166_2: GR-K
+    - code: gr-l
+      label: GR-L
+      iso3166_2: GR-L
+    - code: gr-m
+      label: GR-M
+      iso3166_2: GR-M
   me:
     label: Montenegro
     iso3166_1: ME
@@ -1727,701 +1726,506 @@ countries:
     id: me
     region: me
     regions: []
-regions:
-  - id: de-baden-wuerttemberg
-    label: Baden-Württemberg
-    path: germany/baden-wuerttemberg
-    country: germany
-    region: baden-wuerttemberg
-    country_label: Germany
-    area_name: Baden-Württemberg
-    admin_level: 4
-    iso3166_2: DE-BW
-  - id: de-bayern
-    label: Bayern
-    path: germany/bayern
-    country: germany
-    region: bayern
-    country_label: Germany
-    area_name: Bayern
-    admin_level: 4
-    iso3166_2: DE-BY
-  - id: de-berlin
-    label: Berlin
-    path: germany/berlin
-    country: germany
-    region: berlin
-    country_label: Germany
-    area_name: Berlin
-    admin_level: 4
-    iso3166_2: DE-BE
-  - id: de-brandenburg
-    label: Brandenburg
-    path: germany/brandenburg
-    country: germany
-    region: brandenburg
-    country_label: Germany
-    area_name: Brandenburg
-    admin_level: 4
-    iso3166_2: DE-BB
-  - id: de-bremen
-    label: Bremen
-    path: germany/bremen
-    country: germany
-    region: bremen
-    country_label: Germany
-    area_name: Bremen
-    admin_level: 4
-    iso3166_2: DE-HB
-  - id: de-hamburg
-    label: Hamburg
-    path: germany/hamburg
-    country: germany
-    region: hamburg
-    country_label: Germany
-    area_name: Hamburg
-    admin_level: 4
-    iso3166_2: DE-HH
-  - id: de-hessen
-    label: Hessen
-    path: germany/hessen
-    country: germany
-    region: hessen
-    country_label: Germany
-    area_name: Hessen
-    admin_level: 4
-    iso3166_2: DE-HE
-  - id: de-mecklenburg-vorpommern
-    label: Mecklenburg-Vorpommern
-    path: germany/mecklenburg-vorpommern
-    country: germany
-    region: mecklenburg-vorpommern
-    country_label: Germany
-    area_name: Mecklenburg-Vorpommern
-    admin_level: 4
-    iso3166_2: DE-MV
-  - id: de-niedersachsen
-    label: Niedersachsen
-    path: germany/niedersachsen
-    country: germany
-    region: niedersachsen
-    country_label: Germany
-    area_name: Niedersachsen
-    admin_level: 4
-    iso3166_2: DE-NI
-  - id: de-nordrhein-westfalen
-    label: Nordrhein-Westfalen
-    path: germany/nordrhein-westfalen
-    country: germany
-    region: nordrhein-westfalen
-    country_label: Germany
-    area_name: Nordrhein-Westfalen
-    admin_level: 4
-    iso3166_2: DE-NW
-  - id: de-rheinland-pfalz
-    label: Rheinland-Pfalz
-    path: germany/rheinland-pfalz
-    country: germany
-    region: rheinland-pfalz
-    country_label: Germany
-    area_name: Rheinland-Pfalz
-    admin_level: 4
-    iso3166_2: DE-RP
-  - id: de-saarland
-    label: Saarland
-    path: germany/saarland
-    country: germany
-    region: saarland
-    country_label: Germany
-    area_name: Saarland
-    admin_level: 4
-    iso3166_2: DE-SL
-  - id: de-sachsen
-    label: Sachsen
-    path: germany/sachsen
-    country: germany
-    region: sachsen
-    country_label: Germany
-    area_name: Sachsen
-    admin_level: 4
-    iso3166_2: DE-SN
-  - id: de-sachsen-anhalt
-    label: Sachsen-Anhalt
-    path: germany/sachsen-anhalt
-    country: germany
-    region: sachsen-anhalt
-    country_label: Germany
-    area_name: Sachsen-Anhalt
-    admin_level: 4
-    iso3166_2: DE-ST
-  - id: de-schleswig-holstein
-    label: Schleswig-Holstein
-    path: germany/schleswig-holstein
-    country: germany
-    region: schleswig-holstein
-    country_label: Germany
-    area_name: Schleswig-Holstein
-    admin_level: 4
-    iso3166_2: DE-SH
-  - id: de-thueringen
-    label: Thüringen
-    path: germany/thueringen
-    country: germany
-    region: thueringen
-    country_label: Germany
-    area_name: Thüringen
-    admin_level: 4
-    iso3166_2: DE-TH
-
-  - id: cz-praha
-    label: Praha
-    path: czechia/praha
-    country: czechia
-    region: praha
-    country_label: Czechia
-    area_name: Praha
-    admin_level: 4
-    iso3166_2: CZ-10
-  - id: cz-stredocesky
-    label: Středočeský kraj
-    path: czechia/stredocesky
-    country: czechia
-    region: stredocesky
-    country_label: Czechia
-    area_name: Středočeský kraj
-    admin_level: 4
-    iso3166_2: CZ-20
-  - id: cz-jihocesky
-    label: Jihočeský kraj
-    path: czechia/jihocesky
-    country: czechia
-    region: jihocesky
-    country_label: Czechia
-    area_name: Jihočeský kraj
-    admin_level: 4
-    iso3166_2: CZ-31
-  - id: cz-plzensky
-    label: Plzeňský kraj
-    path: czechia/plzensky
-    country: czechia
-    region: plzensky
-    country_label: Czechia
-    area_name: Plzeňský kraj
-    admin_level: 4
-    iso3166_2: CZ-32
-  - id: cz-karlovarsky
-    label: Karlovarský kraj
-    path: czechia/karlovarsky
-    country: czechia
-    region: karlovarsky
-    country_label: Czechia
-    area_name: Karlovarský kraj
-    admin_level: 4
-    iso3166_2: CZ-41
-  - id: cz-ustecky
-    label: Ústecký kraj
-    path: czechia/ustecky
-    country: czechia
-    region: ustecky
-    country_label: Czechia
-    area_name: Ústecký kraj
-    admin_level: 4
-    iso3166_2: CZ-42
-  - id: cz-liberecky
-    label: Liberecký kraj
-    path: czechia/liberecky
-    country: czechia
-    region: liberecky
-    country_label: Czechia
-    area_name: Liberecký kraj
-    admin_level: 4
-    iso3166_2: CZ-51
-  - id: cz-kralovehradecky
-    label: Královéhradecký kraj
-    path: czechia/kralovehradecky
-    country: czechia
-    region: kralovehradecky
-    country_label: Czechia
-    area_name: Královéhradecký kraj
-    admin_level: 4
-    iso3166_2: CZ-52
-  - id: cz-pardubicky
-    label: Pardubický kraj
-    path: czechia/pardubicky
-    country: czechia
-    region: pardubicky
-    country_label: Czechia
-    area_name: Pardubický kraj
-    admin_level: 4
-    iso3166_2: CZ-53
-  - id: cz-vysocina
-    label: Vysočina
-    path: czechia/vysocina
-    country: czechia
-    region: vysocina
-    country_label: Czechia
-    area_name: Kraj Vysočina
-    admin_level: 4
-    iso3166_2: CZ-63
-  - id: cz-jihomoravsky
-    label: Jihomoravský kraj
-    path: czechia/jihomoravsky
-    country: czechia
-    region: jihomoravsky
-    country_label: Czechia
-    area_name: Jihomoravský kraj
-    admin_level: 4
-    iso3166_2: CZ-64
-  - id: cz-olomoucky
-    label: Olomoucký kraj
-    path: czechia/olomoucky
-    country: czechia
-    region: olomoucky
-    country_label: Czechia
-    area_name: Olomoucký kraj
-    admin_level: 4
-    iso3166_2: CZ-71
-  - id: cz-zlinsky
-    label: Zlínský kraj
-    path: czechia/zlinsky
-    country: czechia
-    region: zlinsky
-    country_label: Czechia
-    area_name: Zlínský kraj
-    admin_level: 4
-    iso3166_2: CZ-72
-  - id: cz-moravskoslezsky
-    label: Moravskoslezský kraj
-    path: czechia/moravskoslezsky
-    country: czechia
-    region: moravskoslezsky
-    country_label: Czechia
-    area_name: Moravskoslezský kraj
-    admin_level: 4
-    iso3166_2: CZ-80
-
-  - id: at-burgenland
-    label: Burgenland
-    path: austria/burgenland
-    country: austria
-    region: burgenland
-    country_label: Austria
-    area_name: Burgenland
-    country_iso: AT
+  czechia:
+    label: Czechia
+    iso3166_1: CZ
     country_admin_level: 2
-    admin_level: 4
-    iso3166_2: AT-1
-  - id: at-karnten
-    label: Kärnten
-    path: austria/karnten
-    country: austria
-    region: karnten
-    country_label: Austria
-    area_name: Kärnten
-    country_iso: AT
+    region_admin_level: 4
+    region_identifier_strategy: iso3166-2
+    region_match_key: ISO3166-2
+    regions:
+    - id: cz-praha
+      label: Praha
+      region: praha
+      path: czechia/praha
+      iso3166_2: CZ-10
+      area_name: Praha
+      admin_level: 4
+      code: cz-praha
+      match_value: CZ-10
+    - id: cz-stredocesky
+      label: Středočeský kraj
+      region: stredocesky
+      path: czechia/stredocesky
+      iso3166_2: CZ-20
+      area_name: Středočeský kraj
+      admin_level: 4
+      code: cz-stredocesky
+      match_value: CZ-20
+    - id: cz-jihocesky
+      label: Jihočeský kraj
+      region: jihocesky
+      path: czechia/jihocesky
+      iso3166_2: CZ-31
+      area_name: Jihočeský kraj
+      admin_level: 4
+      code: cz-jihocesky
+      match_value: CZ-31
+    - id: cz-plzensky
+      label: Plzeňský kraj
+      region: plzensky
+      path: czechia/plzensky
+      iso3166_2: CZ-32
+      area_name: Plzeňský kraj
+      admin_level: 4
+      code: cz-plzensky
+      match_value: CZ-32
+    - id: cz-karlovarsky
+      label: Karlovarský kraj
+      region: karlovarsky
+      path: czechia/karlovarsky
+      iso3166_2: CZ-41
+      area_name: Karlovarský kraj
+      admin_level: 4
+      code: cz-karlovarsky
+      match_value: CZ-41
+    - id: cz-ustecky
+      label: Ústecký kraj
+      region: ustecky
+      path: czechia/ustecky
+      iso3166_2: CZ-42
+      area_name: Ústecký kraj
+      admin_level: 4
+      code: cz-ustecky
+      match_value: CZ-42
+    - id: cz-liberecky
+      label: Liberecký kraj
+      region: liberecky
+      path: czechia/liberecky
+      iso3166_2: CZ-51
+      area_name: Liberecký kraj
+      admin_level: 4
+      code: cz-liberecky
+      match_value: CZ-51
+    - id: cz-kralovehradecky
+      label: Královéhradecký kraj
+      region: kralovehradecky
+      path: czechia/kralovehradecky
+      iso3166_2: CZ-52
+      area_name: Královéhradecký kraj
+      admin_level: 4
+      code: cz-kralovehradecky
+      match_value: CZ-52
+    - id: cz-pardubicky
+      label: Pardubický kraj
+      region: pardubicky
+      path: czechia/pardubicky
+      iso3166_2: CZ-53
+      area_name: Pardubický kraj
+      admin_level: 4
+      code: cz-pardubicky
+      match_value: CZ-53
+    - id: cz-vysocina
+      label: Vysočina
+      region: vysocina
+      path: czechia/vysocina
+      iso3166_2: CZ-63
+      area_name: Kraj Vysočina
+      admin_level: 4
+      code: cz-vysocina
+      match_value: CZ-63
+    - id: cz-jihomoravsky
+      label: Jihomoravský kraj
+      region: jihomoravsky
+      path: czechia/jihomoravsky
+      iso3166_2: CZ-64
+      area_name: Jihomoravský kraj
+      admin_level: 4
+      code: cz-jihomoravsky
+      match_value: CZ-64
+    - id: cz-olomoucky
+      label: Olomoucký kraj
+      region: olomoucky
+      path: czechia/olomoucky
+      iso3166_2: CZ-71
+      area_name: Olomoucký kraj
+      admin_level: 4
+      code: cz-olomoucky
+      match_value: CZ-71
+    - id: cz-zlinsky
+      label: Zlínský kraj
+      region: zlinsky
+      path: czechia/zlinsky
+      iso3166_2: CZ-72
+      area_name: Zlínský kraj
+      admin_level: 4
+      code: cz-zlinsky
+      match_value: CZ-72
+    - id: cz-moravskoslezsky
+      label: Moravskoslezský kraj
+      region: moravskoslezsky
+      path: czechia/moravskoslezsky
+      iso3166_2: CZ-80
+      area_name: Moravskoslezský kraj
+      admin_level: 4
+      code: cz-moravskoslezsky
+      match_value: CZ-80
+  austria:
+    label: Austria
+    iso3166_1: AT
     country_admin_level: 2
-    admin_level: 4
-    iso3166_2: AT-2
-  - id: at-niederosterreich
-    label: Niederösterreich
-    path: austria/niederosterreich
-    country: austria
-    region: niederosterreich
-    country_label: Austria
-    area_name: Niederösterreich
-    country_iso: AT
+    region_admin_level: 4
+    region_identifier_strategy: iso3166-2
+    region_match_key: ISO3166-2
+    regions:
+    - id: at-burgenland
+      label: Burgenland
+      region: burgenland
+      path: austria/burgenland
+      iso3166_2: AT-1
+      area_name: Burgenland
+      admin_level: 4
+      code: at-burgenland
+      match_value: AT-1
+    - id: at-karnten
+      label: Kärnten
+      region: karnten
+      path: austria/karnten
+      iso3166_2: AT-2
+      area_name: Kärnten
+      admin_level: 4
+      code: at-karnten
+      match_value: AT-2
+    - id: at-niederosterreich
+      label: Niederösterreich
+      region: niederosterreich
+      path: austria/niederosterreich
+      iso3166_2: AT-3
+      area_name: Niederösterreich
+      admin_level: 4
+      code: at-niederosterreich
+      match_value: AT-3
+    - id: at-oberosterreich
+      label: Oberösterreich
+      region: oberosterreich
+      path: austria/oberosterreich
+      iso3166_2: AT-4
+      area_name: Oberösterreich
+      admin_level: 4
+      code: at-oberosterreich
+      match_value: AT-4
+    - id: at-salzburg
+      label: Salzburg
+      region: salzburg
+      path: austria/salzburg
+      iso3166_2: AT-5
+      area_name: Salzburg
+      admin_level: 4
+      code: at-salzburg
+      match_value: AT-5
+    - id: at-steiermark
+      label: Steiermark
+      region: steiermark
+      path: austria/steiermark
+      iso3166_2: AT-6
+      area_name: Steiermark
+      admin_level: 4
+      code: at-steiermark
+      match_value: AT-6
+    - id: at-tirol
+      label: Tirol
+      region: tirol
+      path: austria/tirol
+      iso3166_2: AT-7
+      area_name: Tirol
+      admin_level: 4
+      code: at-tirol
+      match_value: AT-7
+    - id: at-vorarlberg
+      label: Vorarlberg
+      region: vorarlberg
+      path: austria/vorarlberg
+      iso3166_2: AT-8
+      area_name: Vorarlberg
+      admin_level: 4
+      code: at-vorarlberg
+      match_value: AT-8
+    - id: at-wien
+      label: Wien
+      region: wien
+      path: austria/wien
+      iso3166_2: AT-9
+      area_name: Wien
+      admin_level: 4
+      code: at-wien
+      match_value: AT-9
+  switzerland:
+    label: Schweiz
+    iso3166_1: CH
     country_admin_level: 2
-    admin_level: 4
-    iso3166_2: AT-3
-  - id: at-oberosterreich
-    label: Oberösterreich
-    path: austria/oberosterreich
-    country: austria
-    region: oberosterreich
-    country_label: Austria
-    area_name: Oberösterreich
-    country_iso: AT
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: AT-4
-  - id: at-salzburg
-    label: Salzburg
-    path: austria/salzburg
-    country: austria
-    region: salzburg
-    country_label: Austria
-    area_name: Salzburg
-    country_iso: AT
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: AT-5
-  - id: at-steiermark
-    label: Steiermark
-    path: austria/steiermark
-    country: austria
-    region: steiermark
-    country_label: Austria
-    area_name: Steiermark
-    country_iso: AT
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: AT-6
-  - id: at-tirol
-    label: Tirol
-    path: austria/tirol
-    country: austria
-    region: tirol
-    country_label: Austria
-    area_name: Tirol
-    country_iso: AT
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: AT-7
-  - id: at-vorarlberg
-    label: Vorarlberg
-    path: austria/vorarlberg
-    country: austria
-    region: vorarlberg
-    country_label: Austria
-    area_name: Vorarlberg
-    country_iso: AT
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: AT-8
-  - id: at-wien
-    label: Wien
-    path: austria/wien
-    country: austria
-    region: wien
-    country_label: Austria
-    area_name: Wien
-    country_iso: AT
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: AT-9
-
-  - id: ch-aargau
-    label: Aargau
-    path: switzerland/aargau
-    country: switzerland
-    region: aargau
-    country_label: Schweiz
-    area_name: Aargau
-    country_area_name: Schweiz
+    region_admin_level: 4
+    region_identifier_strategy: iso3166-2
+    region_match_key: ISO3166-2
+    regions:
+    - id: ch-aargau
+      label: Aargau
+      region: aargau
+      path: switzerland/aargau
+      iso3166_2: CH-AG
+      area_name: Aargau
+      admin_level: 4
+      code: ch-aargau
+      match_value: CH-AG
+      country_query_name: Switzerland
+    - id: ch-appenzell-ausserrhoden
+      label: Appenzell Ausserrhoden
+      region: appenzell-ausserrhoden
+      path: switzerland/appenzell-ausserrhoden
+      iso3166_2: CH-AR
+      area_name: Appenzell Ausserrhoden
+      admin_level: 4
+      code: ch-appenzell-ausserrhoden
+      match_value: CH-AR
+      country_query_name: Switzerland
+    - id: ch-appenzell-innerrhoden
+      label: Appenzell Innerrhoden
+      region: appenzell-innerrhoden
+      path: switzerland/appenzell-innerrhoden
+      iso3166_2: CH-AI
+      area_name: Appenzell Innerrhoden
+      admin_level: 4
+      code: ch-appenzell-innerrhoden
+      match_value: CH-AI
+      country_query_name: Switzerland
+    - id: ch-basel-landschaft
+      label: Basel-Landschaft
+      region: basel-landschaft
+      path: switzerland/basel-landschaft
+      iso3166_2: CH-BL
+      area_name: Basel-Landschaft
+      admin_level: 4
+      code: ch-basel-landschaft
+      match_value: CH-BL
+      country_query_name: Switzerland
+    - id: ch-basel-stadt
+      label: Basel-Stadt
+      region: basel-stadt
+      path: switzerland/basel-stadt
+      iso3166_2: CH-BS
+      area_name: Basel-Stadt
+      admin_level: 4
+      code: ch-basel-stadt
+      match_value: CH-BS
+      country_query_name: Switzerland
+    - id: ch-bern
+      label: Bern/Berne
+      region: bern
+      path: switzerland/bern
+      iso3166_2: CH-BE
+      area_name: Bern/Berne
+      admin_level: 4
+      code: ch-bern
+      match_value: CH-BE
+      query_name: Bern
+      query_name_regex: ^(Bern/Berne|Bern|Berne)$
+      country_query_name: Switzerland
+    - id: ch-fribourg
+      label: Fribourg/Freiburg
+      region: fribourg
+      path: switzerland/fribourg
+      iso3166_2: CH-FR
+      area_name: Fribourg/Freiburg
+      admin_level: 4
+      code: ch-fribourg
+      match_value: CH-FR
+      query_name: Fribourg
+      query_name_regex: ^(Fribourg/Freiburg|Fribourg|Freiburg)$
+      country_query_name: Switzerland
+    - id: ch-geneve
+      label: Genève
+      region: geneve
+      path: switzerland/geneve
+      iso3166_2: CH-GE
+      area_name: Genève
+      admin_level: 4
+      code: ch-geneve
+      match_value: CH-GE
+      country_query_name: Switzerland
+    - id: ch-glarus
+      label: Glarus
+      region: glarus
+      path: switzerland/glarus
+      iso3166_2: CH-GL
+      area_name: Glarus
+      admin_level: 4
+      code: ch-glarus
+      match_value: CH-GL
+      country_query_name: Switzerland
+    - id: ch-graubuenden
+      label: Graubünden/Grischun/Grigioni
+      region: graubuenden
+      path: switzerland/graubuenden
+      iso3166_2: CH-GR
+      area_name: Graubünden/Grischun/Grigioni
+      admin_level: 4
+      code: ch-graubuenden
+      match_value: CH-GR
+      query_name: Graubünden
+      query_name_regex: ^(Graubünden/Grischun/Grigioni|Graubünden|Grischun|Grigioni)$
+      country_query_name: Switzerland
+    - id: ch-jura
+      label: Jura
+      region: jura
+      path: switzerland/jura
+      iso3166_2: CH-JU
+      area_name: Jura
+      admin_level: 4
+      code: ch-jura
+      match_value: CH-JU
+      country_query_name: Switzerland
+    - id: ch-luzern
+      label: Luzern
+      region: luzern
+      path: switzerland/luzern
+      iso3166_2: CH-LU
+      area_name: Luzern
+      admin_level: 4
+      code: ch-luzern
+      match_value: CH-LU
+      country_query_name: Switzerland
+    - id: ch-neuchatel
+      label: Neuchâtel
+      region: neuchatel
+      path: switzerland/neuchatel
+      iso3166_2: CH-NE
+      area_name: Neuchâtel
+      admin_level: 4
+      code: ch-neuchatel
+      match_value: CH-NE
+      country_query_name: Switzerland
+    - id: ch-nidwalden
+      label: Nidwalden
+      region: nidwalden
+      path: switzerland/nidwalden
+      iso3166_2: CH-NW
+      area_name: Nidwalden
+      admin_level: 4
+      code: ch-nidwalden
+      match_value: CH-NW
+      country_query_name: Switzerland
+    - id: ch-obwalden
+      label: Obwalden
+      region: obwalden
+      path: switzerland/obwalden
+      iso3166_2: CH-OW
+      area_name: Obwalden
+      admin_level: 4
+      code: ch-obwalden
+      match_value: CH-OW
+      country_query_name: Switzerland
+    - id: ch-schaffhausen
+      label: Schaffhausen
+      region: schaffhausen
+      path: switzerland/schaffhausen
+      iso3166_2: CH-SH
+      area_name: Schaffhausen
+      admin_level: 4
+      code: ch-schaffhausen
+      match_value: CH-SH
+      country_query_name: Switzerland
+    - id: ch-schwyz
+      label: Schwyz
+      region: schwyz
+      path: switzerland/schwyz
+      iso3166_2: CH-SZ
+      area_name: Schwyz
+      admin_level: 4
+      code: ch-schwyz
+      match_value: CH-SZ
+      country_query_name: Switzerland
+    - id: ch-solothurn
+      label: Solothurn
+      region: solothurn
+      path: switzerland/solothurn
+      iso3166_2: CH-SO
+      area_name: Solothurn
+      admin_level: 4
+      code: ch-solothurn
+      match_value: CH-SO
+      country_query_name: Switzerland
+    - id: ch-st-gallen
+      label: St. Gallen
+      region: st-gallen
+      path: switzerland/st-gallen
+      iso3166_2: CH-SG
+      area_name: St. Gallen
+      admin_level: 4
+      code: ch-st-gallen
+      match_value: CH-SG
+      country_query_name: Switzerland
+    - id: ch-thurgau
+      label: Thurgau
+      region: thurgau
+      path: switzerland/thurgau
+      iso3166_2: CH-TG
+      area_name: Thurgau
+      admin_level: 4
+      code: ch-thurgau
+      match_value: CH-TG
+      country_query_name: Switzerland
+    - id: ch-ticino
+      label: Ticino
+      region: ticino
+      path: switzerland/ticino
+      iso3166_2: CH-TI
+      area_name: Ticino
+      admin_level: 4
+      code: ch-ticino
+      match_value: CH-TI
+      country_query_name: Switzerland
+    - id: ch-uri
+      label: Uri
+      region: uri
+      path: switzerland/uri
+      iso3166_2: CH-UR
+      area_name: Uri
+      admin_level: 4
+      code: ch-uri
+      match_value: CH-UR
+      country_query_name: Switzerland
+    - id: ch-valais
+      label: Valais/Wallis
+      region: valais
+      path: switzerland/valais
+      iso3166_2: CH-VS
+      area_name: Valais/Wallis
+      admin_level: 4
+      code: ch-valais
+      match_value: CH-VS
+      query_name: Valais
+      query_name_regex: ^(Valais/Wallis|Valais|Wallis)$
+      country_query_name: Switzerland
+    - id: ch-vaud
+      label: Vaud
+      region: vaud
+      path: switzerland/vaud
+      iso3166_2: CH-VD
+      area_name: Vaud
+      admin_level: 4
+      code: ch-vaud
+      match_value: CH-VD
+      country_query_name: Switzerland
+    - id: ch-zug
+      label: Zug
+      region: zug
+      path: switzerland/zug
+      iso3166_2: CH-ZG
+      area_name: Zug
+      admin_level: 4
+      code: ch-zug
+      match_value: CH-ZG
+      country_query_name: Switzerland
+    - id: ch-zurich
+      label: Zürich
+      region: zurich
+      path: switzerland/zurich
+      iso3166_2: CH-ZH
+      area_name: Zürich
+      admin_level: 4
+      code: ch-zurich
+      match_value: CH-ZH
+      country_query_name: Switzerland
     country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-AG
-  - id: ch-appenzell-ausserrhoden
-    label: Appenzell Ausserrhoden
-    path: switzerland/appenzell-ausserrhoden
-    country: switzerland
-    region: appenzell-ausserrhoden
-    country_label: Schweiz
-    area_name: Appenzell Ausserrhoden
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-AR
-  - id: ch-appenzell-innerrhoden
-    label: Appenzell Innerrhoden
-    path: switzerland/appenzell-innerrhoden
-    country: switzerland
-    region: appenzell-innerrhoden
-    country_label: Schweiz
-    area_name: Appenzell Innerrhoden
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-AI
-  - id: ch-basel-landschaft
-    label: Basel-Landschaft
-    path: switzerland/basel-landschaft
-    country: switzerland
-    region: basel-landschaft
-    country_label: Schweiz
-    area_name: Basel-Landschaft
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-BL
-  - id: ch-basel-stadt
-    label: Basel-Stadt
-    path: switzerland/basel-stadt
-    country: switzerland
-    region: basel-stadt
-    country_label: Schweiz
-    area_name: Basel-Stadt
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-BS
-  - id: ch-bern
-    label: Bern/Berne
-    path: switzerland/bern
-    country: switzerland
-    region: bern
-    country_label: Schweiz
-    area_name: Bern/Berne
-    query_name: Bern
-    query_name_regex: ^(Bern/Berne|Bern|Berne)$
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-BE
-  - id: ch-fribourg
-    label: Fribourg/Freiburg
-    path: switzerland/fribourg
-    country: switzerland
-    region: fribourg
-    country_label: Schweiz
-    area_name: Fribourg/Freiburg
-    query_name: Fribourg
-    query_name_regex: ^(Fribourg/Freiburg|Fribourg|Freiburg)$
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-FR
-  - id: ch-geneve
-    label: Genève
-    path: switzerland/geneve
-    country: switzerland
-    region: geneve
-    country_label: Schweiz
-    area_name: Genève
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-GE
-  - id: ch-glarus
-    label: Glarus
-    path: switzerland/glarus
-    country: switzerland
-    region: glarus
-    country_label: Schweiz
-    area_name: Glarus
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-GL
-  - id: ch-graubuenden
-    label: Graubünden/Grischun/Grigioni
-    path: switzerland/graubuenden
-    country: switzerland
-    region: graubuenden
-    country_label: Schweiz
-    area_name: Graubünden/Grischun/Grigioni
-    query_name: Graubünden
-    query_name_regex: ^(Graubünden/Grischun/Grigioni|Graubünden|Grischun|Grigioni)$
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-GR
-  - id: ch-jura
-    label: Jura
-    path: switzerland/jura
-    country: switzerland
-    region: jura
-    country_label: Schweiz
-    area_name: Jura
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-JU
-  - id: ch-luzern
-    label: Luzern
-    path: switzerland/luzern
-    country: switzerland
-    region: luzern
-    country_label: Schweiz
-    area_name: Luzern
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-LU
-  - id: ch-neuchatel
-    label: Neuchâtel
-    path: switzerland/neuchatel
-    country: switzerland
-    region: neuchatel
-    country_label: Schweiz
-    area_name: Neuchâtel
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-NE
-  - id: ch-nidwalden
-    label: Nidwalden
-    path: switzerland/nidwalden
-    country: switzerland
-    region: nidwalden
-    country_label: Schweiz
-    area_name: Nidwalden
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-NW
-  - id: ch-obwalden
-    label: Obwalden
-    path: switzerland/obwalden
-    country: switzerland
-    region: obwalden
-    country_label: Schweiz
-    area_name: Obwalden
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-OW
-  - id: ch-schaffhausen
-    label: Schaffhausen
-    path: switzerland/schaffhausen
-    country: switzerland
-    region: schaffhausen
-    country_label: Schweiz
-    area_name: Schaffhausen
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-SH
-  - id: ch-schwyz
-    label: Schwyz
-    path: switzerland/schwyz
-    country: switzerland
-    region: schwyz
-    country_label: Schweiz
-    area_name: Schwyz
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-SZ
-  - id: ch-solothurn
-    label: Solothurn
-    path: switzerland/solothurn
-    country: switzerland
-    region: solothurn
-    country_label: Schweiz
-    area_name: Solothurn
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-SO
-  - id: ch-st-gallen
-    label: St. Gallen
-    path: switzerland/st-gallen
-    country: switzerland
-    region: st-gallen
-    country_label: Schweiz
-    area_name: St. Gallen
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-SG
-  - id: ch-thurgau
-    label: Thurgau
-    path: switzerland/thurgau
-    country: switzerland
-    region: thurgau
-    country_label: Schweiz
-    area_name: Thurgau
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-TG
-  - id: ch-ticino
-    label: Ticino
-    path: switzerland/ticino
-    country: switzerland
-    region: ticino
-    country_label: Schweiz
-    area_name: Ticino
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-TI
-  - id: ch-uri
-    label: Uri
-    path: switzerland/uri
-    country: switzerland
-    region: uri
-    country_label: Schweiz
-    area_name: Uri
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-UR
-  - id: ch-valais
-    label: Valais/Wallis
-    path: switzerland/valais
-    country: switzerland
-    region: valais
-    country_label: Schweiz
-    area_name: Valais/Wallis
-    query_name: Valais
-    query_name_regex: ^(Valais/Wallis|Valais|Wallis)$
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-VS
-  - id: ch-vaud
-    label: Vaud
-    path: switzerland/vaud
-    country: switzerland
-    region: vaud
-    country_label: Schweiz
-    area_name: Vaud
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-VD
-  - id: ch-zug
-    label: Zug
-    path: switzerland/zug
-    country: switzerland
-    region: zug
-    country_label: Schweiz
-    area_name: Zug
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-ZG
-  - id: ch-zurich
-    label: Zürich
-    path: switzerland/zurich
-    country: switzerland
-    region: zurich
-    country_label: Schweiz
-    area_name: Zürich
-    country_area_name: Schweiz
-    country_query_name: Switzerland
-    country_admin_level: 2
-    admin_level: 4
-    iso3166_2: CH-ZH
-
-
 categories:
   fuel: fuel
   supermarkets: supermarkets
