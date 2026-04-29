@@ -48,7 +48,6 @@ jobs:
             scripts/check_missing_json.py \
             fetch_data/fetch_overpass.py \
             fetch_data/fetch_missing_overpass.py \
-            fetch_data/audit_accommodation.py \
             scripts/check_geojson_integrity.py \
             scripts/check_zero_byte_geojson.py
 
@@ -170,7 +169,6 @@ jobs:
             scripts/check_missing_json.py \
             fetch_data/fetch_overpass.py \
             fetch_data/fetch_missing_overpass.py \
-            fetch_data/audit_accommodation.py \
             scripts/check_geojson_integrity.py \
             scripts/check_zero_byte_geojson.py
 
