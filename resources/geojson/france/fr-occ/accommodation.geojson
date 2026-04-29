@@ -2426,8 +2426,7 @@
         "id": 704787565,
         "osm_type": "node",
         "name": "Gîte d'Étape",
-        "tourism": "guest_house",
-        "check_date": "2026-04-27"
+        "tourism": "guest_house"
       }
     },
     {
@@ -9999,6 +9998,24 @@
         "name": "Hôtel Restaurant de Gilles Moreau",
         "tourism": "hotel",
         "website": "https://www.gilles-moreau.fr/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.8467501,
+          44.6845185
+        ]
+      },
+      "properties": {
+        "id": 1946090251,
+        "osm_type": "node",
+        "name": "Hôtel Régis",
+        "tourism": "hotel",
+        "phone": "+33565443005",
+        "website": "https://www.hotel-regis-laguiole.com/"
       }
     },
     {
@@ -38963,16 +38980,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.841379,
-          44.3311348
+          1.8414506,
+          44.3310216
         ]
       },
       "properties": {
         "id": 8494258085,
         "osm_type": "node",
-        "name": "Chez Philémon - Gite de l'Hoste",
-        "tourism": "chalet",
-        "website": "https://gitedelhoste.jimdofree.com/"
+        "tourism": "guest_house"
       }
     },
     {
@@ -53282,22 +53297,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4225538,
-          43.9634907
-        ]
-      },
-      "properties": {
-        "id": 11608800904,
-        "osm_type": "node",
-        "name": "Ô Domaine du Roussillon",
-        "tourism": "chalet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.0654548,
           43.8142512
         ]
@@ -54543,7 +54542,7 @@
       "properties": {
         "id": 12027805136,
         "osm_type": "node",
-        "name": "Refuge littoral Sainte-Lucie",
+        "name": "Refuge littoral sainte-lucie",
         "tourism": "hostel",
         "website": "https://refuge-littoral-sainte-lucie.fr/"
       }
@@ -66835,7 +66834,6 @@
         "osm_type": "node",
         "name": "Gîte de Gabarre",
         "tourism": "hostel",
-        "phone": "+33686415839",
         "website": "https://gitedegabarre.com/"
       }
     },
@@ -71101,114 +71099,8 @@
       "properties": {
         "id": 13748004029,
         "osm_type": "node",
-        "name": "Brit Hotel",
+        "name": "Deltour Hotel",
         "tourism": "hotel"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.4789662,
-          44.1773283
-        ]
-      },
-      "properties": {
-        "id": 13759039710,
-        "osm_type": "node",
-        "name": "Mas Bel Espérance",
-        "tourism": "guest_house",
-        "website": "https://www.masbelesperance.fr/",
-        "check_date": "2026-04-24"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.1919503,
-          43.5669386
-        ]
-      },
-      "properties": {
-        "id": 13763603801,
-        "osm_type": "node",
-        "name": "Hôtel les Templiers",
-        "tourism": "hotel",
-        "check_date": "2026-04-26"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.2981475,
-          44.0415314
-        ]
-      },
-      "properties": {
-        "id": 13764494601,
-        "osm_type": "node",
-        "name": "Aire de camping car",
-        "tourism": "caravan_site"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          1.4394073,
-          43.6153731
-        ]
-      },
-      "properties": {
-        "id": 13765777777,
-        "osm_type": "node",
-        "name": "Une Chambre en Ville",
-        "tourism": "hotel",
-        "phone": "+33 5 82 95 11 55",
-        "website": "https://toulouse.unechambreenville.fr/"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.5046878,
-          42.878818
-        ]
-      },
-      "properties": {
-        "id": 13765864601,
-        "osm_type": "node",
-        "name": "la Giraudasse",
-        "tourism": "guest_house",
-        "opening_hours": "Mo-Su 09:00-12:00, 16:00-18:30",
-        "phone": "0608861442",
-        "website": "https://www.giraudasse.com",
-        "check_date": "2026-04-27"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          3.4245195,
-          43.4344084
-        ]
-      },
-      "properties": {
-        "id": 13766585828,
-        "osm_type": "node",
-        "name": "Le Moulin de Pézenas",
-        "tourism": "hotel",
-        "website": "https://amazing.katestravelexperience.eu/le-moulin-de-pezenas-pezenas123456789-france?correlationID=cae28d02-3387-41c7-9260-51d66a252e40"
       }
     },
     {
@@ -79092,8 +78984,7 @@
         "name": "Zenitude Hôtel-Résidences Le Parc de l’Escale",
         "tourism": "hotel",
         "phone": "+33 5 61 72 60 00",
-        "website": "https://www.zenitude-hotel-residences.com/residences/toulouse-4-aeroport-le-parc-de-lescale/",
-        "check_date": "2026-04-22"
+        "website": "https://www.zenitude-hotel-residences.com/residences/toulouse-4-aeroport-le-parc-de-lescale/"
       }
     },
     {
@@ -94320,8 +94211,7 @@
         "osm_type": "way",
         "name": "Camping municipal",
         "tourism": "camp_site",
-        "tents": "yes",
-        "website": "https://www.altier48.fr/hebergement/"
+        "tents": "yes"
       }
     },
     {
@@ -106871,7 +106761,7 @@
         "name": "Le Tivoli",
         "tourism": "camp_site",
         "tents": "yes",
-        "contact:website": "https://www.xn--mont-lozre-et-goulet-w1b.fr/les-campings-municipaux"
+        "contact:website": "https://www.revea-vacances.fr/etablissements/camping-le-tivoli/"
       }
     },
     {
@@ -119675,8 +119565,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.431451,
-          43.4339935
+          3.4313876,
+          43.4341389
         ]
       },
       "properties": {
@@ -129040,10 +128930,9 @@
       "properties": {
         "id": 1196293068,
         "osm_type": "way",
-        "name": "Le Mas des Sédariès",
+        "name": "Camping Les Sédaries",
         "tourism": "camp_site",
-        "tents": "yes",
-        "website": "https://camping-sedaries.com"
+        "tents": "yes"
       }
     },
     {
@@ -129386,7 +129275,7 @@
         "tourism": "camp_site",
         "tents": "yes",
         "phone": "+33 4 68 69 20 18",
-        "website": "https://www.campinglefortmontbel.com/"
+        "website": "http://camping-https://www.campinglefortmontbel.com/"
       }
     },
     {
@@ -131160,7 +131049,7 @@
         "type": "Point",
         "coordinates": [
           2.7527379,
-          43.8163952
+          43.8163969
         ]
       },
       "properties": {
@@ -136187,21 +136076,6 @@
         "osm_type": "way",
         "name": "Les Tipis du Soleil",
         "tourism": "camp_site"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.7428368,
-          43.3562637
-        ]
-      },
-      "properties": {
-        "id": 1503617353,
-        "osm_type": "way",
-        "tourism": "caravan_site"
       }
     },
     {
