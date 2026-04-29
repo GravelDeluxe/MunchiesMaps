@@ -76,9 +76,9 @@ The script writes run artifacts to `artifacts/`:
 ## Accommodation Audit & Recovery
 
 - Audit only the `accommodation` layer across all configured regions:
-  - `python fetch_data/audit_accommodation.py`
+  - `python artifacts/archived-scripts/audit_accommodation.py` (archiviert, nicht mehr Teil aktiver Workflows)
 - Write report to custom path (or disable by passing empty):
-  - `python fetch_data/audit_accommodation.py --json-report artifacts/accommodation_audit.json`
+  - `python artifacts/archived-scripts/audit_accommodation.py --json-report artifacts/accommodation_audit.json` (archiviert)
 - Refetch only missing/empty/invalid files for one layer:
   - `python fetch_data/fetch_overpass.py --layers accommodation --only-missing-or-invalid`
 - Country-scoped recovery example:
