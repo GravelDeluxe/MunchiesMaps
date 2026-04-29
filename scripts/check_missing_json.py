@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""Validate configured country/region/category datasets exist in resources/geojson."""
-
+"""Validate configured country/region/category datasets in resources/geojson."""
 from __future__ import annotations
 
 import argparse
@@ -10,29 +9,19 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-import yaml
-
 ROOT_DIR = Path(__file__).resolve().parents[1]
-CONFIG_PATH = ROOT_DIR / "fetch_data" / "config.yml"
+if str(ROOT_DIR / "fetch_data") not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR / "fetch_data"))
+
+from fetch_overpass import TAG_WHITELIST, classify_geojson_file, load_config, normalize_regions  # noqa: E402
+
 RESOURCE_ROOT = ROOT_DIR / "resources" / "geojson"
-
-
-def load_config(config_path: Path) -> dict[str, Any]:
-    if not config_path.exists():
-        raise FileNotFoundError(f"Config file not found: {config_path}")
-
-    try:
-        with config_path.open("r", encoding="utf-8") as config_file:
-            loaded = yaml.safe_load(config_file)
-    except yaml.YAMLError as exc:
-        raise ValueError(f"Failed to parse YAML from {config_path}: {exc}") from exc
-    except OSError as exc:
-        raise OSError(f"Failed to read config file {config_path}: {exc}") from exc
-
-    if not isinstance(loaded, dict):
-        raise ValueError(f"Invalid config format in {config_path}: expected a YAML mapping at root.")
-
-    return loaded
+PROBLEM_STATUSES = {
+    "missing_file",
+    "empty_file",
+    "invalid_json",
+    "invalid_feature_collection",
+}
 
 
 def normalize_categories(raw_categories: Any) -> list[str]:
@@ -48,75 +37,9 @@ def get_country_categories(country_cfg: dict[str, Any], global_categories: list[
     return country_categories or global_categories
 
 
-def get_region_slug(region_cfg: dict[str, Any]) -> str | None:
-    for key in ("region", "code", "id"):
-        value = region_cfg.get(key)
-        if isinstance(value, str) and value.strip():
-            return value.strip().lower()
-
-    path_value = region_cfg.get("path")
-    if isinstance(path_value, str) and path_value.strip():
-        return path_value.strip().split("/")[-1].lower()
-
-    return None
-
-
-def extract_region_paths_for_country(
-    country_id: str,
-    country_cfg: dict[str, Any],
-    global_regions: list[dict[str, Any]],
-) -> tuple[list[str], list[str]]:
-    errors: list[str] = []
-
-    global_paths = []
-    for region in global_regions:
-        if not isinstance(region, dict):
-            continue
-        if str(region.get("country", "")).strip().lower() != country_id:
-            continue
-        path_value = region.get("path")
-        if isinstance(path_value, str) and path_value.strip():
-            global_paths.append(path_value.strip().lower())
-
-    if global_paths:
-        return sorted(set(global_paths)), errors
-
-    embedded_regions = country_cfg.get("regions")
-    if not isinstance(embedded_regions, list) or not embedded_regions:
-        if str(country_cfg.get("query_mode", "")).strip() == "country-only":
-            return [f"{country_id}/{country_id}"], errors
-
-        errors.append(
-            f"Country '{country_id}' has no regions in country definition and none in top-level 'regions'."
-        )
-        return [], errors
-
-    resolved: list[str] = []
-    for idx, region_cfg in enumerate(embedded_regions, start=1):
-        if not isinstance(region_cfg, dict):
-            errors.append(f"Country '{country_id}' region #{idx} is not a mapping.")
-            continue
-
-        path_value = region_cfg.get("path")
-        if isinstance(path_value, str) and path_value.strip():
-            resolved.append(path_value.strip().lower())
-            continue
-
-        slug = get_region_slug(region_cfg)
-        if not slug:
-            errors.append(f"Country '{country_id}' region #{idx} has no usable identifier (region/code/id/path).")
-            continue
-
-        resolved.append(f"{country_id}/{slug}")
-
-    return sorted(set(resolved)), errors
-
-
-def build_expected_geojson_paths(config: dict[str, Any]) -> tuple[list[tuple[str, Path]], list[str]]:
+def build_expected_geojson_paths(config: dict[str, Any]) -> tuple[list[tuple[str, str, str, Path]], list[str]]:
     errors: list[str] = []
     countries_cfg = config.get("countries")
-    global_regions = config.get("regions") if isinstance(config.get("regions"), list) else []
-
     if not isinstance(countries_cfg, dict) or not countries_cfg:
         return [], ["Config field 'countries' is missing or not a non-empty mapping."]
 
@@ -124,122 +47,110 @@ def build_expected_geojson_paths(config: dict[str, Any]) -> tuple[list[tuple[str
     if not global_categories:
         errors.append("Config field 'categories' is missing or empty; no expected files can be derived.")
 
-    expected: list[tuple[str, Path]] = []
+    normalized_regions = normalize_regions(config)
+    regions_by_country: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for region in normalized_regions:
+        country = str(region.get("country", "")).strip().lower()
+        if country:
+            regions_by_country[country].append(region)
 
+    config_set = set(global_categories)
+    whitelist_set = set(TAG_WHITELIST.keys())
+    if config_set != whitelist_set:
+        only_config = sorted(config_set - whitelist_set)
+        only_whitelist = sorted(whitelist_set - config_set)
+        errors.append(
+            "Category mismatch between config.yml and fetch_overpass TAG_WHITELIST: "
+            f"only_in_config={only_config or '-'}; only_in_tag_whitelist={only_whitelist or '-'}"
+        )
+    if "accommodation" not in config_set:
+        errors.append("Category 'accommodation' missing in config categories.")
+
+    expected: list[tuple[str, str, str, Path]] = []
     for country_key, country_cfg in countries_cfg.items():
         if not isinstance(country_cfg, dict):
             errors.append(f"Country '{country_key}' has invalid definition (expected mapping).")
             continue
-
         country_id = str(country_key).strip().lower()
-        if not country_id:
-            errors.append("Encountered empty country id in config.")
-            continue
-
         categories = get_country_categories(country_cfg, global_categories)
         if not categories:
             errors.append(f"Country '{country_id}' has no categories after resolution.")
             continue
-
-        region_paths, region_errors = extract_region_paths_for_country(country_id, country_cfg, global_regions)
-        errors.extend(region_errors)
-
-        for region_path in region_paths:
+        if country_id not in regions_by_country:
+            errors.append(f"Country '{country_id}' has no normalized regions.")
+            continue
+        for region in regions_by_country[country_id]:
+            region_path = str(region.get("path", "")).strip().strip("/")
+            if not region_path:
+                errors.append(f"Region '{region.get('id')}' in country '{country_id}' has no valid path.")
+                continue
             for category in categories:
-                expected.append((country_id, RESOURCE_ROOT / region_path / f"{category}.geojson"))
+                expected.append((country_id, str(region.get("id", "")), category, RESOURCE_ROOT / region_path / f"{category}.geojson"))
 
     return expected, errors
 
 
-def collect_missing_paths(expected_paths: list[tuple[str, Path]]) -> dict[str, list[Path]]:
-    missing_by_country: dict[str, list[Path]] = defaultdict(list)
-    for country, path in expected_paths:
-        if not path.exists():
-            missing_by_country[country].append(path)
+def collect_file_statuses(expected_paths: list[tuple[str, str, str, Path]], include_empty_feature_collections: bool = False) -> dict[str, Any]:
+    by_country: dict[str, dict[str, list[dict[str, str]]]] = defaultdict(lambda: defaultdict(list))
+    status_counts: dict[str, int] = defaultdict(int)
 
-    for country in list(missing_by_country.keys()):
-        missing_by_country[country] = sorted(missing_by_country[country])
+    for country, region_id, category, path in expected_paths:
+        status = classify_geojson_file(path)
+        status_counts[status] += 1
+        if status in PROBLEM_STATUSES or (include_empty_feature_collections and status == "empty_feature_collection"):
+            by_country[country][status].append(
+                {
+                    "region_id": region_id,
+                    "category": category,
+                    "path": str(path.relative_to(ROOT_DIR)),
+                }
+            )
 
-    return dict(sorted(missing_by_country.items()))
-
-
-def print_missing_report(missing_by_country: dict[str, list[Path]]) -> None:
-    total_missing = sum(len(paths) for paths in missing_by_country.values())
-    print("Missing GeoJSON files (report only):")
-    for country, paths in missing_by_country.items():
-        print(f"\n[{country}] ({len(paths)})")
-        for path in paths:
-            print(f"- {path.relative_to(ROOT_DIR)}")
-
-    print(f"\nSummary: {total_missing} missing file(s) across {len(missing_by_country)} countr(ies).")
-
-
-def format_json_summary(
-    expected_paths: list[tuple[str, Path]],
-    missing_by_country: dict[str, list[Path]],
-    config_errors: list[str],
-) -> dict[str, Any]:
-    countries_checked = sorted({country for country, _ in expected_paths})
     return {
-        "countries_checked": countries_checked,
-        "files_checked": len(expected_paths),
-        "missing_files": sum(len(paths) for paths in missing_by_country.values()),
-        "missing_by_country": {
-            country: [str(path.relative_to(ROOT_DIR)) for path in paths]
-            for country, paths in missing_by_country.items()
-        },
-        "config_errors": config_errors,
+        "problem_by_country": {country: dict(sorted(statuses.items())) for country, statuses in sorted(by_country.items())},
+        "status_counts": dict(sorted(status_counts.items())),
     }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-format", choices=["text", "json"], default="text")
     parser.add_argument(
-        "--output-format",
-        choices=["text", "json"],
-        default="text",
-        help="Output format for missing file report.",
+        "--include-empty-feature-collections",
+        action="store_true",
+        help="Treat valid empty FeatureCollections as problematic for matrix/refetch purposes.",
     )
     args = parser.parse_args()
 
-    expected_paths: list[tuple[str, Path]] = []
-    missing_by_country: dict[str, list[Path]] = {}
+    expected_paths: list[tuple[str, str, str, Path]] = []
     config_errors: list[str] = []
-
     try:
-        config = load_config(CONFIG_PATH)
+        config = load_config()
         expected_paths, config_errors = build_expected_geojson_paths(config)
     except Exception as exc:  # noqa: BLE001
-        print(f"Configuration/load issue detected (report only): {exc}")
+        config_errors.append(f"Configuration/load issue detected (report only): {exc}")
 
-    if expected_paths:
-        missing_by_country = collect_missing_paths(expected_paths)
+    status_data = collect_file_statuses(expected_paths, include_empty_feature_collections=args.include_empty_feature_collections)
+    problem_by_country = status_data["problem_by_country"]
+
+    summary = {
+        "countries_checked": sorted({country for country, _, _, _ in expected_paths}),
+        "files_checked": len(expected_paths),
+        "status_counts": status_data["status_counts"],
+        "problem_files": sum(len(items) for statuses in problem_by_country.values() for items in statuses.values()),
+        "missing_files": sum(len(statuses.get("missing_file", [])) for statuses in problem_by_country.values()),
+        "missing_by_country": {
+            c: [item["path"] for item in statuses.get("missing_file", [])] for c, statuses in problem_by_country.items()
+        },
+        "problem_by_country": problem_by_country,
+        "config_errors": config_errors,
+    }
 
     if args.output_format == "json":
-        summary = format_json_summary(expected_paths, missing_by_country, config_errors)
         print(json.dumps(summary, ensure_ascii=False))
         return 0
 
-    if config_errors:
-        print("Configuration issues detected (report only):")
-        for error in config_errors:
-            print(f"- {error}")
-
-    if missing_by_country:
-        print_missing_report(missing_by_country)
-        checked_countries = len({country for country, _ in expected_paths})
-        print(
-            "Check completed successfully. Missing files were reported above. "
-            f"(countries checked: {checked_countries}, files checked: {len(expected_paths)}, "
-            f"missing files: {sum(len(paths) for paths in missing_by_country.values())})"
-        )
-        return 0
-
-    print(
-        "Check completed successfully. All expected GeoJSON files are present. "
-        f"(countries checked: {len({country for country, _ in expected_paths})}, "
-        f"files checked: {len(expected_paths)}, missing files: 0)"
-    )
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 
 

@@ -88,3 +88,29 @@ Notes:
 - Empty `0-byte` or whitespace-only files are treated as invalid and flagged by the audit/check scripts.
 - A successful Overpass response with no elements still writes a valid empty GeoJSON FeatureCollection (`{"type":"FeatureCollection","features":[]}`).
 - Overpass/request/parse failures do **not** write output and therefore do not overwrite an existing valid file.
+
+## Missing vs. Empty vs. Valid Empty GeoJSON
+
+- `missing_file`: erwartete `.geojson` existiert nicht.
+- `empty_file`: Datei ist 0 Byte oder nur Whitespace.
+- `invalid_json`: Inhalt ist kein parsebares JSON.
+- `invalid_feature_collection`: JSON ist keine gültige GeoJSON `FeatureCollection` mit `features`-Liste.
+- `empty_feature_collection`: gültig und absichtlich leer (`{"type":"FeatureCollection","features":[]}`).
+
+`check_missing_json.py` meldet standardmäßig nur echte Probleme (`missing_file`, `empty_file`, `invalid_json`, `invalid_feature_collection`).
+Optional können auch `empty_feature_collection`-Dateien einbezogen werden:
+
+- `python scripts/check_missing_json.py --output-format json --include-empty-feature-collections`
+
+## Accommodation gezielt nachfetchen
+
+- Nur Germany:
+  - `python fetch_data/fetch_missing_overpass.py --countries germany`
+- Nur Accommodation (direkt über den Hauptfetcher):
+  - `python fetch_data/fetch_overpass.py --countries germany --layers accommodation --only-missing-or-invalid`
+
+## Matrix-Recovery-Fetch
+
+- `.github/workflows/fetch_missing_matrix.yml` baut die Matrix aus `problem_by_country` des JSON-Reports.
+- Damit werden Länder mit fehlenden **und** defekten Dateien aufgenommen.
+- Pro Matrix-Land wird `fetch_missing_overpass.py --countries <land>` ausgeführt, sodass problematische Kombinationen erneut gefetcht werden.
