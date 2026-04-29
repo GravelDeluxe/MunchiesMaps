@@ -2330,7 +2330,8 @@
         "osm_type": "node",
         "name": "Ferienwohnungen Neumann",
         "tourism": "apartment",
-        "phone": "+49 381 542 74"
+        "phone": "+49 381 542 74",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -4053,6 +4054,7 @@
       "properties": {
         "id": 567346601,
         "osm_type": "node",
+        "name": "Jugendherberge Born-Ibenhorst",
         "tourism": "camp_site",
         "tents": "yes",
         "website": "https://www.jugendherberge.de/jugendherbergen/born-ibenhorst/"
@@ -4606,7 +4608,8 @@
         "id": 706714157,
         "osm_type": "node",
         "name": "Haus Wiesenau",
-        "tourism": "chalet"
+        "tourism": "chalet",
+        "check_date": "2026-04-27"
       }
     },
     {
@@ -4639,7 +4642,7 @@
         "osm_type": "node",
         "name": "Haus Nordstrand",
         "tourism": "chalet",
-        "check_date": "2024-04-07"
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -9308,7 +9311,8 @@
         "osm_type": "node",
         "name": "Appartement Alte Apotheke",
         "tourism": "apartment",
-        "phone": "+493823360191"
+        "phone": "+493823360191",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -10666,7 +10670,8 @@
         "id": 2119573281,
         "osm_type": "node",
         "name": "Landhaus Lange",
-        "tourism": "hotel"
+        "tourism": "hotel",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -18101,7 +18106,8 @@
         "phone": "+49 381 548 63 84",
         "contact:phone": "+49 177 2298518",
         "website": "https://www.ferienwohnung-warnemuende.de/",
-        "contact:website": "https://www.pension-captain-hook.de/"
+        "contact:website": "https://www.pension-captain-hook.de/",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -20940,7 +20946,8 @@
         "osm_type": "node",
         "name": "Pension am Pferdemarkt",
         "tourism": "hotel",
-        "phone": "+49 3843 466 8681"
+        "phone": "+49 3843 466 8681",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -23283,7 +23290,8 @@
         "osm_type": "node",
         "name": "Haus am Deich",
         "tourism": "apartment",
-        "website": "https://www.haus-am-deich.de/"
+        "website": "https://www.haus-am-deich.de/",
+        "check_date": "2026-04-27"
       }
     },
     {
@@ -29549,7 +29557,7 @@
         "osm_type": "node",
         "name": "Gästehaus am Fischereihafen",
         "tourism": "hostel",
-        "contact:phone": "+49 381 811 232 \"+49 381 66 09 64 90\"",
+        "contact:phone": "+49 381 811232;+49 381 66096490",
         "contact:website": "https://rostock-gaestehaus.de/"
       }
     },
@@ -38409,6 +38417,37 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.1656614,
+          53.9038826
+        ]
+      },
+      "properties": {
+        "id": 13762074701,
+        "osm_type": "node",
+        "name": "Rolofshagen",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1656477,
+          53.9038633
+        ]
+      },
+      "properties": {
+        "id": 13762074801,
+        "osm_type": "node",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.5781928,
           54.4230496
         ]
@@ -39221,7 +39260,8 @@
         "osm_type": "way",
         "name": "Landhaus Immenbarg",
         "tourism": "chalet",
-        "contact:website": "https://landhaus-immenbarg.de/"
+        "contact:website": "https://landhaus-immenbarg.de/",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -39255,7 +39295,8 @@
         "name": "Ringelnatz",
         "tourism": "hotel",
         "phone": "+49 381 20746407",
-        "website": "https://www.ringelnatz-warnemuende.de/"
+        "website": "https://www.ringelnatz-warnemuende.de/",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -42499,8 +42540,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.9682209,
-          53.2223879
+          12.9682328,
+          53.2223865
         ]
       },
       "properties": {
@@ -42508,9 +42549,10 @@
         "osm_type": "way",
         "name": "Kanuhof Wustrow",
         "tourism": "camp_site",
+        "opening_hours": "May-Sep 24/7; \"Apr nur nach vorheriger Terminabsprache\"",
         "tents": "yes",
-        "phone": "+49 39828 20083",
-        "website": "https://kanuhof-wustrow.de"
+        "contact:phone": "+49 39828 20083",
+        "contact:website": "https://kanuhof-wustrow.de"
       }
     },
     {
@@ -44992,7 +45034,8 @@
         "name": "Jugendherberge Born-Ibenhorst",
         "tourism": "hostel",
         "contact:phone": "+49 38234 229",
-        "contact:website": "https://www.jugendherberge.de/jugendherbergen/born-ibenhorst/"
+        "contact:website": "https://www.jugendherberge.de/jugendherbergen/born-ibenhorst/",
+        "check_date": "2026-04-24"
       }
     },
     {
@@ -45795,7 +45838,8 @@
         "name": "Campingpark Zuruf",
         "tourism": "camp_site",
         "tents": "yes",
-        "website": "https://www.campingpark-zuruf.de/"
+        "website": "https://www.campingpark-zuruf.de/",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -47234,6 +47278,7 @@
         "osm_type": "way",
         "name": "Camping in Neuhaus",
         "tourism": "camp_site",
+        "tents": "yes",
         "phone": "+49 38226 539930",
         "website": "https://www.camping-neuhaus.de"
       }
@@ -51670,7 +51715,8 @@
         "osm_type": "way",
         "name": "Pension Seeadler",
         "tourism": "chalet",
-        "website": "https://www.pensionseeadler.de/"
+        "website": "https://www.pensionseeadler.de/",
+        "check_date": "2026-04-27"
       }
     },
     {
@@ -75545,7 +75591,7 @@
         "osm_type": "way",
         "name": "Coach House",
         "tourism": "chalet",
-        "website": "https.//www.pineblue.de"
+        "website": "https://www.pineblue.de"
       }
     },
     {
@@ -81674,8 +81720,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.5807548,
-          53.9206805
+          13.5807703,
+          53.9206933
         ]
       },
       "properties": {
@@ -91183,7 +91229,8 @@
         "osm_type": "way",
         "name": "\"Tiny 1\"",
         "tourism": "chalet",
-        "contact:website": "https://www.tiny-house-ferien-buchen.de/tiny-houses/"
+        "contact:website": "https://www.tiny-house-ferien-buchen.de/tiny-houses/",
+        "check_date": "2026-04-04"
       }
     },
     {
@@ -91217,7 +91264,8 @@
         "osm_type": "way",
         "name": "\"Tiny 2\"",
         "tourism": "chalet",
-        "contact:website": "https://www.tiny-house-ferien-buchen.de/tiny-houses/"
+        "contact:website": "https://www.tiny-house-ferien-buchen.de/tiny-houses/",
+        "check_date": "2026-04-04"
       }
     },
     {
@@ -91234,7 +91282,8 @@
         "osm_type": "way",
         "name": "\"Tiny 4\"",
         "tourism": "chalet",
-        "contact:website": "https://www.tiny-house-ferien-buchen.de/tiny-houses/"
+        "contact:website": "https://www.tiny-house-ferien-buchen.de/tiny-houses/",
+        "check_date": "2026-04-04"
       }
     },
     {
@@ -91251,7 +91300,8 @@
         "osm_type": "way",
         "name": "\"Klötzchen\"",
         "tourism": "chalet",
-        "contact:website": "https://www.tiny-house-ferien-buchen.de/kl%C3%B6tzchen/"
+        "contact:website": "https://www.tiny-house-ferien-buchen.de/kl%C3%B6tzchen/",
+        "check_date": "2026-04-04"
       }
     },
     {
@@ -91268,7 +91318,8 @@
         "osm_type": "way",
         "name": "\"Tiny 5\"",
         "tourism": "chalet",
-        "contact:website": "https://www.tiny-house-ferien-buchen.de/tiny-houses/"
+        "contact:website": "https://www.tiny-house-ferien-buchen.de/tiny-houses/",
+        "check_date": "2026-04-05"
       }
     },
     {
@@ -91815,7 +91866,7 @@
         "osm_type": "way",
         "name": "Hideaway",
         "tourism": "chalet",
-        "website": "https.//www.pineblue.de"
+        "website": "https://www.pineblue.de"
       }
     },
     {
@@ -91832,7 +91883,7 @@
         "osm_type": "way",
         "name": "Beach House",
         "tourism": "chalet",
-        "website": "https.//www.pineblue.de"
+        "website": "https://www.pineblue.de"
       }
     },
     {
@@ -94413,6 +94464,7 @@
       "properties": {
         "id": 1235198477,
         "osm_type": "way",
+        "name": "Haus Hygge",
         "tourism": "chalet"
       }
     },
@@ -94464,7 +94516,8 @@
         "osm_type": "way",
         "name": "Ferienhaus Ostseeperle",
         "tourism": "chalet",
-        "website": "https://www.zimmerboerse-prerow.de/ferienhaeuser/Ostseeperl-Ostseeperle.html"
+        "website": "https://www.zimmerboerse-prerow.de/ferienhaeuser/Ostseeperl-Ostseeperle.html",
+        "check_date": "2026-04-27"
       }
     },
     {
@@ -94479,6 +94532,7 @@
       "properties": {
         "id": 1235782114,
         "osm_type": "way",
+        "name": "Haus Hygge",
         "tourism": "chalet"
       }
     },
