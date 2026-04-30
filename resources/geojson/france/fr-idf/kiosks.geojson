@@ -1887,7 +1887,7 @@
         "osm_type": "node",
         "name": "Franprix",
         "brand": "Franprix",
-        "opening_hours": "Mo-Sa 07:30-20:45; Su 09:00-19:45"
+        "opening_hours": "Mo-Sa 07:30-21:00, 09:00-18:00; Su 09:00-21:00"
       }
     },
     {
@@ -2771,6 +2771,23 @@
         "name": "Total",
         "brand": "TotalEnergies",
         "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.2856377,
+          48.7918512
+        ]
+      },
+      "properties": {
+        "id": 553329948,
+        "osm_type": "node",
+        "name": "Carrefour Market",
+        "brand": "Carrefour Market",
+        "opening_hours": "Mo-Sa 08:30-21:00; Su 08:30-12:45"
       }
     },
     {
@@ -4822,6 +4839,7 @@
       "properties": {
         "id": 780319720,
         "osm_type": "node",
+        "name": "Le kiosque de Paris",
         "check_date": "2026-02-07"
       }
     },
@@ -15100,8 +15118,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.2885147,
-          48.8782295
+          2.2885201,
+          48.878211
         ]
       },
       "properties": {
@@ -15693,7 +15711,7 @@
         "osm_type": "node",
         "name": "Le Muguet",
         "opening_hours": "Mo-Fr 07:30-13:00,15:00-19:00; Sa 08:30-13:00,15:00-19:00",
-        "check_date": "2025-04-22"
+        "check_date": "2025-10-28"
       }
     },
     {
@@ -19995,8 +20013,7 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 10:00-20:00; Su 10:00-13:00",
-        "check_date": "2026-04-23"
+        "opening_hours": "Mo-Sa 10:00-20:00; Su 10:00-13:00"
       }
     },
     {
@@ -20305,7 +20322,7 @@
         "osm_type": "node",
         "name": "Franprix",
         "brand": "Franprix",
-        "check_date": "2026-04-25"
+        "opening_hours": "Mo-Sa 08:00-21:00; Su 09:00-21:00"
       }
     },
     {
@@ -20920,8 +20937,7 @@
       "properties": {
         "id": 2654697176,
         "osm_type": "node",
-        "name": "Épicerie du Monde",
-        "opening_hours": "Mo-Su 09:00-00:00"
+        "name": "Épicerie du Monde"
       }
     },
     {
@@ -24770,8 +24786,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.289549,
-          48.8784209
+          2.289557,
+          48.878435
         ]
       },
       "properties": {
@@ -24785,8 +24801,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.2904519,
-          48.8789702
+          2.290464,
+          48.878957
         ]
       },
       "properties": {
@@ -24802,7 +24818,7 @@
         "type": "Point",
         "coordinates": [
           2.2893119,
-          48.879568
+          48.8795759
         ]
       },
       "properties": {
@@ -25774,8 +25790,7 @@
       "properties": {
         "id": 3257179865,
         "osm_type": "node",
-        "name": "Alimentation Haddad",
-        "check_date": "2026-04-24"
+        "name": "Alimentation Haddad"
       }
     },
     {
@@ -34574,7 +34589,7 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00, Su 09:00-13:00",
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
         "check_date": "2025-04-30"
       }
     },
@@ -35385,8 +35400,7 @@
         "osm_type": "node",
         "name": "Franprix",
         "brand": "Franprix",
-        "opening_hours": "Mo-Sa 08:30-20:30",
-        "check_date": "2026-04-25"
+        "opening_hours": "Mo-Sa 08:30-20:30"
       }
     },
     {
@@ -42691,7 +42705,7 @@
         "name": "Franprix",
         "brand": "Franprix",
         "opening_hours": "Mo-Sa 08:00-21:00;Su 09:00-21:00",
-        "check_date": "2026-04-24"
+        "check_date": "2023-04-25"
       }
     },
     {
@@ -46277,8 +46291,10 @@
       "properties": {
         "id": 7343211161,
         "osm_type": "node",
-        "name": "Potager city",
-        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-13:00"
+        "name": "day by day",
+        "brand": "day by day",
+        "opening_hours": "Tu-Fr 10:00-14:00,15:00-19:30; Sa 09:30-19:30; Su 10:00-13:00",
+        "check_date": "2023-05-25"
       }
     },
     {
@@ -50308,7 +50324,7 @@
         "osm_type": "node",
         "name": "Franprix",
         "brand": "Franprix",
-        "opening_hours": "Mo-Sa 08:00-22:00; Su 09:00-13:00",
+        "opening_hours": "Mo-Sa 07:30-23:30; Su 09:00-23:30",
         "check_date": "2025-04-03"
       }
     },
@@ -56753,21 +56769,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.3258034,
-          48.8834953
-        ]
-      },
-      "properties": {
-        "id": 9542944846,
-        "osm_type": "node",
-        "name": "Le marché Lecluse"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           2.3271248,
           48.8843929
         ]
@@ -56905,22 +56906,6 @@
         "id": 9556371117,
         "osm_type": "node",
         "name": "Saveurs & Vous"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.375394,
-          48.8552178
-        ]
-      },
-      "properties": {
-        "id": 9556381827,
-        "osm_type": "node",
-        "name": "Neo Mart",
-        "opening_hours": "Mo-Su 11:00-21:00"
       }
     },
     {
@@ -59096,22 +59081,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.3745583,
-          48.8500804
-        ]
-      },
-      "properties": {
-        "id": 9898424230,
-        "osm_type": "node",
-        "name": "Mini Mart",
-        "opening_hours": "Mo-Su 9:30-20:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           2.2033886,
           48.9758302
         ]
@@ -59845,6 +59814,21 @@
       "properties": {
         "id": 10026632591,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3418849,
+          48.8532944
+        ]
+      },
+      "properties": {
+        "id": 10026913716,
+        "osm_type": "node",
+        "name": "Supérette des Arts"
       }
     },
     {
@@ -64992,8 +64976,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.3018916,
-          48.8801598
+          2.3018782,
+          48.8801999
         ]
       },
       "properties": {
@@ -75528,8 +75512,7 @@
       },
       "properties": {
         "id": 13599486721,
-        "osm_type": "node",
-        "name": "US Alimentation générale"
+        "osm_type": "node"
       }
     },
     {
@@ -75836,21 +75819,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.9416605,
-          48.5722886
-        ]
-      },
-      "properties": {
-        "id": 13724984103,
-        "osm_type": "node",
-        "name": "Epicerie & CBD"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           2.4048325,
           48.8064118
         ]
@@ -75998,65 +75966,6 @@
         "id": 13747764622,
         "osm_type": "node",
         "name": "L'exotique du Pecq"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.2959922,
-          48.8816719
-        ]
-      },
-      "properties": {
-        "id": 13756077704,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.4015828,
-          48.8780763
-        ]
-      },
-      "properties": {
-        "id": 13763139825,
-        "osm_type": "node",
-        "name": "Aswina Super Market"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.4026081,
-          48.8755448
-        ]
-      },
-      "properties": {
-        "id": 13763139826,
-        "osm_type": "node",
-        "name": "Prix Market"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.4706584,
-          48.8462237
-        ]
-      },
-      "properties": {
-        "id": 13767443538,
-        "osm_type": "node",
-        "name": "L'épicerie de Fontenay"
       }
     },
     {
@@ -83291,6 +83200,48 @@
       },
       "properties": {
         "id": 1392164135,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.7741411,
+          48.8661592
+        ]
+      },
+      "properties": {
+        "id": 1483498242,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.7742734,
+          48.866211
+        ]
+      },
+      "properties": {
+        "id": 1483498243,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.7744156,
+          48.8662548
+        ]
+      },
+      "properties": {
+        "id": 1483498244,
         "osm_type": "way"
       }
     },

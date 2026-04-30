@@ -3414,6 +3414,7 @@
         "osm_type": "node",
         "name": "Carrefour Montagne",
         "brand": "Carrefour Montagne",
+        "opening_hours": "Mo-Su 08:00-20:00",
         "check_date": "2025-05-17"
       }
     },
@@ -3496,21 +3497,6 @@
         "osm_type": "node",
         "name": "Spar",
         "brand": "Spar"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          1.4436525,
-          43.60093
-        ]
-      },
-      "properties": {
-        "id": 2457772108,
-        "osm_type": "node",
-        "name": "Koko Mart"
       }
     },
     {
@@ -5261,23 +5247,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.1455249,
-          44.0452705
-        ]
-      },
-      "properties": {
-        "id": 4503855495,
-        "osm_type": "node",
-        "name": "Carrefour Contact",
-        "brand": "Carrefour Contact",
-        "opening_hours": "Mo-Sa 08:00-19:30; Su 08:30-12:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           1.0694684,
           43.6034323
         ]
@@ -6878,23 +6847,6 @@
         "name": "La Vie Claire",
         "brand": "La Vie Claire",
         "opening_hours": "Mo-Sa 09:30-19:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          1.3363679,
-          43.9955795
-        ]
-      },
-      "properties": {
-        "id": 5862290767,
-        "osm_type": "node",
-        "name": "La Vie Claire",
-        "brand": "La Vie Claire",
-        "opening_hours": "Su, Tu 13:30-17:30; We, Fr-Sa 10:00-12:00, 13:30-17:30"
       }
     },
     {
@@ -10323,7 +10275,8 @@
       "properties": {
         "id": 10024541618,
         "osm_type": "node",
-        "name": "Les Comptoirs de la Bio",
+        "name": "Les Comptoirs De La Bio",
+        "brand": "Les Comptoirs De La Bio",
         "opening_hours": "Mo-Sa 09:00-19:00"
       }
     },
@@ -10679,6 +10632,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          0.7613227,
+          43.1153721
+        ]
+      },
+      "properties": {
+        "id": 10733096357,
+        "osm_type": "node",
+        "name": "Grand Frais",
+        "brand": "Grand Frais",
+        "opening_hours": "Mo-Sa 08:00-19:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           3.0096759,
           42.5581057
         ]
@@ -11027,22 +10997,6 @@
       },
       "properties": {
         "id": 11210260037,
-        "osm_type": "node",
-        "name": "Les Comptoirs De La Bio",
-        "brand": "Les Comptoirs De La Bio"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          2.8775199,
-          42.6431309
-        ]
-      },
-      "properties": {
-        "id": 11212437152,
         "osm_type": "node",
         "name": "Les Comptoirs De La Bio",
         "brand": "Les Comptoirs De La Bio"
@@ -12607,6 +12561,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          1.3370393,
+          43.9928028
+        ]
+      },
+      "properties": {
+        "id": 13423481040,
+        "osm_type": "node",
+        "name": "Le Cours des Halles"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           1.3489562,
           43.5303361
         ]
@@ -12930,6 +12899,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          1.3372809,
+          43.994348
+        ]
+      },
+      "properties": {
+        "id": 13752242161,
+        "osm_type": "node",
+        "name": "Palais d'Asie"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.2335489,
           43.8078101
         ]
@@ -13204,22 +13188,6 @@
         "osm_type": "way",
         "name": "Super U",
         "brand": "Super U"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          0.8892712,
-          44.1105338
-        ]
-      },
-      "properties": {
-        "id": 50071793,
-        "osm_type": "way",
-        "name": "Netto",
-        "brand": "Netto"
       }
     },
     {
@@ -21959,7 +21927,7 @@
         "type": "Point",
         "coordinates": [
           0.0454355,
-          43.238255
+          43.2382551
         ]
       },
       "properties": {
@@ -22829,7 +22797,8 @@
         "id": 409441399,
         "osm_type": "way",
         "name": "Super U",
-        "brand": "Super U"
+        "brand": "Super U",
+        "opening_hours": "Mo-Sa 08:30-19:30; Su 09:00-12:30"
       }
     },
     {

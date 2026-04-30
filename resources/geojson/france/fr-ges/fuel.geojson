@@ -403,8 +403,8 @@
       "properties": {
         "id": 25210824,
         "osm_type": "node",
-        "name": "C.c. Carrefour",
-        "brand": "Carrefour"
+        "name": "Station U",
+        "brand": "Système U"
       }
     },
     {
@@ -1782,15 +1782,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5437801,
-          48.1611904
+          7.5437171,
+          48.1612199
         ]
       },
       "properties": {
         "id": 416706515,
         "osm_type": "node",
-        "name": "Elan",
-        "brand": "Elan"
+        "name": "Total",
+        "brand": "TotalEnergies"
       }
     },
     {
@@ -1874,6 +1874,8 @@
       "properties": {
         "id": 448915632,
         "osm_type": "node",
+        "name": "Intermarché",
+        "brand": "Intermarché",
         "opening_hours": "24/7"
       }
     },
@@ -2259,8 +2261,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.2130645,
-          48.4792268
+          7.2129449,
+          48.4792092
         ]
       },
       "properties": {
@@ -8212,6 +8214,7 @@
       "properties": {
         "id": 4980470907,
         "osm_type": "node",
+        "name": "Station communale de Dun-sur-Meuse",
         "opening_hours": "24/7"
       }
     },
@@ -9718,6 +9721,7 @@
       "properties": {
         "id": 7787968172,
         "osm_type": "node",
+        "name": "Station communale de Bure",
         "opening_hours": "24/7"
       }
     },
@@ -10343,7 +10347,8 @@
       "properties": {
         "id": 11591351672,
         "osm_type": "node",
-        "name": "Station DATS24",
+        "name": "E. Leclerc",
+        "brand": "E.Leclerc",
         "opening_hours": "24/7"
       }
     },
@@ -10666,13 +10671,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.9220172,
-          49.0964164
+          4.9214432,
+          49.0960054
         ]
       },
       "properties": {
         "id": 13641739115,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Intermarché",
+        "brand": "Intermarché"
       }
     },
     {
@@ -10735,6 +10742,38 @@
         "osm_type": "node",
         "name": "Total Essey-et-Maizerais",
         "brand": "TotalEnergies"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.914129,
+          49.2450163
+        ]
+      },
+      "properties": {
+        "id": 13780263328,
+        "osm_type": "node",
+        "name": "Total",
+        "brand": "TotalEnergies"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.1959124,
+          48.1153588
+        ]
+      },
+      "properties": {
+        "id": 13780458906,
+        "osm_type": "node",
+        "name": "Carrefour",
+        "brand": "Carrefour"
       }
     },
     {
@@ -13644,8 +13683,8 @@
       "properties": {
         "id": 209158847,
         "osm_type": "way",
-        "name": "DATS 24",
-        "brand": "DATS 24",
+        "name": "Intermarché",
+        "brand": "Intermarché",
         "opening_hours": "24/7"
       }
     },
@@ -16689,8 +16728,8 @@
       "properties": {
         "id": 19392052,
         "osm_type": "relation",
-        "name": "Avia",
-        "brand": "Avia",
+        "name": "Eni",
+        "brand": "Eni",
         "opening_hours": "24/7",
         "check_date": "2025-10-10"
       }

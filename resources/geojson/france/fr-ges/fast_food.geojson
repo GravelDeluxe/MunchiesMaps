@@ -250,12 +250,12 @@
         "osm_type": "node",
         "name": "McDonald's",
         "brand": "McDonald's",
-        "opening_hours": "Mo-Su 07:00-24:00",
+        "opening_hours": "Mo-Su 07:00-23:00",
         "phone": "+33 9 67 07 21 89",
         "website": "https://www.mcdonalds.fr/restaurants/mcdonalds-strasbourg-gare/1050",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
-        "check_date": "2026-04-25",
+        "check_date": "2025-03-17",
         "chain": "mcdonalds"
       }
     },
@@ -1087,7 +1087,6 @@
         "osm_type": "node",
         "name": "Pizza Ostrea",
         "opening_hours": "Mo-Th 11:00-14:00,18:00-22:00; Sa 11:00-23:00; Su 18:00-23:00; Fr off",
-        "website": "https://ostorea2-toul.fr",
         "cuisine": "pizza",
         "chain": "unknown"
       }
@@ -2040,6 +2039,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.1788275,
+          48.6895245
+        ]
+      },
+      "properties": {
+        "id": 1378790262,
+        "osm_type": "node",
+        "name": "Pomme de Pain",
+        "brand": "Pomme de Pain",
+        "opening_hours": "Mo-Su 08:00-18:00",
+        "phone": "+33 3 83379520",
+        "website": "https://pommedepain.fr/restaurant/nancy-saint-jean/",
+        "brand:wikidata": "Q3276265",
+        "cuisine": "sandwich",
+        "check_date": "2026-01-23",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.3484961,
           48.6261275
         ]
@@ -2260,10 +2282,9 @@
         "osm_type": "node",
         "name": "O'Tacos",
         "brand": "O'Tacos",
-        "opening_hours": "Th-Sa 09:00-00:45, Su-We 09:00-24:00",
         "brand:wikidata": "Q28494040",
         "cuisine": "french_tacos",
-        "check_date": "2026-04-24",
+        "check_date": "2025-10-28",
         "chain": "unknown"
       }
     },
@@ -6238,9 +6259,8 @@
       "properties": {
         "id": 3110685430,
         "osm_type": "node",
-        "name": "O'Croustipoulet",
+        "name": "Shawarmahut",
         "opening_hours": "Mo-Su 01:30-22:00",
-        "check_date": "2026-04-25",
         "chain": "unknown"
       }
     },
@@ -6559,12 +6579,9 @@
       "properties": {
         "id": 3258370440,
         "osm_type": "node",
-        "name": "Tasty Crousty",
-        "brand": "Tasty Crousty",
-        "opening_hours": "Mo-Th, Sa, Su 11:00-00:00; Fr 15:00-00:00",
-        "brand:wikidata": "Q135185035",
-        "cuisine": "chicken",
-        "check_date": "2026-04-29",
+        "name": "La Pizza de Nico",
+        "cuisine": "pizza",
+        "check_date": "2023-05-11",
         "chain": "unknown"
       }
     },
@@ -7157,8 +7174,6 @@
         "id": 3728210838,
         "osm_type": "node",
         "name": "Krok",
-        "phone": "+33 3 29 84 20 00",
-        "website": "https://krokverdun.fr",
         "cuisine": "sandwich",
         "chain": "unknown"
       }
@@ -9751,7 +9766,6 @@
         "osm_type": "node",
         "name": "Bab Alhara",
         "cuisine": "kebab",
-        "check_date": "2026-02-24",
         "chain": "unknown"
       }
     },
@@ -18167,7 +18181,6 @@
         "osm_type": "node",
         "name": "Abri des Pèlerins",
         "opening_hours": "Apr-Oct Su; Jul-Sep Tu-Sa; Mo off",
-        "website": "https://dusenbach.fr/se-restaurer-se-loger/",
         "chain": "unknown"
       }
     },
@@ -18666,8 +18679,8 @@
       "properties": {
         "id": 7993116355,
         "osm_type": "node",
-        "name": "100% Le Bar à Jus",
-        "opening_hours": "Mo-Sa 10:00-17:30",
+        "name": "100% Le Bar a Jus",
+        "opening_hours": "Mo-Sa 10:00-18:00",
         "phone": "+33 6 47244744",
         "cuisine": "juice",
         "chain": "unknown"
@@ -19206,7 +19219,6 @@
         "osm_type": "node",
         "name": "Flash Kebab",
         "phone": "+33 3 83 47 14 57",
-        "website": "https://www.flashkebab.com",
         "cuisine": "burger;kebab;tacos;sandwich;french_tacos;panini",
         "chain": "unknown"
       }
@@ -20185,9 +20197,8 @@
         "id": 9036183673,
         "osm_type": "node",
         "name": "Berliner Kebab",
-        "opening_hours": "Mo-Su 11:30-23:00",
         "cuisine": "kebab",
-        "check_date": "2026-04-24",
+        "check_date": "2025-09-09",
         "chain": "unknown"
       }
     },
@@ -23345,6 +23356,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.7433333,
+          48.5823124
+        ]
+      },
+      "properties": {
+        "id": 10565087583,
+        "osm_type": "node",
+        "name": "Moonbo",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.7507105,
           48.5705913
         ]
@@ -23822,7 +23849,7 @@
         "id": 10753880732,
         "osm_type": "node",
         "name": "Tacos lès Nancy",
-        "opening_hours": "Sa-Th 11:00-23:00; Fr 15:00-23:00",
+        "opening_hours": "Mo-Th,Sa,Su 11:00-23:00; Fr 14:00-23:00",
         "chain": "unknown"
       }
     },
@@ -25408,7 +25435,6 @@
         "name": "Le Gou'thé d´Alex & Mel",
         "opening_hours": "Mo, Tu 10:30-21:00; Fr, Sa 10:30-22:30; Su 10:30-21:30",
         "phone": "+33 3 55 24 16 33",
-        "website": "https://le-gouthe-dalex-mel.onataste.fr",
         "chain": "unknown"
       }
     },
@@ -27438,7 +27464,6 @@
         "id": 12315930815,
         "osm_type": "node",
         "name": "Kapsaloon",
-        "opening_hours": "Mo-Sa 11:00-14:00, Mo-Sa 18:00-23:00, Su 18:00-23:00",
         "phone": "+33 3 24 56 38 22",
         "cuisine": "burger;kebab;french_tacos;tacos",
         "chain": "unknown"
@@ -28745,7 +28770,6 @@
         "osm_type": "node",
         "name": "Kebab du Mont-Héry",
         "opening_hours": "Mo-Fr 11:30-14:00,18:00-22:00",
-        "phone": "+33979716299",
         "cuisine": "kebab",
         "chain": "unknown"
       }
@@ -29492,7 +29516,6 @@
         "osm_type": "node",
         "name": "Dreams Donuts",
         "opening_hours": "Mo-Fr 07:00-18:30; Sa 10:00-18:30",
-        "website": "https://boutiques.dreamsdonuts.com/epinal",
         "cuisine": "donut",
         "chain": "unknown"
       }
@@ -31028,23 +31051,6 @@
         "id": 13718213450,
         "osm_type": "node",
         "name": "Tacos De La Gare",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          3.7319006,
-          48.2219469
-        ]
-      },
-      "properties": {
-        "id": 13758543109,
-        "osm_type": "node",
-        "name": "Le palace",
-        "phone": "+33 3 25 46 12 98",
         "chain": "unknown"
       }
     },
@@ -37411,7 +37417,6 @@
         "id": 1164808789,
         "osm_type": "way",
         "name": "Bertani",
-        "opening_hours": "Mo-Sa 10:30-19:00; Su 14:00-19:00",
         "cuisine": "crepe",
         "chain": "unknown"
       }
