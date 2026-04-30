@@ -26,7 +26,7 @@ def parse_args() -> argparse.Namespace:
 
 def load_targets(path: Path) -> list[dict]:
     if not path.exists():
-        return []
+        raise SystemExit(f'targets file not found: {path}')
     data = json.loads(path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
         raise SystemExit('targets file must contain a JSON list')

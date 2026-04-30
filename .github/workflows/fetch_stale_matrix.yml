@@ -126,7 +126,8 @@ jobs:
           python scripts/split_stale_targets.py \
             --input "$PREPARE_DIR/stale_targets.json" \
             --output-dir "$PREPARE_DIR/stale-targets-by-country" \
-            --matrix-output "$PREPARE_DIR/stale_matrix.json"
+            --matrix-output "$PREPARE_DIR/stale_matrix.json" \
+            --artifact-root "$PREPARE_DIR"
 
       - id: matrix
         run: |
@@ -172,6 +173,14 @@ jobs:
           FETCHED_DIR="$RUNNER_TEMP/fetched/${{ matrix.country }}"
           FAILED_FILE="$RUNNER_TEMP/failed/${{ matrix.country }}.json"
           mkdir -p "$FETCHED_DIR" "$RUNNER_TEMP/failed"
+
+          if [ ! -f "$TARGETS_FILE" ]; then
+            echo "::error::Targets file not found: $TARGETS_FILE"
+            echo "Matrix targets_file was: ${{ matrix.targets_file }}"
+            find "$RUNNER_TEMP/stale-prepare" -maxdepth 4 -type f -print
+            exit 1
+          fi
+
           python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "$TARGETS_FILE" --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "$FETCHED_DIR" --failed-output "$FAILED_FILE" --debug
 
       - uses: actions/upload-artifact@v4
@@ -227,11 +236,25 @@ jobs:
           out = os.path.join(os.environ["RUNNER_TEMP"], "recovery-current", "targets.json")
           with open(out, "w", encoding="utf-8") as f:
               json.dump(items, f, indent=2)
-              f.write("\\n")
           print(f"Recovery targets: {len(items)}")
           PY
 
-          count=$(python -c 'import json,os; print(len(json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "recovery-current", "targets.json"), "r", encoding="utf-8"))))')
+          count=$(python - <<'PY'
+          import json
+          import os
+          import sys
+          from pathlib import Path
+
+          path = Path(os.environ["RUNNER_TEMP"]) / "recovery-current" / "targets.json"
+          try:
+              data = json.loads(path.read_text(encoding="utf-8"))
+          except Exception:
+              print(f"Failed to parse recovery targets file: {path}", file=sys.stderr)
+              print(path.read_text(encoding="utf-8")[:500], file=sys.stderr)
+              raise
+          print(len(data))
+          PY
+          )
           if [ "$count" = "0" ]; then
             echo "No failed initial targets found; skipping recovery rounds."
             exit 0
@@ -240,7 +263,22 @@ jobs:
           for round in $(seq 1 "$RECOVERY_ROUNDS"); do
             python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "$RUNNER_TEMP/recovery-current/targets.json" --retry-attempts "$RETRY_ATTEMPTS" --retry-sleep 30 --output-dir "$RUNNER_TEMP/recovery-round-${round}/fetched" --failed-output "$RUNNER_TEMP/recovery-round-${round}/failed/failed.json"
             cp "$RUNNER_TEMP/recovery-round-${round}/failed/failed.json" "$RUNNER_TEMP/recovery-current/targets.json"
-            count=$(python -c 'import json,os; print(len(json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "recovery-current", "targets.json"), "r", encoding="utf-8"))))')
+            count=$(python - <<'PY'
+            import json
+            import os
+            import sys
+            from pathlib import Path
+
+            path = Path(os.environ["RUNNER_TEMP"]) / "recovery-current" / "targets.json"
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except Exception:
+                print(f"Failed to parse recovery targets file: {path}", file=sys.stderr)
+                print(path.read_text(encoding="utf-8")[:500], file=sys.stderr)
+                raise
+            print(len(data))
+            PY
+            )
             if [ "$count" = "0" ]; then
               echo "No targets left after recovery round $round"
               break
@@ -266,6 +304,8 @@ jobs:
       - id: changes
         name: Restore fetched GeoJSON files
         run: |
+          find "$RUNNER_TEMP/artifacts-download" -maxdepth 5 -type f | sort | head -200
+
           found=0
           copied=0
           while IFS= read -r -d '' f; do
