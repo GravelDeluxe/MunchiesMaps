@@ -30,6 +30,11 @@ on:
         description: "Optional max targets for test runs"
         required: false
         type: string
+      target_chunk_size:
+        description: "Targets per chunk (0/empty disables chunking and keeps one file per country)"
+        required: false
+        default: "25"
+        type: string
       allow_full_refresh_all_countries:
         description: "Safety guard for days=-1 with empty country. Must be YES to allow global full refresh."
         required: false
@@ -64,6 +69,7 @@ jobs:
           RECOVERY: "${{ inputs.recovery_rounds }}"
           COUNTRY: "${{ inputs.country }}"
           ALLOW_FULL: "${{ inputs.allow_full_refresh_all_countries }}"
+          TARGET_CHUNK_SIZE: "${{ inputs.target_chunk_size }}"
         run: |
           python - <<'PY'
           import os
@@ -74,10 +80,12 @@ jobs:
           d = intv("DAYS")
           r = intv("RETRY")
           rr = intv("RECOVERY")
+          tcs = intv("TARGET_CHUNK_SIZE")
 
           assert (d == -1 or d > 0), "days must be -1 or >0"
           assert r > 0, "retry_attempts must be >0"
           assert rr >= 0, "recovery_rounds must be >=0"
+          assert tcs >= 0, "target_chunk_size must be >=0"
           if d == -1 and not os.environ.get("COUNTRY", "").strip() and os.environ.get("ALLOW_FULL", "NO").strip() != "YES":
               raise SystemExit("Full refresh for all countries is very large. Set allow_full_refresh_all_countries=YES or provide a country filter.")
           PY
@@ -127,7 +135,8 @@ jobs:
             --input "$PREPARE_DIR/stale_targets.json" \
             --output-dir "$PREPARE_DIR/stale-targets-by-country" \
             --matrix-output "$PREPARE_DIR/stale_matrix.json" \
-            --artifact-root "$PREPARE_DIR"
+            --artifact-root "$PREPARE_DIR" \
+            --target-chunk-size "${{ inputs.target_chunk_size }}"
 
       - id: matrix
         run: |
@@ -154,6 +163,7 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
     runs-on: ubuntu-latest
+    name: Fetch stale data (${{ matrix.country }}${{ matrix.chunk && format(' chunk {0}', matrix.chunk) || '' }})
     steps:
       - uses: actions/checkout@v4
 
@@ -170,8 +180,11 @@ jobs:
 
       - run: |
           TARGETS_FILE="$RUNNER_TEMP/stale-prepare/${{ matrix.targets_file }}"
-          FETCHED_DIR="$RUNNER_TEMP/fetched/${{ matrix.country }}"
-          FAILED_FILE="$RUNNER_TEMP/failed/${{ matrix.country }}.json"
+          export TARGETS_FILE
+          export MATRIX_COUNTRY="${{ matrix.country }}"
+          JOB_KEY="${{ matrix.country }}${{ matrix.chunk && format('-chunk-{0}', matrix.chunk) || '' }}"
+          FETCHED_DIR="$RUNNER_TEMP/fetched/$JOB_KEY"
+          FAILED_FILE="$RUNNER_TEMP/failed/$JOB_KEY.json"
           mkdir -p "$FETCHED_DIR" "$RUNNER_TEMP/failed"
 
           if [ ! -f "$TARGETS_FILE" ]; then
@@ -181,7 +194,17 @@ jobs:
             exit 1
           fi
 
-          python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "$TARGETS_FILE" --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "$FETCHED_DIR" --failed-output "$FAILED_FILE" --debug
+          COUNTRY_TOTAL=$(python - <<'PY'
+          import json, os
+          t = os.environ["TARGETS_FILE"]
+          country = os.environ["MATRIX_COUNTRY"]
+          p = os.path.join(os.environ["RUNNER_TEMP"], "stale-prepare", "stale_targets.json")
+          with open(p, "r", encoding="utf-8") as f:
+              all_t = json.load(f)
+          print(sum(1 for i in all_t if i.get("country") == country))
+          PY
+          )
+          python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "$TARGETS_FILE" --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "$FETCHED_DIR" --failed-output "$FAILED_FILE" --chunk-id "${{ matrix.chunk || '' }}" --total-country-targets "$COUNTRY_TOTAL" --skip-smoke-test --skip-manifest --debug
           echo "check_date occurrences in fetched artifact:"
           grep -R '"check_date"' "$FETCHED_DIR" || true
           if [ -f "$FETCHED_DIR/resources/geojson/luxembourg/luxembourg/fuel.geojson" ]; then
@@ -190,13 +213,13 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: fetched-initial-${{ matrix.country }}
-          path: ${{ runner.temp }}/fetched/${{ matrix.country }}
+          name: fetched-initial-${{ matrix.country }}${{ matrix.chunk && format('-chunk-{0}', matrix.chunk) || '' }}
+          path: ${{ runner.temp }}/fetched/${{ matrix.country }}${{ matrix.chunk && format('-chunk-{0}', matrix.chunk) || '' }}
 
       - uses: actions/upload-artifact@v4
         with:
-          name: failed-initial-${{ matrix.country }}
-          path: ${{ runner.temp }}/failed/${{ matrix.country }}.json
+          name: failed-initial-${{ matrix.country }}${{ matrix.chunk && format('-chunk-{0}', matrix.chunk) || '' }}
+          path: ${{ runner.temp }}/failed/${{ matrix.country }}${{ matrix.chunk && format('-chunk-{0}', matrix.chunk) || '' }}.json
 
   recovery:
     needs: [prepare, fetch]
@@ -313,15 +336,23 @@ jobs:
 
           found=0
           copied=0
+          duplicates=0
+          declare -A SEEN_FILES
           while IFS= read -r -d '' f; do
             found=$((found + 1))
             rel=${f#*resources/geojson/}
+            if [[ -n "${SEEN_FILES[$rel]:-}" ]]; then
+              duplicates=$((duplicates + 1))
+              echo "[merge] duplicate file encountered, replacing older copy: $rel"
+            fi
+            SEEN_FILES[$rel]=1
             mkdir -p "resources/geojson/$(dirname "$rel")"
             cp "$f" "resources/geojson/$rel"
             copied=$((copied + 1))
           done < <(find "$RUNNER_TEMP/artifacts-download" -type f -path '*/resources/geojson/*' -name '*.geojson' -print0)
           echo "Found fetched GeoJSON files: $found"
           echo "Copied GeoJSON files: $copied"
+          echo "Duplicate target files replaced: $duplicates"
           {
             echo "### Stale fetch restore summary"
             echo "- Found fetched GeoJSON files: $found"

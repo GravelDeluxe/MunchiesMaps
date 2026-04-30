@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import random
 import re
 import sys
@@ -1291,6 +1292,8 @@ def run(
     dry_run: bool = False,
     failure_log_jsonl: str | None = None,
     only_missing_or_invalid: bool = False,
+    skip_smoke_test: bool = False,
+    skip_manifest: bool = False,
 ) -> int:
     """Run the fetch process for all configured regions and categories."""
     region_filter = region_filter or set()
@@ -1439,7 +1442,9 @@ def run(
             f"| selected_tasks={summary.get('selected_tasks', '?')} "
             f"| configured_tasks={summary.get('configured_tasks', '?')}"
         )
-    healthy_endpoints = smoke_test_endpoints(endpoints)
+    healthy_endpoints = endpoints if skip_smoke_test else smoke_test_endpoints(endpoints)
+    if skip_smoke_test:
+        print("[smoke] skipped via --skip-smoke-test")
     degraded_mode_used = False
     if not healthy_endpoints:
         degraded_mode_used = True
@@ -1701,7 +1706,7 @@ def run(
                 run_stats["failed_fetches"] += 1
                 continue
 
-    if dry_run:
+    if dry_run or skip_manifest:
         print("[dry-run] Skipping manifest write")
     else:
         save_manifest(regions, categories)
@@ -1792,6 +1797,16 @@ def main() -> None:
         action="store_true",
         help="Fetch only files that are missing/empty/invalid JSON or invalid FeatureCollection.",
     )
+    parser.add_argument(
+        "--skip-smoke-test",
+        action="store_true",
+        help="Skip endpoint smoke tests (for orchestrators that already validated endpoints).",
+    )
+    parser.add_argument(
+        "--skip-manifest",
+        action="store_true",
+        help="Skip manifest write for per-target runs.",
+    )
     args = parser.parse_args()
     layer_input = args.layers or args.categories
 
@@ -1804,6 +1819,8 @@ def main() -> None:
             dry_run=args.dry_run,
             failure_log_jsonl=args.failure_log_jsonl,
             only_missing_or_invalid=args.only_missing_or_invalid,
+            skip_smoke_test=args.skip_smoke_test,
+            skip_manifest=args.skip_manifest,
         )
         if exit_code != 0:
             sys.exit(exit_code)
