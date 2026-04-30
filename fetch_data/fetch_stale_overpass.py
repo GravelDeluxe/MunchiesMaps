@@ -74,12 +74,14 @@ def run_target_via_legacy_cli(target: dict, output_dir: Path, debug: bool) -> tu
         if proc.returncode != 0:
             print(f'[debug] exception_class=SubprocessError exception_message=legacy_fetch_exit_{proc.returncode}')
 
-    src = ROOT / 'resources' / 'geojson' / rel_path
+    src = ROOT / rel_path
     dst = output_dir / rel_path
     if proc.returncode == 0 and src.exists():
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dst)
         return True, ''
+    if proc.returncode == 0 and not src.exists():
+        return False, 'legacy_fetch_missing_expected_output'
 
     err = f'legacy_fetch_exit_code={proc.returncode}'
     for line in reversed(proc.stdout.splitlines()):

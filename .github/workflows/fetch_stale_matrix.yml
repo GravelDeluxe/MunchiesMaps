@@ -89,10 +89,12 @@ jobs:
           CATEGORY: "${{ inputs.category }}"
           MAX_TARGETS: "${{ inputs.max_targets }}"
         run: |
+          PREPARE_DIR="$RUNNER_TEMP/stale-prepare"
+          mkdir -p "$PREPARE_DIR/stale-targets-by-country"
           args=(
             --config fetch_data/config.yml
             --days "$DAYS"
-            --output artifacts/stale_targets.json
+            --output "$PREPARE_DIR/stale_targets.json"
           )
 
           if [ -n "$COUNTRY" ]; then
@@ -110,7 +112,7 @@ jobs:
           import json
           import os
 
-          p = "artifacts/stale_targets.json"
+          p = os.path.join(os.environ["RUNNER_TEMP"], "stale-prepare", "stale_targets.json")
           m = int(os.environ["MAX_TARGETS"])
 
           with open(p, "r", encoding="utf-8") as f:
@@ -122,16 +124,17 @@ jobs:
           fi
 
           python scripts/split_stale_targets.py \
-            --input artifacts/stale_targets.json \
-            --output-dir artifacts/stale-targets-by-country \
-            --matrix-output artifacts/stale_matrix.json
+            --input "$PREPARE_DIR/stale_targets.json" \
+            --output-dir "$PREPARE_DIR/stale-targets-by-country" \
+            --matrix-output "$PREPARE_DIR/stale_matrix.json"
 
       - id: matrix
         run: |
           python - <<'PY' >> "$GITHUB_OUTPUT"
           import json
+          import os
 
-          with open("artifacts/stale_matrix.json", "r", encoding="utf-8") as f:
+          with open(os.path.join(os.environ["RUNNER_TEMP"], "stale-prepare", "stale_matrix.json"), "r", encoding="utf-8") as f:
               matrix = json.load(f)
 
           print("matrix=" + json.dumps(matrix, separators=(",", ":")))
@@ -141,7 +144,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: stale-prepare
-          path: artifacts
+          path: ${{ runner.temp }}/stale-prepare
 
   fetch:
     needs: prepare
@@ -162,23 +165,28 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: stale-prepare
-          path: artifacts
+          path: ${{ runner.temp }}/stale-prepare
 
-      - run: python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "${{ matrix.targets_file }}" --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "artifacts/fetched/${{ matrix.country }}" --failed-output "artifacts/failed/${{ matrix.country }}.json" --debug
+      - run: |
+          TARGETS_FILE="$RUNNER_TEMP/stale-prepare/${{ matrix.targets_file }}"
+          FETCHED_DIR="$RUNNER_TEMP/fetched/${{ matrix.country }}"
+          FAILED_FILE="$RUNNER_TEMP/failed/${{ matrix.country }}.json"
+          mkdir -p "$FETCHED_DIR" "$RUNNER_TEMP/failed"
+          python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "$TARGETS_FILE" --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "$FETCHED_DIR" --failed-output "$FAILED_FILE" --debug
 
       - uses: actions/upload-artifact@v4
         with:
           name: fetched-initial-${{ matrix.country }}
-          path: artifacts/fetched/${{ matrix.country }}
+          path: ${{ runner.temp }}/fetched/${{ matrix.country }}
 
       - uses: actions/upload-artifact@v4
         with:
           name: failed-initial-${{ matrix.country }}
-          path: artifacts/failed/${{ matrix.country }}.json
+          path: ${{ runner.temp }}/failed/${{ matrix.country }}.json
 
   recovery:
     needs: [prepare, fetch]
-    if: needs.prepare.outputs.has_targets == 'true' && fromJson(inputs.recovery_rounds) > 0
+    if: ${{ always() && needs.prepare.outputs.has_targets == 'true' && fromJson(inputs.recovery_rounds) > 0 }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -191,27 +199,48 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          path: artifacts-download
+          path: ${{ runner.temp }}/artifacts-download
 
       - name: Recovery rounds (sequential)
         env:
           RECOVERY_ROUNDS: "${{ inputs.recovery_rounds }}"
           RETRY_ATTEMPTS: "${{ inputs.retry_attempts }}"
         run: |
-          mkdir -p artifacts/recovery-current
-          cp artifacts-download/stale-prepare/stale_targets.json artifacts/recovery-current/targets.json
+          mkdir -p "$RUNNER_TEMP/recovery-current"
+          python - <<'PY'
+          import glob
+          import json
+          import os
+
+          items = []
+          seen = set()
+          for path in glob.glob(os.path.join(os.environ["RUNNER_TEMP"], "artifacts-download", "failed-initial-*", "*.json")):
+              with open(path, "r", encoding="utf-8") as f:
+                  data = json.load(f)
+              for item in data:
+                  key = (item.get("country"), item.get("region"), item.get("category"), item.get("path"))
+                  if key in seen:
+                      continue
+                  seen.add(key)
+                  items.append(item)
+
+          out = os.path.join(os.environ["RUNNER_TEMP"], "recovery-current", "targets.json")
+          with open(out, "w", encoding="utf-8") as f:
+              json.dump(items, f, indent=2)
+              f.write("\\n")
+          print(f"Recovery targets: {len(items)}")
+          PY
+
+          count=$(python -c 'import json,os; print(len(json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "recovery-current", "targets.json"), "r", encoding="utf-8"))))')
+          if [ "$count" = "0" ]; then
+            echo "No failed initial targets found; skipping recovery rounds."
+            exit 0
+          fi
 
           for round in $(seq 1 "$RECOVERY_ROUNDS"); do
-            python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets artifacts/recovery-current/targets.json --retry-attempts "$RETRY_ATTEMPTS" --retry-sleep 30 --output-dir "artifacts/recovery-round-${round}/fetched" --failed-output "artifacts/recovery-round-${round}/failed/failed.json"
-            cp "artifacts/recovery-round-${round}/failed/failed.json" artifacts/recovery-current/targets.json
-            count=$(python - <<'PY'
-            import json
-
-            with open('artifacts/recovery-current/targets.json', 'r', encoding='utf-8') as f:
-                d = json.load(f)
-            print(len(d))
-            PY
-            )
+            python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "$RUNNER_TEMP/recovery-current/targets.json" --retry-attempts "$RETRY_ATTEMPTS" --retry-sleep 30 --output-dir "$RUNNER_TEMP/recovery-round-${round}/fetched" --failed-output "$RUNNER_TEMP/recovery-round-${round}/failed/failed.json"
+            cp "$RUNNER_TEMP/recovery-round-${round}/failed/failed.json" "$RUNNER_TEMP/recovery-current/targets.json"
+            count=$(python -c 'import json,os; print(len(json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "recovery-current", "targets.json"), "r", encoding="utf-8"))))')
             if [ "$count" = "0" ]; then
               echo "No targets left after recovery round $round"
               break
@@ -221,38 +250,56 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: recovery-artifacts
-          path: artifacts/recovery-round-*
+          path: ${{ runner.temp }}/recovery-round-*
 
   create-pr:
     needs: [prepare, fetch, recovery]
-    if: always()
+    if: ${{ always() && needs.prepare.result == 'success' && needs.prepare.outputs.has_targets == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/download-artifact@v4
         with:
-          path: artifacts-download
+          path: ${{ runner.temp }}/artifacts-download
 
-      - run: |
-          mkdir -p artifacts/stale-fetch-failures
-          find artifacts-download -type f -path '*/resources/geojson/*' -print0 | while IFS= read -r -d '' f; do
+      - id: changes
+        name: Restore fetched GeoJSON files
+        run: |
+          found=0
+          copied=0
+          while IFS= read -r -d '' f; do
+            found=$((found + 1))
             rel=${f#*resources/geojson/}
             mkdir -p "resources/geojson/$(dirname "$rel")"
             cp "$f" "resources/geojson/$rel"
-          done
-          find artifacts-download -type f -name '*.json' -path '*failed*' -exec cp {} artifacts/stale-fetch-failures/ \;
-          git add resources/geojson || true
+            copied=$((copied + 1))
+          done < <(find "$RUNNER_TEMP/artifacts-download" -type f -path '*/resources/geojson/*' -name '*.geojson' -print0)
+          echo "Found fetched GeoJSON files: $found"
+          echo "Copied GeoJSON files: $copied"
+          {
+            echo "### Stale fetch restore summary"
+            echo "- Found fetched GeoJSON files: $found"
+            echo "- Copied GeoJSON files: $copied"
+          } >> "$GITHUB_STEP_SUMMARY"
+          git status --short resources/geojson
+          git add resources/geojson/**/*.geojson resources/geojson/manifest.json 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo 'No changes'
-            exit 0
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            echo 'No GeoJSON changes; skipping PR'
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
       - uses: peter-evans/create-pull-request@v6
+        if: steps.changes.outputs.has_changes == 'true'
         with:
           branch: data/stale-refresh-${{ github.run_id }}-${{ github.run_attempt }}
           title: Refresh stale GeoJSON data
           commit-message: Refresh stale GeoJSON data
+          add-paths: |
+            resources/geojson/**/*.geojson
+            resources/geojson/manifest.json
           body: |
             Automated stale GeoJSON refresh.
             - days: `${{ inputs.days }}`
