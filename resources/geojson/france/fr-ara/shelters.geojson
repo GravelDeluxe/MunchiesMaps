@@ -225,6 +225,7 @@
       "properties": {
         "id": 1914880647,
         "osm_type": "node",
+        "name": "Abri du Touret",
         "shelter_type": "weather_shelter"
       }
     },
@@ -240,6 +241,7 @@
       "properties": {
         "id": 1914880966,
         "osm_type": "node",
+        "name": "Abri de la Vivolle",
         "shelter_type": "weather_shelter"
       }
     },
@@ -425,22 +427,6 @@
         "id": 3213847562,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.2771532,
-          44.8884639
-        ]
-      },
-      "properties": {
-        "id": 3385520518,
-        "osm_type": "node",
-        "access": "yes",
-        "fee": "no"
       }
     },
     {
@@ -879,23 +865,6 @@
         "id": 6013673679,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.6035396,
-          45.1833631
-        ]
-      },
-      "properties": {
-        "id": 6247156313,
-        "osm_type": "node",
-        "name": "Cabane de Roche Rousse",
-        "shelter_type": "weather_shelter",
-        "bench": "yes"
       }
     },
     {
@@ -1453,6 +1422,7 @@
       "properties": {
         "id": 8672251796,
         "osm_type": "node",
+        "name": "Bergerie",
         "shelter_type": "weather_shelter",
         "description": "2013-08 : abri sommaire"
       }
@@ -1843,6 +1813,7 @@
       "properties": {
         "id": 11079236007,
         "osm_type": "node",
+        "name": "Cabane au dessus de Planfay",
         "shelter_type": "basic_hut"
       }
     },
@@ -1874,6 +1845,7 @@
       "properties": {
         "id": 11087178438,
         "osm_type": "node",
+        "name": "Cabanon de la combe de la Surre",
         "shelter_type": "weather_shelter"
       }
     },
@@ -1986,6 +1958,7 @@
       "properties": {
         "id": 11123992413,
         "osm_type": "node",
+        "name": "Chapelle des Sadous",
         "shelter_type": "weather_shelter"
       }
     },
@@ -2460,6 +2433,36 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.3562181,
+          45.186582
+        ]
+      },
+      "properties": {
+        "id": 13779834702,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3570038,
+          45.1867556
+        ]
+      },
+      "properties": {
+        "id": 13779835901,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.9372202,
           46.2475828
         ]
@@ -2731,7 +2734,8 @@
       "properties": {
         "id": 64002860,
         "osm_type": "way",
-        "name": "Cabane du Lac Carré"
+        "name": "Cabane du Lac Carré",
+        "check_date": "2025-07-18"
       }
     },
     {
@@ -3042,6 +3046,7 @@
         "osm_type": "way",
         "name": "Cabane Josseaume",
         "shelter_type": "basic_hut",
+        "bench": "yes",
         "operator": "Office National des Forêts",
         "description": "2016-04 : C'est une grosse batisse, plutot un hangar, situé au fond du vallon. il y a une Cheminée et 2 petites fenêtres largement insuffisantes. pas d'autre confort, ni banc ni table"
       }
@@ -3313,6 +3318,7 @@
       "properties": {
         "id": 81429308,
         "osm_type": "way",
+        "name": "Baraque forestière de l'Echarina",
         "shelter_type": "basic_hut"
       }
     },
@@ -3534,6 +3540,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.0807683,
+          45.3771814
+        ]
+      },
+      "properties": {
+        "id": 100195909,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.779456,
           45.217998
         ]
@@ -3606,6 +3627,7 @@
       "properties": {
         "id": 103291783,
         "osm_type": "way",
+        "name": "Abri de la ferme du Rivet",
         "shelter_type": "lean_to"
       }
     },
@@ -3961,6 +3983,7 @@
       "properties": {
         "id": 119910856,
         "osm_type": "way",
+        "name": "Abri de berger",
         "shelter_type": "weather_shelter"
       }
     },
@@ -4588,6 +4611,7 @@
       "properties": {
         "id": 161617699,
         "osm_type": "way",
+        "name": "Ancien départ Catex",
         "shelter_type": "weather_shelter",
         "description": "Abri pour Grand Tetras"
       }
@@ -4681,7 +4705,8 @@
       },
       "properties": {
         "id": 164909450,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "Abri de Tardevant"
       }
     },
     {
@@ -4869,6 +4894,21 @@
         "name": "Oratoire de la Sainte-Victoire",
         "shelter_type": "basic_hut",
         "bench": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.385108,
+          45.95679
+        ]
+      },
+      "properties": {
+        "id": 177335152,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -5118,6 +5158,7 @@
       "properties": {
         "id": 187382576,
         "osm_type": "way",
+        "name": "Cabane du Bolchu",
         "shelter_type": "weather_shelter"
       }
     },
@@ -6138,38 +6179,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.299864,
-          45.9092305
-        ]
-      },
-      "properties": {
-        "id": 231116921,
-        "osm_type": "way",
-        "name": "Chalet de la Têtaz",
-        "access": "no",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.2720208,
-          45.8458476
-        ]
-      },
-      "properties": {
-        "id": 231118813,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.3044987,
           45.8634227
         ]
@@ -6535,6 +6544,7 @@
       "properties": {
         "id": 252129667,
         "osm_type": "way",
+        "name": "Grange de Girieux",
         "shelter_type": "weather_shelter"
       }
     },
@@ -6722,6 +6732,7 @@
       "properties": {
         "id": 262066507,
         "osm_type": "way",
+        "name": "Bergerie de Darbounouse",
         "shelter_type": "weather_shelter"
       }
     },
@@ -6951,6 +6962,7 @@
       "properties": {
         "id": 299207546,
         "osm_type": "way",
+        "name": "Baraque de Chamousset",
         "shelter_type": "weather_shelter",
         "description": "2013-06 : 4 murs, un toit, un sol sale et c'est tout. l'ensemble a l'air assez etanche mais c'est le confort minimum. pas de table, de banc, ou de poele la maison du berger a coté est privée et fermée"
       }
@@ -6969,6 +6981,21 @@
         "osm_type": "way",
         "name": "Bergerie du Jardin du Roi",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5344786,
+          45.1173374
+        ]
+      },
+      "properties": {
+        "id": 299279523,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -7015,6 +7042,7 @@
       "properties": {
         "id": 305700263,
         "osm_type": "way",
+        "name": "Grange",
         "shelter_type": "basic_hut"
       }
     },
@@ -7195,7 +7223,8 @@
         "id": 362974023,
         "osm_type": "way",
         "name": "Refuge de la Pierre du Carre",
-        "capacity": "19"
+        "capacity": "19",
+        "fee": "no"
       }
     },
     {
@@ -7689,6 +7718,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          6.6349291,
+          45.4880625
+        ]
+      },
+      "properties": {
+        "id": 442839818,
+        "osm_type": "way",
+        "name": "Le Refuge d'hiver du Mont Jovet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           3.504437,
           44.9097866
         ]
@@ -7763,7 +7807,8 @@
       "properties": {
         "id": 464071812,
         "osm_type": "way",
-        "name": "Habert des Sabottes"
+        "name": "Habert des Sabottes",
+        "check_date": "2025-07-12"
       }
     },
     {
@@ -8025,6 +8070,7 @@
       "properties": {
         "id": 495916009,
         "osm_type": "way",
+        "name": "Cabane du Malade",
         "shelter_type": "basic_hut"
       }
     },
@@ -8508,6 +8554,7 @@
       "properties": {
         "id": 619554056,
         "osm_type": "way",
+        "name": "Chalet de Riondet",
         "shelter_type": "weather_shelter"
       }
     },
@@ -8756,6 +8803,7 @@
       "properties": {
         "id": 702670986,
         "osm_type": "way",
+        "name": "Abri du Pont de la Vieille Scie",
         "shelter_type": "weather_shelter"
       }
     },
@@ -9305,6 +9353,7 @@
       "properties": {
         "id": 812547219,
         "osm_type": "way",
+        "name": "Bergerie Combeauvieux",
         "shelter_type": "weather_shelter"
       }
     },
@@ -9383,6 +9432,21 @@
         "osm_type": "way",
         "name": "Abris Fornet",
         "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.311485,
+          45.406756
+        ]
+      },
+      "properties": {
+        "id": 828493843,
+        "osm_type": "way",
+        "name": "Cabanon du Lac de la Grande Léchère"
       }
     },
     {
@@ -9477,6 +9541,7 @@
       "properties": {
         "id": 848189376,
         "osm_type": "way",
+        "name": "Cabane forestière de Font Bessou",
         "shelter_type": "basic_hut"
       }
     },
@@ -9998,6 +10063,7 @@
       "properties": {
         "id": 980638396,
         "osm_type": "way",
+        "name": "Abri des Egarlettes",
         "description": "Petite cabane non gardée vide mais propre. Pouvant accueillir 2 ou 3 randonneurs pour la nuit."
       }
     },
@@ -10137,22 +10203,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.9857856,
-          45.0024088
-        ]
-      },
-      "properties": {
-        "id": 1015285473,
-        "osm_type": "way",
-        "name": "Cabane des Roudons (basse)",
-        "operator": "office National des Forêts"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.3055097,
           45.4189456
         ]
@@ -10226,7 +10276,8 @@
         "id": 1040918336,
         "osm_type": "way",
         "name": "Refuge du Col du Petit Cucheron",
-        "capacity": "4"
+        "capacity": "4",
+        "check_date": "2025-05-09"
       }
     },
     {
@@ -10241,7 +10292,23 @@
       "properties": {
         "id": 1040918337,
         "osm_type": "way",
+        "name": "Le planaz",
         "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.2150746,
+          45.4651834
+        ]
+      },
+      "properties": {
+        "id": 1040918338,
+        "osm_type": "way",
+        "name": "Chalet de la Gorge du Nant"
       }
     },
     {
@@ -10272,6 +10339,7 @@
       "properties": {
         "id": 1040918342,
         "osm_type": "way",
+        "name": "Baraque forestière des Mouilles",
         "shelter_type": "basic_hut"
       }
     },
@@ -10335,6 +10403,7 @@
       "properties": {
         "id": 1040918349,
         "osm_type": "way",
+        "name": "Abri du lac de la Corne",
         "shelter_type": "basic_hut",
         "capacity": "4"
       }
@@ -10563,7 +10632,8 @@
         "name": "Refuge du Merlet",
         "access": "yes",
         "capacity": "8",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2023-07-16"
       }
     },
     {
@@ -10578,7 +10648,8 @@
       "properties": {
         "id": 1040918367,
         "osm_type": "way",
-        "name": "Cabane A. Bonnet"
+        "name": "Cabane A. Bonnet",
+        "check_date": "2025-07-06"
       }
     },
     {
@@ -10727,6 +10798,22 @@
         "id": 1075649853,
         "osm_type": "way",
         "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.0293911,
+          46.3709348
+        ]
+      },
+      "properties": {
+        "id": 1079272896,
+        "osm_type": "way",
+        "name": "Chalet Forestier du Turet",
+        "access": "unknown"
       }
     },
     {
@@ -11056,6 +11143,7 @@
       "properties": {
         "id": 1188491599,
         "osm_type": "way",
+        "name": "Cabane de Périne",
         "shelter_type": "lean_to"
       }
     },
@@ -11119,6 +11207,7 @@
       "properties": {
         "id": 1194528938,
         "osm_type": "way",
+        "name": "Cabane de la Combe du crêt",
         "shelter_type": "weather_shelter"
       }
     },
@@ -11361,6 +11450,7 @@
       "properties": {
         "id": 1199438808,
         "osm_type": "way",
+        "name": "Abri",
         "shelter_type": "weather_shelter"
       }
     },
@@ -11510,22 +11600,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.5299495,
-          45.2238722
-        ]
-      },
-      "properties": {
-        "id": 1229942776,
-        "osm_type": "way",
-        "name": "Refuge de l'Arpont",
-        "operator": "Commune d'Orelle"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.081676,
           46.4090607
         ]
@@ -11659,6 +11733,7 @@
       "properties": {
         "id": 1278828611,
         "osm_type": "way",
+        "name": "Abri Sous le Col du Pertuis",
         "shelter_type": "basic_hut"
       }
     },
@@ -11944,21 +12019,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.5940033,
-          45.1941073
-        ]
-      },
-      "properties": {
-        "id": 1331314891,
-        "osm_type": "way",
-        "name": "FERMÉ - Cabane sous le Tracollet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.8032656,
           45.6133698
         ]
@@ -12138,22 +12198,6 @@
         "osm_type": "way",
         "shelter_type": "basic_hut",
         "description": "Camp de fortune illégal utilisé par des sans-abris"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.986071,
-          45.0023547
-        ]
-      },
-      "properties": {
-        "id": 1396146741,
-        "osm_type": "way",
-        "name": "Cabane des Roudons (haute)",
-        "operator": "office National des Forêts"
       }
     },
     {
@@ -12447,6 +12491,101 @@
         "id": 1494645358,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.6034746,
+          45.1835043
+        ]
+      },
+      "properties": {
+        "id": 1498751780,
+        "osm_type": "way",
+        "name": "Cabane de Roche Rousse",
+        "access": "yes",
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "description": "Petit abri situé en contrebas de la falaise. Faites le détour et contournez la falaise par le nord pour y accéder."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.7213369,
+          45.1856459
+        ]
+      },
+      "properties": {
+        "id": 1504004337,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.7212544,
+          45.1856754
+        ]
+      },
+      "properties": {
+        "id": 1504004338,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.72131,
+          45.1857321
+        ]
+      },
+      "properties": {
+        "id": 1504004339,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.916004,
+          45.0721649
+        ]
+      },
+      "properties": {
+        "id": 1504540918,
+        "osm_type": "way",
+        "name": "Cabane de Queue de Chien"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9859282,
+          45.0023817
+        ]
+      },
+      "properties": {
+        "id": 20517399,
+        "osm_type": "relation",
+        "name": "Cabane des Roudons",
+        "operator": "office National des Forêts"
       }
     }
   ]

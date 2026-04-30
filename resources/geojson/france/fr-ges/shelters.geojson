@@ -94,7 +94,8 @@
         "shelter_type": "weather_shelter",
         "bench": "yes",
         "operator": "Club Vosgien Val de Moder",
-        "description": "large table inside"
+        "description": "large table inside",
+        "check_date": "2022-08-27"
       }
     },
     {
@@ -3370,7 +3371,8 @@
       "properties": {
         "id": 204956324,
         "osm_type": "way",
-        "name": "Abri du Teufelsloch"
+        "name": "Abri du Teufelsloch",
+        "check_date": "2025-01-21"
       }
     },
     {
@@ -6066,6 +6068,21 @@
         "bench": "yes",
         "table": "yes",
         "capacity": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.4532751,
+          48.5554829
+        ]
+      },
+      "properties": {
+        "id": 1498854107,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     }
   ]

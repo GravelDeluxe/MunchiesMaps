@@ -179,7 +179,8 @@
         "id": 12759264506,
         "osm_type": "node",
         "name": "Abri de nuit",
-        "shelter_type": "residential"
+        "shelter_type": "residential",
+        "check_date": "2024-04-12"
       }
     },
     {
@@ -310,13 +311,43 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.903394,
-          47.3693763
+          1.595191,
+          46.5136284
         ]
       },
       "properties": {
-        "id": 85939777,
-        "osm_type": "way",
+        "id": 13765964183,
+        "osm_type": "node",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.5837036,
+          46.5075626
+        ]
+      },
+      "properties": {
+        "id": 13767750297,
+        "osm_type": "node",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.6072582,
+          46.4798444
+        ]
+      },
+      "properties": {
+        "id": 13771121114,
+        "osm_type": "node",
         "shelter_type": "basic_hut"
       }
     },

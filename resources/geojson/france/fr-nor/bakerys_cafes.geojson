@@ -40,7 +40,9 @@
       },
       "properties": {
         "id": 287436321,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Boulangerie Vimond",
+        "opening_hours": "Mo-Th 07:00-13:30,15:30-19:30; Fr 07:00-13:30,15:30-19:30; Sa-Su 07:00-19:30"
       }
     },
     {
@@ -447,23 +449,8 @@
         "id": 551468243,
         "osm_type": "node",
         "name": "La Fernandize",
-        "opening_hours": "Mo-Tu, Th-Fr 06:30-19:00; Sa-Su 06:30-18:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          0.1487315,
-          49.5070092
-        ]
-      },
-      "properties": {
-        "id": 551468303,
-        "osm_type": "node",
-        "name": "Boulangerie des Halattes",
-        "opening_hours": "Th-Tu 07:00-20:00"
+        "opening_hours": "Mo-Tu, Th-Fr 06:30-19:00; Sa-Su 06:30-18:30",
+        "check_date": "2024-12-14"
       }
     },
     {
@@ -570,7 +557,8 @@
         "osm_type": "node",
         "name": "Le fournil de Loona",
         "opening_hours": "Mo-Th 06:30-19:00; Fr 06:30-18:00",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2024-08-10"
       }
     },
     {
@@ -693,7 +681,9 @@
         "id": 795443985,
         "osm_type": "node",
         "name": "Metropole",
-        "opening_hours": "Mo-Sa 07:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "outdoor_seating": "yes",
+        "check_date": "2025-09-22"
       }
     },
     {
@@ -740,7 +730,8 @@
         "id": 815663778,
         "osm_type": "node",
         "name": "Les Floralies",
-        "outdoor_seating": "street"
+        "outdoor_seating": "street",
+        "check_date": "2026-02-28"
       }
     },
     {
@@ -784,7 +775,8 @@
         "id": 846978287,
         "osm_type": "node",
         "name": "Cafétéria La Belle Normande",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2024-08-13"
       }
     },
     {
@@ -890,7 +882,8 @@
       "properties": {
         "id": 861053193,
         "osm_type": "node",
-        "name": "La Civette"
+        "name": "La Civette",
+        "check_date": "2026-03-26"
       }
     },
     {
@@ -906,7 +899,8 @@
         "id": 867571106,
         "osm_type": "node",
         "name": "Le Fournil de Val-de-reuil",
-        "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-14:00; Su off"
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-14:00; Su off",
+        "check_date": "2025-11-09"
       }
     },
     {
@@ -1050,14 +1044,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.0845401,
-          49.1155086
+          -1.084622,
+          49.1155037
         ]
       },
       "properties": {
         "id": 1192888261,
         "osm_type": "node",
-        "name": "Maison Leboyer"
+        "name": "Maison Leboyer",
+        "check_date": "2025-05-30"
       }
     },
     {
@@ -1196,7 +1191,8 @@
       "properties": {
         "id": 1240915798,
         "osm_type": "node",
-        "name": "La Normandine"
+        "name": "La Normandine",
+        "check_date": "2025-07-04"
       }
     },
     {
@@ -1227,7 +1223,8 @@
         "id": 1240915858,
         "osm_type": "node",
         "name": "Au Palais des Pains",
-        "opening_hours": "PH,Fr-Tu 06:30-20:00"
+        "opening_hours": "PH,Fr-Tu 06:30-20:00",
+        "check_date": "2025-07-14"
       }
     },
     {
@@ -1548,7 +1545,8 @@
       "properties": {
         "id": 1404452289,
         "osm_type": "node",
-        "name": "Julien"
+        "name": "Julien",
+        "check_date": "2024-12-24"
       }
     },
     {
@@ -1603,20 +1601,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.5002858,
-          48.8107702
-        ]
-      },
-      "properties": {
-        "id": 1411051385,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -0.4994577,
           48.8110818
         ]
@@ -1624,6 +1608,7 @@
       "properties": {
         "id": 1411051409,
         "osm_type": "node",
+        "name": "Boulangerie Gougeon",
         "opening_hours": "Mo, Tu, Fr, Sa 07:00-19:30; Su 07:00-12:00",
         "takeaway": "only",
         "outdoor_seating": "no"
@@ -1697,7 +1682,8 @@
       },
       "properties": {
         "id": 1414370058,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-03-29"
       }
     },
     {
@@ -1756,7 +1742,8 @@
       "properties": {
         "id": 1472085199,
         "osm_type": "node",
-        "name": "Le Jean Bart"
+        "name": "Le Jean Bart",
+        "check_date": "2024-12-18"
       }
     },
     {
@@ -1801,7 +1788,9 @@
       "properties": {
         "id": 1511775639,
         "osm_type": "node",
-        "name": "Boulangerie de la Halle au blé"
+        "name": "Boulangerie de la Halle au blé",
+        "opening_hours": "Tu-Sa 07:00-19:00",
+        "check_date": "2026-04-11"
       }
     },
     {
@@ -1849,7 +1838,8 @@
         "id": 1559647430,
         "osm_type": "node",
         "name": "Boulangerie Rose",
-        "opening_hours": "Mo-Fr 07:45-19:00; Sa 07:45-13:00; Su off"
+        "opening_hours": "Mo-Fr 07:45-19:00; Sa 07:45-13:00; Su off",
+        "check_date": "2024-10-27"
       }
     },
     {
@@ -2066,7 +2056,8 @@
       "properties": {
         "id": 1617765498,
         "osm_type": "node",
-        "name": "Les Lilas"
+        "name": "Les Lilas",
+        "check_date": "2023-10-31"
       }
     },
     {
@@ -2095,7 +2086,8 @@
       "properties": {
         "id": 1632646984,
         "osm_type": "node",
-        "name": "Le Fournil Saint-Nicolas"
+        "name": "Le Fournil Saint-Nicolas",
+        "check_date": "2024-12-03"
       }
     },
     {
@@ -2195,7 +2187,8 @@
         "name": "Le Pétrin de Saint-Jean",
         "opening_hours": "We-Su 07:00-19:30",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2026-02-23"
       }
     },
     {
@@ -2213,7 +2206,8 @@
         "name": "Aux délices de Saint-Jean",
         "opening_hours": "Mo-Fr 06:30-19:30",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2026-02-23"
       }
     },
     {
@@ -2261,7 +2255,8 @@
         "osm_type": "node",
         "name": "Le Pétrin d'Angèle",
         "opening_hours": "Mo-Sa 07:30-19:30",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-12"
       }
     },
     {
@@ -2292,7 +2287,8 @@
         "id": 1636410092,
         "osm_type": "node",
         "name": "La Falue",
-        "opening_hours": "Mo-Fr 07:00-20:00"
+        "opening_hours": "Mo-Fr 07:00-20:00",
+        "check_date": "2023-08-12"
       }
     },
     {
@@ -2307,7 +2303,7 @@
       "properties": {
         "id": 1636415142,
         "osm_type": "node",
-        "name": "La Manne à Pain"
+        "name": "La Mie d'Or"
       }
     },
     {
@@ -2664,7 +2660,8 @@
         "id": 1752386759,
         "osm_type": "node",
         "name": "Atelier Pains & Gourmandises",
-        "opening_hours": "Tu-Su 07:00-19:30"
+        "opening_hours": "Tu-Su 07:00-19:30",
+        "check_date": "2026-03-17"
       }
     },
     {
@@ -2753,7 +2750,8 @@
       "properties": {
         "id": 1763178530,
         "osm_type": "node",
-        "name": "La Renaissance"
+        "name": "La Renaissance",
+        "check_date": "2025-08-03"
       }
     },
     {
@@ -2833,7 +2831,8 @@
         "id": 1764041024,
         "osm_type": "node",
         "name": "Au coeur du pain",
-        "opening_hours": "Mo,Tu,We,Fr,Sa 07:00-19:30; Su 07:30-13:00"
+        "opening_hours": "Mo,Tu,We,Fr,Sa 07:00-19:30; Su 07:30-13:00",
+        "check_date": "2023-06-29"
       }
     },
     {
@@ -2999,8 +2998,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.5950516,
-          48.8371572
+          -1.5951314,
+          48.8371509
         ]
       },
       "properties": {
@@ -3422,7 +3421,8 @@
         "id": 1867012248,
         "osm_type": "node",
         "name": "La Mie Câline",
-        "brand": "La Mie Câline"
+        "brand": "La Mie Câline",
+        "check_date": "2024-05-09"
       }
     },
     {
@@ -3452,7 +3452,8 @@
       "properties": {
         "id": 1867027987,
         "osm_type": "node",
-        "name": "Place des pains"
+        "name": "Place des pains",
+        "check_date": "2024-12-13"
       }
     },
     {
@@ -3574,7 +3575,8 @@
         "id": 1867206421,
         "osm_type": "node",
         "name": "Champs Elysées",
-        "opening_hours": "Mo-Fr 06:00-24:00, Sa,Su 07:00-24:00"
+        "opening_hours": "Mo-Fr 06:00-24:00, Sa,Su 07:00-24:00",
+        "check_date": "2025-08-10"
       }
     },
     {
@@ -3728,7 +3730,8 @@
       "properties": {
         "id": 1886749051,
         "osm_type": "node",
-        "name": "Le Narval"
+        "name": "Le Narval",
+        "check_date": "2024-12-03"
       }
     },
     {
@@ -3743,7 +3746,8 @@
       "properties": {
         "id": 1891228772,
         "osm_type": "node",
-        "name": "L'Ami Du Pain"
+        "name": "L'Ami Du Pain",
+        "check_date": "2024-05-09"
       }
     },
     {
@@ -3792,7 +3796,8 @@
         "name": "Paul",
         "brand": "Paul",
         "opening_hours": "Mo-Sa 07:00-20:15; Su 08:00-20:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-10-31"
       }
     },
     {
@@ -3807,7 +3812,8 @@
       "properties": {
         "id": 1907440400,
         "osm_type": "node",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-14"
       }
     },
     {
@@ -3885,7 +3891,8 @@
         "id": 1932688086,
         "osm_type": "node",
         "name": "Boulangerie Prijent",
-        "opening_hours": "Mo-Sa 07:30-19:30"
+        "opening_hours": "Mo-Sa 07:30-19:30",
+        "check_date": "2026-03-27"
       }
     },
     {
@@ -3900,7 +3907,8 @@
       "properties": {
         "id": 1933852768,
         "osm_type": "node",
-        "name": "Café du commerce"
+        "name": "Café du commerce",
+        "check_date": "2023-06-17"
       }
     },
     {
@@ -3916,7 +3924,8 @@
         "id": 1933852819,
         "osm_type": "node",
         "name": "Aux gourmandises de Claire",
-        "opening_hours": "We-Sa 07:00-19:30; Su 07:00-13:00"
+        "opening_hours": "We-Sa 07:00-19:30; Su 07:00-13:00",
+        "check_date": "2026-02-01"
       }
     },
     {
@@ -3981,7 +3990,8 @@
       "properties": {
         "id": 1969094635,
         "osm_type": "node",
-        "name": "Le grain d'blé"
+        "name": "Le grain d'blé",
+        "check_date": "2024-04-25"
       }
     },
     {
@@ -4139,7 +4149,8 @@
       "properties": {
         "id": 2004783385,
         "osm_type": "node",
-        "name": "Le bord du lac"
+        "name": "Le bord du lac",
+        "check_date": "2023-07-21"
       }
     },
     {
@@ -4155,7 +4166,8 @@
         "id": 2013778891,
         "osm_type": "node",
         "name": "Boulangerie Piquenot",
-        "opening_hours": "Su 08:00-16:00; Tu-Sa 06:15-20:00"
+        "opening_hours": "Su 08:00-16:00; Tu-Sa 06:15-20:00",
+        "check_date": "2024-12-08"
       }
     },
     {
@@ -4170,7 +4182,8 @@
       "properties": {
         "id": 2013781753,
         "osm_type": "node",
-        "name": "Boulangerie centrale"
+        "name": "Boulangerie centrale",
+        "check_date": "2023-06-26"
       }
     },
     {
@@ -4201,7 +4214,8 @@
       "properties": {
         "id": 2013890472,
         "osm_type": "node",
-        "name": "Le Saint-Patrick"
+        "name": "Le Saint-Patrick",
+        "check_date": "2024-04-24"
       }
     },
     {
@@ -4218,7 +4232,8 @@
         "osm_type": "node",
         "name": "Le bistrot panache",
         "opening_hours": "Mo-Sa 12:00-18:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-11-28"
       }
     },
     {
@@ -4248,7 +4263,8 @@
       "properties": {
         "id": 2014622796,
         "osm_type": "node",
-        "name": "Le Trophée"
+        "name": "Le Trophée",
+        "check_date": "2024-07-19"
       }
     },
     {
@@ -4583,7 +4599,8 @@
         "name": "Festival des pains",
         "brand": "Festival des Pains",
         "opening_hours": "Mo,We-Su 06:45-19:30",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-12-31"
       }
     },
     {
@@ -4598,7 +4615,8 @@
       "properties": {
         "id": 2109295183,
         "osm_type": "node",
-        "name": "Au Bon Pain"
+        "name": "Au Bon Pain",
+        "check_date": "2023-10-31"
       }
     },
     {
@@ -4629,7 +4647,8 @@
         "id": 2111109526,
         "osm_type": "node",
         "name": "Noisette café",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-12-07"
       }
     },
     {
@@ -4667,23 +4686,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.1130907,
-          49.4951533
-        ]
-      },
-      "properties": {
-        "id": 2111233715,
-        "osm_type": "node",
-        "name": "La Grange à Pains"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          0.1012863,
-          49.4954277
+          0.1013322,
+          49.4954039
         ]
       },
       "properties": {
@@ -4704,7 +4708,8 @@
       "properties": {
         "id": 2111257539,
         "osm_type": "node",
-        "name": "Le Chiquito"
+        "name": "Le Chiquito",
+        "check_date": "2023-06-26"
       }
     },
     {
@@ -4734,7 +4739,8 @@
       "properties": {
         "id": 2120030401,
         "osm_type": "node",
-        "name": "Le Chef de Co"
+        "name": "Le Chef de Co",
+        "check_date": "2024-05-15"
       }
     },
     {
@@ -4779,7 +4785,8 @@
         "id": 2121369745,
         "osm_type": "node",
         "name": "La Boulangerie D'autrefois",
-        "opening_hours": "Tu-Sa 06:30-19:30"
+        "opening_hours": "Tu-Sa 06:30-19:30",
+        "check_date": "2025-01-02"
       }
     },
     {
@@ -4879,8 +4886,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.6441031,
-          49.6256666
+          -1.6441175,
+          49.6256705
         ]
       },
       "properties": {
@@ -4903,7 +4910,8 @@
         "id": 2150559653,
         "osm_type": "node",
         "name": "Boulangerie Quellier",
-        "opening_hours": "Mo-Fr,Su 06:00-20:00"
+        "opening_hours": "Mo-Fr,Su 06:00-20:00",
+        "check_date": "2026-02-08"
       }
     },
     {
@@ -5197,7 +5205,8 @@
         "osm_type": "node",
         "name": "Le Regent",
         "opening_hours": "Mo-Su 08:00-00:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-05-30"
       }
     },
     {
@@ -5398,7 +5407,8 @@
       "properties": {
         "id": 2338068421,
         "osm_type": "node",
-        "name": "Les saveurs d'Alyana"
+        "name": "Les saveurs d'Alyana",
+        "check_date": "2023-10-22"
       }
     },
     {
@@ -5476,6 +5486,7 @@
       "properties": {
         "id": 2342116706,
         "osm_type": "node",
+        "name": "Boulangerie Champs Libres",
         "opening_hours": "Tu-Fr 09:00-14:00,15:30-19:00; Sa 08:30-16:00"
       }
     },
@@ -5546,8 +5557,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.089242,
-          48.4269348
+          0.0892588,
+          48.4269793
         ]
       },
       "properties": {
@@ -5582,8 +5593,7 @@
       "properties": {
         "id": 2347448988,
         "osm_type": "node",
-        "name": "Le Fournil d'Alençon",
-        "opening_hours": "Mo-Fr 06:30-20:00; Sa 07:00-19:30"
+        "opening_hours": "Mo-Fr 06:30-19:30; Sa 07:00-19:30; Su off"
       }
     },
     {
@@ -5677,7 +5687,8 @@
         "id": 2376860743,
         "osm_type": "node",
         "name": "Petit Jean",
-        "opening_hours": "Mo; We-Su 7:00-19:00"
+        "brand": "Petit Jean",
+        "opening_hours": "Mo,We-Su 7:00-19:00"
       }
     },
     {
@@ -5907,7 +5918,8 @@
       "properties": {
         "id": 2414845426,
         "osm_type": "node",
-        "name": "La Festive"
+        "name": "La Festive",
+        "check_date": "2025-07-12"
       }
     },
     {
@@ -5922,7 +5934,8 @@
       "properties": {
         "id": 2429043884,
         "osm_type": "node",
-        "name": "Bar Tabac Au Bon Accueil"
+        "name": "Bar Tabac Au Bon Accueil",
+        "check_date": "2024-05-28"
       }
     },
     {
@@ -5937,7 +5950,8 @@
       "properties": {
         "id": 2429043895,
         "osm_type": "node",
-        "name": "Maison Millet"
+        "name": "Maison Millet",
+        "check_date": "2024-05-29"
       }
     },
     {
@@ -6116,7 +6130,8 @@
       "properties": {
         "id": 2429538552,
         "osm_type": "node",
-        "name": "Maison Pagny"
+        "name": "Maison Pagny",
+        "check_date": "2025-08-20"
       }
     },
     {
@@ -6237,7 +6252,8 @@
       "properties": {
         "id": 2430197524,
         "osm_type": "node",
-        "name": "Cordier"
+        "name": "Cordier",
+        "check_date": "2023-07-27"
       }
     },
     {
@@ -6360,7 +6376,8 @@
         "id": 2431087612,
         "osm_type": "node",
         "name": "Maison Tirard",
-        "opening_hours": "Mo, Tu, Fr, Sa 07:30-13:00, 14:30-19:00; Su 07:30-13:00"
+        "opening_hours": "Mo, Tu, Fr, Sa 07:30-13:00, 14:30-19:00; Su 07:30-13:00",
+        "check_date": "2024-06-01"
       }
     },
     {
@@ -6584,7 +6601,8 @@
         "osm_type": "node",
         "name": "Le Balto",
         "opening_hours": "Mo-Sa 06:30-20:00; Su 07:00-13:00; PH 07:00-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-12-26"
       }
     },
     {
@@ -6740,7 +6758,10 @@
       },
       "properties": {
         "id": 2592430805,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Une Note Sucrée",
+        "opening_hours": "Mo off; Tu-Sa 06:30-13:30,15:30-19:00; Su 06:30-13:00",
+        "check_date": "2026-04-21"
       }
     },
     {
@@ -7169,7 +7190,8 @@
       "properties": {
         "id": 2708388866,
         "osm_type": "node",
-        "name": "Patisserie"
+        "name": "Patisserie",
+        "check_date": "2025-08-07"
       }
     },
     {
@@ -7186,7 +7208,8 @@
         "osm_type": "node",
         "name": "Boulangerie Louise",
         "brand": "Boulangerie Louise",
-        "opening_hours": "Mo-Fr 06:30-19:30; Sa 07:30-19:30"
+        "opening_hours": "Mo-Fr 06:30-19:30; Sa 07:30-19:30",
+        "check_date": "2024-12-28"
       }
     },
     {
@@ -7340,7 +7363,8 @@
         "name": "Bar des Fleurs",
         "opening_hours": "Mo-Su 09:00-23:00",
         "takeaway": "no",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-06-11"
       }
     },
     {
@@ -7404,7 +7428,8 @@
         "id": 2886660871,
         "osm_type": "node",
         "name": "Aux Gourmandises des Thillier",
-        "opening_hours": "Mo off; Tu-We 06:30-20:00; Sa 07:00-20:00; Su 07:00-13:00,16:00-19:00"
+        "opening_hours": "Mo off; Tu-We 06:30-20:00; Sa 07:00-20:00; Su 07:00-13:00,16:00-19:00",
+        "check_date": "2023-08-22"
       }
     },
     {
@@ -7434,7 +7459,8 @@
       "properties": {
         "id": 2909471078,
         "osm_type": "node",
-        "name": "Les Gourmandises de Vernon"
+        "name": "Les Gourmandises de Vernon",
+        "check_date": "2023-07-22"
       }
     },
     {
@@ -7481,7 +7507,8 @@
         "id": 2913281093,
         "osm_type": "node",
         "name": "Entre Terre et Mer",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-06-01"
       }
     },
     {
@@ -7602,7 +7629,8 @@
         "id": 2956267594,
         "osm_type": "node",
         "name": "Boulangerie David Gonfroy",
-        "opening_hours": "Tu-Fr 06:30-19:30; Sa,Su 06:30-19:00"
+        "opening_hours": "Tu-Fr 06:30-19:30; Sa,Su 06:30-19:00",
+        "check_date": "2025-07-12"
       }
     },
     {
@@ -7648,7 +7676,8 @@
         "id": 2967465655,
         "osm_type": "node",
         "name": "Boulangerie Pâtisserie Housset",
-        "opening_hours": "We, Fr-Mo 06:00-19:30"
+        "opening_hours": "We, Fr-Mo 06:00-19:30",
+        "check_date": "2026-03-09"
       }
     },
     {
@@ -8116,7 +8145,8 @@
         "osm_type": "node",
         "name": "Boulangerie Malfait",
         "brand": "Banette",
-        "opening_hours": "Mo off; Tu-Sa 06:00-13:30, 15:00-20:00; Su 06:00-13:30, 16:30-19:30"
+        "opening_hours": "Mo off; Tu-Sa 06:00-13:30, 15:00-20:00; Su 06:00-13:30, 16:30-19:30",
+        "check_date": "2024-07-02"
       }
     },
     {
@@ -8161,7 +8191,8 @@
         "id": 3183293412,
         "osm_type": "node",
         "name": "Aux 3 douceurs",
-        "opening_hours": "Mo-Tu, Th-Sa 07:00-19:30; Su 07:00-18:00"
+        "opening_hours": "Mo-Tu, Th-Sa 07:00-19:30; Su 07:00-18:00",
+        "check_date": "2026-02-21"
       }
     },
     {
@@ -8255,7 +8286,8 @@
         "id": 3244221883,
         "osm_type": "node",
         "name": "Aux Saveurs de Gaillon",
-        "opening_hours": "Mo,Th,Fr,Sa,Su 06:00-19:30; Tu 06:00-13:00"
+        "opening_hours": "Mo,Th,Fr,Sa,Su 06:00-19:30; Tu 06:00-13:00",
+        "check_date": "2023-06-17"
       }
     },
     {
@@ -8309,14 +8341,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.0898758,
-          48.4313689
+          0.0898727,
+          48.4313764
         ]
       },
       "properties": {
         "id": 3273811823,
         "osm_type": "node",
-        "name": "Cl Patissier Boulanger"
+        "name": "CL Patissier Boulanger",
+        "check_date": "2026-04-13"
       }
     },
     {
@@ -8410,7 +8443,8 @@
         "osm_type": "node",
         "name": "Fournil de la roselière",
         "opening_hours": "Mo-Tu 06:30-19:30; We off; Th-Sa 06:30-19:30; Su 06:30-13:30",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-04-06"
       }
     },
     {
@@ -8426,7 +8460,8 @@
         "id": 3299411489,
         "osm_type": "node",
         "name": "Valentin for life",
-        "opening_hours": "Mo-Tu 07:00-19:30; Th-Sa 07:00-19:30; Su 07:00-13:30"
+        "opening_hours": "Mo-Tu 07:00-19:30; Th-Sa 07:00-19:30; Su 07:00-13:30",
+        "check_date": "2023-04-09"
       }
     },
     {
@@ -8709,7 +8744,8 @@
         "id": 3478957181,
         "osm_type": "node",
         "name": "Le Fournil du Pressoir",
-        "opening_hours": "Mo-Sa 06:30-20:00"
+        "opening_hours": "Mo-Sa 06:30-20:00",
+        "check_date": "2024-05-15"
       }
     },
     {
@@ -8952,7 +8988,8 @@
       "properties": {
         "id": 3617801176,
         "osm_type": "node",
-        "name": "Boulangerie Valentine"
+        "name": "Boulangerie Valentine",
+        "check_date": "2025-02-11"
       }
     },
     {
@@ -9103,7 +9140,8 @@
       "properties": {
         "id": 3669050616,
         "osm_type": "node",
-        "name": "Au Bon Pain de Beuvron"
+        "name": "Au Bon Pain de Beuvron",
+        "check_date": "2024-04-29"
       }
     },
     {
@@ -9345,7 +9383,8 @@
       "properties": {
         "id": 3786740262,
         "osm_type": "node",
-        "name": "Point de vente Toulorge"
+        "name": "Point de vente Toulorge",
+        "check_date": "2023-06-25"
       }
     },
     {
@@ -9473,7 +9512,8 @@
         "osm_type": "node",
         "name": "Nami",
         "opening_hours": "We,Th 12:00-19:00; Fr-Su 10:00-12:30,13:30-19:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -9657,7 +9697,8 @@
         "id": 3835071257,
         "osm_type": "node",
         "name": "Le Boulanger de l’Hippodrome",
-        "opening_hours": "Mo-Fr 07:30-19:30"
+        "opening_hours": "Mo-Fr 07:30-19:30",
+        "check_date": "2025-04-09"
       }
     },
     {
@@ -9737,7 +9778,8 @@
         "id": 3889218289,
         "osm_type": "node",
         "name": "Le Channel",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-11-08"
       }
     },
     {
@@ -9753,7 +9795,8 @@
         "id": 3889218308,
         "osm_type": "node",
         "name": "Saveurs",
-        "opening_hours": "Mo-Fr 06:30-20:00; Sa 06:30-14:00; Su off"
+        "opening_hours": "Mo-Fr 06:30-20:00; Sa 06:30-14:00; Su off",
+        "check_date": "2024-04-01"
       }
     },
     {
@@ -9769,7 +9812,8 @@
         "id": 3889252345,
         "osm_type": "node",
         "name": "Pelote et Palettes",
-        "opening_hours": "We-Fr 11:00-20:00; Sa 10:00-18:00; Su 11:30-15:30"
+        "opening_hours": "We-Fr 11:00-20:00; Sa 10:00-18:00; Su 11:30-15:30",
+        "check_date": "2025-12-09"
       }
     },
     {
@@ -10267,7 +10311,8 @@
         "id": 4029144331,
         "osm_type": "node",
         "name": "La Belle de Mai",
-        "opening_hours": "Mo-Fr 08:00-19:00; We off; Sa 08:30-19:00; Su 09:00-19:00"
+        "opening_hours": "Mo-Fr 08:00-19:00; We off; Sa 08:30-19:00; Su 09:00-19:00",
+        "check_date": "2024-09-16"
       }
     },
     {
@@ -10437,7 +10482,8 @@
       },
       "properties": {
         "id": 4083640614,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-07-15"
       }
     },
     {
@@ -10501,7 +10547,8 @@
         "osm_type": "node",
         "name": "Le cœur gourmand",
         "opening_hours": "Mo-Fr 07:00-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-12-06"
       }
     },
     {
@@ -10638,7 +10685,8 @@
         "id": 4212303222,
         "osm_type": "node",
         "name": "Boulangerie Toulorge",
-        "opening_hours": "PH,We-Mo 06:15-20:00"
+        "opening_hours": "PH,We-Mo 06:15-20:00",
+        "check_date": "2025-08-14"
       }
     },
     {
@@ -10672,7 +10720,8 @@
         "osm_type": "node",
         "name": "Le p'tea cosy",
         "opening_hours": "Fr off; Sa-Th 10:00-18:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-08-21"
       }
     },
     {
@@ -10731,7 +10780,8 @@
       },
       "properties": {
         "id": 4328389693,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Le Boudoir d'Augustine"
       }
     },
     {
@@ -10868,7 +10918,8 @@
         "osm_type": "node",
         "name": "Le Bistrot des Roses",
         "opening_hours": "We 08:00-19:00; Th 09:30-19:00; Fr-Sa 09:30-22:00; Su 09:30-19:00; Mo-Tu off",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-15"
       }
     },
     {
@@ -10884,6 +10935,23 @@
         "id": 4377137651,
         "osm_type": "node",
         "name": "Aux Mille Saveurs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.4522537,
+          49.1028312
+        ]
+      },
+      "properties": {
+        "id": 4381304150,
+        "osm_type": "node",
+        "name": "Boulangerie Feuillette",
+        "brand": "Boulangerie Feuillette",
+        "opening_hours": "06:30-20:00"
       }
     },
     {
@@ -11066,7 +11134,8 @@
         "id": 4481532589,
         "osm_type": "node",
         "name": "Boulangerie Tournerie",
-        "opening_hours": "Tu-Fr 08:30-13:15,15:00-19:30; Sa 07:00-13:15,15:00-19:30; Su 07:00-13:00; Mo off"
+        "opening_hours": "Tu-Fr 08:30-13:15,15:00-19:30; Sa 07:00-13:15,15:00-19:30; Su 07:00-13:00; Mo off",
+        "check_date": "2024-11-30"
       }
     },
     {
@@ -11090,13 +11159,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.8878379,
-          48.8465478
+          -0.8878486,
+          48.8465681
         ]
       },
       "properties": {
         "id": 4483840755,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Les Amis du Pain"
       }
     },
     {
@@ -11186,7 +11256,8 @@
         "id": 4504273456,
         "osm_type": "node",
         "name": "Boulangerie Colbert",
-        "opening_hours": "Mo-Sa 07:15-19:30"
+        "opening_hours": "Mo-Sa 07:15-19:30",
+        "check_date": "2024-10-24"
       }
     },
     {
@@ -11295,7 +11366,8 @@
         "osm_type": "node",
         "name": "Antico Caffé",
         "opening_hours": "Mo-Tu 10:00-20:00; Th 10:00-20:00; Fr 10:00-21:00; Sa 09:00-21:00; Su 09:00-20:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-03-07"
       }
     },
     {
@@ -11373,7 +11445,10 @@
       "properties": {
         "id": 4553781492,
         "osm_type": "node",
-        "name": "Dreams Donuts"
+        "name": "Dreams Donuts",
+        "opening_hours": "Tu-Th 14:00-18:30; Fr 14:00-19:00; Sa 11:00-19:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -11391,7 +11466,7 @@
         "name": "Les Initiés",
         "opening_hours": "Mo-Fr 07:30-19:30; Sa 07:30-20:00",
         "takeaway": "no",
-        "outdoor_seating": "street"
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -11424,7 +11499,8 @@
         "osm_type": "node",
         "name": "Mimi Mosa",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-09-05"
       }
     },
     {
@@ -11485,7 +11561,8 @@
       "properties": {
         "id": 4571698809,
         "osm_type": "node",
-        "name": "Le Décalé - Café Ludique"
+        "name": "Le Décalé - Café Ludique",
+        "check_date": "2024-12-28"
       }
     },
     {
@@ -11517,7 +11594,8 @@
       "properties": {
         "id": 4574958090,
         "osm_type": "node",
-        "name": "Café Pompom"
+        "name": "Café Pompom",
+        "check_date": "2023-06-25"
       }
     },
     {
@@ -11888,7 +11966,8 @@
       "properties": {
         "id": 4795828803,
         "osm_type": "node",
-        "name": "La Capucine - Salon de The"
+        "name": "La Capucine - Salon de The",
+        "check_date": "2023-04-27"
       }
     },
     {
@@ -11999,7 +12078,8 @@
       "properties": {
         "id": 4881663023,
         "osm_type": "node",
-        "name": "Le Fournil Saint-Roch"
+        "name": "Le Fournil Saint-Roch",
+        "check_date": "2023-06-26"
       }
     },
     {
@@ -12015,7 +12095,8 @@
         "id": 4892045786,
         "osm_type": "node",
         "name": "Café des sports",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-06-17"
       }
     },
     {
@@ -12806,7 +12887,8 @@
         "id": 5247626571,
         "osm_type": "node",
         "name": "Boulangerie Petit Jean",
-        "opening_hours": "Mo-Sa 07:00-19:30"
+        "opening_hours": "Mo-Sa 07:00-19:30",
+        "check_date": "2025-05-18"
       }
     },
     {
@@ -12822,7 +12904,8 @@
         "id": 5247627171,
         "osm_type": "node",
         "name": "Carré Café",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-05-10"
       }
     },
     {
@@ -12839,7 +12922,8 @@
         "osm_type": "node",
         "name": "Café de l'Étoile",
         "opening_hours": "Mo 11:00-19:30; Tu-Sa 08:30-19:30",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-02-15"
       }
     },
     {
@@ -12854,7 +12938,8 @@
       "properties": {
         "id": 5248944382,
         "osm_type": "node",
-        "name": "Maison Canaple"
+        "name": "Maison Canaple",
+        "check_date": "2023-11-12"
       }
     },
     {
@@ -12914,7 +12999,8 @@
       "properties": {
         "id": 5274213118,
         "osm_type": "node",
-        "name": "Le Socrate"
+        "name": "Le Socrate",
+        "check_date": "2024-09-04"
       }
     },
     {
@@ -13007,7 +13093,8 @@
         "id": 5295669253,
         "osm_type": "node",
         "name": "Aux Délices d'Edimbourg",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-05-06"
       }
     },
     {
@@ -13015,13 +13102,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.5481579,
-          49.6527451
+          -1.5481834,
+          49.652749
         ]
       },
       "properties": {
         "id": 5304684503,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Maison Toulourge",
+        "brand": "Maison Toulorge",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -13071,7 +13161,8 @@
         "name": "La Brioche Chaude",
         "opening_hours": "Mo 09:30-19:00; Tu-Sa 08:00-19:00",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2026-02-28"
       }
     },
     {
@@ -13079,8 +13170,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.5976303,
-          48.8387468
+          -1.5976298,
+          48.8387465
         ]
       },
       "properties": {
@@ -13089,7 +13180,8 @@
         "name": "Dame Gourmande Salon de thé",
         "opening_hours": "08:30-18:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-08"
       }
     },
     {
@@ -13104,8 +13196,10 @@
       "properties": {
         "id": 5311724789,
         "osm_type": "node",
-        "name": "Salon de thé",
-        "outdoor_seating": "yes"
+        "name": "La Rose du rocher",
+        "opening_hours": "Apr-Sep 11:00-18:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-22"
       }
     },
     {
@@ -13120,7 +13214,8 @@
       "properties": {
         "id": 5311724798,
         "osm_type": "node",
-        "name": "Le petit bar",
+        "name": "Le Petit Bar",
+        "opening_hours": "Tu-Sa 08:00-20:00; Su 09:00-19:00",
         "outdoor_seating": "yes"
       }
     },
@@ -13137,7 +13232,8 @@
         "id": 5319021000,
         "osm_type": "node",
         "name": "Le Zèbre à Pois",
-        "outdoor_seating": "street"
+        "outdoor_seating": "street",
+        "check_date": "2025-03-28"
       }
     },
     {
@@ -13221,7 +13317,8 @@
         "id": 5363059223,
         "osm_type": "node",
         "name": "Le P'tit creux",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-11-08"
       }
     },
     {
@@ -13754,7 +13851,8 @@
         "name": "Yvonne",
         "brand": "Yvonne",
         "opening_hours": "Mo-Sa 09:30-19:30",
-        "outdoor_seating": "street"
+        "outdoor_seating": "street",
+        "check_date": "2025-07-17"
       }
     },
     {
@@ -13968,7 +14066,8 @@
         "name": "Le Viennois",
         "opening_hours": "Mo 06:00-19:15; We-Su 06:00-19:15",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-07-16"
       }
     },
     {
@@ -14188,7 +14287,8 @@
         "id": 5843341741,
         "osm_type": "node",
         "name": "Maison Flambard S&F",
-        "opening_hours": "Mo-Su 07:00-20:00"
+        "opening_hours": "Mo-Su 07:00-20:00",
+        "check_date": "2023-06-01"
       }
     },
     {
@@ -14222,7 +14322,8 @@
         "name": "Coffea",
         "opening_hours": "Mo 13:00-19:00; Tu-Sa 11:00-19:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-03-31"
       }
     },
     {
@@ -14238,7 +14339,8 @@
         "id": 5845992493,
         "osm_type": "node",
         "name": "Le Valéa",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-03-01"
       }
     },
     {
@@ -14303,7 +14405,8 @@
       "properties": {
         "id": 5865333760,
         "osm_type": "node",
-        "name": "La Mascotte"
+        "name": "La Mascotte",
+        "opening_hours": "We-Su 07:00-19:30; Mo-Tu off"
       }
     },
     {
@@ -14902,7 +15005,8 @@
         "osm_type": "node",
         "name": "Feuillette",
         "brand": "Boulangerie Feuillette",
-        "opening_hours": "Mo-Su 06:00-20:00"
+        "opening_hours": "Mo-Su 06:00-20:00",
+        "check_date": "2025-07-31"
       }
     },
     {
@@ -15043,7 +15147,8 @@
         "id": 6191911284,
         "osm_type": "node",
         "name": "Louise Boulangerie",
-        "opening_hours": "Tu-Sa 08:00-20:00"
+        "opening_hours": "Tu-Sa 08:00-20:00",
+        "check_date": "2024-03-09"
       }
     },
     {
@@ -15121,7 +15226,8 @@
         "osm_type": "node",
         "name": "L'Ardoise",
         "opening_hours": "Tu-Sa 08:15-19:00",
-        "outdoor_seating": "pedestrian_zone"
+        "outdoor_seating": "pedestrian_zone",
+        "check_date": "2026-02-28"
       }
     },
     {
@@ -15167,7 +15273,8 @@
       "properties": {
         "id": 6298928134,
         "osm_type": "node",
-        "name": "Les 7 Epis"
+        "name": "Les 7 Epis",
+        "check_date": "2025-08-05"
       }
     },
     {
@@ -15182,7 +15289,8 @@
       "properties": {
         "id": 6303729142,
         "osm_type": "node",
-        "name": "Williamsburg"
+        "name": "Williamsburg",
+        "check_date": "2024-12-28"
       }
     },
     {
@@ -15198,7 +15306,8 @@
         "id": 6303736715,
         "osm_type": "node",
         "name": "Boulangerie de Saint-Nicolas",
-        "opening_hours": "Mo-Sa 07:00-19:30; Su,PH off"
+        "opening_hours": "Mo-Sa 07:00-19:30; Su,PH off",
+        "check_date": "2024-04-17"
       }
     },
     {
@@ -15498,7 +15607,8 @@
         "osm_type": "node",
         "name": "Ginette",
         "opening_hours": "Mo-Su 09:00-24:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-10"
       }
     },
     {
@@ -15856,7 +15966,8 @@
         "id": 6649960001,
         "osm_type": "node",
         "name": "Boulangerie Louise",
-        "brand": "Boulangerie Louise"
+        "brand": "Boulangerie Louise",
+        "check_date": "2025-07-01"
       }
     },
     {
@@ -15864,14 +15975,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.5288978,
-          49.3861933
+          -1.5288968,
+          49.3862027
         ]
       },
       "properties": {
         "id": 6654349985,
         "osm_type": "node",
-        "name": "Festival des pains"
+        "name": "Les Gourmandes"
       }
     },
     {
@@ -15994,7 +16105,8 @@
       "properties": {
         "id": 6680528729,
         "osm_type": "node",
-        "name": "Le Ti Boussa - Café solidaire"
+        "name": "Le Ti Boussa - Café solidaire",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -16087,7 +16199,8 @@
         "id": 6727003340,
         "osm_type": "node",
         "name": "Le Grand Quai",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-12-28"
       }
     },
     {
@@ -16544,7 +16657,9 @@
       "properties": {
         "id": 7046760195,
         "osm_type": "node",
-        "name": "Citizen To Go"
+        "name": "Citizen To Go",
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-13"
       }
     },
     {
@@ -16707,7 +16822,8 @@
         "id": 7090999495,
         "osm_type": "node",
         "name": "Maison Vatelier",
-        "opening_hours": "Tu-Sa 09:30-19:30"
+        "opening_hours": "Tu-Sa 09:30-19:30",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -16725,7 +16841,8 @@
         "name": "Café Augustin",
         "opening_hours": "Mo-Sa 09:00-19:00",
         "takeaway": "yes",
-        "outdoor_seating": "pedestrian_zone"
+        "outdoor_seating": "pedestrian_zone",
+        "check_date": "2026-02-28"
       }
     },
     {
@@ -17026,7 +17143,8 @@
       "properties": {
         "id": 7315679408,
         "osm_type": "node",
-        "name": "Le Pétrin du Goulet"
+        "name": "Le Pétrin du Goulet",
+        "check_date": "2024-05-15"
       }
     },
     {
@@ -17120,7 +17238,8 @@
         "id": 7342700288,
         "osm_type": "node",
         "name": "Atelier Argentain",
-        "opening_hours": "Mo-Sa 06:30-13:00,15:00-19:30; We off; Su 07:00-13:00"
+        "opening_hours": "Mo-Sa 06:30-13:00,15:00-19:30; We off; Su 07:00-13:00",
+        "check_date": "2024-12-28"
       }
     },
     {
@@ -17277,7 +17396,10 @@
       "properties": {
         "id": 7371301914,
         "osm_type": "node",
-        "name": "La Bonne Fournée"
+        "name": "La Bonne Fournée",
+        "opening_hours": "Tu-Sa 07:00-20:00; Su 07:00-19:00; Mo off",
+        "takeaway": "only",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -17292,7 +17414,9 @@
       "properties": {
         "id": 7371301915,
         "osm_type": "node",
-        "name": "Standard café"
+        "name": "Standard café",
+        "opening_hours": "Tu-Fr 08:30-18:00; Sa 09:00-18:00; Su 10:00-18:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -17384,7 +17508,8 @@
       "properties": {
         "id": 7373500844,
         "osm_type": "node",
-        "name": "Boulangerie Léon"
+        "name": "L'artisan des Co'pains",
+        "opening_hours": "Mo-Fr 06:45-20:00; Sa 07:00-14:00"
       }
     },
     {
@@ -17431,7 +17556,8 @@
         "id": 7375958338,
         "osm_type": "node",
         "name": "Cybèle",
-        "opening_hours": "07:00-20:00"
+        "opening_hours": "07:00-20:00",
+        "check_date": "2025-10-08"
       }
     },
     {
@@ -17679,7 +17805,8 @@
       "properties": {
         "id": 7531582075,
         "osm_type": "node",
-        "name": "Grain Normand"
+        "name": "Grain Normand",
+        "check_date": "2026-04-08"
       }
     },
     {
@@ -17896,7 +18023,8 @@
         "id": 7623715168,
         "osm_type": "node",
         "brand": "Boulangeries Renouf",
-        "opening_hours": "Mo-Sa 07:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-20:00",
+        "check_date": "2025-09-07"
       }
     },
     {
@@ -17930,7 +18058,8 @@
         "osm_type": "node",
         "name": "Brioche Dorée",
         "brand": "Brioche Dorée",
-        "opening_hours": "Mo-Th 08:00-20:00; Fr 08:00-21:00; Sa 08:00-20:00"
+        "opening_hours": "Mo-Th 08:00-20:00; Fr 08:00-21:00; Sa 08:00-20:00",
+        "check_date": "2025-12-30"
       }
     },
     {
@@ -18400,7 +18529,8 @@
         "id": 7783626901,
         "osm_type": "node",
         "name": "Les Volets Roses",
-        "opening_hours": "Th-Mo 09:00-18:00"
+        "opening_hours": "Th-Mo 09:00-18:00",
+        "check_date": "2025-08-30"
       }
     },
     {
@@ -18480,7 +18610,8 @@
         "osm_type": "node",
         "name": "Le Flaubert",
         "takeaway": "no",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-09-15"
       }
     },
     {
@@ -18527,21 +18658,6 @@
         "osm_type": "node",
         "name": "Le Rideau Cramoisi",
         "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          0.1100372,
-          49.4911953
-        ]
-      },
-      "properties": {
-        "id": 7843450287,
-        "osm_type": "node",
-        "name": "Bonnie"
       }
     },
     {
@@ -19227,7 +19343,8 @@
         "id": 8344599324,
         "osm_type": "node",
         "name": "La Maison Florent",
-        "opening_hours": "Mo-Sa 07:00-19:30"
+        "opening_hours": "Mo-Sa 07:00-19:30",
+        "check_date": "2024-04-01"
       }
     },
     {
@@ -19244,7 +19361,8 @@
         "osm_type": "node",
         "name": "Paul",
         "brand": "Paul",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-04-01"
       }
     },
     {
@@ -19385,7 +19503,8 @@
         "osm_type": "node",
         "name": "Maison Cleret",
         "opening_hours": "Tu-Su 07:00-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-27"
       }
     },
     {
@@ -19478,7 +19597,8 @@
       "properties": {
         "id": 8570052776,
         "osm_type": "node",
-        "name": "La Rosa"
+        "name": "La Rosa",
+        "check_date": "2025-05-24"
       }
     },
     {
@@ -19510,7 +19630,8 @@
         "id": 8570052805,
         "osm_type": "node",
         "name": "Le Caprice",
-        "opening_hours": "Mo-Tu,Th-Su 06:30-19:00; We off"
+        "opening_hours": "Mo-Tu,Th-Su 06:30-19:00; We off",
+        "check_date": "2025-05-24"
       }
     },
     {
@@ -19685,7 +19806,8 @@
         "name": "Bubblicious",
         "opening_hours": "Tu-Fr 14:00-19:00; Sa 11:00-19:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-01-02"
       }
     },
     {
@@ -19953,7 +20075,8 @@
         "id": 8928246163,
         "osm_type": "node",
         "name": "Maison Besnard",
-        "opening_hours": "Mo-Sa 06:15-19:15"
+        "opening_hours": "Mo-Sa 06:15-19:15",
+        "check_date": "2023-07-25"
       }
     },
     {
@@ -19983,7 +20106,8 @@
       "properties": {
         "id": 8980226361,
         "osm_type": "node",
-        "name": "Le Fournil de la Touques"
+        "name": "Le Fournil de la Touques",
+        "check_date": "2024-06-30"
       }
     },
     {
@@ -20174,7 +20298,8 @@
       "properties": {
         "id": 9044001446,
         "osm_type": "node",
-        "name": "Le Café Gourmand"
+        "name": "Le Café Gourmand",
+        "check_date": "2023-08-23"
       }
     },
     {
@@ -20291,6 +20416,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          0.7538369,
+          49.6173371
+        ]
+      },
+      "properties": {
+        "id": 9138552050,
+        "osm_type": "node",
+        "name": "La Mie Câline",
+        "brand": "La Mie Câline"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -0.8412118,
           49.1794084
         ]
@@ -20314,7 +20455,8 @@
       "properties": {
         "id": 9226856770,
         "osm_type": "node",
-        "name": "Cary"
+        "name": "Cary",
+        "check_date": "2025-07-18"
       }
     },
     {
@@ -20407,7 +20549,8 @@
         "id": 9354252258,
         "osm_type": "node",
         "name": "Les pâtisseries de Gill",
-        "opening_hours": "We-Su 09:00-19:00"
+        "opening_hours": "We-Su 09:00-19:00",
+        "check_date": "2026-01-10"
       }
     },
     {
@@ -20877,7 +21020,8 @@
         "id": 9555817405,
         "osm_type": "node",
         "name": "Maison Courbaron",
-        "opening_hours": "We-Sa 06:45-19:00; Su 06:45-13:00"
+        "opening_hours": "We-Sa 06:45-19:00; Su 06:45-13:00",
+        "check_date": "2025-07-12"
       }
     },
     {
@@ -21268,20 +21412,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.1067365,
-          48.433939
-        ]
-      },
-      "properties": {
-        "id": 9709052254,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           0.0798158,
           49.3599228
         ]
@@ -21493,7 +21623,8 @@
         "id": 9812078769,
         "osm_type": "node",
         "name": "Au Grenier des Saveurs",
-        "opening_hours": "Mo-Sa 07:00-13:00,15:00-19:00; We off; Su 07:00-13:00"
+        "opening_hours": "Mo-Sa 07:00-13:00,15:00-19:00; We off; Su 07:00-13:00",
+        "check_date": "2026-01-08"
       }
     },
     {
@@ -21726,7 +21857,8 @@
         "id": 9899879517,
         "osm_type": "node",
         "name": "L’Atelier du Biscuit",
-        "opening_hours": "Tu-Sa 08:30-18:30"
+        "opening_hours": "Tu-Sa 08:30-18:30",
+        "check_date": "2024-10-28"
       }
     },
     {
@@ -21870,6 +22002,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          0.1281309,
+          49.3729652
+        ]
+      },
+      "properties": {
+        "id": 9932166429,
+        "osm_type": "node",
+        "name": "Quentin Petit"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -1.5570921,
           48.8479594
         ]
@@ -21894,21 +22041,6 @@
         "id": 9939890128,
         "osm_type": "node",
         "name": "Café du Théâtre"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          0.0853853,
-          48.4303593
-        ]
-      },
-      "properties": {
-        "id": 9939890129,
-        "osm_type": "node",
-        "name": "Bistrot de la Halle"
       }
     },
     {
@@ -22077,7 +22209,8 @@
         "id": 9982916181,
         "osm_type": "node",
         "name": "Aux délices de Montville",
-        "opening_hours": "Tu-Sa 06:45-19:00; Su 07:00-13:15"
+        "opening_hours": "Tu-Sa 06:45-19:00; Su 07:00-13:15",
+        "check_date": "2025-12-29"
       }
     },
     {
@@ -22248,7 +22381,8 @@
         "id": 10053873622,
         "osm_type": "node",
         "name": "Marie Blachère",
-        "brand": "Marie Blachère"
+        "brand": "Marie Blachère",
+        "opening_hours": "Mo-Fr 07:00-19:30; Sa 08:00-13:00"
       }
     },
     {
@@ -22342,7 +22476,8 @@
       "properties": {
         "id": 10123255678,
         "osm_type": "node",
-        "name": "Au rendez-vous des saveurs"
+        "name": "Au rendez-vous des saveurs",
+        "check_date": "2025-01-05"
       }
     },
     {
@@ -22374,7 +22509,8 @@
         "osm_type": "node",
         "name": "Feuillette",
         "brand": "Boulangerie Feuillette",
-        "opening_hours": "Mo-Su 06:30-20:00"
+        "opening_hours": "Mo-Su 06:30-20:00",
+        "check_date": "2024-09-11"
       }
     },
     {
@@ -22498,7 +22634,8 @@
         "osm_type": "node",
         "name": "Columbus Café & Co",
         "brand": "Columbus Café & Co",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2025-09-12"
       }
     },
     {
@@ -22544,7 +22681,8 @@
         "id": 10182218718,
         "osm_type": "node",
         "name": "French Coffee Shop",
-        "opening_hours": "Mo-Sa 09:30-18:30; Su 10:30-18:00"
+        "opening_hours": "Mo-Th 09:30-18:30; Sa 09:30-18:30; 2026 May 1 off",
+        "takeaway": "yes"
       }
     },
     {
@@ -22560,7 +22698,24 @@
         "id": 10182229217,
         "osm_type": "node",
         "name": "French Coffee Shop",
-        "opening_hours": "Mo-Fr 11:00-19:00; Sa 13:15-19:00; Su 10:15-19:00"
+        "opening_hours": "Mo-Fr 11:00-19:00; Sa 13:15-19:00; Su 10:15-19:00",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.3664455,
+          49.1814822
+        ]
+      },
+      "properties": {
+        "id": 10183070637,
+        "osm_type": "node",
+        "name": "Böta Café",
+        "opening_hours": "Tu-Sa 09:00-19:00"
       }
     },
     {
@@ -22656,7 +22811,8 @@
         "id": 10208392482,
         "osm_type": "node",
         "name": "Café Moka",
-        "opening_hours": "Tu-Sa 10:00-19:00"
+        "opening_hours": "Tu-Sa 10:00-19:00",
+        "check_date": "2025-04-25"
       }
     },
     {
@@ -22670,7 +22826,9 @@
       },
       "properties": {
         "id": 10209621033,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Danjou",
+        "check_date": "2025-07-08"
       }
     },
     {
@@ -22716,7 +22874,8 @@
       "properties": {
         "id": 10221405085,
         "osm_type": "node",
-        "name": "La Bouquinerie Gourmande"
+        "name": "La Bouquinerie Gourmande",
+        "check_date": "2026-04-01"
       }
     },
     {
@@ -22778,7 +22937,8 @@
         "id": 10233235336,
         "osm_type": "node",
         "name": "Maison Guincêtre",
-        "opening_hours": "Tu-Sa 06:30-13:30,15:00-19:30; Su 07:00-13:00; Mo off"
+        "opening_hours": "Tu-Sa 06:30-13:30,15:00-19:30; Su 07:00-13:00; Mo off",
+        "check_date": "2025-10-24"
       }
     },
     {
@@ -22874,7 +23034,9 @@
       "properties": {
         "id": 10271040235,
         "osm_type": "node",
-        "name": "Luval"
+        "name": "Luval",
+        "outdoor_seating": "yes",
+        "check_date": "2026-01-30"
       }
     },
     {
@@ -22891,7 +23053,8 @@
         "osm_type": "node",
         "name": "Chocolate Bar",
         "opening_hours": "Mo-Fr 12:00-19:00; Sa 09:30-19:00",
-        "outdoor_seating": "street"
+        "outdoor_seating": "street",
+        "check_date": "2026-02-24"
       }
     },
     {
@@ -23302,7 +23465,8 @@
         "id": 10610644206,
         "osm_type": "node",
         "name": "Boulangerie La Tentation De Sées",
-        "opening_hours": "Mo 06:15-19:30; We-Su 06:15-19:30"
+        "opening_hours": "Mo 06:15-19:30; We-Su 06:15-19:30",
+        "check_date": "2024-08-24"
       }
     },
     {
@@ -23333,7 +23497,8 @@
         "id": 10655091712,
         "osm_type": "node",
         "name": "Arkose",
-        "opening_hours": "Mo-Su 08:00-24:00"
+        "opening_hours": "Mo-Su 08:00-24:00",
+        "check_date": "2025-08-06"
       }
     },
     {
@@ -23488,7 +23653,8 @@
         "brand": "Boulangerie Louise",
         "opening_hours": "Mo-Sa 07:30-19:30; Su off",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-07-28"
       }
     },
     {
@@ -23521,7 +23687,8 @@
         "osm_type": "node",
         "name": "Picorette",
         "opening_hours": "Tu-Sa 10:00-19:00; Jul-Aug: Mo-Sa 09:30-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-09"
       }
     },
     {
@@ -23781,7 +23948,8 @@
       "properties": {
         "id": 10815813523,
         "osm_type": "node",
-        "name": "Carpe Diem"
+        "name": "Carpe Diem",
+        "check_date": "2023-08-13"
       }
     },
     {
@@ -23812,7 +23980,8 @@
         "id": 10851085745,
         "osm_type": "node",
         "name": "Leo's Café Vernon",
-        "opening_hours": "Mo-Fr 07:00-16:30"
+        "opening_hours": "Mo-Fr 07:00-16:30",
+        "check_date": "2026-04-07"
       }
     },
     {
@@ -24029,7 +24198,8 @@
         "id": 10933513854,
         "osm_type": "node",
         "name": "Louise Café",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-08-12"
       }
     },
     {
@@ -24124,7 +24294,8 @@
         "id": 10960108287,
         "osm_type": "node",
         "name": "La parisienne",
-        "opening_hours": "Mo-Th,Sa-Su 06:00-20:00"
+        "opening_hours": "Mo-Th,Sa-Su 06:00-20:00",
+        "check_date": "2024-07-28"
       }
     },
     {
@@ -24290,20 +24461,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.5304403,
-          49.3853831
-        ]
-      },
-      "properties": {
-        "id": 11034051113,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -1.5326826,
           49.3846275
         ]
@@ -24375,7 +24532,8 @@
         "osm_type": "node",
         "name": "Le Salon des P'tea chats",
         "opening_hours": "Tu-Sa 14:00-18:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-04-14"
       }
     },
     {
@@ -24392,7 +24550,8 @@
         "osm_type": "node",
         "name": "Emma Patisserie & Boulangerie",
         "opening_hours": "Mo-Su 07:30-19:30",
-        "outdoor_seating": "pedestrian_zone"
+        "outdoor_seating": "pedestrian_zone",
+        "check_date": "2025-12-13"
       }
     },
     {
@@ -24536,7 +24695,8 @@
         "id": 11076082049,
         "osm_type": "node",
         "name": "Les Gourmandises du Jour",
-        "opening_hours": "Tu-Sa 06:00-19:00; Su 06:30-13:00"
+        "opening_hours": "Tu-Sa 06:00-19:00; Su 06:30-13:00",
+        "check_date": "2026-04-05"
       }
     },
     {
@@ -24567,7 +24727,8 @@
         "id": 11091092289,
         "osm_type": "node",
         "name": "La galette normande",
-        "opening_hours": "Mo-Sa 08:00-20:00"
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "check_date": "2024-11-02"
       }
     },
     {
@@ -24615,7 +24776,8 @@
       "properties": {
         "id": 11107639922,
         "osm_type": "node",
-        "name": "NutriSpot"
+        "name": "NutriSpot",
+        "check_date": "2025-11-15"
       }
     },
     {
@@ -24632,7 +24794,8 @@
         "osm_type": "node",
         "name": "L'Almarita",
         "opening_hours": "We-Th 09:30-14:00, 17:00-20:30; Fr-Sa 09:30-14:00, 17:00-21:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-03-17"
       }
     },
     {
@@ -24681,7 +24844,8 @@
         "id": 11115158665,
         "osm_type": "node",
         "name": "Le Café Cuillère",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-08-21"
       }
     },
     {
@@ -24713,7 +24877,8 @@
         "id": 11115161008,
         "osm_type": "node",
         "name": "La Pâtisserie de Guillaume",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-08-21"
       }
     },
     {
@@ -24777,7 +24942,8 @@
       "properties": {
         "id": 11127084985,
         "osm_type": "node",
-        "name": "Le Fournil Demidoff"
+        "name": "Le Fournil Demidoff",
+        "check_date": "2025-02-15"
       }
     },
     {
@@ -25069,7 +25235,8 @@
         "id": 11225197004,
         "osm_type": "node",
         "name": "Fleur de Blé",
-        "opening_hours": "Tu-Sa 06:45-19:15"
+        "opening_hours": "Tu-Sa 06:45-19:15",
+        "check_date": "2025-10-02"
       }
     },
     {
@@ -25101,7 +25268,8 @@
       "properties": {
         "id": 11242936201,
         "osm_type": "node",
-        "name": "Maxime dans la farine"
+        "name": "Maxime dans la farine",
+        "check_date": "2025-07-04"
       }
     },
     {
@@ -25270,8 +25438,10 @@
         "id": 11300251382,
         "osm_type": "node",
         "name": "French Coffee Shop",
-        "opening_hours": "Mo-Fr 09:00-19:00; Sa 10:30-19:00; Su 14:00-18:00",
-        "outdoor_seating": "yes"
+        "opening_hours": "Mo-Fr 09:30-19:00; Sa 10:30-19:00",
+        "takeaway": "yes",
+        "outdoor_seating": "yes",
+        "check_date": "2024-05-12"
       }
     },
     {
@@ -25332,7 +25502,8 @@
       "properties": {
         "id": 11335416431,
         "osm_type": "node",
-        "name": "La pause gourmande"
+        "name": "La pause gourmande",
+        "check_date": "2023-11-09"
       }
     },
     {
@@ -25443,7 +25614,8 @@
         "osm_type": "node",
         "name": "Station Service",
         "opening_hours": "Su-We 10:00-19:00, Th-Sa 10:00-24:00",
-        "outdoor_seating": "street"
+        "outdoor_seating": "street",
+        "check_date": "2026-02-28"
       }
     },
     {
@@ -25459,7 +25631,8 @@
         "id": 11370625888,
         "osm_type": "node",
         "name": "Les gourmands disent",
-        "opening_hours": "Tu-Sa 08:45-19:30; Su 08:45-12:15"
+        "opening_hours": "Tu-Sa 08:45-19:30; Su 08:45-12:15",
+        "check_date": "2024-04-19"
       }
     },
     {
@@ -25477,7 +25650,8 @@
         "name": "Lily Pâtisserie",
         "opening_hours": "Tu-Sa 10:00-18:00",
         "takeaway": "yes",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-12-13"
       }
     },
     {
@@ -25507,7 +25681,8 @@
       "properties": {
         "id": 11407138804,
         "osm_type": "node",
-        "name": "Boulangerie de la Vallée"
+        "name": "Boulangerie de la Vallée",
+        "check_date": "2023-12-05"
       }
     },
     {
@@ -25566,7 +25741,8 @@
         "id": 11420474483,
         "osm_type": "node",
         "name": "Coffee Cat",
-        "opening_hours": "Tu-Sa 10:00-18:00"
+        "opening_hours": "Tu-Sa 10:00-18:00",
+        "check_date": "2025-05-23"
       }
     },
     {
@@ -25601,7 +25777,8 @@
         "brand": "Starbucks",
         "opening_hours": "Mo-Su 07:30-21:30",
         "takeaway": "yes",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-07-17"
       }
     },
     {
@@ -25639,8 +25816,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.4062485,
-          49.6668504
+          -1.4062123,
+          49.6668417
         ]
       },
       "properties": {
@@ -25707,7 +25884,8 @@
       "properties": {
         "id": 11446747485,
         "osm_type": "node",
-        "name": "Aux Délices Normands"
+        "name": "Aux Délices Normands",
+        "check_date": "2025-12-11"
       }
     },
     {
@@ -25813,7 +25991,8 @@
         "id": 11532146132,
         "osm_type": "node",
         "name": "Coffea",
-        "opening_hours": "Mo-Th 10:00-20:00; Fr,Sa 09:30-20:00"
+        "opening_hours": "Mo-Th 10:00-20:00; Fr,Sa 09:30-20:00",
+        "check_date": "2025-12-30"
       }
     },
     {
@@ -25830,7 +26009,8 @@
         "osm_type": "node",
         "name": "Brioche Dorée",
         "brand": "Brioche Dorée",
-        "opening_hours": "Mo-Sa 08:15-20:00"
+        "opening_hours": "Mo-Sa 08:15-20:00",
+        "check_date": "2025-12-30"
       }
     },
     {
@@ -25848,7 +26028,8 @@
         "name": "Columbus Café & Co",
         "brand": "Columbus Café & Co",
         "opening_hours": "Mo-Sa 09:00-19:30",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2025-12-30"
       }
     },
     {
@@ -26017,7 +26198,8 @@
         "id": 11663683966,
         "osm_type": "node",
         "name": "Boulangerie Petit Jean",
-        "opening_hours": "Mo-Sa 06:15-19:30; Su 07:00-19:15"
+        "opening_hours": "Mo-Sa 06:15-19:30; Su 07:00-19:15",
+        "check_date": "2025-02-04"
       }
     },
     {
@@ -26122,7 +26304,8 @@
         "id": 11730632204,
         "osm_type": "node",
         "name": "Robin Girard Pâtisserie",
-        "opening_hours": "Tu 10:00-12:30,14:30-18:00; We-Fr 09:00-12:30,14:30-18:00; Sa 08:30-12:30,14:30-18:00; Su 08:00-12:30"
+        "opening_hours": "Tu 10:00-12:30,14:30-18:00; We-Fr 09:00-12:30,14:30-18:00; Sa 08:30-12:30,14:30-18:00; Su 08:00-12:30",
+        "check_date": "2024-03-14"
       }
     },
     {
@@ -26161,8 +26344,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0.7266274,
-          49.5248915
+          0.7268266,
+          49.5255967
         ]
       },
       "properties": {
@@ -26322,7 +26505,8 @@
       },
       "properties": {
         "id": 11809886057,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-04-11"
       }
     },
     {
@@ -26480,7 +26664,8 @@
       "properties": {
         "id": 11898882102,
         "osm_type": "node",
-        "name": "Du pain et des gourmandises"
+        "name": "Du pain et des gourmandises",
+        "check_date": "2024-05-12"
       }
     },
     {
@@ -26496,7 +26681,8 @@
         "id": 11927988450,
         "osm_type": "node",
         "name": "Eleene",
-        "opening_hours": "Tu-Sa 10:30-19:00"
+        "opening_hours": "Tu-Sa 10:30-19:00",
+        "check_date": "2025-12-13"
       }
     },
     {
@@ -26512,7 +26698,8 @@
         "id": 11930760721,
         "osm_type": "node",
         "name": "Boulangerie Louise",
-        "brand": "Boulangerie Louise"
+        "brand": "Boulangerie Louise",
+        "check_date": "2024-05-24"
       }
     },
     {
@@ -26605,7 +26792,8 @@
       "properties": {
         "id": 11981626158,
         "osm_type": "node",
-        "name": "La Honfleuraise"
+        "name": "La Honfleuraise",
+        "check_date": "2024-06-14"
       }
     },
     {
@@ -26621,7 +26809,8 @@
         "id": 11982456863,
         "osm_type": "node",
         "name": "Amicha",
-        "opening_hours": "Tu-Su 07:00-19:30"
+        "opening_hours": "Tu-Su 07:00-19:30",
+        "check_date": "2025-08-21"
       }
     },
     {
@@ -26701,7 +26890,8 @@
         "id": 12042416230,
         "osm_type": "node",
         "name": "Gilles Lecluze",
-        "opening_hours": "Mo-Fr 06:00-19:00; Sa-Su off"
+        "opening_hours": "Mo-Fr 06:00-19:00; Sa-Su off",
+        "check_date": "2024-07-08"
       }
     },
     {
@@ -26733,21 +26923,6 @@
         "id": 12047210891,
         "osm_type": "node",
         "name": "Café Zigana"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          1.0845256,
-          49.9268931
-        ]
-      },
-      "properties": {
-        "id": 12050560179,
-        "osm_type": "node",
-        "name": "Aparté"
       }
     },
     {
@@ -26794,7 +26969,8 @@
       "properties": {
         "id": 12059129631,
         "osm_type": "node",
-        "name": "La Meule de Pierre"
+        "name": "La Meule de Pierre",
+        "check_date": "2026-01-31"
       }
     },
     {
@@ -26810,7 +26986,8 @@
         "id": 12060668005,
         "osm_type": "node",
         "name": "Biscuiterie de Quinéville",
-        "opening_hours": "Tu-Sa 09:00-12:45,14:00-19:00 open \"Magasin\"; Su 09:00-12:45,14:00-18:30 open \"Magasin\" || Tu-Sa 09:00-12:30,14:00-18:30 open \"Salon de thé\"; Su 09:00-12:30,14:00-18:00 open \"Salon de thé\""
+        "opening_hours": "Tu-Sa 09:00-12:45,14:00-19:00 open \"Magasin\"; Su 09:00-12:45,14:00-18:30 open \"Magasin\" || Tu-Sa 09:00-12:30,14:00-18:30 open \"Salon de thé\"; Su 09:00-12:30,14:00-18:00 open \"Salon de thé\"",
+        "check_date": "2026-02-11"
       }
     },
     {
@@ -26928,22 +27105,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.5989675,
-          48.8385798
-        ]
-      },
-      "properties": {
-        "id": 12094026758,
-        "osm_type": "node",
-        "name": "Champs Libres",
-        "opening_hours": "Mo,Su off; Tu-Fr 09:30-14:00,16:00-19:00; Sa 09:00-16:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           1.5309191,
           49.0751301
         ]
@@ -26997,7 +27158,9 @@
       "properties": {
         "id": 12102655904,
         "osm_type": "node",
-        "name": "Bouche Bée"
+        "name": "Bouche Bée",
+        "opening_hours": "Tu-Sa 09:00-19:00; Su,Mo off",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -27172,7 +27335,8 @@
         "id": 12144823150,
         "osm_type": "node",
         "name": "Le Fournil couronnais",
-        "opening_hours": "Mo-Fr 06:30-19:30; Sa 07:00-13:00"
+        "opening_hours": "Mo-Fr 06:30-19:30; Sa 07:00-13:00",
+        "check_date": "2024-09-23"
       }
     },
     {
@@ -27188,7 +27352,8 @@
         "id": 12144832723,
         "osm_type": "node",
         "name": "O' Paton d'or",
-        "opening_hours": "Mo-Su 06:00-20:00"
+        "opening_hours": "Mo-Su 06:00-20:00",
+        "check_date": "2024-08-29"
       }
     },
     {
@@ -27220,7 +27385,8 @@
         "osm_type": "node",
         "name": "La Bibavou",
         "opening_hours": "6:30-21:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-02-13"
       }
     },
     {
@@ -27425,7 +27591,8 @@
         "id": 12238443149,
         "osm_type": "node",
         "name": "Café Clem",
-        "opening_hours": "Mo,We-Fr 07:30-17:30; Tu,Sa 07:30-14:00; Su off"
+        "opening_hours": "Mo,We-Fr 07:30-17:30; Tu,Sa 07:30-14:00; Su off",
+        "check_date": "2024-10-29"
       }
     },
     {
@@ -27931,7 +28098,8 @@
         "id": 12522667891,
         "osm_type": "node",
         "name": "Onze",
-        "opening_hours": "Mo-Fr 07:00-18:00; Su 08:00-18:00; Su off"
+        "opening_hours": "Mo-Fr 07:00-18:00; Su 08:00-18:00; Su off",
+        "check_date": "2025-08-15"
       }
     },
     {
@@ -27948,7 +28116,8 @@
         "osm_type": "node",
         "name": "Marie Blachère",
         "brand": "Marie Blachère",
-        "opening_hours": "Mo-Sa 06:30-19:30"
+        "opening_hours": "Mo-Sa 06:30-19:30",
+        "check_date": "2025-01-23"
       }
     },
     {
@@ -28025,7 +28194,8 @@
         "osm_type": "node",
         "name": "Moka By Café Crème",
         "opening_hours": "We,Th 11:00-15:00; Fr-Su 10:00-17:00",
-        "outdoor_seating": "parklet"
+        "outdoor_seating": "parklet",
+        "check_date": "2026-02-28"
       }
     },
     {
@@ -28070,7 +28240,8 @@
       "properties": {
         "id": 12578957680,
         "osm_type": "node",
-        "name": "Au Fournil d'Emma"
+        "name": "Au Fournil d'Emma",
+        "check_date": "2025-03-05"
       }
     },
     {
@@ -28163,7 +28334,8 @@
       "properties": {
         "id": 12621430464,
         "osm_type": "node",
-        "name": "Boulangerie Maison Bobet"
+        "name": "Boulangerie Maison Bobet",
+        "check_date": "2025-02-26"
       }
     },
     {
@@ -28298,7 +28470,8 @@
         "id": 12669691019,
         "osm_type": "node",
         "name": "Le Fournil Bolbecais",
-        "opening_hours": "Mo-Fr 06:00-19:30; Sa 06:00-13:30; Su off"
+        "opening_hours": "Mo-Fr 06:00-19:30; Sa 06:00-13:30; Su off",
+        "check_date": "2025-05-25"
       }
     },
     {
@@ -28377,7 +28550,8 @@
       "properties": {
         "id": 12700523184,
         "osm_type": "node",
-        "name": "Le Fournil de l'Abbaye"
+        "name": "Le Fournil de l'Abbaye",
+        "check_date": "2025-04-06"
       }
     },
     {
@@ -28438,7 +28612,8 @@
       "properties": {
         "id": 12731706701,
         "osm_type": "node",
-        "name": "Fournil de Montgeon"
+        "name": "Fournil de Montgeon",
+        "check_date": "2025-04-18"
       }
     },
     {
@@ -28656,7 +28831,8 @@
       "properties": {
         "id": 12791667182,
         "osm_type": "node",
-        "name": "La Lycéenne"
+        "name": "La Lycéenne",
+        "check_date": "2025-04-27"
       }
     },
     {
@@ -28734,7 +28910,8 @@
         "osm_type": "node",
         "name": "La Mie Câline",
         "brand": "La Mie Câline",
-        "opening_hours": "Mo-Su 06:30-19:30"
+        "opening_hours": "Mo-Su 06:30-19:30",
+        "check_date": "2024-05-06"
       }
     },
     {
@@ -28922,7 +29099,8 @@
         "id": 12834582713,
         "osm_type": "node",
         "name": "L'Épi de Courseulles",
-        "opening_hours": "Th-Tu 06:45-19:30; We off"
+        "opening_hours": "Th-Tu 06:45-19:30; We off",
+        "check_date": "2026-02-28"
       }
     },
     {
@@ -29012,7 +29190,8 @@
       "properties": {
         "id": 12846454864,
         "osm_type": "node",
-        "name": "Maison Vasseur"
+        "name": "Maison Vasseur",
+        "check_date": "2024-09-01"
       }
     },
     {
@@ -29091,7 +29270,8 @@
       "properties": {
         "id": 12847859177,
         "osm_type": "node",
-        "name": "Au Pain D'elbeuf"
+        "name": "Au Pain D'elbeuf",
+        "check_date": "2025-08-16"
       }
     },
     {
@@ -29136,7 +29316,8 @@
       "properties": {
         "id": 12848715537,
         "osm_type": "node",
-        "name": "Le Sublim's"
+        "name": "Le Sublim's",
+        "check_date": "2024-11-28"
       }
     },
     {
@@ -29151,7 +29332,8 @@
       "properties": {
         "id": 12848715538,
         "osm_type": "node",
-        "name": "Maison Portier"
+        "name": "Maison Portier",
+        "check_date": "2025-02-15"
       }
     },
     {
@@ -29181,7 +29363,8 @@
       "properties": {
         "id": 12849685972,
         "osm_type": "node",
-        "name": "La Fournée"
+        "name": "La Fournée",
+        "check_date": "2025-05-18"
       }
     },
     {
@@ -29221,8 +29404,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.0816628,
-          49.928679
+          1.0816722,
+          49.9286691
         ]
       },
       "properties": {
@@ -29291,7 +29474,8 @@
         "id": 12860154879,
         "osm_type": "node",
         "name": "Les Ursulines",
-        "opening_hours": "We-Th 11:30-18:00; Fr-Sa 10:30-14:30; Su 10:00-15:00"
+        "opening_hours": "We-Th 11:30-18:00; Fr-Sa 10:30-14:30; Su 10:00-15:00",
+        "check_date": "2023-11-12"
       }
     },
     {
@@ -29618,7 +29802,8 @@
         "id": 12985455368,
         "osm_type": "node",
         "name": "Maison Marie",
-        "brand": "Maison Marie"
+        "brand": "Maison Marie",
+        "check_date": "2025-07-06"
       }
     },
     {
@@ -29634,7 +29819,8 @@
         "id": 12992489576,
         "osm_type": "node",
         "name": "Boulangerie Louise",
-        "brand": "Boulangerie Louise"
+        "brand": "Boulangerie Louise",
+        "check_date": "2025-07-10"
       }
     },
     {
@@ -29832,7 +30018,8 @@
         "osm_type": "node",
         "name": "Brazicaf",
         "opening_hours": "Tu-Sa 09:00-19:00",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2024-11-09"
       }
     },
     {
@@ -29881,7 +30068,8 @@
         "name": "Bagdad Ambiance",
         "opening_hours": "Mo-Sa 12:00-22:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-12-05"
       }
     },
     {
@@ -29899,7 +30087,8 @@
         "name": "Les Explorateurs",
         "opening_hours": "Mo-We 16:00-00:00; Th,Fr 16:00-01:30; Sa 14:00-01:30",
         "takeaway": "no",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-13"
       }
     },
     {
@@ -30113,7 +30302,8 @@
         "osm_type": "node",
         "name": "Adèle",
         "opening_hours": "Mo-Su 07:00-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-12-30"
       }
     },
     {
@@ -30234,7 +30424,8 @@
         "id": 13108971456,
         "osm_type": "node",
         "name": "E & C Roussel",
-        "opening_hours": "Mo-We,Fr-Sa 07:00-19:00"
+        "opening_hours": "Mo-We,Fr-Sa 07:00-19:00",
+        "check_date": "2025-08-30"
       }
     },
     {
@@ -30527,7 +30718,8 @@
       "properties": {
         "id": 13188651697,
         "osm_type": "node",
-        "name": "Café Associatif Bonne Arrivée"
+        "name": "Bonne Arrivée",
+        "check_date": "2026-04-12"
       }
     },
     {
@@ -30542,7 +30734,8 @@
       "properties": {
         "id": 13190494753,
         "osm_type": "node",
-        "name": "La Renaissance"
+        "name": "La Renaissance",
+        "check_date": "2023-07-21"
       }
     },
     {
@@ -30654,7 +30847,8 @@
         "id": 13230349611,
         "osm_type": "node",
         "name": "Boulangerie Conan",
-        "opening_hours": "Tu-Su 06:30-19:30"
+        "opening_hours": "Tu-Su 06:30-19:30",
+        "check_date": "2025-11-10"
       }
     },
     {
@@ -30743,7 +30937,8 @@
         "id": 13235824446,
         "osm_type": "node",
         "name": "Le Fournil de Nico",
-        "opening_hours": "Th-Tu 06:30-19:30"
+        "opening_hours": "Th-Tu 06:30-19:30",
+        "check_date": "2025-12-19"
       }
     },
     {
@@ -30790,7 +30985,8 @@
         "id": 13279629367,
         "osm_type": "node",
         "name": "Le Goéland",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-21"
       }
     },
     {
@@ -30806,7 +31002,8 @@
         "id": 13287222901,
         "osm_type": "node",
         "name": "Café cocotte",
-        "opening_hours": "Mo-Sa 10:00-18:00; Su 10:00-16:00"
+        "opening_hours": "Mo-Sa 10:00-18:00; Su 10:00-16:00",
+        "check_date": "2025-11-23"
       }
     },
     {
@@ -31285,7 +31482,8 @@
         "id": 13465150625,
         "osm_type": "node",
         "name": "Robin Girard Pâtisserie",
-        "opening_hours": "Sa 08:00-13:00,15:30-18:00; Su,PH 09:30-13:00,15:00-18:00"
+        "opening_hours": "Sa 08:00-13:00,15:30-18:00; Su,PH 09:30-13:00,15:00-18:00",
+        "check_date": "2026-01-18"
       }
     },
     {
@@ -31487,7 +31685,8 @@
         "id": 13544798381,
         "osm_type": "node",
         "name": "Le Four à Pain",
-        "opening_hours": "Tu 13:30-19:00"
+        "opening_hours": "Tu 13:30-19:00",
+        "check_date": "2026-02-11"
       }
     },
     {
@@ -31773,7 +31972,8 @@
         "id": 13631243301,
         "osm_type": "node",
         "name": "L'encas",
-        "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-18:00"
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-18:00",
+        "check_date": "2026-03-10"
       }
     },
     {
@@ -31882,7 +32082,8 @@
       "properties": {
         "id": 13672739761,
         "osm_type": "node",
-        "name": "LA Mid Caline"
+        "name": "LA Mid Caline",
+        "check_date": "2026-03-23"
       }
     },
     {
@@ -31959,7 +32160,8 @@
       "properties": {
         "id": 13713453510,
         "osm_type": "node",
-        "name": "Le Fournil de Bénerville"
+        "name": "Le Fournil de Bénerville",
+        "check_date": "2024-02-11"
       }
     },
     {
@@ -31975,6 +32177,172 @@
         "id": 13716059788,
         "osm_type": "node",
         "name": "Aux Délices des Moulins"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.8493829,
+          48.3800607
+        ]
+      },
+      "properties": {
+        "id": 13722517565,
+        "osm_type": "node",
+        "name": "Du pain pour aujourd'hui."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.119406,
+          49.674565
+        ]
+      },
+      "properties": {
+        "id": 13722595304,
+        "osm_type": "node",
+        "name": "Boulangerie Blondel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.8491401,
+          48.3808531
+        ]
+      },
+      "properties": {
+        "id": 13722635587,
+        "osm_type": "node",
+        "name": "Le maréchal"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.8881633,
+          48.8384461
+        ]
+      },
+      "properties": {
+        "id": 13734124001,
+        "osm_type": "node",
+        "name": "Boulangerie Jeannette",
+        "check_date": "2026-04-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.192189,
+          49.5445203
+        ]
+      },
+      "properties": {
+        "id": 13735518896,
+        "osm_type": "node",
+        "name": "Boulangerie Ansellin",
+        "opening_hours": "Tu-Sa 07:00-19:00; Su 07:30-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.0997268,
+          49.7171924
+        ]
+      },
+      "properties": {
+        "id": 13739291141,
+        "osm_type": "node",
+        "name": "Bar Tabac de la Mairie"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.1014358,
+          49.7189066
+        ]
+      },
+      "properties": {
+        "id": 13739480401,
+        "osm_type": "node",
+        "name": "Boulangerie le Fournil D Auffay"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.1089804,
+          49.5985621
+        ]
+      },
+      "properties": {
+        "id": 13744275044,
+        "osm_type": "node",
+        "name": "Brasserie du Parc"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0474974,
+          49.151232
+        ]
+      },
+      "properties": {
+        "id": 13752219523,
+        "osm_type": "node",
+        "name": "Café Baluchon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.3175554,
+          49.2429985
+        ]
+      },
+      "properties": {
+        "id": 13764941620,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.1694421,
+          49.2119905
+        ]
+      },
+      "properties": {
+        "id": 13766572670,
+        "osm_type": "node",
+        "name": "Elif"
       }
     },
     {
@@ -32075,21 +32443,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.1694435,
-          49.211987
-        ]
-      },
-      "properties": {
-        "id": 73100503,
-        "osm_type": "way",
-        "name": "Elif"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           0.1136196,
           49.5017108
         ]
@@ -32098,7 +32451,8 @@
         "id": 76249089,
         "osm_type": "way",
         "name": "Boulangerie Duchemin",
-        "opening_hours": "Mo-Tu 06:00-20:00; Th-Sa 06:00-20:00; Su 06:00-14:00"
+        "opening_hours": "Mo-Tu 06:00-20:00; Th-Sa 06:00-20:00; Su 06:00-14:00",
+        "check_date": "2024-12-08"
       }
     },
     {
@@ -32144,7 +32498,8 @@
         "id": 79134819,
         "osm_type": "way",
         "name": "Boulangerie Maimberte",
-        "opening_hours": "Tu-Su 06:30-19:00"
+        "opening_hours": "Tu-Su 06:30-19:00",
+        "check_date": "2024-12-18"
       }
     },
     {
@@ -32191,7 +32546,8 @@
         "id": 86538069,
         "osm_type": "way",
         "name": "La Ferme de la Mairie",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-02-19"
       }
     },
     {
@@ -32284,7 +32640,8 @@
         "id": 104323886,
         "osm_type": "way",
         "name": "Aux Saveurs D'autrefois",
-        "opening_hours": "Tu-Sa 06:30-13:30,15:30-19:30; Su 06:30-13:00"
+        "opening_hours": "Tu-Sa 06:30-13:30,15:30-19:30; Su 06:30-13:00",
+        "check_date": "2024-04-09"
       }
     },
     {
@@ -32639,7 +32996,8 @@
         "id": 124619995,
         "osm_type": "way",
         "name": "L'Instant Gourmand",
-        "opening_hours": "Mo-Fr 06:45-19:15; Sa 06:45-14:00"
+        "opening_hours": "Mo-Fr 06:45-19:15; Sa 06:45-14:00",
+        "check_date": "2026-04-05"
       }
     },
     {
@@ -32730,7 +33088,8 @@
       "properties": {
         "id": 126321403,
         "osm_type": "way",
-        "name": "Thé Attitude"
+        "name": "Thé Attitude",
+        "check_date": "2023-10-31"
       }
     },
     {
@@ -32791,7 +33150,8 @@
       "properties": {
         "id": 126325133,
         "osm_type": "way",
-        "name": "Patisserie Coutanceau"
+        "name": "Patisserie Coutanceau",
+        "check_date": "2023-10-31"
       }
     },
     {
@@ -32821,7 +33181,8 @@
       "properties": {
         "id": 129772381,
         "osm_type": "way",
-        "name": "Bella’s tea room"
+        "name": "Bella’s tea room",
+        "check_date": "2024-07-23"
       }
     },
     {
@@ -33108,7 +33469,8 @@
         "osm_type": "way",
         "name": "Le NorthWood",
         "opening_hours": "Tuesday: Closed Wednesday: 4:00 PM – 1:00 AM Thursday: 4:00 PM – 2:00 AM Friday: 4:00 PM – 2:00 AM Saturday: 4:00 PM – 2:00 AM Sunday: 4:00 PM – 1:00 AM Monday: 4:00 PM – 1:00 AM",
-        "takeaway": "no"
+        "takeaway": "no",
+        "check_date": "2025-06-11"
       }
     },
     {
@@ -33261,7 +33623,8 @@
         "id": 155686359,
         "osm_type": "way",
         "name": "Le Fournil de Mathilde",
-        "opening_hours": "Mo-Sa 06:30-20:00"
+        "opening_hours": "Mo-Sa 06:30-20:00",
+        "check_date": "2023-12-06"
       }
     },
     {
@@ -33372,7 +33735,8 @@
         "id": 165061295,
         "osm_type": "way",
         "name": "Les Minquiers",
-        "opening_hours": "Tu-Su"
+        "opening_hours": "Tu-Su",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -33870,7 +34234,8 @@
         "osm_type": "way",
         "name": "L'ami du pain",
         "brand": "L'ami du pain",
-        "opening_hours": "Mo-Fr 06:30-20:00; Sa 07:00-20:00"
+        "opening_hours": "Mo-Fr 06:30-20:00; Sa 07:00-20:00",
+        "check_date": "2025-07-19"
       }
     },
     {
@@ -33887,20 +34252,6 @@
         "osm_type": "way",
         "name": "Aux Mille Saveurs",
         "opening_hours": "Tu-Sa 07:30-13:30,15:15-19:15; Su 07:30-13:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.4995285,
-          48.811106
-        ]
-      },
-      "properties": {
-        "id": 245651596,
-        "osm_type": "way"
       }
     },
     {
@@ -33978,6 +34329,22 @@
         "osm_type": "way",
         "name": "L'Aventure",
         "opening_hours": "Mo 10:00-14:30,17:30-19:30; Tu-Th 08:30-14:30,17:30-19:30; Fr 08:30-19:30; Sa 09:00-13:00; Su Off",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.8769901,
+          48.8379487
+        ]
+      },
+      "properties": {
+        "id": 273878453,
+        "osm_type": "way",
+        "name": "Café Asso de Vire",
         "outdoor_seating": "yes"
       }
     },
@@ -34189,7 +34556,7 @@
       "properties": {
         "id": 335192775,
         "osm_type": "way",
-        "name": "Au fournil de Saint Jacques",
+        "name": "Au fournil de Saint-Jacques",
         "opening_hours": "Tu-Sa 07:00-19:30; Su 07:00-13:30"
       }
     },
@@ -34431,7 +34798,8 @@
         "id": 484905737,
         "osm_type": "way",
         "name": "Bar de la Gare",
-        "outdoor_seating": "terrace"
+        "outdoor_seating": "terrace",
+        "check_date": "2026-03-05"
       }
     },
     {
@@ -34566,7 +34934,8 @@
         "name": "Le 24",
         "opening_hours": "Mo-Sa 09:00-19:30",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-02-17"
       }
     },
     {
@@ -35113,7 +35482,8 @@
       "properties": {
         "id": 1174863462,
         "osm_type": "way",
-        "name": "Le fournil de l'Orcher"
+        "name": "Le fournil de l'Orcher",
+        "check_date": "2023-08-02"
       }
     },
     {
@@ -35264,7 +35634,8 @@
         "brand": "Starbucks",
         "opening_hours": "Mo-Sa 09:30-20:00; Su 10:30-19:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-22"
       }
     },
     {
@@ -35280,7 +35651,8 @@
         "id": 1308150639,
         "osm_type": "way",
         "name": "Marie-Blachère",
-        "opening_hours": "Mo-Sa 07:00-19:30"
+        "opening_hours": "Mo-Sa 07:00-19:30",
+        "check_date": "2024-11-15"
       }
     },
     {
@@ -35380,6 +35752,24 @@
         "osm_type": "way",
         "name": "Yvonne",
         "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.4671829,
+          49.497699
+        ]
+      },
+      "properties": {
+        "id": 1502530365,
+        "osm_type": "way",
+        "name": "Petit Jean La Pause Valognes",
+        "brand": "Petit Jean",
+        "opening_hours": "Mo-Fr 06:15-19:30; Sa-Su 06:30-19:30",
+        "check_date": "2026-04-22"
       }
     }
   ]

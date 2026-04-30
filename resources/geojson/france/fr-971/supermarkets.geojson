@@ -474,7 +474,8 @@
         "osm_type": "node",
         "name": "Centre Commercial E.Leclerc",
         "brand": "Centre Commercial E.Leclerc",
-        "opening_hours": "Mo-Th 08:30-20:30; Fr-Sa 08:30-21:00; Su 08:30-12:30"
+        "opening_hours": "Mo-Th 08:30-20:30; Fr-Sa 08:30-21:00; Su 08:30-12:30",
+        "check_date": "2025-09-26"
       }
     },
     {
@@ -613,7 +614,8 @@
         "id": 6397245485,
         "osm_type": "node",
         "name": "Carrefour Contact",
-        "brand": "Carrefour Contact"
+        "brand": "Carrefour Contact",
+        "check_date": "2024-04-08"
       }
     },
     {
@@ -1058,6 +1060,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -61.5271593,
+          16.2209159
+        ]
+      },
+      "properties": {
+        "id": 11999089198,
+        "osm_type": "node",
+        "name": "Carrefour Express",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su 08:00-13:00",
+        "check_date": "2026-04-11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -61.5118105,
           16.2865309
         ]
@@ -1360,7 +1379,8 @@
         "id": 69536593,
         "osm_type": "way",
         "name": "Hyper Store",
-        "opening_hours": "Mo-Sa 08:00-19:00; Su 08:00-13:00"
+        "opening_hours": "Mo-Sa 08:00-19:00; Su 08:00-13:00",
+        "check_date": "2025-08-07"
       }
     },
     {
@@ -1704,7 +1724,7 @@
       "properties": {
         "id": 131453104,
         "osm_type": "way",
-        "name": "EcoMax"
+        "name": "Carrefour express"
       }
     },
     {
@@ -2173,7 +2193,8 @@
         "id": 1006498653,
         "osm_type": "way",
         "name": "Carrefour",
-        "brand": "Carrefour"
+        "brand": "Carrefour",
+        "check_date": "2025-09-23"
       }
     },
     {

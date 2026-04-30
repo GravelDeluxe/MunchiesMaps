@@ -9077,7 +9077,9 @@
         "id": 2451414094,
         "osm_type": "node",
         "name": "Ibis Nancy Centre Stanislas",
-        "tourism": "hotel"
+        "tourism": "hotel",
+        "phone": "+33 3 83 37 10 10",
+        "website": "https://all.accor.com/hotel/1393/index.fr.shtml"
       }
     },
     {
@@ -12169,8 +12171,8 @@
         "osm_type": "node",
         "name": "B&B Hôtel",
         "tourism": "hotel",
-        "phone": "+33 8 92 70 22 15",
-        "contact:phone": "+33 8 92 70 22 15",
+        "phone": "0 892 70 22 15",
+        "contact:phone": "+33 892 70 22 15",
         "website": "hotel-bb.com",
         "contact:website": "https://www.hotel-bb.com/fr/-/hotelByName.htm?id=4518",
         "check_date": "2024-08-21"
@@ -20556,7 +20558,8 @@
         "id": 6000934280,
         "osm_type": "node",
         "name": "Gambetta",
-        "tourism": "hotel"
+        "tourism": "hotel",
+        "check_date": "2026-04-28"
       }
     },
     {
@@ -33696,6 +33699,124 @@
         "osm_type": "node",
         "name": "Le Refuge du Rempart",
         "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4815983,
+          47.8025808
+        ]
+      },
+      "properties": {
+        "id": 13776476602,
+        "osm_type": "node",
+        "tourism": "alpine_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.228312,
+          48.4774475
+        ]
+      },
+      "properties": {
+        "id": 13777242301,
+        "osm_type": "node",
+        "name": "Gîte du Mamélé",
+        "tourism": "chalet",
+        "website": "https://www.gites-de-france.com/fr/grand-est/bas-rhin/gite-du-mamele-h67g023285",
+        "check_date": "2026-04-29"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9535664,
+          49.0277513
+        ]
+      },
+      "properties": {
+        "id": 13780022811,
+        "osm_type": "node",
+        "name": "Les Demeures Champenoises",
+        "tourism": "hotel",
+        "website": "https://www.vacanceole.com/location-vacances/88-residence-les-demeures-champenoises-confort-epernay"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0043266,
+          48.8809421
+        ]
+      },
+      "properties": {
+        "id": 13780095346,
+        "osm_type": "node",
+        "name": "Hostellerie du Mont Aimé",
+        "tourism": "hotel",
+        "website": "https://hostellerie-mont-aime.com/?_gl=1*18pm3qd*_gcl_au*MzQ4NzU1NTkuMTc3NzU0MjQxNg..*_ga*NDM0MjE5NTUzLjE3Nzc1NDI0MTY.*_ga_P86J5EN3KG*czE3Nzc1NDI0MTYkbzEkZzAkdDE3Nzc1NDI0MTkkajU3JGwwJGgw*_ga_FTQW8WRD2P*czE3Nzc1NDI0MTYkbzEkZzAkdDE3Nzc1NDI0MTkkajU3JGwwJGgw"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0044662,
+          48.9033824
+        ]
+      },
+      "properties": {
+        "id": 13780100621,
+        "osm_type": "node",
+        "name": "Le relais du vigneron",
+        "tourism": "hotel",
+        "website": "https://le-relais-du-vigneron.com/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9577341,
+          49.0441227
+        ]
+      },
+      "properties": {
+        "id": 13780255912,
+        "osm_type": "node",
+        "name": "Hôtel Jean Moët",
+        "tourism": "hotel",
+        "website": "https://www.hoteljeanmoet.com/fr?ads_source=equeco&adults=2&campaign_id=21422276395&channel=2861339937_hotel&children=0&end_date=2026-05-01&gclid=CjwKCAjw-8vPBhBbEiwAoA39WlbvjAtgwQfcfqO5eh7Is9c8fO3ua2RgN7Dvfe70e5P8KKjMbuNo9BoCgk4QAvD_BwE&google_hotel=true"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9569023,
+          49.0444523
+        ]
+      },
+      "properties": {
+        "id": 13780260217,
+        "osm_type": "node",
+        "name": "Hôtel Margaux",
+        "tourism": "hotel",
+        "website": "https://www.hotelmargaux.fr/"
       }
     },
     {
@@ -55726,7 +55847,8 @@
         "id": 510404286,
         "osm_type": "way",
         "name": "Aire de camping-cars de Mutigny",
-        "tourism": "caravan_site"
+        "tourism": "caravan_site",
+        "tents": "no"
       }
     },
     {
@@ -58891,7 +59013,8 @@
         "osm_type": "way",
         "name": "Mutigny Resort Hotel (complexe hôtelier de Mutigny)",
         "tourism": "hotel",
-        "website": "https://www.loisium.com/en/"
+        "website": "https://www.loisium.com/en/",
+        "check_date": "2026-04-28"
       }
     },
     {
@@ -65651,6 +65774,24 @@
         "id": 1482210991,
         "osm_type": "way",
         "tourism": "caravan_site"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4032227,
+          48.9393077
+        ]
+      },
+      "properties": {
+        "id": 1506058483,
+        "osm_type": "way",
+        "name": "Akena",
+        "tourism": "hotel",
+        "phone": "+33366327750",
+        "website": "https://akenahotels.com/hotel-chalons-en-champagne/"
       }
     },
     {
