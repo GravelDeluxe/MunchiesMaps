@@ -182,6 +182,11 @@ jobs:
           fi
 
           python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "$TARGETS_FILE" --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "$FETCHED_DIR" --failed-output "$FAILED_FILE" --debug
+          echo "check_date occurrences in fetched artifact:"
+          grep -R '"check_date"' "$FETCHED_DIR" || true
+          if [ -f "$FETCHED_DIR/resources/geojson/luxembourg/luxembourg/fuel.geojson" ]; then
+            grep -n '"check_date"' "$FETCHED_DIR/resources/geojson/luxembourg/luxembourg/fuel.geojson" || true
+          fi
 
       - uses: actions/upload-artifact@v4
         with:
@@ -322,11 +327,29 @@ jobs:
             echo "- Found fetched GeoJSON files: $found"
             echo "- Copied GeoJSON files: $copied"
           } >> "$GITHUB_STEP_SUMMARY"
-          git status --short resources/geojson
-          git add resources/geojson/**/*.geojson resources/geojson/manifest.json 2>/dev/null || true
+          echo "Git status before staging:"
+          git status --short resources/geojson || true
+
+          echo "Diff for Luxembourg fuel before staging:"
+          git diff -- resources/geojson/luxembourg/luxembourg/fuel.geojson | head -200 || true
+
+          echo "check_date occurrences in workspace Luxembourg fuel:"
+          grep -n '"check_date"' resources/geojson/luxembourg/luxembourg/fuel.geojson || true
+
+          git add -- resources/geojson
+
+          echo "Git status after staging:"
+          git status --short resources/geojson || true
+
+          echo "Cached diff name-status:"
+          git diff --cached --name-status || true
+
+          echo "Cached diff for Luxembourg fuel:"
+          git diff --cached -- resources/geojson/luxembourg/luxembourg/fuel.geojson | head -200 || true
+
           if git diff --cached --quiet; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
-            echo 'No GeoJSON changes; skipping PR'
+            echo "No GeoJSON changes; skipping PR"
           else
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
@@ -338,8 +361,7 @@ jobs:
           title: Refresh stale GeoJSON data
           commit-message: Refresh stale GeoJSON data
           add-paths: |
-            resources/geojson/**/*.geojson
-            resources/geojson/manifest.json
+            resources/geojson
           body: |
             Automated stale GeoJSON refresh.
             - days: `${{ inputs.days }}`
