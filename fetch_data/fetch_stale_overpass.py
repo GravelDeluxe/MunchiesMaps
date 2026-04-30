@@ -21,6 +21,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument('--output-dir', required=True)
     p.add_argument('--failed-output', required=True)
     p.add_argument('--debug', action='store_true')
+    p.add_argument('--skip-smoke-test', action='store_true')
+    p.add_argument('--skip-manifest', action='store_true')
+    p.add_argument('--chunk-id')
+    p.add_argument('--total-country-targets', type=int)
     return p.parse_args()
 
 
@@ -33,7 +37,7 @@ def load_targets(path: Path) -> list[dict]:
     return data
 
 
-def run_target_via_legacy_cli(target: dict, output_dir: Path, debug: bool) -> tuple[bool, str]:
+def run_target_via_legacy_cli(target: dict, output_dir: Path, debug: bool, skip_smoke_test: bool, skip_manifest: bool) -> tuple[bool, str]:
     country = str(target.get('country', '')).strip()
     region = str(target.get('region', '')).strip()
     category = str(target.get('category', '')).strip()
@@ -57,6 +61,10 @@ def run_target_via_legacy_cli(target: dict, output_dir: Path, debug: bool) -> tu
         print(f"[debug] output_path={output_dir / rel_path}")
         print('[debug] fetch_impl=legacy_cli fetch_data/fetch_overpass.py')
         print(f"[debug] command={' '.join(cmd)}")
+    if skip_smoke_test:
+        cmd.append('--skip-smoke-test')
+    if skip_manifest:
+        cmd.append('--skip-manifest')
 
     proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
     if proc.stdout:
@@ -99,12 +107,23 @@ def main() -> None:
 
     failed: list[dict] = []
     successful = 0
+    chunk_label = args.chunk_id or '-'
+    total_targets = len(targets)
+    total_country_targets = args.total_country_targets or total_targets
+    print(f"[chunk] country={targets[0].get('country') if targets else '-'} | chunk={chunk_label} | targets={total_targets} | total_country_targets={total_country_targets}")
 
-    for target in targets:
+    for index, target in enumerate(targets, start=1):
         ok = False
         last_error = 'unknown'
+        country_progress = index if index <= total_country_targets else total_country_targets
+        print(
+            f"[target-progress] chunk=({index}/{total_targets}) | country=({country_progress}/{total_country_targets}) "
+            f"| country={target.get('country')} | region={target.get('region')} | category={target.get('category')}"
+        )
         for attempt in range(1, args.retry_attempts + 1):
-            ok, last_error = run_target_via_legacy_cli(target, out_dir, args.debug)
+            ok, last_error = run_target_via_legacy_cli(
+                target, out_dir, args.debug, args.skip_smoke_test, args.skip_manifest
+            )
             if ok:
                 successful += 1
                 print(

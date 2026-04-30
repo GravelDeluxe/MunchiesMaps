@@ -21,6 +21,7 @@ def main() -> None:
     parser.add_argument('--output-dir', dest='output_dir', default='artifacts/stale-targets-by-country')
     parser.add_argument('--matrix-output', dest='matrix_output', default='artifacts/stale_matrix.json')
     parser.add_argument('--artifact-root', dest='artifact_root')
+    parser.add_argument('--target-chunk-size', dest='target_chunk_size', type=int, default=25)
     args = parser.parse_args()
 
     input_path = Path(args.input)
@@ -36,14 +37,33 @@ def main() -> None:
 
     include: list[dict[str, str]] = []
     for country in sorted(grouped):
-        target_file = out_dir / f'{country}.json'
-        target_file.write_text(json.dumps(grouped[country], indent=2, ensure_ascii=False), encoding='utf-8')
-        include.append(
-            {
-                'country': country,
-                'targets_file': portable_targets_path(target_file, out_dir, artifact_root),
-            }
-        )
+        country_targets = grouped[country]
+        chunk_size = args.target_chunk_size
+        if chunk_size and chunk_size > 0 and len(country_targets) > chunk_size:
+            total_chunks = (len(country_targets) + chunk_size - 1) // chunk_size
+            for idx in range(total_chunks):
+                chunk = idx + 1
+                chunk_id = f'{chunk:03d}'
+                start = idx * chunk_size
+                end = start + chunk_size
+                target_file = out_dir / f'{country}-chunk-{chunk_id}.json'
+                target_file.write_text(json.dumps(country_targets[start:end], indent=2, ensure_ascii=False), encoding='utf-8')
+                include.append(
+                    {
+                        'country': country,
+                        'chunk': chunk_id,
+                        'targets_file': portable_targets_path(target_file, out_dir, artifact_root),
+                    }
+                )
+        else:
+            target_file = out_dir / f'{country}.json'
+            target_file.write_text(json.dumps(country_targets, indent=2, ensure_ascii=False), encoding='utf-8')
+            include.append(
+                {
+                    'country': country,
+                    'targets_file': portable_targets_path(target_file, out_dir, artifact_root),
+                }
+            )
 
     matrix = {'include': include}
     matrix_output = Path(args.matrix_output)
