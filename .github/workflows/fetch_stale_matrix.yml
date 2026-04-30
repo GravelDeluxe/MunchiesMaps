@@ -30,6 +30,11 @@ on:
         description: "Optional max targets for test runs"
         required: false
         type: string
+      allow_full_refresh_all_countries:
+        description: "Safety guard for days=-1 with empty country. Must be YES to allow global full refresh."
+        required: false
+        default: "NO"
+        type: string
 
 permissions:
   contents: write
@@ -57,6 +62,8 @@ jobs:
           DAYS: "${{ inputs.days }}"
           RETRY: "${{ inputs.retry_attempts }}"
           RECOVERY: "${{ inputs.recovery_rounds }}"
+          COUNTRY: "${{ inputs.country }}"
+          ALLOW_FULL: "${{ inputs.allow_full_refresh_all_countries }}"
         run: |
           python - <<'PY'
           import os
@@ -71,6 +78,8 @@ jobs:
           assert (d == -1 or d > 0), "days must be -1 or >0"
           assert r > 0, "retry_attempts must be >0"
           assert rr >= 0, "recovery_rounds must be >=0"
+          if d == -1 and not os.environ.get("COUNTRY", "").strip() and os.environ.get("ALLOW_FULL", "NO").strip() != "YES":
+              raise SystemExit("Full refresh for all countries is very large. Set allow_full_refresh_all_countries=YES or provide a country filter.")
           PY
 
       - name: Build stale matrix inputs
@@ -155,7 +164,7 @@ jobs:
           name: stale-prepare
           path: artifacts
 
-      - run: python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "${{ matrix.targets_file }}" --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "artifacts/fetched/${{ matrix.country }}" --failed-output "artifacts/failed/${{ matrix.country }}.json"
+      - run: python fetch_data/fetch_stale_overpass.py --config fetch_data/config.yml --targets "${{ matrix.targets_file }}" --retry-attempts "${{ inputs.retry_attempts }}" --retry-sleep 30 --output-dir "artifacts/fetched/${{ matrix.country }}" --failed-output "artifacts/failed/${{ matrix.country }}.json" --debug
 
       - uses: actions/upload-artifact@v4
         with:
@@ -233,7 +242,7 @@ jobs:
             cp "$f" "resources/geojson/$rel"
           done
           find artifacts-download -type f -name '*.json' -path '*failed*' -exec cp {} artifacts/stale-fetch-failures/ \;
-          git add resources/geojson artifacts/stale-fetch-failures || true
+          git add resources/geojson || true
           if git diff --cached --quiet; then
             echo 'No changes'
             exit 0
