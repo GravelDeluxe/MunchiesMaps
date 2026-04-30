@@ -1,0 +1,872 @@
+{
+  "copied": 160,
+  "skipped_existing": 0,
+  "missing_source_dir": 0,
+  "deleted_old_dir": 16,
+  "files": [
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/baden-wuerttemberg/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-bw/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/baden-wuerttemberg/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-bw/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/baden-wuerttemberg/fuel.geojson",
+      "target": "resources/geojson/germany/de-bw/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/baden-wuerttemberg/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-bw/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/baden-wuerttemberg/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-bw/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/baden-wuerttemberg/shelters.geojson",
+      "target": "resources/geojson/germany/de-bw/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/baden-wuerttemberg/accommodation.geojson",
+      "target": "resources/geojson/germany/de-bw/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/baden-wuerttemberg/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-bw/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/baden-wuerttemberg/kiosks.geojson",
+      "target": "resources/geojson/germany/de-bw/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/baden-wuerttemberg/fast_food.geojson",
+      "target": "resources/geojson/germany/de-bw/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/baden-wuerttemberg"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bayern/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-by/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bayern/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-by/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bayern/fuel.geojson",
+      "target": "resources/geojson/germany/de-by/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bayern/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-by/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bayern/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-by/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bayern/shelters.geojson",
+      "target": "resources/geojson/germany/de-by/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bayern/accommodation.geojson",
+      "target": "resources/geojson/germany/de-by/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bayern/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-by/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bayern/kiosks.geojson",
+      "target": "resources/geojson/germany/de-by/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bayern/fast_food.geojson",
+      "target": "resources/geojson/germany/de-by/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/bayern"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/berlin/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-be/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/berlin/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-be/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/berlin/fuel.geojson",
+      "target": "resources/geojson/germany/de-be/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/berlin/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-be/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/berlin/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-be/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/berlin/shelters.geojson",
+      "target": "resources/geojson/germany/de-be/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/berlin/accommodation.geojson",
+      "target": "resources/geojson/germany/de-be/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/berlin/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-be/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/berlin/kiosks.geojson",
+      "target": "resources/geojson/germany/de-be/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/berlin/fast_food.geojson",
+      "target": "resources/geojson/germany/de-be/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/berlin"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/brandenburg/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-bb/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/brandenburg/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-bb/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/brandenburg/fuel.geojson",
+      "target": "resources/geojson/germany/de-bb/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/brandenburg/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-bb/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/brandenburg/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-bb/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/brandenburg/shelters.geojson",
+      "target": "resources/geojson/germany/de-bb/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/brandenburg/accommodation.geojson",
+      "target": "resources/geojson/germany/de-bb/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/brandenburg/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-bb/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/brandenburg/kiosks.geojson",
+      "target": "resources/geojson/germany/de-bb/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/brandenburg/fast_food.geojson",
+      "target": "resources/geojson/germany/de-bb/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/brandenburg"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bremen/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-hb/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bremen/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-hb/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bremen/fuel.geojson",
+      "target": "resources/geojson/germany/de-hb/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bremen/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-hb/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bremen/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-hb/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bremen/shelters.geojson",
+      "target": "resources/geojson/germany/de-hb/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bremen/accommodation.geojson",
+      "target": "resources/geojson/germany/de-hb/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bremen/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-hb/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bremen/kiosks.geojson",
+      "target": "resources/geojson/germany/de-hb/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/bremen/fast_food.geojson",
+      "target": "resources/geojson/germany/de-hb/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/bremen"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hamburg/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-hh/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hamburg/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-hh/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hamburg/fuel.geojson",
+      "target": "resources/geojson/germany/de-hh/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hamburg/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-hh/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hamburg/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-hh/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hamburg/shelters.geojson",
+      "target": "resources/geojson/germany/de-hh/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hamburg/accommodation.geojson",
+      "target": "resources/geojson/germany/de-hh/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hamburg/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-hh/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hamburg/kiosks.geojson",
+      "target": "resources/geojson/germany/de-hh/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hamburg/fast_food.geojson",
+      "target": "resources/geojson/germany/de-hh/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/hamburg"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hessen/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-he/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hessen/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-he/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hessen/fuel.geojson",
+      "target": "resources/geojson/germany/de-he/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hessen/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-he/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hessen/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-he/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hessen/shelters.geojson",
+      "target": "resources/geojson/germany/de-he/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hessen/accommodation.geojson",
+      "target": "resources/geojson/germany/de-he/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hessen/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-he/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hessen/kiosks.geojson",
+      "target": "resources/geojson/germany/de-he/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/hessen/fast_food.geojson",
+      "target": "resources/geojson/germany/de-he/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/hessen"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/mecklenburg-vorpommern/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-mv/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/mecklenburg-vorpommern/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-mv/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/mecklenburg-vorpommern/fuel.geojson",
+      "target": "resources/geojson/germany/de-mv/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/mecklenburg-vorpommern/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-mv/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/mecklenburg-vorpommern/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-mv/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/mecklenburg-vorpommern/shelters.geojson",
+      "target": "resources/geojson/germany/de-mv/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/mecklenburg-vorpommern/accommodation.geojson",
+      "target": "resources/geojson/germany/de-mv/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/mecklenburg-vorpommern/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-mv/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/mecklenburg-vorpommern/kiosks.geojson",
+      "target": "resources/geojson/germany/de-mv/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/mecklenburg-vorpommern/fast_food.geojson",
+      "target": "resources/geojson/germany/de-mv/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/mecklenburg-vorpommern"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/niedersachsen/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-ni/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/niedersachsen/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-ni/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/niedersachsen/fuel.geojson",
+      "target": "resources/geojson/germany/de-ni/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/niedersachsen/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-ni/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/niedersachsen/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-ni/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/niedersachsen/shelters.geojson",
+      "target": "resources/geojson/germany/de-ni/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/niedersachsen/accommodation.geojson",
+      "target": "resources/geojson/germany/de-ni/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/niedersachsen/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-ni/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/niedersachsen/kiosks.geojson",
+      "target": "resources/geojson/germany/de-ni/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/niedersachsen/fast_food.geojson",
+      "target": "resources/geojson/germany/de-ni/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/niedersachsen"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/nordrhein-westfalen/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-nw/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/nordrhein-westfalen/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-nw/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/nordrhein-westfalen/fuel.geojson",
+      "target": "resources/geojson/germany/de-nw/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/nordrhein-westfalen/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-nw/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/nordrhein-westfalen/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-nw/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/nordrhein-westfalen/shelters.geojson",
+      "target": "resources/geojson/germany/de-nw/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/nordrhein-westfalen/accommodation.geojson",
+      "target": "resources/geojson/germany/de-nw/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/nordrhein-westfalen/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-nw/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/nordrhein-westfalen/kiosks.geojson",
+      "target": "resources/geojson/germany/de-nw/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/nordrhein-westfalen/fast_food.geojson",
+      "target": "resources/geojson/germany/de-nw/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/nordrhein-westfalen"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/rheinland-pfalz/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-rp/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/rheinland-pfalz/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-rp/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/rheinland-pfalz/fuel.geojson",
+      "target": "resources/geojson/germany/de-rp/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/rheinland-pfalz/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-rp/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/rheinland-pfalz/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-rp/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/rheinland-pfalz/shelters.geojson",
+      "target": "resources/geojson/germany/de-rp/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/rheinland-pfalz/accommodation.geojson",
+      "target": "resources/geojson/germany/de-rp/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/rheinland-pfalz/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-rp/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/rheinland-pfalz/kiosks.geojson",
+      "target": "resources/geojson/germany/de-rp/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/rheinland-pfalz/fast_food.geojson",
+      "target": "resources/geojson/germany/de-rp/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/rheinland-pfalz"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/saarland/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-sl/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/saarland/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-sl/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/saarland/fuel.geojson",
+      "target": "resources/geojson/germany/de-sl/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/saarland/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-sl/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/saarland/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-sl/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/saarland/shelters.geojson",
+      "target": "resources/geojson/germany/de-sl/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/saarland/accommodation.geojson",
+      "target": "resources/geojson/germany/de-sl/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/saarland/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-sl/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/saarland/kiosks.geojson",
+      "target": "resources/geojson/germany/de-sl/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/saarland/fast_food.geojson",
+      "target": "resources/geojson/germany/de-sl/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/saarland"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-sn/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-sn/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen/fuel.geojson",
+      "target": "resources/geojson/germany/de-sn/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-sn/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-sn/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen/shelters.geojson",
+      "target": "resources/geojson/germany/de-sn/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen/accommodation.geojson",
+      "target": "resources/geojson/germany/de-sn/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-sn/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen/kiosks.geojson",
+      "target": "resources/geojson/germany/de-sn/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen/fast_food.geojson",
+      "target": "resources/geojson/germany/de-sn/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/sachsen"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen-anhalt/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-st/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen-anhalt/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-st/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen-anhalt/fuel.geojson",
+      "target": "resources/geojson/germany/de-st/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen-anhalt/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-st/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen-anhalt/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-st/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen-anhalt/shelters.geojson",
+      "target": "resources/geojson/germany/de-st/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen-anhalt/accommodation.geojson",
+      "target": "resources/geojson/germany/de-st/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen-anhalt/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-st/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen-anhalt/kiosks.geojson",
+      "target": "resources/geojson/germany/de-st/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/sachsen-anhalt/fast_food.geojson",
+      "target": "resources/geojson/germany/de-st/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/sachsen-anhalt"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/schleswig-holstein/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-sh/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/schleswig-holstein/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-sh/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/schleswig-holstein/fuel.geojson",
+      "target": "resources/geojson/germany/de-sh/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/schleswig-holstein/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-sh/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/schleswig-holstein/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-sh/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/schleswig-holstein/shelters.geojson",
+      "target": "resources/geojson/germany/de-sh/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/schleswig-holstein/accommodation.geojson",
+      "target": "resources/geojson/germany/de-sh/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/schleswig-holstein/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-sh/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/schleswig-holstein/kiosks.geojson",
+      "target": "resources/geojson/germany/de-sh/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/schleswig-holstein/fast_food.geojson",
+      "target": "resources/geojson/germany/de-sh/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/schleswig-holstein"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/thueringen/supermarkets.geojson",
+      "target": "resources/geojson/germany/de-th/supermarkets.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/thueringen/vending_snacks.geojson",
+      "target": "resources/geojson/germany/de-th/vending_snacks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/thueringen/fuel.geojson",
+      "target": "resources/geojson/germany/de-th/fuel.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/thueringen/toilets_public.geojson",
+      "target": "resources/geojson/germany/de-th/toilets_public.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/thueringen/drinking_water.geojson",
+      "target": "resources/geojson/germany/de-th/drinking_water.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/thueringen/shelters.geojson",
+      "target": "resources/geojson/germany/de-th/shelters.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/thueringen/accommodation.geojson",
+      "target": "resources/geojson/germany/de-th/accommodation.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/thueringen/bakerys_cafes.geojson",
+      "target": "resources/geojson/germany/de-th/bakerys_cafes.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/thueringen/kiosks.geojson",
+      "target": "resources/geojson/germany/de-th/kiosks.geojson"
+    },
+    {
+      "status": "copied",
+      "source": "resources/geojson/germany/thueringen/fast_food.geojson",
+      "target": "resources/geojson/germany/de-th/fast_food.geojson"
+    },
+    {
+      "status": "deleted_old_dir",
+      "source_dir": "resources/geojson/germany/thueringen"
+    }
+  ]
+}

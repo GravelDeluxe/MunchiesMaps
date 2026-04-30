@@ -1,0 +1,46 @@
+name: Migrate Legacy GeoJSON Paths
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run: {type: boolean, default: true}
+      overwrite: {type: boolean, default: false}
+      delete_old: {type: boolean, default: false}
+      create_pr: {type: boolean, default: true}
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install -r fetch_data/requirements.txt
+      - run: python -m py_compile scripts/migrate_germany_geojson_paths.py scripts/validate_country_region_migration.py fetch_data/fetch_overpass.py
+      - name: Run migration
+        run: |
+          ARGS=()
+          if [[ "${{ inputs.dry_run }}" == "true" ]]; then ARGS+=(--dry-run); fi
+          if [[ "${{ inputs.overwrite }}" == "true" ]]; then ARGS+=(--overwrite); fi
+          if [[ "${{ inputs.delete_old }}" == "true" ]]; then ARGS+=(--delete-old); fi
+          python scripts/migrate_germany_geojson_paths.py "${ARGS[@]}"
+      - name: Rebuild manifest
+        run: |
+          PYTHONPATH=fetch_data:. python - <<'PY'
+          from fetch_overpass import load_config, normalize_regions, save_manifest
+          config = load_config(); regions = normalize_regions(config); categories = config.get('categories', {}) or {}
+          save_manifest(regions, categories)
+          PY
+      - name: Validate migration
+        run: PYTHONPATH=fetch_data:. python scripts/validate_country_region_migration.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: germany-geojson-path-migration-summary
+          path: artifacts/germany_geojson_path_migration_summary.json
+      - name: Create Pull Request
+        if: inputs.dry_run == false && inputs.create_pr == true
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: Migrate legacy Germany GeoJSON paths
+          title: Migrate legacy Germany GeoJSON paths
+          add-paths: |
+            resources/geojson
+            artifacts/germany_geojson_path_migration_summary.json
