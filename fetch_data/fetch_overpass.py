@@ -1134,6 +1134,68 @@ def matches_region_filter(region: Dict[str, Any], region_filter: set[str]) -> bo
     return bool(get_region_aliases(region) & region_filter)
 
 
+def build_country_progress_context(
+    all_regions: List[Dict[str, Any]],
+    selected_regions: List[Dict[str, Any]],
+    categories: Dict[str, str],
+    selected_categories: List[tuple[str, str]],
+) -> Dict[str, Dict[str, Any]]:
+    """Build per-country progress context with configured and selected totals."""
+    configured_regions_by_country: Dict[str, List[Dict[str, Any]]] = {}
+    for region in all_regions:
+        country = normalize_text(region.get("country"))
+        if not country:
+            continue
+        configured_regions_by_country.setdefault(country, []).append(region)
+
+    selected_regions_by_country: Dict[str, List[Dict[str, Any]]] = {}
+    for region in selected_regions:
+        country = normalize_text(region.get("country"))
+        if not country:
+            continue
+        selected_regions_by_country.setdefault(country, []).append(region)
+
+    configured_categories_total = len(categories)
+    selected_categories_total = len(selected_categories)
+    context: Dict[str, Dict[str, Any]] = {}
+    for country, country_regions in configured_regions_by_country.items():
+        configured_regions_total = len(country_regions)
+        selected_regions_total = len(selected_regions_by_country.get(country, []))
+        context[country] = {
+            "configured_regions": configured_regions_total,
+            "configured_categories": configured_categories_total,
+            "configured_tasks": configured_regions_total * configured_categories_total,
+            "selected_regions": selected_regions_total,
+            "selected_categories": selected_categories_total,
+            "selected_tasks": selected_regions_total * selected_categories_total,
+        }
+    return context
+
+
+def get_country_region_index(region: Dict[str, Any], regions_for_country: List[Dict[str, Any]]) -> int | None:
+    """Return 1-based region position within configured country regions."""
+    region_id = normalize_text(region.get("id"))
+    for index, candidate in enumerate(regions_for_country, start=1):
+        if normalize_text(candidate.get("id")) == region_id:
+            return index
+    return None
+
+
+def get_category_index(category: str, all_categories: List[str]) -> int | None:
+    """Return 1-based category position within configured categories."""
+    for index, candidate in enumerate(all_categories, start=1):
+        if candidate == category:
+            return index
+    return None
+
+
+def format_progress(current: int | None, total: int | None) -> str:
+    """Format progress tuple with fallback for unknown values."""
+    if current is None or total is None or total <= 0:
+        return "?/?"
+    return f"{current}/{total}"
+
+
 def write_json(path: Path, payload: Any) -> None:
     """Write a JSON payload with UTF-8 encoding."""
     ensure_directory(path.parent)
@@ -1251,17 +1313,18 @@ def run(
     timeout = int(overpass_cfg.get("timeout", 180))
     fail_on_error = bool(overpass_cfg.get("fail_on_error", False))
     request_delay_seconds = float(overpass_cfg.get("request_delay_seconds", 0.0))
-    regions = normalize_regions(config)
+    all_regions = normalize_regions(config)
     categories = config.get("categories", {}) or {}
+    all_categories = list(categories.keys())
 
-    if not regions:
+    if not all_regions:
         raise ValueError("Config error: no regions configured (regions or legacy states required).")
     if not isinstance(categories, dict) or not categories:
         raise ValueError("Config error: categories must be a non-empty mapping.")
 
     selected_regions = [
         region
-        for region in regions
+        for region in all_regions
         if matches_region_filter(region, region_filter)
         and matches_country_filter(region, country_filter)
     ]
@@ -1280,14 +1343,14 @@ def run(
         )
         print(f"[filter] Matched regions: {len(selected_regions)}")
         if not selected_regions:
-            valid_country_ids = sorted({normalize_text(region.get("country")) for region in regions if region.get("country")})
+            valid_country_ids = sorted({normalize_text(region.get("country")) for region in all_regions if region.get("country")})
             valid_country_labels = sorted(
-                {normalize_text(region.get("country_label")) for region in regions if region.get("country_label")}
+                {normalize_text(region.get("country_label")) for region in all_regions if region.get("country_label")}
             )
             valid_country_iso = sorted(
                 {
                     normalize_text(region.get("country_iso") or region.get("iso3166_1")).upper()
-                    for region in regions
+                    for region in all_regions
                     if normalize_text(region.get("country_iso") or region.get("iso3166_1"))
                 }
             )
@@ -1352,11 +1415,30 @@ def run(
     endpoints_display = ", ".join(endpoints)
     print(
         "[run] "
-        f"Regions={len(selected_regions)}/{len(regions)} | Categories={len(selected_categories)}/{len(categories)} "
+        f"Regions={len(selected_regions)}/{len(all_regions)} | Categories={len(selected_categories)}/{len(categories)} "
         f"| Countries={len({region['country'] for region in selected_regions})} | Endpoints={len(endpoints)} "
         f"| Timeout={timeout}s | Delay={request_delay_seconds}s"
     )
     print(f"[run] Endpoints: {endpoints_display}")
+
+    country_progress = build_country_progress_context(all_regions, selected_regions, categories, selected_categories)
+    all_regions_by_country: Dict[str, List[Dict[str, Any]]] = {}
+    for configured_region in all_regions:
+        country_key = normalize_text(configured_region.get("country"))
+        if not country_key:
+            continue
+        all_regions_by_country.setdefault(country_key, []).append(configured_region)
+    for country in sorted({normalize_text(region.get("country")) for region in selected_regions if region.get("country")}):
+        summary = country_progress.get(country, {})
+        print(
+            "[country] "
+            f"country={country or '?'} | configured_regions={summary.get('configured_regions', '?')} "
+            f"| configured_categories={summary.get('configured_categories', '?')} "
+            f"| selected_regions={summary.get('selected_regions', '?')} "
+            f"| selected_categories={summary.get('selected_categories', '?')} "
+            f"| selected_tasks={summary.get('selected_tasks', '?')} "
+            f"| configured_tasks={summary.get('configured_tasks', '?')}"
+        )
     healthy_endpoints = smoke_test_endpoints(endpoints)
     degraded_mode_used = False
     if not healthy_endpoints:
@@ -1435,8 +1517,15 @@ def run(
             return 1
 
     for region_index, region in enumerate(selected_regions, start=1):
+        country_key = normalize_text(region.get("country"))
+        configured_country_regions = all_regions_by_country.get(country_key, [])
+        configured_country_total = len(configured_country_regions) or None
+        country_region_index = get_country_region_index(region, configured_country_regions)
         print(
-            f"[region] ({region_index}/{len(selected_regions)}) "
+            "[region] "
+            f"selected=({format_progress(region_index, len(selected_regions))}) "
+            f"| country=({format_progress(country_region_index, configured_country_total)}) "
+            f"| "
             f"id={region['id']} | country={region['country']} | label={region['label']}"
         )
         region_categories_raw = region.get("categories")
@@ -1464,8 +1553,16 @@ def run(
                     print(f"[skip] Existing valid file: {target_path.relative_to(ROOT_DIR)} | status={existing_status}")
                     continue
             template_func = get_category_function(func_name)
+            country_category_index = get_category_index(category, all_categories)
+            country_task_total = (configured_country_total * len(all_categories)) if configured_country_total else None
+            country_task_index = None
+            if country_region_index is not None and country_category_index is not None:
+                country_task_index = (country_region_index - 1) * len(all_categories) + country_category_index
             print(
-                f"[cat]   ({category_index}/{len(region_categories)}) "
+                "[cat]    "
+                f"selected=({format_progress(category_index, len(region_categories))}) | "
+                f"country_category=({format_progress(country_category_index, len(all_categories))}) | "
+                f"country_task=({format_progress(country_task_index, country_task_total)}) | "
                 f"Region={region['id']} | Country={region['country']} | Category={category} | Template={func_name}"
             )
             body = template_func()
