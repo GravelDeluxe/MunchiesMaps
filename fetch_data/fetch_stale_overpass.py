@@ -23,7 +23,6 @@ def parse_args() -> argparse.Namespace:
     p.add_argument('--debug', action='store_true')
     p.add_argument('--skip-smoke-test', action='store_true')
     p.add_argument('--skip-manifest', action='store_true')
-    p.add_argument('--chunk-id')
     p.add_argument('--total-country-targets', type=int)
     return p.parse_args()
 
@@ -107,17 +106,16 @@ def main() -> None:
 
     failed: list[dict] = []
     successful = 0
-    chunk_label = args.chunk_id or '-'
     total_targets = len(targets)
     total_country_targets = args.total_country_targets or total_targets
-    print(f"[chunk] country={targets[0].get('country') if targets else '-'} | chunk={chunk_label} | targets={total_targets} | total_country_targets={total_country_targets}")
+    print(f"[run] country={targets[0].get('country') if targets else '-'} | targets={total_targets} | total_country_targets={total_country_targets}")
 
     for index, target in enumerate(targets, start=1):
         ok = False
         last_error = 'unknown'
         country_progress = index if index <= total_country_targets else total_country_targets
         print(
-            f"[target-progress] chunk=({index}/{total_targets}) | country=({country_progress}/{total_country_targets}) "
+            f"[target-progress] country=({country_progress}/{total_country_targets}) | "
             f"| country={target.get('country')} | region={target.get('region')} | category={target.get('category')}"
         )
         for attempt in range(1, args.retry_attempts + 1):
