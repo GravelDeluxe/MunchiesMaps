@@ -335,7 +335,7 @@
         "id": 1109293122,
         "osm_type": "node",
         "name": "Aldi",
-        "brand": "ALDI"
+        "brand": "Aldi"
       }
     },
     {
@@ -2251,8 +2251,8 @@
         "osm_type": "node",
         "name": "Grand Frais",
         "brand": "Grand Frais",
-        "opening_hours": "closed",
-        "check_date": "2026-01-18"
+        "opening_hours": "Mo-Sa 09:00-20:00; Su 09:00-12:30",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -2612,7 +2612,7 @@
       "properties": {
         "id": 5018816963,
         "osm_type": "node",
-        "name": "Colruyt",
+        "name": "Intermarché",
         "brand": "Colruyt"
       }
     },
@@ -3397,23 +3397,6 @@
         "name": "E.Leclerc Express",
         "brand": "E.Leclerc Express",
         "opening_hours": "Mo-Sa 08:30-19:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.3817343,
-          47.8128573
-        ]
-      },
-      "properties": {
-        "id": 6333414640,
-        "osm_type": "node",
-        "name": "La Vie Claire",
-        "brand": "La Vie Claire",
-        "opening_hours": "Tu-Fr 09:00-19:00; Sa 09:00-18:30"
       }
     },
     {
@@ -4308,22 +4291,6 @@
         "name": "Coopérative l’Espérance",
         "brand": "Maximarché",
         "opening_hours": "Mo-Sa 08:30-12:15,14:30-19:00; Su 09:00-11:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.0026826,
-          47.5184471
-        ]
-      },
-      "properties": {
-        "id": 7685329386,
-        "osm_type": "node",
-        "name": "ALDI",
-        "brand": "ALDI"
       }
     },
     {
@@ -6054,7 +6021,8 @@
         "osm_type": "way",
         "name": "Aldi",
         "brand": "Aldi",
-        "opening_hours": "Mo-Sa 08:30-20:00; Su 08:30-12:30"
+        "opening_hours": "Mo-Sa 08:30-20:00; Su 08:30-12:30",
+        "check_date": "2026-04-22"
       }
     },
     {
@@ -6071,7 +6039,8 @@
         "osm_type": "way",
         "name": "Aldi",
         "brand": "ALDI",
-        "opening_hours": "Mo-Sa 08:30-20:00; Su 08:30-12:30"
+        "opening_hours": "Mo-Sa 08:30-20:00; Su 08:30-12:30",
+        "check_date": "2026-04-23"
       }
     },
     {
@@ -6632,7 +6601,8 @@
         "id": 74906164,
         "osm_type": "way",
         "name": "ALDI",
-        "brand": "ALDI"
+        "brand": "ALDI",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -6754,8 +6724,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0027448,
-          47.5156991
+          7.0026529,
+          47.515341
         ]
       },
       "properties": {
@@ -10167,6 +10137,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.0027045,
+          47.5184535
+        ]
+      },
+      "properties": {
+        "id": 193443337,
+        "osm_type": "way",
+        "name": "Aldi",
+        "brand": "Aldi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.0688015,
           47.4313365
         ]
@@ -12146,22 +12132,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.2859117,
-          48.1902574
-        ]
-      },
-      "properties": {
-        "id": 639468706,
-        "osm_type": "way",
-        "name": "Colruyt",
-        "brand": "Colruyt"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.5321918,
           47.4190555
         ]
@@ -13351,6 +13321,22 @@
         "osm_type": "way",
         "name": "Hyper U",
         "brand": "Hyper U"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9988824,
+          47.5125283
+        ]
+      },
+      "properties": {
+        "id": 1505076591,
+        "osm_type": "way",
+        "name": "Intermarché Drive",
+        "brand": "Intermarché Drive"
       }
     },
     {

@@ -795,8 +795,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.773704,
-          46.902941
+          5.7736962,
+          46.9029339
         ]
       },
       "properties": {
@@ -805,6 +805,8 @@
         "name": "Arbois Kebab",
         "brand": "Royal Kebab",
         "opening_hours": "Tu-Su,PH 11:30-14:00,18:00-22:00",
+        "phone": "+33 3 84 52 23 40",
+        "website": "http://arbois-kebab.gaqo.net/",
         "cuisine": "kebab",
         "chain": "unknown"
       }
@@ -4260,6 +4262,7 @@
         "osm_type": "node",
         "name": "La colline",
         "cuisine": "sandwich",
+        "check_date": "2026-04-24",
         "chain": "unknown"
       }
     },
@@ -6762,6 +6765,24 @@
         "opening_hours": "Mo-Sa 11:30-13:30,19:00-23:00",
         "phone": "+33339733426",
         "cuisine": "kebab",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.0261641,
+          47.2379045
+        ]
+      },
+      "properties": {
+        "id": 5581625721,
+        "osm_type": "node",
+        "name": "Sandwich Club",
+        "opening_hours": "Tu-Sa 11:30-19:30",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -9768,10 +9789,11 @@
       "properties": {
         "id": 7395954556,
         "osm_type": "node",
-        "name": "French Tacos",
-        "opening_hours": "Mo-Su 11:00-14:00,18:00-22:30",
-        "operator": "Youness Id Mohamd",
-        "cuisine": "burger;french_tacos",
+        "name": "Tasty Crousty",
+        "brand": "Tasty Crousty",
+        "website": "https://tastycrousty.io",
+        "brand:wikidata": "Q135185035",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -10859,8 +10881,9 @@
         "id": 8338625568,
         "osm_type": "node",
         "name": "Euro Döner",
-        "opening_hours": "Tu-Su 11:15-22:00",
+        "opening_hours": "Tu-Sa 11:15-22:00; Su 17:15-22:00",
         "phone": "+33 3 84 90 50 31",
+        "check_date": "2026-04-23",
         "chain": "unknown"
       }
     },
@@ -10879,6 +10902,7 @@
         "name": "Snack-Bar",
         "opening_hours": "Apr-Jun,Sep 11:00-17:15; Apr-Jun,Sep We off; Jul-Aug 10:30-18:30; Jun 03,Jun 10,Sep 15,Sep 22,Sep 29 off",
         "phone": "+33 3 84 51 74 94",
+        "website": "https://www.grottesdesmoidons.com/restauration.htm",
         "operator": "Grottes Des Moidons",
         "cuisine": "sandwich",
         "chain": "unknown"
@@ -12141,6 +12165,7 @@
         "osm_type": "node",
         "name": "Exki",
         "brand": "Exki",
+        "opening_hours": "Mo-Su 07:00-19:00",
         "brand:wikidata": "Q251760",
         "cuisine": "healthy;sandwich;salad;pie",
         "chain": "unknown"
@@ -12198,6 +12223,8 @@
         "id": 9250955095,
         "osm_type": "node",
         "name": "Sandwich Club",
+        "opening_hours": "Mo-Fr 11:30-14:00",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -15312,6 +15339,7 @@
         "name": "Slice pizza",
         "opening_hours": "Tu-Sa 11:30-14:00,18:30-23:00; Su 18:30-22:00",
         "phone": "+33956131131",
+        "website": "https://slicepizza.fr",
         "cuisine": "pizza",
         "chain": "unknown"
       }
@@ -15655,6 +15683,8 @@
         "id": 12182744306,
         "osm_type": "node",
         "name": "Truth grill",
+        "opening_hours": "Mo-Su 18:30-24:00",
+        "check_date": "2026-04-23",
         "chain": "unknown"
       }
     },
@@ -15806,9 +15836,10 @@
       "properties": {
         "id": 12265695430,
         "osm_type": "node",
-        "name": "Val.River.Pub",
+        "name": "Saint-Loup",
         "opening_hours": "Mo-Fr 17:30-23:00; Sa-Su 11:00-23:00",
         "phone": "+33 6 37 07 92 30",
+        "operator": "Évasion Loue",
         "chain": "unknown"
       }
     },
@@ -17698,6 +17729,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.6739236,
+          46.5229816
+        ]
+      },
+      "properties": {
+        "id": 13765956099,
+        "osm_type": "node",
+        "name": "La Table du Lac",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0018104,
+          47.5196216
+        ]
+      },
+      "properties": {
+        "id": 13770708026,
+        "osm_type": "node",
+        "name": "Poulaillon",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           3.571347,
           47.8144757
         ]
@@ -18820,7 +18883,7 @@
         "osm_type": "way",
         "name": "McDonald's",
         "brand": "McDonald's",
-        "opening_hours": "Mo-Su 10:00-23:30",
+        "opening_hours": "Mo-Su 10:00-23:00",
         "phone": "+33 3 84 26 39 62",
         "website": "https://www.mcdonalds.fr/restaurants/mcdonalds-bessoncourt/1181",
         "brand:wikidata": "Q38076",
