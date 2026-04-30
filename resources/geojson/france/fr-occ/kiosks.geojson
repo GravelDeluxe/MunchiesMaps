@@ -32,7 +32,8 @@
         "osm_type": "node",
         "name": "TotalEnergies",
         "brand": "TotalEnergies",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2023-07-23"
       }
     },
     {
@@ -66,7 +67,8 @@
         "osm_type": "node",
         "name": "Eni",
         "brand": "Eni",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-08-15"
       }
     },
     {
@@ -100,7 +102,8 @@
         "osm_type": "node",
         "name": "Shell",
         "brand": "Shell",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-06-24"
       }
     },
     {
@@ -117,7 +120,8 @@
         "osm_type": "node",
         "name": "Total Access Balma",
         "brand": "Total Access",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2022-09-26"
       }
     },
     {
@@ -134,7 +138,8 @@
         "osm_type": "node",
         "name": "Eni",
         "brand": "Eni",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-06-18"
       }
     },
     {
@@ -168,7 +173,8 @@
         "osm_type": "node",
         "name": "Shell",
         "brand": "Shell",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-06-26"
       }
     },
     {
@@ -370,7 +376,8 @@
         "osm_type": "node",
         "name": "Le Petit Casino",
         "brand": "Le Petit Casino",
-        "opening_hours": "Mo-Th 08:00-21:00; Fr 08:00-22:00; Sa 09:00-22:00; Su 09:00-20:00"
+        "opening_hours": "Mo-Th 08:00-21:00; Fr 08:00-22:00; Sa 09:00-22:00; Su 09:00-20:00",
+        "check_date": "2024-05-11"
       }
     },
     {
@@ -523,7 +530,8 @@
         "id": 306969902,
         "osm_type": "node",
         "name": "La Cours des Halles",
-        "opening_hours": "Mo-Sa 08:30-20:00; Su 08:00-13:30"
+        "opening_hours": "Mo-Sa 08:30-20:00; Su 08:00-13:30",
+        "check_date": "2025-10-23"
       }
     },
     {
@@ -780,7 +788,8 @@
         "osm_type": "node",
         "name": "Le Petit Casino",
         "brand": "Le Petit Casino",
-        "opening_hours": "Mo-Fr 07:30-22:00; Sa 08:00-22:00; Su 09:00-22:00"
+        "opening_hours": "Mo-Fr 07:30-22:00; Sa 08:00-22:00; Su 09:00-22:00",
+        "check_date": "2025-04-26"
       }
     },
     {
@@ -814,7 +823,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 08:00-21:00; Su 09:00-13:00"
+        "opening_hours": "Mo-Sa 08:00-21:00; Su 09:00-13:00",
+        "check_date": "2025-10-17"
       }
     },
     {
@@ -1012,7 +1022,8 @@
         "osm_type": "node",
         "name": "Avia",
         "brand": "Avia",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-05-01"
       }
     },
     {
@@ -1108,6 +1119,21 @@
         "id": 500292589,
         "osm_type": "node",
         "name": "pressing + divers commerces"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7962188,
+          43.6483079
+        ]
+      },
+      "properties": {
+        "id": 500334639,
+        "osm_type": "node",
+        "name": "La Grabelloise"
       }
     },
     {
@@ -1312,7 +1338,8 @@
       "properties": {
         "id": 579783643,
         "osm_type": "node",
-        "name": "King kebab"
+        "name": "King kebab",
+        "opening_hours": "Mo-Fr 08:00-20:00"
       }
     },
     {
@@ -1443,7 +1470,8 @@
       },
       "properties": {
         "id": 599002150,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-10-04"
       }
     },
     {
@@ -1474,7 +1502,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su 08:30-13:00"
+        "opening_hours": "Mo-Sa 07:00-21:00; Su 08:30-13:00",
+        "check_date": "2023-08-25"
       }
     },
     {
@@ -1614,7 +1643,8 @@
       "properties": {
         "id": 621197849,
         "osm_type": "node",
-        "name": "Le Petit Epicier"
+        "name": "Le Petit Epicier",
+        "check_date": "2025-06-18"
       }
     },
     {
@@ -1754,7 +1784,8 @@
       "properties": {
         "id": 635872122,
         "osm_type": "node",
-        "name": "Sweet rice épicerie asiatique"
+        "name": "Sweet rice épicerie asiatique",
+        "check_date": "2026-03-01"
       }
     },
     {
@@ -1770,7 +1801,8 @@
         "id": 635875019,
         "osm_type": "node",
         "name": "L'Épicerie des Beaux-Arts",
-        "opening_hours": "Tu-Sa 09:00-13:00, 15:30-20:00"
+        "opening_hours": "Tu-Sa 09:00-13:00, 15:30-20:00",
+        "check_date": "2026-03-11"
       }
     },
     {
@@ -2097,7 +2129,8 @@
         "id": 664061285,
         "osm_type": "node",
         "name": "Au bon marché",
-        "opening_hours": "Mo-Sa 09:30-13:00,16:00-20:00"
+        "opening_hours": "Mo-Sa 09:30-13:00,16:00-20:00",
+        "check_date": "2025-04-28"
       }
     },
     {
@@ -2152,8 +2185,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.8845545,
-          43.8346708
+          3.8845465,
+          43.8346166
         ]
       },
       "properties": {
@@ -2511,7 +2544,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
+        "check_date": "2025-04-20"
       }
     },
     {
@@ -2908,7 +2942,8 @@
         "id": 832444217,
         "osm_type": "node",
         "name": "Épicerie des Consuls",
-        "opening_hours": "Mo-Th 08:00-21:00; Fr 08:00-21:00; Sa 10:00-21:00; Su 13:00-21:00"
+        "opening_hours": "Mo-Th 08:00-21:00; Fr 08:00-21:00; Sa 10:00-21:00; Su 13:00-21:00",
+        "check_date": "2025-02-05"
       }
     },
     {
@@ -2973,7 +3008,8 @@
         "id": 842351371,
         "osm_type": "node",
         "name": "Aire de la Lozère",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-08-01"
       }
     },
     {
@@ -3005,7 +3041,8 @@
       "properties": {
         "id": 845224408,
         "osm_type": "node",
-        "name": "L'Épicerie de la place"
+        "name": "L'Épicerie de la place",
+        "check_date": "2025-10-13"
       }
     },
     {
@@ -3636,7 +3673,8 @@
         "id": 1024312865,
         "osm_type": "node",
         "name": "Picorette",
-        "opening_hours": "Mo-Tu,Th-Fr 07:30-12:30,16:00-19:30; We 16:00-19:30; Sa 08:00-12:30,16:00-19:30; Su 08:00-12:30"
+        "opening_hours": "Mo-Tu,Th-Fr 07:30-12:30,16:00-19:30; We 16:00-19:30; Sa 08:00-12:30,16:00-19:30; Su 08:00-12:30",
+        "check_date": "2023-02-16"
       }
     },
     {
@@ -3670,7 +3708,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-12:30"
+        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-12:30",
+        "check_date": "2026-02-27"
       }
     },
     {
@@ -3732,7 +3771,8 @@
         "osm_type": "node",
         "name": "Avia",
         "brand": "Avia",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-08-25"
       }
     },
     {
@@ -3778,7 +3818,8 @@
         "id": 1150957869,
         "osm_type": "node",
         "name": "Palais des Fruits",
-        "opening_hours": "Mo-Sa 07:30-13:00,15:30-19:45; Su 07:30-13:00"
+        "opening_hours": "Mo-Sa 07:30-13:00,15:30-19:45; Su 07:30-13:00",
+        "check_date": "2025-09-16"
       }
     },
     {
@@ -3986,7 +4027,8 @@
         "id": 1284303480,
         "osm_type": "node",
         "name": "Petit Casino des Capellans",
-        "opening_hours": "Mo-Fr 08:00-21:00"
+        "opening_hours": "Mo-Fr 08:00-21:00",
+        "check_date": "2025-06-14"
       }
     },
     {
@@ -4001,7 +4043,8 @@
       "properties": {
         "id": 1284303500,
         "osm_type": "node",
-        "name": "Le Paysan Catalan"
+        "name": "Le Paysan Catalan",
+        "check_date": "2025-06-17"
       }
     },
     {
@@ -4018,7 +4061,8 @@
         "osm_type": "node",
         "name": "Vival",
         "brand": "Vival",
-        "opening_hours": "Mo-Fr 08:30-21:00; Sa 09:00-21:00; Su 09:30-20:00"
+        "opening_hours": "Mo-Fr 08:30-21:00; Sa 09:00-21:00; Su 09:30-20:00",
+        "check_date": "2024-05-11"
       }
     },
     {
@@ -4982,7 +5026,7 @@
         "id": 1460476641,
         "osm_type": "node",
         "name": "Total",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "opening_hours": "24/7"
       }
     },
@@ -5030,7 +5074,8 @@
         "id": 1462971669,
         "osm_type": "node",
         "name": "Proxi",
-        "brand": "Proxi"
+        "brand": "Proxi",
+        "check_date": "2025-08-23"
       }
     },
     {
@@ -5114,7 +5159,8 @@
         "osm_type": "node",
         "name": "Intermarché Express",
         "brand": "Intermarché Express",
-        "opening_hours": "Mo-Sa 08:30-21:00; Su 09:00-20:00"
+        "opening_hours": "Mo-Sa 08:30-21:00; Su 09:00-20:00",
+        "check_date": "2026-04-12"
       }
     },
     {
@@ -5131,7 +5177,8 @@
         "osm_type": "node",
         "name": "Le Petit Casino",
         "brand": "Le Petit Casino",
-        "opening_hours": "Mo-Sa 08:00-19:30"
+        "opening_hours": "Mo-Sa 08:00-19:30",
+        "check_date": "2026-03-21"
       }
     },
     {
@@ -5537,7 +5584,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Su \"please add opening times\""
+        "opening_hours": "Mo-Su \"please add opening times\"",
+        "check_date": "2025-09-03"
       }
     },
     {
@@ -5667,23 +5715,6 @@
         "id": 1674973134,
         "osm_type": "node",
         "name": "Le bon coin"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.4180211,
-          44.0130934
-        ]
-      },
-      "properties": {
-        "id": 1684313677,
-        "osm_type": "node",
-        "name": "Le Petit Casino",
-        "brand": "Le Petit Casino",
-        "opening_hours": "CLOSED PERMANENTLY"
       }
     },
     {
@@ -6066,7 +6097,8 @@
         "id": 1739592805,
         "osm_type": "node",
         "name": "Casino Shop",
-        "brand": "Casino Shop"
+        "brand": "Casino Shop",
+        "check_date": "2024-06-06"
       }
     },
     {
@@ -6292,7 +6324,8 @@
         "id": 1783401253,
         "osm_type": "node",
         "name": "Le Panier",
-        "opening_hours": "Mo-Sa 08:30-12:30,16:30-19:00; Su 08:30-12:30"
+        "opening_hours": "Mo-Sa 08:30-12:30,16:30-19:00; Su 08:30-12:30",
+        "check_date": "2025-05-03"
       }
     },
     {
@@ -6523,7 +6556,8 @@
         "osm_type": "node",
         "name": "Spar",
         "brand": "Spar",
-        "opening_hours": "Mo-Th 09:00-21:00; Fr-Su 09:00-22:00"
+        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-20:00",
+        "check_date": "2026-04-16"
       }
     },
     {
@@ -7038,7 +7072,8 @@
         "id": 1918024987,
         "osm_type": "node",
         "name": "Aux saveurs d‘Enimie",
-        "opening_hours": "Apr-Sep"
+        "opening_hours": "Apr-Sep",
+        "check_date": "2025-07-05"
       }
     },
     {
@@ -7154,7 +7189,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
+        "check_date": "2025-05-06"
       }
     },
     {
@@ -7460,22 +7496,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4396321,
-          43.6074821
-        ]
-      },
-      "properties": {
-        "id": 1976765844,
-        "osm_type": "node",
-        "name": "Mammouth l'épicerie",
-        "opening_hours": "Mo-Fr 08:30-20:00;Sa-Su 10:00-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.4269726,
           43.8002801
         ]
@@ -7518,7 +7538,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-21:00",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -7757,6 +7778,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -0.0744118,
+          42.9589144
+        ]
+      },
+      "properties": {
+        "id": 2024980968,
+        "osm_type": "node",
+        "name": "Marché Minut'"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           2.5628279,
           42.9568825
         ]
@@ -7795,7 +7831,8 @@
       "properties": {
         "id": 2061292325,
         "osm_type": "node",
-        "name": "Faculté Market"
+        "name": "Faculté Market",
+        "check_date": "2026-03-17"
       }
     },
     {
@@ -8436,6 +8473,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          3.8690543,
+          43.6286515
+        ]
+      },
+      "properties": {
+        "id": 2269503459,
+        "osm_type": "node",
+        "name": "Mini Market"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           2.8356445,
           43.1140871
         ]
@@ -8600,7 +8652,8 @@
         "osm_type": "node",
         "name": "Proxi",
         "brand": "Proxi",
-        "opening_hours": "Tu-Sa 08:00-12:30, 16:00-19:30; Su 08:00-12:30"
+        "opening_hours": "Tu-Sa 08:00-12:30, 16:00-19:30; Su 08:00-12:30",
+        "check_date": "2026-03-27"
       }
     },
     {
@@ -8881,7 +8934,8 @@
         "osm_type": "node",
         "name": "Biocoop",
         "brand": "Biocoop",
-        "opening_hours": "Mo 10:00-20:00; Tu-Sa 09:30-20:00"
+        "opening_hours": "Mo 10:00-20:00; Tu-Sa 09:30-20:00",
+        "check_date": "2025-04-05"
       }
     },
     {
@@ -8928,7 +8982,8 @@
         "id": 2362005180,
         "osm_type": "node",
         "name": "La musette de l'Ars",
-        "opening_hours": "Mo-Th 08:30-13:00,16:00-19:00; Fr-Su 08:30-19:00"
+        "opening_hours": "Mo-Th 08:30-13:00,16:00-19:00; Fr-Su 08:30-19:00",
+        "check_date": "2025-05-31"
       }
     },
     {
@@ -8976,7 +9031,8 @@
         "id": 2373670572,
         "osm_type": "node",
         "name": "Le Comptoir d'Assas",
-        "opening_hours": "Mo-Tu,Th-Fr 08:00-12:30,16:00-19:00; We,Sa-Su 08:00-12:30"
+        "opening_hours": "Mo-Tu,Th-Fr 08:00-12:30,16:00-19:00; We,Sa-Su 08:00-12:30",
+        "check_date": "2026-02-28"
       }
     },
     {
@@ -8993,7 +9049,8 @@
         "osm_type": "node",
         "name": "Vival",
         "brand": "Utile",
-        "opening_hours": "Mo-Sa 08:00-12:15,15:00-19:00"
+        "opening_hours": "Mo-Sa 08:00-12:15,15:00-19:00",
+        "check_date": "2026-03-02"
       }
     },
     {
@@ -9102,7 +9159,8 @@
       "properties": {
         "id": 2399682148,
         "osm_type": "node",
-        "name": "Terre de Mauripe"
+        "name": "Terre de Mauripe",
+        "check_date": "2024-12-28"
       }
     },
     {
@@ -9418,7 +9476,8 @@
         "osm_type": "node",
         "name": "Casino Shop",
         "brand": "Casino Shop",
-        "opening_hours": "Mo-Sa 08:00-20:00"
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "check_date": "2024-05-11"
       }
     },
     {
@@ -9435,7 +9494,8 @@
         "osm_type": "node",
         "name": "Avia",
         "brand": "Avia",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-06-25"
       }
     },
     {
@@ -9693,6 +9753,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          1.4436525,
+          43.60093
+        ]
+      },
+      "properties": {
+        "id": 2457772108,
+        "osm_type": "node",
+        "name": "Koko Mart"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           1.4452438,
           43.5995672
         ]
@@ -9749,7 +9824,8 @@
         "osm_type": "node",
         "name": "Le Petit Casino",
         "brand": "Le Petit Casino",
-        "opening_hours": "Tu-Fr 08:00-20:00; Mo 15:00-20:00; Sa 08:00-18:00"
+        "opening_hours": "Tu-Fr 08:00-20:00; Mo 15:00-20:00; Sa 08:00-18:00",
+        "check_date": "2024-10-19"
       }
     },
     {
@@ -9765,7 +9841,8 @@
         "id": 2464788591,
         "osm_type": "node",
         "name": "Spar",
-        "brand": "Spar"
+        "brand": "Spar",
+        "check_date": "2025-05-26"
       }
     },
     {
@@ -9891,7 +9968,8 @@
         "osm_type": "node",
         "name": "Vival",
         "brand": "Vival",
-        "opening_hours": "Mo off; Tu-Sa 08:30-12:30,16:00-19:00; Su 09:00-12:00"
+        "opening_hours": "Mo off; Tu-Sa 08:30-12:30,16:00-19:00; Su 09:00-12:00",
+        "check_date": "2026-02-16"
       }
     },
     {
@@ -9969,7 +10047,8 @@
       "properties": {
         "id": 2535285777,
         "osm_type": "node",
-        "name": "Le Potager"
+        "name": "Le Potager",
+        "check_date": "2024-10-25"
       }
     },
     {
@@ -10462,7 +10541,8 @@
         "id": 2864091778,
         "osm_type": "node",
         "name": "O bong d'Asie",
-        "opening_hours": "Mo-Fr 09:00-17:00"
+        "opening_hours": "Mo-Fr 09:00-17:00",
+        "check_date": "2025-05-29"
       }
     },
     {
@@ -10714,7 +10794,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
+        "check_date": "2025-04-21"
       }
     },
     {
@@ -10970,7 +11051,8 @@
       "properties": {
         "id": 3065606566,
         "osm_type": "node",
-        "name": "La P'tit Echoppe"
+        "name": "La P'tit Echoppe",
+        "check_date": "2026-04-18"
       }
     },
     {
@@ -11335,7 +11417,8 @@
         "osm_type": "node",
         "name": "Proxi",
         "brand": "Vival",
-        "opening_hours": "Mo-Sa 07:30-12:30, 16:00-19:00; Su 08:30-13:00"
+        "opening_hours": "Mo-Sa 07:30-12:30, 16:00-19:00; Su 08:30-13:00",
+        "check_date": "2026-03-04"
       }
     },
     {
@@ -11425,7 +11508,8 @@
         "id": 3214017503,
         "osm_type": "node",
         "name": "La Chòpa",
-        "opening_hours": "Mo-Sa 08:30-12:30,16:00-19:00; Su 08:30-12:30"
+        "opening_hours": "Mo-Sa 08:30-12:30,16:00-19:00; Su 08:30-12:30",
+        "check_date": "2022-08-08"
       }
     },
     {
@@ -11518,7 +11602,8 @@
         "osm_type": "node",
         "name": "Vival",
         "brand": "Vival",
-        "opening_hours": "Mo 08:30-12:15,16:30-19:00; Tu 08:30-12:15; We-Sa 08:30-12:15,16:30-19:00"
+        "opening_hours": "Mo 08:30-12:15,16:30-19:00; Tu 08:30-12:15; We-Sa 08:30-12:15,16:30-19:00",
+        "check_date": "2025-05-01"
       }
     },
     {
@@ -11534,7 +11619,8 @@
         "id": 3259936683,
         "osm_type": "node",
         "name": "Brian Market",
-        "brand": "Épi Service"
+        "brand": "Épi Service",
+        "check_date": "2025-04-30"
       }
     },
     {
@@ -11774,7 +11860,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
+        "check_date": "2026-04-01"
       }
     },
     {
@@ -11822,7 +11909,8 @@
         "osm_type": "node",
         "name": "Biocoop",
         "brand": "Biocoop",
-        "opening_hours": "Su 09:30-12:30; Mo-Sa 10:00-20:00"
+        "opening_hours": "Su 09:30-12:30; Mo-Sa 10:00-20:00",
+        "check_date": "2025-12-31"
       }
     },
     {
@@ -11917,7 +12005,8 @@
         "osm_type": "node",
         "name": "Vival",
         "brand": "Vival",
-        "opening_hours": "Mo-Su 09:00-22:00"
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "check_date": "2024-11-26"
       }
     },
     {
@@ -11932,7 +12021,8 @@
       "properties": {
         "id": 3493649098,
         "osm_type": "node",
-        "name": "Le pas de Saint-Jacques"
+        "name": "Le pas de Saint-Jacques",
+        "check_date": "2025-02-28"
       }
     },
     {
@@ -12051,7 +12141,8 @@
       "properties": {
         "id": 3566360402,
         "osm_type": "node",
-        "name": "Passion Fruit"
+        "name": "Passion Fruit",
+        "check_date": "2025-04-30"
       }
     },
     {
@@ -12524,7 +12615,8 @@
         "osm_type": "node",
         "name": "Casino Shop",
         "brand": "Casino Shop",
-        "opening_hours": "Mo-Su 08:00-23:00"
+        "opening_hours": "Mo-Su 08:00-23:00",
+        "check_date": "2026-02-15"
       }
     },
     {
@@ -12908,7 +13000,8 @@
         "osm_type": "node",
         "name": "Intermarché Express",
         "brand": "Intermarché Express",
-        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-12:30"
+        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-12:30",
+        "check_date": "2025-06-06"
       }
     },
     {
@@ -13598,7 +13691,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 08:00-21:00; Su 09:00-21:00"
+        "opening_hours": "Mo-Sa 08:00-21:00; Su 09:00-21:00",
+        "check_date": "2023-12-24"
       }
     },
     {
@@ -13818,7 +13912,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 7:00-21:00; Sa 9:00-13:00"
+        "opening_hours": "Mo-Sa 7:00-21:00; Sa 9:00-13:00",
+        "check_date": "2025-11-29"
       }
     },
     {
@@ -13928,8 +14023,8 @@
       "properties": {
         "id": 4224120190,
         "osm_type": "node",
-        "name": "BP",
-        "brand": "BP",
+        "name": "Avia",
+        "brand": "Avia",
         "opening_hours": "24/7"
       }
     },
@@ -14124,7 +14219,8 @@
         "id": 4285279188,
         "osm_type": "node",
         "name": "L'épicerie de nuit",
-        "opening_hours": "19:00-02:00"
+        "opening_hours": "19:00-02:00",
+        "check_date": "2023-04-23"
       }
     },
     {
@@ -14139,7 +14235,8 @@
       "properties": {
         "id": 4285279590,
         "osm_type": "node",
-        "name": "La Grâce Divine"
+        "name": "La Grâce Divine",
+        "check_date": "2023-04-06"
       }
     },
     {
@@ -14412,8 +14509,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.60716,
-          42.9647004
+          1.6071634,
+          42.9647278
         ]
       },
       "properties": {
@@ -14452,7 +14549,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
+        "check_date": "2026-01-28"
       }
     },
     {
@@ -14548,7 +14646,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-14:00,16:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-14:00,16:00-20:00",
+        "check_date": "2025-09-13"
       }
     },
     {
@@ -14684,6 +14783,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.1455249,
+          44.0452705
+        ]
+      },
+      "properties": {
+        "id": 4503855495,
+        "osm_type": "node",
+        "name": "Carrefour Contact",
+        "brand": "Carrefour Contact",
+        "opening_hours": "Mo-Sa 08:00-19:30; Su 08:30-12:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           1.3245435,
           43.5154076
         ]
@@ -14692,7 +14808,8 @@
         "id": 4504613219,
         "osm_type": "node",
         "name": "La Main Ouverte",
-        "opening_hours": "Mo-We,Fr 07:30-12:30,15:30-19:30; Th off; Sa 08:00-12:30,15:30-19:30; Su 08:00-12:30"
+        "opening_hours": "Mo-We,Fr 07:30-12:30,15:30-19:30; Th off; Sa 08:00-12:30,15:30-19:30; Su 08:00-12:30",
+        "check_date": "2023-12-30"
       }
     },
     {
@@ -15006,7 +15123,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su 09:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-21:00; Su 09:00-21:00",
+        "check_date": "2024-07-10"
       }
     },
     {
@@ -15232,7 +15350,8 @@
         "id": 4733784481,
         "osm_type": "node",
         "name": "Le Petit Casino",
-        "brand": "Le Petit Casino"
+        "brand": "Le Petit Casino",
+        "check_date": "2023-12-23"
       }
     },
     {
@@ -15296,7 +15415,8 @@
         "id": 4757889922,
         "osm_type": "node",
         "name": "La Fontaine",
-        "opening_hours": "Mo-Fr 07:00-13:00,16:30-20:00; Sa 07:00-13:00,17:00-20:00; Su 08:00-12:30"
+        "opening_hours": "Mo-Fr 07:00-13:00,16:30-20:00; Sa 07:00-13:00,17:00-20:00; Su 08:00-12:30",
+        "check_date": "2024-09-27"
       }
     },
     {
@@ -15376,7 +15496,8 @@
         "id": 4791701205,
         "osm_type": "node",
         "name": "Le Rif",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -15405,7 +15526,8 @@
       "properties": {
         "id": 4794860240,
         "osm_type": "node",
-        "name": "Chez Béa"
+        "name": "Chez Béa",
+        "check_date": "2025-03-21"
       }
     },
     {
@@ -15736,7 +15858,8 @@
         "osm_type": "node",
         "name": "Total",
         "brand": "Total",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-01-02"
       }
     },
     {
@@ -15992,7 +16115,8 @@
         "osm_type": "node",
         "name": "Proxy",
         "brand": "Casino Shop",
-        "opening_hours": "Mo-Sa 08:00-12:30,15:00-19:00; Su 08:00-13:00"
+        "opening_hours": "Mo-Sa 08:00-12:30,15:00-19:00; Su 08:00-13:00",
+        "check_date": "2024-08-10"
       }
     },
     {
@@ -16444,8 +16568,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.0096002,
-          42.7329512
+          -0.0095854,
+          42.7329295
         ]
       },
       "properties": {
@@ -16520,7 +16644,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-21:00",
+        "check_date": "2026-02-15"
       }
     },
     {
@@ -16812,7 +16937,8 @@
         "osm_type": "node",
         "name": "Utile",
         "brand": "Utile",
-        "opening_hours": "Mo 09:30-12:15; Tu-Sa 08:00-12:15, 14:30-18:30; Su 08:30-12:15"
+        "opening_hours": "Mo 09:30-12:15; Tu-Sa 08:00-12:15, 14:30-18:30; Su 08:30-12:15",
+        "check_date": "2025-08-17"
       }
     },
     {
@@ -16985,7 +17111,8 @@
         "osm_type": "node",
         "name": "Rompetrol",
         "brand": "Rompetrol",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-09-23"
       }
     },
     {
@@ -17081,7 +17208,8 @@
         "id": 5666641799,
         "osm_type": "node",
         "name": "Le bouche à louche",
-        "opening_hours": "Tu-Sa 11:00-20:00; Su 12:00-20:00"
+        "opening_hours": "Tu-Sa 11:00-20:00; Su 12:00-20:00",
+        "check_date": "2026-03-03"
       }
     },
     {
@@ -17214,7 +17342,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 08:00+"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 08:00+",
+        "check_date": "2025-10-11"
       }
     },
     {
@@ -17261,7 +17390,8 @@
       "properties": {
         "id": 5768021069,
         "osm_type": "node",
-        "name": "Épicerie de Nuit"
+        "name": "Épicerie de Nuit",
+        "check_date": "2023-12-23"
       }
     },
     {
@@ -17480,23 +17610,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.8154533,
-          44.5159305
-        ]
-      },
-      "properties": {
-        "id": 5845804294,
-        "osm_type": "node",
-        "name": "Vival",
-        "brand": "Vival",
-        "opening_hours": "Tu-Sa 08:30-12:30,15:30-19:30; Su 08:30-12:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           2.973783,
           44.4641455
         ]
@@ -17643,7 +17756,8 @@
         "id": 5866445167,
         "osm_type": "node",
         "name": "JPR Distribution",
-        "opening_hours": "Mo-Fr 08:30-12:15,14:15-18:30; Sa 08:30-12:15,14:15-18:00"
+        "opening_hours": "Mo-Fr 08:30-12:15,14:15-18:30; Sa 08:30-12:15,14:15-18:00",
+        "check_date": "2024-12-07"
       }
     },
     {
@@ -17878,7 +17992,8 @@
       "properties": {
         "id": 5980936394,
         "osm_type": "node",
-        "name": "Calvi'shop"
+        "name": "Calvi'shop",
+        "check_date": "2024-06-13"
       }
     },
     {
@@ -17908,7 +18023,8 @@
       "properties": {
         "id": 6002445686,
         "osm_type": "node",
-        "name": "Kiosque fleuri"
+        "name": "Kiosque fleuri",
+        "check_date": "2025-08-19"
       }
     },
     {
@@ -17941,7 +18057,8 @@
         "osm_type": "node",
         "name": "Superette Casino Argelès",
         "brand": "Casino",
-        "opening_hours": "Tu-Sa 08:30-12:30,15:30-19:30; Su 09:00-12:00"
+        "opening_hours": "Tu-Sa 08:30-12:30,15:30-19:30; Su 09:00-12:00",
+        "check_date": "2026-02-09"
       }
     },
     {
@@ -18037,7 +18154,8 @@
         "osm_type": "node",
         "name": "Casino Shop",
         "brand": "Casino Shop",
-        "opening_hours": "07:00-22:00"
+        "opening_hours": "07:00-22:00",
+        "check_date": "2025-05-02"
       }
     },
     {
@@ -18085,7 +18203,8 @@
         "osm_type": "node",
         "name": "U Express",
         "brand": "U Express",
-        "opening_hours": "Mo-Sa 08:00-20:00; Su 08:00-13:00"
+        "opening_hours": "Mo-Sa 08:00-20:00; Su 08:00-13:00",
+        "check_date": "2025-06-06"
       }
     },
     {
@@ -18458,7 +18577,8 @@
         "id": 6387694465,
         "osm_type": "node",
         "name": "Cocipro",
-        "opening_hours": "We-Sa 10:30-14:00, 15:00-19:00; Tu 14:00-19:00"
+        "opening_hours": "We-Sa 10:30-14:00, 15:00-19:00; Tu 14:00-19:00",
+        "check_date": "2023-12-25"
       }
     },
     {
@@ -18873,6 +18993,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          1.4417496,
+          44.4449428
+        ]
+      },
+      "properties": {
+        "id": 6627576645,
+        "osm_type": "node",
+        "name": "Afghan Market"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           2.7340105,
           42.6826976
         ]
@@ -19190,7 +19325,8 @@
         "id": 6723905496,
         "osm_type": "node",
         "name": "Boucherie Frezal",
-        "brand": "Vival"
+        "brand": "Vival",
+        "check_date": "2023-11-07"
       }
     },
     {
@@ -19220,7 +19356,8 @@
         "id": 6736194931,
         "osm_type": "node",
         "name": "Le Petit Gourmand",
-        "opening_hours": "Mo-We,Fr-Sa 08:00-12:15,15:00-19:00; Su 08:00-12:15"
+        "opening_hours": "Mo-We,Fr-Sa 08:00-12:15,15:00-19:00; Su 08:00-12:15",
+        "check_date": "2025-09-14"
       }
     },
     {
@@ -19443,7 +19580,8 @@
         "osm_type": "node",
         "name": "Proxi",
         "brand": "Proxi",
-        "opening_hours": "Mo-Sa 08:00-20:00; Su 08:00-13:00,15:30-19:00"
+        "opening_hours": "Mo-Sa 08:00-20:00; Su 08:00-13:00,15:30-19:00",
+        "check_date": "2024-07-30"
       }
     },
     {
@@ -20227,7 +20365,8 @@
         "osm_type": "node",
         "name": "Avia",
         "brand": "Avia",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-03-08"
       }
     },
     {
@@ -20370,7 +20509,8 @@
       "properties": {
         "id": 7260776245,
         "osm_type": "node",
-        "name": "L'épicerie du port"
+        "name": "L'épicerie du port",
+        "check_date": "2025-09-07"
       }
     },
     {
@@ -20501,21 +20641,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.6978124,
-          43.4087001
-        ]
-      },
-      "properties": {
-        "id": 7309404987,
-        "osm_type": "node",
-        "name": "Bio de Cocagne"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           2.9606498,
           43.3467935
         ]
@@ -20555,7 +20680,8 @@
         "id": 7334391915,
         "osm_type": "node",
         "name": "La Fromagerie",
-        "opening_hours": "Tu-Sa 09:00-12:30, 16:00-19:00; Su 09:00-12:00"
+        "opening_hours": "Tu-Sa 09:00-12:30, 16:00-19:00; Su 09:00-12:00",
+        "check_date": "2024-05-09"
       }
     },
     {
@@ -20820,7 +20946,8 @@
         "id": 7411621949,
         "osm_type": "node",
         "name": "Le Panier de la Marmotte",
-        "opening_hours": "Mo,We-Sa 09:00-13:00,16:00-19:30; Tu off; Su 09:00-13:00; SH Mo-Su 09:00-20:00"
+        "opening_hours": "Mo,We-Sa 09:00-13:00,16:00-19:30; Tu off; Su 09:00-13:00; SH Mo-Su 09:00-20:00",
+        "check_date": "2025-08-19"
       }
     },
     {
@@ -20836,7 +20963,8 @@
         "id": 7415938135,
         "osm_type": "node",
         "name": "Les Tarées du Vrac",
-        "opening_hours": "Mo 15:00-19:30; Tu-Fr 10:00-13:00,15:00-19:30; Th 10:00-13:00,16:00-19:30; Sa 10:00-13:00,15:00-19:00; Su 10:00-13:00"
+        "opening_hours": "Mo 15:00-19:30; Tu-Fr 10:00-13:00,15:00-19:30; Th 10:00-13:00,16:00-19:30; Sa 10:00-13:00,15:00-19:00; Su 10:00-13:00",
+        "check_date": "2024-11-14"
       }
     },
     {
@@ -20882,7 +21010,7 @@
         "id": 7434970649,
         "osm_type": "node",
         "name": "Campillo",
-        "opening_hours": "Tu-Sa 10:00-20:00;Su 10:00-17:00"
+        "opening_hours": "Tu-Sa 10:00-20:00; Su 10:00-13:00"
       }
     },
     {
@@ -21110,22 +21238,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.4448641,
-          43.6111734
-        ]
-      },
-      "properties": {
-        "id": 7639743082,
-        "osm_type": "node",
-        "name": "Campillo",
-        "opening_hours": "Tu-Sa 10:00-20:00; Su 10:00-13:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           3.6788787,
           43.3939142
         ]
@@ -21292,7 +21404,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 08:00-23:00; Su 10:00-14:00"
+        "opening_hours": "Mo-Sa 08:00-23:00; Su 10:00-14:00",
+        "check_date": "2025-11-04"
       }
     },
     {
@@ -21668,7 +21781,8 @@
         "id": 7887831559,
         "osm_type": "node",
         "name": "Bousquet Alimentation",
-        "opening_hours": "Mo off; Tu-Su 08:30-12:00,15:30-18:30"
+        "opening_hours": "Mo off; Tu-Su 08:30-12:00,15:30-18:30",
+        "check_date": "2025-07-05"
       }
     },
     {
@@ -22001,7 +22115,8 @@
         "osm_type": "node",
         "name": "Avia",
         "brand": "Avia",
-        "opening_hours": "Mo-Su,PH 08:00-08:00"
+        "opening_hours": "Mo-Su,PH 08:00-08:00",
+        "check_date": "2025-01-04"
       }
     },
     {
@@ -22300,7 +22415,8 @@
         "id": 8259067717,
         "osm_type": "node",
         "name": "Le Petit Casino",
-        "brand": "Le Petit Casino"
+        "brand": "Le Petit Casino",
+        "check_date": "2025-03-16"
       }
     },
     {
@@ -22779,7 +22895,8 @@
         "id": 8657209144,
         "osm_type": "node",
         "name": "Victory",
-        "opening_hours": "Tu-Sa 08:00-19:30; Su 08:00-12:30"
+        "opening_hours": "Tu-Sa 08:00-19:30; Su 08:00-12:30",
+        "check_date": "2024-08-28"
       }
     },
     {
@@ -23229,7 +23346,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su 09:00-13:30, 15:30-21:00"
+        "opening_hours": "Mo-Sa 07:00-21:00; Su 09:00-13:30, 15:30-21:00",
+        "check_date": "2025-06-11"
       }
     },
     {
@@ -23244,7 +23362,8 @@
       "properties": {
         "id": 8844359455,
         "osm_type": "node",
-        "name": "Supérette Amouroux"
+        "name": "Supérette Amouroux",
+        "check_date": "2026-01-16"
       }
     },
     {
@@ -24089,7 +24208,8 @@
         "id": 9094906826,
         "osm_type": "node",
         "name": "Vival",
-        "brand": "Vival"
+        "brand": "Vival",
+        "check_date": "2025-03-16"
       }
     },
     {
@@ -24874,22 +24994,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.0349549,
-          43.1119737
-        ]
-      },
-      "properties": {
-        "id": 9545321817,
-        "osm_type": "node",
-        "name": "Les Comptoirs De La Bio",
-        "opening_hours": "Mo-Sa 09:00-19:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           1.4319423,
           43.6062854
         ]
@@ -25273,7 +25377,8 @@
         "id": 9706969854,
         "osm_type": "node",
         "name": "Casino Shop",
-        "brand": "Casino Shop"
+        "brand": "Casino Shop",
+        "check_date": "2024-09-17"
       }
     },
     {
@@ -25771,7 +25876,8 @@
       "properties": {
         "id": 9901025460,
         "osm_type": "node",
-        "name": "Le Comptoir De Saint-Pierre"
+        "name": "Le Comptoir De Saint-Pierre",
+        "check_date": "2024-09-03"
       }
     },
     {
@@ -25956,7 +26062,8 @@
         "id": 9951021641,
         "osm_type": "node",
         "name": "Le Chemin des Sens",
-        "opening_hours": "Mo,We-Su 09:00-22:00"
+        "opening_hours": "Mo,We-Su 09:00-22:00",
+        "check_date": "2022-08-13"
       }
     },
     {
@@ -26335,7 +26442,8 @@
         "id": 10097309624,
         "osm_type": "node",
         "name": "L'epicerie de Sainte-foy d'aigrefeuille",
-        "opening_hours": "Mo-Fr 07:30-13:00,16:00-19:30; Sa 08:00-13:00,16:00-19:30; Su 08:00-13:00"
+        "opening_hours": "Mo-Fr 07:30-13:00,16:00-19:30; Sa 08:00-13:00,16:00-19:30; Su 08:00-13:00",
+        "check_date": "2026-03-22"
       }
     },
     {
@@ -26797,7 +26905,8 @@
       "properties": {
         "id": 10536811805,
         "osm_type": "node",
-        "name": "Thaï Asia Shop"
+        "name": "Thaï Asia Shop",
+        "check_date": "2025-03-15"
       }
     },
     {
@@ -27015,7 +27124,8 @@
         "id": 10699958650,
         "osm_type": "node",
         "name": "Le Hors Pistes",
-        "opening_hours": "08:00-19:00"
+        "opening_hours": "08:00-19:00",
+        "check_date": "2023-03-01"
       }
     },
     {
@@ -27061,7 +27171,7 @@
       "properties": {
         "id": 10709075572,
         "osm_type": "node",
-        "name": "O Panier d'Asie",
+        "name": "Ô Panier d'Asie",
         "opening_hours": "Tu-Sa 09:00-19:00"
       }
     },
@@ -27078,7 +27188,8 @@
         "id": 10713062773,
         "osm_type": "node",
         "name": "Alimentation du midi",
-        "opening_hours": "Mo-Sa 07:30-13:00,15:30-19:45; Su 07:30-13:00"
+        "opening_hours": "Mo-Sa 07:30-13:00,15:30-19:45; Su 07:30-13:00",
+        "check_date": "2026-04-02"
       }
     },
     {
@@ -27262,7 +27373,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
+        "check_date": "2026-02-01"
       }
     },
     {
@@ -27321,7 +27433,8 @@
       "properties": {
         "id": 10795670941,
         "osm_type": "node",
-        "name": "Épicerie des Demoiselles"
+        "name": "Épicerie des Demoiselles",
+        "check_date": "2024-10-25"
       }
     },
     {
@@ -27789,7 +27902,8 @@
         "id": 11012215314,
         "osm_type": "node",
         "name": "Carrefour city",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 08:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 08:00-22:00",
+        "check_date": "2025-08-27"
       }
     },
     {
@@ -27850,7 +27964,8 @@
         "id": 11028047622,
         "osm_type": "node",
         "name": "Épicerie del Pais",
-        "opening_hours": "Mo 14:30-18:30; Tu-Fr 09:00-12:30,14:30-18:30; Sa 08:30-12:30,15:00-18:00; Su off"
+        "opening_hours": "Mo 14:30-18:30; Tu-Fr 09:00-12:30,14:30-18:30; Sa 08:30-12:30,15:00-18:00; Su off",
+        "check_date": "2024-08-30"
       }
     },
     {
@@ -28112,7 +28227,8 @@
         "id": 11118626188,
         "osm_type": "node",
         "name": "Le Saint Jean",
-        "opening_hours": "Mo-Sa 06:45-19:30; Su 08:00-12:00"
+        "opening_hours": "Mo-Sa 06:45-19:30; Su 08:00-12:00",
+        "check_date": "2023-08-16"
       }
     },
     {
@@ -28272,7 +28388,8 @@
         "osm_type": "node",
         "name": "Casino Shop",
         "brand": "Casino Shop",
-        "opening_hours": "Mo-Sa 07:30-12:30,15:00-19:30; Su 08:00-12:30"
+        "opening_hours": "Mo-Sa 07:30-12:30,15:00-19:30; Su 08:00-12:30",
+        "check_date": "2023-09-18"
       }
     },
     {
@@ -28286,7 +28403,8 @@
       },
       "properties": {
         "id": 11202167799,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-09-19"
       }
     },
     {
@@ -28301,7 +28419,8 @@
       "properties": {
         "id": 11206264735,
         "osm_type": "node",
-        "name": "Carrefour City Toulouse Grand Selve",
+        "name": "Carrefour City",
+        "brand": "Carrefour City",
         "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-13:00"
       }
     },
@@ -28335,7 +28454,8 @@
         "osm_type": "node",
         "name": "Intermarché Express",
         "brand": "Intermarché Express",
-        "opening_hours": "Mo-We,Fr 08:00-21:00; Th off; Sa 09:00-21:00; Su 09:00-20:30"
+        "opening_hours": "Mo-We,Fr 08:00-21:00; Th off; Sa 09:00-21:00; Su 09:00-20:30",
+        "check_date": "2025-12-31"
       }
     },
     {
@@ -28791,7 +28911,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-13:00, 17:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-13:00, 17:00-22:00",
+        "check_date": "2026-03-09"
       }
     },
     {
@@ -28950,7 +29071,8 @@
       "properties": {
         "id": 11701398441,
         "osm_type": "node",
-        "name": "Fruits & Légumes"
+        "name": "Fruits & Légumes",
+        "check_date": "2024-03-07"
       }
     },
     {
@@ -28996,7 +29118,8 @@
       "properties": {
         "id": 11751123808,
         "osm_type": "node",
-        "name": "Le Circuit"
+        "name": "Le Circuit",
+        "check_date": "2024-03-21"
       }
     },
     {
@@ -29011,7 +29134,8 @@
       "properties": {
         "id": 11751123818,
         "osm_type": "node",
-        "name": "Mama B Africa Market"
+        "name": "Mama B Africa Market",
+        "check_date": "2024-03-21"
       }
     },
     {
@@ -29154,7 +29278,8 @@
         "osm_type": "node",
         "name": "Express",
         "brand": "Express",
-        "opening_hours": "Mo-Th 06:30-17:00; Fr 06:30-18:00; Sa 09:00-14:00; Su 10:00-18:00"
+        "opening_hours": "Mo-Th 06:30-17:00; Fr 06:30-18:00; Sa 09:00-14:00; Su 10:00-18:00",
+        "check_date": "2024-11-21"
       }
     },
     {
@@ -29356,7 +29481,8 @@
       "properties": {
         "id": 11929559739,
         "osm_type": "node",
-        "name": "Al Aqsa Market"
+        "name": "Al Aqsa Market",
+        "check_date": "2024-05-23"
       }
     },
     {
@@ -29812,7 +29938,8 @@
         "osm_type": "node",
         "name": "Normal",
         "brand": "Normal",
-        "opening_hours": "Mo-Sa 09:30-19:00; Su off"
+        "opening_hours": "Mo-Sa 09:30-19:00; Su off",
+        "check_date": "2025-06-06"
       }
     },
     {
@@ -29858,7 +29985,8 @@
       "properties": {
         "id": 12104087110,
         "osm_type": "node",
-        "name": "Espace Gourmand"
+        "name": "Espace Gourmand",
+        "check_date": "2024-08-11"
       }
     },
     {
@@ -30281,7 +30409,8 @@
         "id": 12205515437,
         "osm_type": "node",
         "name": "Le Primeur du Lez",
-        "opening_hours": "Mo off; Tu-Sa 08:30-13:00,16:00-19:30; Su 09:00-12:30"
+        "opening_hours": "Mo off; Tu-Sa 08:30-13:00,16:00-19:30; Su 09:00-12:30",
+        "check_date": "2024-09-27"
       }
     },
     {
@@ -30312,7 +30441,8 @@
         "osm_type": "node",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-13:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-13:00",
+        "check_date": "2024-11-16"
       }
     },
     {
@@ -30360,7 +30490,8 @@
       "properties": {
         "id": 12240957126,
         "osm_type": "node",
-        "name": "Ystoire Naturelle"
+        "name": "Ystoire Naturelle",
+        "check_date": "2025-05-27"
       }
     },
     {
@@ -30595,7 +30726,7 @@
         "id": 12324336371,
         "osm_type": "node",
         "name": "Campillo",
-        "opening_hours": "Tu-Sa 10:00-20:00"
+        "opening_hours": "Mo 15:30-20:00; Tu-Sa 10:00-20:00"
       }
     },
     {
@@ -30701,7 +30832,8 @@
         "id": 12368019234,
         "osm_type": "node",
         "name": "Vival",
-        "brand": "Vival"
+        "brand": "Vival",
+        "check_date": "2025-12-01"
       }
     },
     {
@@ -31325,7 +31457,8 @@
       "properties": {
         "id": 12687615185,
         "osm_type": "node",
-        "name": "Chez Valérie"
+        "name": "Chez Valérie",
+        "check_date": "2025-03-21"
       }
     },
     {
@@ -31466,7 +31599,8 @@
         "id": 12785683011,
         "osm_type": "node",
         "name": "K-Asia",
-        "opening_hours": "Mo-Th 10:00-22:00; Fr-Sa 10:00-24:00; Su off"
+        "opening_hours": "Mo-Th 10:00-22:00; Fr-Sa 10:00-24:00; Su off",
+        "check_date": "2025-05-26"
       }
     },
     {
@@ -31496,7 +31630,8 @@
       },
       "properties": {
         "id": 12795894547,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-04-28"
       }
     },
     {
@@ -31877,7 +32012,8 @@
       "properties": {
         "id": 12907509898,
         "osm_type": "node",
-        "name": "Les Vitrines du Terroir"
+        "name": "Les Vitrines du Terroir",
+        "check_date": "2025-06-11"
       }
     },
     {
@@ -32297,7 +32433,8 @@
         "osm_type": "node",
         "name": "U Express",
         "brand": "U Express",
-        "opening_hours": "Mo-Sa 08:00-20:00"
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "check_date": "2025-08-27"
       }
     },
     {
@@ -32437,7 +32574,8 @@
         "id": 13031886701,
         "osm_type": "node",
         "name": "Proxy",
-        "opening_hours": "Mo 09:00-13:00; Tu-Sa 08:30-13:00, 15:30-20:30; Su 09:00-13:00, 17:00-20:30"
+        "opening_hours": "Mo 09:00-13:00; Tu-Sa 08:30-13:00, 15:30-20:30; Su 09:00-13:00, 17:00-20:30",
+        "check_date": "2025-07-28"
       }
     },
     {
@@ -32632,7 +32770,8 @@
       "properties": {
         "id": 13090676601,
         "osm_type": "node",
-        "name": "Carrefour express"
+        "name": "Carrefour express",
+        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-20:00"
       }
     },
     {
@@ -32970,7 +33109,8 @@
         "id": 13185602784,
         "osm_type": "node",
         "name": "Alimentation Brutus",
-        "opening_hours": "08:00-22:00"
+        "opening_hours": "08:00-22:00",
+        "check_date": "2025-10-01"
       }
     },
     {
@@ -33156,7 +33296,8 @@
         "id": 13290433159,
         "osm_type": "node",
         "name": "GumGum",
-        "opening_hours": "10:00-22:00"
+        "opening_hours": "10:00-22:00",
+        "check_date": "2025-11-09"
       }
     },
     {
@@ -33189,7 +33330,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 07:00-22:00, Su 09:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-22:00, Su 09:00-22:00",
+        "check_date": "2024-05-11"
       }
     },
     {
@@ -33510,21 +33652,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          1.3370346,
-          43.9927877
-        ]
-      },
-      "properties": {
-        "id": 13423481040,
-        "osm_type": "node",
-        "name": "Le cours des Halles"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           2.3448692,
           43.2159253
         ]
@@ -33547,7 +33674,8 @@
       },
       "properties": {
         "id": 13435401630,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2026-01-06"
       }
     },
     {
@@ -33612,7 +33740,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-13:00"
+        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-13:00",
+        "check_date": "2026-03-04"
       }
     },
     {
@@ -33753,7 +33882,9 @@
       "properties": {
         "id": 13586391301,
         "osm_type": "node",
-        "name": "Carrefour Express"
+        "name": "Carrefour Express",
+        "opening_hours": "Mo-Su 08:00-22:30",
+        "check_date": "2026-04-23"
       }
     },
     {
@@ -34128,6 +34259,143 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          3.1199782,
+          43.2927542
+        ]
+      },
+      "properties": {
+        "id": 13734412054,
+        "osm_type": "node",
+        "name": "Carrefour Contact",
+        "brand": "Carrefour Contact"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6407135,
+          44.2512714
+        ]
+      },
+      "properties": {
+        "id": 13736894374,
+        "osm_type": "node",
+        "name": "Émile Noël",
+        "opening_hours": "Mo-Sa 09:00-12:00,14:30-18:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0747894,
+          42.9585298
+        ]
+      },
+      "properties": {
+        "id": 13740497984,
+        "osm_type": "node",
+        "name": "LocaMarcet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.0750958,
+          42.9577755
+        ]
+      },
+      "properties": {
+        "id": 13740497986,
+        "osm_type": "node",
+        "name": "Aux 2 Ours"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.2336548,
+          43.5996953
+        ]
+      },
+      "properties": {
+        "id": 13741130790,
+        "osm_type": "node",
+        "name": "Leguevin Market"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.3565466,
+          44.0060431
+        ]
+      },
+      "properties": {
+        "id": 13747752089,
+        "osm_type": "node",
+        "name": "Destock Market"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.6983275,
+          43.6356874
+        ]
+      },
+      "properties": {
+        "id": 13759678696,
+        "osm_type": "node",
+        "name": "Épicerie participative"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.9150313,
+          42.7988805
+        ]
+      },
+      "properties": {
+        "id": 13760730403,
+        "osm_type": "node",
+        "name": "L'épicerie de montagne"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.4773235,
+          44.6334328
+        ]
+      },
+      "properties": {
+        "id": 13775375183,
+        "osm_type": "node",
+        "name": "Brun"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           1.4728694,
           43.6581085
         ]
@@ -34169,7 +34437,7 @@
         "osm_type": "way",
         "name": "Spar",
         "brand": "Spar",
-        "opening_hours": "Mo-Fr 07:30-20:00; Sa 08:30-20:00; Su 09:00-12:30"
+        "opening_hours": "Mo-Sa 07:30-20:00; Su 09:00-12:30"
       }
     },
     {
@@ -34311,7 +34579,8 @@
         "id": 62896068,
         "osm_type": "way",
         "name": "Les Comptoirs de la Bio",
-        "opening_hours": "Mo-Th 09:00-12:30, 15:00-19:00; Fr 09:00-19:00; Sa 09:00-13:00, 14:30-19:00"
+        "opening_hours": "Mo-Th 09:00-12:30, 15:00-19:00; Fr 09:00-19:00; Sa 09:00-13:00, 14:30-19:00",
+        "check_date": "2026-02-09"
       }
     },
     {
@@ -34550,7 +34819,8 @@
         "id": 66379277,
         "osm_type": "way",
         "name": "Chez NICOLE",
-        "opening_hours": "Mo-Fr 08:30-20:00"
+        "opening_hours": "Mo-Fr 08:30-20:00",
+        "check_date": "2025-12-06"
       }
     },
     {
@@ -34649,7 +34919,8 @@
         "id": 68367001,
         "osm_type": "way",
         "name": "Le Vrac de Figeac",
-        "opening_hours": "Tu-Th 09:00-12:30, 14:00-19:00; Fr 09:00-19:00; Sa 08:45-12:30, 14:00-19:00; Su 09:00-12:30"
+        "opening_hours": "Tu-Th 09:00-12:30, 14:00-19:00; Fr 09:00-19:00; Sa 08:45-12:30, 14:00-19:00; Su 09:00-12:30",
+        "check_date": "2025-08-21"
       }
     },
     {
@@ -34666,7 +34937,8 @@
         "osm_type": "way",
         "name": "Vival",
         "brand": "Vival",
-        "opening_hours": "Mo-Sa 07:00-13:00,15:30-20:00; Su 07:30-13:00"
+        "opening_hours": "Mo-Sa 07:00-13:00,15:30-20:00; Su 07:30-13:00",
+        "check_date": "2025-10-22"
       }
     },
     {
@@ -34712,7 +34984,8 @@
         "osm_type": "way",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su 09:00-19:00"
+        "opening_hours": "Mo-Sa 07:00-21:00; Su 09:00-19:00",
+        "check_date": "2026-02-13"
       }
     },
     {
@@ -34728,7 +35001,8 @@
         "id": 68653834,
         "osm_type": "way",
         "name": "Au marché paysan",
-        "opening_hours": "Tu-Sa 10:00-13:00,15:00-17:00"
+        "opening_hours": "Tu-Sa 10:00-13:00,15:00-17:00",
+        "check_date": "2026-02-27"
       }
     },
     {
@@ -34966,7 +35240,8 @@
         "osm_type": "way",
         "name": "TotalEnergies",
         "brand": "TotalEnergies",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-01-23"
       }
     },
     {
@@ -35065,7 +35340,8 @@
         "osm_type": "way",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-13:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-13:00",
+        "check_date": "2025-03-09"
       }
     },
     {
@@ -35114,7 +35390,8 @@
         "osm_type": "way",
         "name": "TotalEnergies",
         "brand": "TotalEnergies",
-        "opening_hours": "Mo-Fr 06:00-22:00; Sa-Su 07:00-21:00"
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa-Su 07:00-21:00",
+        "check_date": "2026-04-01"
       }
     },
     {
@@ -35212,7 +35489,8 @@
         "osm_type": "way",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 08:00-13:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 08:00-13:00",
+        "check_date": "2025-05-15"
       }
     },
     {
@@ -35569,7 +35847,8 @@
         "osm_type": "way",
         "name": "Intermarché Contact",
         "brand": "Intermarché Contact",
-        "opening_hours": "Mo-Sa 09:00-19:30; Su off"
+        "opening_hours": "Mo-Sa 09:00-19:30; Su off",
+        "check_date": "2022-09-20"
       }
     },
     {
@@ -37459,7 +37738,8 @@
       "properties": {
         "id": 352300675,
         "osm_type": "way",
-        "name": "Chez Lucien"
+        "name": "Carrefour Express",
+        "brand": "Carrefour Express"
       }
     },
     {
@@ -37538,7 +37818,8 @@
       "properties": {
         "id": 375359927,
         "osm_type": "way",
-        "name": "Bar Snack Epicerie"
+        "name": "Bar Snack Epicerie",
+        "check_date": "2024-03-28"
       }
     },
     {
@@ -37724,7 +38005,8 @@
       },
       "properties": {
         "id": 434991127,
-        "osm_type": "way"
+        "osm_type": "way",
+        "check_date": "2025-12-24"
       }
     },
     {
@@ -37792,7 +38074,8 @@
         "osm_type": "way",
         "name": "Carrefour Market",
         "brand": "Carrefour Market",
-        "opening_hours": "Mo-Sa 09:00-20:00; Su 09:00-12:30"
+        "opening_hours": "Mo-Sa 09:00-20:00; Su 09:00-12:30",
+        "check_date": "2025-03-20"
       }
     },
     {
@@ -37970,7 +38253,8 @@
         "osm_type": "way",
         "name": "Carrefour City",
         "brand": "Carrefour City",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su 09:00-13:00"
+        "opening_hours": "Mo-Sa 07:00-21:00; Su 09:00-13:00",
+        "check_date": "2025-06-18"
       }
     },
     {
@@ -38314,7 +38598,8 @@
         "osm_type": "way",
         "name": "Monop'",
         "brand": "Monop'",
-        "opening_hours": "Mo-Su 07:00-20:00"
+        "opening_hours": "Mo-Su 07:00-20:00",
+        "check_date": "2025-09-04"
       }
     },
     {
@@ -38613,7 +38898,8 @@
         "osm_type": "way",
         "name": "Carrefour Express",
         "brand": "Carrefour City",
-        "opening_hours": "08:00-21:00; PH open"
+        "opening_hours": "08:00-21:00; PH open",
+        "check_date": "2025-03-30"
       }
     },
     {
@@ -38961,7 +39247,8 @@
         "osm_type": "relation",
         "name": "Avia",
         "brand": "Avia",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-03-02"
       }
     },
     {
@@ -38978,7 +39265,8 @@
         "osm_type": "relation",
         "name": "Avia",
         "brand": "Avia",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-03-02"
       }
     }
   ]

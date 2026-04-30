@@ -605,7 +605,8 @@
         "osm_type": "node",
         "access": "yes",
         "shelter_type": "basic_hut",
-        "bench": "no"
+        "bench": "no",
+        "check_date": "2023-10-15"
       }
     },
     {
@@ -639,7 +640,8 @@
         "osm_type": "node",
         "access": "yes",
         "shelter_type": "basic_hut",
-        "bench": "no"
+        "bench": "no",
+        "check_date": "2023-10-15"
       }
     },
     {
@@ -656,7 +658,8 @@
         "osm_type": "node",
         "access": "yes",
         "shelter_type": "basic_hut",
-        "bench": "no"
+        "bench": "no",
+        "check_date": "2023-10-15"
       }
     },
     {
@@ -1731,6 +1734,7 @@
       "properties": {
         "id": 8670346204,
         "osm_type": "node",
+        "name": "Borie",
         "shelter_type": "weather_shelter",
         "description": "2014-03 : Borie. Grande surface."
       }
@@ -1882,6 +1886,7 @@
       "properties": {
         "id": 8714167084,
         "osm_type": "node",
+        "name": "Chapelle Saint Pierre",
         "shelter_type": "weather_shelter",
         "description": "C'est une toute petite chapelle rurale. Bien sûr on ne peut dormir dans la chapelle mais l'on peut s'y abriter en cas d orage subit."
       }
@@ -2069,6 +2074,7 @@
       "properties": {
         "id": 8839159826,
         "osm_type": "node",
+        "name": "Casemates du col de Gialorgues",
         "shelter_type": "weather_shelter",
         "description": "Baraquements militaires (casemates)"
       }
@@ -2416,7 +2422,8 @@
         "osm_type": "node",
         "access": "yes",
         "shelter_type": "basic_hut",
-        "bench": "no"
+        "bench": "no",
+        "check_date": "2023-10-15"
       }
     },
     {
@@ -2595,7 +2602,8 @@
         "osm_type": "node",
         "access": "yes",
         "shelter_type": "basic_hut",
-        "bench": "no"
+        "bench": "no",
+        "check_date": "2024-03-07"
       }
     },
     {
@@ -2837,6 +2845,36 @@
       "properties": {
         "id": 13563377709,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.1038507,
+          43.6428844
+        ]
+      },
+      "properties": {
+        "id": 13734235602,
+        "osm_type": "node",
+        "name": "Petite cabane elevé a 1.5m"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.1048884,
+          43.6419902
+        ]
+      },
+      "properties": {
+        "id": 13734235901,
+        "osm_type": "node",
+        "name": "Petite cabane elevé à 1.5m"
       }
     },
     {
@@ -3789,7 +3827,8 @@
         "id": 149039819,
         "osm_type": "way",
         "name": "Refuge d'hiver de l'Alpe de Villar-d'Arène",
-        "capacity": "25"
+        "capacity": "25",
+        "fee": "yes"
       }
     },
     {
@@ -4361,6 +4400,7 @@
       "properties": {
         "id": 183215707,
         "osm_type": "way",
+        "name": "Cabane de l'Alp",
         "shelter_type": "basic_hut"
       }
     },
@@ -4650,9 +4690,10 @@
         "id": 197367577,
         "osm_type": "way",
         "name": "Refuge Stéphane Mayen",
+        "access": "yes",
         "capacity": "18",
         "fee": "no",
-        "description": "2021-04 : Refuge ouvert toute l'année, une quinzaine de matelas et sommier, coin cuisine, 2 tables, bancs + bancs devant le refuge, poêle, point d'eau à l'intérieur et même un wc (mis hors service l'hiver à cause du gel)"
+        "description": "2026-04 : refuge ouvert toute l'année, une quinzaine lits avec matelas, coin cuisine, 2 tables avec bancs, point d'eau à l'intérieur et même un WC (mis hors service l'hiver à cause du gel). Pas de poêle à bois dans le refuge."
       }
     },
     {
@@ -4785,21 +4826,6 @@
         "osm_type": "way",
         "name": "Cabane du Vaccivier",
         "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.5180447,
-          44.4786543
-        ]
-      },
-      "properties": {
-        "id": 206891506,
-        "osm_type": "way",
-        "name": "Cabane du Clos de la Sagne"
       }
     },
     {
@@ -5107,6 +5133,21 @@
         "osm_type": "way",
         "name": "Cabane du Ruisseau des Granges",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.5175258,
+          44.4794101
+        ]
+      },
+      "properties": {
+        "id": 253363083,
+        "osm_type": "way",
+        "name": "Cabane du Clos de la Sagne"
       }
     },
     {
@@ -6022,6 +6063,7 @@
       "properties": {
         "id": 607752994,
         "osm_type": "way",
+        "name": "Abri de l'Ours",
         "shelter_type": "weather_shelter",
         "description": "2018-07 : Très bon pour bivouac : abrité, pas de rosée, à l'écart, point d'eau à côté, beau panorama."
       }
@@ -6942,6 +6984,7 @@
       "properties": {
         "id": 957739045,
         "osm_type": "way",
+        "name": "Cabane d'Alpage (cirque de Morgon)",
         "shelter_type": "weather_shelter",
         "description": "Simple abri accolé à une cabane fermée"
       }
@@ -7014,7 +7057,8 @@
         "name": "Refuge de Roquefort-la-Bédoule",
         "access": "yes",
         "fee": "no",
-        "operator": "Commune de Roquefort-la-Bédoule/ONF"
+        "operator": "Commune de Roquefort-la-Bédoule/ONF",
+        "check_date": "2025-02-23"
       }
     },
     {
@@ -7453,6 +7497,7 @@
       "properties": {
         "id": 1189158523,
         "osm_type": "way",
+        "name": "Chapelle N.D. de Lamaron",
         "shelter_type": "weather_shelter",
         "bench": "no"
       }
@@ -7594,7 +7639,8 @@
       },
       "properties": {
         "id": 1201096180,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "Cabane pastorale de Prafoura"
       }
     },
     {
@@ -7609,6 +7655,7 @@
       "properties": {
         "id": 1201101980,
         "osm_type": "way",
+        "name": "Cabane de la Blave",
         "shelter_type": "weather_shelter"
       }
     },
@@ -8573,13 +8620,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.3949324,
+          43.9479983
+        ]
+      },
+      "properties": {
+        "id": 1499598854,
+        "osm_type": "way",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           6.1326276,
           44.7918203
         ]
       },
       "properties": {
         "id": 16215328,
-        "osm_type": "relation"
+        "osm_type": "relation",
+        "name": "Chalets de Prentic"
       }
     },
     {
@@ -8594,7 +8657,23 @@
       "properties": {
         "id": 16216597,
         "osm_type": "relation",
+        "name": "Cabanes du Sellar (Dormillouse)",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.6745811,
+          44.150594
+        ]
+      },
+      "properties": {
+        "id": 20573363,
+        "osm_type": "relation",
+        "name": "Cabane pastorale des Juges"
       }
     }
   ]

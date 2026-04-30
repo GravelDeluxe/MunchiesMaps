@@ -109,7 +109,8 @@
       "properties": {
         "id": 2527847815,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "weather_shelter",
+        "check_date": "2026-03-21"
       }
     },
     {
@@ -2016,6 +2017,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          0.6556807,
+          44.1745507
+        ]
+      },
+      "properties": {
+        "id": 12952857886,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           1.1741462,
           44.8298101
         ]
@@ -2256,6 +2272,7 @@
       "properties": {
         "id": 79551047,
         "osm_type": "way",
+        "name": "Cabane de Gainekoborda",
         "shelter_type": "basic_hut",
         "capacity": "5",
         "description": "- Nombreuses tables - Eau au fond du jardin - Toilettes disponibles à l'extérieur en contrebas. - Evier et eau courante à l'intérieur"
@@ -2670,7 +2687,8 @@
       "properties": {
         "id": 219151677,
         "osm_type": "way",
-        "name": "Cabane du Touroun"
+        "name": "Cabane du Touroun",
+        "check_date": "2024-11-30"
       }
     },
     {
@@ -3112,23 +3130,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.4692127,
-          42.8403749
-        ]
-      },
-      "properties": {
-        "id": 297024841,
-        "osm_type": "way",
-        "name": "Cabane de Cap de Pount",
-        "capacity": "6",
-        "description": "Réservée aux bergers en été"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -0.4764525,
           42.8368516
         ]
@@ -3438,23 +3439,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -0.7165571,
-          42.8978131
-        ]
-      },
-      "properties": {
-        "id": 366052706,
-        "osm_type": "way",
-        "name": "Cabanes d'Ansabère",
-        "capacity": "8",
-        "description": "2018-11 : La cabane du berger, qui lui est réservée tout l'été. L'hiver, on trouve à l'extérieur une fontaine, et à l'intérieur l'éclairage électrique, une poêle à bois, une grande table pour 8 au rez-de-chaussé. A l'étage, où on peut dormir à 8"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -0.7191321,
           42.9080207
         ]
@@ -3465,21 +3449,6 @@
         "name": "Cabane de Pédain",
         "capacity": "6",
         "description": "2018-11 : La cabane du berger, qui lui est réservé tout l'été, dispose d'une pièce à vivre avec une table pour 6, une poêle, une très bonne isolation. Une chambre où il y a 4 couchages max est ouverte l'hiver."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.7167673,
-          42.8978688
-        ]
-      },
-      "properties": {
-        "id": 366052708,
-        "osm_type": "way",
-        "description": "2018-11 : Seconde cabane randonneur, située à droite juste après la cabane de berger, est équipée d'une porte, de rangements vides, et d'un poêle à bois. L'éclairage électrique est installé mais coupé en hiver (à confirmer en été)."
       }
     },
     {
@@ -3831,7 +3800,8 @@
         "shelter_type": "basic_hut",
         "capacity": "6",
         "fee": "no",
-        "description": "Cabane 6 à 7 places , un poêle à bois , des casseroles, une table , des bancs, balai, une pelle pour l' hiver et des scies.\nSource de Yerse à 200 m en contrebas."
+        "description": "Cabane 6 à 7 places , un poêle à bois , des casseroles, une table , des bancs, balai, une pelle pour l' hiver et des scies.\nSource de Yerse à 200 m en contrebas.",
+        "check_date": "2023-05-03"
       }
     },
     {
@@ -4210,21 +4180,6 @@
         "name": "Cabane de Pan",
         "capacity": "4",
         "description": "2019-01 : Petite cabane pastorale récente en parpaings et couverte en bac acier. Ouverte aux randonneurs hors période d'estive. 4 couchages sont possibles sur le plancher en bois (1 nuit)"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.4692059,
-          42.8404419
-        ]
-      },
-      "properties": {
-        "id": 847464387,
-        "osm_type": "way",
-        "shelter_type": "basic_hut"
       }
     },
     {
@@ -4949,7 +4904,26 @@
       "properties": {
         "id": 11625600,
         "osm_type": "relation",
-        "name": "Cabanes d'Ansabère"
+        "name": "Cabanes d'Ansabère",
+        "capacity": "8"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.4692127,
+          42.8403951
+        ]
+      },
+      "properties": {
+        "id": 20587173,
+        "osm_type": "relation",
+        "name": "Cabane de Cap de Pount",
+        "shelter_type": "basic_hut",
+        "capacity": "6",
+        "description": "Réservée aux bergers en été"
       }
     }
   ]

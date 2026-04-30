@@ -312,7 +312,8 @@
       "properties": {
         "id": 2407565570,
         "osm_type": "node",
-        "indoor": "no"
+        "indoor": "no",
+        "check_date": "2024-05-31"
       }
     },
     {
@@ -483,7 +484,8 @@
       },
       "properties": {
         "id": 2884072701,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-05-02"
       }
     },
     {
@@ -652,7 +654,8 @@
       "properties": {
         "id": 3271282832,
         "osm_type": "node",
-        "indoor": "no"
+        "indoor": "no",
+        "check_date": "2024-08-17"
       }
     },
     {
@@ -769,7 +772,8 @@
       "properties": {
         "id": 3578467810,
         "osm_type": "node",
-        "indoor": "yes"
+        "indoor": "yes",
+        "check_date": "2024-03-07"
       }
     },
     {
@@ -785,7 +789,8 @@
         "id": 3649181249,
         "osm_type": "node",
         "access": "yes",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2015-07-13"
       }
     },
     {
@@ -813,7 +818,8 @@
       },
       "properties": {
         "id": 3775380773,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-04-08"
       }
     },
     {
@@ -1073,7 +1079,8 @@
       },
       "properties": {
         "id": 5030926324,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-04-08"
       }
     },
     {
@@ -1185,7 +1192,8 @@
       },
       "properties": {
         "id": 5732611164,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-08-22"
       }
     },
     {
@@ -1453,7 +1461,8 @@
       },
       "properties": {
         "id": 6258532590,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-04-26"
       }
     },
     {
@@ -1684,7 +1693,8 @@
       },
       "properties": {
         "id": 6657980590,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-09-01"
       }
     },
     {
@@ -2961,7 +2971,8 @@
         "osm_type": "node",
         "access": "yes",
         "fee": "no",
-        "operator": "Commune du Val d'Hazey"
+        "operator": "Commune du Val d'Hazey",
+        "check_date": "2025-08-15"
       }
     },
     {
@@ -3972,7 +3983,8 @@
       },
       "properties": {
         "id": 11018372208,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-06-29"
       }
     },
     {
@@ -4141,7 +4153,8 @@
         "osm_type": "node",
         "access": "yes",
         "fee": "no",
-        "indoor": "yes"
+        "indoor": "yes",
+        "check_date": "2023-07-28"
       }
     },
     {
@@ -6368,7 +6381,8 @@
         "id": 12730613767,
         "osm_type": "node",
         "access": "yes",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2025-04-05"
       }
     },
     {
@@ -6473,7 +6487,8 @@
       "properties": {
         "id": 12820859382,
         "osm_type": "node",
-        "access": "yes"
+        "access": "yes",
+        "check_date": "2025-04-01"
       }
     },
     {
@@ -7369,6 +7384,54 @@
         "id": 13687172354,
         "osm_type": "node",
         "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.4253525,
+          49.332957
+        ]
+      },
+      "properties": {
+        "id": 13723189701,
+        "osm_type": "node",
+        "name": "Église/Cimetière"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.0948443,
+          49.4446917
+        ]
+      },
+      "properties": {
+        "id": 13731844867,
+        "osm_type": "node",
+        "opening_hours": "Tu 13:00-19:00; We 10:00-18:00; Th-Fr 13:00-18:00; Sa 10:00-18:00",
+        "fee": "no",
+        "seasonal": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5905926,
+          48.8434274
+        ]
+      },
+      "properties": {
+        "id": 13753621192,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no"
       }
     }
   ]

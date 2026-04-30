@@ -6,22 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -61.6713321,
-          15.960495
-        ]
-      },
-      "properties": {
-        "id": 281508049,
-        "osm_type": "node",
-        "opening_hours": "24/7 off",
-        "access": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -61.3824292,
           16.2228192
         ]
@@ -70,7 +54,8 @@
       },
       "properties": {
         "id": 2317725150,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-12-28"
       }
     },
     {
@@ -99,7 +84,8 @@
       "properties": {
         "id": 2617390117,
         "osm_type": "node",
-        "name": "Toilette Publique Petit marche de la poste"
+        "name": "Toilette Publique Petit marche de la poste",
+        "check_date": "2025-05-30"
       }
     },
     {
@@ -129,7 +115,8 @@
       "properties": {
         "id": 2617390121,
         "osm_type": "node",
-        "name": "Toilette Publique Esplanade"
+        "name": "Toilette Publique Esplanade",
+        "check_date": "2025-06-03"
       }
     },
     {
@@ -144,7 +131,8 @@
       "properties": {
         "id": 2617390122,
         "osm_type": "node",
-        "name": "Toilette Publique Boulodrome"
+        "name": "Toilette Publique Boulodrome",
+        "check_date": "2025-05-30"
       }
     },
     {
@@ -301,7 +289,8 @@
       "properties": {
         "id": 6303786988,
         "osm_type": "node",
-        "name": "HS"
+        "name": "HS",
+        "check_date": "2026-01-04"
       }
     },
     {
@@ -372,7 +361,8 @@
       "properties": {
         "id": 6376759510,
         "osm_type": "node",
-        "access": "yes"
+        "access": "yes",
+        "check_date": "2025-03-24"
       }
     },
     {
@@ -785,7 +775,8 @@
       "properties": {
         "id": 9702362750,
         "osm_type": "node",
-        "access": "yes"
+        "access": "yes",
+        "check_date": "2025-09-23"
       }
     },
     {
@@ -942,7 +933,8 @@
       },
       "properties": {
         "id": 9710337807,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-09-09"
       }
     },
     {
@@ -1422,7 +1414,8 @@
       },
       "properties": {
         "id": 11112929008,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-12-02"
       }
     },
     {
@@ -1782,7 +1775,8 @@
       "properties": {
         "id": 12980706688,
         "osm_type": "node",
-        "access": "permissive"
+        "access": "permissive",
+        "check_date": "2025-09-08"
       }
     },
     {
@@ -1948,14 +1942,44 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -61.5826516,
-          16.2665504
+          -61.5823263,
+          16.2661699
+        ]
+      },
+      "properties": {
+        "id": 13725990151,
+        "osm_type": "node",
+        "access": "permit"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.5365768,
+          16.2374122
+        ]
+      },
+      "properties": {
+        "id": 13726134701,
+        "osm_type": "node",
+        "check_date": "2026-04-12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.5826537,
+          16.2665484
         ]
       },
       "properties": {
         "id": 41546211,
         "osm_type": "way",
-        "access": "customers"
+        "access": "permit"
       }
     },
     {
@@ -1970,7 +1994,7 @@
       "properties": {
         "id": 41546212,
         "osm_type": "way",
-        "access": "customers"
+        "access": "permit"
       }
     },
     {
