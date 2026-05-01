@@ -98,9 +98,10 @@
       "properties": {
         "id": 434075088,
         "osm_type": "node",
-        "name": "K-Market Ounasmetsä",
+        "name": "K-Market",
         "brand": "K-Market",
-        "opening_hours": "Mo-Fr 06:30-22:00; Sa 08:00-22:00; Su 09:00-22:00"
+        "opening_hours": "Mo-Fr 06:30-22:00; Sa 08:00-22:00; Su 09:00-22:00",
+        "check_date": "2026-02-19"
       }
     },
     {
@@ -1055,7 +1056,8 @@
         "osm_type": "node",
         "name": "K-Market",
         "brand": "K-Market",
-        "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-19:00; Su 11:00-18:00"
+        "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-19:00; Su 11:00-18:00",
+        "check_date": "2025-10-13"
       }
     },
     {
@@ -1334,6 +1336,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          25.7555771,
+          66.4748283
+        ]
+      },
+      "properties": {
+        "id": 50001459,
+        "osm_type": "way",
+        "name": "K-Market",
+        "brand": "K-Market"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           24.4937879,
           65.8008924
         ]
@@ -1518,6 +1536,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          25.804819,
+          66.488044
+        ]
+      },
+      "properties": {
+        "id": 318995763,
+        "osm_type": "way",
+        "name": "K-Market Hessuntori"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           25.784946,
           66.5162794
         ]
@@ -1561,7 +1594,8 @@
         "osm_type": "way",
         "name": "K-Market",
         "brand": "K-Market",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
+        "check_date": "2025-11-15"
       }
     },
     {
@@ -1586,8 +1620,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          24.5493529,
-          65.7569809
+          24.5493392,
+          65.7569763
         ]
       },
       "properties": {

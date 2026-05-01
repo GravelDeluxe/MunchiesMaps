@@ -1475,23 +1475,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.7422048,
-          52.3777577
-        ]
-      },
-      "properties": {
-        "id": 1946925743,
-        "osm_type": "node",
-        "name": "Stokrotka",
-        "brand": "Stokrotka",
-        "opening_hours": "Mo-Sa 6:30-22:00; Su 8:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           16.7451617,
           52.38135
         ]
@@ -3393,7 +3376,8 @@
         "osm_type": "node",
         "name": "Biedronka",
         "brand": "Biedronka",
-        "opening_hours": "Mo-Sa 06:00-22:00; Su 08:00-20:00"
+        "opening_hours": "Mo-Sa 06:00-22:00; Su 08:00-20:00",
+        "check_date": "2024-08-02"
       }
     },
     {
@@ -3778,7 +3762,8 @@
         "id": 4382252793,
         "osm_type": "node",
         "name": "Netto",
-        "brand": "Netto"
+        "brand": "Netto",
+        "check_date": "2024-08-16"
       }
     },
     {
@@ -4864,7 +4849,8 @@
         "osm_type": "node",
         "name": "Biedronka",
         "brand": "Biedronka",
-        "opening_hours": "Mo-We 6:00-23:00; Th-Sa 6:00-23:30; Su off"
+        "opening_hours": "Mo-We 6:00-23:00; Th-Sa 6:00-23:30; Su off",
+        "check_date": "2018-09-29"
       }
     },
     {
@@ -6621,7 +6607,8 @@
         "id": 10803360340,
         "osm_type": "node",
         "name": "Intermarché",
-        "brand": "Intermarché"
+        "brand": "Intermarché",
+        "opening_hours": "Mo-Su,PH 08:00-21:00"
       }
     },
     {
@@ -6686,7 +6673,8 @@
         "osm_type": "node",
         "name": "Aldi",
         "brand": "Aldi",
-        "opening_hours": "Mo-Sa 06:00-22:00"
+        "opening_hours": "Mo-Sa 06:00-22:00",
+        "check_date": "2025-06-19"
       }
     },
     {
@@ -7105,22 +7093,7 @@
       "properties": {
         "id": 11171675394,
         "osm_type": "node",
-        "name": "Market Kryształ (Cho No Tu)"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3904229,
-          52.3062737
-        ]
-      },
-      "properties": {
-        "id": 11171675416,
-        "osm_type": "node",
-        "name": "Bułeczka (Cho No Tu)"
+        "name": "Market Kryształ"
       }
     },
     {
@@ -7666,7 +7639,8 @@
         "id": 12926733354,
         "osm_type": "node",
         "name": "Biedronka",
-        "brand": "Biedronka"
+        "brand": "Biedronka",
+        "check_date": "2025-06-19"
       }
     },
     {
@@ -7698,7 +7672,8 @@
       "properties": {
         "id": 13018845188,
         "osm_type": "node",
-        "name": "CORRECT FELLOWES DAHLE"
+        "name": "CORRECT FELLOWES DAHLE",
+        "check_date": "2026-02-16"
       }
     },
     {
@@ -7795,22 +7770,6 @@
         "osm_type": "node",
         "name": "Chata Polska",
         "brand": "Chata Polska"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4070927,
-          52.2993228
-        ]
-      },
-      "properties": {
-        "id": 13286925963,
-        "osm_type": "node",
-        "name": "Lidl",
-        "brand": "Lidl"
       }
     },
     {
@@ -8073,6 +8032,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          17.4693936,
+          51.8258421
+        ]
+      },
+      "properties": {
+        "id": 13763103325,
+        "osm_type": "node",
+        "name": "Dino",
+        "opening_hours": "Mo-Sa 06:00-22:30; Su off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           17.0029855,
           52.0827715
         ]
@@ -8180,7 +8155,8 @@
         "osm_type": "way",
         "name": "Intermarché",
         "brand": "Intermarché",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 08:00-20:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 08:00-20:00",
+        "check_date": "2024-08-21"
       }
     },
     {
@@ -8611,7 +8587,7 @@
         "osm_type": "way",
         "name": "Lidl",
         "brand": "Lidl",
-        "opening_hours": "Mo-Th 07:00-21:00; Fr-Sa 07:00-22:00; Su 09:00-20:00"
+        "opening_hours": "Mo-Sa 06:00-22:00; Su 09:00-19:00"
       }
     },
     {
@@ -8872,7 +8848,8 @@
         "id": 158534941,
         "osm_type": "way",
         "name": "Biedronka",
-        "brand": "Biedronka"
+        "brand": "Biedronka",
+        "check_date": "2025-06-19"
       }
     },
     {
@@ -9117,7 +9094,8 @@
       "properties": {
         "id": 165576730,
         "osm_type": "way",
-        "name": "Stokrotka"
+        "name": "Stokrotka",
+        "check_date": "2024-12-22"
       }
     },
     {
@@ -10051,6 +10029,22 @@
         "osm_type": "way",
         "name": "Społem",
         "brand": "Społem"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.5191259,
+          52.3503327
+        ]
+      },
+      "properties": {
+        "id": 199790657,
+        "osm_type": "way",
+        "name": "Biedronka",
+        "brand": "Biedronka"
       }
     },
     {
@@ -11492,7 +11486,8 @@
         "id": 258674534,
         "osm_type": "way",
         "name": "Chata Polska",
-        "brand": "Chata Polska"
+        "brand": "Chata Polska",
+        "check_date": "2022-08-17"
       }
     },
     {
@@ -14689,7 +14684,8 @@
         "osm_type": "way",
         "name": "Dino",
         "brand": "Dino",
-        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00"
+        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00",
+        "check_date": "2024-07-08"
       }
     },
     {
@@ -15483,7 +15479,8 @@
         "id": 424307189,
         "osm_type": "way",
         "name": "Biedronka",
-        "brand": "Biedronka"
+        "brand": "Biedronka",
+        "opening_hours": "Mo-Sa 06:00-22:00"
       }
     },
     {
@@ -16475,7 +16472,8 @@
         "id": 482087104,
         "osm_type": "way",
         "name": "Stokrotka",
-        "brand": "Stokrotka"
+        "brand": "Stokrotka",
+        "check_date": "2025-04-20"
       }
     },
     {
@@ -17311,7 +17309,8 @@
         "osm_type": "way",
         "name": "Dino",
         "brand": "Dino",
-        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00"
+        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00",
+        "check_date": "2024-07-08"
       }
     },
     {
@@ -17920,7 +17919,8 @@
         "osm_type": "way",
         "name": "Dino",
         "brand": "Dino",
-        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00"
+        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00",
+        "check_date": "2024-07-08"
       }
     },
     {
@@ -18021,7 +18021,8 @@
         "osm_type": "way",
         "name": "Dino",
         "brand": "Dino",
-        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00"
+        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00",
+        "check_date": "2024-07-08"
       }
     },
     {
@@ -18705,7 +18706,8 @@
         "osm_type": "way",
         "name": "Dino",
         "brand": "Dino",
-        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00"
+        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00",
+        "check_date": "2024-07-08"
       }
     },
     {
@@ -20585,7 +20587,8 @@
       "properties": {
         "id": 866413756,
         "osm_type": "way",
-        "name": "Twój Market"
+        "name": "Twój Market",
+        "check_date": "2025-04-20"
       }
     },
     {
@@ -22371,6 +22374,22 @@
         "name": "Dino",
         "brand": "Dino",
         "opening_hours": "Mo-Sa 06:00-22:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.1075633,
+          51.9098723
+        ]
+      },
+      "properties": {
+        "id": 1017317972,
+        "osm_type": "way",
+        "name": "Dino",
+        "brand": "Dino"
       }
     },
     {
@@ -26991,7 +27010,8 @@
         "id": 1418267717,
         "osm_type": "way",
         "name": "Aldi",
-        "brand": "Aldi"
+        "brand": "Aldi",
+        "opening_hours": "Mo-Sa 06:00-22:00"
       }
     },
     {
@@ -27025,7 +27045,8 @@
         "osm_type": "way",
         "name": "Dino",
         "brand": "Dino",
-        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00"
+        "opening_hours": "Mo-Sa 06:00-22:30; Su 08:30-20:00",
+        "check_date": "2024-07-08"
       }
     },
     {
@@ -27446,6 +27467,38 @@
       },
       "properties": {
         "id": 1497710446,
+        "osm_type": "way",
+        "name": "Dino",
+        "brand": "Dino"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4060054,
+          52.2998307
+        ]
+      },
+      "properties": {
+        "id": 1500929202,
+        "osm_type": "way",
+        "name": "Lidl",
+        "brand": "Lidl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4044058,
+          52.3132917
+        ]
+      },
+      "properties": {
+        "id": 1500929245,
         "osm_type": "way",
         "name": "Dino",
         "brand": "Dino"

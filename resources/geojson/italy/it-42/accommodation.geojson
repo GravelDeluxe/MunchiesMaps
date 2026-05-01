@@ -118,11 +118,10 @@
       "properties": {
         "id": 201642787,
         "osm_type": "node",
-        "name": "Grand Hotel Savoia",
+        "name": "Grand Hotel Savoia Genova, Curio Collection by Hilton",
         "tourism": "hotel",
         "phone": "+39 010 27721",
-        "website": "https://www.grandhotelsavoiagenova.it/",
-        "check_date": "2025-08-23"
+        "website": "https://www.hilton.com/en/hotels/goasaqq-grand-hotel-savoia-genova/"
       }
     },
     {
@@ -1123,7 +1122,8 @@
         "name": "Hotel Balbi Genova",
         "tourism": "hotel",
         "phone": "+39 010 275 9288",
-        "website": "http://www.hotelbalbi.com"
+        "website": "http://www.hotelbalbi.com",
+        "check_date": "2026-04-28"
       }
     },
     {
@@ -5392,7 +5392,8 @@
         "id": 2371255533,
         "osm_type": "node",
         "name": "Bed & Breakfast",
-        "tourism": "guest_house"
+        "tourism": "guest_house",
+        "check_date": "2026-04-28"
       }
     },
     {
@@ -6892,7 +6893,8 @@
         "name": "OStellin Genova - Hostel",
         "tourism": "hostel",
         "phone": "+39 010 0981928",
-        "website": "https://www.ostellingenova.it/"
+        "website": "https://www.ostellingenova.it/",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -19651,6 +19653,7 @@
         "osm_type": "node",
         "name": "Agricampeggio A Bunda",
         "tourism": "camp_site",
+        "opening_hours": "May-Aug",
         "tents": "yes",
         "phone": "+39 348 310 2075;+39 349 831 4908",
         "website": "http://www.agriturismoabunda.com/"
@@ -26186,6 +26189,58 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.984208,
+          43.869864
+        ]
+      },
+      "properties": {
+        "id": 13750361113,
+        "osm_type": "node",
+        "name": "Uliveto Saglietto",
+        "tourism": "guest_house",
+        "phone": "+39 0183 730945",
+        "website": "https://www.saglietto.it"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0856623,
+          43.9659815
+        ]
+      },
+      "properties": {
+        "id": 13756685921,
+        "osm_type": "node",
+        "name": "La Rocca",
+        "tourism": "guest_house",
+        "website": "https://www.laroccaagriturismo.it"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.9879894,
+          44.0515673
+        ]
+      },
+      "properties": {
+        "id": 13766324620,
+        "osm_type": "node",
+        "name": "Albergo La Maria",
+        "tourism": "hotel",
+        "phone": "tel:0187/64351"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.3378257,
           44.1650667
         ]
@@ -28959,7 +29014,8 @@
         "id": 202465021,
         "osm_type": "way",
         "name": "Rifugio Pian dei Corsi",
-        "tourism": "alpine_hut"
+        "tourism": "alpine_hut",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -31194,6 +31250,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.1561461,
+          43.9815204
+        ]
+      },
+      "properties": {
+        "id": 225401203,
+        "osm_type": "way",
+        "name": "Hotel Mediterraneo",
+        "tourism": "hotel",
+        "phone": "+390182690240",
+        "website": "http://hotelmedit.it"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.0879438,
           43.9134575
         ]
@@ -31285,24 +31359,6 @@
         "name": "Il Sole di Poggi",
         "tourism": "guest_house",
         "website": "https://www.ilsoledipoggi.it"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.9843034,
-          43.8698195
-        ]
-      },
-      "properties": {
-        "id": 225499714,
-        "osm_type": "way",
-        "name": "Uliveto Saglietto",
-        "tourism": "guest_house",
-        "phone": "+39 0183 730945",
-        "website": "https://www.saglietto.it"
       }
     },
     {
@@ -32549,7 +32605,7 @@
         "name": "Tigullio Camping & Resort",
         "tourism": "camp_site",
         "tents": "yes",
-        "phone": "+39 0185 485495",
+        "phone": "+390185485495",
         "contact:website": "https://www.tigullio.com/"
       }
     },

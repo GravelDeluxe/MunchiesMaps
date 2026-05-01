@@ -532,8 +532,9 @@
       "properties": {
         "id": 2889538106,
         "osm_type": "node",
+        "opening_hours": "24/7",
         "fee": "no",
-        "seasonal": "yes",
+        "seasonal": "spring;summer;autumn",
         "operator": "Oasen"
       }
     },
@@ -1531,7 +1532,8 @@
       "properties": {
         "id": 5293946647,
         "osm_type": "node",
-        "operator": "Evides"
+        "operator": "Evides",
+        "check_date": "2021-09-08"
       }
     },
     {
@@ -1941,7 +1943,8 @@
         "id": 5766395056,
         "osm_type": "node",
         "seasonal": "yes",
-        "operator": "Dunea"
+        "operator": "Dunea",
+        "check_date": "2021-11-09"
       }
     },
     {
@@ -1991,7 +1994,8 @@
         "access": "yes",
         "opening_hours": "08:00-20:00",
         "seasonal": "yes",
-        "operator": "Dunea"
+        "operator": "Dunea",
+        "check_date": "2026-04-08"
       }
     },
     {
@@ -2023,7 +2027,8 @@
         "id": 5768651896,
         "osm_type": "node",
         "seasonal": "yes",
-        "operator": "Dunea"
+        "operator": "Dunea",
+        "check_date": "2023-03-11"
       }
     },
     {
@@ -2863,7 +2868,8 @@
         "access": "yes",
         "fee": "no",
         "seasonal": "yes",
-        "operator": "Dunea"
+        "operator": "Dunea",
+        "check_date": "2026-04-06"
       }
     },
     {
@@ -2952,8 +2958,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.2984453,
-          52.0951176
+          4.2983063,
+          52.0951374
         ]
       },
       "properties": {
@@ -3300,7 +3306,8 @@
       "properties": {
         "id": 6726515739,
         "osm_type": "node",
-        "operator": "Dunea"
+        "operator": "Dunea",
+        "check_date": "2021-10-09"
       }
     },
     {
@@ -4103,8 +4110,9 @@
       "properties": {
         "id": 7862840475,
         "osm_type": "node",
+        "opening_hours": "24/7",
         "fee": "no",
-        "seasonal": "yes",
+        "seasonal": "spring;summer;autumn",
         "operator": "Oasen"
       }
     },
@@ -4171,8 +4179,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3672832,
-          52.0692594
+          4.367252,
+          52.0692757
         ]
       },
       "properties": {
@@ -5588,8 +5596,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3744494,
-          52.0024153
+          4.3744498,
+          52.0024026
         ]
       },
       "properties": {
@@ -6304,7 +6312,26 @@
         "fee": "no",
         "seasonal": "yes",
         "operator": "Dunea",
-        "indoor": "no"
+        "indoor": "no",
+        "check_date": "2025-07-23"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5851164,
+          51.913663
+        ]
+      },
+      "properties": {
+        "id": 12590964268,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "yes",
+        "operator": "Oasen"
       }
     },
     {
@@ -6515,7 +6542,8 @@
         "osm_type": "node",
         "fee": "no",
         "seasonal": "yes",
-        "operator": "Dunea"
+        "operator": "Dunea",
+        "check_date": "2025-06-15"
       }
     },
     {
@@ -6918,6 +6946,38 @@
       "properties": {
         "id": 13714939580,
         "osm_type": "node",
+        "fee": "no",
+        "seasonal": "yes",
+        "operator": "Oasen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4016109,
+          51.9008797
+        ]
+      },
+      "properties": {
+        "id": 13752810915,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.6293135,
+          51.8938141
+        ]
+      },
+      "properties": {
+        "id": 13760288990,
+        "osm_type": "node",
+        "access": "yes",
         "fee": "no",
         "seasonal": "yes",
         "operator": "Oasen"

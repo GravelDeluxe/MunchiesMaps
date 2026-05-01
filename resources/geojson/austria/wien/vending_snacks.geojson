@@ -14,7 +14,8 @@
         "id": 1363127137,
         "osm_type": "node",
         "vending": "drinks; snacks",
-        "operator": "selecta"
+        "operator": "selecta",
+        "check_date": "2025-09-11"
       }
     },
     {
@@ -31,7 +32,8 @@
         "osm_type": "node",
         "name": "selecta",
         "vending": "drinks; snacks",
-        "brand": "Selecta"
+        "brand": "Selecta",
+        "check_date": "2025-05-26"
       }
     },
     {
@@ -39,12 +41,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.2397393,
-          48.2128215
+          16.3492876,
+          48.236223
         ]
       },
       "properties": {
-        "id": 12770896908,
+        "id": 1438302121,
+        "osm_type": "node",
+        "name": "FaFa Automaten Shop",
+        "opening_hours": "24/7",
+        "vending": "drinks;snacks;coffee",
+        "check_date": "2026-01-20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3747844,
+          48.2307634
+        ]
+      },
+      "properties": {
+        "id": 1467898354,
         "osm_type": "node",
         "vending": "drinks"
       }
@@ -54,14 +74,65 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.2819637,
-          48.1525698
+          16.3880566,
+          48.2356015
         ]
       },
       "properties": {
-        "id": 12637940770,
+        "id": 1699092261,
         "osm_type": "node",
-        "vending": "drinks"
+        "name": "Anker",
+        "vending": "food",
+        "brand": "Anker"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4649575,
+          48.191354
+        ]
+      },
+      "properties": {
+        "id": 2238401984,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "drinks",
+        "operator": "Himmel und Wasser"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3603299,
+          48.206524
+        ]
+      },
+      "properties": {
+        "id": 2538461788,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2023-08-28"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3710176,
+          48.2285002
+        ]
+      },
+      "properties": {
+        "id": 2958024417,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2025-09-01"
       }
     },
     {
@@ -77,7 +148,447 @@
         "id": 3392848504,
         "osm_type": "node",
         "vending": "drinks; snacks",
-        "brand": "Selecta"
+        "brand": "Selecta",
+        "check_date": "2025-06-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4209174,
+          48.256469
+        ]
+      },
+      "properties": {
+        "id": 3467864922,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2023-05-21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4124517,
+          48.2298066
+        ]
+      },
+      "properties": {
+        "id": 4169315091,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2026-02-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3433282,
+          48.2065397
+        ]
+      },
+      "properties": {
+        "id": 4762499621,
+        "osm_type": "node",
+        "name": "Felzl Brotautomat",
+        "opening_hours": "Mo-Su 20:00-06:00",
+        "vending": "bread",
+        "operator": "Bäckerei Felzl",
+        "check_date": "2025-11-29"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3403621,
+          48.2020569
+        ]
+      },
+      "properties": {
+        "id": 4765737822,
+        "osm_type": "node",
+        "name": "Felzl Brotautomat",
+        "opening_hours": "Mo-Su 20:00-06:00",
+        "vending": "bread",
+        "operator": "Bäckerei Felzl",
+        "check_date": "2025-05-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.2938842,
+          48.2578727
+        ]
+      },
+      "properties": {
+        "id": 4988503681,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2024-10-12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3992999,
+          48.2166003
+        ]
+      },
+      "properties": {
+        "id": 5197039248,
+        "osm_type": "node",
+        "name": "BistroBox",
+        "vending": "food;drinks;coffee;sweets;pizza",
+        "operator": "BistroBox GmbH",
+        "check_date": "2024-06-26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4960837,
+          48.2512792
+        ]
+      },
+      "properties": {
+        "id": 5759119106,
+        "osm_type": "node",
+        "name": "Hofladen-Automat",
+        "vending": "drinks;food",
+        "check_date": "2024-02-10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3728147,
+          48.211706
+        ]
+      },
+      "properties": {
+        "id": 6113889734,
+        "osm_type": "node",
+        "name": "Snackspot",
+        "opening_hours": "24/7",
+        "vending": "drinks; sweets",
+        "check_date": "2025-01-12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3607079,
+          48.2131452
+        ]
+      },
+      "properties": {
+        "id": 6620322530,
+        "osm_type": "node",
+        "vending": "drinks;coffee;water",
+        "check_date": "2023-03-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3294156,
+          48.1987384
+        ]
+      },
+      "properties": {
+        "id": 7277737627,
+        "osm_type": "node",
+        "vending": "drinks;sweets;food",
+        "operator": "Dallmayr",
+        "check_date": "2024-06-24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3203167,
+          48.213577
+        ]
+      },
+      "properties": {
+        "id": 7559905431,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "drinks;food",
+        "operator": "Gissinger",
+        "check_date": "2024-04-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4189602,
+          48.1850785
+        ]
+      },
+      "properties": {
+        "id": 7875852709,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2025-05-04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4189797,
+          48.1850751
+        ]
+      },
+      "properties": {
+        "id": 7875852710,
+        "osm_type": "node",
+        "vending": "coffee",
+        "check_date": "2025-05-04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4190031,
+          48.1850712
+        ]
+      },
+      "properties": {
+        "id": 7875852711,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2025-05-04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4192645,
+          48.1698706
+        ]
+      },
+      "properties": {
+        "id": 7903921645,
+        "osm_type": "node",
+        "vending": "food;drinks",
+        "check_date": "2025-11-02"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3724365,
+          48.2280922
+        ]
+      },
+      "properties": {
+        "id": 8501340092,
+        "osm_type": "node",
+        "vending": "drinks;beer",
+        "check_date": "2025-11-02"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3407785,
+          48.2401295
+        ]
+      },
+      "properties": {
+        "id": 8626189427,
+        "osm_type": "node",
+        "vending": "food",
+        "operator": "Selecta",
+        "check_date": "2025-08-13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3623371,
+          48.2487991
+        ]
+      },
+      "properties": {
+        "id": 8676836545,
+        "osm_type": "node",
+        "name": "Twentyfour Heaven",
+        "opening_hours": "24/7",
+        "vending": "food;drinks;coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4313881,
+          48.2053005
+        ]
+      },
+      "properties": {
+        "id": 8686011880,
+        "osm_type": "node",
+        "name": "Coca-Cola",
+        "vending": "drinks",
+        "brand": "Coca-Cola",
+        "check_date": "2025-11-18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3638664,
+          48.2125895
+        ]
+      },
+      "properties": {
+        "id": 8726396718,
+        "osm_type": "node",
+        "name": "Diglas im Glas",
+        "vending": "food",
+        "operator": "Cafe Diglas im Schottenstift"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3965424,
+          48.2172134
+        ]
+      },
+      "properties": {
+        "id": 8736726348,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2024-07-07"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.396949,
+          48.2170023
+        ]
+      },
+      "properties": {
+        "id": 8765669108,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3713572,
+          48.2081254
+        ]
+      },
+      "properties": {
+        "id": 8807417211,
+        "osm_type": "node",
+        "vending": "snack;drinks",
+        "check_date": "2025-06-27"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3661644,
+          48.2096044
+        ]
+      },
+      "properties": {
+        "id": 8807465669,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "check_date": "2024-10-13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3274416,
+          48.1991902
+        ]
+      },
+      "properties": {
+        "id": 9025127080,
+        "osm_type": "node",
+        "name": "Mundwerk",
+        "opening_hours": "24/7",
+        "vending": "drinks;electronics;sweets;alcohol;food;cbd",
+        "check_date": "2024-10-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4001477,
+          48.2562919
+        ]
+      },
+      "properties": {
+        "id": 9183735030,
+        "osm_type": "node",
+        "vending": "sweets;drinks",
+        "brand": "Selecta",
+        "operator": "Selecta",
+        "check_date": "2024-06-14"
       }
     },
     {
@@ -115,155 +626,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3023208,
-          48.1833547
+          16.3658208,
+          48.2494529
         ]
       },
       "properties": {
-        "id": 9725545648,
+        "id": 9296952152,
         "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3039295,
-          48.1876615
-        ]
-      },
-      "properties": {
-        "id": 12882643347,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3286541,
-          48.1835686
-        ]
-      },
-      "properties": {
-        "id": 9997499618,
-        "osm_type": "node",
-        "vending": "drinks",
-        "operator": "Easy Vending"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3102818,
-          48.1935441
-        ]
-      },
-      "properties": {
-        "id": 10280624141,
-        "osm_type": "node",
-        "vending": "drinks;cbd;sweets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3070127,
-          48.1973613
-        ]
-      },
-      "properties": {
-        "id": 13337811714,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3068858,
-          48.1973032
-        ]
-      },
-      "properties": {
-        "id": 13337819625,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3252303,
-          48.1909741
-        ]
-      },
-      "properties": {
-        "id": 13020558096,
-        "osm_type": "node",
-        "vending": "sweets;drinks;cbd;alcohol"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3188619,
-          48.1976659
-        ]
-      },
-      "properties": {
-        "id": 10249855887,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3335444,
-          48.1745143
-        ]
-      },
-      "properties": {
-        "id": 10137796540,
-        "osm_type": "node",
-        "vending": "drinks;snacks;sweets",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3339501,
-          48.1746072
-        ]
-      },
-      "properties": {
-        "id": 10137796565,
-        "osm_type": "node",
-        "vending": "drinks;sweets;snacks",
+        "vending": "sweets;drinks",
         "brand": "Selecta",
-        "operator": "Selecta"
+        "check_date": "2024-03-27"
       }
     },
     {
@@ -271,62 +643,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3341301,
-          48.1748074
+          16.3655302,
+          48.2494157
         ]
       },
       "properties": {
-        "id": 13543681583,
+        "id": 9296952153,
         "osm_type": "node",
-        "vending": "food;drinks;sweets;water"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3332706,
-          48.174639
-        ]
-      },
-      "properties": {
-        "id": 13566955166,
-        "osm_type": "node",
-        "vending": "snacks;drinks",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3381498,
-          48.1812109
-        ]
-      },
-      "properties": {
-        "id": 12469402508,
-        "osm_type": "node",
-        "name": "Snackeria by Özen",
-        "vending": "drinks;coffee;food",
-        "operator": "Özen"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.357324,
-          48.1800222
-        ]
-      },
-      "properties": {
-        "id": 12630194657,
-        "osm_type": "node",
-        "vending": "food"
+        "vending": "sweets;drinks",
+        "brand": "Selecta",
+        "check_date": "2024-10-31"
       }
     },
     {
@@ -343,37 +669,8 @@
         "osm_type": "node",
         "vending": "drinks;sweets",
         "brand": "Selecta",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3328151,
-          48.1924267
-        ]
-      },
-      "properties": {
-        "id": 10251023327,
-        "osm_type": "node",
-        "vending": "sweets;drinks;cbd;alcohol"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3369093,
-          48.1963766
-        ]
-      },
-      "properties": {
-        "id": 10574677813,
-        "osm_type": "node",
-        "vending": "food"
+        "operator": "Selecta",
+        "check_date": "2025-11-12"
       }
     },
     {
@@ -398,111 +695,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3534378,
-          48.1864126
+          16.4009082,
+          48.1982528
         ]
       },
       "properties": {
-        "id": 12863379898,
+        "id": 9389502867,
         "osm_type": "node",
-        "name": "24/7 Automaten",
-        "opening_hours": "24/7",
-        "vending": "drinks;sweets;snacks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3475563,
-          48.1975143
-        ]
-      },
-      "properties": {
-        "id": 10136157869,
-        "osm_type": "node",
-        "vending": "sweets;drinks",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3569121,
-          48.1919746
-        ]
-      },
-      "properties": {
-        "id": 10109965622,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "drinks",
-        "operator": "Tip Top Frozen"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.280068,
-          48.2071114
-        ]
-      },
-      "properties": {
-        "id": 13192123656,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3119103,
-          48.199445
-        ]
-      },
-      "properties": {
-        "id": 10596483526,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3056264,
-          48.2112606
-        ]
-      },
-      "properties": {
-        "id": 11396421490,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3056017,
-          48.211263
-        ]
-      },
-      "properties": {
-        "id": 11396421491,
-        "osm_type": "node",
-        "opening_hours": "24/7",
+        "name": "ServiceBOB",
         "vending": "drinks"
       }
     },
@@ -511,15 +711,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3294156,
-          48.1987384
+          16.3503756,
+          48.2266728
         ]
       },
       "properties": {
-        "id": 7277737627,
+        "id": 9428582593,
         "osm_type": "node",
-        "vending": "drinks;sweets;food",
-        "operator": "Dallmayr"
+        "vending": "drinks;coffee",
+        "check_date": "2026-02-10"
       }
     },
     {
@@ -527,16 +727,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3274416,
-          48.1991902
+          16.3649909,
+          48.2547568
         ]
       },
       "properties": {
-        "id": 9025127080,
+        "id": 9595565128,
         "osm_type": "node",
-        "name": "Mundwerk",
-        "opening_hours": "24/7",
-        "vending": "drinks;electronics;sweets;alcohol;food;cbd"
+        "vending": "coffee",
+        "check_date": "2024-03-28"
       }
     },
     {
@@ -544,16 +743,31 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3203167,
-          48.213577
+          16.3809089,
+          48.167229
         ]
       },
       "properties": {
-        "id": 7559905431,
+        "id": 9631745965,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "drinks;food",
-        "operator": "Gissinger"
+        "vending": "food",
+        "check_date": "2025-05-29"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3023208,
+          48.1833547
+        ]
+      },
+      "properties": {
+        "id": 9725545648,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2025-04-15"
       }
     },
     {
@@ -576,157 +790,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3403621,
-          48.2020569
+          16.3830265,
+          48.1612898
         ]
       },
       "properties": {
-        "id": 4765737822,
+        "id": 9864184137,
         "osm_type": "node",
-        "name": "Felzl Brotautomat",
-        "opening_hours": "Mo-Su 20:00-06:00",
-        "vending": "bread",
-        "operator": "Bäckerei Felzl"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3433282,
-          48.2065397
-        ]
-      },
-      "properties": {
-        "id": 4762499621,
-        "osm_type": "node",
-        "name": "Felzl Brotautomat",
-        "opening_hours": "Mo-Su 20:00-06:00",
-        "vending": "bread",
-        "operator": "Bäckerei Felzl"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3321244,
-          48.2141756
-        ]
-      },
-      "properties": {
-        "id": 13510834407,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3320919,
-          48.2141741
-        ]
-      },
-      "properties": {
-        "id": 13510834408,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3321557,
-          48.2141795
-        ]
-      },
-      "properties": {
-        "id": 13510842653,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3387729,
-          48.2171326
-        ]
-      },
-      "properties": {
-        "id": 13281290518,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3387506,
-          48.2171538
-        ]
-      },
-      "properties": {
-        "id": 13281318318,
-        "osm_type": "node",
-        "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3387758,
-          48.2171474
-        ]
-      },
-      "properties": {
-        "id": 13281322534,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3387667,
-          48.2171018
-        ]
-      },
-      "properties": {
-        "id": 13281328415,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.332668,
-          48.2194394
-        ]
-      },
-      "properties": {
-        "id": 10942431041,
-        "osm_type": "node",
-        "name": "Automatenshop",
+        "name": "Bistrobox",
         "opening_hours": "24/7",
-        "vending": "drinks;sweets"
+        "vending": "food",
+        "check_date": "2025-11-15"
       }
     },
     {
@@ -734,14 +808,52 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3475486,
-          48.21514
+          16.3842485,
+          48.2341755
         ]
       },
       "properties": {
-        "id": 13235225454,
+        "id": 9866194586,
         "osm_type": "node",
-        "vending": "drinks"
+        "vending": "food",
+        "brand": "Selecta",
+        "operator": "Selecta",
+        "check_date": "2024-12-08"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3839981,
+          48.2340562
+        ]
+      },
+      "properties": {
+        "id": 9866194587,
+        "osm_type": "node",
+        "vending": "food",
+        "brand": "Selecta",
+        "operator": "Selecta",
+        "check_date": "2024-12-08"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3786558,
+          48.1848865
+        ]
+      },
+      "properties": {
+        "id": 9880881506,
+        "osm_type": "node",
+        "vending": "drinks;snack;sweets",
+        "brand": "Selecta",
+        "operator": "Selecta"
       }
     },
     {
@@ -766,6 +878,127 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          16.3286541,
+          48.1835686
+        ]
+      },
+      "properties": {
+        "id": 9997499618,
+        "osm_type": "node",
+        "vending": "drinks",
+        "operator": "Easy Vending",
+        "check_date": "2022-09-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3407734,
+          48.2399774
+        ]
+      },
+      "properties": {
+        "id": 10030348147,
+        "osm_type": "node",
+        "vending": "sweets;drinks",
+        "operator": "Selecta",
+        "check_date": "2025-08-13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3580803,
+          48.2352295
+        ]
+      },
+      "properties": {
+        "id": 10040201437,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "operator": "Selecta",
+        "check_date": "2025-10-07"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4242035,
+          48.237977
+        ]
+      },
+      "properties": {
+        "id": 10093150048,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "operator": "Selecta",
+        "check_date": "2022-10-11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3947834,
+          48.2464367
+        ]
+      },
+      "properties": {
+        "id": 10093150055,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "operator": "Selecta",
+        "check_date": "2024-11-20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3580294,
+          48.2507718
+        ]
+      },
+      "properties": {
+        "id": 10102259228,
+        "osm_type": "node",
+        "vending": "sweets;drinks",
+        "check_date": "2022-10-13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3587524,
+          48.2355943
+        ]
+      },
+      "properties": {
+        "id": 10104458720,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2025-11-21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           16.3288485,
           48.2314912
         ]
@@ -775,7 +1008,8 @@
         "osm_type": "node",
         "opening_hours": "24/7",
         "vending": "food;drinks",
-        "operator": "Diglas am Markt"
+        "operator": "Diglas am Markt",
+        "check_date": "2022-10-16"
       }
     },
     {
@@ -783,12 +1017,296 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3291815,
-          48.2313978
+          16.3569121,
+          48.1919746
         ]
       },
       "properties": {
-        "id": 13640880620,
+        "id": 10109965622,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "drinks",
+        "operator": "Tip Top Frozen",
+        "check_date": "2025-12-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3475563,
+          48.1975143
+        ]
+      },
+      "properties": {
+        "id": 10136157869,
+        "osm_type": "node",
+        "vending": "sweets;drinks",
+        "operator": "Selecta",
+        "check_date": "2026-04-12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3335444,
+          48.1745143
+        ]
+      },
+      "properties": {
+        "id": 10137796540,
+        "osm_type": "node",
+        "vending": "drinks;snacks;sweets",
+        "operator": "Selecta",
+        "check_date": "2025-05-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3339501,
+          48.1746072
+        ]
+      },
+      "properties": {
+        "id": 10137796565,
+        "osm_type": "node",
+        "vending": "drinks;sweets;snacks",
+        "brand": "Selecta",
+        "operator": "Selecta",
+        "check_date": "2025-05-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3655909,
+          48.2486166
+        ]
+      },
+      "properties": {
+        "id": 10180963835,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2025-11-24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3651508,
+          48.2487213
+        ]
+      },
+      "properties": {
+        "id": 10180963836,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2025-12-04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3878795,
+          48.2372556
+        ]
+      },
+      "properties": {
+        "id": 10203393462,
+        "osm_type": "node",
+        "vending": "coffee;drinks;sweets",
+        "check_date": "2024-12-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3875726,
+          48.2375322
+        ]
+      },
+      "properties": {
+        "id": 10203393464,
+        "osm_type": "node",
+        "vending": "cannabis;drinks;sweets",
+        "check_date": "2024-11-20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3981938,
+          48.2679666
+        ]
+      },
+      "properties": {
+        "id": 10219844164,
+        "osm_type": "node",
+        "name": "MyAppCafé",
+        "vending": "coffee",
+        "check_date": "2022-11-26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4499404,
+          48.2568477
+        ]
+      },
+      "properties": {
+        "id": 10230879939,
+        "osm_type": "node",
+        "vending": "snacks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3188619,
+          48.1976659
+        ]
+      },
+      "properties": {
+        "id": 10249855887,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2022-12-10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3328151,
+          48.1924267
+        ]
+      },
+      "properties": {
+        "id": 10251023327,
+        "osm_type": "node",
+        "vending": "sweets;drinks;cbd;alcohol",
+        "check_date": "2025-01-15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3102818,
+          48.1935441
+        ]
+      },
+      "properties": {
+        "id": 10280624141,
+        "osm_type": "node",
+        "vending": "drinks;cbd;sweets",
+        "check_date": "2025-05-02"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3369093,
+          48.1963766
+        ]
+      },
+      "properties": {
+        "id": 10574677813,
+        "osm_type": "node",
+        "vending": "food",
+        "check_date": "2025-02-27"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3119103,
+          48.199445
+        ]
+      },
+      "properties": {
+        "id": 10596483526,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2025-04-07"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3718383,
+          48.2084813
+        ]
+      },
+      "properties": {
+        "id": 10601934321,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2025-03-20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3581034,
+          48.2357937
+        ]
+      },
+      "properties": {
+        "id": 10679148350,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2025-10-07"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3954473,
+          48.2176383
+        ]
+      },
+      "properties": {
+        "id": 10721121155,
         "osm_type": "node",
         "vending": "drinks"
       }
@@ -798,14 +1316,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3503756,
-          48.2266728
+          16.3929702,
+          48.2184927
         ]
       },
       "properties": {
-        "id": 9428582593,
+        "id": 10737697750,
         "osm_type": "node",
-        "vending": "drinks;coffee"
+        "name": "shop & go",
+        "vending": "drinks;coffee;sweets",
+        "check_date": "2024-04-27"
       }
     },
     {
@@ -813,16 +1333,96 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3492876,
-          48.236223
+          16.3954853,
+          48.2176092
         ]
       },
       "properties": {
-        "id": 1438302121,
+        "id": 10737697766,
         "osm_type": "node",
-        "name": "FaFa Automaten Shop",
+        "vending": "drinks",
+        "check_date": "2023-03-15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3847497,
+          48.2417846
+        ]
+      },
+      "properties": {
+        "id": 10743550086,
+        "osm_type": "node",
+        "vending": "drinks;sweets;snacks",
+        "brand": "Selecta",
+        "check_date": "2025-06-07"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.409718,
+          48.3061964
+        ]
+      },
+      "properties": {
+        "id": 10816403116,
+        "osm_type": "node",
+        "vending": "drinks;snacks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.375162,
+          48.2124618
+        ]
+      },
+      "properties": {
+        "id": 10893255770,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2026-01-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4077288,
+          48.309727
+        ]
+      },
+      "properties": {
+        "id": 10899725850,
+        "osm_type": "node",
+        "vending": "drinks;snacks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.332668,
+          48.2194394
+        ]
+      },
+      "properties": {
+        "id": 10942431041,
+        "osm_type": "node",
+        "name": "Automatenshop",
         "opening_hours": "24/7",
-        "vending": "drinks;snacks;coffee"
+        "vending": "drinks;sweets",
+        "check_date": "2024-08-21"
       }
     },
     {
@@ -838,7 +1438,59 @@
         "id": 10949475576,
         "osm_type": "node",
         "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2025-07-26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4074315,
+          48.2095744
+        ]
+      },
+      "properties": {
+        "id": 11020658368,
+        "osm_type": "node",
+        "name": "Selecta",
+        "vending": "drinks;sweets",
         "brand": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3966256,
+          48.2154266
+        ]
+      },
+      "properties": {
+        "id": 11020658389,
+        "osm_type": "node",
+        "name": "Selecta",
+        "vending": "drinks;sweets",
+        "brand": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3966259,
+          48.2154502
+        ]
+      },
+      "properties": {
+        "id": 11020658390,
+        "osm_type": "node",
+        "name": "Lavazza",
+        "vending": "coffee",
+        "brand": "Lavazza"
       }
     },
     {
@@ -854,7 +1506,40 @@
         "id": 11028129461,
         "osm_type": "node",
         "vending": "drinks;sweets",
-        "brand": "Selecta"
+        "brand": "Selecta",
+        "check_date": "2025-07-26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3753237,
+          48.2454202
+        ]
+      },
+      "properties": {
+        "id": 11084145129,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2026-03-23"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3788604,
+          48.243871
+        ]
+      },
+      "properties": {
+        "id": 11146490991,
+        "osm_type": "node",
+        "opening_hours": "Mo-Fr 07:15-19:30; Sa 07:15-18:00",
+        "vending": "coffee"
       }
     },
     {
@@ -871,7 +1556,8 @@
         "osm_type": "node",
         "name": "Verkaufsautomat",
         "opening_hours": "24/7",
-        "vending": "drinks;sweets;alcohol;beer;snacks"
+        "vending": "drinks;sweets;alcohol;beer;snacks",
+        "check_date": "2023-10-04"
       }
     },
     {
@@ -879,15 +1565,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3407785,
-          48.2401295
+          16.3808828,
+          48.2463568
         ]
       },
       "properties": {
-        "id": 8626189427,
+        "id": 11277814989,
         "osm_type": "node",
-        "vending": "food",
-        "operator": "Selecta"
+        "opening_hours": "Mo-Fr 06:00-20:00; Sa 06:00-18:00",
+        "vending": "coffee"
       }
     },
     {
@@ -895,32 +1581,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3407734,
-          48.2399774
+          16.3658075,
+          48.2330818
         ]
       },
       "properties": {
-        "id": 10030348147,
+        "id": 11339479088,
         "osm_type": "node",
-        "vending": "sweets;drinks",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3830265,
-          48.1612898
-        ]
-      },
-      "properties": {
-        "id": 9864184137,
-        "osm_type": "node",
-        "name": "Bistrobox",
+        "name": "Yoi's - Shop",
         "opening_hours": "24/7",
-        "vending": "food"
+        "vending": "snacks;drinks;alcohol;condoms;sweets;food",
+        "check_date": "2023-11-10"
       }
     },
     {
@@ -928,63 +1599,97 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3809089,
-          48.167229
+          16.3056264,
+          48.2112606
         ]
       },
       "properties": {
-        "id": 9631745965,
+        "id": 11396421490,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "coffee",
+        "check_date": "2023-12-05"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3056017,
+          48.211263
+        ]
+      },
+      "properties": {
+        "id": 11396421491,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "drinks",
+        "check_date": "2023-12-05"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.361817,
+          48.2177402
+        ]
+      },
+      "properties": {
+        "id": 11705125313,
+        "osm_type": "node",
+        "name": "Automat 24 Shops",
+        "opening_hours": "24/7",
+        "vending": "drinks;sweets;sex_toys",
+        "check_date": "2024-10-30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4361755,
+          48.2268655
+        ]
+      },
+      "properties": {
+        "id": 11756945748,
+        "osm_type": "node",
+        "vending": "drinks",
+        "operator": "Easy Vending GmbH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4903651,
+          48.2394029
+        ]
+      },
+      "properties": {
+        "id": 11813982749,
+        "osm_type": "node",
+        "vending": "snacks;drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.5021392,
+          48.2256164
+        ]
+      },
+      "properties": {
+        "id": 11901388212,
         "osm_type": "node",
         "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3784411,
-          48.1753968
-        ]
-      },
-      "properties": {
-        "id": 13153858546,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3757446,
-          48.1848543
-        ]
-      },
-      "properties": {
-        "id": 11963953895,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3786558,
-          48.1848865
-        ]
-      },
-      "properties": {
-        "id": 9880881506,
-        "osm_type": "node",
-        "vending": "drinks;snack;sweets",
-        "brand": "Selecta",
-        "operator": "Selecta"
       }
     },
     {
@@ -1060,501 +1765,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3806272,
-          48.1850322
+          16.3757446,
+          48.1848543
         ]
       },
       "properties": {
-        "id": 12424718377,
+        "id": 11963953895,
         "osm_type": "node",
         "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3817076,
-          48.1881278
-        ]
-      },
-      "properties": {
-        "id": 12168036254,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3817279,
-          48.1879243
-        ]
-      },
-      "properties": {
-        "id": 12168036255,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4009082,
-          48.1982528
-        ]
-      },
-      "properties": {
-        "id": 9389502867,
-        "osm_type": "node",
-        "name": "ServiceBOB",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4192645,
-          48.1698706
-        ]
-      },
-      "properties": {
-        "id": 7903921645,
-        "osm_type": "node",
-        "vending": "food;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4407594,
-          48.1534361
-        ]
-      },
-      "properties": {
-        "id": 12064586139,
-        "osm_type": "node",
-        "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4189602,
-          48.1850785
-        ]
-      },
-      "properties": {
-        "id": 7875852709,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4189797,
-          48.1850751
-        ]
-      },
-      "properties": {
-        "id": 7875852710,
-        "osm_type": "node",
-        "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4190031,
-          48.1850712
-        ]
-      },
-      "properties": {
-        "id": 7875852711,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3603299,
-          48.206524
-        ]
-      },
-      "properties": {
-        "id": 2538461788,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3661644,
-          48.2096044
-        ]
-      },
-      "properties": {
-        "id": 8807465669,
-        "osm_type": "node",
-        "vending": "drinks;sweets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3713572,
-          48.2081254
-        ]
-      },
-      "properties": {
-        "id": 8807417211,
-        "osm_type": "node",
-        "vending": "snack;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3718383,
-          48.2084813
-        ]
-      },
-      "properties": {
-        "id": 10601934321,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3774312,
-          48.2114143
-        ]
-      },
-      "properties": {
-        "id": 13387631394,
-        "osm_type": "node",
-        "name": "Gelati Eis Box",
-        "vending": "ice_cream"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3783514,
-          48.2088383
-        ]
-      },
-      "properties": {
-        "id": 13037306386,
-        "osm_type": "node",
-        "vending": "drinks;coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3607079,
-          48.2131452
-        ]
-      },
-      "properties": {
-        "id": 6620322530,
-        "osm_type": "node",
-        "vending": "drinks;coffee;water"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3638664,
-          48.2125895
-        ]
-      },
-      "properties": {
-        "id": 8726396718,
-        "osm_type": "node",
-        "name": "Diglas im Glas",
-        "vending": "food",
-        "operator": "Cafe Diglas im Schottenstift"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.361817,
-          48.2177402
-        ]
-      },
-      "properties": {
-        "id": 11705125313,
-        "osm_type": "node",
-        "name": "Automat 24 Shops",
-        "opening_hours": "24/7",
-        "vending": "drinks;sweets;sex_toys"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3669648,
-          48.2189535
-        ]
-      },
-      "properties": {
-        "id": 12855972905,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3728147,
-          48.211706
-        ]
-      },
-      "properties": {
-        "id": 6113889734,
-        "osm_type": "node",
-        "name": "Snackspot",
-        "opening_hours": "24/7",
-        "vending": "drinks; sweets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.375162,
-          48.2124618
-        ]
-      },
-      "properties": {
-        "id": 10893255770,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.374154,
-          48.2130924
-        ]
-      },
-      "properties": {
-        "id": 12110723008,
-        "osm_type": "node",
-        "name": "Hangry",
-        "opening_hours": "24/7",
-        "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4074315,
-          48.2095744
-        ]
-      },
-      "properties": {
-        "id": 11020658368,
-        "osm_type": "node",
-        "name": "Selecta",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3866054,
-          48.2158332
-        ]
-      },
-      "properties": {
-        "id": 12209038385,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3965424,
-          48.2172134
-        ]
-      },
-      "properties": {
-        "id": 8736726348,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.396949,
-          48.2170023
-        ]
-      },
-      "properties": {
-        "id": 8765669108,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3954473,
-          48.2176383
-        ]
-      },
-      "properties": {
-        "id": 10721121155,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3954853,
-          48.2176092
-        ]
-      },
-      "properties": {
-        "id": 10737697766,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3966256,
-          48.2154266
-        ]
-      },
-      "properties": {
-        "id": 11020658389,
-        "osm_type": "node",
-        "name": "Selecta",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3966259,
-          48.2154502
-        ]
-      },
-      "properties": {
-        "id": 11020658390,
-        "osm_type": "node",
-        "name": "Lavazza",
-        "vending": "coffee",
-        "brand": "Lavazza"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3965472,
-          48.2168928
-        ]
-      },
-      "properties": {
-        "id": 12182828632,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3929702,
-          48.2184927
-        ]
-      },
-      "properties": {
-        "id": 10737697750,
-        "osm_type": "node",
-        "name": "shop & go",
-        "vending": "drinks;coffee;sweets"
+        "brand": "Selecta",
+        "operator": "Selecta"
       }
     },
     {
@@ -1577,14 +1797,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.391784,
-          48.2194981
+          16.4490333,
+          48.2670022
         ]
       },
       "properties": {
-        "id": 12384589803,
+        "id": 12038348869,
         "osm_type": "node",
-        "vending": "drinks"
+        "vending": "drinks",
+        "check_date": "2025-08-06"
       }
     },
     {
@@ -1592,16 +1813,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3992999,
-          48.2166003
+          16.4490352,
+          48.2670127
         ]
       },
       "properties": {
-        "id": 5197039248,
+        "id": 12038348870,
         "osm_type": "node",
-        "name": "BistroBox",
-        "vending": "food;drinks;coffee;sweets;pizza",
-        "operator": "BistroBox GmbH"
+        "vending": "drinks",
+        "check_date": "2025-08-06"
       }
     },
     {
@@ -1609,12 +1829,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.4032249,
-          48.2153009
+          16.4407594,
+          48.1534361
         ]
       },
       "properties": {
-        "id": 13328388820,
+        "id": 12064586139,
         "osm_type": "node",
         "vending": "coffee"
       }
@@ -1624,42 +1844,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.4028907,
-          48.2153125
+          16.3817356,
+          48.1881465
         ]
       },
       "properties": {
-        "id": 13328413597,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4027465,
-          48.2145115
-        ]
-      },
-      "properties": {
-        "id": 13507146799,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3610422,
-          48.2264847
-        ]
-      },
-      "properties": {
-        "id": 12363019248,
+        "id": 12067993873,
         "osm_type": "node",
         "vending": "drinks;sweets",
         "brand": "Selecta"
@@ -1670,15 +1860,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3611818,
-          48.2270868
+          16.4368236,
+          48.2132386
         ]
       },
       "properties": {
-        "id": 12366059242,
+        "id": 12100955805,
         "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
+        "vending": "drinks;snacks",
+        "check_date": "2024-08-08"
       }
     },
     {
@@ -1686,65 +1876,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3580803,
-          48.2352295
+          16.374154,
+          48.2130924
         ]
       },
       "properties": {
-        "id": 10040201437,
+        "id": 12110723008,
         "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3587524,
-          48.2355943
-        ]
-      },
-      "properties": {
-        "id": 10104458720,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3581034,
-          48.2357937
-        ]
-      },
-      "properties": {
-        "id": 10679148350,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3658075,
-          48.2330818
-        ]
-      },
-      "properties": {
-        "id": 11339479088,
-        "osm_type": "node",
-        "name": "Yoi's - Shop",
+        "name": "Hangry",
         "opening_hours": "24/7",
-        "vending": "snacks;drinks;alcohol;condoms;sweets;food"
+        "vending": "coffee",
+        "check_date": "2024-08-14"
       }
     },
     {
@@ -1752,138 +1894,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3747844,
-          48.2307634
+          16.3817202,
+          48.1881461
         ]
       },
       "properties": {
-        "id": 1467898354,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3710176,
-          48.2285002
-        ]
-      },
-      "properties": {
-        "id": 2958024417,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3724365,
-          48.2280922
-        ]
-      },
-      "properties": {
-        "id": 8501340092,
-        "osm_type": "node",
-        "vending": "drinks;beer"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3839981,
-          48.2340562
-        ]
-      },
-      "properties": {
-        "id": 9866194587,
-        "osm_type": "node",
-        "vending": "food",
-        "brand": "Selecta",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3623371,
-          48.2487991
-        ]
-      },
-      "properties": {
-        "id": 8676836545,
-        "osm_type": "node",
-        "name": "Twentyfour Heaven",
-        "opening_hours": "24/7",
-        "vending": "food;drinks;coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3580294,
-          48.2507718
-        ]
-      },
-      "properties": {
-        "id": 10102259228,
-        "osm_type": "node",
-        "vending": "sweets;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3658208,
-          48.2494529
-        ]
-      },
-      "properties": {
-        "id": 9296952152,
-        "osm_type": "node",
-        "vending": "sweets;drinks",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3655302,
-          48.2494157
-        ]
-      },
-      "properties": {
-        "id": 9296952153,
-        "osm_type": "node",
-        "vending": "sweets;drinks",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3655909,
-          48.2486166
-        ]
-      },
-      "properties": {
-        "id": 10180963835,
+        "id": 12168036254,
         "osm_type": "node",
         "vending": "drinks;sweets",
         "brand": "Selecta"
@@ -1894,12 +1910,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3651508,
-          48.2487213
+          16.3817518,
+          48.1879003
         ]
       },
       "properties": {
-        "id": 10180963836,
+        "id": 12168036255,
         "osm_type": "node",
         "vending": "drinks;sweets",
         "brand": "Selecta"
@@ -1910,28 +1926,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3788604,
-          48.243871
+          16.3965472,
+          48.2168928
         ]
       },
       "properties": {
-        "id": 11146490991,
-        "osm_type": "node",
-        "opening_hours": "Mo-Fr 07:15-19:30; Sa 07:15-18:00",
-        "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3753237,
-          48.2454202
-        ]
-      },
-      "properties": {
-        "id": 11084145129,
+        "id": 12182828632,
         "osm_type": "node",
         "vending": "drinks"
       }
@@ -1941,49 +1941,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3808828,
-          48.2463568
+          16.4498456,
+          48.2776414
         ]
       },
       "properties": {
-        "id": 11277814989,
+        "id": 12199680056,
         "osm_type": "node",
-        "opening_hours": "Mo-Fr 06:00-20:00; Sa 06:00-18:00",
-        "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3880566,
-          48.2356015
-        ]
-      },
-      "properties": {
-        "id": 1699092261,
-        "osm_type": "node",
-        "name": "Anker",
-        "vending": "food",
-        "brand": "Anker"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3842485,
-          48.2341755
-        ]
-      },
-      "properties": {
-        "id": 9866194586,
-        "osm_type": "node",
-        "vending": "food",
+        "vending": "drinks;sweets",
         "brand": "Selecta",
-        "operator": "Selecta"
+        "check_date": "2024-09-25"
       }
     },
     {
@@ -1991,14 +1958,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3878795,
-          48.2372556
+          16.449102,
+          48.2774933
         ]
       },
       "properties": {
-        "id": 10203393462,
+        "id": 12199723779,
         "osm_type": "node",
-        "vending": "coffee;drinks;sweets"
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2024-09-25"
       }
     },
     {
@@ -2006,30 +1975,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3875726,
-          48.2375322
+          16.3866054,
+          48.2158332
         ]
       },
       "properties": {
-        "id": 10203393464,
+        "id": 12209038385,
         "osm_type": "node",
-        "vending": "cannabis;drinks;sweets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.3847497,
-          48.2417846
-        ]
-      },
-      "properties": {
-        "id": 10743550086,
-        "osm_type": "node",
-        "vending": "drinks;sweets;snacks",
-        "brand": "Selecta"
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2024-09-29"
       }
     },
     {
@@ -2069,16 +2024,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3947834,
-          48.2464367
+          16.3610422,
+          48.2264847
         ]
       },
       "properties": {
-        "id": 10093150055,
+        "id": 12363019248,
         "osm_type": "node",
         "vending": "drinks;sweets",
         "brand": "Selecta",
-        "operator": "Selecta"
+        "check_date": "2024-11-21"
       }
     },
     {
@@ -2086,16 +2041,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.4313881,
-          48.2053005
+          16.3611818,
+          48.2270868
         ]
       },
       "properties": {
-        "id": 8686011880,
+        "id": 12366059242,
         "osm_type": "node",
-        "name": "Coca-Cola",
-        "vending": "drinks",
-        "brand": "Coca-Cola"
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "check_date": "2024-11-22"
       }
     },
     {
@@ -2103,14 +2058,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.4368236,
-          48.2132386
+          16.391784,
+          48.2194981
         ]
       },
       "properties": {
-        "id": 12100955805,
+        "id": 12384589803,
         "osm_type": "node",
-        "vending": "drinks;snacks"
+        "vending": "drinks"
       }
     },
     {
@@ -2118,12 +2073,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.4124517,
-          48.2298066
+          16.3806272,
+          48.1850322
         ]
       },
       "properties": {
-        "id": 4169315091,
+        "id": 12424718377,
         "osm_type": "node",
         "vending": "drinks;sweets",
         "brand": "Selecta"
@@ -2134,15 +2089,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.4361755,
-          48.2268655
+          16.3381498,
+          48.1812109
         ]
       },
       "properties": {
-        "id": 11756945748,
+        "id": 12469402508,
         "osm_type": "node",
-        "vending": "drinks",
-        "operator": "Easy Vending GmbH"
+        "name": "Snackeria by Özen",
+        "vending": "drinks;coffee;food",
+        "operator": "Özen",
+        "check_date": "2025-01-02"
       }
     },
     {
@@ -2150,16 +2107,93 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.4242035,
-          48.237977
+          16.357324,
+          48.1800222
         ]
       },
       "properties": {
-        "id": 10093150048,
+        "id": 12630194657,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.2819637,
+          48.1525698
+        ]
+      },
+      "properties": {
+        "id": 12637940770,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.2397393,
+          48.2128215
+        ]
+      },
+      "properties": {
+        "id": 12770896908,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2024"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3669648,
+          48.2189535
+        ]
+      },
+      "properties": {
+        "id": 12855972905,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3534378,
+          48.1864126
+        ]
+      },
+      "properties": {
+        "id": 12863379898,
+        "osm_type": "node",
+        "name": "24/7 Automaten",
+        "opening_hours": "24/7",
+        "vending": "drinks;sweets;snacks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3039295,
+          48.1876615
+        ]
+      },
+      "properties": {
+        "id": 12882643347,
         "osm_type": "node",
         "vending": "drinks;sweets",
-        "brand": "Selecta",
-        "operator": "Selecta"
+        "brand": "Selecta"
       }
     },
     {
@@ -2167,16 +2201,75 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.4649575,
-          48.191354
+          16.3252303,
+          48.1909741
         ]
       },
       "properties": {
-        "id": 2238401984,
+        "id": 13020558096,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "drinks",
-        "operator": "Himmel und Wasser"
+        "vending": "sweets;drinks;cbd;alcohol",
+        "check_date": "2025-07-15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3783514,
+          48.2088383
+        ]
+      },
+      "properties": {
+        "id": 13037306386,
+        "osm_type": "node",
+        "vending": "drinks;coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3784411,
+          48.1753968
+        ]
+      },
+      "properties": {
+        "id": 13153858546,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.280068,
+          48.2071114
+        ]
+      },
+      "properties": {
+        "id": 13192123656,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3475486,
+          48.21514
+        ]
+      },
+      "properties": {
+        "id": 13235225454,
+        "osm_type": "node",
+        "vending": "drinks"
       }
     },
     {
@@ -2191,7 +2284,8 @@
       "properties": {
         "id": 13255933237,
         "osm_type": "node",
-        "vending": "snacks;drinks"
+        "vending": "snacks;drinks",
+        "check_date": "2025-10-25"
       }
     },
     {
@@ -2199,12 +2293,42 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.5021392,
-          48.2256164
+          16.3387729,
+          48.2171326
         ]
       },
       "properties": {
-        "id": 11901388212,
+        "id": 13281290518,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3387506,
+          48.2171538
+        ]
+      },
+      "properties": {
+        "id": 13281318318,
+        "osm_type": "node",
+        "vending": "coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3387758,
+          48.2171474
+        ]
+      },
+      "properties": {
+        "id": 13281322534,
         "osm_type": "node",
         "vending": "food"
       }
@@ -2214,27 +2338,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.4903651,
-          48.2394029
+          16.3387667,
+          48.2171018
         ]
       },
       "properties": {
-        "id": 11813982749,
-        "osm_type": "node",
-        "vending": "snacks;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.2938842,
-          48.2578727
-        ]
-      },
-      "properties": {
-        "id": 4988503681,
+        "id": 13281328415,
         "osm_type": "node",
         "vending": "drinks"
       }
@@ -2244,12 +2353,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3649909,
-          48.2547568
+          16.4032249,
+          48.2153009
         ]
       },
       "properties": {
-        "id": 9595565128,
+        "id": 13328388820,
         "osm_type": "node",
         "vending": "coffee"
       }
@@ -2259,16 +2368,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.4001477,
-          48.2562919
+          16.4028907,
+          48.2153125
         ]
       },
       "properties": {
-        "id": 9183735030,
+        "id": 13328413597,
         "osm_type": "node",
-        "vending": "sweets;drinks",
-        "brand": "Selecta",
-        "operator": "Selecta"
+        "vending": "food"
       }
     },
     {
@@ -2276,153 +2383,213 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3981938,
-          48.2679666
+          16.3070127,
+          48.1973613
         ]
       },
       "properties": {
-        "id": 10219844164,
+        "id": 13337811714,
         "osm_type": "node",
-        "name": "MyAppCafé",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3068858,
+          48.1973032
+        ]
+      },
+      "properties": {
+        "id": 13337819625,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3774312,
+          48.2114143
+        ]
+      },
+      "properties": {
+        "id": 13387631394,
+        "osm_type": "node",
+        "name": "Gelati Eis Box",
+        "vending": "ice_cream",
+        "check_date": "2025-12-18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.4027465,
+          48.2145115
+        ]
+      },
+      "properties": {
+        "id": 13507146799,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3321244,
+          48.2141756
+        ]
+      },
+      "properties": {
+        "id": 13510834407,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3320919,
+          48.2141741
+        ]
+      },
+      "properties": {
+        "id": 13510834408,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3321557,
+          48.2141795
+        ]
+      },
+      "properties": {
+        "id": 13510842653,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3341301,
+          48.1748074
+        ]
+      },
+      "properties": {
+        "id": 13543681583,
+        "osm_type": "node",
+        "vending": "food;drinks;sweets;water"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3332706,
+          48.174639
+        ]
+      },
+      "properties": {
+        "id": 13566955166,
+        "osm_type": "node",
+        "vending": "snacks;drinks",
+        "operator": "Selecta",
+        "check_date": "2024-11-15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3291815,
+          48.2313978
+        ]
+      },
+      "properties": {
+        "id": 13640880620,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.337095,
+          48.2171597
+        ]
+      },
+      "properties": {
+        "id": 13716845813,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3741976,
+          48.183647
+        ]
+      },
+      "properties": {
+        "id": 13757009438,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.374221,
+          48.1836726
+        ]
+      },
+      "properties": {
+        "id": 13757018482,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.374192,
+          48.1836168
+        ]
+      },
+      "properties": {
+        "id": 13757055950,
+        "osm_type": "node",
         "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4209174,
-          48.256469
-        ]
-      },
-      "properties": {
-        "id": 3467864922,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4499404,
-          48.2568477
-        ]
-      },
-      "properties": {
-        "id": 10230879939,
-        "osm_type": "node",
-        "vending": "snacks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4490333,
-          48.2670022
-        ]
-      },
-      "properties": {
-        "id": 12038348869,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4490352,
-          48.2670127
-        ]
-      },
-      "properties": {
-        "id": 12038348870,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.449102,
-          48.2774933
-        ]
-      },
-      "properties": {
-        "id": 12199723779,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4498456,
-          48.2776414
-        ]
-      },
-      "properties": {
-        "id": 12199680056,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.409718,
-          48.3061964
-        ]
-      },
-      "properties": {
-        "id": 10816403116,
-        "osm_type": "node",
-        "vending": "drinks;snacks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4077288,
-          48.309727
-        ]
-      },
-      "properties": {
-        "id": 10899725850,
-        "osm_type": "node",
-        "vending": "drinks;snacks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.4960837,
-          48.2512792
-        ]
-      },
-      "properties": {
-        "id": 5759119106,
-        "osm_type": "node",
-        "name": "Hofladen-Automat",
-        "vending": "drinks;food"
       }
     }
   ]

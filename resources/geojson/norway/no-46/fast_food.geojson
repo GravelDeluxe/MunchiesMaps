@@ -39,6 +39,7 @@
         "phone": "+47 944 60 155",
         "website": "https://burgerboys.no/",
         "cuisine": "burger",
+        "check_date": "2024-07-10",
         "chain": "unknown"
       }
     },
@@ -61,6 +62,7 @@
         "website": "http://www.mcdonalds.no/",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2026-02-21",
         "chain": "mcdonalds"
       }
     },
@@ -76,9 +78,9 @@
       "properties": {
         "id": 309163174,
         "osm_type": "node",
-        "name": "Digg Engen",
+        "name": "Digg Pizza",
         "brand": "Digg",
-        "opening_hours": "Mo-Su 11:00-22:00; Fr 11:00-24:00; Sa 11:00-27:00",
+        "opening_hours": "Mo-Th 11:00-22:00; Fr 11:00-24:00; Sa 11:00-03:00; Su 11:00-22:00",
         "website": "https://digg.no/engen",
         "cuisine": "pizza",
         "chain": "unknown"
@@ -310,6 +312,7 @@
         "name": "Vegkro",
         "opening_hours": "Mo-Fr 07:30-22:00; Sa 09:00-20:00; Su 10:00-22:00",
         "cuisine": "burger;regional",
+        "check_date": "2024-08-18",
         "chain": "unknown"
       }
     },
@@ -465,8 +468,9 @@
         "id": 1404303498,
         "osm_type": "node",
         "name": "Bergen Kebab",
-        "phone": "+47 55 230017",
-        "cuisine": "kebab",
+        "opening_hours": "Mo 10:00–01:00; Tu-Th 10:00–00:00; Fr 10:00–04:00; Sa 09:00–04:00; Su 10:00–04:00",
+        "phone": "+47 55 23 00 17",
+        "cuisine": "kebab;pizza;burger",
         "chain": "unknown"
       }
     },
@@ -691,6 +695,27 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.331997,
+          60.3910435
+        ]
+      },
+      "properties": {
+        "id": 3126032220,
+        "osm_type": "node",
+        "name": "Marken Pizza & Grill",
+        "opening_hours": "Mo-Th 11:00-24:00, Fr,Sa 11:00-04:00, Su 11:00-12:00",
+        "phone": "+47 55 31 44 84",
+        "website": "https://itbergen.no/listing/marken-pizza-grill/",
+        "operator": "Yousef Rahmanipour",
+        "cuisine": "burger;pizza;kebab;fish_and_chips",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.4268787,
           60.1475078
         ]
@@ -778,6 +803,7 @@
         "operator": "Subway",
         "brand:wikidata": "Q244457",
         "cuisine": "sandwich",
+        "check_date": "2025-08-02",
         "chain": "unknown"
       }
     },
@@ -794,10 +820,13 @@
         "id": 3942161668,
         "osm_type": "node",
         "name": "Big Bite Xhibition",
+        "brand": "Big Bite",
         "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-18:00",
         "phone": "+47 48 95 43 12",
         "website": "https://www.bigbite.no/",
         "operator": "Big Bite",
+        "brand:wikidata": "Q11960977",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -852,27 +881,6 @@
         "osm_type": "node",
         "name": "Angry Bite",
         "cuisine": "falafel",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          5.331983,
-          60.391038
-        ]
-      },
-      "properties": {
-        "id": 3962005381,
-        "osm_type": "node",
-        "name": "Marken Pizza & Grill",
-        "opening_hours": "Mo-Th 11:00-24:00, Fr,Sa 11:00-04:00, Su 11:00-12:00",
-        "phone": "+47 55314484",
-        "website": "https://itbergen.no/listing/marken-pizza-grill/",
-        "operator": "Yousef Rahmanipour",
-        "cuisine": "burger;pizza;kebab;fish_and_chips",
         "chain": "unknown"
       }
     },
@@ -1368,6 +1376,7 @@
         "osm_type": "node",
         "name": "Mekong",
         "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-22:00; Su 13:00-21:00",
+        "check_date": "2024-07-11",
         "chain": "unknown"
       }
     },
@@ -1462,6 +1471,7 @@
         "osm_type": "node",
         "name": "Pølseboden",
         "opening_hours": "May 01-Sep 30: 12:00+",
+        "check_date": "2025-11-23",
         "chain": "unknown"
       }
     },
@@ -1566,6 +1576,7 @@
         "osm_type": "node",
         "name": "La Bomba",
         "cuisine": "italian_pizza;kebab;pizza",
+        "check_date": "2025-07-22",
         "chain": "unknown"
       }
     },
@@ -1684,6 +1695,7 @@
         "phone": "+47 55929920",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-07-11",
         "chain": "mcdonalds"
       }
     },
@@ -1742,6 +1754,7 @@
         "phone": "+47 55136480",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-06-21",
         "chain": "mcdonalds"
       }
     },
@@ -1870,7 +1883,7 @@
         "phone": "+47 95 55 56 00",
         "website": "https://www.mr-damascy.no/",
         "operator": "Mahmoud Ahmad Natour",
-        "cuisine": "shawarma;syrian;falafel;fried_chicken",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2149,6 +2162,7 @@
         "phone": "+47 48942717",
         "brand:wikidata": "Q11960977",
         "cuisine": "sandwich",
+        "check_date": "2025-07-11",
         "chain": "unknown"
       }
     },
@@ -2453,6 +2467,7 @@
         "name": "Pizzabakeren (Flesland)",
         "brand": "Pizzabakeren",
         "cuisine": "pizza",
+        "check_date": "2025-09-20",
         "chain": "unknown"
       }
     },
@@ -2489,6 +2504,7 @@
         "opening_hours": "Mo-Th off; Fr 15:00-19:00; Sa-Su 14:00-18:00",
         "phone": "+47 401 70 600",
         "cuisine": "thai;sushi",
+        "check_date": "2023-07-28",
         "chain": "unknown"
       }
     },
@@ -2620,6 +2636,7 @@
         "website": "https://sammen.no/no/mat-og-drikke/spisested/kristiania-kafe",
         "operator": "Sammen",
         "cuisine": "sandwich;coffee_shop;salad",
+        "check_date": "2025-07-23",
         "chain": "unknown"
       }
     },
@@ -2727,6 +2744,66 @@
         "phone": "+47 412 75 145",
         "website": "https://thepizzaman.no/",
         "cuisine": "pizza",
+        "check_date": "2026-01-11",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.324665,
+          60.4680827
+        ]
+      },
+      "properties": {
+        "id": 13747294946,
+        "osm_type": "node",
+        "name": "Pota Madre",
+        "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-20:00",
+        "website": "https://order.ninito.com/no/group/pota-madre",
+        "cuisine": "potato",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3243445,
+          60.4661501
+        ]
+      },
+      "properties": {
+        "id": 13762277242,
+        "osm_type": "node",
+        "name": "Digg Pizza",
+        "brand": "Digg",
+        "opening_hours": "Mo-Sa 10:00-21:30; Su 12:00-21:00",
+        "website": "https://digg.no/aasane",
+        "cuisine": "pizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3319513,
+          60.388961
+        ]
+      },
+      "properties": {
+        "id": 13762277243,
+        "osm_type": "node",
+        "name": "Digg Pizza",
+        "brand": "Digg",
+        "opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-21:00",
+        "website": "https://digg.no/bergenstorsenter",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2744,6 +2821,7 @@
         "osm_type": "way",
         "name": "MG Restuarant & Pub",
         "cuisine": "italian;italian_pizza;mexican;regional",
+        "check_date": "2025-08-02",
         "chain": "unknown"
       }
     },
@@ -2782,6 +2860,7 @@
         "website": "https://www.burgerheim.no",
         "operator": "Burgerheim",
         "cuisine": "burger",
+        "check_date": "2025-08-22",
         "chain": "unknown"
       }
     },

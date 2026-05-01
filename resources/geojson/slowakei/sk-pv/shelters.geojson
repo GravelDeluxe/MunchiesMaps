@@ -801,7 +801,8 @@
         "osm_type": "node",
         "name": "Partizánska zemľanka",
         "shelter_type": "weather_shelter",
-        "bench": "yes"
+        "bench": "yes",
+        "check_date": "2023-06-25"
       }
     },
     {
@@ -2209,6 +2210,21 @@
         "osm_type": "node",
         "shelter_type": "weather_shelter",
         "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.4810382,
+          49.1723813
+        ]
+      },
+      "properties": {
+        "id": 13743452939,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
       }
     },
     {

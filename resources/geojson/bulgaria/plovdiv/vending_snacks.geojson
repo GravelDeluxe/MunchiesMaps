@@ -118,7 +118,8 @@
       "properties": {
         "id": 9802023781,
         "osm_type": "node",
-        "vending": "coffee;tea"
+        "vending": "coffee;tea",
+        "check_date": "2025-10-23"
       }
     },
     {
@@ -794,6 +795,51 @@
         "id": 13740334058,
         "osm_type": "node",
         "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.7293173,
+          42.1203465
+        ]
+      },
+      "properties": {
+        "id": 13752820550,
+        "osm_type": "node",
+        "vending": "coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.7293073,
+          42.1203366
+        ]
+      },
+      "properties": {
+        "id": 13752820551,
+        "osm_type": "node",
+        "vending": "food;drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.767404,
+          42.1291075
+        ]
+      },
+      "properties": {
+        "id": 13765723198,
+        "osm_type": "node",
+        "vending": "coffee"
       }
     }
   ]

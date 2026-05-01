@@ -114,7 +114,8 @@
       },
       "properties": {
         "id": 4591305006,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-11-24"
       }
     },
     {
@@ -200,6 +201,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          23.0403721,
+          42.6110164
+        ]
+      },
+      "properties": {
+        "id": 11141029026,
+        "osm_type": "node",
+        "name": "Кам Маркет",
+        "brand": "Кам Маркет"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           23.0363823,
           42.6052388
         ]
@@ -238,8 +255,25 @@
       "properties": {
         "id": 12986638301,
         "osm_type": "node",
-        "name": "Т Маркет",
+        "name": "Т-Маркет",
+        "brand": "Т-Маркет",
         "opening_hours": "Mo-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.0664564,
+          42.4759087
+        ]
+      },
+      "properties": {
+        "id": 13758362946,
+        "osm_type": "node",
+        "name": "Бети 2006",
+        "opening_hours": "Mo-Su 09:00-21:00"
       }
     },
     {
@@ -389,7 +423,8 @@
         "osm_type": "way",
         "name": "Фантастико",
         "brand": "Фантастико",
-        "opening_hours": "07:30-22:00"
+        "opening_hours": "07:30-22:00",
+        "check_date": "2023-03-11"
       }
     },
     {

@@ -21,15 +21,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0322331,
-          47.3675371
+          8.0810421,
+          47.4440178
         ]
       },
       "properties": {
-        "id": 11136547188,
+        "id": 4446788661,
         "osm_type": "node",
-        "shelter_type": "weather_shelter",
-        "bench": "no"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -45,6 +44,22 @@
         "id": 11044345043,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0322331,
+          47.3675371
+        ]
+      },
+      "properties": {
+        "id": 11136547188,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "no"
       }
     },
     {
@@ -68,21 +83,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0810421,
-          47.4440178
-        ]
-      },
-      "properties": {
-        "id": 4446788661,
-        "osm_type": "node",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.3077514,
           47.5159916
         ]
@@ -91,6 +91,53 @@
         "id": 12578667563,
         "osm_type": "node",
         "name": "Waldhütte Lengnau"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.1234826,
+          47.5189731
+        ]
+      },
+      "properties": {
+        "id": 32854300,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0662954,
+          47.5525883
+        ]
+      },
+      "properties": {
+        "id": 56262491,
+        "osm_type": "way",
+        "name": "Chaisterchopfhütte",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.9985349,
+          47.536724
+        ]
+      },
+      "properties": {
+        "id": 57826672,
+        "osm_type": "way",
+        "name": "Jagdhütte Elenberg",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -130,6 +177,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.2718464,
+          47.5744806
+        ]
+      },
+      "properties": {
+        "id": 428970897,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.1588258,
           47.4054656
         ]
@@ -146,53 +209,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9985349,
-          47.536724
-        ]
-      },
-      "properties": {
-        "id": 57826672,
-        "osm_type": "way",
-        "name": "Jagdhütte Elenberg",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.0662954,
-          47.5525883
-        ]
-      },
-      "properties": {
-        "id": 56262491,
-        "osm_type": "way",
-        "name": "Chaisterchopfhütte",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.1234826,
-          47.5189731
-        ]
-      },
-      "properties": {
-        "id": 32854300,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.3135943,
           47.4715975
         ]
@@ -201,22 +217,6 @@
         "id": 1095653728,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.2718464,
-          47.5744806
-        ]
-      },
-      "properties": {
-        "id": 428970897,
-        "osm_type": "way",
-        "shelter_type": "lean_to",
-        "bench": "yes"
       }
     }
   ]

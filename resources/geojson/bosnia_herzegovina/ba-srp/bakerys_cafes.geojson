@@ -4296,7 +4296,8 @@
       "properties": {
         "id": 4345113152,
         "osm_type": "node",
-        "name": "M M"
+        "name": "M M",
+        "check_date": "2026-04-05"
       }
     },
     {
@@ -5966,7 +5967,8 @@
       "properties": {
         "id": 6414922395,
         "osm_type": "node",
-        "name": "Trivago"
+        "name": "Trivago",
+        "check_date": "2023-04-09"
       }
     },
     {
@@ -8966,7 +8968,9 @@
         "id": 9522690331,
         "osm_type": "node",
         "name": "Maletić",
-        "opening_hours": "Mo-Th 06:00-22:00; Fr,Sa 06:00-22:00; PH,Su off"
+        "opening_hours": "Mo-Th 06:00-22:00; Fr,Sa 06:00-22:00; PH,Su off",
+        "takeaway": "only",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -9666,7 +9670,8 @@
         "osm_type": "node",
         "name": "GoForPixy 3",
         "opening_hours": "08:00-20:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2022-12-15"
       }
     },
     {
@@ -9968,7 +9973,8 @@
       "properties": {
         "id": 10774223024,
         "osm_type": "node",
-        "name": "Đorđe"
+        "name": "Đorđe",
+        "check_date": "2023-04-14"
       }
     },
     {
@@ -10563,7 +10569,8 @@
       "properties": {
         "id": 11172078250,
         "osm_type": "node",
-        "name": "Žitopeka"
+        "name": "Žitopeka",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -10578,7 +10585,8 @@
       "properties": {
         "id": 11172078251,
         "osm_type": "node",
-        "name": "Gradska kafana"
+        "name": "Gradska kafana",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -10832,7 +10840,8 @@
       "properties": {
         "id": 11329132969,
         "osm_type": "node",
-        "name": "Second"
+        "name": "Second",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -10847,7 +10856,8 @@
       "properties": {
         "id": 11335918869,
         "osm_type": "node",
-        "name": "Baretto"
+        "name": "Baretto",
+        "opening_hours": "Su-Th 07:00-23:00; Fr,Sa 07:00-24:00"
       }
     },
     {
@@ -11551,29 +11561,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.1900886,
-          44.7633552
+          17.1900298,
+          44.7633705
         ]
       },
       "properties": {
         "id": 11772634169,
         "osm_type": "node",
-        "name": "Lemio"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.1901119,
-          44.7633159
-        ]
-      },
-      "properties": {
-        "id": 11772634269,
-        "osm_type": "node",
-        "name": "Gam"
+        "name": "Mala čaršija",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -12449,7 +12445,8 @@
       },
       "properties": {
         "id": 12635297231,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-03-03"
       }
     },
     {
@@ -13486,7 +13483,8 @@
         "id": 13624541502,
         "osm_type": "node",
         "name": "Caffe Putnik",
-        "opening_hours": "Mo-Su 05:00-23:00"
+        "opening_hours": "Mo-Su 05:00-23:00",
+        "check_date": "2026-03-07"
       }
     },
     {
@@ -13501,7 +13499,8 @@
       "properties": {
         "id": 13624573302,
         "osm_type": "node",
-        "name": "Caffe SN"
+        "name": "Caffe SN",
+        "check_date": "2026-03-07"
       }
     },
     {
@@ -13516,7 +13515,8 @@
       "properties": {
         "id": 13624757201,
         "osm_type": "node",
-        "name": "Galija"
+        "name": "Galija",
+        "check_date": "2026-03-07"
       }
     },
     {
@@ -14658,7 +14658,8 @@
         "id": 1456348938,
         "osm_type": "way",
         "name": "Kafe bar \"Orinoko\"",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-12-05"
       }
     }
   ]

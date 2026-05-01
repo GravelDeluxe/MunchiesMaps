@@ -216,6 +216,7 @@
         "phone": "+36204720502",
         "website": "https://castellobistro.hu",
         "cuisine": "pizza",
+        "check_date": "2024-03-30",
         "chain": "unknown"
       }
     },
@@ -232,6 +233,7 @@
         "id": 3303826766,
         "osm_type": "node",
         "name": "Hambi Bár",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr,Sa 11:00-22:00; Su off",
         "chain": "unknown"
       }
     },
@@ -1095,6 +1097,7 @@
         "osm_type": "node",
         "name": "Manna Lángosozó",
         "opening_hours": "Mo-Fr 07:00-15:00; Sa 07:00-12:00; Su,PH off",
+        "check_date": "2024-03-30",
         "chain": "unknown"
       }
     },
@@ -1216,6 +1219,7 @@
         "id": 13231350917,
         "osm_type": "node",
         "name": "Best Food Grill",
+        "check_date": "2025-10-13",
         "chain": "unknown"
       }
     },
@@ -1232,6 +1236,7 @@
         "id": 13232285145,
         "osm_type": "node",
         "name": "Laci Lángos Falodája",
+        "check_date": "2025-10-14",
         "chain": "unknown"
       }
     },
@@ -1283,6 +1288,7 @@
         "osm_type": "node",
         "name": "Hami Büfé",
         "opening_hours": "Mo-Fr 08:00-18:00; Sa-Su off",
+        "check_date": "2026-03-20",
         "chain": "unknown"
       }
     },
@@ -1301,6 +1307,24 @@
         "name": "Útravaló",
         "opening_hours": "05:00-17:00",
         "cuisine": "sandwich",
+        "check_date": "2026-03-20",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.621389,
+          47.2314676
+        ]
+      },
+      "properties": {
+        "id": 13780172161,
+        "osm_type": "node",
+        "name": "Mr. Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1567,8 +1591,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.6175925,
-          47.2530018
+          16.6175661,
+          47.2530948
         ]
       },
       "properties": {
@@ -1579,6 +1603,7 @@
         "opening_hours": "07:00-23:00",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2023-03-26",
         "chain": "mcdonalds"
       }
     }

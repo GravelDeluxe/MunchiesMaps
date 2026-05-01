@@ -613,7 +613,9 @@
       "properties": {
         "id": 1770440282,
         "osm_type": "node",
-        "name": "Piekarnia Ujazd"
+        "name": "Piekarnia Ujazd",
+        "opening_hours": "Mo-Fr 05:30-17:00; Sa 05:30-14:00",
+        "check_date": "2026-04-16"
       }
     },
     {
@@ -972,7 +974,8 @@
         "id": 1892235485,
         "osm_type": "node",
         "name": "Piekarenka",
-        "opening_hours": "Mo-Fr 06:00-17:30; Sa 06:00-14:00"
+        "opening_hours": "Mo-Fr 06:00-17:30; Sa 06:00-14:00",
+        "check_date": "2026-04-10"
       }
     },
     {
@@ -1060,7 +1063,8 @@
         "id": 2018960662,
         "osm_type": "node",
         "name": "Wielgomłyny",
-        "opening_hours": "Mo-Fr 05:00-18:00; Sa 05:00-14:00; Su,PH off"
+        "opening_hours": "Mo-Fr 05:00-18:00; Sa 05:00-14:00; Su,PH off",
+        "check_date": "2025-07-22"
       }
     },
     {
@@ -1425,7 +1429,8 @@
       "properties": {
         "id": 2607413842,
         "osm_type": "node",
-        "name": "Jaś i Małgosia"
+        "name": "Jaś i Małgosia",
+        "check_date": "2022-12-25"
       }
     },
     {
@@ -1816,7 +1821,8 @@
       "properties": {
         "id": 3093694831,
         "osm_type": "node",
-        "name": "Klubokawiarnia SisCake"
+        "name": "Klubokawiarnia SisCake",
+        "check_date": "2024-07-20"
       }
     },
     {
@@ -2310,7 +2316,8 @@
         "name": "Łódzka Drożdżówka",
         "opening_hours": "Tu-Th 10:00-19:00; Fr-Su 10:00-20:00",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-07-18"
       }
     },
     {
@@ -2418,7 +2425,8 @@
         "id": 3782110665,
         "osm_type": "node",
         "name": "Pijalnia Czekolady E. Wedel",
-        "opening_hours": "Mo-Sa 10:00-22:00; Su 10:00-21:00"
+        "opening_hours": "Mo-Sa 10:00-22:00; Su 10:00-21:00",
+        "check_date": "2024-01-19"
       }
     },
     {
@@ -2827,7 +2835,8 @@
         "id": 4262601390,
         "osm_type": "node",
         "name": "Piekarnia Tradycyjna",
-        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-14:30"
+        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-14:30",
+        "check_date": "2024-07-18"
       }
     },
     {
@@ -2843,7 +2852,8 @@
         "id": 4262812547,
         "osm_type": "node",
         "name": "Jaś i Małgosia",
-        "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:00-18:00"
+        "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:00-18:00",
+        "check_date": "2024-07-18"
       }
     },
     {
@@ -3061,7 +3071,9 @@
       "properties": {
         "id": 4364546986,
         "osm_type": "node",
-        "name": "Oskroba"
+        "name": "Oskroba",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-15:00",
+        "check_date": "2026-04-18"
       }
     },
     {
@@ -3321,7 +3333,8 @@
         "id": 4506936488,
         "osm_type": "node",
         "name": "Szwalnia CAFE",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -3402,6 +3415,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          19.6392293,
+          51.7260904
+        ]
+      },
+      "properties": {
+        "id": 4634677671,
+        "osm_type": "node",
+        "name": "Brzeziński",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-14:00",
+        "check_date": "2026-04-18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           19.4355107,
           51.7889058
         ]
@@ -3442,7 +3472,8 @@
         "id": 4744539423,
         "osm_type": "node",
         "name": "Kawiarnia buffina",
-        "opening_hours": "Sa-Su 11:00-18:00"
+        "opening_hours": "Sa-Su 11:00-18:00",
+        "check_date": "2024-08-28"
       }
     },
     {
@@ -3952,7 +3983,8 @@
         "osm_type": "node",
         "name": "The Brick Coffee Factory",
         "opening_hours": "Su-Th 08:00-20:00; Fr,Sa 08:00-21:00",
-        "outdoor_seating": "pedestrian_zone"
+        "outdoor_seating": "pedestrian_zone",
+        "check_date": "2024-07-21"
       }
     },
     {
@@ -4078,7 +4110,8 @@
         "osm_type": "node",
         "name": "Qubek Cafe",
         "opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-20:00; Su 10:00-20:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-19"
       }
     },
     {
@@ -4671,7 +4704,8 @@
         "id": 7108029099,
         "osm_type": "node",
         "name": "Kofeina",
-        "opening_hours": "Mo-Sa 10:00-22:00; Su 11:00-21:00"
+        "opening_hours": "Mo-Sa 10:00-22:00; Su 11:00-21:00",
+        "check_date": "2024-07-20"
       }
     },
     {
@@ -5032,7 +5066,8 @@
         "name": "Hot Air Cafe",
         "opening_hours": "Mo-Th, Su 09:00-20:00; Fr, Sa 09:00-21:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-06-08"
       }
     },
     {
@@ -5064,22 +5099,6 @@
         "id": 8176335609,
         "osm_type": "node",
         "name": "Piekarnia Witonia"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.72523,
-          51.591062
-        ]
-      },
-      "properties": {
-        "id": 8346023413,
-        "osm_type": "node",
-        "name": "Piekarnia Robert Kędzia",
-        "opening_hours": "Mo-Fr 06:30-14:00; Sa 06:30-13:00"
       }
     },
     {
@@ -5237,7 +5256,8 @@
         "name": "Owoce i warzywa",
         "opening_hours": "Mo-Th 10:00-00:00; Fr-Sa 10:00+; Su 11:00-00:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-02-16"
       }
     },
     {
@@ -5506,7 +5526,8 @@
       "properties": {
         "id": 9383384848,
         "osm_type": "node",
-        "name": "Z pieca rodem"
+        "name": "Z pieca rodem",
+        "opening_hours": "Mo-Fr 06:00-19:00; Sa 07:00-15:00"
       }
     },
     {
@@ -5631,7 +5652,8 @@
       "properties": {
         "id": 9686662933,
         "osm_type": "node",
-        "name": "Coffe & TS"
+        "name": "Coffe & TS",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -5790,7 +5812,8 @@
         "osm_type": "node",
         "name": "MORNING",
         "opening_hours": "Mo-We,Fr 07:00-19:00; Th 09:00-16:00; Sa 08:00-19:00; Su 09:00-16:00",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2024-07-18"
       }
     },
     {
@@ -5952,21 +5975,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.7253235,
-          51.5911495
-        ]
-      },
-      "properties": {
-        "id": 10250617605,
-        "osm_type": "node",
-        "name": "Piekarnia Jeziorsko"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.47277,
           51.7802055
         ]
@@ -6071,7 +6079,8 @@
         "osm_type": "node",
         "name": "Putka",
         "brand": "Putka",
-        "opening_hours": "Mo-Fr 06:00-19:00; Sa 07:00-14:00"
+        "opening_hours": "Mo-Fr 06:00-19:00; Sa 07:00-14:00",
+        "check_date": "2023-03-08"
       }
     },
     {
@@ -6086,7 +6095,8 @@
       "properties": {
         "id": 10741355165,
         "osm_type": "node",
-        "name": "Latte"
+        "name": "Latte",
+        "check_date": "2025-04-17"
       }
     },
     {
@@ -6166,7 +6176,8 @@
         "osm_type": "node",
         "name": "Cukiernia „Markiza”",
         "opening_hours": "Mo-Fr 09:00-19:00; Sa 08:00-18:00; Su 10:00-18:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2023-04-29"
       }
     },
     {
@@ -6182,7 +6193,8 @@
         "id": 10834241052,
         "osm_type": "node",
         "name": "Olszyńscy Zakład piekarniczy",
-        "opening_hours": "Mo-Fr 06:15-17:30; Sa 06:15-13:00"
+        "opening_hours": "Mo-Fr 06:15-17:30; Sa 06:15-13:00",
+        "check_date": "2024-10-11"
       }
     },
     {
@@ -6414,7 +6426,8 @@
       "properties": {
         "id": 11257428538,
         "osm_type": "node",
-        "name": "Jaś i Małgosia"
+        "name": "Jaś i Małgosia",
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-14:00"
       }
     },
     {
@@ -6571,7 +6584,8 @@
         "osm_type": "node",
         "name": "Colour Cafe",
         "opening_hours": "Mo-Fr 08:00-20:00; Sa-Su 09:00-20:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-03-04"
       }
     },
     {
@@ -6792,7 +6806,8 @@
         "id": 12060706965,
         "osm_type": "node",
         "name": "Piekarenka",
-        "opening_hours": "Mo-Fr 06:30-17:30; Sa 06:30-14:00"
+        "opening_hours": "Mo-Fr 06:30-17:30; Sa 06:30-14:00",
+        "check_date": "2024-07-18"
       }
     },
     {
@@ -6808,7 +6823,8 @@
         "id": 12060796941,
         "osm_type": "node",
         "name": "Smak",
-        "opening_hours": "Mo-Fr 08:00-19:00; Sa-Su 08:00-18:00"
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa-Su 08:00-18:00",
+        "check_date": "2024-07-18"
       }
     },
     {
@@ -6824,7 +6840,8 @@
         "id": 12060796943,
         "osm_type": "node",
         "name": "Piekarenka",
-        "opening_hours": "Mo-Fr 06:30-17:30; Sa 06:30-14:00"
+        "opening_hours": "Mo-Fr 06:30-17:30; Sa 06:30-14:00",
+        "check_date": "2024-07-18"
       }
     },
     {
@@ -6839,7 +6856,8 @@
       "properties": {
         "id": 12061254869,
         "osm_type": "node",
-        "name": "Brand New Caffe"
+        "name": "Brand New Caffe",
+        "check_date": "2024-07-18"
       }
     },
     {
@@ -6854,7 +6872,8 @@
       "properties": {
         "id": 12061570913,
         "osm_type": "node",
-        "name": "Piekarnia Zbigniew Łyczko"
+        "name": "Piekarnia Zbigniew Łyczko",
+        "check_date": "2024-07-18"
       }
     },
     {
@@ -6870,7 +6889,8 @@
         "id": 12064447609,
         "osm_type": "node",
         "name": "Bart-piek",
-        "opening_hours": "Mo-Sa 08:00-20:00; Su,PH off"
+        "opening_hours": "Mo-Sa 08:00-20:00; Su,PH off",
+        "check_date": "2024-07-20"
       }
     },
     {
@@ -6901,7 +6921,8 @@
         "id": 12066382867,
         "osm_type": "node",
         "name": "Montag",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-16:00; Su 09:00-16:00"
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-16:00; Su 09:00-16:00",
+        "check_date": "2024-07-21"
       }
     },
     {
@@ -6916,7 +6937,8 @@
       "properties": {
         "id": 12066386906,
         "osm_type": "node",
-        "name": "Street Tea"
+        "name": "Street Tea",
+        "check_date": "2024-07-21"
       }
     },
     {
@@ -6931,7 +6953,8 @@
       "properties": {
         "id": 12066469806,
         "osm_type": "node",
-        "name": "Stodko czy Wytrawnie"
+        "name": "Stodko czy Wytrawnie",
+        "check_date": "2024-07-21"
       }
     },
     {
@@ -6946,7 +6969,8 @@
       "properties": {
         "id": 12066587063,
         "osm_type": "node",
-        "name": "Gorąca Pączkarnia F-Wiatrak"
+        "name": "Gorąca Pączkarnia F-Wiatrak",
+        "check_date": "2024-07-21"
       }
     },
     {
@@ -6961,7 +6985,8 @@
       "properties": {
         "id": 12066587064,
         "osm_type": "node",
-        "name": "R & D Tea"
+        "name": "R & D Tea",
+        "check_date": "2024-07-21"
       }
     },
     {
@@ -7234,6 +7259,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.722899,
+          51.59372
+        ]
+      },
+      "properties": {
+        "id": 12285059661,
+        "osm_type": "node",
+        "name": "Naturalne Pieczywo u Oli",
+        "opening_hours": "Tu 06:30-13:00, Th-Fr 06:30-12:00, Sa 07:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           18.9797669,
           51.5924154
         ]
@@ -7395,6 +7436,7 @@
         "osm_type": "node",
         "name": "Starbucks",
         "brand": "Starbucks",
+        "opening_hours": "Mo-Su 08:00-21:00",
         "takeaway": "yes",
         "outdoor_seating": "no"
       }
@@ -7888,7 +7930,8 @@
         "id": 12862814955,
         "osm_type": "node",
         "name": "Piekarnia",
-        "opening_hours": "Mo 06:00-18:00; Tu-Fr 06:00-20:00; Sa 06:00-13:00"
+        "opening_hours": "Mo 06:00-18:00; Tu-Fr 06:00-20:00; Sa 06:00-13:00",
+        "check_date": "2025-05-25"
       }
     },
     {
@@ -8215,7 +8258,8 @@
       "properties": {
         "id": 13013092639,
         "osm_type": "node",
-        "name": "Kawiarnia nad rzeczką"
+        "name": "Kawiarnia nad rzeczką",
+        "check_date": "2025-07-20"
       }
     },
     {
@@ -8230,7 +8274,8 @@
       "properties": {
         "id": 13082021133,
         "osm_type": "node",
-        "name": "Chaładaj"
+        "name": "Chaładaj",
+        "check_date": "2025-08-19"
       }
     },
     {
@@ -8341,7 +8386,8 @@
       "properties": {
         "id": 13163257791,
         "osm_type": "node",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-09-21"
       }
     },
     {
@@ -8358,7 +8404,8 @@
         "osm_type": "node",
         "name": "Kawka",
         "opening_hours": "Mo-Sa 09:00-19:00; Su 13:00-19:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-09-20"
       }
     },
     {
@@ -8388,7 +8435,8 @@
       "properties": {
         "id": 13172000504,
         "osm_type": "node",
-        "name": "Coffee to go"
+        "name": "Coffee to go",
+        "check_date": "2025-09-21"
       }
     },
     {
@@ -8403,7 +8451,8 @@
       "properties": {
         "id": 13172000505,
         "osm_type": "node",
-        "name": "Coffee to go"
+        "name": "Coffee to go",
+        "check_date": "2025-09-21"
       }
     },
     {
@@ -8665,7 +8714,8 @@
         "id": 13700984185,
         "osm_type": "node",
         "name": "Zagajnik",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-16:00; Su,PH off"
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-16:00; Su,PH off",
+        "check_date": "2026-04-03"
       }
     },
     {
@@ -8680,7 +8730,8 @@
       "properties": {
         "id": 13718691643,
         "osm_type": "node",
-        "name": "Piekarnia Cukiernia"
+        "name": "Piekarnia Cukiernia",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -8695,7 +8746,8 @@
       "properties": {
         "id": 13718813850,
         "osm_type": "node",
-        "name": "Olszyńscy"
+        "name": "Olszyńscy",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -8711,7 +8763,8 @@
         "id": 13718813851,
         "osm_type": "node",
         "name": "Słamar",
-        "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:00-14:00; Su 12:00-20:00"
+        "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:00-14:00; Su 12:00-20:00",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -8726,7 +8779,55 @@
       "properties": {
         "id": 13720449389,
         "osm_type": "node",
-        "name": "Domowe Wypieki u Beti"
+        "name": "Domowe Wypieki u Beti",
+        "check_date": "2026-04-10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.738043,
+          51.5934984
+        ]
+      },
+      "properties": {
+        "id": 13729440236,
+        "osm_type": "node",
+        "name": "Naturalne Pieczywo u Oli",
+        "opening_hours": "Tu 06:30-13:00, Th-Fr 06:30-12:00, Sa 07:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.4482064,
+          51.7501021
+        ]
+      },
+      "properties": {
+        "id": 13730242117,
+        "osm_type": "node",
+        "name": "Chude Ciacho"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.6386894,
+          51.7257519
+        ]
+      },
+      "properties": {
+        "id": 13739830979,
+        "osm_type": "node",
+        "name": "Przyjaciele Caffe",
+        "check_date": "2026-04-18"
       }
     },
     {
@@ -9214,7 +9315,8 @@
         "id": 203400540,
         "osm_type": "way",
         "name": "Jaś i Małgosia",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 07:00-14:00"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 07:00-14:00",
+        "check_date": "2024-07-19"
       }
     },
     {
@@ -10365,20 +10467,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.925784,
-          51.5956693
-        ]
-      },
-      "properties": {
-        "id": 784372687,
-        "osm_type": "way"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.3683654,
           51.9486661
         ]
@@ -10521,7 +10609,8 @@
       "properties": {
         "id": 877683083,
         "osm_type": "way",
-        "name": "Ozdowscy"
+        "name": "Ozdowscy",
+        "check_date": "2025-12-07"
       }
     },
     {
@@ -10834,6 +10923,37 @@
         "osm_type": "way",
         "name": "Bar Sznycelek",
         "opening_hours": "Mo-Fr 11:00-20:00; Sa 11:00-18:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7252297,
+          51.5910672
+        ]
+      },
+      "properties": {
+        "id": 1499247391,
+        "osm_type": "way",
+        "name": "Piekarnia Robert Kędzia",
+        "opening_hours": "Mo-Fr 06:30-14:00; Sa 06:30-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7253229,
+          51.5911543
+        ]
+      },
+      "properties": {
+        "id": 1499247395,
+        "osm_type": "way",
+        "name": "Piekarnia Jeziorsko"
       }
     }
   ]

@@ -280,7 +280,8 @@
         "id": 418722068,
         "osm_type": "node",
         "name": "Il Giornalaio",
-        "opening_hours": "Mo-Su,PH 07:30-13:30,15:30-23:00"
+        "opening_hours": "Mo-Su,PH 07:30-13:30,15:30-23:00",
+        "check_date": "2025-08-09"
       }
     },
     {
@@ -472,7 +473,8 @@
       "properties": {
         "id": 571128883,
         "osm_type": "node",
-        "name": "A&O Alimentari"
+        "name": "A&O Alimentari",
+        "check_date": "2024-07-24"
       }
     },
     {
@@ -529,7 +531,8 @@
       "properties": {
         "id": 703335942,
         "osm_type": "node",
-        "name": "Bar Pioppi"
+        "name": "Bar Pioppi",
+        "check_date": "2025-06-04"
       }
     },
     {
@@ -1470,6 +1473,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.3397065,
+          45.4382015
+        ]
+      },
+      "properties": {
+        "id": 1677453260,
+        "osm_type": "node",
+        "name": "InCoop",
+        "brand": "InCoop",
+        "opening_hours": "Mo-Sa 08:30-21:00; Su 09:00-21:00",
+        "check_date": "2025-06-06"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.2969275,
           45.8846084
         ]
@@ -1657,7 +1678,8 @@
         "id": 1818174076,
         "osm_type": "node",
         "name": "Alimentari Crai da Ocio",
-        "opening_hours": "Mo-Sa 07:30-12:30,15:30-19:00; Su 08:00-12:00"
+        "opening_hours": "Mo-Sa 07:30-12:30,15:30-19:00; Su 08:00-12:00",
+        "check_date": "2024-07-24"
       }
     },
     {
@@ -1673,7 +1695,8 @@
         "id": 1818174095,
         "osm_type": "node",
         "name": "Conad Margherita",
-        "opening_hours": "Mo-Sa 07:30-12:30,15:30-19:30; Su 08:00-12:00"
+        "opening_hours": "Mo-Sa 07:30-12:30,15:30-19:30; Su 08:00-12:00",
+        "check_date": "2024-07-24"
       }
     },
     {
@@ -1688,7 +1711,8 @@
       "properties": {
         "id": 1818174098,
         "osm_type": "node",
-        "name": "Alimentari Crai da Lucia"
+        "name": "Alimentari Crai da Lucia",
+        "check_date": "2024-07-24"
       }
     },
     {
@@ -3026,21 +3050,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.8363126,
-          45.4140676
-        ]
-      },
-      "properties": {
-        "id": 3138870358,
-        "osm_type": "node",
-        "name": "Edicola Guidetti"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.2914717,
           46.3929292
         ]
@@ -3095,7 +3104,8 @@
         "id": 3522321694,
         "osm_type": "node",
         "name": "Rizzo",
-        "opening_hours": "Mo-Su,PH 07:30-20:00"
+        "opening_hours": "Mo-Su,PH 07:30-20:00",
+        "check_date": "2024-03-14"
       }
     },
     {
@@ -3351,7 +3361,8 @@
         "id": 3851352630,
         "osm_type": "node",
         "name": "Pane e Salame",
-        "opening_hours": "Mo-Sa 07:30-13:30,16:30-19:30; We 07:30-13:30; Su closed; PH closed"
+        "opening_hours": "Mo-Sa 07:30-13:30,16:30-19:30; We 07:30-13:30; Su closed; PH closed",
+        "check_date": "2023-01-05"
       }
     },
     {
@@ -3455,8 +3466,8 @@
       "properties": {
         "id": 4061911547,
         "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop",
+        "name": "InCoop",
+        "brand": "InCoop",
         "opening_hours": "Mo-Sa 08:30-21:00; Su 09:00-21:00"
       }
     },
@@ -3682,7 +3693,8 @@
       "properties": {
         "id": 4262229802,
         "osm_type": "node",
-        "name": "Ethnic World"
+        "name": "Ethnic World",
+        "check_date": "2025-10-08"
       }
     },
     {
@@ -3833,7 +3845,8 @@
       "properties": {
         "id": 4380256971,
         "osm_type": "node",
-        "name": "Alimentari Toniolo"
+        "name": "Alimentari Toniolo",
+        "check_date": "2025-06-09"
       }
     },
     {
@@ -4012,7 +4025,8 @@
       "properties": {
         "id": 4553769946,
         "osm_type": "node",
-        "name": "Antica Salumeria Gironda"
+        "name": "Antica Salumeria Gironda",
+        "check_date": "2025-03-08"
       }
     },
     {
@@ -4232,7 +4246,8 @@
       },
       "properties": {
         "id": 4847647108,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-07-02"
       }
     },
     {
@@ -4399,7 +4414,8 @@
         "id": 5194458358,
         "osm_type": "node",
         "name": "Gelmarket",
-        "opening_hours": "Mo-Sa 09:00-20:00; Su 10:00-14:00,15:30-20:00"
+        "opening_hours": "Mo-Sa 09:00-20:00; Su 10:00-14:00,15:30-20:00",
+        "check_date": "2024-12-13"
       }
     },
     {
@@ -4502,7 +4518,8 @@
       },
       "properties": {
         "id": 5508820477,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-03-13"
       }
     },
     {
@@ -4516,7 +4533,8 @@
       },
       "properties": {
         "id": 5508822762,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-03-07"
       }
     },
     {
@@ -4622,7 +4640,8 @@
       "properties": {
         "id": 5693491442,
         "osm_type": "node",
-        "name": "Alimentari"
+        "name": "Alimentari",
+        "check_date": "2025-07-02"
       }
     },
     {
@@ -4681,7 +4700,8 @@
       "properties": {
         "id": 5746383172,
         "osm_type": "node",
-        "name": "M supermercati"
+        "name": "M supermercati",
+        "check_date": "2025-06-25"
       }
     },
     {
@@ -4800,7 +4820,8 @@
         "osm_type": "node",
         "name": "Coop",
         "brand": "Coop",
-        "opening_hours": "Mo-Sa 08:30-20:00; Su 09:00-13:00"
+        "opening_hours": "Mo-Sa 08:30-20:00; Su 09:00-13:00",
+        "check_date": "2025-11-30"
       }
     },
     {
@@ -4972,21 +4993,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.7787566,
-          45.3504776
-        ]
-      },
-      "properties": {
-        "id": 6033684709,
-        "osm_type": "node",
-        "name": "Alimentara"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.5429298,
           45.5469339
         ]
@@ -5041,7 +5047,8 @@
         "id": 6192177856,
         "osm_type": "node",
         "name": "Da Nello Formaggi e Salumi",
-        "opening_hours": "Mo-Tu,Th-Sa 08:00-13:00,15:00-19:00; We 08:00-13:00; Su off"
+        "opening_hours": "Mo-Tu,Th-Sa 08:00-13:00,15:00-19:00; We 08:00-13:00; Su off",
+        "check_date": "2025-11-18"
       }
     },
     {
@@ -5632,7 +5639,8 @@
         "id": 7376009513,
         "osm_type": "node",
         "name": "Pam Local",
-        "opening_hours": "Mo-Sa 08:30-20:00 , Su off"
+        "opening_hours": "Mo-Sa 08:30-20:00 , Su off",
+        "check_date": "2024-03-07"
       }
     },
     {
@@ -5686,8 +5694,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.8622129,
-          45.395574
+          11.8622509,
+          45.3953607
         ]
       },
       "properties": {
@@ -6239,21 +6247,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.3250477,
-          45.4266811
-        ]
-      },
-      "properties": {
-        "id": 9200474301,
-        "osm_type": "node",
-        "name": "Sirene Blu"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.5507566,
           45.6341055
         ]
@@ -6507,7 +6500,8 @@
       "properties": {
         "id": 9880674968,
         "osm_type": "node",
-        "name": "Tabaccheria"
+        "name": "Tabaccheria",
+        "check_date": "2022-07-11"
       }
     },
     {
@@ -6599,7 +6593,8 @@
       "properties": {
         "id": 9996173167,
         "osm_type": "node",
-        "name": "Market"
+        "name": "Market",
+        "check_date": "2025-07-03"
       }
     },
     {
@@ -6659,7 +6654,8 @@
       },
       "properties": {
         "id": 10030041416,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-09-16"
       }
     },
     {
@@ -6673,7 +6669,8 @@
       },
       "properties": {
         "id": 10031638945,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-09-17"
       }
     },
     {
@@ -6687,7 +6684,8 @@
       },
       "properties": {
         "id": 10032039191,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-09-17"
       }
     },
     {
@@ -6702,21 +6700,6 @@
       "properties": {
         "id": 10059398555,
         "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.3304573,
-          45.4398668
-        ]
-      },
-      "properties": {
-        "id": 10092600024,
-        "osm_type": "node",
-        "name": "Caddy's"
       }
     },
     {
@@ -6790,7 +6773,8 @@
         "id": 10295496222,
         "osm_type": "node",
         "name": "Non solo pane Venezia",
-        "opening_hours": "Mo-Sa 07:30-13:30,16:30-20:00; Su 08:00-13:30; PH closed"
+        "opening_hours": "Mo-Sa 07:30-13:30,16:30-20:00; Su 08:00-13:30; PH closed",
+        "check_date": "2023-02-25"
       }
     },
     {
@@ -7117,7 +7101,8 @@
       "properties": {
         "id": 11021683486,
         "osm_type": "node",
-        "name": "Ling Shi Xiao Pu"
+        "name": "Ling Shi Xiao Pu",
+        "check_date": "2023-07-03"
       }
     },
     {
@@ -7235,7 +7220,8 @@
       "properties": {
         "id": 11132932189,
         "osm_type": "node",
-        "name": "Mini Super Market"
+        "name": "Mini Super Market",
+        "check_date": "2025-06-25"
       }
     },
     {
@@ -7340,7 +7326,8 @@
       "properties": {
         "id": 11241199829,
         "osm_type": "node",
-        "name": "èmme market"
+        "name": "èmme market",
+        "check_date": "2025-10-12"
       }
     },
     {
@@ -7518,7 +7505,8 @@
         "id": 11468869143,
         "osm_type": "node",
         "name": "Minimarket Da Camy",
-        "opening_hours": "Mo-Sa 09:00-19:00; Su 09:00-13:00"
+        "opening_hours": "Mo-Sa 09:00-19:00; Su 09:00-13:00",
+        "check_date": "2023-12-30"
       }
     },
     {
@@ -7592,7 +7580,8 @@
         "id": 11730978857,
         "osm_type": "node",
         "name": "Relay",
-        "brand": "Relay"
+        "brand": "Relay",
+        "check_date": "2024-03-14"
       }
     },
     {
@@ -7924,7 +7913,8 @@
       "properties": {
         "id": 12035968092,
         "osm_type": "node",
-        "name": "Rui"
+        "name": "Rui",
+        "check_date": "2025-07-15"
       }
     },
     {
@@ -8228,7 +8218,8 @@
       "properties": {
         "id": 12231643224,
         "osm_type": "node",
-        "name": "DeSPAR"
+        "name": "Despar",
+        "brand": "Despar"
       }
     },
     {
@@ -8272,7 +8263,8 @@
         "id": 12425224189,
         "osm_type": "node",
         "name": "Dojo Snack",
-        "opening_hours": "Mo,We-Su 09:00-20:30; Tu 12:30-20:30"
+        "opening_hours": "Mo,We-Su 09:00-20:30; Tu 12:30-20:30",
+        "check_date": "2024-12-15"
       }
     },
     {
@@ -8348,7 +8340,8 @@
       "properties": {
         "id": 12668609864,
         "osm_type": "node",
-        "name": "Market Asia"
+        "name": "Market Asia",
+        "check_date": "2025-03-15"
       }
     },
     {
@@ -8530,7 +8523,8 @@
         "id": 13052094126,
         "osm_type": "node",
         "name": "Il Bazar",
-        "opening_hours": "08:00-22:00"
+        "opening_hours": "08:00-22:00",
+        "check_date": "2025-08-08"
       }
     },
     {
@@ -8632,7 +8626,8 @@
       "properties": {
         "id": 13119771948,
         "osm_type": "node",
-        "opening_hours": "07:30-11:30,16:00-22:00"
+        "opening_hours": "07:30-11:30,16:00-22:00",
+        "check_date": "2025-09-04"
       }
     },
     {
@@ -8648,7 +8643,8 @@
         "id": 13123782336,
         "osm_type": "node",
         "name": "Cuor di CRAI",
-        "opening_hours": "Mo-Fr 07:00-13:00,16:00-19:00; Sa 07:00-13:00"
+        "opening_hours": "Mo-Fr 07:00-13:00,16:00-19:00; Sa 07:00-13:00",
+        "check_date": "2025-09-07"
       }
     },
     {
@@ -8869,7 +8865,7 @@
       "properties": {
         "id": 13261395073,
         "osm_type": "node",
-        "name": "Alimentari"
+        "name": "Alimentari Nicoletto Daniela"
       }
     },
     {
@@ -9554,6 +9550,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.290698,
+          45.8002201
+        ]
+      },
+      "properties": {
+        "id": 199814980,
+        "osm_type": "way",
+        "name": "Alimentari Caprin, casolin storico di Fusine"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.0172649,
           46.4115989
         ]
@@ -9651,21 +9662,6 @@
         "id": 219966757,
         "osm_type": "way",
         "name": "Supermarket San Valentino"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.8362811,
-          45.4140534
-        ]
-      },
-      "properties": {
-        "id": 308620527,
-        "osm_type": "way",
-        "name": "Edicola Guidetti"
       }
     },
     {

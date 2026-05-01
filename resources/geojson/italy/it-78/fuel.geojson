@@ -301,7 +301,8 @@
         "osm_type": "node",
         "name": "Tamoil",
         "brand": "Tamoil",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-03-14"
       }
     },
     {
@@ -976,7 +977,8 @@
         "osm_type": "node",
         "name": "Eni",
         "brand": "Eni",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-03-03"
       }
     },
     {
@@ -3222,7 +3224,8 @@
       "properties": {
         "id": 3898944784,
         "osm_type": "node",
-        "brand": "Total Erg"
+        "name": "IP",
+        "brand": "IP"
       }
     },
     {
@@ -3237,7 +3240,7 @@
       "properties": {
         "id": 3899097129,
         "osm_type": "node",
-        "name": "IES"
+        "name": "Energy Fornaro"
       }
     },
     {
@@ -5162,7 +5165,8 @@
       "properties": {
         "id": 5851832278,
         "osm_type": "node",
-        "brand": "Api-Ip"
+        "name": "IP",
+        "brand": "IP"
       }
     },
     {
@@ -5996,8 +6000,8 @@
       "properties": {
         "id": 5851837367,
         "osm_type": "node",
-        "name": "Agip",
-        "brand": "Agip Eni"
+        "name": "Eni",
+        "brand": "Eni"
       }
     },
     {
@@ -7459,6 +7463,7 @@
       "properties": {
         "id": 5851844635,
         "osm_type": "node",
+        "name": "Esso",
         "brand": "Esso"
       }
     },
@@ -9097,7 +9102,8 @@
         "id": 265054678,
         "osm_type": "way",
         "name": "Stazione di servizio Esso 3286 Crispi",
-        "brand": "Esso"
+        "brand": "Esso",
+        "check_date": "2018-04-16"
       }
     },
     {
@@ -10371,6 +10377,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          16.6392,
+          39.6132025
+        ]
+      },
+      "properties": {
+        "id": 802450095,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           16.7914744,
           38.9177896
         ]
@@ -10671,23 +10691,6 @@
         "osm_type": "way",
         "name": "Esso",
         "brand": "Esso",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.6391793,
-          39.6131676
-        ]
-      },
-      "properties": {
-        "id": 1174753643,
-        "osm_type": "way",
-        "name": "Conad",
-        "brand": "Conad",
         "opening_hours": "24/7"
       }
     },

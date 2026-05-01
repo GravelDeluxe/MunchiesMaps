@@ -90,7 +90,8 @@
         "id": 1723241310,
         "osm_type": "node",
         "name": "Kawka Caffe",
-        "opening_hours": "Mo-Fr 08:00-19:00; Su 12:00-19:00"
+        "opening_hours": "Mo-Fr 08:00-19:00; Su 12:00-19:00",
+        "check_date": "2025-04-22"
       }
     },
     {
@@ -305,7 +306,8 @@
         "osm_type": "node",
         "name": "Libera",
         "opening_hours": "Mo-Th 10:00-22:00; Fr,Sa 10:00-23:00; Su 11:00-21:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-08-03"
       }
     },
     {
@@ -379,7 +381,8 @@
       "properties": {
         "id": 2492031228,
         "osm_type": "node",
-        "name": "Wytwórnia Ciast Sierkowska"
+        "name": "Wytwórnia Ciast Sierkowska",
+        "check_date": "2023-06-05"
       }
     },
     {
@@ -559,7 +562,8 @@
         "id": 3083513223,
         "osm_type": "node",
         "name": "Piekarnia \"Rogalik\"",
-        "opening_hours": "Mo-Fr 06:00-17:00; Sa 06:00-14:00"
+        "opening_hours": "Mo-Fr 06:00-17:00; Sa 06:00-14:00",
+        "check_date": "2025-04-19"
       }
     },
     {
@@ -807,15 +811,33 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.7743557,
-          49.782178
+          22.7743153,
+          49.7822019
         ]
       },
       "properties": {
         "id": 3666223370,
         "osm_type": "node",
         "name": "Piekarnia Kłos",
-        "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:00-15:00"
+        "opening_hours": "Mo-Fr 06:00-16:00; Sa 06:00-15:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.232198,
+          50.0672322
+        ]
+      },
+      "properties": {
+        "id": 3675575874,
+        "osm_type": "node",
+        "name": "Pasierb",
+        "opening_hours": "Mo-Sa 08:00-18:00; Su 10:00-18:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-17"
       }
     },
     {
@@ -897,22 +919,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0058906,
-          50.0376329
-        ]
-      },
-      "properties": {
-        "id": 3925986697,
-        "osm_type": "node",
-        "name": "Hola Lola",
-        "opening_hours": "Mo-Fr 09:00-02:00; Sa 10:00-02:00; Su 12:00-24:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           22.0145874,
           50.0269974
         ]
@@ -968,7 +974,8 @@
       "properties": {
         "id": 4293790695,
         "osm_type": "node",
-        "name": "Słodka Koza"
+        "name": "Słodka Koza",
+        "check_date": "2026-03-07"
       }
     },
     {
@@ -1084,15 +1091,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0018826,
-          50.0383673
+          22.001889,
+          50.0383728
         ]
       },
       "properties": {
         "id": 4604858091,
         "osm_type": "node",
         "name": "Cafe Mini",
-        "opening_hours": "Mo-Fr 08:00-20:00; Sa, Su 08:00-21:00"
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa, Su 08:00-21:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-16"
       }
     },
     {
@@ -1100,15 +1109,50 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0019111,
-          50.0374416
+          22.0013505,
+          50.0370712
         ]
       },
       "properties": {
-        "id": 4604858098,
+        "id": 4604858100,
         "osm_type": "node",
-        "name": "Gelateria Bianca",
-        "opening_hours": "Mo-Fr 08:00-21:00; Sa 09:00-22:00; Su 10:00-21:00"
+        "name": "Niebieskie Migdały",
+        "opening_hours": "Mo-Th 09:00-20:00; Fr-Sa 09:00-21:00; Su 10:00-20:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.001366,
+          50.0364257
+        ]
+      },
+      "properties": {
+        "id": 4604858108,
+        "osm_type": "node",
+        "name": "A Thousand Delights",
+        "opening_hours": "10:00-19:00",
+        "check_date": "2026-04-14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.0013961,
+          50.0371711
+        ]
+      },
+      "properties": {
+        "id": 4604858115,
+        "osm_type": "node",
+        "name": "Sweetery",
+        "check_date": "2026-04-14"
       }
     },
     {
@@ -1186,7 +1230,9 @@
         "id": 4832625128,
         "osm_type": "node",
         "name": "Kawa Rzeszowska",
-        "opening_hours": "Mo-Fr 08:00-19:00; Sa-Su 09:00-19:00"
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa-Su 09:00-19:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-15"
       }
     },
     {
@@ -1232,7 +1278,8 @@
         "id": 5056617637,
         "osm_type": "node",
         "name": "Rostek",
-        "opening_hours": "Mo-Fr 05:00-17:00; Sa 05:00-13:00"
+        "opening_hours": "Mo-Fr 05:00-17:00; Sa 05:00-13:00",
+        "check_date": "2025-04-22"
       }
     },
     {
@@ -1310,22 +1357,8 @@
         "id": 5223644321,
         "osm_type": "node",
         "name": "Selfier - manufaktura cukiernicza",
-        "opening_hours": "Mo-Fr 09:00-18:00; Sa-Su 9:00-19:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          22.0034198,
-          50.0384369
-        ]
-      },
-      "properties": {
-        "id": 5306985193,
-        "osm_type": "node",
-        "name": "Cukiernia Millenium"
+        "opening_hours": "Mo-Fr 09:00-18:00; Sa-Su 9:00-19:00",
+        "check_date": "2025-08-01"
       }
     },
     {
@@ -1387,8 +1420,9 @@
         "id": 5728440822,
         "osm_type": "node",
         "name": "Dziarski Barista",
-        "opening_hours": "Mo-Su 08:00-19:00",
-        "outdoor_seating": "yes"
+        "opening_hours": "Mo-Th 08:00-19:00; Fr 08:00-20:00; Sa 09:00-20:00; Su 09:00-19:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-15"
       }
     },
     {
@@ -1480,7 +1514,8 @@
         "id": 6138947477,
         "osm_type": "node",
         "name": "Siesta Cafe",
-        "opening_hours": "Mo-Th 10:00-21:30; Fr,Sa 10:00-22:30; Su 11:00-21:30"
+        "opening_hours": "Mo-Th 10:00-21:30; Fr,Sa 10:00-22:30; Su 11:00-21:30",
+        "check_date": "2026-02-13"
       }
     },
     {
@@ -1512,7 +1547,8 @@
         "id": 6147756376,
         "osm_type": "node",
         "name": "Domowa Piekarnia & Spiżarnia",
-        "opening_hours": "Mo-Fr 06:00-20:00; Sa 09:00-14:00; Su 16:00-20:00"
+        "opening_hours": "Mo-Fr 06:00-20:00; Sa 09:00-14:00; Su 16:00-20:00",
+        "check_date": "2025-08-03"
       }
     },
     {
@@ -1528,7 +1564,8 @@
         "id": 6151631517,
         "osm_type": "node",
         "name": "Miejsce",
-        "opening_hours": "Mo-Fr 08:00-18:00, Sa 8:00-15:00, Su 8:00-15:00"
+        "opening_hours": "Mo-Fr 08:00-18:00, Sa 8:00-15:00, Su 8:00-15:00",
+        "check_date": "2025-08-01"
       }
     },
     {
@@ -1544,7 +1581,8 @@
         "id": 6151640148,
         "osm_type": "node",
         "name": "Cafe Żaczek",
-        "opening_hours": "Mo-Fr 8:00-17:00, Sa 8:00-14:00"
+        "opening_hours": "Mo-Fr 8:00-17:00, Sa 8:00-14:00",
+        "check_date": "2026-04-11"
       }
     },
     {
@@ -1651,7 +1689,8 @@
         "osm_type": "node",
         "name": "Szanter",
         "opening_hours": "Mo-Su 10:00-21:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-01"
       }
     },
     {
@@ -1714,7 +1753,8 @@
       "properties": {
         "id": 6700909860,
         "osm_type": "node",
-        "name": "Sogno Caffé"
+        "name": "Sogno Caffé",
+        "check_date": "2026-02-13"
       }
     },
     {
@@ -1837,7 +1877,8 @@
         "id": 7077368487,
         "osm_type": "node",
         "name": "Cukiernia Pierz",
-        "opening_hours": "Mo-Fr 09:00-16:00; Sa 09:00-14:00; Su 10:00-17:00"
+        "opening_hours": "Mo-Fr 09:00-16:00; Sa 09:00-14:00; Su 10:00-17:00",
+        "check_date": "2025-08-10"
       }
     },
     {
@@ -1962,7 +2003,8 @@
         "osm_type": "node",
         "name": "Kopacz",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2026-02-13"
       }
     },
     {
@@ -2037,8 +2079,10 @@
       "properties": {
         "id": 8016042452,
         "osm_type": "node",
-        "name": "Zacisze Anioła Palarnia Kawy",
-        "outdoor_seating": "no"
+        "name": "Zacisze Anioła",
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa-Su 09:00-20:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-17"
       }
     },
     {
@@ -2098,7 +2142,8 @@
       "properties": {
         "id": 8767830553,
         "osm_type": "node",
-        "name": "Olejarski"
+        "name": "Olejarski",
+        "check_date": "2025-08-03"
       }
     },
     {
@@ -2136,15 +2181,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.2314185,
-          50.0682395
+          22.2313665,
+          50.0682058
         ]
       },
       "properties": {
         "id": 8930547917,
         "osm_type": "node",
         "name": "Art Cafe",
-        "opening_hours": "Mo-Su 10:00-21:00; Fr,Sa 10:00-24:00"
+        "opening_hours": "10:00-21:00; Fr-Sa 10:00-24:00",
+        "check_date": "2026-04-17"
       }
     },
     {
@@ -2574,7 +2620,25 @@
         "id": 9575021006,
         "osm_type": "node",
         "name": "Rostek",
-        "opening_hours": "Mo-Fr 05:30-18:00; Sa 07:00-14:00"
+        "opening_hours": "Mo-Fr 05:30-18:00; Sa 07:00-14:00",
+        "check_date": "2026-01-29"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.7710975,
+          49.7819935
+        ]
+      },
+      "properties": {
+        "id": 9597517072,
+        "osm_type": "node",
+        "name": "Przemiś",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-13"
       }
     },
     {
@@ -2634,7 +2698,9 @@
         "id": 9841195535,
         "osm_type": "node",
         "name": "Stary Piernik",
-        "outdoor_seating": "yes"
+        "opening_hours": "Mo-Th,Su 09:00-20:00; Fr-Sa 09:00-21:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-14"
       }
     },
     {
@@ -2756,7 +2822,8 @@
       "properties": {
         "id": 10212680369,
         "osm_type": "node",
-        "name": "Piekarnia Rostek"
+        "name": "Piekarnia Rostek",
+        "check_date": "2025-04-23"
       }
     },
     {
@@ -2781,14 +2848,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0026455,
-          50.03816
+          22.0026493,
+          50.0381608
         ]
       },
       "properties": {
         "id": 10292996081,
         "osm_type": "node",
-        "name": "Palce Lizać"
+        "name": "Palce Lizać",
+        "check_date": "2026-04-14"
       }
     },
     {
@@ -2935,6 +3003,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          22.0015564,
+          50.038451
+        ]
+      },
+      "properties": {
+        "id": 10713260400,
+        "osm_type": "node",
+        "name": "Bez Kurtuazji",
+        "opening_hours": "Oct-Apr Mo-Fr 07:30-18:00; Oct-Apr Sa-Su 09:00-18:00; May-Sep Mo-Th 07:30-20:00; May-Sep Fr 07:30-20:00; Oct-Apr Sa 09:00-21:00; May-Sep Su 09:00-20:00",
+        "check_date": "2026-04-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           22.0157302,
           50.0303473
         ]
@@ -2989,7 +3074,8 @@
         "id": 10771670340,
         "osm_type": "node",
         "name": "Coffeina",
-        "opening_hours": "Mo-Fr 07:00-19:00; Sa 09:00-19:00; Su 10:00-19:00"
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa 09:00-19:00; Su 10:00-19:00",
+        "check_date": "2026-04-14"
       }
     },
     {
@@ -3019,7 +3105,8 @@
       "properties": {
         "id": 10788410330,
         "osm_type": "node",
-        "name": "So Coffee"
+        "name": "So Coffee",
+        "check_date": "2024-06-20"
       }
     },
     {
@@ -3037,22 +3124,6 @@
         "name": "Kawiarnia Dulce Mia",
         "opening_hours": "Tu-Su 11:00-20:00",
         "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          22.002925,
-          50.0384015
-        ]
-      },
-      "properties": {
-        "id": 10804482197,
-        "osm_type": "node",
-        "name": "Najpierw Kawa",
-        "opening_hours": "Mo-Fr 07:00-17:00; Sa 10:00-15:00; PH,Su off"
       }
     },
     {
@@ -3106,14 +3177,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0027868,
-          50.0398705
+          22.0028467,
+          50.0391085
         ]
       },
       "properties": {
-        "id": 10871909357,
+        "id": 10871909350,
         "osm_type": "node",
-        "name": "Galicyjska"
+        "opening_hours": "Mo-Sa 09:00-18:00; Su 10:00-18:00",
+        "check_date": "2026-04-14"
       }
     },
     {
@@ -3128,7 +3200,8 @@
       "properties": {
         "id": 10881166578,
         "osm_type": "node",
-        "name": "Trybulec"
+        "name": "Trybulec",
+        "check_date": "2025-06-13"
       }
     },
     {
@@ -3191,7 +3264,10 @@
       "properties": {
         "id": 10972040129,
         "osm_type": "node",
-        "name": "Kawa na Ławę"
+        "name": "Kawa na Ławę",
+        "opening_hours": "08:00-20:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-14"
       }
     },
     {
@@ -3206,7 +3282,9 @@
       "properties": {
         "id": 10972040132,
         "osm_type": "node",
-        "name": "Niebo w Mieście"
+        "name": "Niebo w Mieście",
+        "opening_hours": "09:00-20:00",
+        "check_date": "2026-04-14"
       }
     },
     {
@@ -3229,14 +3307,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0028169,
-          50.0419331
+          22.0028207,
+          50.0419379
         ]
       },
       "properties": {
         "id": 10980483691,
         "osm_type": "node",
-        "name": "AS"
+        "name": "AS",
+        "opening_hours": "Mo-Fr 06:15-14:15"
       }
     },
     {
@@ -3244,14 +3323,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0058527,
-          50.0421827
+          22.0058371,
+          50.0421771
         ]
       },
       "properties": {
         "id": 10994297642,
         "osm_type": "node",
-        "name": "Wypieki Gruzińskie"
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 09:00-14:00; Su off",
+        "check_date": "2026-04-16"
       }
     },
     {
@@ -3281,7 +3361,9 @@
       "properties": {
         "id": 11044014112,
         "osm_type": "node",
-        "name": "Piętro Cafe"
+        "name": "Piętro Cafe",
+        "opening_hours": "Mo-Th,Su 10:00-22:00; Fr-Sa 10:00-24:00",
+        "check_date": "2026-04-15"
       }
     },
     {
@@ -3289,14 +3371,33 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0043828,
-          50.0378166
+          22.0043983,
+          50.0378209
         ]
       },
       "properties": {
         "id": 11044036599,
         "osm_type": "node",
-        "name": "Palce Lizać"
+        "name": "Fika Cake",
+        "opening_hours": "Mo-We,Su 09:00-19:00; Th 09:00-20:00; Fr-Sa 09:00-21:00",
+        "check_date": "2026-04-15"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.0043224,
+          50.0378291
+        ]
+      },
+      "properties": {
+        "id": 11044036600,
+        "osm_type": "node",
+        "name": "Cynamonkownia",
+        "opening_hours": "12:00-20:00",
+        "check_date": "2026-04-15"
       }
     },
     {
@@ -3419,7 +3520,8 @@
         "id": 11133790316,
         "osm_type": "node",
         "name": "Pijalnia Czekolady M.Pelczar",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-03-07"
       }
     },
     {
@@ -3427,14 +3529,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0049695,
-          50.0409821
+          22.0049789,
+          50.0409802
         ]
       },
       "properties": {
         "id": 11158689968,
         "osm_type": "node",
-        "name": "Rostek"
+        "name": "Rostek",
+        "opening_hours": "Mo-Fr 06:00-17:00",
+        "check_date": "2026-04-16"
       }
     },
     {
@@ -3465,22 +3569,6 @@
         "id": 11187619628,
         "osm_type": "node",
         "outdoor_seating": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          22.0026787,
-          50.0376992
-        ]
-      },
-      "properties": {
-        "id": 11221437474,
-        "osm_type": "node",
-        "name": "Kocia Kawiarnia Kotłownia",
-        "opening_hours": "Tu-Su 11:00-19:00"
       }
     },
     {
@@ -3587,7 +3675,8 @@
         "osm_type": "node",
         "name": "Le Petit Reve",
         "opening_hours": "08:00-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-02-25"
       }
     },
     {
@@ -3610,14 +3699,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.7760656,
-          49.7829351
+          22.7760226,
+          49.7829109
         ]
       },
       "properties": {
         "id": 11670199819,
         "osm_type": "node",
-        "name": "Coffe To4ka"
+        "name": "Coffe To4ka",
+        "opening_hours": "24/7",
+        "outdoor_seating": "no",
+        "check_date": "2026-04-14"
       }
     },
     {
@@ -3705,8 +3797,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0080501,
-          50.030774
+          22.008128,
+          50.0307546
         ]
       },
       "properties": {
@@ -3864,7 +3956,8 @@
       "properties": {
         "id": 12163133523,
         "osm_type": "node",
-        "name": "Widzimisię"
+        "name": "Widzimisię",
+        "check_date": "2024-09-08"
       }
     },
     {
@@ -4024,7 +4117,8 @@
         "id": 12260956785,
         "osm_type": "node",
         "name": "Coś Słodkiego",
-        "opening_hours": "Mo-Su 10:00-19:00"
+        "opening_hours": "Mo-Su 10:00-19:00",
+        "check_date": "2025-08-10"
       }
     },
     {
@@ -4248,7 +4342,8 @@
       "properties": {
         "id": 12648295284,
         "osm_type": "node",
-        "name": "Breakfast & Chill"
+        "name": "Breakfast & Chill",
+        "check_date": "2026-02-13"
       }
     },
     {
@@ -4294,7 +4389,8 @@
         "id": 12774423898,
         "osm_type": "node",
         "name": "Chyba to tu",
-        "opening_hours": "Mo-We 15:00-23:00; Th 12:00-23:00; Fr 12:00-24:00; Sa 00:00-01:00,14:00-24:00; Su 00:00-01:00,14:00-23:00"
+        "opening_hours": "Mo-We 15:00-23:00; Th 12:00-23:00; Fr 12:00-24:00; Sa 00:00-01:00,14:00-24:00; Su 00:00-01:00,14:00-23:00",
+        "check_date": "2025-04-22"
       }
     },
     {
@@ -4310,7 +4406,8 @@
         "id": 12774445700,
         "osm_type": "node",
         "name": "Rostek",
-        "opening_hours": "Mo-Fr 05:00-17:00; Sa 05:00-13:00"
+        "opening_hours": "Mo-Fr 05:00-17:00; Sa 05:00-13:00",
+        "check_date": "2025-04-22"
       }
     },
     {
@@ -4326,7 +4423,8 @@
         "id": 12774541581,
         "osm_type": "node",
         "name": "Piekarnia Staropolska",
-        "opening_hours": "Mo-Fr 05:30-19:00; Sa 05:30-15:00"
+        "opening_hours": "Mo-Fr 05:30-19:00; Sa 05:30-15:00",
+        "check_date": "2025-04-22"
       }
     },
     {
@@ -4342,7 +4440,8 @@
         "id": 12775691160,
         "osm_type": "node",
         "name": "Piekarnia stalopolska",
-        "opening_hours": "Mo-Fr 05:30-17:00; Sa 06:00-13:00"
+        "opening_hours": "Mo-Fr 05:30-17:00; Sa 06:00-13:00",
+        "check_date": "2025-04-22"
       }
     },
     {
@@ -4388,7 +4487,8 @@
         "id": 12923593238,
         "osm_type": "node",
         "name": "Piekarnia Cudziło",
-        "opening_hours": "Mo-Sa 06:00-16:00"
+        "opening_hours": "Mo-Sa 06:00-16:00",
+        "check_date": "2025-06-18"
       }
     },
     {
@@ -4404,7 +4504,8 @@
         "id": 12980356327,
         "osm_type": "node",
         "name": "Turbia",
-        "opening_hours": "Mo-Fr 06:00-16:00; Sa 06:00-14:00"
+        "opening_hours": "Mo-Fr 06:00-16:00; Sa 06:00-14:00",
+        "check_date": "2025-07-05"
       }
     },
     {
@@ -4435,7 +4536,8 @@
         "id": 12981841440,
         "osm_type": "node",
         "name": "Rostek",
-        "opening_hours": "Mo-Fr 05:00-17:00; Sa 05:00-13:00"
+        "opening_hours": "Mo-Fr 05:00-17:00; Sa 05:00-13:00",
+        "check_date": "2025-07-06"
       }
     },
     {
@@ -4443,14 +4545,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.0036803,
-          50.0380116
+          22.0036905,
+          50.0380104
         ]
       },
       "properties": {
         "id": 13020720309,
         "osm_type": "node",
-        "name": "Mały Format mikropiekarnia"
+        "name": "Mały Format",
+        "opening_hours": "Tu-Fr 07:30-17:00; Sa 09:00-15:00",
+        "check_date": "2026-04-15"
       }
     },
     {
@@ -4475,15 +4579,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.7717577,
-          49.7819699
+          22.7717593,
+          49.7820036
         ]
       },
       "properties": {
         "id": 13042516317,
         "osm_type": "node",
         "name": "Marcosso",
-        "opening_hours": "Mo-Fr 08:00-17:00; Sa-Su 09:00-18:00"
+        "opening_hours": "Mo-Fr 08:00-17:00; Sa-Su 09:00-18:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-13"
       }
     },
     {
@@ -4498,7 +4604,8 @@
       "properties": {
         "id": 13057633082,
         "osm_type": "node",
-        "name": "Elvis"
+        "name": "Elvis",
+        "check_date": "2025-08-08"
       }
     },
     {
@@ -4513,7 +4620,8 @@
       "properties": {
         "id": 13061890626,
         "osm_type": "node",
-        "name": "Chaczapuri"
+        "name": "Chaczapuri",
+        "check_date": "2025-08-10"
       }
     },
     {
@@ -4607,7 +4715,8 @@
         "id": 13130677307,
         "osm_type": "node",
         "name": "Staropolska",
-        "opening_hours": "Mo-Fr 05:00-17:00; Sa 05:00-14:00"
+        "opening_hours": "Mo-Fr 05:00-17:00; Sa 05:00-14:00",
+        "check_date": "2025-09-09"
       }
     },
     {
@@ -4623,7 +4732,8 @@
         "id": 13159886586,
         "osm_type": "node",
         "name": "Rostek",
-        "opening_hours": "Mo-Fr 06:00-17:00; Sa 07:00-13:00"
+        "opening_hours": "Mo-Fr 06:00-17:00; Sa 07:00-13:00",
+        "check_date": "2025-09-21"
       }
     },
     {
@@ -4794,7 +4904,8 @@
       "properties": {
         "id": 13556288873,
         "osm_type": "node",
-        "name": "Kajkacafe"
+        "name": "Kajkacafe",
+        "check_date": "2026-02-13"
       }
     },
     {
@@ -4824,7 +4935,8 @@
       "properties": {
         "id": 13624914218,
         "osm_type": "node",
-        "name": "Górnik"
+        "name": "Górnik",
+        "check_date": "2026-03-07"
       }
     },
     {
@@ -4855,7 +4967,8 @@
         "id": 13666743623,
         "osm_type": "node",
         "name": "Cudziło",
-        "opening_hours": "Mo-Fr 06:00-16:00; Sa 06:00-13:00"
+        "opening_hours": "Mo-Fr 06:00-16:00; Sa 06:00-13:00",
+        "check_date": "2026-03-21"
       }
     },
     {
@@ -4916,7 +5029,8 @@
         "id": 13723507962,
         "osm_type": "node",
         "name": "Rozbórz",
-        "opening_hours": "Mo-Fr 06:00-16:30; Sa 06:00-13:00"
+        "opening_hours": "Mo-Fr 06:00-16:30; Sa 06:00-13:00",
+        "check_date": "2026-04-11"
       }
     },
     {
@@ -4931,7 +5045,8 @@
       "properties": {
         "id": 13724850689,
         "osm_type": "node",
-        "name": "Renesansowa"
+        "name": "Renesansowa",
+        "check_date": "2026-04-12"
       }
     },
     {
@@ -4947,6 +5062,215 @@
         "id": 13726200768,
         "osm_type": "node",
         "name": "Piękoś Punkt Mobilny"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.0006425,
+          50.034937
+        ]
+      },
+      "properties": {
+        "id": 13730324211,
+        "osm_type": "node",
+        "name": "Filmowa",
+        "check_date": "2026-04-14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.0020078,
+          50.0419115
+        ]
+      },
+      "properties": {
+        "id": 13730334490,
+        "osm_type": "node",
+        "name": "Zamojska",
+        "opening_hours": "Mo-Fr 07:00-15:00",
+        "check_date": "2026-04-14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.112308,
+          50.0880427
+        ]
+      },
+      "properties": {
+        "id": 13732057834,
+        "osm_type": "node",
+        "name": "Spichlerzowa Kawiarenka",
+        "opening_hours": "Tu-Fr 16:00-20:00; Sa-Su 12:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.0014277,
+          50.0385155
+        ]
+      },
+      "properties": {
+        "id": 13735352911,
+        "osm_type": "node",
+        "name": "One Day",
+        "opening_hours": "11:00-17:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.003474,
+          50.0384324
+        ]
+      },
+      "properties": {
+        "id": 13735378168,
+        "osm_type": "node",
+        "name": "Równa Babka",
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa-Su 10:00-20:00",
+        "check_date": "2026-04-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2326652,
+          50.0665448
+        ]
+      },
+      "properties": {
+        "id": 13737122480,
+        "osm_type": "node",
+        "check_date": "2026-04-17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2316058,
+          50.0687284
+        ]
+      },
+      "properties": {
+        "id": 13737539474,
+        "osm_type": "node",
+        "name": "Aleja Smaku",
+        "check_date": "2026-04-17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2295258,
+          50.069224
+        ]
+      },
+      "properties": {
+        "id": 13737950819,
+        "osm_type": "node",
+        "name": "Teodora",
+        "opening_hours": "Mo-Sa 09:00-18:00; Su 10:00-18:00",
+        "check_date": "2026-04-17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9798365,
+          50.0950304
+        ]
+      },
+      "properties": {
+        "id": 13752465131,
+        "osm_type": "node",
+        "name": "Cafe Moya"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.438803,
+          50.294397
+        ]
+      },
+      "properties": {
+        "id": 13764019553,
+        "osm_type": "node",
+        "name": "Taran",
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-13:00; Su off",
+        "check_date": "2026-04-26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.438912,
+          50.294439
+        ]
+      },
+      "properties": {
+        "id": 13764019554,
+        "osm_type": "node",
+        "check_date": "2026-04-26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9988867,
+          50.0373585
+        ]
+      },
+      "properties": {
+        "id": 13780503231,
+        "osm_type": "node",
+        "name": "Błażowa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9986778,
+          50.0370906
+        ]
+      },
+      "properties": {
+        "id": 13780507140,
+        "osm_type": "node",
+        "name": "Piekarnia w Starym Młynie w Markowej"
       }
     },
     {
@@ -5039,7 +5363,8 @@
         "id": 197863571,
         "osm_type": "way",
         "name": "Wybory Cukiernicze i Piekarnicze",
-        "opening_hours": "Mo-Fr 06:30-14:30"
+        "opening_hours": "Mo-Fr 06:30-14:30",
+        "check_date": "2025-09-21"
       }
     },
     {
@@ -6125,7 +6450,8 @@
         "id": 1110429556,
         "osm_type": "way",
         "name": "Cukiernia Amorek",
-        "opening_hours": "Mo-Fr 08:00-17:00; Sa 09:00-15:00"
+        "opening_hours": "Mo-Fr 08:00-17:00; Sa 09:00-15:00",
+        "check_date": "2024-06-23"
       }
     },
     {
@@ -6236,6 +6562,21 @@
         "id": 1447297862,
         "osm_type": "way",
         "name": "Przystanek Bulwary"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.0590097,
+          50.5672681
+        ]
+      },
+      "properties": {
+        "id": 1506227513,
+        "osm_type": "way",
+        "name": "Piekarnia Jamnica"
       }
     }
   ]

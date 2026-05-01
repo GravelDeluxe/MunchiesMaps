@@ -6,15 +6,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3983568,
-          47.1887957
+          7.9063961,
+          47.3499296
         ]
       },
       "properties": {
-        "id": 10104526096,
+        "id": 2218559016,
         "osm_type": "node",
-        "vending": "snacks",
-        "brand": "Selecta"
+        "vending": "food",
+        "check_date": "2025-09-22"
       }
     },
     {
@@ -22,15 +22,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3985479,
-          47.188932
+          7.9020289,
+          47.3445564
         ]
       },
       "properties": {
-        "id": 10104526104,
+        "id": 2242708688,
         "osm_type": "node",
-        "vending": "snacks",
-        "brand": "Selecta"
+        "opening_hours": "24/7",
+        "vending": "food",
+        "brand": "Selecta",
+        "operator": "Selecta",
+        "check_date": "2023-02-19"
       }
     },
     {
@@ -38,15 +41,48 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3957342,
-          47.1930357
+          7.5145843,
+          47.2201123
         ]
       },
       "properties": {
-        "id": 10104537224,
+        "id": 2402700750,
         "osm_type": "node",
-        "vending": "coffee",
-        "brand": "Lavazza",
+        "vending": "drinks;food",
+        "operator": "selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5435243,
+          47.2033938
+        ]
+      },
+      "properties": {
+        "id": 3490638005,
+        "osm_type": "node",
+        "vending": "drinks;food",
+        "brand": "Selecta",
+        "operator": "selecta",
+        "check_date": "2024-08-13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5384828,
+          47.2047727
+        ]
+      },
+      "properties": {
+        "id": 3935584339,
+        "osm_type": "node",
+        "vending": "drinks",
         "operator": "Selecta"
       }
     },
@@ -55,15 +91,111 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.456843,
-          47.2006765
+          7.9174197,
+          47.3466806
         ]
       },
       "properties": {
-        "id": 11310907577,
+        "id": 4838604128,
         "osm_type": "node",
-        "vending": "drinks;sweets;water",
+        "vending": "food",
         "operator": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5080314,
+          47.2092206
+        ]
+      },
+      "properties": {
+        "id": 5497027026,
+        "osm_type": "node",
+        "vending": "coffee;drinks;food;photos",
+        "check_date": "2025-06-07"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5156482,
+          47.2204266
+        ]
+      },
+      "properties": {
+        "id": 6034033104,
+        "osm_type": "node",
+        "vending": "food",
+        "operator": "Fleischfachgeschäft Fischer AG"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5549488,
+          47.2200743
+        ]
+      },
+      "properties": {
+        "id": 6484414418,
+        "osm_type": "node",
+        "vending": "food;drinks;condoms;sweets",
+        "operator": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6930662,
+          47.3137945
+        ]
+      },
+      "properties": {
+        "id": 6897412703,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "operator": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7049944,
+          47.2850619
+        ]
+      },
+      "properties": {
+        "id": 6906272637,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5215054,
+          47.2093309
+        ]
+      },
+      "properties": {
+        "id": 7554709693,
+        "osm_type": "node",
+        "vending": "food;drinks;condoms;sweets",
+        "operator": "selecta",
+        "check_date": "2021-12-29"
       }
     },
     {
@@ -101,166 +233,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5080314,
-          47.2092206
-        ]
-      },
-      "properties": {
-        "id": 5497027026,
-        "osm_type": "node",
-        "vending": "coffee;drinks;food;photos"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.5215054,
-          47.2093309
-        ]
-      },
-      "properties": {
-        "id": 7554709693,
-        "osm_type": "node",
-        "vending": "food;drinks;condoms;sweets",
-        "operator": "selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.5145843,
-          47.2201123
-        ]
-      },
-      "properties": {
-        "id": 2402700750,
-        "osm_type": "node",
-        "vending": "drinks;food",
-        "operator": "selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.5156482,
-          47.2204266
-        ]
-      },
-      "properties": {
-        "id": 6034033104,
-        "osm_type": "node",
-        "vending": "food",
-        "operator": "Fleischfachgeschäft Fischer AG"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.5384828,
-          47.2047727
-        ]
-      },
-      "properties": {
-        "id": 3935584339,
-        "osm_type": "node",
-        "vending": "drinks",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.5435243,
-          47.2033938
-        ]
-      },
-      "properties": {
-        "id": 3490638005,
-        "osm_type": "node",
-        "vending": "drinks;food",
-        "brand": "Selecta",
-        "operator": "selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.5435946,
-          47.2042613
-        ]
-      },
-      "properties": {
-        "id": 11844711083,
-        "osm_type": "node",
-        "name": "Lavazza",
-        "vending": "coffee",
-        "brand": "Lavazza"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.5660365,
-          47.1805854
-        ]
-      },
-      "properties": {
-        "id": 13055950686,
-        "osm_type": "node",
-        "vending": "food",
-        "operator": "selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.5549488,
-          47.2200743
-        ]
-      },
-      "properties": {
-        "id": 6484414418,
-        "osm_type": "node",
-        "vending": "food;drinks;condoms;sweets",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.7049944,
-          47.2850619
-        ]
-      },
-      "properties": {
-        "id": 6906272637,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.715471,
           47.2898107
         ]
@@ -269,6 +241,23 @@
         "id": 7674330254,
         "osm_type": "node",
         "vending": "drinks;sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8985481,
+          47.361792
+        ]
+      },
+      "properties": {
+        "id": 8887808745,
+        "osm_type": "node",
+        "vending": "food",
+        "operator": "Selecta",
+        "check_date": "2025-09-29"
       }
     },
     {
@@ -293,6 +282,57 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.3983568,
+          47.1887957
+        ]
+      },
+      "properties": {
+        "id": 10104526096,
+        "osm_type": "node",
+        "vending": "snacks",
+        "brand": "Selecta",
+        "check_date": "2025-09-09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3985479,
+          47.188932
+        ]
+      },
+      "properties": {
+        "id": 10104526104,
+        "osm_type": "node",
+        "vending": "snacks",
+        "brand": "Selecta",
+        "check_date": "2025-09-09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3957342,
+          47.1930357
+        ]
+      },
+      "properties": {
+        "id": 10104537224,
+        "osm_type": "node",
+        "vending": "coffee",
+        "brand": "Lavazza",
+        "operator": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.6882995,
           47.3084962
         ]
@@ -309,48 +349,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6930662,
-          47.3137945
+          7.456843,
+          47.2006765
         ]
       },
       "properties": {
-        "id": 6897412703,
+        "id": 11310907577,
         "osm_type": "node",
-        "vending": "drinks;sweets",
+        "vending": "drinks;sweets;water",
         "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.9020289,
-          47.3445564
-        ]
-      },
-      "properties": {
-        "id": 2242708688,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "food",
-        "brand": "Selecta",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.9063961,
-          47.3499296
-        ]
-      },
-      "properties": {
-        "id": 2218559016,
-        "osm_type": "node",
-        "vending": "food"
       }
     },
     {
@@ -365,7 +372,42 @@
       "properties": {
         "id": 11528514328,
         "osm_type": "node",
-        "vending": "drinks"
+        "vending": "drinks",
+        "check_date": "2025-09-09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.9650481,
+          47.3218811
+        ]
+      },
+      "properties": {
+        "id": 11648409349,
+        "osm_type": "node",
+        "name": "Lavazza",
+        "vending": "coffee",
+        "brand": "Lavazza"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.5435946,
+          47.2042613
+        ]
+      },
+      "properties": {
+        "id": 11844711083,
+        "osm_type": "node",
+        "name": "Lavazza",
+        "vending": "coffee",
+        "brand": "Lavazza"
       }
     },
     {
@@ -381,7 +423,8 @@
         "id": 11984871028,
         "osm_type": "node",
         "vending": "food",
-        "operator": "Selecta"
+        "operator": "Selecta",
+        "check_date": "2026-03-18"
       }
     },
     {
@@ -397,7 +440,8 @@
         "id": 11984905005,
         "osm_type": "node",
         "vending": "food",
-        "operator": "Selecta"
+        "operator": "Selecta",
+        "check_date": "2025-10-23"
       }
     },
     {
@@ -458,7 +502,8 @@
       "properties": {
         "id": 11984927869,
         "osm_type": "node",
-        "vending": "beverages"
+        "vending": "beverages",
+        "check_date": "2025-08-17"
       }
     },
     {
@@ -466,32 +511,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9650481,
-          47.3218811
+          7.5660365,
+          47.1805854
         ]
       },
       "properties": {
-        "id": 11648409349,
-        "osm_type": "node",
-        "name": "Lavazza",
-        "vending": "coffee",
-        "brand": "Lavazza"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.9174197,
-          47.3466806
-        ]
-      },
-      "properties": {
-        "id": 4838604128,
+        "id": 13055950686,
         "osm_type": "node",
         "vending": "food",
-        "operator": "Selecta"
+        "operator": "selecta"
       }
     },
     {
@@ -499,15 +527,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8985481,
-          47.361792
+          7.8163136,
+          47.3088633
         ]
       },
       "properties": {
-        "id": 8887808745,
+        "id": 13691687823,
         "osm_type": "node",
         "vending": "food",
-        "operator": "Selecta"
+        "operator": "selecta"
       }
     }
   ]

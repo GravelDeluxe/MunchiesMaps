@@ -352,7 +352,8 @@
         "id": 10923861221,
         "osm_type": "node",
         "name": "Кафе-аператив \"Оазис\"",
-        "opening_hours": "Mo-Sa 07:30-22:30"
+        "opening_hours": "Mo-Sa 07:30-22:30",
+        "check_date": "2023-05-24"
       }
     },
     {
@@ -602,6 +603,36 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          23.9897439,
+          42.0283087
+        ]
+      },
+      "properties": {
+        "id": 13754314797,
+        "osm_type": "node",
+        "name": "Алиби"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.9912025,
+          42.026863
+        ]
+      },
+      "properties": {
+        "id": 13754314834,
+        "osm_type": "node",
+        "name": "Централ"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           24.3241882,
           42.1907054
         ]
@@ -682,36 +713,6 @@
       "properties": {
         "id": 443753984,
         "osm_type": "way"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          23.9912103,
-          42.0268768
-        ]
-      },
-      "properties": {
-        "id": 557106356,
-        "osm_type": "way",
-        "name": "Централ"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          23.9897375,
-          42.0283165
-        ]
-      },
-      "properties": {
-        "id": 557106357,
-        "osm_type": "way",
-        "name": "АЛИБИ"
       }
     }
   ]

@@ -140,7 +140,8 @@
         "osm_type": "node",
         "name": "Orlen",
         "brand": "Orlen",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2023-08-15"
       }
     },
     {
@@ -1324,7 +1325,8 @@
         "osm_type": "node",
         "name": "E.Leclerc",
         "brand": "E.Leclerc",
-        "opening_hours": "Mo-Sa 06:00-21:00"
+        "opening_hours": "Mo-Sa 06:00-21:00",
+        "check_date": "2025-11-09"
       }
     },
     {
@@ -2146,6 +2148,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          20.7180078,
+          50.4910496
+        ]
+      },
+      "properties": {
+        "id": 13732198502,
+        "osm_type": "node",
+        "name": "BP",
+        "brand": "BP"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           20.3990845,
           51.1899972
         ]
@@ -2204,7 +2222,8 @@
         "osm_type": "way",
         "name": "Circle K",
         "brand": "Circle K",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-02-08"
       }
     },
     {
@@ -2220,7 +2239,8 @@
         "id": 173308806,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "check_date": "2026-01-31"
       }
     },
     {
@@ -2286,7 +2306,8 @@
         "id": 231207867,
         "osm_type": "way",
         "name": "MKS",
-        "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:00-14:00"
+        "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:00-14:00",
+        "check_date": "2025-06-18"
       }
     },
     {
@@ -2389,23 +2410,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          20.6420312,
-          50.8723033
-        ]
-      },
-      "properties": {
-        "id": 268315768,
-        "osm_type": "way",
-        "name": "Shell",
-        "brand": "Shell",
-        "opening_hours": "PH,Mo-Su 06:00-22:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           20.2949093,
           50.6311138
         ]
@@ -2413,7 +2417,8 @@
       "properties": {
         "id": 270877748,
         "osm_type": "way",
-        "name": "Karbonex"
+        "name": "Karbonex",
+        "check_date": "2026-01-17"
       }
     },
     {
@@ -2480,7 +2485,8 @@
         "id": 278979181,
         "osm_type": "way",
         "name": "Transoil",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-08-16"
       }
     },
     {
@@ -2497,7 +2503,8 @@
         "osm_type": "way",
         "name": "BP Łysica",
         "brand": "BP",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-08-02"
       }
     },
     {
@@ -3057,7 +3064,8 @@
         "osm_type": "way",
         "name": "Moya",
         "brand": "Moya",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-02-01"
       }
     },
     {
@@ -3104,7 +3112,8 @@
         "osm_type": "way",
         "name": "BP Wola Morawicka",
         "brand": "BP",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-08-19"
       }
     },
     {
@@ -4153,7 +4162,8 @@
         "osm_type": "way",
         "name": "BP Krzemionki",
         "brand": "BP",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-12-03"
       }
     },
     {
@@ -4187,7 +4197,8 @@
         "osm_type": "way",
         "name": "BP Ćmińsk",
         "brand": "BP",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2023-09-12"
       }
     },
     {
@@ -4622,6 +4633,23 @@
         "osm_type": "way",
         "name": "Orlen",
         "brand": "Orlen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.6420752,
+          50.8723433
+        ]
+      },
+      "properties": {
+        "id": 1501115673,
+        "osm_type": "way",
+        "name": "Shell",
+        "brand": "Shell",
+        "opening_hours": "PH,Mo-Su 06:00-22:00"
       }
     }
   ]

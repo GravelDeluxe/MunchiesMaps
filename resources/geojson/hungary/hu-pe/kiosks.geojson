@@ -152,15 +152,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.1008751,
-          47.6882618
+          19.1008657,
+          47.6882663
         ]
       },
       "properties": {
         "id": 629522109,
         "osm_type": "node",
         "name": "Coop",
-        "opening_hours": "Mo-Sa 06:00-19:00; Su 07:00-12:30"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-14:00; Su 07:00-12:30"
       }
     },
     {
@@ -1322,7 +1322,8 @@
         "id": 2415643966,
         "osm_type": "node",
         "name": "Italdiszkont",
-        "opening_hours": "Mo-Sa 07:00-20:30; Su 07:00-13:00"
+        "opening_hours": "Mo-Sa 07:00-20:30; Su 07:00-13:00",
+        "check_date": "2025-09-08"
       }
     },
     {
@@ -1616,7 +1617,8 @@
         "osm_type": "node",
         "name": "Spar",
         "brand": "Spar",
-        "opening_hours": "Jan 01-Mar 08: Mo-Fr 07:00-18:00; Sa 07:00-16:30; Su off; PH off; Mo-Fr 07:00-18:00; Sa 07:00-16:30; Su 08:00-12:00; PH off"
+        "opening_hours": "Jan 01-Mar 08: Mo-Fr 07:00-18:00; Sa 07:00-16:30; Su off; PH off; Mo-Fr 07:00-18:00; Sa 07:00-16:30; Su 08:00-12:00; PH off",
+        "check_date": "2026-01-17"
       }
     },
     {
@@ -1995,7 +1997,8 @@
         "id": 3118488445,
         "osm_type": "node",
         "name": "Lottózó",
-        "opening_hours": "Mo-Fr 08:00-18:00; Sa 07:30-18:00; Su 08:00-14:30"
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa 07:30-18:00; Su 08:00-14:30",
+        "check_date": "2024-02-08"
       }
     },
     {
@@ -3462,7 +3465,8 @@
       "properties": {
         "id": 3465808396,
         "osm_type": "node",
-        "name": "Bezerédi élelmiszer"
+        "name": "Bezerédi élelmiszer",
+        "check_date": "2026-02-10"
       }
     },
     {
@@ -3688,7 +3692,8 @@
         "id": 3470089742,
         "osm_type": "node",
         "name": "Bere-Keszi Csemege",
-        "opening_hours": "Mo-Fr 04:00-22:00; Sa-Su 06:00-22:00"
+        "opening_hours": "Mo-Fr 04:00-22:00; Sa-Su 06:00-22:00",
+        "check_date": "2023-07-18"
       }
     },
     {
@@ -4653,7 +4658,8 @@
       "properties": {
         "id": 3488444443,
         "osm_type": "node",
-        "name": "MINI ABC"
+        "name": "MINI ABC",
+        "check_date": "2024-02-11"
       }
     },
     {
@@ -6396,7 +6402,8 @@
         "id": 4933475620,
         "osm_type": "node",
         "name": "Zöld Abc",
-        "opening_hours": "06:00-21:00"
+        "opening_hours": "06:00-21:00",
+        "check_date": "2023-04-30"
       }
     },
     {
@@ -6412,7 +6419,8 @@
         "id": 4933475676,
         "osm_type": "node",
         "name": "Élelmiszer Csemege",
-        "opening_hours": "Mo-Fr 06:00-20:00; Sa-Su 08:00-18:00"
+        "opening_hours": "Mo-Fr 06:00-20:00; Sa-Su 08:00-18:00",
+        "check_date": "2024-02-08"
       }
     },
     {
@@ -6473,7 +6481,8 @@
         "id": 4933475821,
         "osm_type": "node",
         "name": "Lila Csemege",
-        "opening_hours": "Mo-Fr 06:00-19:00; Sa-Su,PH 07:00-19:00"
+        "opening_hours": "Mo-Fr 06:00-19:00; Sa-Su,PH 07:00-19:00",
+        "check_date": "2025-10-25"
       }
     },
     {
@@ -6489,7 +6498,8 @@
         "id": 4933475832,
         "osm_type": "node",
         "name": "Delikátesz ABC",
-        "opening_hours": "Mo-Th,Su 09:00-22:00; Fr-Sa off"
+        "opening_hours": "Mo-Th,Su 09:00-22:00; Fr-Sa off",
+        "check_date": "2024-01-03"
       }
     },
     {
@@ -8024,6 +8034,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          19.0480719,
+          47.3704255
+        ]
+      },
+      "properties": {
+        "id": 6281954166,
+        "osm_type": "node",
+        "name": "Despar",
+        "brand": "Despar"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           18.7186995,
           47.5464792
         ]
@@ -8784,7 +8810,8 @@
         "id": 10665063655,
         "osm_type": "node",
         "name": "Csutka vegyeskereskedés",
-        "opening_hours": "Mo-Fr 07:00-17:00; Sa-Su 08:00-14:00"
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa-Su 08:00-14:00",
+        "check_date": "2023-02-15"
       }
     },
     {
@@ -8847,7 +8874,8 @@
         "id": 10816703371,
         "osm_type": "node",
         "name": "Czifra Cekker csomagolásmentes bolt",
-        "opening_hours": "Mo 08:00-18:00; Tu-Fr 10:00-18:00; Sa 08:00-12:00; Su off"
+        "opening_hours": "Mo 08:00-18:00; Tu-Fr 10:00-18:00; Sa 08:00-12:00; Su off",
+        "check_date": "2025-02-08"
       }
     },
     {
@@ -8863,7 +8891,8 @@
         "id": 10860656557,
         "osm_type": "node",
         "name": "Rév ABC",
-        "opening_hours": "Mo-Sa 07:00-20:00; Su 07:00-14:00"
+        "opening_hours": "Mo-Sa 07:00-20:00; Su 07:00-14:00",
+        "check_date": "2023-05-01"
       }
     },
     {
@@ -8879,7 +8908,8 @@
         "id": 10867725991,
         "osm_type": "node",
         "name": "Magdi élelmiszer",
-        "opening_hours": "Mo-Fr 06:00-20:00; Sa-Su 06:00-14:00"
+        "opening_hours": "Mo-Fr 06:00-20:00; Sa-Su 06:00-14:00",
+        "check_date": "2023-05-04"
       }
     },
     {
@@ -8894,7 +8924,8 @@
       "properties": {
         "id": 11105048313,
         "osm_type": "node",
-        "name": "Filléres Bolt"
+        "name": "Filléres Bolt",
+        "check_date": "2023-08-10"
       }
     },
     {
@@ -9123,7 +9154,8 @@
         "id": 12170520475,
         "osm_type": "node",
         "name": "N.R.G.A. ABC",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 07:00-13:00; Su 08:00-12:00"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 07:00-13:00; Su 08:00-12:00",
+        "check_date": "2024-09-11"
       }
     },
     {
@@ -9704,6 +9736,22 @@
         "osm_type": "node",
         "name": "Viva",
         "brand": "Viva"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.7770528,
+          47.173112
+        ]
+      },
+      "properties": {
+        "id": 13763446877,
+        "osm_type": "node",
+        "name": "Csikós-Széli Csemege",
+        "opening_hours": "Mo-Fr 05:00-19:00; Sa 06:00-19:00; Su 06:00-13:00"
       }
     },
     {
@@ -10392,7 +10440,8 @@
         "osm_type": "way",
         "name": "CBA",
         "brand": "CBA",
-        "opening_hours": "Mo 06:30-18:00; Tu-Fr 06:30-19:00; Sa 07:00-16:00; Su 08:00-15:00"
+        "opening_hours": "Mo 06:30-18:00; Tu-Fr 06:30-19:00; Sa 07:00-16:00; Su 08:00-15:00",
+        "check_date": "2023-05-19"
       }
     },
     {
@@ -10711,7 +10760,9 @@
       "properties": {
         "id": 475898749,
         "osm_type": "way",
-        "name": "Kiss Vegyes"
+        "name": "Kiss Vegyes",
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa 07:00-18:00; Su 08:00-18:00",
+        "check_date": "2025-05-08"
       }
     },
     {
@@ -11331,7 +11382,8 @@
         "id": 749459798,
         "osm_type": "way",
         "name": "Vásártéri ABC",
-        "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:00-14:00; Su 07:00-12:00"
+        "opening_hours": "Mo-Fr 06:00-19:00; Sa 06:00-14:00; Su 07:00-12:00",
+        "check_date": "2025-08-04"
       }
     },
     {
@@ -11917,8 +11969,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.82748,
-          47.2994267
+          19.8275457,
+          47.2994194
         ]
       },
       "properties": {

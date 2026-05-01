@@ -1253,6 +1253,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          0.2924395,
+          40.8359275
+        ]
+      },
+      "properties": {
+        "id": 13721986634,
+        "osm_type": "node",
+        "name": "Refugi del Mas del Torrero - Terranyes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           1.7455533,
           42.4812431
         ]
@@ -1438,24 +1453,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.5721795,
-          42.3001171
-        ]
-      },
-      "properties": {
-        "id": 189251722,
-        "osm_type": "way",
-        "name": "Cal Ferrer",
-        "access": "yes",
-        "fee": "no",
-        "operator": "Centre Excursionista d'Olot"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           0.9100693,
           42.7681872
         ]
@@ -1535,21 +1532,6 @@
         "shelter_type": "basic_hut",
         "capacity": "10",
         "operator": "Unió Excursionista de Catalunya"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          0.2924253,
-          40.8359349
-        ]
-      },
-      "properties": {
-        "id": 220090006,
-        "osm_type": "way",
-        "name": "Refugi Terranyes - Mas del Torrero"
       }
     },
     {
@@ -2114,9 +2096,9 @@
       "properties": {
         "id": 516485746,
         "osm_type": "way",
-        "name": "Refugi Pla Da Satlla",
+        "name": "Refugi Pla De Satlla",
         "shelter_type": "basic_hut",
-        "description": "Mountain refuge  (unlocked at north end). Sleeping platform and fire place"
+        "description": "Mountain refuge (unlocked at north end). Sleeping platform and fire place"
       }
     },
     {
@@ -2280,7 +2262,8 @@
         "osm_type": "way",
         "name": "Sarrahèra de Baish",
         "shelter_type": "basic_hut",
-        "description": "refugi molt bàsic, neteja a millorar, porta tanca correctament"
+        "description": "refugi molt bàsic, neteja a millorar, porta tanca correctament",
+        "check_date": "2023-09-24"
       }
     },
     {
@@ -2923,7 +2906,8 @@
         "access": "permissive",
         "table": "no",
         "capacity": "2",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2021-09-15"
       }
     },
     {
@@ -3151,6 +3135,21 @@
       "properties": {
         "id": 1082738252,
         "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.8758946,
+          42.33517
+        ]
+      },
+      "properties": {
+        "id": 1101430074,
+        "osm_type": "way",
+        "name": "Refugi del Pla Gran"
       }
     },
     {
@@ -3556,6 +3555,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          0.8394774,
+          41.6209907
+        ]
+      },
+      "properties": {
+        "id": 1501132414,
+        "osm_type": "way",
+        "name": "Barbacoas a cubierto",
+        "shelter_type": "lean_to",
+        "operator": "Ajuntament de Sidamon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.4002468,
+          42.3876059
+        ]
+      },
+      "properties": {
+        "id": 1501215296,
+        "osm_type": "way",
+        "name": "Cabana dels Roures"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           2.7115449,
           42.1120755
         ]
@@ -3587,6 +3618,21 @@
         "capacity": "6",
         "fee": "no",
         "description": "Durant les pastures d'estiu el refugi pot estar tancat pel pastor. Contactar amb ell."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.5721639,
+          42.3001787
+        ]
+      },
+      "properties": {
+        "id": 20573319,
+        "osm_type": "relation",
+        "name": "Cabane de Talaixa (Cal Ferrer)"
       }
     }
   ]

@@ -243,7 +243,8 @@
         "osm_type": "node",
         "name": "Colruyt",
         "brand": "Colruyt",
-        "opening_hours": "Mo-Sa 08:30-20:00; Fr 08:30-21:00"
+        "opening_hours": "Mo-Sa 08:30-20:00; Fr 08:30-21:00",
+        "check_date": "2026-04-06"
       }
     },
     {
@@ -1261,7 +1262,8 @@
         "id": 1309181437,
         "osm_type": "node",
         "name": "L'épicerie de Lustin",
-        "opening_hours": "Mo-Su,PH 08:00-19:00"
+        "opening_hours": "Mo-Su,PH 08:00-19:00",
+        "check_date": "2025-11-01"
       }
     },
     {
@@ -1424,7 +1426,8 @@
         "osm_type": "node",
         "name": "Intermarché",
         "brand": "Intermarché",
-        "opening_hours": "Mo-Sa 08:00-19:00; Su 08:00-18:00"
+        "opening_hours": "Mo-Sa 08:00-19:00; Su 08:00-18:00",
+        "check_date": "2025-05-03"
       }
     },
     {
@@ -1554,7 +1557,7 @@
       "properties": {
         "id": 1578342545,
         "osm_type": "node",
-        "name": "Metro",
+        "name": "Sligro",
         "brand": "Metro"
       }
     },
@@ -1612,6 +1615,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.5572994,
+          50.6318205
+        ]
+      },
+      "properties": {
+        "id": 1636719681,
+        "osm_type": "node",
+        "name": "Le Temps des Cerises",
+        "opening_hours": "Mo-Fr 08:30-18:30; Sa 09:00-18:00",
+        "check_date": "2025-08-14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.8560001,
           50.6071914
         ]
@@ -1637,7 +1657,8 @@
         "osm_type": "node",
         "name": "Delhaize",
         "brand": "Delhaize",
-        "opening_hours": "Tu-Sa 09:00-18:30; Mo 09:00-12:00; Su 09:00-12:00,14:30-18:30; SH Mo 09:00-18:30"
+        "opening_hours": "Tu-Sa 09:00-18:30; Mo 09:00-12:00; Su 09:00-12:00,14:30-18:30; SH Mo 09:00-18:30",
+        "check_date": "2024-08-13"
       }
     },
     {
@@ -1787,7 +1808,8 @@
         "osm_type": "node",
         "name": "Intermarché",
         "brand": "Intermarché",
-        "opening_hours": "Mo 10:00-19:00; Tu-Sa 08:30-19:00; Su 08:00-13:00"
+        "opening_hours": "Mo 10:00-19:00; Tu-Sa 08:30-19:00; Su 08:00-13:00",
+        "check_date": "2025-10-23"
       }
     },
     {
@@ -1804,7 +1826,8 @@
         "osm_type": "node",
         "name": "Carrefour Market",
         "brand": "Carrefour Market",
-        "opening_hours": "Mo-Sa 08:30-19:30; Su 08:00-18:00"
+        "opening_hours": "Mo-Sa 08:30-19:30; Su 08:00-18:00",
+        "check_date": "2025-10-23"
       }
     },
     {
@@ -2155,22 +2178,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.0829877,
-          50.6705442
-        ]
-      },
-      "properties": {
-        "id": 1867756437,
-        "osm_type": "node",
-        "name": "Delhaize",
-        "brand": "Delhaize"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           5.9177332,
           50.5166941
         ]
@@ -2490,7 +2497,8 @@
         "id": 2199425147,
         "osm_type": "node",
         "name": "Delhaize",
-        "brand": "Delhaize"
+        "brand": "Delhaize",
+        "check_date": "2024-08-01"
       }
     },
     {
@@ -2750,7 +2758,8 @@
         "osm_type": "node",
         "name": "Proxy Delhaize",
         "brand": "Proxy Delhaize",
-        "opening_hours": "Mo 13:30-18:30; Tu-Sa 08:30-18:30; Su 08:30-12:30"
+        "opening_hours": "Mo 13:30-18:30; Tu-Sa 08:30-18:30; Su 08:30-12:30",
+        "check_date": "2024-02-29"
       }
     },
     {
@@ -3648,7 +3657,7 @@
       "properties": {
         "id": 4458328471,
         "osm_type": "node",
-        "name": "Sita (supermercato Italiano)"
+        "name": "Sita"
       }
     },
     {
@@ -3856,7 +3865,8 @@
         "osm_type": "node",
         "name": "Intermarché",
         "brand": "Intermarché",
-        "opening_hours": "Mo-Sa 09:30-18:30; Su 10:00-18:30; PH off"
+        "opening_hours": "Mo-Sa 09:30-18:30; Su 10:00-18:30; PH off",
+        "check_date": "2025-06-11"
       }
     },
     {
@@ -5389,7 +5399,8 @@
         "id": 8213608013,
         "osm_type": "node",
         "name": "Macavrac",
-        "opening_hours": "We-Sa 10:30-18:30; Tu 13:30-18:30; Su 10:00-13:00"
+        "opening_hours": "We-Sa 10:30-18:30; Tu 13:30-18:30; Su 10:00-13:00",
+        "check_date": "2025-03-25"
       }
     },
     {
@@ -5971,22 +5982,6 @@
         "name": "Proxy Delhaize Outremeuse",
         "brand": "Proxy Delhaize",
         "opening_hours": "Mo-Su 07:30-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.3267109,
-          50.5995934
-        ]
-      },
-      "properties": {
-        "id": 9968069926,
-        "osm_type": "node",
-        "name": "Carrefour Market",
-        "brand": "Carrefour Market"
       }
     },
     {
@@ -6992,7 +6987,8 @@
         "id": 12691403124,
         "osm_type": "node",
         "name": "Carrefour Express Dinant",
-        "opening_hours": "07:30-19:30"
+        "opening_hours": "07:30-19:30",
+        "check_date": "2025-03-22"
       }
     },
     {
@@ -7199,7 +7195,8 @@
         "osm_type": "node",
         "name": "Carrefour Market",
         "brand": "Carrefour Market",
-        "opening_hours": "Mo 12:00-19:30; Tu-Sa 08:30-19:30; Su 08:30-13:30"
+        "opening_hours": "Mo 12:00-19:30; Tu-Sa 08:30-19:30; Su 08:30-13:30",
+        "check_date": "2025-08-14"
       }
     },
     {
@@ -7528,7 +7525,8 @@
         "osm_type": "way",
         "name": "Colruyt",
         "brand": "Colruyt",
-        "opening_hours": "Mo-Th,Sa 08:30-20:00; Fr 08:30-21:00"
+        "opening_hours": "Mo-Th,Sa 08:30-20:00; Fr 08:30-21:00",
+        "check_date": "2023-10-13"
       }
     },
     {
@@ -7935,7 +7933,8 @@
         "id": 50340982,
         "osm_type": "way",
         "name": "Colruyt",
-        "brand": "Colruyt"
+        "brand": "Colruyt",
+        "check_date": "2024-08-01"
       }
     },
     {
@@ -8054,7 +8053,8 @@
         "osm_type": "way",
         "name": "Eurospar",
         "brand": "Eurospar",
-        "opening_hours": "Tu-Sa 08:00-20:00; Mo 12:30-20:00; PH,Su 08:00-12:30"
+        "opening_hours": "Tu-Sa 08:00-20:00; Mo 12:30-20:00; PH,Su 08:00-12:30",
+        "check_date": "2024-11-30"
       }
     },
     {
@@ -8381,7 +8381,8 @@
         "osm_type": "way",
         "name": "Intermarche",
         "brand": "Carrefour Market",
-        "opening_hours": "Mo 12:00-20:00; Tu-Fr 09:00-20:00; Sa 09:00-19:00; Su 08:00-12:00"
+        "opening_hours": "Mo 12:00-20:00; Tu-Fr 09:00-20:00; Sa 09:00-19:00; Su 08:00-12:00",
+        "check_date": "2024-09-12"
       }
     },
     {
@@ -8413,7 +8414,8 @@
         "id": 93051341,
         "osm_type": "way",
         "name": "Proxy Delhaize",
-        "opening_hours": "Mo 10:30-18:00; Tu-Fr 08:30-18:30; Sa-Su 08:00-18:00"
+        "opening_hours": "Mo 10:30-18:00; Tu-Fr 08:30-18:30; Sa-Su 08:00-18:00",
+        "check_date": "2026-02-25"
       }
     },
     {
@@ -8830,7 +8832,8 @@
         "osm_type": "way",
         "name": "Lidl",
         "brand": "Lidl",
-        "opening_hours": "Mo-Fr 08:30-20:00; Sa 08:30-19:00"
+        "opening_hours": "Mo-Fr 08:30-20:00; Sa 08:30-19:00",
+        "check_date": "2024-10-31"
       }
     },
     {
@@ -9109,7 +9112,8 @@
         "osm_type": "way",
         "name": "Delhaize",
         "brand": "Delhaize",
-        "opening_hours": "Mo-Sa 08:30-19:00; Su 08:30-12:45"
+        "opening_hours": "Mo-Sa 08:30-19:00; Su 08:30-12:45",
+        "check_date": "2025-12-30"
       }
     },
     {
@@ -9679,8 +9683,9 @@
       "properties": {
         "id": 123392500,
         "osm_type": "way",
-        "name": "Depot vrac",
-        "opening_hours": "Mo 13:00-19:00; Tu-Sa 09:00-19:00; Su 09:00-13:00"
+        "name": "Dépôt vrac",
+        "opening_hours": "Mo 13:00-19:00; Tu-Sa 09:00-19:00; Su 09:00-13:00",
+        "check_date": "2025-08-22"
       }
     },
     {
@@ -11091,6 +11096,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.4531291,
+          50.5933423
+        ]
+      },
+      "properties": {
+        "id": 169217691,
+        "osm_type": "way",
+        "name": "Fermette Godelaine"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.1648766,
           50.6571797
         ]
@@ -11265,6 +11285,23 @@
         "name": "Delhaize",
         "brand": "Delhaize",
         "opening_hours": "Mo-Sa 08:29-19:00; Su 08:00-12:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.0830179,
+          50.6705676
+        ]
+      },
+      "properties": {
+        "id": 176917496,
+        "osm_type": "way",
+        "name": "Delhaize",
+        "brand": "Delhaize",
+        "opening_hours": "Mo 09:00-19:00; Tu-Th 08:30-19:00; Fr 08:30-19:30; Sa 09:00-18:00; Su 08:30-13:00"
       }
     },
     {
@@ -11522,7 +11559,8 @@
         "osm_type": "way",
         "name": "Aldi",
         "brand": "Aldi",
-        "opening_hours": "Mo-Sa 08:30-19:00"
+        "opening_hours": "Mo-Sa 08:30-19:00",
+        "check_date": "2025-12-30"
       }
     },
     {
@@ -11718,7 +11756,8 @@
         "id": 207930495,
         "osm_type": "way",
         "name": "Lidl",
-        "brand": "Lidl"
+        "brand": "Lidl",
+        "check_date": "2024-08-01"
       }
     },
     {
@@ -12881,7 +12920,8 @@
       "properties": {
         "id": 263774944,
         "osm_type": "way",
-        "name": "Mr Bricolage"
+        "name": "Mr Bricolage",
+        "check_date": "2024-11-22"
       }
     },
     {
@@ -13237,7 +13277,7 @@
         "osm_type": "way",
         "name": "Carrefour Market",
         "brand": "Carrefour Market",
-        "opening_hours": "Mo-Sa 09:00-19:00; Su 09:00-12:00; PH off"
+        "opening_hours": "Mo-Su 08:30-19:30"
       }
     },
     {
@@ -13657,7 +13697,8 @@
         "id": 364257791,
         "osm_type": "way",
         "name": "Colruyt",
-        "brand": "Colruyt"
+        "brand": "Colruyt",
+        "opening_hours": "Mo-Th,Sa 08:00-20:00; Fr 08:00-21:00"
       }
     },
     {
@@ -13868,7 +13909,7 @@
         "id": 387157309,
         "osm_type": "way",
         "name": "Les Jardins des Hérutis",
-        "opening_hours": "We 15:00-18:00, Fr 15:00-18:00, Sa 09:00-14:00"
+        "opening_hours": "We 14:00-17:30, Fr 09:-12, Fr 15:00-18:00, Sa 09:00-14:00"
       }
     },
     {
@@ -15247,7 +15288,8 @@
         "id": 587288637,
         "osm_type": "way",
         "name": "Shop & Go Les Ursulines",
-        "opening_hours": "Mo-Fr 06:00-22:00; Sa 08:00-22:00"
+        "opening_hours": "Mo-Fr 06:00-22:00; Sa 08:00-22:00",
+        "check_date": "2025-08-10"
       }
     },
     {
@@ -15799,7 +15841,8 @@
         "id": 682386330,
         "osm_type": "way",
         "name": "Lidl",
-        "brand": "Lidl"
+        "brand": "Lidl",
+        "check_date": "2026-02-22"
       }
     },
     {
@@ -17161,7 +17204,8 @@
         "id": 992399996,
         "osm_type": "way",
         "name": "Lidl",
-        "brand": "Lidl"
+        "brand": "Lidl",
+        "check_date": "2024-11-22"
       }
     },
     {
@@ -17645,7 +17689,8 @@
         "osm_type": "way",
         "name": "Lidl",
         "brand": "Lidl",
-        "opening_hours": "Mo-Fr 08:30-20:00; Sa 08:30-19:00"
+        "opening_hours": "Mo-Fr 08:30-20:00; Sa 08:30-19:00",
+        "check_date": "2024-07-09"
       }
     },
     {
@@ -17696,7 +17741,8 @@
         "osm_type": "way",
         "name": "Delhaize",
         "brand": "Delhaize",
-        "opening_hours": "Mo-Sa 08:00-20:00, Su 08:00-13:00"
+        "opening_hours": "Mo-Sa 08:00-20:00, Su 08:00-13:00",
+        "check_date": "2025-05-02"
       }
     },
     {
@@ -17713,7 +17759,8 @@
         "osm_type": "way",
         "name": "Colruyt",
         "brand": "Colruyt",
-        "opening_hours": "Mo-Th,Sa 08:30-20:00; Fr 08:30-21:00"
+        "opening_hours": "Mo-Th,Sa 08:30-20:00; Fr 08:30-21:00",
+        "check_date": "2024-06-16"
       }
     },
     {
@@ -17730,7 +17777,8 @@
         "osm_type": "way",
         "name": "Spar",
         "brand": "Spar",
-        "opening_hours": "Mo-Sa 07:30-20:00; Su 07:30-19:00"
+        "opening_hours": "Mo-Sa 07:30-20:00; Su 07:30-19:00",
+        "check_date": "2023-10-15"
       }
     },
     {
@@ -18478,7 +18526,7 @@
         "osm_type": "way",
         "name": "Colruyt",
         "brand": "Colruyt",
-        "opening_hours": "Mo-Sa 08:30-20:00; Fr 08:30-21:00"
+        "opening_hours": "Mo-Sa 08:00-20:00; Fr 08:00-21:00; Su off"
       }
     },
     {

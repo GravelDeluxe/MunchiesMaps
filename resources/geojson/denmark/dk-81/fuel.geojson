@@ -14,7 +14,8 @@
         "id": 242936243,
         "osm_type": "node",
         "name": "OK Plus",
-        "opening_hours": "07:00-21:00"
+        "opening_hours": "07:00-21:00",
+        "check_date": "2025-09-30"
       }
     },
     {
@@ -31,7 +32,8 @@
         "osm_type": "node",
         "name": "OK",
         "brand": "OK",
-        "opening_hours": "PH,Mo-Su 00:00-24:00"
+        "opening_hours": "PH,Mo-Su 00:00-24:00",
+        "check_date": "2024-04-20"
       }
     },
     {
@@ -205,7 +207,8 @@
         "osm_type": "node",
         "name": "Uno-X",
         "brand": "Uno-X",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-08-12"
       }
     },
     {
@@ -310,15 +313,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.34024,
-          56.774
+          9.3402854,
+          56.774019
         ]
       },
       "properties": {
         "id": 611353825,
         "osm_type": "node",
-        "name": "1-2-3",
-        "brand": "1-2-3"
+        "name": "Ingo",
+        "brand": "Ingo"
       }
     },
     {
@@ -588,6 +591,7 @@
       "properties": {
         "id": 611353896,
         "osm_type": "node",
+        "name": "Ingo",
         "brand": "Ingo",
         "opening_hours": "24/7"
       }
@@ -636,6 +640,7 @@
       "properties": {
         "id": 611353903,
         "osm_type": "node",
+        "name": "Ingo",
         "brand": "Ingo"
       }
     },
@@ -840,14 +845,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.9237169,
-          57.2748942
+          9.9236898,
+          57.2748927
         ]
       },
       "properties": {
         "id": 1339219865,
         "osm_type": "node",
-        "name": "UnoX"
+        "name": "Uno-X",
+        "brand": "Uno-X"
       }
     },
     {
@@ -1280,7 +1286,8 @@
         "osm_type": "node",
         "name": "OK",
         "brand": "OK",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-01-06"
       }
     },
     {
@@ -2137,7 +2144,8 @@
       "properties": {
         "id": 3447333937,
         "osm_type": "node",
-        "name": "Bonus"
+        "name": "Uno-X",
+        "brand": "Uno-X"
       }
     },
     {
@@ -2185,7 +2193,8 @@
         "id": 3474651315,
         "osm_type": "node",
         "name": "Uno-X",
-        "brand": "Uno-X"
+        "brand": "Uno-X",
+        "check_date": "2025-07-31"
       }
     },
     {
@@ -2252,7 +2261,8 @@
         "osm_type": "node",
         "name": "F24",
         "brand": "F24",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-03-28"
       }
     },
     {
@@ -2691,22 +2701,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.9131978,
-          57.025485
-        ]
-      },
-      "properties": {
-        "id": 5239195697,
-        "osm_type": "node",
-        "name": "Bonus",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.9377332,
           57.0211658
         ]
@@ -2777,7 +2771,9 @@
       },
       "properties": {
         "id": 6486911606,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Go'on",
+        "brand": "Go'on"
       }
     },
     {
@@ -3516,6 +3512,54 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.3320248,
+          56.6913574
+        ]
+      },
+      "properties": {
+        "id": 13723529641,
+        "osm_type": "node",
+        "name": "Go'on",
+        "brand": "Go'on"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.0417912,
+          57.4558759
+        ]
+      },
+      "properties": {
+        "id": 13728049476,
+        "osm_type": "node",
+        "name": "Uno-X Truck",
+        "brand": "Uno-X"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.0395661,
+          57.4555446
+        ]
+      },
+      "properties": {
+        "id": 13728049477,
+        "osm_type": "node",
+        "name": "F24",
+        "brand": "F24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.9313741,
           57.0393482
         ]
@@ -3542,6 +3586,23 @@
         "osm_type": "way",
         "name": "OK",
         "brand": "OK"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.9131746,
+          57.0254779
+        ]
+      },
+      "properties": {
+        "id": 91731490,
+        "osm_type": "way",
+        "name": "Uno-X",
+        "brand": "Uno-X",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -3670,7 +3731,8 @@
         "osm_type": "way",
         "name": "Q8",
         "brand": "Q8",
-        "opening_hours": "Mo-Fr 06:00-24:00, Sa,Su 07:00-24:00"
+        "opening_hours": "Mo-Fr 06:00-24:00, Sa,Su 07:00-24:00",
+        "check_date": "2026-01-16"
       }
     },
     {
@@ -3987,7 +4049,8 @@
         "osm_type": "way",
         "name": "OK",
         "brand": "OK",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-09-21"
       }
     },
     {
@@ -3995,8 +4058,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.9493417,
-          57.0425879
+          9.9493202,
+          57.0425838
         ]
       },
       "properties": {
@@ -4414,7 +4477,8 @@
         "osm_type": "way",
         "name": "Circle K",
         "brand": "Circle K",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-04-23"
       }
     },
     {

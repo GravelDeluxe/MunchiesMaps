@@ -514,7 +514,8 @@
         "name": "Bivacco Alpe Quadra",
         "capacity": "6/7 posti letto di cui: 2 letti a castello per un totale di 4 posti letto con materasso e solo 2 cuscini più altri 2/3 posti su soppalco con materasso. Vi sono anche le coperte, una per posto letto",
         "fee": "yes",
-        "description": "piccolo fornello a gas, non vi sono i piatti, al momento solo bicchieri in plastica, pentole e posate e altri accessori da cucina. L'acqua va presa alla nuova fontana in località Spoccia, circa 10 minuti tramite le 2 taniche da 25 e 15 litri"
+        "description": "piccolo fornello a gas, non vi sono i piatti, al momento solo bicchieri in plastica, pentole e posate e altri accessori da cucina. L'acqua va presa alla nuova fontana in località Spoccia, circa 10 minuti tramite le 2 taniche da 25 e 15 litri",
+        "check_date": "2025-05-01"
       }
     },
     {
@@ -1070,21 +1071,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.160815,
-          45.7195857
-        ]
-      },
-      "properties": {
-        "id": 5156701138,
-        "osm_type": "node",
-        "name": "Baita Ranzola"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.1661876,
           45.7128577
         ]
@@ -1600,7 +1586,8 @@
         "name": "Bivacco Stefania Locatelli",
         "access": "yes",
         "fee": "no",
-        "operator": "Comune di Premia e CAI Formazza"
+        "operator": "Comune di Premia e CAI Formazza",
+        "check_date": "2024-08-25"
       }
     },
     {
@@ -1680,6 +1667,21 @@
         "osm_type": "node",
         "name": "Bivacco Vincenzo Pirazzi e Francesco Rossotti",
         "operator": "Club Alpino Italiano Sezione di Macugnaga"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1919037,
+          44.7370008
+        ]
+      },
+      "properties": {
+        "id": 13064851858,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -2551,7 +2553,8 @@
         "osm_type": "way",
         "name": "bivacco Alpe Drocaccia m.1442",
         "access": "permit",
-        "fee": "yes"
+        "fee": "yes",
+        "check_date": "3-12-2023"
       }
     },
     {
@@ -3688,14 +3691,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1515435,
-          45.7207684
+          8.1608083,
+          45.7195829
+        ]
+      },
+      "properties": {
+        "id": 531224299,
+        "osm_type": "way",
+        "name": "Baita Ranzola"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.15154,
+          45.7207623
         ]
       },
       "properties": {
         "id": 531225733,
         "osm_type": "way",
-        "name": "Cascinetta"
+        "name": "Bivacco Cascinetta"
       }
     },
     {
@@ -4157,7 +4175,8 @@
         "name": "Bivacco Corte Rossa",
         "access": "yes",
         "fee": "yes",
-        "operator": "CAI Vigezzo"
+        "operator": "CAI Vigezzo",
+        "check_date": "2024-04-12"
       }
     },
     {
@@ -4188,6 +4207,23 @@
         "id": 725840632,
         "osm_type": "way",
         "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.1567385,
+          45.7218155
+        ]
+      },
+      "properties": {
+        "id": 732768042,
+        "osm_type": "way",
+        "name": "La Spelonca",
+        "access": "yes",
+        "capacity": "2"
       }
     },
     {

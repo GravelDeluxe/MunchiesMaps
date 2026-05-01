@@ -131,7 +131,8 @@
       },
       "properties": {
         "id": 985489542,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-11-11"
       }
     },
     {
@@ -622,7 +623,8 @@
       "properties": {
         "id": 2322985151,
         "osm_type": "node",
-        "operator": "PIDPA"
+        "operator": "PIDPA",
+        "check_date": "2023-08-21"
       }
     },
     {
@@ -712,7 +714,8 @@
         "osm_type": "node",
         "name": "Drinkfontein De Pit",
         "fee": "no",
-        "operator": "De Watergroep"
+        "operator": "De Watergroep",
+        "check_date": "2024-04-10"
       }
     },
     {
@@ -870,7 +873,8 @@
       },
       "properties": {
         "id": 4327707791,
-        "osm_type": "node"
+        "osm_type": "node",
+        "indoor": "no"
       }
     },
     {
@@ -1595,7 +1599,8 @@
         "access": "customers",
         "fee": "no",
         "operator": "Q8",
-        "indoor": "no"
+        "indoor": "no",
+        "check_date": "2025-06-20"
       }
     },
     {
@@ -1671,7 +1676,8 @@
         "osm_type": "node",
         "access": "yes",
         "fee": "no",
-        "operator": "Waterlink"
+        "operator": "Waterlink",
+        "check_date": "2023-10-17"
       }
     },
     {
@@ -1826,7 +1832,8 @@
       },
       "properties": {
         "id": 4749363388,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-05-26"
       }
     },
     {
@@ -1931,7 +1938,8 @@
         "id": 4809646243,
         "osm_type": "node",
         "fee": "no",
-        "seasonal": "spring;summer;autumn"
+        "seasonal": "spring;summer;autumn",
+        "check_date": "2023-02-26"
       }
     },
     {
@@ -2123,7 +2131,8 @@
         "fee": "no",
         "seasonal": "spring;summer;autumn",
         "operator": "Brugge openbaar domein",
-        "indoor": "no"
+        "indoor": "no",
+        "check_date": "2023-03-06"
       }
     },
     {
@@ -2154,7 +2163,8 @@
       },
       "properties": {
         "id": 4902014154,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-08-24"
       }
     },
     {
@@ -4514,7 +4524,9 @@
       },
       "properties": {
         "id": 9922360482,
-        "osm_type": "node"
+        "osm_type": "node",
+        "fee": "no",
+        "seasonal": "yes"
       }
     },
     {
@@ -8527,7 +8539,8 @@
       },
       "properties": {
         "id": 13427428497,
-        "osm_type": "node"
+        "osm_type": "node",
+        "fee": "no"
       }
     },
     {
@@ -8669,6 +8682,40 @@
         "id": 13667699989,
         "osm_type": "node",
         "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.990135,
+          50.8263303
+        ]
+      },
+      "properties": {
+        "id": 13754424669,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9114884,
+          50.8909535
+        ]
+      },
+      "properties": {
+        "id": 13773964028,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "yes"
       }
     }
   ]

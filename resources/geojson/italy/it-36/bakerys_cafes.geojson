@@ -395,7 +395,8 @@
       "properties": {
         "id": 298376297,
         "osm_type": "node",
-        "name": "Caffè Piazza Grande"
+        "name": "Caffè Piazza Grande",
+        "check_date": "2023-07-21"
       }
     },
     {
@@ -1035,7 +1036,9 @@
         "id": 445010671,
         "osm_type": "node",
         "name": "Bar Municipio",
-        "opening_hours": "Mo-Su 07:00-01:00"
+        "opening_hours": "Mo-Su 07:00-01:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -1144,7 +1147,8 @@
       "properties": {
         "id": 457161476,
         "osm_type": "node",
-        "name": "Alpino"
+        "name": "Alpino",
+        "check_date": "2023-04-24"
       }
     },
     {
@@ -1174,7 +1178,8 @@
       "properties": {
         "id": 457161585,
         "osm_type": "node",
-        "name": "Pezzé"
+        "name": "Pezzé",
+        "check_date": "2023-04-24"
       }
     },
     {
@@ -1189,7 +1194,8 @@
       "properties": {
         "id": 457161710,
         "osm_type": "node",
-        "name": "Miani"
+        "name": "Miani",
+        "check_date": "2023-04-24"
       }
     },
     {
@@ -1252,6 +1258,23 @@
         "osm_type": "node",
         "name": "Knulp",
         "opening_hours": "Mo-Su 10:00-24:00; We off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.6529999,
+          45.9545881
+        ]
+      },
+      "properties": {
+        "id": 504016110,
+        "osm_type": "node",
+        "name": "Bar Ai Tigli",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -1356,7 +1379,8 @@
         "id": 518311375,
         "osm_type": "node",
         "name": "Bar Italia",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-18"
       }
     },
     {
@@ -1508,7 +1532,8 @@
       "properties": {
         "id": 528839513,
         "osm_type": "node",
-        "name": "Bar Bianco"
+        "name": "Bar Bianco",
+        "check_date": "2024-08-15"
       }
     },
     {
@@ -1616,7 +1641,8 @@
         "osm_type": "node",
         "name": "Il Muretto",
         "opening_hours": "Mo-Su 07:00-01:30",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-01"
       }
     },
     {
@@ -1662,7 +1688,8 @@
       "properties": {
         "id": 530758153,
         "osm_type": "node",
-        "name": "Mocchiutti e Gori"
+        "name": "Mocchiutti e Gori",
+        "check_date": "2025-04-10"
       }
     },
     {
@@ -1677,6 +1704,7 @@
       "properties": {
         "id": 530758163,
         "osm_type": "node",
+        "name": "I sapori della costiera",
         "outdoor_seating": "sidewalk"
       }
     },
@@ -1723,7 +1751,8 @@
         "id": 573496919,
         "osm_type": "node",
         "name": "Bar Cjapitul",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-25"
       }
     },
     {
@@ -1783,7 +1812,8 @@
       "properties": {
         "id": 599737996,
         "osm_type": "node",
-        "name": "Jazzin"
+        "name": "Jazzin",
+        "check_date": "2025-11-09"
       }
     },
     {
@@ -1862,7 +1892,8 @@
         "id": 603688587,
         "osm_type": "node",
         "name": "Bar Giulia",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-05-13"
       }
     },
     {
@@ -1940,7 +1971,8 @@
       "properties": {
         "id": 630794528,
         "osm_type": "node",
-        "name": "Paoluzzi"
+        "name": "Paoluzzi",
+        "check_date": "2023-05-23"
       }
     },
     {
@@ -2009,21 +2041,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2377399,
-          46.0603789
-        ]
-      },
-      "properties": {
-        "id": 669962117,
-        "osm_type": "node",
-        "name": "La Bottega del Cafè Dersut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.2395948,
           46.0617529
         ]
@@ -2031,7 +2048,8 @@
       "properties": {
         "id": 669962124,
         "osm_type": "node",
-        "name": "Clochiatti"
+        "name": "Clochiatti",
+        "check_date": "2024-11-19"
       }
     },
     {
@@ -2155,7 +2173,8 @@
       "properties": {
         "id": 769998533,
         "osm_type": "node",
-        "name": "Sandrigo"
+        "name": "Sandrigo",
+        "check_date": "2025-06-18"
       }
     },
     {
@@ -2457,7 +2476,8 @@
         "id": 972892361,
         "osm_type": "node",
         "name": "Orso Bakery 1962",
-        "opening_hours": "Mo 06:30-13:30; Tu-Th 06:30-13:30,17:00-20:00; Fr-Sa 06:30-13:30,17:00-21:00"
+        "opening_hours": "Mo 06:30-13:30; Tu-Th 06:30-13:30,17:00-20:00; Fr-Sa 06:30-13:30,17:00-21:00",
+        "check_date": "2025-04-18"
       }
     },
     {
@@ -2550,7 +2570,8 @@
       "properties": {
         "id": 1119814219,
         "osm_type": "node",
-        "name": "Grosmi"
+        "name": "Grosmi",
+        "check_date": "2025-10-08"
       }
     },
     {
@@ -2612,7 +2633,8 @@
         "osm_type": "node",
         "name": "Cotterli",
         "opening_hours": "Mo-Sa 07:00-20:00; PH off",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-08-01"
       }
     },
     {
@@ -2778,7 +2800,8 @@
       "properties": {
         "id": 1287449784,
         "osm_type": "node",
-        "name": "Buffet della Stazione"
+        "name": "Buffet della Stazione",
+        "check_date": "2023-04-04"
       }
     },
     {
@@ -3126,7 +3149,8 @@
         "osm_type": "node",
         "name": "Al Centro",
         "opening_hours": "Mo-Sa 09:00-20:30; Su 09:30-20:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-06-04"
       }
     },
     {
@@ -3219,7 +3243,7 @@
         "id": 1615594614,
         "osm_type": "node",
         "name": "Bar Gelateria Luksa",
-        "opening_hours": "Tu-Su 07:45-21:30"
+        "opening_hours": "Tu-Su 08:00-23:30"
       }
     },
     {
@@ -3648,7 +3672,8 @@
       "properties": {
         "id": 1738097084,
         "osm_type": "node",
-        "name": "Al Portello"
+        "name": "Al Portello",
+        "check_date": "2025-06-21"
       }
     },
     {
@@ -3663,7 +3688,8 @@
       "properties": {
         "id": 1738098246,
         "osm_type": "node",
-        "name": "Bottega del Caffé"
+        "name": "Bottega del Caffé",
+        "check_date": "2025-06-21"
       }
     },
     {
@@ -4164,7 +4190,8 @@
         "id": 1979536337,
         "osm_type": "node",
         "name": "Bomben",
-        "outdoor_seating": "sidewalk"
+        "outdoor_seating": "sidewalk",
+        "check_date": "2025-10-17"
       }
     },
     {
@@ -4299,7 +4326,8 @@
         "id": 2109934707,
         "osm_type": "node",
         "name": "Greco degustazione",
-        "opening_hours": "Mo-Sa 05:30-18:00"
+        "opening_hours": "Mo-Sa 05:30-18:00",
+        "check_date": "2025-10-31"
       }
     },
     {
@@ -4390,7 +4418,8 @@
         "id": 2141280361,
         "osm_type": "node",
         "name": "Dorbolò Gubane",
-        "opening_hours": "Mo,We-Sa 07:30-19:30; Su 08:00-19:30"
+        "opening_hours": "Mo,We-Sa 07:30-19:30; Su 08:00-19:30",
+        "check_date": "2024-07-02"
       }
     },
     {
@@ -4497,7 +4526,8 @@
         "id": 2157226274,
         "osm_type": "node",
         "name": "Cin Cin Bar",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-13"
       }
     },
     {
@@ -4832,7 +4862,8 @@
         "id": 2226175152,
         "osm_type": "node",
         "name": "Bar Andre",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-06-27"
       }
     },
     {
@@ -5211,7 +5242,8 @@
       "properties": {
         "id": 2411891901,
         "osm_type": "node",
-        "name": "Panificio Pasticceria Vazzoler"
+        "name": "Panificio Pasticceria Vazzoler",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -5254,7 +5286,8 @@
       },
       "properties": {
         "id": 2411897476,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -6165,7 +6198,8 @@
         "id": 2852389388,
         "osm_type": "node",
         "name": "Nonna Pallina",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-04-16"
       }
     },
     {
@@ -6408,7 +6442,8 @@
         "id": 3079141785,
         "osm_type": "node",
         "name": "Panificio Del Fabbro",
-        "opening_hours": "Mo-Sa 06:00-13:30, Mo,We-Sa 15:30-19:30"
+        "opening_hours": "Mo-Sa 06:00-13:30, Mo,We-Sa 15:30-19:30",
+        "check_date": "2022-09-08"
       }
     },
     {
@@ -6547,7 +6582,8 @@
         "osm_type": "node",
         "name": "Panetteria Giugovaz",
         "opening_hours": "Mo-Sa 06:30-20:00; Su 08:00-13:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2026-03-07"
       }
     },
     {
@@ -6577,7 +6613,8 @@
       "properties": {
         "id": 3231608539,
         "osm_type": "node",
-        "name": "Bar Cavour"
+        "name": "Bar Cavour",
+        "check_date": "2024-04-06"
       }
     },
     {
@@ -6653,6 +6690,22 @@
         "id": 3282465742,
         "osm_type": "node",
         "name": "Profumo di Pane da Teresa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2434145,
+          46.0590148
+        ]
+      },
+      "properties": {
+        "id": 3301484213,
+        "osm_type": "node",
+        "name": "Clara officina dei biscotti",
+        "opening_hours": "Mo,Tu,Th-Sa 08:30-13:00,15:00-19:00; We 08:30-13:00"
       }
     },
     {
@@ -6759,21 +6812,6 @@
         "id": 3420570806,
         "osm_type": "node",
         "name": "Goppion Caffetteria"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.7085794,
-          46.1726709
-        ]
-      },
-      "properties": {
-        "id": 3427379907,
-        "osm_type": "node",
-        "name": "Al Posta Caffè"
       }
     },
     {
@@ -7062,7 +7100,8 @@
         "id": 3640776894,
         "osm_type": "node",
         "name": "Forno Rurale",
-        "opening_hours": "Mo-Sa 06:30-14:00; Su 07:00-13:00"
+        "opening_hours": "Mo-Sa 06:30-14:00; Su 07:00-13:00",
+        "check_date": "2024-01-25"
       }
     },
     {
@@ -7199,7 +7238,8 @@
         "id": 3653967660,
         "osm_type": "node",
         "name": "Rampa d'oOro",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-17"
       }
     },
     {
@@ -7215,7 +7255,8 @@
         "id": 3653968393,
         "osm_type": "node",
         "name": "La Taca",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-04-08"
       }
     },
     {
@@ -7231,7 +7272,8 @@
         "id": 3653972546,
         "osm_type": "node",
         "name": "Seti Cafè",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -7247,7 +7289,8 @@
         "id": 3653972889,
         "osm_type": "node",
         "name": "La Brocca Rotta",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -7293,7 +7336,8 @@
         "id": 3653986890,
         "osm_type": "node",
         "name": "La Rosa dei Venti",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -7513,7 +7557,8 @@
         "id": 3704417086,
         "osm_type": "node",
         "name": "Brioni",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -7796,7 +7841,8 @@
       "properties": {
         "id": 3748948462,
         "osm_type": "node",
-        "name": "Panetteria e Pasticceria Meti"
+        "name": "Panetteria e Pasticceria Meti",
+        "opening_hours": "Mo-Sa 07:00-21:00"
       }
     },
     {
@@ -7930,7 +7976,8 @@
       "properties": {
         "id": 3748980555,
         "osm_type": "node",
-        "name": "Aqbar"
+        "name": "Aqbar",
+        "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:30-13:00"
       }
     },
     {
@@ -8037,7 +8084,8 @@
       "properties": {
         "id": 3749025714,
         "osm_type": "node",
-        "name": "Venier"
+        "name": "Venier",
+        "check_date": "2025-12-24"
       }
     },
     {
@@ -8159,7 +8207,8 @@
       "properties": {
         "id": 3749064558,
         "osm_type": "node",
-        "name": "Alla bella Udine"
+        "name": "Alla bella Udine",
+        "check_date": "2025-12-29"
       }
     },
     {
@@ -8219,7 +8268,8 @@
       "properties": {
         "id": 3765066758,
         "osm_type": "node",
-        "name": "Panifico Pori del Grano"
+        "name": "Panifico Pori del Grano",
+        "check_date": "2026-04-24"
       }
     },
     {
@@ -8234,7 +8284,8 @@
       "properties": {
         "id": 3765067407,
         "osm_type": "node",
-        "name": "Marconi Bistrot"
+        "name": "Marconi Bistrot",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -8279,7 +8330,8 @@
       "properties": {
         "id": 3765108450,
         "osm_type": "node",
-        "name": "Panificio Sapori del Grano"
+        "name": "Panificio Sapori del Grano",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -8484,7 +8536,8 @@
         "id": 3800035794,
         "osm_type": "node",
         "name": "La Girandola",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-01-02"
       }
     },
     {
@@ -8559,7 +8612,8 @@
       "properties": {
         "id": 3835860757,
         "osm_type": "node",
-        "name": "Club Slot Joker"
+        "name": "Club Slot Joker",
+        "check_date": "2025-10-14"
       }
     },
     {
@@ -8702,7 +8756,8 @@
         "name": "Fantasy Cake",
         "opening_hours": "Mo off; Tu-Sa 07:30-12:30,16:00-19:00; Su 07:30-12:30",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-05-31"
       }
     },
     {
@@ -8718,7 +8773,8 @@
         "id": 3896373847,
         "osm_type": "node",
         "name": "Dolci Pensieri S.N.C.",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-04-11"
       }
     },
     {
@@ -8734,7 +8790,8 @@
         "id": 3896376841,
         "osm_type": "node",
         "name": "Caffè Alla Posta",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-04-11"
       }
     },
     {
@@ -8765,7 +8822,8 @@
       "properties": {
         "id": 3900072660,
         "osm_type": "node",
-        "name": "Panetteria Pasticceria Leghissa Pekarna slaščičarna"
+        "name": "Panetteria Pasticceria Leghissa Pekarna slaščičarna",
+        "check_date": "2025-08-31"
       }
     },
     {
@@ -9012,7 +9070,8 @@
         "id": 4307624989,
         "osm_type": "node",
         "name": "Da Rino",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -9044,7 +9103,8 @@
         "osm_type": "node",
         "name": "Capitan Morgan",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-09-09"
       }
     },
     {
@@ -9061,7 +9121,8 @@
         "osm_type": "node",
         "name": "Bar panificio Chiarandini",
         "opening_hours": "Mo-Sa 05:30-19:30",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-31"
       }
     },
     {
@@ -9215,7 +9276,8 @@
       "properties": {
         "id": 4475802659,
         "osm_type": "node",
-        "name": "Bacchetti"
+        "name": "Bacchetti",
+        "opening_hours": "Tu-Su 07:00-21:00"
       }
     },
     {
@@ -9230,7 +9292,8 @@
       "properties": {
         "id": 4475802660,
         "osm_type": "node",
-        "name": "De Luisa"
+        "name": "De Luisa",
+        "check_date": "2025-10-31"
       }
     },
     {
@@ -9245,7 +9308,8 @@
       "properties": {
         "id": 4475802661,
         "osm_type": "node",
-        "name": "De Luisa"
+        "name": "De Luisa",
+        "check_date": "2025-10-31"
       }
     },
     {
@@ -9319,7 +9383,7 @@
       "properties": {
         "id": 4528724075,
         "osm_type": "node",
-        "name": "Bar Belvedere",
+        "name": "Lokal Birò",
         "opening_hours": "06:00-23:00"
       }
     },
@@ -9653,7 +9717,8 @@
       "properties": {
         "id": 4920847125,
         "osm_type": "node",
-        "name": "Bar Franzolini"
+        "name": "Bar Franzolini",
+        "check_date": "2025-12-29"
       }
     },
     {
@@ -9668,7 +9733,8 @@
       "properties": {
         "id": 4949124797,
         "osm_type": "node",
-        "name": "Tamburin"
+        "name": "Tamburin",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -9700,7 +9766,8 @@
         "id": 4970393724,
         "osm_type": "node",
         "name": "Bar al porto",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -9820,7 +9887,8 @@
       "properties": {
         "id": 5078605358,
         "osm_type": "node",
-        "name": "Gelateria Sartor"
+        "name": "Gelateria Sartor",
+        "check_date": "2025-11-02"
       }
     },
     {
@@ -10004,7 +10072,8 @@
       },
       "properties": {
         "id": 5324174721,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-08-16"
       }
     },
     {
@@ -10080,7 +10149,8 @@
         "id": 5719625991,
         "osm_type": "node",
         "name": "Crema e Cioccolato",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-16"
       }
     },
     {
@@ -10096,7 +10166,8 @@
         "id": 5719625992,
         "osm_type": "node",
         "name": "Bar agli Specchi",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-16"
       }
     },
     {
@@ -10181,6 +10252,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.2351771,
+          46.0781783
+        ]
+      },
+      "properties": {
+        "id": 5758271034,
+        "osm_type": "node",
+        "name": "GianGio",
+        "outdoor_seating": "yes",
+        "check_date": "2023-07-19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.2415662,
           46.0713913
         ]
@@ -10236,7 +10324,8 @@
         "id": 5764024417,
         "osm_type": "node",
         "name": "Grosmi",
-        "opening_hours": "Mo-Sa 07:45-19:45; Su 09:00-13:00"
+        "opening_hours": "Mo-Sa 07:45-19:45; Su 09:00-13:00",
+        "check_date": "2026-04-16"
       }
     },
     {
@@ -10267,7 +10356,8 @@
       "properties": {
         "id": 5764024424,
         "osm_type": "node",
-        "name": "Sorelle Del Do"
+        "name": "Sorelle Del Do",
+        "check_date": "2025-12-30"
       }
     },
     {
@@ -10410,7 +10500,8 @@
         "id": 5854732021,
         "osm_type": "node",
         "name": "Royal Bar",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -10426,7 +10517,8 @@
         "id": 5859180472,
         "osm_type": "node",
         "name": "Costa del Sol",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -10471,6 +10563,7 @@
         "id": 5884490338,
         "osm_type": "node",
         "name": "Castellarin",
+        "opening_hours": "Tu-Sa 07:00-19:00; Mo 07:00-15:00",
         "outdoor_seating": "yes"
       }
     },
@@ -10487,7 +10580,8 @@
         "id": 5904988676,
         "osm_type": "node",
         "name": "Bar spiaggia",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -10643,7 +10737,8 @@
       "properties": {
         "id": 6103948761,
         "osm_type": "node",
-        "name": "La Tazza d'Oro"
+        "name": "La Tazza d'Oro",
+        "check_date": "2025-12-24"
       }
     },
     {
@@ -10735,7 +10830,8 @@
       "properties": {
         "id": 6195661051,
         "osm_type": "node",
-        "name": "Purinan"
+        "name": "Purinan",
+        "check_date": "2025-09-21"
       }
     },
     {
@@ -10799,7 +10895,8 @@
         "id": 6473995130,
         "osm_type": "node",
         "name": "Al Municipio",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-13"
       }
     },
     {
@@ -10948,21 +11045,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2420385,
-          46.0580831
-        ]
-      },
-      "properties": {
-        "id": 6640642689,
-        "osm_type": "node",
-        "name": "Dolci pensieri"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.2367603,
           46.0611617
         ]
@@ -10985,7 +11067,9 @@
       "properties": {
         "id": 6646706913,
         "osm_type": "node",
-        "name": "City Bar"
+        "name": "City Bar",
+        "outdoor_seating": "yes",
+        "check_date": "2025-04-10"
       }
     },
     {
@@ -11353,7 +11437,8 @@
         "osm_type": "node",
         "name": "Gran Caffè Fiume",
         "opening_hours": "Mo-Sa 09:00-20:30; Su 09:30-20:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-06-04"
       }
     },
     {
@@ -11398,7 +11483,8 @@
         "id": 7578612786,
         "osm_type": "node",
         "name": "Il Pane Quotidiano",
-        "opening_hours": "Mo-Fr 06:30-20:30; Sa 06:30-20:00; Su 07:00-20:00"
+        "opening_hours": "Mo-Fr 06:30-20:30; Sa 06:30-20:00; Su 07:00-20:00",
+        "check_date": "2023-05-13"
       }
     },
     {
@@ -12055,7 +12141,8 @@
       "properties": {
         "id": 9271991189,
         "osm_type": "node",
-        "name": "Diemme Caffè"
+        "name": "Diemme Caffè",
+        "check_date": "2026-03-09"
       }
     },
     {
@@ -12116,7 +12203,8 @@
         "osm_type": "node",
         "name": "La piazzetta",
         "opening_hours": "Mo-Sa 09:00-20:00; Su 09:30-20:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-27"
       }
     },
     {
@@ -12224,7 +12312,8 @@
         "id": 9528276772,
         "osm_type": "node",
         "name": "Bar Ideal",
-        "outdoor_seating": "sidewalk"
+        "outdoor_seating": "sidewalk",
+        "check_date": "2025-04-10"
       }
     },
     {
@@ -12381,21 +12470,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2586941,
-          46.0285506
-        ]
-      },
-      "properties": {
-        "id": 9583609414,
-        "osm_type": "node",
-        "name": "my Café"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.6609278,
           46.1632064
         ]
@@ -12420,7 +12494,8 @@
         "osm_type": "node",
         "name": "Cittadella dello sport",
         "opening_hours": "PH,Mo-Su 08:00-24:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-14"
       }
     },
     {
@@ -12468,7 +12543,8 @@
         "osm_type": "node",
         "name": "Manzoni",
         "opening_hours": "Mo-Su 07:00-14:00,17:30-01:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-04-08"
       }
     },
     {
@@ -12596,7 +12672,8 @@
         "id": 9813792206,
         "osm_type": "node",
         "name": "Arci",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-14"
       }
     },
     {
@@ -12620,21 +12697,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.313027,
-          45.9065328
-        ]
-      },
-      "properties": {
-        "id": 9816909944,
-        "osm_type": "node",
-        "name": "Panificio Orsaria"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.3997271,
           45.6770896
         ]
@@ -12643,7 +12705,8 @@
         "id": 9861426839,
         "osm_type": "node",
         "name": "Solarium Cafe",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-17"
       }
     },
     {
@@ -12661,7 +12724,8 @@
         "name": "bruniera",
         "opening_hours": "Mo-Su 07:30-13:00,16:30-20:00",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-10-20"
       }
     },
     {
@@ -12897,7 +12961,8 @@
         "id": 9975056905,
         "osm_type": "node",
         "name": "Naos",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-13"
       }
     },
     {
@@ -13146,7 +13211,8 @@
         "id": 10028298717,
         "osm_type": "node",
         "name": "Tergesteo",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-17"
       }
     },
     {
@@ -13178,7 +13244,8 @@
         "osm_type": "node",
         "name": "Gobatto",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-10-17"
       }
     },
     {
@@ -13244,7 +13311,8 @@
         "id": 10068396097,
         "osm_type": "node",
         "name": "Nova Bar",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -13261,7 +13329,8 @@
         "osm_type": "node",
         "name": "Lavazza",
         "brand": "Lavazza",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -13277,7 +13346,8 @@
         "id": 10068432228,
         "osm_type": "node",
         "name": "Medeot",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -13356,7 +13426,8 @@
         "id": 10089843921,
         "osm_type": "node",
         "name": "La Fenice",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -13387,7 +13458,8 @@
       "properties": {
         "id": 10089843995,
         "osm_type": "node",
-        "name": "Astoria"
+        "name": "Astoria",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -13435,7 +13507,8 @@
         "id": 10111269982,
         "osm_type": "node",
         "name": "Hemingway Bar",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -13451,7 +13524,8 @@
         "id": 10111655709,
         "osm_type": "node",
         "name": "Hannover",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-17"
       }
     },
     {
@@ -13658,7 +13732,8 @@
         "id": 10159322580,
         "osm_type": "node",
         "name": "Al Campo Sportivo",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-19"
       }
     },
     {
@@ -13689,7 +13764,8 @@
       "properties": {
         "id": 10231198580,
         "osm_type": "node",
-        "opening_hours": "Mo off; Tu-Su 08:00-19:00"
+        "opening_hours": "Mo off; Tu-Su 08:00-19:00",
+        "check_date": "2022-12-01"
       }
     },
     {
@@ -13792,7 +13868,8 @@
       "properties": {
         "id": 10718692046,
         "osm_type": "node",
-        "name": "Pasticceria San Giorgio"
+        "name": "Pasticceria San Giorgio",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -14287,7 +14364,8 @@
         "id": 11224982180,
         "osm_type": "node",
         "name": "Al Marinaio",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-19"
       }
     },
     {
@@ -15017,7 +15095,8 @@
         "osm_type": "node",
         "name": "Bar Tandem",
         "opening_hours": "Mo-Sa 06:00-21:00; Su 07:00-14:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-03-01"
       }
     },
     {
@@ -15511,20 +15590,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2345684,
-          46.0728663
-        ]
-      },
-      "properties": {
-        "id": 12744742026,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.3042637,
           46.5051361
         ]
@@ -15845,7 +15910,8 @@
         "id": 12853010134,
         "osm_type": "node",
         "name": "Aurora",
-        "opening_hours": "Mo-Su 09:00-23:00"
+        "opening_hours": "Mo-Su 09:00-23:00",
+        "check_date": "2025-05-21"
       }
     },
     {
@@ -16441,7 +16507,8 @@
       "properties": {
         "id": 13355954059,
         "osm_type": "node",
-        "name": "Da Lorenzo"
+        "name": "Da Lorenzo",
+        "check_date": "2025-12-04"
       }
     },
     {
@@ -16685,7 +16752,8 @@
       "properties": {
         "id": 13607163432,
         "osm_type": "node",
-        "name": "dal Panky"
+        "name": "dal Panky",
+        "check_date": "2026-02-11"
       }
     },
     {
@@ -16904,6 +16972,128 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.7828317,
+          45.6445846
+        ]
+      },
+      "properties": {
+        "id": 13734455324,
+        "osm_type": "node",
+        "name": "VOG Bar",
+        "brand": "Illy Caffè"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.067609,
+          45.6956719
+        ]
+      },
+      "properties": {
+        "id": 13743933802,
+        "osm_type": "node",
+        "name": "Snoopy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3123727,
+          45.9062957
+        ]
+      },
+      "properties": {
+        "id": 13752231004,
+        "osm_type": "node",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.6572647,
+          45.9596561
+        ]
+      },
+      "properties": {
+        "id": 13760730295,
+        "osm_type": "node",
+        "name": "Doina",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-25"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.6572767,
+          45.9599109
+        ]
+      },
+      "properties": {
+        "id": 13760730296,
+        "osm_type": "node",
+        "check_date": "2026-04-25"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.660019,
+          45.9572696
+        ]
+      },
+      "properties": {
+        "id": 13762411984,
+        "osm_type": "node",
+        "name": "Forno Zani"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.6597929,
+          45.9576969
+        ]
+      },
+      "properties": {
+        "id": 13762452378,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.679068,
+          45.970438
+        ]
+      },
+      "properties": {
+        "id": 13763287109,
+        "osm_type": "node",
+        "check_date": "2026-04-26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.8433403,
           46.5865212
         ]
@@ -17035,6 +17225,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.6485189,
+          45.9367058
+        ]
+      },
+      "properties": {
+        "id": 36229123,
+        "osm_type": "way",
+        "name": "eni café"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.7432127,
           45.9481107
         ]
@@ -17090,7 +17295,8 @@
         "id": 36393231,
         "osm_type": "way",
         "name": "Key West",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -17195,7 +17401,8 @@
         "id": 36461647,
         "osm_type": "way",
         "name": "Chiosco da Erika",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -17211,7 +17418,8 @@
         "id": 36461668,
         "osm_type": "way",
         "name": "Laguna Gradese",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -17227,7 +17435,8 @@
         "id": 36461669,
         "osm_type": "way",
         "name": "Pineta Beach",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -17243,7 +17452,8 @@
         "id": 36462061,
         "osm_type": "way",
         "name": "Al Faro",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -17260,7 +17470,8 @@
         "osm_type": "way",
         "name": "TOP Bar",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-13"
       }
     },
     {
@@ -17308,7 +17519,8 @@
         "id": 36462170,
         "osm_type": "way",
         "name": "Costa Azurra",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -17415,7 +17627,8 @@
         "id": 36702620,
         "osm_type": "way",
         "name": "Bagno 6",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-06-18"
       }
     },
     {
@@ -17431,7 +17644,8 @@
         "id": 36702626,
         "osm_type": "way",
         "name": "Bagno 5",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-06-18"
       }
     },
     {
@@ -17543,7 +17757,8 @@
         "id": 36705118,
         "osm_type": "way",
         "name": "LidoCity",
-        "outdoor_seating": "terrace"
+        "outdoor_seating": "terrace",
+        "check_date": "2025-07-02"
       }
     },
     {
@@ -17623,7 +17838,8 @@
         "id": 36705566,
         "osm_type": "way",
         "name": "Aurora",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-09-08"
       }
     },
     {
@@ -17671,7 +17887,8 @@
         "id": 36705843,
         "osm_type": "way",
         "name": "Ausonia",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-09-23"
       }
     },
     {
@@ -17747,7 +17964,8 @@
         "id": 461916916,
         "osm_type": "way",
         "name": "Trinum Cafè",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-10-28"
       }
     },
     {
@@ -17826,7 +18044,8 @@
         "osm_type": "way",
         "name": "Spiaggia di Snoopy",
         "opening_hours": "Mo-Su 09:00-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-15"
       }
     },
     {
@@ -17892,7 +18111,8 @@
         "id": 1095867830,
         "osm_type": "way",
         "name": "Raggio di Sole",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-13"
       }
     },
     {
@@ -18033,6 +18253,39 @@
         "osm_type": "way",
         "name": "Bricco Caffé",
         "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2440631,
+          46.1745991
+        ]
+      },
+      "properties": {
+        "id": 1500731593,
+        "osm_type": "way",
+        "name": "Bar da Pupi",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2429142,
+          46.1575921
+        ]
+      },
+      "properties": {
+        "id": 1500732416,
+        "osm_type": "way",
+        "name": "Doppia Emme",
+        "opening_hours": "Mo-Fr 07:00-20:00; Sat-Su 08:00-13:00",
+        "outdoor_seating": "yes"
       }
     },
     {

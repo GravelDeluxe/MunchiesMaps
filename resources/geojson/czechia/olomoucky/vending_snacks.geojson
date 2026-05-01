@@ -6,84 +6,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.0823833,
-          49.4795029
+          17.2115517,
+          50.2440743
         ]
       },
       "properties": {
-        "id": 13415634585,
+        "id": 4354473931,
         "osm_type": "node",
-        "name": "snack4track",
-        "vending": "food;drinks",
-        "operator": "snack4track s.r.o."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.0832413,
-          49.4931082
-        ]
-      },
-      "properties": {
-        "id": 12991966235,
-        "osm_type": "node",
-        "name": "snack4track",
-        "vending": "food;drinks",
-        "operator": "snack4track s.r.o."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.0968474,
-          49.4655376
-        ]
-      },
-      "properties": {
-        "id": 13415634583,
-        "osm_type": "node",
-        "name": "snack4track",
-        "vending": "food;drinks",
-        "operator": "snack4track s.r.o."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.1175915,
-          49.4687265
-        ]
-      },
-      "properties": {
-        "id": 13415634584,
-        "osm_type": "node",
-        "name": "snack4track",
-        "vending": "food;drinks",
-        "operator": "snack4track s.r.o."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.1036862,
-          49.4803087
-        ]
-      },
-      "properties": {
-        "id": 12991967007,
-        "osm_type": "node",
-        "name": "snack4track",
-        "vending": "food;drinks",
-        "operator": "snack4track s.r.o."
+        "vending": "drinks"
       }
     },
     {
@@ -106,52 +36,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.1991484,
-          49.3482477
-        ]
-      },
-      "properties": {
-        "id": 11078102163,
-        "osm_type": "node",
-        "name": "Fresh milk",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.9138712,
-          49.6704181
-        ]
-      },
-      "properties": {
-        "id": 12846501829,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.9134434,
-          49.6705226
-        ]
-      },
-      "properties": {
-        "id": 12846528670,
-        "osm_type": "node",
-        "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           16.8872382,
           49.8724368
         ]
@@ -159,7 +43,8 @@
       "properties": {
         "id": 6641125283,
         "osm_type": "node",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2024-04-16"
       }
     },
     {
@@ -174,7 +59,8 @@
       "properties": {
         "id": 6641125284,
         "osm_type": "node",
-        "vending": "coffee"
+        "vending": "coffee",
+        "check_date": "2024-04-16"
       }
     },
     {
@@ -182,44 +68,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.0910282,
-          49.7238005
+          17.1991484,
+          49.3482477
         ]
       },
       "properties": {
-        "id": 13022660791,
+        "id": 11078102163,
         "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.2359196,
-          49.5865532
-        ]
-      },
-      "properties": {
-        "id": 13315377520,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.2366116,
-          49.5861124
-        ]
-      },
-      "properties": {
-        "id": 13315377519,
-        "osm_type": "node",
-        "vending": "food"
+        "name": "Fresh milk",
+        "vending": "milk"
       }
     },
     {
@@ -302,14 +159,78 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.5831875,
-          49.5267145
+          16.9138712,
+          49.6704181
         ]
       },
       "properties": {
-        "id": 13473172201,
+        "id": 12846501829,
         "osm_type": "node",
-        "vending": "drinks"
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.9134434,
+          49.6705226
+        ]
+      },
+      "properties": {
+        "id": 12846528670,
+        "osm_type": "node",
+        "vending": "coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.0832413,
+          49.4931082
+        ]
+      },
+      "properties": {
+        "id": 12991966235,
+        "osm_type": "node",
+        "name": "snack4track",
+        "vending": "food;drinks",
+        "operator": "snack4track s.r.o."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.1036862,
+          49.4803087
+        ]
+      },
+      "properties": {
+        "id": 12991967007,
+        "osm_type": "node",
+        "name": "snack4track",
+        "vending": "food;drinks",
+        "operator": "snack4track s.r.o."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.0910282,
+          49.7238005
+        ]
+      },
+      "properties": {
+        "id": 13022660791,
+        "osm_type": "node",
+        "vending": "food"
       }
     },
     {
@@ -340,6 +261,102 @@
         "id": 13262787191,
         "osm_type": "node",
         "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.8991521,
+          50.1702997
+        ]
+      },
+      "properties": {
+        "id": 13282902194,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2366116,
+          49.5861124
+        ]
+      },
+      "properties": {
+        "id": 13315377519,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2359196,
+          49.5865532
+        ]
+      },
+      "properties": {
+        "id": 13315377520,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.0968474,
+          49.4655376
+        ]
+      },
+      "properties": {
+        "id": 13415634583,
+        "osm_type": "node",
+        "name": "snack4track",
+        "vending": "food;drinks",
+        "operator": "snack4track s.r.o."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.1175915,
+          49.4687265
+        ]
+      },
+      "properties": {
+        "id": 13415634584,
+        "osm_type": "node",
+        "name": "snack4track",
+        "vending": "food;drinks",
+        "operator": "snack4track s.r.o."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.0823833,
+          49.4795029
+        ]
+      },
+      "properties": {
+        "id": 13415634585,
+        "osm_type": "node",
+        "name": "snack4track",
+        "vending": "food;drinks",
+        "operator": "snack4track s.r.o."
       }
     },
     {
@@ -392,27 +409,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.8991521,
-          50.1702997
+          17.5831875,
+          49.5267145
         ]
       },
       "properties": {
-        "id": 13282902194,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.2115517,
-          50.2440743
-        ]
-      },
-      "properties": {
-        "id": 4354473931,
+        "id": 13473172201,
         "osm_type": "node",
         "vending": "drinks"
       }

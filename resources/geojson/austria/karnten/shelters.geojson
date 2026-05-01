@@ -6,22 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.9047672,
-          46.6167083
-        ]
-      },
-      "properties": {
-        "id": 4553066568,
-        "osm_type": "node",
-        "name": "Eiskarbiwak",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.746517,
           46.961817
         ]
@@ -40,17 +24,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7995892,
-          46.9305778
+          13.0252988,
+          46.9479184
         ]
       },
       "properties": {
-        "id": 13310504211,
+        "id": 389786026,
         "osm_type": "node",
-        "name": "Winterraum",
-        "shelter_type": "lean_to",
-        "operator": "ÖAV Sektion Lienz",
-        "description": "Unversperrter Schutzraum in der Bergstation der Materialseilbahn. 8 Matratzenlager, Heiz- und Kochmöglichkeit"
+        "name": "Holler-Stöckl",
+        "operator": "Alpenverein Klagenfurt"
       }
     },
     {
@@ -58,14 +40,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.1969733,
-          46.6294984
+          13.3395109,
+          46.9443777
         ]
       },
       "properties": {
-        "id": 7829913341,
+        "id": 389786149,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "name": "Mooshütte",
+        "operator": "Sektion Spittal an der Drau"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9206746,
+          47.0808205
+        ]
+      },
+      "properties": {
+        "id": 389786229,
+        "osm_type": "node",
+        "name": "Otto-Umlauft-Biwak",
+        "shelter_type": "basic_hut",
+        "operator": "Alpenverein Klagenfurt"
       }
     },
     {
@@ -83,7 +83,154 @@
         "name": "Reisskofel-Biwak",
         "shelter_type": "basic_hut",
         "bench": "yes",
-        "operator": "OeAV Sektion Obergailtal-Lesachtal"
+        "operator": "OeAV Sektion Obergailtal-Lesachtal",
+        "check_date": "2024-08-24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.6943164,
+          47.0826485
+        ]
+      },
+      "properties": {
+        "id": 393767001,
+        "osm_type": "node",
+        "name": "Glocknerbiwak",
+        "shelter_type": "basic_hut",
+        "operator": "OeAV Sektion Villach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3288538,
+          46.6809565
+        ]
+      },
+      "properties": {
+        "id": 813721042,
+        "osm_type": "node",
+        "name": "Jadersdorfer Ochsenalm"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.0701933,
+          47.0067611
+        ]
+      },
+      "properties": {
+        "id": 1404540571,
+        "osm_type": "node",
+        "name": "Dr.-Rudolf-Weißgerber-Biwak",
+        "shelter_type": "basic_hut",
+        "bench": "yes",
+        "operator": "DAV Sektion Duisburg",
+        "check_date": "2025-08-19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.9496436,
+          46.9185548
+        ]
+      },
+      "properties": {
+        "id": 2367743137,
+        "osm_type": "node",
+        "name": "Schutzhütte Lattersteighöhe",
+        "shelter_type": "basic_hut",
+        "bench": "yes",
+        "description": "Basic shelter, as of 2021 due to its condition not fully weatherproof."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3840368,
+          46.4471934
+        ]
+      },
+      "properties": {
+        "id": 2395427207,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5332456,
+          46.9178973
+        ]
+      },
+      "properties": {
+        "id": 2540283245,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "check_date": "2026-01-05"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1096193,
+          46.9860638
+        ]
+      },
+      "properties": {
+        "id": 2893026131,
+        "osm_type": "node",
+        "name": "Böseckhütte"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5087552,
+          46.4918089
+        ]
+      },
+      "properties": {
+        "id": 2939278322,
+        "osm_type": "node",
+        "name": "Obiralm"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9047672,
+          46.6167083
+        ]
+      },
+      "properties": {
+        "id": 4553066568,
+        "osm_type": "node",
+        "name": "Eiskarbiwak",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -119,6 +266,40 @@
         "name": "Fuhrleut-Hüttl",
         "access": "yes",
         "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5698626,
+          46.3839164
+        ]
+      },
+      "properties": {
+        "id": 5761587524,
+        "osm_type": "node",
+        "name": "Offner-Hütte",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.7323939,
+          46.999257
+        ]
+      },
+      "properties": {
+        "id": 5937430593,
+        "osm_type": "node",
+        "name": "Gernot-Röhr-Biwak",
+        "shelter_type": "basic_hut",
+        "capacity": "6",
+        "operator": "Sektion Lienz"
       }
     },
     {
@@ -168,222 +349,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3288538,
-          46.6809565
+          13.1969733,
+          46.6294984
         ]
       },
       "properties": {
-        "id": 813721042,
-        "osm_type": "node",
-        "name": "Jadersdorfer Ochsenalm"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.0252988,
-          46.9479184
-        ]
-      },
-      "properties": {
-        "id": 389786026,
-        "osm_type": "node",
-        "name": "Holler-Stöckl",
-        "operator": "Alpenverein Klagenfurt"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.1096511,
-          46.9860489
-        ]
-      },
-      "properties": {
-        "id": 2893026131,
-        "osm_type": "node",
-        "name": "Böseckhütte"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.3395109,
-          46.9443777
-        ]
-      },
-      "properties": {
-        "id": 389786149,
-        "osm_type": "node",
-        "name": "Mooshütte",
-        "operator": "Sektion Spittal an der Drau"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.7323939,
-          46.999257
-        ]
-      },
-      "properties": {
-        "id": 5937430593,
-        "osm_type": "node",
-        "name": "Gernot-Röhr-Biwak",
-        "shelter_type": "basic_hut",
-        "capacity": "6",
-        "operator": "Sektion Lienz"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.6943164,
-          47.0826485
-        ]
-      },
-      "properties": {
-        "id": 393767001,
-        "osm_type": "node",
-        "name": "Glocknerbiwak",
-        "shelter_type": "basic_hut",
-        "operator": "OeAV Sektion Villach"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.9206746,
-          47.0808205
-        ]
-      },
-      "properties": {
-        "id": 389786229,
-        "osm_type": "node",
-        "name": "Otto-Umlauft-Biwak",
-        "shelter_type": "basic_hut",
-        "operator": "Alpenverein Klagenfurt"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.0701933,
-          47.0067611
-        ]
-      },
-      "properties": {
-        "id": 1404540571,
-        "osm_type": "node",
-        "name": "Dr.-Rudolf-Weißgerber-Biwak",
-        "shelter_type": "basic_hut",
-        "bench": "yes",
-        "operator": "DAV Sektion Duisburg"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.3840368,
-          46.4471934
-        ]
-      },
-      "properties": {
-        "id": 2395427207,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.3558524,
-          46.5200368
-        ]
-      },
-      "properties": {
-        "id": 13047887288,
-        "osm_type": "node",
-        "access": "yes",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.5698626,
-          46.3839164
-        ]
-      },
-      "properties": {
-        "id": 5761587524,
-        "osm_type": "node",
-        "name": "Offner-Hütte",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.5087552,
-          46.4918089
-        ]
-      },
-      "properties": {
-        "id": 2939278322,
-        "osm_type": "node",
-        "name": "Obiralm"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.7641118,
-          46.5162883
-        ]
-      },
-      "properties": {
-        "id": 13047887286,
-        "osm_type": "node",
-        "shelter_type": "lean_to",
-        "capacity": "3"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.5332456,
-          46.9178973
-        ]
-      },
-      "properties": {
-        "id": 2540283245,
+        "id": 7829913341,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
       }
@@ -408,17 +379,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.9496436,
-          46.9185548
+          14.7641118,
+          46.5162883
         ]
       },
       "properties": {
-        "id": 2367743137,
+        "id": 13047887286,
         "osm_type": "node",
-        "name": "Schutzhütte Lattersteighöhe",
-        "shelter_type": "basic_hut",
-        "bench": "yes",
-        "description": "Basic shelter, as of 2021 due to its condition not fully weatherproof."
+        "shelter_type": "lean_to",
+        "capacity": "3"
       }
     },
     {
@@ -426,14 +395,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3488415,
-          46.7094525
+          14.3558524,
+          46.5200368
         ]
       },
       "properties": {
-        "id": 1395722132,
-        "osm_type": "way",
-        "access": "yes"
+        "id": 13047887288,
+        "osm_type": "node",
+        "access": "yes",
+        "shelter_type": "basic_hut",
+        "capacity": "2"
       }
     },
     {
@@ -441,17 +412,35 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2967393,
-          46.9756561
+          12.7995892,
+          46.9305778
         ]
       },
       "properties": {
-        "id": 1425220149,
+        "id": 13310504211,
+        "osm_type": "node",
+        "name": "Winterraum",
+        "shelter_type": "lean_to",
+        "operator": "ÖAV Sektion Lienz",
+        "description": "Unversperrter Schutzraum in der Bergstation der Materialseilbahn. 8 Matratzenlager, Heiz- und Kochmöglichkeit",
+        "check_date": "2025-11-14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2144822,
+          47.0379195
+        ]
+      },
+      "properties": {
+        "id": 196838277,
         "osm_type": "way",
-        "name": "Kaponig-Biwak",
-        "shelter_type": "basic_hut",
-        "bench": "yes",
-        "operator": "ÖAV Sektion Graz"
+        "name": "Hannoverhütte",
+        "fee": "no",
+        "operator": "DAV Sektion Göttingen"
       }
     },
     {
@@ -475,14 +464,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.8145203,
-          47.0449816
+          14.3464177,
+          46.6080673
         ]
       },
       "properties": {
-        "id": 842678799,
+        "id": 319170722,
         "osm_type": "way",
-        "shelter_type": "lean_to"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -490,16 +479,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2144822,
-          47.0379195
+          13.8056289,
+          46.8444269
         ]
       },
       "properties": {
-        "id": 196838277,
+        "id": 334165189,
         "osm_type": "way",
-        "name": "Hannoverhütte",
-        "fee": "no",
-        "operator": "DAV Sektion Göttingen"
+        "name": "Totelitzen Unterstandhütte",
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "table": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7648748,
+          46.8728748
+        ]
+      },
+      "properties": {
+        "id": 368176809,
+        "osm_type": "way",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -569,39 +574,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.7648748,
-          46.8728748
-        ]
-      },
-      "properties": {
-        "id": 368176809,
-        "osm_type": "way",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.8056289,
-          46.8444269
-        ]
-      },
-      "properties": {
-        "id": 334165189,
-        "osm_type": "way",
-        "name": "Totelitzen Unterstandhütte",
-        "shelter_type": "weather_shelter",
-        "bench": "yes",
-        "table": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           13.8006407,
           46.9292576
         ]
@@ -617,30 +589,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.8429151,
-          46.6187352
+          12.8145203,
+          47.0449816
         ]
       },
       "properties": {
-        "id": 1362556785,
+        "id": 842678799,
         "osm_type": "way",
-        "shelter_type": "weather_shelter",
-        "bench": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.3464177,
-          46.6080673
-        ]
-      },
-      "properties": {
-        "id": 319170722,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -671,6 +627,55 @@
         "id": 1198027548,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.8429151,
+          46.6187352
+        ]
+      },
+      "properties": {
+        "id": 1362556785,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3488415,
+          46.7094525
+        ]
+      },
+      "properties": {
+        "id": 1395722132,
+        "osm_type": "way",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2967393,
+          46.9756561
+        ]
+      },
+      "properties": {
+        "id": 1425220149,
+        "osm_type": "way",
+        "name": "Kaponig-Biwak",
+        "shelter_type": "basic_hut",
+        "bench": "yes",
+        "operator": "ÖAV Sektion Graz"
       }
     }
   ]

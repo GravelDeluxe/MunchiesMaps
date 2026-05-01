@@ -6,14 +6,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.991774,
-          47.1764609
+          9.7488822,
+          47.2913525
         ]
       },
       "properties": {
-        "id": 5963619020,
+        "id": 461700121,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "name": "Frödischbödenhütte",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -37,31 +38,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.7488822,
-          47.2913525
+          10.1530608,
+          47.3448757
         ]
       },
       "properties": {
-        "id": 461700121,
-        "osm_type": "node",
-        "name": "Frödischbödenhütte",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.7319681,
-          47.2947216
-        ]
-      },
-      "properties": {
-        "id": 7135072112,
-        "osm_type": "node",
-        "name": "Hinter Wang Hütte",
-        "shelter_type": "basic_hut"
+        "id": 701639897,
+        "osm_type": "node"
       }
     },
     {
@@ -77,21 +60,6 @@
         "id": 1513177126,
         "osm_type": "node",
         "name": "Untere Buchen",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.8338996,
-          47.431919
-        ]
-      },
-      "properties": {
-        "id": 8593220585,
-        "osm_type": "node",
         "shelter_type": "weather_shelter"
       }
     },
@@ -131,13 +99,65 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.1530608,
-          47.3448757
+          9.991774,
+          47.1764609
         ]
       },
       "properties": {
-        "id": 701639897,
-        "osm_type": "node"
+        "id": 5963619020,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.7319681,
+          47.2947216
+        ]
+      },
+      "properties": {
+        "id": 7135072112,
+        "osm_type": "node",
+        "name": "Hinter Wang Hütte",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.8338996,
+          47.431919
+        ]
+      },
+      "properties": {
+        "id": 8593220585,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1393811,
+          47.0072669
+        ]
+      },
+      "properties": {
+        "id": 85800985,
+        "osm_type": "way",
+        "name": "Peter-Käß-Hütte",
+        "access": "yes",
+        "capacity": "28",
+        "fee": "yes",
+        "operator": "Sektion Heilbronn des Deutschen Alpenvereins (DAV) e.V.",
+        "description": "Serves as winter room of Neue Heilbronner Hütte"
       }
     },
     {
@@ -160,14 +180,65 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.9109123,
-          46.9513026
+          10.1758987,
+          47.3666493
         ]
       },
       "properties": {
-        "id": 253330883,
+        "id": 87867019,
         "osm_type": "way",
-        "name": "Madrisahütte"
+        "name": "Mahdtalhaus",
+        "operator": "DAV Sektion Stuttgart"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1827528,
+          47.388714
+        ]
+      },
+      "properties": {
+        "id": 89531761,
+        "osm_type": "way",
+        "name": "Außerwaldhütte"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.126107,
+          46.8480413
+        ]
+      },
+      "properties": {
+        "id": 122295654,
+        "osm_type": "way",
+        "name": "Ehemalige Zollwachhütte",
+        "shelter_type": "weather_shelter",
+        "bench": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.8644026,
+          47.0592911
+        ]
+      },
+      "properties": {
+        "id": 123243724,
+        "osm_type": "way",
+        "name": "Gauenhütte",
+        "capacity": "24",
+        "operator": "DAV-Konstanz",
+        "description": "Selbstversorgerhütte mit 6 Räumen, gut ausgestattete Küche, große Stube, Holzheizung, Trockenraum, Sanitäranlagen mit Dusche."
       }
     },
     {
@@ -191,21 +262,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.6384156,
-          47.2647666
-        ]
-      },
-      "properties": {
-        "id": 259664571,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.7844641,
           47.0401407
         ]
@@ -222,17 +278,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.7600581,
-          47.1483023
+          9.9109123,
+          46.9513026
         ]
       },
       "properties": {
-        "id": 391067011,
+        "id": 253330883,
         "osm_type": "way",
-        "name": "Schwabenhaus",
-        "capacity": "41",
-        "fee": "yes",
-        "operator": "DAV Sektion Schwaben"
+        "name": "Madrisahütte"
       }
     },
     {
@@ -240,17 +293,67 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.8644026,
-          47.0592911
+          9.6384156,
+          47.2647666
         ]
       },
       "properties": {
-        "id": 123243724,
+        "id": 259664571,
         "osm_type": "way",
-        "name": "Gauenhütte",
-        "capacity": "24",
-        "operator": "DAV-Konstanz",
-        "description": "Selbstversorgerhütte mit 6 Räumen, gut ausgestattete Küche, große Stube, Holzheizung, Trockenraum, Sanitäranlagen mit Dusche."
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.7223667,
+          47.2982579
+        ]
+      },
+      "properties": {
+        "id": 305882322,
+        "osm_type": "way",
+        "name": "Lindenbodenhütte",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1156252,
+          47.075338
+        ]
+      },
+      "properties": {
+        "id": 307277777,
+        "osm_type": "way",
+        "name": "Neue Reutlinger Hütte",
+        "operator": "DAV Sektion Reutlingen",
+        "description": "Selbstversorgerhütte mit AV-Schloss"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1105391,
+          47.1801447
+        ]
+      },
+      "properties": {
+        "id": 360347617,
+        "osm_type": "way",
+        "name": "Das Biwak",
+        "shelter_type": "basic_hut",
+        "bench": "yes",
+        "capacity": "6",
+        "fee": "no",
+        "check_date": "2019-09-15"
       }
     },
     {
@@ -288,6 +391,70 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.7600581,
+          47.1483023
+        ]
+      },
+      "properties": {
+        "id": 391067011,
+        "osm_type": "way",
+        "name": "Schwabenhaus",
+        "capacity": "41",
+        "fee": "yes",
+        "operator": "DAV Sektion Schwaben"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.8077373,
+          47.4130157
+        ]
+      },
+      "properties": {
+        "id": 391876888,
+        "osm_type": "way",
+        "name": "Lankhütte"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1729801,
+          47.2711335
+        ]
+      },
+      "properties": {
+        "id": 472115546,
+        "osm_type": "way",
+        "access": "no",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.0486452,
+          47.4290481
+        ]
+      },
+      "properties": {
+        "id": 478029058,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.6975549,
           47.2873547
         ]
@@ -305,15 +472,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.7223667,
-          47.2982579
+          10.1753042,
+          47.2697022
         ]
       },
       "properties": {
-        "id": 305882322,
+        "id": 1077392824,
         "osm_type": "way",
-        "name": "Lindenbodenhütte",
-        "shelter_type": "basic_hut"
+        "access": "no",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -337,12 +504,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.9099246,
-          47.2477504
+          9.7731565,
+          47.4808455
         ]
       },
       "properties": {
-        "id": 1192334200,
+        "id": 1123085978,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
       }
@@ -368,180 +535,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.8077373,
-          47.4130157
+          9.9099246,
+          47.2477504
         ]
       },
       "properties": {
-        "id": 391876888,
-        "osm_type": "way",
-        "name": "Lankhütte"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.7731565,
-          47.4808455
-        ]
-      },
-      "properties": {
-        "id": 1123085978,
+        "id": 1192334200,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.0486452,
-          47.4290481
-        ]
-      },
-      "properties": {
-        "id": 478029058,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.126107,
-          46.8480413
-        ]
-      },
-      "properties": {
-        "id": 122295654,
-        "osm_type": "way",
-        "name": "Ehemalige Zollwachhütte",
-        "shelter_type": "weather_shelter",
-        "bench": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.1393811,
-          47.0072669
-        ]
-      },
-      "properties": {
-        "id": 85800985,
-        "osm_type": "way",
-        "name": "Peter-Käß-Hütte",
-        "access": "yes",
-        "capacity": "28",
-        "fee": "yes",
-        "operator": "Sektion Heilbronn des Deutschen Alpenvereins (DAV) e.V.",
-        "description": "Serves as winter room of Neue Heilbronner Hütte"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.1156252,
-          47.075338
-        ]
-      },
-      "properties": {
-        "id": 307277777,
-        "osm_type": "way",
-        "name": "Neue Reutlinger Hütte",
-        "operator": "DAV Sektion Reutlingen",
-        "description": "Selbstversorgerhütte mit AV-Schloss"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.1105391,
-          47.1801447
-        ]
-      },
-      "properties": {
-        "id": 360347617,
-        "osm_type": "way",
-        "name": "Das Biwak",
-        "shelter_type": "basic_hut",
-        "bench": "yes",
-        "capacity": "6",
-        "fee": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.1729801,
-          47.2711335
-        ]
-      },
-      "properties": {
-        "id": 472115546,
-        "osm_type": "way",
-        "access": "no",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.1753042,
-          47.2697022
-        ]
-      },
-      "properties": {
-        "id": 1077392824,
-        "osm_type": "way",
-        "access": "no",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.1758987,
-          47.3666493
-        ]
-      },
-      "properties": {
-        "id": 87867019,
-        "osm_type": "way",
-        "name": "Mahdtalhaus",
-        "operator": "DAV Sektion Stuttgart"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.1827528,
-          47.388714
-        ]
-      },
-      "properties": {
-        "id": 89531761,
-        "osm_type": "way",
-        "name": "Außerwaldhütte"
       }
     }
   ]

@@ -6,35 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8818136,
-          47.4073226
-        ]
-      },
-      "properties": {
-        "id": 7768139943,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.4987146,
-          47.4567231
-        ]
-      },
-      "properties": {
-        "id": 13119547325,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.5097035,
           47.5163377
         ]
@@ -66,15 +37,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4872772,
-          47.409443
+          7.8818136,
+          47.4073226
         ]
       },
       "properties": {
-        "id": 1196823925,
-        "osm_type": "way",
-        "name": "Waldhütte der Stadtbürgergemeinde Laufen",
+        "id": 7768139943,
+        "osm_type": "node",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4987146,
+          47.4567231
+        ]
+      },
+      "properties": {
+        "id": 13119547325,
+        "osm_type": "node"
       }
     },
     {
@@ -97,18 +81,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.630751,
-          47.490627
+          7.9006816,
+          47.4498766
         ]
       },
       "properties": {
-        "id": 1137056285,
+        "id": 231547967,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8320233,
+          47.4808235
+        ]
+      },
+      "properties": {
+        "id": 266610890,
         "osm_type": "way",
-        "name": "Sophienruhe",
-        "shelter_type": "weather_shelter",
-        "bench": "yes",
-        "operator": "Baselland Tourismus",
-        "url": "https://www.ermitage-arlesheim.info/rundgang-durch-die-ermitage/sophienruhe/"
+        "name": "Isletenhütte"
       }
     },
     {
@@ -146,14 +140,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.8320233,
-          47.4808235
+          7.630751,
+          47.490627
         ]
       },
       "properties": {
-        "id": 266610890,
+        "id": 1137056285,
         "osm_type": "way",
-        "name": "Isletenhütte"
+        "name": "Sophienruhe",
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "operator": "Baselland Tourismus",
+        "url": "https://www.ermitage-arlesheim.info/rundgang-durch-die-ermitage/sophienruhe/"
       }
     },
     {
@@ -161,13 +159,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9006816,
-          47.4498766
+          7.4872772,
+          47.409443
         ]
       },
       "properties": {
-        "id": 231547967,
-        "osm_type": "way"
+        "id": 1196823925,
+        "osm_type": "way",
+        "name": "Waldhütte der Stadtbürgergemeinde Laufen",
+        "shelter_type": "weather_shelter"
       }
     }
   ]

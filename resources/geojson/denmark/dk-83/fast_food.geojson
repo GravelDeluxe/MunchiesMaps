@@ -215,6 +215,7 @@
         "name": "Lyø Havnegrill",
         "opening_hours": "Jun-Aug",
         "cuisine": "burger;pizza;ice_cream",
+        "check_date": "2025-07-09",
         "chain": "unknown"
       }
     },
@@ -235,6 +236,7 @@
         "phone": "+45 75256084",
         "website": "https://www.creperiet-hennestrand.dk/",
         "cuisine": "crepe",
+        "check_date": "2024-04-06",
         "chain": "unknown"
       }
     },
@@ -358,6 +360,7 @@
         "brand": "Sunset Boulevard",
         "opening_hours": "Mo-Th 10:00-21:00, Fr 10:00-21:30, Sa-Su 12:00-20:00",
         "cuisine": "sandwich",
+        "check_date": "2024-04-25",
         "chain": "unknown"
       }
     },
@@ -395,6 +398,7 @@
         "osm_type": "node",
         "name": "Info-Teria Årslev Øst",
         "cuisine": "burger",
+        "check_date": "2025-05-25",
         "chain": "unknown"
       }
     },
@@ -482,6 +486,7 @@
         "osm_type": "node",
         "name": "Torvets Isbar & Bøffen",
         "cuisine": "burger",
+        "check_date": "2025-09-22",
         "chain": "unknown"
       }
     },
@@ -887,6 +892,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "brand:wikidata": "Q12337737",
         "cuisine": "burger;sandwich",
+        "check_date": "2025-08-04",
         "chain": "unknown"
       }
     },
@@ -907,6 +913,7 @@
         "phone": "+45 65942091",
         "website": "https://korupsteakhouse.dk/",
         "cuisine": "steak;pizza;burger",
+        "check_date": "2022-08-02",
         "chain": "unknown"
       }
     },
@@ -1017,6 +1024,7 @@
         "osm_type": "node",
         "name": "Hjørne grillen",
         "opening_hours": "Mo-Th 10:30-21:00; Fr 12:00-21:00; Sa-Su 13:00-21:00",
+        "check_date": "2024-10-16",
         "chain": "unknown"
       }
     },
@@ -1051,6 +1059,7 @@
         "id": 1907399188,
         "osm_type": "node",
         "name": "Babylons Pizza",
+        "check_date": "2024-09-29",
         "chain": "unknown"
       }
     },
@@ -1287,6 +1296,7 @@
         "phone": "+45 64415959",
         "website": "https://www.papas2night.dk/",
         "cuisine": "italian;pizza",
+        "check_date": "2025-12-13",
         "chain": "unknown"
       }
     },
@@ -1307,6 +1317,7 @@
         "opening_hours": "10:30-21:30",
         "brand:wikidata": "Q1043486",
         "cuisine": "burger",
+        "check_date": "2025-06-14",
         "chain": "unknown"
       }
     },
@@ -1323,6 +1334,7 @@
         "id": 3035852749,
         "osm_type": "node",
         "name": "Valentino Pizzaria",
+        "check_date": "2024-10-19",
         "chain": "unknown"
       }
     },
@@ -1721,6 +1733,7 @@
         "name": "Hotdog Company",
         "opening_hours": "PH,Mo-Su 11:00-17:00",
         "cuisine": "hot_dog",
+        "check_date": "2026-04-21",
         "chain": "unknown"
       }
     },
@@ -1736,8 +1749,28 @@
       "properties": {
         "id": 3581278027,
         "osm_type": "node",
-        "name": "Western Sandwiches",
+        "name": "Western Hotdog",
+        "cuisine": "hot_dog",
+        "check_date": "2026-04-22",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1253101,
+          55.7361102
+        ]
+      },
+      "properties": {
+        "id": 3583981907,
+        "osm_type": "node",
+        "name": "Knights’ Sandwich",
+        "opening_hours": "Mo-Su 12:00-19:00",
         "cuisine": "sandwich",
+        "check_date": "2026-04-23",
         "chain": "unknown"
       }
     },
@@ -2115,6 +2148,7 @@
         "osm_type": "node",
         "name": "Langelands Pizza og Kebabhouse",
         "cuisine": "pizza",
+        "check_date": "2025-06-25",
         "chain": "unknown"
       }
     },
@@ -2302,6 +2336,7 @@
         "phone": "+4565975936",
         "website": "https://pizzacapri.dk/",
         "cuisine": "burger;chicken;fish;italian;kebab;pasta;pizza",
+        "check_date": "2026-04-04",
         "chain": "unknown"
       }
     },
@@ -3049,6 +3084,7 @@
         "name": "Rogda Pizza & Kebab",
         "opening_hours": "16:00-21:00",
         "cuisine": "pizza;kebab",
+        "check_date": "2023-10-26",
         "chain": "unknown"
       }
     },
@@ -4483,6 +4519,7 @@
         "phone": "+45 65 32 33 77",
         "website": "https://zilanspizza.dk",
         "cuisine": "pizza",
+        "check_date": "2026-02-22",
         "chain": "unknown"
       }
     },
@@ -4657,6 +4694,7 @@
         "opening_hours": "Mo-Su 12:00-21:00",
         "website": "https://shawarma-huset.dk/",
         "cuisine": "shawarma",
+        "check_date": "2025-03-23",
         "chain": "unknown"
       }
     },
@@ -5270,6 +5308,7 @@
         "phone": "+45 20 86 47 84",
         "website": "https://gringas.dk/",
         "cuisine": "mexican",
+        "check_date": "2025-03-23",
         "chain": "unknown"
       }
     },
@@ -5342,6 +5381,7 @@
         "osm_type": "node",
         "name": "Gozas Pizza og Kebab",
         "opening_hours": "Mo-Su 16:00-22:00",
+        "phone": "+4522277163",
         "cuisine": "pizza",
         "chain": "unknown"
       }
@@ -5361,6 +5401,7 @@
         "name": "Assos",
         "opening_hours": "Mo-We off; Th, Su 16:00-21:00; Fr-Sa 16:00-04:00",
         "cuisine": "pizza",
+        "check_date": "2021-11-08",
         "chain": "unknown"
       }
     },
@@ -5477,6 +5518,7 @@
         "name": "Gørding Pizza",
         "phone": "+45 75177225",
         "website": "https://www.pizzasteakhouse.dk/",
+        "check_date": "2021-06-16",
         "chain": "unknown"
       }
     },
@@ -6027,6 +6069,7 @@
         "phone": "+4575165020",
         "website": "http://www.ali-babas.dk/",
         "cuisine": "pizza",
+        "check_date": "2025-12-12",
         "chain": "unknown"
       }
     },
@@ -6082,6 +6125,7 @@
         "phone": "+45 22508117",
         "website": "https://discoverdenmark.de/activities/sandkassens-grill-og-vaffelbod,-blaavand/",
         "cuisine": "burger",
+        "check_date": "2026-03-11",
         "chain": "unknown"
       }
     },
@@ -6229,6 +6273,7 @@
         "id": 4036540619,
         "osm_type": "node",
         "name": "Roadhouse",
+        "check_date": "2026-04-23",
         "chain": "unknown"
       }
     },
@@ -6265,6 +6310,7 @@
         "osm_type": "node",
         "name": "Henne Strand Grill-Is",
         "opening_hours": "Mo-Su,PH 12:00-19:00",
+        "check_date": "2025-10-16",
         "chain": "unknown"
       }
     },
@@ -6408,6 +6454,7 @@
         "opening_hours": "11:00-22:00; Su 12:00-22:00",
         "website": "http://www.pizzakebabhouse.dk/",
         "cuisine": "pizza",
+        "check_date": "2023-06-01",
         "chain": "unknown"
       }
     },
@@ -6608,17 +6655,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1298212,
-          55.7354901
+          9.1298041,
+          55.7354414
         ]
       },
       "properties": {
         "id": 4046702428,
         "osm_type": "node",
         "name": "Family Buffet",
-        "website": "https://www.legoland.dk/en/the-park/areas/miniland/food-and-drinks/family-buffet/",
+        "website": "https://www.legoland.dk/en/explore/eating-shopping/food-beverage/family-buffet/",
         "operator": "Legoland Mad og Drikke",
         "cuisine": "buffet",
+        "check_date": "2026-04-21",
         "chain": "unknown"
       }
     },
@@ -6690,6 +6738,7 @@
         "id": 4074248184,
         "osm_type": "node",
         "name": "Bøgeskov Pizza & Steakhouse",
+        "opening_hours": "Mo-Su 16:00-21:00",
         "phone": "+45 75727072",
         "website": "https://www.bogeskovpizza.dk",
         "cuisine": "pizza",
@@ -7032,6 +7081,7 @@
         "osm_type": "node",
         "name": "Den lille kabys",
         "opening_hours": "Mo-Fr 11:30-15:00",
+        "check_date": "2024-10-06",
         "chain": "unknown"
       }
     },
@@ -7286,6 +7336,7 @@
         "phone": "+45 62201994",
         "operator": "Lone Jensen",
         "cuisine": "burger;grill;hotdog;ice_cream",
+        "check_date": "2026-03-15",
         "chain": "unknown"
       }
     },
@@ -7509,23 +7560,6 @@
         "osm_type": "node",
         "name": "Leos Pizza",
         "cuisine": "pizza",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.1259149,
-          55.7343089
-        ]
-      },
-      "properties": {
-        "id": 4418870570,
-        "osm_type": "node",
-        "name": "Ninja Kitchen",
-        "operator": "Legoland Mad og Drikke",
         "chain": "unknown"
       }
     },
@@ -8027,6 +8061,7 @@
         "phone": "+45 22 71 88 22",
         "website": "https://www.denitalienskeisbutik.dk/wp/",
         "cuisine": "italian;ice_cream",
+        "check_date": "2026-02-22",
         "chain": "unknown"
       }
     },
@@ -8217,22 +8252,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1269009,
-          55.7346113
-        ]
-      },
-      "properties": {
-        "id": 4483974643,
-        "osm_type": "node",
-        "name": "Hotdogs Legoland Mad og Drikke",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.3488396,
           55.8104193
         ]
@@ -8275,22 +8294,7 @@
         "name": "Burger Kitchen",
         "operator": "Legoland Mad og Drikke",
         "cuisine": "burger",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.1223311,
-          55.7369412
-        ]
-      },
-      "properties": {
-        "id": 4487351189,
-        "osm_type": "node",
-        "name": "Adventures Depot",
+        "check_date": "2026-04-22",
         "chain": "unknown"
       }
     },
@@ -8349,14 +8353,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4687461,
-          55.504394
+          8.4687217,
+          55.5042278
         ]
       },
       "properties": {
         "id": 4491297427,
         "osm_type": "node",
         "name": "Stoppestedet",
+        "cuisine": "danish",
         "chain": "unknown"
       }
     },
@@ -8636,6 +8641,7 @@
         "opening_hours": "09:00-20:00; Su 11:00-20:00",
         "website": "https://rosticceria.dk/",
         "cuisine": "italian",
+        "check_date": "2024-10-06",
         "chain": "unknown"
       }
     },
@@ -8745,6 +8751,7 @@
         "opening_hours": "11:00-22:00; Sa 12:00-22:00; Su 12:00-21:00",
         "phone": "+45 76709665",
         "website": "https://www.royalpitabar.dk/",
+        "check_date": "2023-05-30",
         "chain": "unknown"
       }
     },
@@ -9224,6 +9231,7 @@
         "operator": "Burger King",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2025-12-10",
         "chain": "burger_king"
       }
     },
@@ -9490,6 +9498,7 @@
         "osm_type": "node",
         "name": "Marcantonio Trattoria Pizzeria",
         "cuisine": "pizza",
+        "check_date": "2024-10-06",
         "chain": "unknown"
       }
     },
@@ -9541,6 +9550,7 @@
         "name": "Pizza Pazza",
         "phone": "+45 71706651",
         "cuisine": "pizza",
+        "check_date": "2025-04-06",
         "chain": "unknown"
       }
     },
@@ -9590,6 +9600,7 @@
         "id": 5104114905,
         "osm_type": "node",
         "name": "Yazzys Pita",
+        "check_date": "2025-04-08",
         "chain": "unknown"
       }
     },
@@ -9608,6 +9619,7 @@
         "name": "King's Sushi Restaurant",
         "opening_hours": "Mo-Th 12:00-21:00; Fr-Sa 12:00-22:00; Su off",
         "cuisine": "sushi",
+        "check_date": "2025-09-19",
         "chain": "unknown"
       }
     },
@@ -9698,6 +9710,7 @@
         "osm_type": "node",
         "name": "Little Khon Kaen",
         "cuisine": "thai",
+        "check_date": "2025-04-08",
         "chain": "unknown"
       }
     },
@@ -9714,6 +9727,7 @@
         "id": 5138673609,
         "osm_type": "node",
         "name": "Masala corner",
+        "check_date": "2025-04-08",
         "chain": "unknown"
       }
     },
@@ -9782,6 +9796,7 @@
         "opening_hours": "Tu-Su 16:00-21:00",
         "phone": "+45 22 66 99 39",
         "cuisine": "pizza;grill",
+        "check_date": "2025-07-12",
         "chain": "unknown"
       }
     },
@@ -9836,6 +9851,7 @@
         "opening_hours": "11:00-22:00; Sa-Su 11:00-22:00",
         "website": "https://www.chicagoburger.dk/chicago-odense-city",
         "cuisine": "burger",
+        "check_date": "2024-10-06",
         "chain": "unknown"
       }
     },
@@ -9889,6 +9905,7 @@
         "phone": "+45 75 92 94 00",
         "website": "http://dengyldneovn.dk/",
         "cuisine": "burger",
+        "check_date": "2025-09-20",
         "chain": "unknown"
       }
     },
@@ -9995,6 +10012,7 @@
         "name": "Backyardburger",
         "opening_hours": "PH,Mo-Su 11:00-21:00",
         "cuisine": "burger",
+        "check_date": "2024-06-09",
         "chain": "unknown"
       }
     },
@@ -10180,6 +10198,7 @@
         "phone": "+45 74 72 70 01",
         "website": "https://wwws%C3%B8nderjyskpizza.dk",
         "cuisine": "pizza",
+        "check_date": "2025-08-26",
         "chain": "unknown"
       }
     },
@@ -10394,6 +10413,7 @@
         "opening_hours": "Mo-Sa 11:00-20:00",
         "phone": "+45 52602550",
         "cuisine": "sandwich",
+        "check_date": "2025-09-19",
         "chain": "unknown"
       }
     },
@@ -10552,6 +10572,7 @@
         "osm_type": "node",
         "name": "Cafeen Jelling Camping",
         "operator": "Nærkøb",
+        "check_date": "2021-10-11",
         "chain": "unknown"
       }
     },
@@ -11129,6 +11150,7 @@
         "osm_type": "node",
         "name": "Holy Fish!",
         "cuisine": "seafood",
+        "check_date": "2024-10-06",
         "chain": "unknown"
       }
     },
@@ -11235,6 +11257,7 @@
         "name": "Vejen Stenovns Pizza",
         "website": "https://www.stenovn-pizza.dk/",
         "cuisine": "pizza",
+        "check_date": "2020-12-09",
         "chain": "unknown"
       }
     },
@@ -11345,6 +11368,7 @@
         "osm_type": "node",
         "name": "Korskro Cafeteria & Grill",
         "website": "http://www.shellkorskro.dk/cafeteria",
+        "check_date": "2021-07-02",
         "chain": "unknown"
       }
     },
@@ -11415,6 +11439,7 @@
         "brand": "Craft Burger",
         "website": "https://esbjergstreetfood.com/burger-anarchy/",
         "cuisine": "burger",
+        "check_date": "2024-01-20",
         "chain": "unknown"
       }
     },
@@ -11483,6 +11508,8 @@
         "id": 7704702127,
         "osm_type": "node",
         "name": "Pomodoro",
+        "phone": "+45 7196 9656",
+        "website": "https://www.pomodoropizza.dk",
         "cuisine": "pizza",
         "chain": "unknown"
       }
@@ -11555,6 +11582,7 @@
         "phone": "+45 30605310",
         "website": "https://www.langegade2.dk/",
         "cuisine": "regional",
+        "check_date": "2026-02-22",
         "chain": "unknown"
       }
     },
@@ -11827,6 +11855,7 @@
         "phone": "+45 29997023",
         "website": "https://www.dlet.dk/",
         "cuisine": "thai;salad",
+        "check_date": "2023-10-27",
         "chain": "unknown"
       }
     },
@@ -12162,6 +12191,7 @@
         "osm_type": "node",
         "name": "The Burger Concept Kolding",
         "cuisine": "burger",
+        "check_date": "2024-04-25",
         "chain": "unknown"
       }
     },
@@ -12557,6 +12587,7 @@
         "name": "Tacobørsen",
         "website": "https://esbjergstreetfood.com/tacoborsen/",
         "cuisine": "mexican",
+        "check_date": "2025-01-17",
         "chain": "unknown"
       }
     },
@@ -12665,6 +12696,7 @@
         "phone": "+45 42151699",
         "website": "https://www.marsk-pizza.dk",
         "cuisine": "pizza;kebab",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -12832,6 +12864,7 @@
         "operator": "McDonalds",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-09-20",
         "chain": "mcdonalds"
       }
     },
@@ -12868,6 +12901,7 @@
         "osm_type": "node",
         "name": "Baobab",
         "website": "https://www.givskudzoo.dk/en/visit-the-zoo/food-and-beverage/baobab/",
+        "check_date": "2025-07-28",
         "chain": "unknown"
       }
     },
@@ -12979,6 +13013,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "website": "https://chicagoburger.dk/chicago-od_-cityhavn-(buchwaldsgade)",
         "cuisine": "burger",
+        "check_date": "2025-10-18",
         "chain": "unknown"
       }
     },
@@ -12997,6 +13032,7 @@
         "name": "The Original Pita",
         "website": "https://www.originalpitaodense.dk/",
         "cuisine": "pita",
+        "check_date": "2025-04-17",
         "chain": "unknown"
       }
     },
@@ -13236,22 +13272,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.129726,
-          55.7347493
-        ]
-      },
-      "properties": {
-        "id": 9167417821,
-        "osm_type": "node",
-        "name": "Lego Shop Legoland Mad og Drikke",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.3720682,
           55.3682409
         ]
@@ -13298,6 +13318,7 @@
         "osm_type": "node",
         "name": "Gyros Heroes",
         "cuisine": "greek",
+        "check_date": "2024-10-06",
         "chain": "unknown"
       }
     },
@@ -13435,22 +13456,6 @@
         "id": 9347612016,
         "osm_type": "node",
         "name": "Cart Rogers",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.1220661,
-          55.7371487
-        ]
-      },
-      "properties": {
-        "id": 9347654419,
-        "osm_type": "node",
-        "name": "Cart Polar",
         "chain": "unknown"
       }
     },
@@ -13909,22 +13914,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.4121525,
-          54.8908935
-        ]
-      },
-      "properties": {
-        "id": 10050466877,
-        "osm_type": "node",
-        "name": "Creperie Ærø",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.3825947,
           55.3962458
         ]
@@ -14063,6 +14052,7 @@
         "website": "https://sunset-boulevard.dk/restaurant/nyborg/",
         "operator": "Sunset Boulevard",
         "cuisine": "burger;sandwich",
+        "check_date": "2026-02-23",
         "chain": "unknown"
       }
     },
@@ -14408,6 +14398,7 @@
         "phone": "+45 88638887",
         "website": "https://www.koisushi.dk/",
         "cuisine": "sushi",
+        "check_date": "2025-03-13",
         "chain": "unknown"
       }
     },
@@ -14530,6 +14521,7 @@
         "opening_hours": "11:00-21:00",
         "website": "https://www.midascrispy.dk/",
         "cuisine": "chicken",
+        "check_date": "2025-03-23",
         "chain": "unknown"
       }
     },
@@ -14642,6 +14634,7 @@
         "name": "Xin Chào",
         "website": "https://koldingstorcenter.dk/butikker/xin-chao",
         "cuisine": "vietnamese",
+        "check_date": "2024-04-25",
         "chain": "unknown"
       }
     },
@@ -14914,6 +14907,7 @@
         "osm_type": "node",
         "name": "Grill & Chicken",
         "website": "https://esbjergstreetfood.com/grill-chicken",
+        "check_date": "2024-01-20",
         "chain": "unknown"
       }
     },
@@ -15053,6 +15047,7 @@
         "name": "Gadens Gastronomer",
         "website": "https://gadensgastronomer.dk/",
         "cuisine": "burger;poke",
+        "check_date": "2026-02-21",
         "chain": "unknown"
       }
     },
@@ -15104,6 +15099,7 @@
         "id": 11685222769,
         "osm_type": "node",
         "name": "DL Fried Chicken",
+        "check_date": "2024-03-02",
         "chain": "unknown"
       }
     },
@@ -15190,7 +15186,9 @@
         "id": 11764511455,
         "osm_type": "node",
         "name": "Elite Pizza & Kebab",
+        "website": "https://elitepizzakebab.dk",
         "cuisine": "pizza",
+        "check_date": "2026-04-23",
         "chain": "unknown"
       }
     },
@@ -15400,6 +15398,7 @@
         "phone": "+45 52903052",
         "website": "https://a-place.dk/",
         "cuisine": "burger;shawarma",
+        "check_date": "2025-03-23",
         "chain": "unknown"
       }
     },
@@ -15727,6 +15726,7 @@
         "osm_type": "node",
         "name": "Gågadens Pølsevogn",
         "cuisine": "hot_dog",
+        "check_date": "2024-09-14",
         "chain": "unknown"
       }
     },
@@ -15847,6 +15847,7 @@
         "osm_type": "node",
         "name": "Kylling & Co",
         "cuisine": "sandwich",
+        "check_date": "2026-02-19",
         "chain": "unknown"
       }
     },
@@ -16153,22 +16154,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.784788,
-          55.1399852
-        ]
-      },
-      "properties": {
-        "id": 12800308118,
-        "osm_type": "node",
-        "name": "Lundeborg Strandcafé",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.7143859,
           55.0618795
         ]
@@ -16251,22 +16236,6 @@
         "osm_type": "node",
         "name": "Pizzeria Siciliana",
         "cuisine": "pizza",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.412598,
-          54.8909953
-        ]
-      },
-      "properties": {
-        "id": 12804510540,
-        "osm_type": "node",
-        "name": "Le Maekas",
         "chain": "unknown"
       }
     },
@@ -17687,6 +17656,7 @@
         "phone": "+45 32 46 10 47",
         "website": "https://kretapizza.dk/",
         "cuisine": "burger;grill;pasta;pizza",
+        "check_date": "2026-04-04",
         "chain": "unknown"
       }
     },
@@ -18106,6 +18076,7 @@
         "phone": "+45 36 32 13 14",
         "website": "http://bowlbrothers.dk/",
         "cuisine": "poke;juice",
+        "check_date": "2025-09-19",
         "chain": "unknown"
       }
     },
@@ -18732,6 +18703,7 @@
         "id": 13081665226,
         "osm_type": "node",
         "name": "Pop Corn",
+        "check_date": "2026-04-23",
         "chain": "unknown"
       }
     },
@@ -18977,7 +18949,7 @@
       "properties": {
         "id": 13280022806,
         "osm_type": "node",
-        "name": "McDonald's Ringe",
+        "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
@@ -19323,6 +19295,7 @@
         "name": "Pakashala",
         "opening_hours": "Mo off; Tu-Th 17:00-21:00; Fr-Sa 12:00-21:00; Su 12:00-21:00",
         "cuisine": "indian",
+        "check_date": "2026-02-01",
         "chain": "unknown"
       }
     },
@@ -19731,6 +19704,7 @@
         "name": "Gadens Gastronomer",
         "website": "https://gadensgastronomer.dk/",
         "cuisine": "burger;poke",
+        "check_date": "2026-02-03",
         "chain": "unknown"
       }
     },
@@ -19892,6 +19866,59 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.1264453,
+          55.7346813
+        ]
+      },
+      "properties": {
+        "id": 13753498342,
+        "osm_type": "node",
+        "name": "Churro Treats",
+        "cuisine": "mexican",
+        "check_date": "2026-04-22",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1264947,
+          55.7350839
+        ]
+      },
+      "properties": {
+        "id": 13756487145,
+        "osm_type": "node",
+        "name": "Mexican Cantina",
+        "cuisine": "mexican",
+        "check_date": "2026-04-23",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1266726,
+          55.7357202
+        ]
+      },
+      "properties": {
+        "id": 13756487146,
+        "osm_type": "node",
+        "name": "Pirate pita",
+        "check_date": "2026-04-23",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.755643,
           55.1685431
         ]
@@ -19925,6 +19952,7 @@
         "website": "https://www.mcdonalds.com/dk/da-dk/location/vejen/vejen/58.html",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2021-01-14",
         "chain": "mcdonalds"
       }
     },
@@ -19956,7 +19984,7 @@
       "properties": {
         "id": 106002083,
         "osm_type": "way",
-        "name": "McDonald's Kolding",
+        "name": "McDonald's",
         "brand": "McDonald's",
         "opening_hours": "Su-Th 08:00-02:00, Fr,Sa 08:00-03:00",
         "website": "https://www.mcdonalds.com/dk/da-dk/location/kolding/kolding/vejlevej-129/30.html",
@@ -20277,6 +20305,7 @@
         "website": "https://www.mcdonalds.dk/",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-02-09",
         "chain": "mcdonalds"
       }
     },
@@ -20294,6 +20323,7 @@
         "osm_type": "way",
         "name": "Torvepavillonen Esbjerg",
         "opening_hours": "Mo-Sa 10:30-18:00",
+        "check_date": "2024-09-29",
         "chain": "unknown"
       }
     },
@@ -20329,7 +20359,7 @@
       "properties": {
         "id": 207625701,
         "osm_type": "way",
-        "name": "Burger King Ribe",
+        "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
@@ -20368,7 +20398,7 @@
       "properties": {
         "id": 221255255,
         "osm_type": "way",
-        "name": "Burger King Sønderborg",
+        "name": "Burger King",
         "brand": "Burger King",
         "opening_hours": "Mo-Su,PH 10:00-23:00",
         "brand:wikidata": "Q177054",
@@ -20388,7 +20418,7 @@
       "properties": {
         "id": 234537884,
         "osm_type": "way",
-        "name": "Burger King Odense",
+        "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
@@ -20490,6 +20520,7 @@
         "phone": "+45 65 33 11 33",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2026-02-23",
         "chain": "burger_king"
       }
     },
@@ -20559,6 +20590,7 @@
         "osm_type": "way",
         "name": "Skovgrillen Rødding",
         "cuisine": "vietnamese;burger;hot_dogs",
+        "check_date": "2026-03-04",
         "chain": "unknown"
       }
     },
@@ -20579,6 +20611,7 @@
         "phone": "+45 74822311",
         "website": "https://www.napolipizzagram.dk/",
         "cuisine": "pizza",
+        "check_date": "2025-04-16",
         "chain": "unknown"
       }
     },
@@ -20756,6 +20789,7 @@
         "opening_hours": "Mo-Fr 06:00-20:30; Sa 07:00-20:00; Su 07:00-20:30",
         "phone": "+45 64 42 31 10",
         "website": "https://www.rasteplads.dk",
+        "check_date": "2026-28-02",
         "chain": "unknown"
       }
     },
@@ -20807,7 +20841,7 @@
       "properties": {
         "id": 388535663,
         "osm_type": "way",
-        "name": "McDonalds Svendborg",
+        "name": "McDonald's",
         "brand": "McDonald's",
         "website": "https://www.mcdonalds.dk/",
         "brand:wikidata": "Q38076",
@@ -20952,6 +20986,7 @@
         "osm_type": "way",
         "name": "Pølsevognen Banegårdspladsen",
         "cuisine": "burger",
+        "check_date": "2025-12-10",
         "chain": "unknown"
       }
     },
@@ -21104,6 +21139,7 @@
         "brand": "Sunset Boulevard",
         "operator": "Sunset Boulevard",
         "cuisine": "sandwich",
+        "check_date": "2023-10-27",
         "chain": "unknown"
       }
     },
@@ -21123,6 +21159,7 @@
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2024-02-13",
         "chain": "burger_king"
       }
     },
@@ -21161,6 +21198,7 @@
         "website": "https://www.sunset-boulevard.dk/restauranter/roedekro",
         "operator": "Sunset Boulevard",
         "cuisine": "burger",
+        "check_date": "2024-08-25",
         "chain": "unknown"
       }
     },
@@ -21202,6 +21240,7 @@
         "operator": "Carls Jr.",
         "brand:wikidata": "Q1043486",
         "cuisine": "burger",
+        "check_date": "2026-02-23",
         "chain": "unknown"
       }
     },
@@ -21223,6 +21262,7 @@
         "website": "https://www.sunset-boulevard.dk/restaurant/soenderborg/",
         "brand:wikidata": "Q12337737",
         "cuisine": "burger",
+        "check_date": "2024-08-05",
         "chain": "unknown"
       }
     },
@@ -21336,6 +21376,7 @@
         "id": 1219312599,
         "osm_type": "way",
         "name": "SDU Food Hack",
+        "check_date": "2025-08-12",
         "chain": "unknown"
       }
     },
@@ -21352,6 +21393,7 @@
         "id": 1220367230,
         "osm_type": "way",
         "name": "SDU Food Hall",
+        "check_date": "2026-01-29",
         "chain": "unknown"
       }
     },

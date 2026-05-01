@@ -13,7 +13,8 @@
       "properties": {
         "id": 2891311413,
         "osm_type": "node",
-        "vending": "drinks;food;sweets"
+        "vending": "drinks;food;sweets",
+        "check_date": "2024-08-31"
       }
     },
     {
@@ -106,7 +107,8 @@
         "id": 8116678068,
         "osm_type": "node",
         "name": "Wiewiórka Cafe",
-        "vending": "coffee;drinks;sweets"
+        "vending": "coffee;drinks;sweets",
+        "check_date": "2023-08-14"
       }
     },
     {
@@ -137,7 +139,8 @@
         "id": 9067217262,
         "osm_type": "node",
         "name": "Kozomat",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2025-06-28"
       }
     },
     {
@@ -213,7 +216,8 @@
       "properties": {
         "id": 11314503859,
         "osm_type": "node",
-        "vending": "drinks;sweets;water"
+        "vending": "drinks;sweets;water",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -229,7 +233,8 @@
         "id": 11314503860,
         "osm_type": "node",
         "vending": "coffee",
-        "operator": "AutomatSpec"
+        "operator": "AutomatSpec",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -244,7 +249,8 @@
       "properties": {
         "id": 11775220385,
         "osm_type": "node",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2024-03-30"
       }
     },
     {
@@ -306,7 +312,8 @@
       "properties": {
         "id": 12360272073,
         "osm_type": "node",
-        "vending": "drinks;food"
+        "vending": "drinks;food",
+        "check_date": "2025-01-09"
       }
     },
     {
@@ -321,7 +328,8 @@
       "properties": {
         "id": 12360272075,
         "osm_type": "node",
-        "vending": "pizza"
+        "vending": "pizza",
+        "check_date": "2025-01-09"
       }
     },
     {
@@ -336,7 +344,8 @@
       "properties": {
         "id": 12492784053,
         "osm_type": "node",
-        "vending": "coffee"
+        "vending": "coffee",
+        "check_date": "2025-01-11"
       }
     },
     {
@@ -352,7 +361,8 @@
         "id": 12544602761,
         "osm_type": "node",
         "vending": "coffee",
-        "operator": "Touch coffee smart bar"
+        "operator": "Touch coffee smart bar",
+        "check_date": "2025-01-30"
       }
     },
     {
@@ -458,7 +468,8 @@
       "properties": {
         "id": 13096161690,
         "osm_type": "node",
-        "vending": "pizza"
+        "vending": "pizza",
+        "check_date": "2025-08-25"
       }
     },
     {
@@ -579,6 +590,66 @@
       },
       "properties": {
         "id": 13667397798,
+        "osm_type": "node",
+        "vending": "coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.0381915,
+          51.0980389
+        ]
+      },
+      "properties": {
+        "id": 13685664607,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.0381428,
+          51.0980441
+        ]
+      },
+      "properties": {
+        "id": 13685664608,
+        "osm_type": "node",
+        "vending": "coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.9986347,
+          51.1151855
+        ]
+      },
+      "properties": {
+        "id": 13739098592,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.9986223,
+          51.1151861
+        ]
+      },
+      "properties": {
+        "id": 13739115075,
         "osm_type": "node",
         "vending": "coffee"
       }

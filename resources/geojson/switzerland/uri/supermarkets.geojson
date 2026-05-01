@@ -6,6 +6,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.6919573,
+          46.7690669
+        ]
+      },
+      "properties": {
+        "id": 282170543,
+        "osm_type": "node",
+        "name": "Konsum Bristen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.5963576,
           46.6344598
         ]
@@ -15,56 +30,7 @@
         "osm_type": "node",
         "name": "Coop",
         "brand": "Coop",
-        "opening_hours": "Mo-Fr 07:30-19:00; Sa 07:30-18:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5871026,
-          46.6687793
-        ]
-      },
-      "properties": {
-        "id": 4217607249,
-        "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop",
-        "opening_hours": "Mo-Fr 08:00-12:00,14:00-18:30; Sa 08:00-16:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5993856,
-          46.7063626
-        ]
-      },
-      "properties": {
-        "id": 1260438019,
-        "osm_type": "node",
-        "name": "Volg",
-        "brand": "Volg",
-        "opening_hours": "Mo-Fr 06:30-12:00, 14:00-18:30; Sa 06:30-17:00; Su, PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6919573,
-          46.7690669
-        ]
-      },
-      "properties": {
-        "id": 282170543,
-        "osm_type": "node",
-        "name": "Konsum Bristen"
+        "opening_hours": "Mo-Fr 07:30-18:30; Sa 07:30-18:00"
       }
     },
     {
@@ -105,33 +71,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6505504,
-          46.8213341
+          8.6454171,
+          46.8809204
         ]
       },
       "properties": {
-        "id": 3784153202,
-        "osm_type": "node",
-        "name": "Denner",
-        "brand": "Denner",
-        "opening_hours": "Mo-Fr 07:30-18:30; Sa 07:30-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6448239,
-          46.8556663
-        ]
-      },
-      "properties": {
-        "id": 7395144127,
+        "id": 668977849,
         "osm_type": "node",
         "name": "Coop",
         "brand": "Coop",
-        "opening_hours": "Mo-Th 08:00-18:30; Fr 08:00-20:00; Sa 08:00-17:00"
+        "opening_hours": "Mo-Th 07:30-18:30; Fr 07:30-21:00; Sa 07:30-17:00; PH off",
+        "check_date": "2025-07-22"
       }
     },
     {
@@ -139,33 +89,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6159299,
-          46.8815478
+          8.5993856,
+          46.7063626
         ]
       },
       "properties": {
-        "id": 9584570723,
+        "id": 1260438019,
         "osm_type": "node",
         "name": "Volg",
         "brand": "Volg",
-        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.631918,
-          46.8637785
-        ]
-      },
-      "properties": {
-        "id": 4558521620,
-        "osm_type": "node",
-        "name": "Volg",
-        "brand": "Volg",
-        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-17:00; Su,PH off"
+        "opening_hours": "Mo-Fr 06:30-12:00, 14:00-18:30; Sa 06:30-17:00; Su, PH off"
       }
     },
     {
@@ -190,6 +123,57 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.6505504,
+          46.8213341
+        ]
+      },
+      "properties": {
+        "id": 3784153202,
+        "osm_type": "node",
+        "name": "Denner",
+        "brand": "Denner",
+        "opening_hours": "Mo-Fr 07:30-18:30; Sa 07:30-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5871026,
+          46.6687793
+        ]
+      },
+      "properties": {
+        "id": 4217607249,
+        "osm_type": "node",
+        "name": "Coop",
+        "brand": "Coop",
+        "opening_hours": "Mo-Fr 08:00-12:00,14:00-18:30; Sa 08:00-16:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.631918,
+          46.8637785
+        ]
+      },
+      "properties": {
+        "id": 4558521620,
+        "osm_type": "node",
+        "name": "Volg",
+        "brand": "Volg",
+        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-17:00; Su,PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.6436489,
           46.8811116
         ]
@@ -199,57 +183,8 @@
         "osm_type": "node",
         "name": "Spar",
         "brand": "Spar",
-        "opening_hours": "Mo-Fr 07:30-18:30; Sa 07:30-16:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6454171,
-          46.8809204
-        ]
-      },
-      "properties": {
-        "id": 668977849,
-        "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop",
-        "opening_hours": "Mo-Th 07:30-18:30; Fr 07:30-21:00; Sa 07:30-17:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6548456,
-          46.8655382
-        ]
-      },
-      "properties": {
-        "id": 7395144126,
-        "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop",
-        "opening_hours": "Mo-Fr 07:30-18:30; Sa 07:30-17:00; Su,PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6544604,
-          46.8647339
-        ]
-      },
-      "properties": {
-        "id": 11878878542,
-        "osm_type": "node",
-        "name": "Urient",
-        "opening_hours": "Mo-Th 08:00-18:30; Fr 08:00-21:00; Sa 08:00-17:00"
+        "opening_hours": "Mo-Fr 07:30-18:30; Sa 07:30-16:00",
+        "check_date": "2025-09-24"
       }
     },
     {
@@ -291,14 +226,66 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.560422,
-          46.9105489
+          8.6548456,
+          46.8655382
         ]
       },
       "properties": {
-        "id": 282645426,
-        "osm_type": "way",
-        "name": "Dorfladen"
+        "id": 7395144126,
+        "osm_type": "node",
+        "name": "Coop",
+        "brand": "Coop",
+        "opening_hours": "Mo-Fr 07:30-18:30; Sa 07:30-17:00; Su,PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6448239,
+          46.8556663
+        ]
+      },
+      "properties": {
+        "id": 7395144127,
+        "osm_type": "node",
+        "name": "Coop",
+        "brand": "Coop",
+        "opening_hours": "Mo-Th 08:00-18:30; Fr 08:00-20:00; Sa 08:00-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6159299,
+          46.8815478
+        ]
+      },
+      "properties": {
+        "id": 9584570723,
+        "osm_type": "node",
+        "name": "Volg",
+        "brand": "Volg",
+        "opening_hours": "Mo-Fr 06:00-18:30; Sa 06:00-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6544604,
+          46.8647339
+        ]
+      },
+      "properties": {
+        "id": 11878878542,
+        "osm_type": "node",
+        "name": "Urient",
+        "opening_hours": "Mo-Th 08:00-18:30; Fr 08:00-21:00; Sa 08:00-17:00"
       }
     },
     {
@@ -340,16 +327,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6393855,
-          46.8576088
+          8.6236555,
+          46.8950505
         ]
       },
       "properties": {
-        "id": 379053146,
+        "id": 256616814,
         "osm_type": "way",
-        "name": "Landi",
-        "brand": "Landi",
-        "opening_hours": "Mo-Fr 08:00-18:30; Sa 08:00-16:00"
+        "name": "Lidl",
+        "brand": "Lidl",
+        "opening_hours": "Mo-Th 07:30-18:30; Fr 07:30-20:00; Sa 07:30-17:00",
+        "check_date": "2025-09-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.560422,
+          46.9105489
+        ]
+      },
+      "properties": {
+        "id": 282645426,
+        "osm_type": "way",
+        "name": "Dorfladen"
       }
     },
     {
@@ -374,16 +377,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6236555,
-          46.8950505
+          8.6393855,
+          46.8576088
         ]
       },
       "properties": {
-        "id": 256616814,
+        "id": 379053146,
         "osm_type": "way",
-        "name": "Lidl",
-        "brand": "Lidl",
-        "opening_hours": "Mo-Th 07:30-18:30; Fr 07:30-20:00; Sa 07:30-17:00"
+        "name": "Landi",
+        "brand": "Landi",
+        "opening_hours": "Mo-Fr 08:00-18:30; Sa 08:00-16:00"
       }
     }
   ]

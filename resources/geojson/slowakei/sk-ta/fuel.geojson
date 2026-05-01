@@ -469,21 +469,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.5994142,
-          48.3628262
-        ]
-      },
-      "properties": {
-        "id": 48754810,
-        "osm_type": "node",
-        "name": "Tanker - Diesel"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           17.5008367,
           48.30872
         ]
@@ -752,7 +737,8 @@
       "properties": {
         "id": 283791892,
         "osm_type": "node",
-        "name": "Tanker"
+        "name": "Tanker",
+        "brand": "Tanker"
       }
     },
     {
@@ -1163,7 +1149,7 @@
       "properties": {
         "id": 916551590,
         "osm_type": "node",
-        "name": "Dalioil",
+        "name": "DALIOIL",
         "brand": "DALIOIL"
       }
     },
@@ -1172,14 +1158,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.6064914,
-          47.9341034
+          17.6066074,
+          47.9341676
         ]
       },
       "properties": {
         "id": 1133644045,
         "osm_type": "node",
-        "brand": "Jurki"
+        "name": "Jurki",
+        "brand": "Jurki",
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa,Su 08:00-18:00"
       }
     },
     {
@@ -1242,6 +1230,7 @@
         "id": 1296644790,
         "osm_type": "node",
         "name": "RealK",
+        "brand": "RealK",
         "opening_hours": "Mo-Su 05:00-22:00"
       }
     },
@@ -1394,7 +1383,8 @@
         "osm_type": "node",
         "name": "Čerpacia stanica Zempres",
         "brand": "Zempres",
-        "opening_hours": "06:00-20:00"
+        "opening_hours": "06:00-20:00",
+        "check_date": "2023-07-09"
       }
     },
     {
@@ -1409,7 +1399,8 @@
       "properties": {
         "id": 2888140022,
         "osm_type": "node",
-        "name": "TAM",
+        "name": "TAM Autohof",
+        "brand": "TAM Autohof",
         "opening_hours": "24/7"
       }
     },
@@ -1472,7 +1463,8 @@
       "properties": {
         "id": 3085811887,
         "osm_type": "node",
-        "name": "Gas"
+        "name": "Gas",
+        "brand": "Gas"
       }
     },
     {
@@ -1488,6 +1480,7 @@
         "id": 3383545873,
         "osm_type": "node",
         "name": "RealK",
+        "brand": "RealK",
         "opening_hours": "Mo-Sa 07:00-21:00; Su 08:00-20:00"
       }
     },
@@ -1630,7 +1623,8 @@
       "properties": {
         "id": 5165439546,
         "osm_type": "node",
-        "name": "GAS Dolné Dubové",
+        "name": "Gas",
+        "brand": "Gas",
         "opening_hours": "Mo-Su 07:00-21:00"
       }
     },
@@ -1664,6 +1658,7 @@
         "id": 5165458969,
         "osm_type": "node",
         "name": "RealK",
+        "brand": "RealK",
         "opening_hours": "Mo-Su 05:00-23:00"
       }
     },
@@ -1696,8 +1691,8 @@
       "properties": {
         "id": 5165545277,
         "osm_type": "node",
-        "name": "GAS Šamorín",
-        "opening_hours": "Mo-Fr 05:00-20:00; Sa 07:00-20:00; Su 08:00-20:00"
+        "name": "Tankujeme!",
+        "opening_hours": "06:00-20:00"
       }
     },
     {
@@ -2633,8 +2628,8 @@
       "properties": {
         "id": 495418888,
         "osm_type": "way",
-        "name": "GAS",
-        "brand": "GAS"
+        "name": "Gas",
+        "brand": "Gas"
       }
     },
     {
@@ -2677,8 +2672,8 @@
       "properties": {
         "id": 868378411,
         "osm_type": "way",
-        "name": "GAS",
-        "brand": "GAS"
+        "name": "Gas",
+        "brand": "Gas"
       }
     },
     {

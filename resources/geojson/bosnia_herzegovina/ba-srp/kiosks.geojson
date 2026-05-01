@@ -4987,7 +4987,8 @@
       "properties": {
         "id": 11368124874,
         "osm_type": "node",
-        "name": "Minutica"
+        "name": "Minutica",
+        "opening_hours": "Mo-Fr 07:00-21:00; Sa 08:00-16:00; Su,PH off"
       }
     },
     {
@@ -5438,7 +5439,8 @@
       },
       "properties": {
         "id": 12635297230,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-03-03"
       }
     },
     {
@@ -6247,7 +6249,8 @@
       },
       "properties": {
         "id": 1323577020,
-        "osm_type": "way"
+        "osm_type": "way",
+        "check_date": "2026-04-30"
       }
     },
     {
@@ -6388,6 +6391,22 @@
       "properties": {
         "id": 1466345590,
         "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3482089,
+          42.7041137
+        ]
+      },
+      "properties": {
+        "id": 1502827925,
+        "osm_type": "way",
+        "name": "Bonita",
+        "opening_hours": "06:00-22:00"
       }
     }
   ]

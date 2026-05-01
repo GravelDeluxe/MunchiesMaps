@@ -224,7 +224,8 @@
         "osm_type": "node",
         "name": "SPAR Looijschelder",
         "brand": "SPAR",
-        "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-18:00; Su 10:00-14:00"
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-18:00; Su 10:00-14:00",
+        "check_date": "2025-07-21"
       }
     },
     {
@@ -271,7 +272,8 @@
         "id": 2208147937,
         "osm_type": "node",
         "name": "Staarink Warenhuis",
-        "opening_hours": "Mo 13:00-18:00; Tu-Th 09:00-18:00; Fr 09:00-20:00; Sa 09:00-17:00"
+        "opening_hours": "Mo 13:00-18:00; Tu-Th 09:00-18:00; Fr 09:00-20:00; Sa 09:00-17:00",
+        "check_date": "2024-07-03"
       }
     },
     {
@@ -510,7 +512,9 @@
       "properties": {
         "id": 2687039709,
         "osm_type": "node",
-        "name": "Toko Azia"
+        "name": "Toko Azia",
+        "opening_hours": "Tu-Sa 09:30-17:30; Mo 10:00-17:30",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -698,7 +702,8 @@
       "properties": {
         "id": 2722836109,
         "osm_type": "node",
-        "name": "San Wah Foods Arnhem"
+        "name": "San Wah Foods Arnhem",
+        "check_date": "2024-11-07"
       }
     },
     {
@@ -713,7 +718,8 @@
       "properties": {
         "id": 2722837885,
         "osm_type": "node",
-        "name": "Mediterranee"
+        "name": "Mediterranee",
+        "check_date": "2024-11-07"
       }
     },
     {
@@ -814,8 +820,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.9092676,
-          51.9668701
+          5.909333,
+          51.9669017
         ]
       },
       "properties": {
@@ -823,6 +829,21 @@
         "osm_type": "node",
         "name": "Toko Ons Huis",
         "opening_hours": "Mo-Su 10:00-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.908033,
+          51.967177
+        ]
+      },
+      "properties": {
+        "id": 2725682544,
+        "osm_type": "node",
+        "name": "Drieslag Markt"
       }
     },
     {
@@ -1018,6 +1039,22 @@
         "name": "SPAR express",
         "brand": "SPAR express",
         "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; Sa 08:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.0916413,
+          51.8159468
+        ]
+      },
+      "properties": {
+        "id": 2761780523,
+        "osm_type": "node",
+        "name": "Autofood",
+        "brand": "Autofood"
       }
     },
     {
@@ -1517,7 +1554,8 @@
       "properties": {
         "id": 2848020717,
         "osm_type": "node",
-        "name": "Simon Lévelt koffie en thee"
+        "name": "Simon Lévelt koffie en thee",
+        "check_date": "2025-06-20"
       }
     },
     {
@@ -1625,7 +1663,8 @@
         "id": 2854806765,
         "osm_type": "node",
         "name": "Natuurwinkel De Veluwe",
-        "opening_hours": "Mo 13:00-17:30; Tu-Fr 09:30-17:30; Sa 09:30-17:00"
+        "opening_hours": "Mo 13:00-17:30; Tu-Fr 09:30-17:30; Sa 09:30-17:00",
+        "check_date": "2024-07-01"
       }
     },
     {
@@ -1721,7 +1760,8 @@
       "properties": {
         "id": 2890186310,
         "osm_type": "node",
-        "name": "Stationswinkel Dukenburg"
+        "name": "Stationswinkel Dukenburg",
+        "check_date": "2025-06-04"
       }
     },
     {
@@ -2057,7 +2097,8 @@
         "id": 3018208141,
         "osm_type": "node",
         "name": "Novuniek",
-        "opening_hours": "Mo 13:30-17:30; Tu-Fr 09:00-17:30; Sa 09:00-17:00; Su closed"
+        "opening_hours": "Mo 13:30-17:30; Tu-Fr 09:00-17:30; Sa 09:00-17:00; Su closed",
+        "check_date": "2025-10-31"
       }
     },
     {
@@ -2384,7 +2425,8 @@
         "osm_type": "node",
         "name": "Albert Heijn to go",
         "brand": "Albert Heijn to go",
-        "opening_hours": "Mo-Fr 06:00-24:00; Sa 06:30-24:00; Su 08:00-24:00"
+        "opening_hours": "Mo-Fr 06:00-24:00; Sa 06:30-24:00; Su 08:00-24:00",
+        "check_date": "2026-02-01"
       }
     },
     {
@@ -2464,7 +2506,7 @@
         "id": 5576414967,
         "osm_type": "node",
         "name": "ParkShop",
-        "opening_hours": "Mo-Su 08:00-19:00"
+        "opening_hours": "Fr 08:00-19:00; Tu-Th,Sa,Su 08:00-17:00; Mo 08:00-18:00"
       }
     },
     {
@@ -2513,7 +2555,8 @@
         "osm_type": "node",
         "name": "Kiosk",
         "brand": "Kiosk",
-        "opening_hours": "Mo-Th 06:30-20:00; Fr 06:30-21:00; Sa 09:00-20:00; Su 10:00-20:00"
+        "opening_hours": "Mo-Th 06:30-20:00; Fr 06:30-21:00; Sa 09:00-20:00; Su 10:00-20:00",
+        "check_date": "2026-02-01"
       }
     },
     {
@@ -2738,7 +2781,8 @@
         "id": 8010260430,
         "osm_type": "node",
         "name": "Het Bijenhuis",
-        "opening_hours": "Mo-Fr 09:00-17:30; Sa 09:00-17:00; Su off"
+        "opening_hours": "Mo-Fr 09:00-17:30; Sa 09:00-17:00; Su off",
+        "check_date": "2025-10-28"
       }
     },
     {
@@ -2882,7 +2926,8 @@
         "osm_type": "node",
         "name": "Albert Heijn to go",
         "brand": "Albert Heijn to go",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-01-23"
       }
     },
     {
@@ -3197,7 +3242,8 @@
         "osm_type": "node",
         "name": "Moments & More",
         "brand": "Moments & More",
-        "opening_hours": "Mo-Su 06:00-20:00"
+        "opening_hours": "Mo-Su 06:00-20:00",
+        "check_date": "2025-09-25"
       }
     },
     {
@@ -4435,6 +4481,38 @@
         "osm_type": "node",
         "name": "Kuster Energy Point",
         "brand": "Kuster Energy Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.9086718,
+          51.9669728
+        ]
+      },
+      "properties": {
+        "id": 13724262001,
+        "osm_type": "node",
+        "name": "Toko Indradjaja Arnhem",
+        "opening_hours": "Tu-Fr 10:00-18:00; Mo 12:00-18:00; Sa 09:00-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.568092,
+          52.1504351
+        ]
+      },
+      "properties": {
+        "id": 13733711048,
+        "osm_type": "node",
+        "name": "Effe Lekker",
+        "brand": "Effe Lekker"
       }
     },
     {

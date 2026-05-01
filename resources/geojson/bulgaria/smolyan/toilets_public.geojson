@@ -325,7 +325,9 @@
       "properties": {
         "id": 10877831989,
         "osm_type": "node",
-        "name": "Chemical toilet"
+        "name": "Chemical toilet",
+        "access": "yes",
+        "check_date": "2026-04-18"
       }
     },
     {
@@ -397,6 +399,38 @@
       "properties": {
         "id": 13428582735,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.3998939,
+          41.7421436
+        ]
+      },
+      "properties": {
+        "id": 13745068725,
+        "osm_type": "node",
+        "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.4046707,
+          41.7420021
+        ]
+      },
+      "properties": {
+        "id": 13748331064,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "access": "yes",
+        "check_date": "2026-04-21"
       }
     },
     {

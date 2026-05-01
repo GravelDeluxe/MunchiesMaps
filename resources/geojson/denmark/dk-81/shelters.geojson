@@ -1386,8 +1386,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.6913365,
-          56.8880067
+          9.6913166,
+          56.8880427
         ]
       },
       "properties": {
@@ -1499,8 +1499,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2597134,
-          56.7971945
+          9.2598283,
+          56.7971734
         ]
       },
       "properties": {
@@ -2586,14 +2586,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.3291966,
-          57.1364043
+          9.3292121,
+          57.1363871
         ]
       },
       "properties": {
         "id": 12889533444,
         "osm_type": "node",
-        "shelter_type": "lean_to"
+        "shelter_type": "lean_to",
+        "fee": "no",
+        "operator": "Naturstyrelsen Thy"
       }
     },
     {
@@ -2646,14 +2648,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.3292831,
-          57.1363685
+          9.3293204,
+          57.1363628
         ]
       },
       "properties": {
         "id": 13009676647,
         "osm_type": "node",
-        "shelter_type": "lean_to"
+        "shelter_type": "lean_to",
+        "fee": "no",
+        "operator": "Naturstyrelsen Thy"
       }
     },
     {
@@ -2661,14 +2665,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.3291061,
-          57.1363975
+          9.3291012,
+          57.1363635
         ]
       },
       "properties": {
         "id": 13009676648,
         "osm_type": "node",
-        "shelter_type": "lean_to"
+        "shelter_type": "lean_to",
+        "fee": "no",
+        "operator": "Naturstyrelsen Thy"
       }
     },
     {
@@ -2676,30 +2682,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.3292738,
-          57.1363284
+          9.3293624,
+          57.136312
         ]
       },
       "properties": {
         "id": 13009676649,
         "osm_type": "node",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4841629,
-          57.029821
-        ]
-      },
-      "properties": {
-        "id": 13040268551,
-        "osm_type": "node",
-        "name": "Trøjborg shelterplads",
-        "shelter_type": "lean_to"
+        "shelter_type": "lean_to",
+        "fee": "no",
+        "operator": "Naturstyrelsen Thy"
       }
     },
     {
@@ -3079,6 +3071,36 @@
       },
       "properties": {
         "id": 13202883476,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.097353,
+          57.3853844
+        ]
+      },
+      "properties": {
+        "id": 13228557562,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.0975139,
+          57.3853604
+        ]
+      },
+      "properties": {
+        "id": 13228557563,
         "osm_type": "node",
         "shelter_type": "lean_to"
       }
@@ -3867,6 +3889,21 @@
         "osm_type": "way",
         "shelter_type": "lean_to",
         "operator": "Aalborg Kommune"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.0413561,
+          57.0070458
+        ]
+      },
+      "properties": {
+        "id": 567447921,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -10069,6 +10106,96 @@
         "id": 1493709476,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4839075,
+          57.0300597
+        ]
+      },
+      "properties": {
+        "id": 1507059014,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "capacity": "7",
+        "fee": "no",
+        "operator": "Naturstyrelsen Thy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4837833,
+          57.0300445
+        ]
+      },
+      "properties": {
+        "id": 1507059015,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "capacity": "7",
+        "fee": "no",
+        "operator": "Naturstyrelsen Thy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4836957,
+          57.0299946
+        ]
+      },
+      "properties": {
+        "id": 1507059016,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "capacity": "7",
+        "fee": "no",
+        "operator": "Naturstyrelsen Thy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4836575,
+          57.029933
+        ]
+      },
+      "properties": {
+        "id": 1507059017,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "capacity": "7",
+        "fee": "no",
+        "operator": "Naturstyrelsen Thy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4836624,
+          57.0298646
+        ]
+      },
+      "properties": {
+        "id": 1507059018,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "capacity": "7",
+        "fee": "no",
+        "operator": "Naturstyrelsen Thy"
       }
     }
   ]

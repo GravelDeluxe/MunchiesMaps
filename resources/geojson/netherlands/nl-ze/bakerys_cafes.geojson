@@ -355,8 +355,9 @@
       "properties": {
         "id": 2095168578,
         "osm_type": "node",
-        "name": "Bakkerij 't Zand",
-        "opening_hours": "Mo-Fr 07:30-17:30, Sa 07:30-16:00; PH,Su off"
+        "name": "Bakkerij ‘t Zand",
+        "brand": "Bakkerij ‘t Zand",
+        "opening_hours": "Mo-Fr 07:30-17:00, Sa 07:30-16:00; PH,Su off"
       }
     },
     {
@@ -394,8 +395,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.4949686,
-          51.5623636
+          3.4949801,
+          51.5623438
         ]
       },
       "properties": {
@@ -826,23 +827,8 @@
         "id": 2767722511,
         "osm_type": "node",
         "name": "Brood en Zo",
-        "opening_hours": "Mo-Su 08:00-13:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          3.5054711,
-          51.3797904
-        ]
-      },
-      "properties": {
-        "id": 2767964178,
-        "osm_type": "node",
-        "name": "De Bakkerieje",
-        "opening_hours": "We-Sa 07:30-13:00; Su 08:30-11:30"
+        "opening_hours": "Mo-Su 08:00-13:00",
+        "check_date": "2025-07-27"
       }
     },
     {
@@ -890,6 +876,22 @@
         "osm_type": "node",
         "name": "De Vriendschap",
         "outdoor_seating": "terrace"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.6171887,
+          51.3234461
+        ]
+      },
+      "properties": {
+        "id": 2769428657,
+        "osm_type": "node",
+        "name": "Cadsandria",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -1031,7 +1033,8 @@
       "properties": {
         "id": 2789051200,
         "osm_type": "node",
-        "name": "Bakkerij 't Zand",
+        "name": "Bakkerij ‘t Zand",
+        "brand": "Bakkerij ‘t Zand",
         "opening_hours": "Mo-Fr 07:30-17:00, Sa 07:30-16:00; PH,Su off"
       }
     },
@@ -1182,6 +1185,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          3.908515,
+          51.6485561
+        ]
+      },
+      "properties": {
+        "id": 2806633029,
+        "osm_type": "node",
+        "name": "Lunchroom de Punt",
+        "opening_hours": "Tu-Sa 10:30-16:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           3.9166772,
           51.6502705
         ]
@@ -1298,7 +1317,8 @@
         "id": 2815162478,
         "osm_type": "node",
         "name": "Tilly Rose",
-        "opening_hours": "Tu-Sa 10:00-17:00; Su 12:00-17:00 \"Sunday trading only\""
+        "opening_hours": "Tu-Sa 10:00-17:00; Su 12:00-17:00 \"Sunday trading only\"",
+        "check_date": "2024-08-10"
       }
     },
     {
@@ -1435,7 +1455,8 @@
         "osm_type": "node",
         "name": "Café restaurant SOIF",
         "opening_hours": "11:00-00:00; Fr,Sa 11:00-01:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-08"
       }
     },
     {
@@ -1483,6 +1504,21 @@
         "name": "La Bella Cucina",
         "opening_hours": "Tu-Fr 10:00-17:30; Sa 10:00-17:00",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.0780909,
+          51.5476497
+        ]
+      },
+      "properties": {
+        "id": 2816001028,
+        "osm_type": "node",
+        "name": "De Buurvrouw"
       }
     },
     {
@@ -1812,7 +1848,8 @@
       "properties": {
         "id": 2905819108,
         "osm_type": "node",
-        "name": "'t Geveltje"
+        "name": "'t Geveltje",
+        "check_date": "2023-07-19"
       }
     },
     {
@@ -1987,7 +2024,8 @@
       "properties": {
         "id": 2922544035,
         "osm_type": "node",
-        "name": "Bakkerij 't Zand",
+        "name": "Bakkerij ‘t Zand",
+        "brand": "Bakkerij ‘t Zand",
         "opening_hours": "Mo-Fr 08:00-17:00, Sa 08:00-16:00; PH,Su off"
       }
     },
@@ -2144,6 +2182,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          3.6132024,
+          51.4991001
+        ]
+      },
+      "properties": {
+        "id": 2922553841,
+        "osm_type": "node",
+        "name": "Sharon's Bath Bakery"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           3.614017,
           51.4970392
         ]
@@ -2186,6 +2239,23 @@
         "name": "HoneyPie",
         "opening_hours": "Tu-Fr 09:00-17:30; Sa 09:00-17:00; Su 10:00-17:00",
         "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.6109767,
+          51.4977408
+        ]
+      },
+      "properties": {
+        "id": 2922563845,
+        "osm_type": "node",
+        "name": "Greenwoods",
+        "brand": "Greenwoods",
+        "opening_hours": "Mo-Fr 09:30-17:00; Sa-Su 09:00-17:00"
       }
     },
     {
@@ -2584,7 +2654,8 @@
         "osm_type": "node",
         "name": "Museumcafé 'De Orangerie'",
         "opening_hours": "Apr 10-Oct 31 Mo-Su 10:00-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-09-14"
       }
     },
     {
@@ -2668,22 +2739,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.908515,
-          51.6485561
-        ]
-      },
-      "properties": {
-        "id": 6643117370,
-        "osm_type": "node",
-        "name": "Lunchroom de Punt",
-        "opening_hours": "Tu-Sa 10:30-16:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           3.6682004,
           51.5490263
         ]
@@ -2732,21 +2787,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.6132402,
-          51.4990933
-        ]
-      },
-      "properties": {
-        "id": 8039738947,
-        "osm_type": "node",
-        "name": "Sharon's Bath Bakery"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           3.5897746,
           51.4497992
         ]
@@ -2769,7 +2809,8 @@
       "properties": {
         "id": 8856290430,
         "osm_type": "node",
-        "name": "Bakkerij 't Zand",
+        "name": "Bakkerij ‘t Zand",
+        "brand": "Bakkerij ‘t Zand",
         "opening_hours": "Mo-Fr 07:30-17:00, Sa 07:30-16:00; PH,Su off"
       }
     },
@@ -2817,7 +2858,8 @@
         "id": 9038145788,
         "osm_type": "node",
         "name": "Koffiebar Marcus",
-        "opening_hours": "Tu 10:00-17:30; We-Th 09:30-17:30; Fr-Sa 09:00-17:30"
+        "opening_hours": "Tu 10:00-17:30; We-Th 09:30-17:30; Fr-Sa 09:00-17:30",
+        "check_date": "2025-08-08"
       }
     },
     {
@@ -3202,7 +3244,8 @@
         "id": 12063334365,
         "osm_type": "node",
         "name": "Grand Café 'T Belfort",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-06"
       }
     },
     {
@@ -3235,20 +3278,6 @@
         "id": 12549754869,
         "osm_type": "node",
         "name": "Bakkerij Van Oost"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.1092917,
-          51.3526486
-        ]
-      },
-      "properties": {
-        "id": 12791636335,
-        "osm_type": "node"
       }
     },
     {
@@ -3293,6 +3322,22 @@
         "id": 13301823516,
         "osm_type": "node",
         "name": "Café Nummer 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.5054002,
+          51.3797427
+        ]
+      },
+      "properties": {
+        "id": 13709819023,
+        "osm_type": "node",
+        "name": "De Bakkerieje",
+        "opening_hours": "Tu-Sa 07:30-13:00; Su 08:30-13:00"
       }
     },
     {

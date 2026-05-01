@@ -46,7 +46,8 @@
         "osm_type": "node",
         "name": "Gallitelli Caffè H24",
         "vending": "coffee",
-        "operator": "Caffè Gallitelli"
+        "operator": "Caffè Gallitelli",
+        "check_date": "2022-05-26"
       }
     },
     {
@@ -79,7 +80,8 @@
         "id": 9858335948,
         "osm_type": "node",
         "name": "M.A.R.G Shop H24",
-        "vending": "coffee;drinks;food;water;chewing_gums"
+        "vending": "coffee;drinks;food;water;chewing_gums",
+        "check_date": "2024-08-29"
       }
     },
     {
@@ -95,7 +97,8 @@
         "id": 9964458441,
         "osm_type": "node",
         "name": "Le Idrie",
-        "vending": "drinks;coffee;food;water"
+        "vending": "drinks;coffee;food;water",
+        "check_date": "2024-08-29"
       }
     },
     {
@@ -111,7 +114,8 @@
         "id": 9985343668,
         "osm_type": "node",
         "name": "Patadrink",
-        "vending": "snacks;potatoes;drinks"
+        "vending": "snacks;potatoes;drinks",
+        "check_date": "2022-08-29"
       }
     },
     {
@@ -144,7 +148,8 @@
         "osm_type": "node",
         "name": "Gallitelli H24 via delle beccherie",
         "vending": "coffee",
-        "operator": "Gallitelli"
+        "operator": "Gallitelli",
+        "check_date": "2025-06-04"
       }
     },
     {
@@ -159,7 +164,23 @@
       "properties": {
         "id": 12825336227,
         "osm_type": "node",
-        "vending": "water"
+        "vending": "water",
+        "check_date": "2025-05-08"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.7196222,
+          40.7294574
+        ]
+      },
+      "properties": {
+        "id": 13714335075,
+        "osm_type": "node",
+        "vending": "food;drinks"
       }
     }
   ]

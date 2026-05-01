@@ -21,53 +21,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.3118791,
-          46.9860096
-        ]
-      },
-      "properties": {
-        "id": 1739679509,
-        "osm_type": "node",
-        "name": "Christen",
-        "opening_hours": "Mo-Fr 05:30-18:30; Sa 06:30-17:00; Su 07:30-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.3113018,
-          46.9819047
-        ]
-      },
-      "properties": {
-        "id": 12858029206,
-        "osm_type": "node",
-        "name": "Glasi Café"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.3108547,
-          46.9863945
-        ]
-      },
-      "properties": {
-        "id": 1740075180,
-        "osm_type": "node",
-        "name": "Azzuro",
-        "opening_hours": "Mo-Th 15:00-22:30, Fr 15:00-24:00, Sa 10:00-24:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.3622586,
           46.9593391
         ]
@@ -76,24 +29,6 @@
         "id": 1156023343,
         "osm_type": "node",
         "name": "Frei"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.3559726,
-          46.9645896
-        ]
-      },
-      "properties": {
-        "id": 2697527275,
-        "osm_type": "node",
-        "name": "Bachmann",
-        "brand": "Bachmann",
-        "takeaway": "yes",
-        "outdoor_seating": "yes"
       }
     },
     {
@@ -118,16 +53,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.3653082,
-          46.9572856
+          8.3118791,
+          46.9860096
         ]
       },
       "properties": {
-        "id": 4510600191,
+        "id": 1739679509,
         "osm_type": "node",
-        "name": "Christen Beck",
-        "brand": "Christen Beck",
-        "outdoor_seating": "no"
+        "name": "Christen",
+        "opening_hours": "Mo-Fr 05:30-18:30; Sa 06:30-17:00; Su 07:30-17:00"
       }
     },
     {
@@ -135,14 +69,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.3666556,
-          46.9570456
+          8.3108547,
+          46.9863945
         ]
       },
       "properties": {
-        "id": 13286086401,
+        "id": 1740075180,
         "osm_type": "node",
-        "name": "Coletta's Café Bar"
+        "name": "Azzuro",
+        "opening_hours": "Mo-Th 15:00-22:30, Fr 15:00-24:00, Sa 10:00-24:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4181692,
+          46.9761813
+        ]
+      },
+      "properties": {
+        "id": 1825312894,
+        "osm_type": "node",
+        "name": "Bergamin"
       }
     },
     {
@@ -166,14 +116,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.3385828,
-          46.9796448
+          8.4748426,
+          46.9669841
         ]
       },
       "properties": {
-        "id": 8994066048,
+        "id": 1909943604,
         "osm_type": "node",
-        "name": "Café Brüggli"
+        "name": "Bäckerei Christen"
       }
     },
     {
@@ -195,14 +145,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4181692,
-          46.9761813
+          8.3559726,
+          46.9645896
         ]
       },
       "properties": {
-        "id": 1825312894,
+        "id": 2697527275,
         "osm_type": "node",
-        "name": "Bergamin"
+        "name": "Bachmann",
+        "brand": "Bachmann",
+        "takeaway": "yes",
+        "outdoor_seating": "yes",
+        "check_date": "2025-09-30"
       }
     },
     {
@@ -240,14 +194,61 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4748426,
-          46.9669841
+          8.3653082,
+          46.9572856
         ]
       },
       "properties": {
-        "id": 1909943604,
+        "id": 4510600191,
         "osm_type": "node",
-        "name": "Bäckerei Christen"
+        "name": "Christen Beck",
+        "brand": "Christen Beck",
+        "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3385828,
+          46.9796448
+        ]
+      },
+      "properties": {
+        "id": 8994066048,
+        "osm_type": "node",
+        "name": "Café Brüggli"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3113018,
+          46.9819047
+        ]
+      },
+      "properties": {
+        "id": 12858029206,
+        "osm_type": "node",
+        "name": "Glasi Café"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3666556,
+          46.9570456
+        ]
+      },
+      "properties": {
+        "id": 13286086401,
+        "osm_type": "node",
+        "name": "Coletta's Café Bar"
       }
     },
     {
@@ -263,23 +264,6 @@
         "id": 13531770449,
         "osm_type": "node",
         "name": "Alpgädeli",
-        "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.3100044,
-          46.9948306
-        ]
-      },
-      "properties": {
-        "id": 589394382,
-        "osm_type": "way",
-        "name": "Café /Ladeli Universe 9",
-        "opening_hours": "Mo-Fr 08:00-17:00, Sa 09:00-12:00",
         "outdoor_seating": "yes"
       }
     },
@@ -311,7 +295,25 @@
       "properties": {
         "id": 345011919,
         "osm_type": "way",
-        "name": "Bäckerei-Konditorei Auchli"
+        "name": "Bäckerei-Konditorei Auchli",
+        "opening_hours": "Mo-Fr 06:30-12:00,14:00-18:30; Sa 07:00-16:00; Su,PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3100044,
+          46.9948306
+        ]
+      },
+      "properties": {
+        "id": 589394382,
+        "osm_type": "way",
+        "name": "Café /Ladeli Universe 9",
+        "opening_hours": "Mo-Fr 08:00-17:00, Sa 09:00-12:00",
+        "outdoor_seating": "yes"
       }
     }
   ]

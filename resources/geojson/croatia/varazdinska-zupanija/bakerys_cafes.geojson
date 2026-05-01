@@ -232,14 +232,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3436479,
-          46.3108953
+          16.34355,
+          46.3108907
         ]
       },
       "properties": {
         "id": 1712544701,
         "osm_type": "node",
-        "name": "Amazona"
+        "name": "Amazona",
+        "opening_hours": "Mo-Su 08:00-23:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -1107,13 +1109,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.3436231,
-          46.3107741
+          16.3435702,
+          46.310754
         ]
       },
       "properties": {
         "id": 5303903499,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Žito",
+        "opening_hours": "Mo-Sa 05:00-21:00"
       }
     },
     {
@@ -1935,7 +1939,8 @@
       "properties": {
         "id": 13233284769,
         "osm_type": "node",
-        "name": "Capella"
+        "name": "Capella",
+        "check_date": "2025-10-14"
       }
     },
     {
@@ -1952,7 +1957,8 @@
         "osm_type": "node",
         "name": "Mlinar",
         "brand": "Mlinar",
-        "opening_hours": "Mo-Fr 06:00-18:00; SH Mo-Fr 06:00-13:00; PH off"
+        "opening_hours": "Mo-Fr 06:00-18:00; SH Mo-Fr 06:00-13:00; PH off",
+        "check_date": "2026-04-07"
       }
     },
     {
@@ -2017,6 +2023,21 @@
         "name": "Kavana Dorka",
         "opening_hours": "Mo-Su 07:00-21:00",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.1557154,
+          46.351745
+        ]
+      },
+      "properties": {
+        "id": 13730009365,
+        "osm_type": "node",
+        "check_date": "2025-08-29"
       }
     },
     {

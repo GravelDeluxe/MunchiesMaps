@@ -6,50 +6,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4271575,
-          47.1406278
+          8.4493238,
+          47.1733921
         ]
       },
       "properties": {
-        "id": 531435952,
-        "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop",
-        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-20:00; Sa 07:30-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4308215,
-          47.1411144
-        ]
-      },
-      "properties": {
-        "id": 389761813,
-        "osm_type": "node",
-        "name": "Spar",
-        "brand": "Spar",
-        "opening_hours": "Mo-Th 06:00-19:00; Fr 06:00-20:00; Sa 06:00-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4287189,
-          47.1413116
-        ]
-      },
-      "properties": {
-        "id": 1278535198,
+        "id": 285967297,
         "osm_type": "node",
         "name": "Migros",
         "brand": "Migros",
-        "opening_hours": "Mo-Th 07:30-19:00, Fr 07:30-20:00, Sa 07:30-17:00; PH off"
+        "opening_hours": "Mo-Fr 07:30-19:00; Sa 07:30-17:00; PH closed"
       }
     },
     {
@@ -74,16 +40,99 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4263134,
-          47.1754797
+          8.5845418,
+          47.1359714
         ]
       },
       "properties": {
-        "id": 1592426136,
+        "id": 335780650,
+        "osm_type": "node",
+        "name": "Rio Getränkemarkt"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6131199,
+          47.1350027
+        ]
+      },
+      "properties": {
+        "id": 374322535,
+        "osm_type": "node",
+        "name": "Coop",
+        "brand": "Coop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4308215,
+          47.1411144
+        ]
+      },
+      "properties": {
+        "id": 389761813,
+        "osm_type": "node",
+        "name": "Spar",
+        "brand": "Spar",
+        "opening_hours": "Mo-Th 06:00-19:00; Fr 06:00-20:00; Sa 06:00-17:00",
+        "check_date": "2025-11-26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5145777,
+          47.171496
+        ]
+      },
+      "properties": {
+        "id": 393982223,
+        "osm_type": "node",
+        "name": "Coop",
+        "brand": "Coop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5183034,
+          47.1731419
+        ]
+      },
+      "properties": {
+        "id": 529971961,
+        "osm_type": "node",
+        "name": "Migros",
+        "brand": "Migros",
+        "opening_hours": "Mo-We 08:00-19:00; Th 08:00-20:00; Fr 08:00-19:00; Sa 08:00-17:00",
+        "check_date": "2025-01-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5164346,
+          47.1709854
+        ]
+      },
+      "properties": {
+        "id": 529972279,
         "osm_type": "node",
         "name": "Coop",
         "brand": "Coop",
-        "opening_hours": "Mo-Fr 07:30-19:00; Sa 07:30-17:00"
+        "check_date": "2025-01-01"
       }
     },
     {
@@ -91,33 +140,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4276499,
-          47.1749786
+          8.4271575,
+          47.1406278
         ]
       },
       "properties": {
-        "id": 10212561008,
+        "id": 531435952,
         "osm_type": "node",
-        "name": "Migros",
-        "brand": "Migros",
-        "opening_hours": "Mo-Fr 07:30-19:00; Sa 07:30-17:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4493238,
-          47.1733921
-        ]
-      },
-      "properties": {
-        "id": 285967297,
-        "osm_type": "node",
-        "name": "Migros",
-        "brand": "Migros",
-        "opening_hours": "Mo-Fr 07:30-19:00; Sa 07:30-17:00; PH closed"
+        "name": "Coop",
+        "brand": "Coop",
+        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-20:00; Sa 07:30-17:00"
       }
     },
     {
@@ -134,7 +166,61 @@
         "osm_type": "node",
         "name": "Coop",
         "brand": "Coop",
-        "opening_hours": "Mo-Th 08:00-19:00; Fr 08:00-20:00; Sa 07:30-17:00; Su off"
+        "opening_hours": "Mo-Th 08:00-19:00; Fr 08:00-20:00; Sa 07:30-17:00; Su off",
+        "check_date": "2025-07-11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4828142,
+          47.1963548
+        ]
+      },
+      "properties": {
+        "id": 660174913,
+        "osm_type": "node",
+        "name": "Coop",
+        "brand": "Coop",
+        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-21:00; Sa 07:30-17:00",
+        "check_date": "2026-02-28"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5178011,
+          47.1850241
+        ]
+      },
+      "properties": {
+        "id": 672211749,
+        "osm_type": "node",
+        "name": "Lidl",
+        "brand": "Lidl",
+        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-21:00; Sa 07:30-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5159138,
+          47.1687174
+        ]
+      },
+      "properties": {
+        "id": 814693804,
+        "osm_type": "node",
+        "name": "Spar",
+        "brand": "Spar",
+        "opening_hours": "Mo-Fr 06:30-19:00; Th 06:30-20:00; Sa 08:00-17:00",
+        "check_date": "2025-04-15"
       }
     },
     {
@@ -176,100 +262,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4555761,
-          47.1856994
+          8.5793078,
+          47.1381682
         ]
       },
       "properties": {
-        "id": 11842208757,
-        "osm_type": "node",
-        "name": "Aldi",
-        "brand": "ALDI",
-        "opening_hours": "Mo-Th 7:30-19:00; Fr 7:30-21:00; Sa 7:30-17:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4756769,
-          47.1872342
-        ]
-      },
-      "properties": {
-        "id": 1517003750,
-        "osm_type": "node",
-        "name": "Aldi",
-        "brand": "ALDI",
-        "opening_hours": "Mo-Th 07:30-19:00; We,Fr 07:30-21:00; Sa 07:30-17:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4777518,
-          47.1878801
-        ]
-      },
-      "properties": {
-        "id": 6931278967,
-        "osm_type": "node",
-        "name": "Lidl",
-        "brand": "Lidl",
-        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-21:00; Sa 07:30-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4884315,
-          47.19185
-        ]
-      },
-      "properties": {
-        "id": 1819434470,
-        "osm_type": "node",
-        "name": "Denner",
-        "brand": "Denner"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4828142,
-          47.1963548
-        ]
-      },
-      "properties": {
-        "id": 660174913,
-        "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop",
-        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-21:00; Sa 07:30-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4848331,
-          47.1971269
-        ]
-      },
-      "properties": {
-        "id": 5580617894,
+        "id": 963198491,
         "osm_type": "node",
         "name": "Migros",
         "brand": "Migros",
-        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-20:00; Sa 07:30-17:00; PH off"
+        "opening_hours": "Mo-Th 07:30-19:00, Fr 07:30-20:00, Sa 07:30-17:00; PH off",
+        "check_date": "2025-01-01"
       }
     },
     {
@@ -277,15 +280,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5174634,
-          47.0989037
+          8.5812784,
+          47.1378292
         ]
       },
       "properties": {
-        "id": 3766283804,
+        "id": 963198496,
         "osm_type": "node",
         "name": "Coop",
-        "brand": "Coop"
+        "brand": "Coop",
+        "check_date": "2025-01-01"
       }
     },
     {
@@ -310,15 +314,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5746457,
-          47.1350089
+          8.5171258,
+          47.1732809
         ]
       },
       "properties": {
-        "id": 2329120789,
+        "id": 1053855927,
         "osm_type": "node",
-        "name": "Landi",
-        "brand": "Landi"
+        "name": "Denner",
+        "brand": "Denner",
+        "opening_hours": "Mo-Fr 08:00-19:00;Th 08:00-21:00;Sa 08:00-17:00;PH closed",
+        "check_date": "2025-01-01"
       }
     },
     {
@@ -326,27 +332,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5845418,
-          47.1359714
+          8.4287189,
+          47.1413116
         ]
       },
       "properties": {
-        "id": 335780650,
-        "osm_type": "node",
-        "name": "Rio Getränkemarkt"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5793078,
-          47.1381682
-        ]
-      },
-      "properties": {
-        "id": 963198491,
+        "id": 1278535198,
         "osm_type": "node",
         "name": "Migros",
         "brand": "Migros",
@@ -358,15 +349,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5812784,
-          47.1378292
+          8.4756769,
+          47.1872342
         ]
       },
       "properties": {
-        "id": 963198496,
+        "id": 1517003750,
         "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop"
+        "name": "Aldi",
+        "brand": "ALDI",
+        "opening_hours": "Mo-Th 07:30-19:00; We,Fr 07:30-21:00; Sa 07:30-17:00; PH off"
       }
     },
     {
@@ -374,32 +366,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5789018,
-          47.1380972
+          8.4263134,
+          47.1754797
         ]
       },
       "properties": {
-        "id": 3267887807,
+        "id": 1592426136,
+        "osm_type": "node",
+        "name": "Coop",
+        "brand": "Coop",
+        "opening_hours": "Mo-Fr 07:30-19:00; Sa 07:30-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4884315,
+          47.19185
+        ]
+      },
+      "properties": {
+        "id": 1819434470,
         "osm_type": "node",
         "name": "Denner",
         "brand": "Denner"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5159138,
-          47.1687174
-        ]
-      },
-      "properties": {
-        "id": 814693804,
-        "osm_type": "node",
-        "name": "Spar",
-        "brand": "Spar",
-        "opening_hours": "Mo-Fr 06:30-19:00; Th 06:30-20:00; Sa 08:00-17:00"
       }
     },
     {
@@ -424,132 +416,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5145777,
-          47.171496
+          8.5746457,
+          47.1350089
         ]
       },
       "properties": {
-        "id": 393982223,
+        "id": 2329120789,
         "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5183034,
-          47.1731419
-        ]
-      },
-      "properties": {
-        "id": 529971961,
-        "osm_type": "node",
-        "name": "Migros",
-        "brand": "Migros",
-        "opening_hours": "Mo-We 08:00-19:00; Th 08:00-20:00; Fr 08:00-19:00; Sa 08:00-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5164346,
-          47.1709854
-        ]
-      },
-      "properties": {
-        "id": 529972279,
-        "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5171258,
-          47.1732809
-        ]
-      },
-      "properties": {
-        "id": 1053855927,
-        "osm_type": "node",
-        "name": "Denner",
-        "brand": "Denner",
-        "opening_hours": "Mo-Fr 08:00-19:00;Th 08:00-21:00;Sa 08:00-17:00;PH closed"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5176376,
-          47.1720945
-        ]
-      },
-      "properties": {
-        "id": 12088350769,
-        "osm_type": "node",
-        "name": "Lidl",
-        "brand": "Lidl",
-        "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5053769,
-          47.1775933
-        ]
-      },
-      "properties": {
-        "id": 7390289542,
-        "osm_type": "node",
-        "name": "Migros",
-        "brand": "Migros",
-        "opening_hours": "Mo-Th 07:30-19:00, Fr 07:30-20:00, Sa 07:30-17:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5178011,
-          47.1850241
-        ]
-      },
-      "properties": {
-        "id": 672211749,
-        "osm_type": "node",
-        "name": "Lidl",
-        "brand": "Lidl",
-        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-21:00; Sa 07:30-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5228223,
-          47.1840955
-        ]
-      },
-      "properties": {
-        "id": 12464881093,
-        "osm_type": "node",
-        "name": "Migros",
-        "opening_hours": "Mo-Fr 07:30-19:00, Sa 07:30-17:00, Su closed"
+        "name": "Landi",
+        "brand": "Landi"
       }
     },
     {
@@ -566,7 +441,40 @@
         "osm_type": "node",
         "name": "Coop",
         "brand": "Coop",
-        "opening_hours": "Mo-Th 06:30-19:00; Fr 06:30-21:00; Sa 06:30-17:00"
+        "opening_hours": "Mo-Th 06:30-19:00; Fr 06:30-21:00; Sa 06:30-17:00",
+        "check_date": "2025-01-10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5789018,
+          47.1380972
+        ]
+      },
+      "properties": {
+        "id": 3267887807,
+        "osm_type": "node",
+        "name": "Denner",
+        "brand": "Denner"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5174634,
+          47.0989037
+        ]
+      },
+      "properties": {
+        "id": 3766283804,
+        "osm_type": "node",
+        "name": "Coop",
+        "brand": "Coop"
       }
     },
     {
@@ -583,73 +491,8 @@
         "osm_type": "node",
         "name": "Migros",
         "brand": "Migros",
-        "opening_hours": "Mo-Th 07:30-19:00, Fr 07:30-21:00, Sa 07:30-17:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5296666,
-          47.1953573
-        ]
-      },
-      "properties": {
-        "id": 4468784584,
-        "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5299787,
-          47.1957464
-        ]
-      },
-      "properties": {
-        "id": 7057953967,
-        "osm_type": "node",
-        "name": "Denner",
-        "brand": "Denner",
-        "opening_hours": "Mo-Th 07:30-07:00, Fr 07:30-20:00, Sa 07:30-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.530375,
-          47.1960559
-        ]
-      },
-      "properties": {
-        "id": 7057953966,
-        "osm_type": "node",
-        "name": "Aldi",
-        "brand": "ALDI",
-        "opening_hours": "Mo-Th 07:30-19:00, Fr 07:30-20:00, Sa 07:30-17:00; PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5294363,
-          47.1960893
-        ]
-      },
-      "properties": {
-        "id": 10984293368,
-        "osm_type": "node",
-        "name": "Fresh Market",
-        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-20:00; Sa 07:30-17:00"
+        "opening_hours": "Mo-Th 07:30-19:00, Fr 07:30-21:00, Sa 07:30-17:00; PH off",
+        "check_date": "2024-12-31"
       }
     },
     {
@@ -674,6 +517,108 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.5296666,
+          47.1953573
+        ]
+      },
+      "properties": {
+        "id": 4468784584,
+        "osm_type": "node",
+        "name": "Coop",
+        "brand": "Coop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4848331,
+          47.1971269
+        ]
+      },
+      "properties": {
+        "id": 5580617894,
+        "osm_type": "node",
+        "name": "Migros",
+        "brand": "Migros",
+        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-20:00; Sa 07:30-17:00; PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4777518,
+          47.1878801
+        ]
+      },
+      "properties": {
+        "id": 6931278967,
+        "osm_type": "node",
+        "name": "Lidl",
+        "brand": "Lidl",
+        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-21:00; Sa 07:30-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.530375,
+          47.1960559
+        ]
+      },
+      "properties": {
+        "id": 7057953966,
+        "osm_type": "node",
+        "name": "Aldi",
+        "brand": "ALDI",
+        "opening_hours": "Mo-Th 07:30-19:00, Fr 07:30-20:00, Sa 07:30-17:00; PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5299787,
+          47.1957464
+        ]
+      },
+      "properties": {
+        "id": 7057953967,
+        "osm_type": "node",
+        "name": "Denner",
+        "brand": "Denner",
+        "opening_hours": "Mo-Th 07:30-07:00, Fr 07:30-20:00, Sa 07:30-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5053769,
+          47.1775933
+        ]
+      },
+      "properties": {
+        "id": 7390289542,
+        "osm_type": "node",
+        "name": "Migros",
+        "brand": "Migros",
+        "opening_hours": "Mo-Th 07:30-19:00, Fr 07:30-20:00, Sa 07:30-17:00; PH off",
+        "check_date": "2025-03-20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.5883883,
           47.1787445
         ]
@@ -690,32 +635,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6131199,
-          47.1350027
+          8.4276499,
+          47.1749786
         ]
       },
       "properties": {
-        "id": 374322535,
+        "id": 10212561008,
         "osm_type": "node",
-        "name": "Coop",
-        "brand": "Coop"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4780578,
-          47.1914752
-        ]
-      },
-      "properties": {
-        "id": 609946515,
-        "osm_type": "way",
         "name": "Migros",
         "brand": "Migros",
-        "opening_hours": "Mo-Th 08:00-19:00, Fr 08:00-21:00, Sa 08:00-17:00; PH off; Nov 1 off"
+        "opening_hours": "Mo-Fr 07:30-19:00; Sa 07:30-17:00; PH off"
       }
     },
     {
@@ -723,16 +652,83 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4781429,
-          47.1922513
+          8.5294363,
+          47.1960893
         ]
       },
       "properties": {
-        "id": 737021557,
+        "id": 10984293368,
+        "osm_type": "node",
+        "name": "Fresh Market",
+        "opening_hours": "Mo-Th 07:30-19:00; Fr 07:30-20:00; Sa 07:30-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4555761,
+          47.1856994
+        ]
+      },
+      "properties": {
+        "id": 11842208757,
+        "osm_type": "node",
+        "name": "Aldi",
+        "brand": "ALDI",
+        "opening_hours": "Mo-Th 7:30-19:00; Fr 7:30-21:00; Sa 7:30-17:00; PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5176376,
+          47.1720945
+        ]
+      },
+      "properties": {
+        "id": 12088350769,
+        "osm_type": "node",
+        "name": "Lidl",
+        "brand": "Lidl",
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-17:00",
+        "check_date": "2025-05-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5228223,
+          47.1840955
+        ]
+      },
+      "properties": {
+        "id": 12464881093,
+        "osm_type": "node",
+        "name": "Migros",
+        "opening_hours": "Mo-Fr 07:30-19:00, Sa 07:30-17:00, Su closed",
+        "check_date": "2024-12-31"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5610246,
+          47.2131057
+        ]
+      },
+      "properties": {
+        "id": 23646362,
         "osm_type": "way",
-        "name": "Denner",
-        "brand": "Denner",
-        "opening_hours": "Mo-Th 07:30-19:00; Sa 07:30-17:00"
+        "name": "TopCC",
+        "opening_hours": "Mo-Th 07:00-19:00; Fr 07:00-20:00; Sa 07:00-17:00"
       }
     },
     {
@@ -757,15 +753,35 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5610246,
-          47.2131057
+          8.4780578,
+          47.1914752
         ]
       },
       "properties": {
-        "id": 23646362,
+        "id": 609946515,
         "osm_type": "way",
-        "name": "TopCC",
-        "opening_hours": "Mo-Th 07:00-19:00; Fr 07:00-20:00; Sa 07:00-17:00"
+        "name": "Migros",
+        "brand": "Migros",
+        "opening_hours": "Mo-Th 08:00-19:00, Fr 08:00-21:00, Sa 08:00-17:00; PH off; Nov 1 off",
+        "check_date": "2024-12-28"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.4781429,
+          47.1922513
+        ]
+      },
+      "properties": {
+        "id": 737021557,
+        "osm_type": "way",
+        "name": "Denner",
+        "brand": "Denner",
+        "opening_hours": "Mo-Th 07:30-19:00; Sa 07:30-17:00",
+        "check_date": "2026-02-28"
       }
     }
   ]

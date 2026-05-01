@@ -6,31 +6,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.4642725,
-          49.1825812
+          15.9131332,
+          49.5350208
         ]
       },
       "properties": {
-        "id": 13049278142,
+        "id": 1372754509,
         "osm_type": "node",
-        "vending": "food",
-        "operator": "Delikomat"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.464226,
-          49.1826182
-        ]
-      },
-      "properties": {
-        "id": 13049278143,
-        "osm_type": "node",
-        "vending": "coffee",
-        "operator": "Delikomat"
+        "name": "mlékomat Budeč",
+        "vending": "milk"
       }
     },
     {
@@ -54,12 +38,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.5966698,
-          49.3967845
+          15.4104066,
+          49.6708428
         ]
       },
       "properties": {
-        "id": 12794447551,
+        "id": 8812545206,
+        "osm_type": "node",
+        "name": "Farmářská tržnice 24/7",
+        "vending": "food",
+        "operator": "H & R Bohemia s.r.o."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.4169295,
+          49.6702591
+        ]
+      },
+      "properties": {
+        "id": 12668853707,
         "osm_type": "node",
         "vending": "coffee;drinks;food"
       }
@@ -114,30 +115,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.4169295,
-          49.6702591
+          15.5966698,
+          49.3967845
         ]
       },
       "properties": {
-        "id": 12668853707,
+        "id": 12794447551,
         "osm_type": "node",
         "vending": "coffee;drinks;food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.9131332,
-          49.5350208
-        ]
-      },
-      "properties": {
-        "id": 1372754509,
-        "osm_type": "node",
-        "name": "mlékomat Budeč",
-        "vending": "milk"
       }
     },
     {
@@ -153,7 +138,8 @@
         "id": 12900542291,
         "osm_type": "node",
         "vending": "food",
-        "operator": "Delikomat"
+        "operator": "Delikomat",
+        "check_date": "2025-10-16"
       }
     },
     {
@@ -169,7 +155,55 @@
         "id": 12900542292,
         "osm_type": "node",
         "vending": "coffee",
+        "operator": "Delikomat",
+        "check_date": "2025-10-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.4642725,
+          49.1825812
+        ]
+      },
+      "properties": {
+        "id": 13049278142,
+        "osm_type": "node",
+        "vending": "food",
         "operator": "Delikomat"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.464226,
+          49.1826182
+        ]
+      },
+      "properties": {
+        "id": 13049278143,
+        "osm_type": "node",
+        "vending": "coffee",
+        "operator": "Delikomat"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.3025508,
+          49.5217593
+        ]
+      },
+      "properties": {
+        "id": 13704770053,
+        "osm_type": "node",
+        "vending": "milk"
       }
     }
   ]

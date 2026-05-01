@@ -584,7 +584,8 @@
         "id": 2919877470,
         "osm_type": "node",
         "name": "Woj-Tank",
-        "brand": "Boterm"
+        "brand": "Boterm",
+        "check_date": "2025-04-06"
       }
     },
     {
@@ -1429,7 +1430,8 @@
         "osm_type": "node",
         "name": "Moya",
         "brand": "Moya",
-        "opening_hours": "Mo-Sa 05:00-23:00; Su 06:00-23:00"
+        "opening_hours": "Mo-Sa 05:00-23:00; Su 06:00-23:00",
+        "check_date": "2023-05-01"
       }
     },
     {
@@ -1831,8 +1833,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.3934556,
-          54.7169723
+          18.3934505,
+          54.716966
         ]
       },
       "properties": {
@@ -1902,7 +1904,8 @@
         "id": 90972610,
         "osm_type": "way",
         "name": "MOL",
-        "brand": "MOL"
+        "brand": "MOL",
+        "check_date": "2025-03-07"
       }
     },
     {
@@ -2353,7 +2356,8 @@
         "osm_type": "way",
         "name": "Amic",
         "brand": "Amic",
-        "opening_hours": "Mo-Su 05:00-22:00"
+        "opening_hours": "Mo-Su 05:00-22:00",
+        "check_date": "2025-07-21"
       }
     },
     {
@@ -3335,7 +3339,7 @@
       "properties": {
         "id": 210267019,
         "osm_type": "way",
-        "name": "MOYA",
+        "name": "Moya",
         "brand": "Moya",
         "opening_hours": "24/7"
       }
@@ -3675,7 +3679,8 @@
         "id": 236409545,
         "osm_type": "way",
         "name": "MOL",
-        "brand": "MOL"
+        "brand": "MOL",
+        "check_date": "2024-12-30"
       }
     },
     {
@@ -3760,15 +3765,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.0263787,
-          53.9349282
+          19.0262249,
+          53.9346983
         ]
       },
       "properties": {
-        "id": 239046378,
+        "id": 239046410,
         "osm_type": "way",
-        "name": "BP",
-        "brand": "BP",
         "opening_hours": "24/7"
       }
     },
@@ -4185,8 +4188,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.73786,
-          54.5267938
+          17.7378603,
+          54.5267744
         ]
       },
       "properties": {
@@ -4194,20 +4197,6 @@
         "osm_type": "way",
         "name": "Shell",
         "brand": "Shell"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.7378806,
-          54.526756
-        ]
-      },
-      "properties": {
-        "id": 301446138,
-        "osm_type": "way"
       }
     },
     {
@@ -4787,8 +4776,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.3937912,
-          54.3931859
+          18.3937915,
+          54.3931897
         ]
       },
       "properties": {
@@ -4825,7 +4814,9 @@
       },
       "properties": {
         "id": 458117314,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "BP",
+        "brand": "BP"
       }
     },
     {
@@ -4840,7 +4831,8 @@
       "properties": {
         "id": 474495403,
         "osm_type": "way",
-        "name": "Oktan"
+        "name": "Oktan",
+        "check_date": "2025-08-13"
       }
     },
     {
@@ -5086,8 +5078,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.0608987,
-          54.4592163
+          17.0609051,
+          54.4592267
         ]
       },
       "properties": {
@@ -5964,7 +5956,8 @@
         "id": 916157166,
         "osm_type": "way",
         "name": "Genron",
-        "brand": "Generon"
+        "brand": "Generon",
+        "check_date": "2025-08-04"
       }
     },
     {
@@ -6040,7 +6033,8 @@
       "properties": {
         "id": 960110689,
         "osm_type": "way",
-        "name": "Boterm"
+        "name": "Boterm",
+        "check_date": "2026-04-06"
       }
     },
     {
@@ -6630,7 +6624,8 @@
         "osm_type": "way",
         "name": "MOL",
         "brand": "MOL",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-02-15"
       }
     },
     {
@@ -6869,7 +6864,8 @@
         "id": 1357553344,
         "osm_type": "way",
         "brand": "PGNiG",
-        "opening_hours": "Mo-Fr 08:00-16:00"
+        "opening_hours": "Mo-Fr 08:00-16:00",
+        "check_date": "2025-02-06"
       }
     },
     {
@@ -7012,6 +7008,21 @@
         "name": "Orlen",
         "brand": "Orlen",
         "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7632904,
+          54.216166
+        ]
+      },
+      "properties": {
+        "id": 1502434599,
+        "osm_type": "way",
+        "name": "EPT"
       }
     }
   ]

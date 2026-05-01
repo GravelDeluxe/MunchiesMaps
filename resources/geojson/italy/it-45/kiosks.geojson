@@ -198,7 +198,8 @@
       },
       "properties": {
         "id": 483374320,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-05-11"
       }
     },
     {
@@ -258,7 +259,8 @@
       "properties": {
         "id": 549921329,
         "osm_type": "node",
-        "name": "Garden BO"
+        "name": "Garden BO",
+        "check_date": "2022-07-15"
       }
     },
     {
@@ -286,20 +288,6 @@
       },
       "properties": {
         "id": 550459309,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.368945,
-          44.6143826
-        ]
-      },
-      "properties": {
-        "id": 550486378,
         "osm_type": "node"
       }
     },
@@ -507,7 +495,8 @@
         "id": 763527977,
         "osm_type": "node",
         "name": "Carrefour Express",
-        "brand": "Carrefour Express"
+        "brand": "Carrefour Express",
+        "check_date": "2024-10-05"
       }
     },
     {
@@ -637,7 +626,8 @@
       "properties": {
         "id": 867399541,
         "osm_type": "node",
-        "name": "Alimentari Mulazzani"
+        "name": "Alimentari Mulazzani",
+        "check_date": "2026-03-21"
       }
     },
     {
@@ -1257,14 +1247,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.3501685,
-          44.5143922
+          11.3501919,
+          44.5142647
         ]
       },
       "properties": {
         "id": 1704148288,
-        "osm_type": "node",
-        "name": "Alimentari"
+        "osm_type": "node"
       }
     },
     {
@@ -1340,7 +1329,8 @@
       "properties": {
         "id": 1704737375,
         "osm_type": "node",
-        "name": "Minimarket Frutta E Verdura SNC"
+        "name": "Minimarket Frutta E Verdura SNC",
+        "check_date": "2024-03-19"
       }
     },
     {
@@ -1513,7 +1503,8 @@
       },
       "properties": {
         "id": 1928748056,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-08-17"
       }
     },
     {
@@ -1957,7 +1948,8 @@
       "properties": {
         "id": 2357197874,
         "osm_type": "node",
-        "name": "Da Franca"
+        "name": "Da Franca",
+        "check_date": "2025-08-17"
       }
     },
     {
@@ -2105,7 +2097,8 @@
       "properties": {
         "id": 2508856735,
         "osm_type": "node",
-        "name": "Chiosco Coccinella"
+        "name": "Chiosco Coccinella",
+        "check_date": "2025-05-11"
       }
     },
     {
@@ -2119,7 +2112,8 @@
       },
       "properties": {
         "id": 2559527487,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2026-04-18"
       }
     },
     {
@@ -2163,21 +2157,6 @@
         "id": 2655810502,
         "osm_type": "node",
         "name": "market"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.5836175,
-          44.0650767
-        ]
-      },
-      "properties": {
-        "id": 2718101517,
-        "osm_type": "node",
-        "name": "Raj Minimarket"
       }
     },
     {
@@ -2255,6 +2234,35 @@
         "id": 2718139336,
         "osm_type": "node",
         "opening_hours": "08:00-24:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5894708,
+          44.0587199
+        ]
+      },
+      "properties": {
+        "id": 2718139345,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5871284,
+          44.0618646
+        ]
+      },
+      "properties": {
+        "id": 2718139750,
+        "osm_type": "node",
+        "name": "Amici Minimarket"
       }
     },
     {
@@ -2471,22 +2479,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.5650806,
-          44.0591304
-        ]
-      },
-      "properties": {
-        "id": 2718207992,
-        "osm_type": "node",
-        "name": "AltroMercato Bottega",
-        "opening_hours": "Mo-Sa 09:00-12:30,15:30-19:30; Su 15:30-19:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.5917052,
           44.0574266
         ]
@@ -2523,7 +2515,8 @@
       "properties": {
         "id": 2851560508,
         "osm_type": "node",
-        "name": "Coop Alleanza"
+        "name": "Coop Alleanza",
+        "check_date": "2025-08-12"
       }
     },
     {
@@ -2642,7 +2635,8 @@
       "properties": {
         "id": 2970123208,
         "osm_type": "node",
-        "name": "Dpiù"
+        "name": "Dpiù",
+        "check_date": "2025-05-18"
       }
     },
     {
@@ -2705,7 +2699,8 @@
         "osm_type": "node",
         "name": "Pam Local",
         "brand": "Pam Local",
-        "opening_hours": "Mo-Sa 08:30-20:30, Su 10:00-12:30"
+        "opening_hours": "Mo-Sa 08:30-20:30, Su 10:00-12:30",
+        "check_date": "2025-10-25"
       }
     },
     {
@@ -2720,7 +2715,8 @@
       "properties": {
         "id": 3182766146,
         "osm_type": "node",
-        "name": "Alimentari"
+        "name": "Alimentari",
+        "check_date": "2025-10-25"
       }
     },
     {
@@ -2735,7 +2731,8 @@
       "properties": {
         "id": 3185008352,
         "osm_type": "node",
-        "name": "ECU"
+        "name": "ECU",
+        "check_date": "2025-08-09"
       }
     },
     {
@@ -2774,22 +2771,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.3440132,
-          44.4945253
-        ]
-      },
-      "properties": {
-        "id": 3247425708,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3220422,
-          44.5009378
+          11.3221534,
+          44.5008994
         ]
       },
       "properties": {
@@ -2973,7 +2956,8 @@
         "id": 3636954969,
         "osm_type": "node",
         "name": "Lava e Lava",
-        "opening_hours": "Mo-Su 00:00-24:00"
+        "opening_hours": "Mo-Su 00:00-24:00",
+        "check_date": "2025-09-03"
       }
     },
     {
@@ -3328,7 +3312,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-07-14"
       }
     },
     {
@@ -3606,7 +3591,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 08:30-20:30; Su 09:30-13:30, 16:00-20:00"
+        "opening_hours": "Mo-Sa 08:30-20:30; Su 09:30-13:30, 16:00-20:00",
+        "check_date": "2025-10-25"
       }
     },
     {
@@ -3862,8 +3848,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.6301367,
-          44.5032083
+          9.6301101,
+          44.5031945
         ]
       },
       "properties": {
@@ -4304,7 +4290,8 @@
       "properties": {
         "id": 4495181288,
         "osm_type": "node",
-        "name": "Minimarket"
+        "name": "Minimarket",
+        "check_date": "2025-06-08"
       }
     },
     {
@@ -4319,7 +4306,8 @@
       "properties": {
         "id": 4495182811,
         "osm_type": "node",
-        "name": "Mini Market"
+        "name": "Mini Market",
+        "check_date": "2025-07-11"
       }
     },
     {
@@ -4334,7 +4322,8 @@
       "properties": {
         "id": 4495182858,
         "osm_type": "node",
-        "name": "La bottega market"
+        "name": "La bottega market",
+        "check_date": "2025-07-11"
       }
     },
     {
@@ -4349,7 +4338,8 @@
       "properties": {
         "id": 4495183109,
         "osm_type": "node",
-        "name": "Asif mini market"
+        "name": "Asif mini market",
+        "check_date": "2025-07-11"
       }
     },
     {
@@ -4364,7 +4354,8 @@
       "properties": {
         "id": 4495183119,
         "osm_type": "node",
-        "name": "Minimarket Riccione"
+        "name": "Minimarket Riccione",
+        "check_date": "2025-07-11"
       }
     },
     {
@@ -4409,7 +4400,8 @@
       "properties": {
         "id": 4495193124,
         "osm_type": "node",
-        "name": "Minimarket"
+        "name": "Minimarket",
+        "check_date": "2025-07-09"
       }
     },
     {
@@ -4424,7 +4416,8 @@
       "properties": {
         "id": 4495193616,
         "osm_type": "node",
-        "name": "Soccia"
+        "name": "Soccia",
+        "check_date": "2025-07-27"
       }
     },
     {
@@ -4438,7 +4431,8 @@
       },
       "properties": {
         "id": 4495194510,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-07-09"
       }
     },
     {
@@ -4452,7 +4446,8 @@
       },
       "properties": {
         "id": 4495194545,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-06-22"
       }
     },
     {
@@ -4467,7 +4462,8 @@
       "properties": {
         "id": 4495194583,
         "osm_type": "node",
-        "name": "Minimarket"
+        "name": "Minimarket",
+        "check_date": "2025-07-09"
       }
     },
     {
@@ -4482,7 +4478,8 @@
       "properties": {
         "id": 4495194736,
         "osm_type": "node",
-        "name": "Indiana mini market"
+        "name": "Indiana mini market",
+        "check_date": "2025-06-29"
       }
     },
     {
@@ -4497,7 +4494,8 @@
       "properties": {
         "id": 4495194779,
         "osm_type": "node",
-        "name": "Self Market"
+        "name": "Self Market",
+        "check_date": "2025-06-22"
       }
     },
     {
@@ -4513,7 +4511,8 @@
         "id": 4495195403,
         "osm_type": "node",
         "name": "Carrefour Express",
-        "brand": "Carrefour Express"
+        "brand": "Carrefour Express",
+        "check_date": "2025-08-11"
       }
     },
     {
@@ -4543,7 +4542,8 @@
       "properties": {
         "id": 4495266583,
         "osm_type": "node",
-        "name": "Bazar"
+        "name": "Bazar",
+        "check_date": "2024-07-21"
       }
     },
     {
@@ -4558,7 +4558,8 @@
       "properties": {
         "id": 4495268608,
         "osm_type": "node",
-        "name": "BD mini market"
+        "name": "BD mini market",
+        "check_date": "2025-06-15"
       }
     },
     {
@@ -4722,7 +4723,8 @@
       "properties": {
         "id": 4540406348,
         "osm_type": "node",
-        "name": "Take Eat Easy"
+        "name": "Take Eat Easy",
+        "check_date": "2025-10-07"
       }
     },
     {
@@ -4798,7 +4800,8 @@
         "id": 4622412189,
         "osm_type": "node",
         "name": "Villaggio Globale",
-        "opening_hours": "Mo-Sa 09:30-13:00, 15:30-19:30"
+        "opening_hours": "Mo-Sa 09:30-13:00, 15:30-19:30",
+        "check_date": "2024-03-31"
       }
     },
     {
@@ -5035,7 +5038,8 @@
       },
       "properties": {
         "id": 4690627178,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-09-20"
       }
     },
     {
@@ -5064,7 +5068,8 @@
       },
       "properties": {
         "id": 4690641573,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-06-28"
       }
     },
     {
@@ -5109,7 +5114,8 @@
       "properties": {
         "id": 4690645982,
         "osm_type": "node",
-        "name": "MS minimarket"
+        "name": "MS minimarket",
+        "check_date": "2025-09-20"
       }
     },
     {
@@ -5139,7 +5145,8 @@
       "properties": {
         "id": 4690646673,
         "osm_type": "node",
-        "name": "Edicola"
+        "name": "Edicola",
+        "check_date": "2025-06-28"
       }
     },
     {
@@ -5291,7 +5298,8 @@
       "properties": {
         "id": 4690688923,
         "osm_type": "node",
-        "brand": "Calzedonia"
+        "brand": "Calzedonia",
+        "check_date": "2025-06-28"
       }
     },
     {
@@ -5306,7 +5314,8 @@
       "properties": {
         "id": 4690707608,
         "osm_type": "node",
-        "name": "SK"
+        "name": "SK",
+        "check_date": "2025-06-28"
       }
     },
     {
@@ -5321,7 +5330,8 @@
       "properties": {
         "id": 4690714390,
         "osm_type": "node",
-        "name": "Asia & Africa"
+        "name": "Asia & Africa",
+        "check_date": "2025-06-28"
       }
     },
     {
@@ -5666,7 +5676,8 @@
       "properties": {
         "id": 4708238189,
         "osm_type": "node",
-        "name": "Sonar Bangla"
+        "name": "Sonar Bangla",
+        "check_date": "2023-09-12"
       }
     },
     {
@@ -5712,7 +5723,8 @@
         "id": 4708347695,
         "osm_type": "node",
         "name": "Fior di Pane",
-        "opening_hours": "Mo-Su 09:00-22:00"
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "check_date": "2025-03-27"
       }
     },
     {
@@ -5978,7 +5990,8 @@
       "properties": {
         "id": 4748570264,
         "osm_type": "node",
-        "name": "Nuovo Camino Verde"
+        "name": "Nuovo Camino Verde",
+        "check_date": "2025-08-10"
       }
     },
     {
@@ -6100,7 +6113,8 @@
       "properties": {
         "id": 4751587128,
         "osm_type": "node",
-        "name": "Cina & Africa Market"
+        "name": "Cina & Africa Market",
+        "check_date": "2025-07-03"
       }
     },
     {
@@ -6161,7 +6175,8 @@
       "properties": {
         "id": 4751590620,
         "osm_type": "node",
-        "name": "Da Angela"
+        "name": "Da Angela",
+        "check_date": "2025-01-29"
       }
     },
     {
@@ -6274,14 +6289,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.0598877,
-          44.8666693
+          10.0598797,
+          44.8666536
         ]
       },
       "properties": {
         "id": 4756787760,
         "osm_type": "node",
-        "name": "Rainieri Tendaggi & Home Collection"
+        "name": "Rainieri Tendaggi & Home Collection",
+        "check_date": "2024-09-15"
       }
     },
     {
@@ -6460,7 +6476,8 @@
         "id": 4762419960,
         "osm_type": "node",
         "name": "La Bottega di Cecilia",
-        "opening_hours": "Mo-Fr 09:00-13:00 || Mo,Tu,We,Fr 15:30-19:30; Sa 09:00-19:00"
+        "opening_hours": "Mo-Fr 09:00-13:00 || Mo,Tu,We,Fr 15:30-19:30; Sa 09:00-19:00",
+        "check_date": "2026-03-27"
       }
     },
     {
@@ -6911,7 +6928,8 @@
         "id": 4793726427,
         "osm_type": "node",
         "name": "La Bottega di Silvia",
-        "opening_hours": "Mo-We, Fr 10:00-13:00, 16:30-19:30; Th, Sa 10:00-13:00"
+        "opening_hours": "Mo-We, Fr 10:00-13:00, 16:30-19:30; Th, Sa 10:00-13:00",
+        "check_date": "2023-11-04"
       }
     },
     {
@@ -7522,7 +7540,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Sa 07:30-00:00, Su 08:00-00:00"
+        "opening_hours": "Mo-Sa 07:30-00:00, Su 08:00-00:00",
+        "check_date": "2024-06-16"
       }
     },
     {
@@ -7552,7 +7571,8 @@
       "properties": {
         "id": 5497701874,
         "osm_type": "node",
-        "name": "STADIO"
+        "name": "STADIO",
+        "check_date": "2025-02-02"
       }
     },
     {
@@ -8407,7 +8427,8 @@
       "properties": {
         "id": 7519181911,
         "osm_type": "node",
-        "name": "Wine Passion s.n.c"
+        "name": "Wine Passion s.n.c",
+        "check_date": "2023-11-03"
       }
     },
     {
@@ -8785,7 +8806,8 @@
         "id": 8524295418,
         "osm_type": "node",
         "name": "Carrefour Express",
-        "brand": "Carrefour Express"
+        "brand": "Carrefour Express",
+        "check_date": "2025-11-25"
       }
     },
     {
@@ -8847,7 +8869,8 @@
         "id": 9053954779,
         "osm_type": "node",
         "name": "Pasta fresca",
-        "opening_hours": "Mo-Su 07:00-22:00"
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "check_date": "2024-04-01"
       }
     },
     {
@@ -8877,7 +8900,8 @@
       "properties": {
         "id": 9094916760,
         "osm_type": "node",
-        "name": "Mini Market Riviera"
+        "name": "Mini Market Riviera",
+        "check_date": "2025-06-02"
       }
     },
     {
@@ -9105,7 +9129,8 @@
       },
       "properties": {
         "id": 9987938017,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-08-30"
       }
     },
     {
@@ -9319,7 +9344,8 @@
       },
       "properties": {
         "id": 10676938417,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-02-18"
       }
     },
     {
@@ -9394,7 +9420,8 @@
       "properties": {
         "id": 10799894375,
         "osm_type": "node",
-        "name": "Forno Market Antonelli"
+        "name": "Forno Market Antonelli",
+        "check_date": "2025-05-01"
       }
     },
     {
@@ -9561,7 +9588,8 @@
       },
       "properties": {
         "id": 11057609504,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-07-21"
       }
     },
     {
@@ -9576,7 +9604,8 @@
       "properties": {
         "id": 11104503305,
         "osm_type": "node",
-        "name": "Berceto in tavola"
+        "name": "Berceto in tavola",
+        "check_date": "2024-12-14"
       }
     },
     {
@@ -10204,7 +10233,8 @@
       "properties": {
         "id": 11603189319,
         "osm_type": "node",
-        "name": "Alfa minimarket"
+        "name": "Alfa minimarket",
+        "check_date": "2025-06-20"
       }
     },
     {
@@ -10262,7 +10292,8 @@
       },
       "properties": {
         "id": 11736353126,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-03-15"
       }
     },
     {
@@ -10293,7 +10324,8 @@
         "id": 11747662734,
         "osm_type": "node",
         "name": "Carrefour Express",
-        "brand": "Carrefour Express"
+        "brand": "Carrefour Express",
+        "check_date": "2025-03-23"
       }
     },
     {
@@ -10336,7 +10368,8 @@
       },
       "properties": {
         "id": 11764493124,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-03-26"
       }
     },
     {
@@ -10642,7 +10675,8 @@
       "properties": {
         "id": 11913417587,
         "osm_type": "node",
-        "name": "Delizie e Capricci"
+        "name": "Delizie e Capricci",
+        "check_date": "2025-12-30"
       }
     },
     {
@@ -10846,7 +10880,8 @@
       "properties": {
         "id": 12105174905,
         "osm_type": "node",
-        "name": "Rini Bangla"
+        "name": "Rini Bangla",
+        "check_date": "2024-08-11"
       }
     },
     {
@@ -10861,7 +10896,8 @@
       "properties": {
         "id": 12108585230,
         "osm_type": "node",
-        "name": "Minimarket"
+        "name": "Minimarket",
+        "check_date": "2024-08-13"
       }
     },
     {
@@ -11066,7 +11102,8 @@
       },
       "properties": {
         "id": 12177785784,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-09-14"
       }
     },
     {
@@ -11080,7 +11117,8 @@
       },
       "properties": {
         "id": 12180421030,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-09-15"
       }
     },
     {
@@ -11136,7 +11174,8 @@
       },
       "properties": {
         "id": 12228091271,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-10-05"
       }
     },
     {
@@ -11374,7 +11413,8 @@
       },
       "properties": {
         "id": 12438506040,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-01-28"
       }
     },
     {
@@ -11418,7 +11458,8 @@
       "properties": {
         "id": 12542360149,
         "osm_type": "node",
-        "name": "Mini Mix"
+        "name": "Mini Mix",
+        "check_date": "2025-01-29"
       }
     },
     {
@@ -11433,7 +11474,8 @@
       "properties": {
         "id": 12551005905,
         "osm_type": "node",
-        "name": "Tutto Fuori"
+        "name": "Tutto Fuori",
+        "check_date": "2025-02-01"
       }
     },
     {
@@ -11508,7 +11550,8 @@
       },
       "properties": {
         "id": 12772768656,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-02-19"
       }
     },
     {
@@ -11566,7 +11609,8 @@
       "properties": {
         "id": 12802697346,
         "osm_type": "node",
-        "name": "PiùMe"
+        "name": "PiùMe",
+        "check_date": "2025-05-01"
       }
     },
     {
@@ -11581,7 +11625,8 @@
       "properties": {
         "id": 12809174424,
         "osm_type": "node",
-        "name": "UnEuro"
+        "name": "UnEuro",
+        "check_date": "2025-05-03"
       }
     },
     {
@@ -11758,7 +11803,8 @@
       },
       "properties": {
         "id": 13075883826,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-08-16"
       }
     },
     {
@@ -11875,7 +11921,8 @@
       },
       "properties": {
         "id": 13255874318,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-10-25"
       }
     },
     {
@@ -11994,7 +12041,8 @@
       },
       "properties": {
         "id": 13355002225,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-12-05"
       }
     },
     {
@@ -12008,7 +12056,8 @@
       },
       "properties": {
         "id": 13376644105,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-12-14"
       }
     },
     {
@@ -12022,7 +12071,8 @@
       },
       "properties": {
         "id": 13376644107,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-12-14"
       }
     },
     {
@@ -12124,7 +12174,8 @@
       "properties": {
         "id": 13420956922,
         "osm_type": "node",
-        "name": "Hattiq Halal Market"
+        "name": "Hattiq Halal Market",
+        "check_date": "2025-12-30"
       }
     },
     {
@@ -12330,7 +12381,124 @@
       "properties": {
         "id": 13703373801,
         "osm_type": "node",
-        "name": "Minimarket Asia"
+        "name": "Minimarket Asia",
+        "check_date": "2026-04-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5864904,
+          44.0624843
+        ]
+      },
+      "properties": {
+        "id": 13726832853,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5873641,
+          44.0616187
+        ]
+      },
+      "properties": {
+        "id": 13726832859,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5838342,
+          44.0648547
+        ]
+      },
+      "properties": {
+        "id": 13726832863,
+        "osm_type": "node",
+        "name": "365 Self Shop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3660625,
+          44.5046601
+        ]
+      },
+      "properties": {
+        "id": 13736278836,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3475438,
+          44.516349
+        ]
+      },
+      "properties": {
+        "id": 13736284901,
+        "osm_type": "node",
+        "name": "Minimarket Korea e Taiwan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3475584,
+          44.5160205
+        ]
+      },
+      "properties": {
+        "id": 13736284902,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3503385,
+          44.5163305
+        ]
+      },
+      "properties": {
+        "id": 13736287964,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5650576,
+          44.0591454
+        ]
+      },
+      "properties": {
+        "id": 13760160098,
+        "osm_type": "node",
+        "name": "AltroMercato Bottega",
+        "opening_hours": "Mo-Sa 09:00-12:30,15:30-19:30; Su 15:30-19:30"
       }
     },
     {
@@ -12454,7 +12622,8 @@
       "properties": {
         "id": 130525884,
         "osm_type": "way",
-        "name": "La Meta"
+        "name": "La Meta",
+        "check_date": "2025-02-27"
       }
     },
     {
@@ -12674,7 +12843,8 @@
       "properties": {
         "id": 168131218,
         "osm_type": "way",
-        "name": "ECU"
+        "name": "ECU",
+        "check_date": "2023-04-10"
       }
     },
     {
@@ -12852,7 +13022,8 @@
       },
       "properties": {
         "id": 223739952,
-        "osm_type": "way"
+        "osm_type": "way",
+        "check_date": "2023-09-22"
       }
     },
     {
@@ -13071,7 +13242,8 @@
       "properties": {
         "id": 432380034,
         "osm_type": "way",
-        "name": "daMAT"
+        "name": "daMAT",
+        "check_date": "2024-06-15"
       }
     },
     {
@@ -13143,7 +13315,8 @@
         "id": 467596915,
         "osm_type": "way",
         "name": "Esso",
-        "brand": "Esso"
+        "brand": "Esso",
+        "check_date": "2024-02-20"
       }
     },
     {
@@ -13185,7 +13358,8 @@
       },
       "properties": {
         "id": 542501552,
-        "osm_type": "way"
+        "osm_type": "way",
+        "check_date": "2024-01-26"
       }
     },
     {
@@ -13243,7 +13417,8 @@
       },
       "properties": {
         "id": 715954260,
-        "osm_type": "way"
+        "osm_type": "way",
+        "check_date": "2024-06-16"
       }
     },
     {
@@ -13258,7 +13433,8 @@
       "properties": {
         "id": 715954263,
         "osm_type": "way",
-        "name": "Edicola del mare"
+        "name": "Edicola del mare",
+        "check_date": "2024-06-07"
       }
     },
     {
@@ -13543,21 +13719,8 @@
       },
       "properties": {
         "id": 1185596577,
-        "osm_type": "way"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.359404,
-          44.5122259
-        ]
-      },
-      "properties": {
-        "id": 1186087711,
-        "osm_type": "way"
+        "osm_type": "way",
+        "check_date": "2024-06-14"
       }
     },
     {
@@ -13935,7 +14098,8 @@
         "id": 1421346406,
         "osm_type": "way",
         "name": "Birreria \"Giori\"",
-        "opening_hours": "Mo-Su 11:00-24:00"
+        "opening_hours": "Mo-Su 11:00-24:00",
+        "check_date": "2025-05-24"
       }
     },
     {

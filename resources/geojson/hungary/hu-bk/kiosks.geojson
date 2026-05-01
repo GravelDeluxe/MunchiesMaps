@@ -533,7 +533,8 @@
         "id": 2981305083,
         "osm_type": "node",
         "name": "CBA",
-        "brand": "CBA"
+        "brand": "CBA",
+        "check_date": "2023-06-30"
       }
     },
     {
@@ -1045,7 +1046,8 @@
       "properties": {
         "id": 3439443237,
         "osm_type": "node",
-        "name": "ABC"
+        "name": "ABC",
+        "opening_hours": "Mo-Fr 05:00-20:00; Sa 07:00-16:00; Su 07:00-14:00"
       }
     },
     {
@@ -1153,6 +1155,22 @@
         "id": 3439443859,
         "osm_type": "node",
         "name": "Napsugár ABC"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.6415974,
+          46.9642256
+        ]
+      },
+      "properties": {
+        "id": 3439443868,
+        "osm_type": "node",
+        "name": "Nevada Market Élelmiszerbolt",
+        "opening_hours": "Mo-Fr 05:00-19:00; Sa 07:00-19:00; Su 10:00-13:00"
       }
     },
     {
@@ -3580,7 +3598,8 @@
       "properties": {
         "id": 4939177048,
         "osm_type": "node",
-        "name": "Univer"
+        "name": "Univer",
+        "check_date": "2023-07-02"
       }
     },
     {
@@ -4821,7 +4840,8 @@
         "osm_type": "node",
         "name": "Coop ABC",
         "brand": "Coop ABC",
-        "opening_hours": "Mo-Fr 05:00-18:00; Sa 05:00-12:00; Su 07:00-11:00; PH off"
+        "opening_hours": "Mo-Fr 05:00-18:00; Sa 05:00-12:00; Su 07:00-11:00; PH off",
+        "check_date": "2023-02-09"
       }
     },
     {
@@ -4835,7 +4855,8 @@
       },
       "properties": {
         "id": 10630249397,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-02-09"
       }
     },
     {
@@ -5343,8 +5364,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.686536,
-          46.9040826
+          19.686524,
+          46.9040884
         ]
       },
       "properties": {
@@ -5359,14 +5380,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          19.0280383,
-          46.9708689
+          19.7020762,
+          46.8909529
+        ]
+      },
+      "properties": {
+        "id": 13753042511,
+        "osm_type": "node",
+        "name": "Mindszenti Húspiac"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0279543,
+          46.9708076
         ]
       },
       "properties": {
         "id": 168413262,
         "osm_type": "way",
-        "name": "Bolt",
         "opening_hours": "Mo-Fr 07:00-19:00"
       }
     },

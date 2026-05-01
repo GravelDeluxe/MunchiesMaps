@@ -2722,7 +2722,8 @@
         "osm_type": "node",
         "name": "Żabka",
         "brand": "Żabka",
-        "opening_hours": "Mo-Sa 06:00-23:00"
+        "opening_hours": "Mo-Sa 06:00-23:00",
+        "check_date": "2024-04-18"
       }
     },
     {
@@ -3200,7 +3201,8 @@
         "osm_type": "node",
         "name": "Carrefour Express",
         "brand": "Carrefour Express",
-        "opening_hours": "Mo-Su 07:00-23:00"
+        "opening_hours": "Mo-Su 07:00-23:00",
+        "check_date": "2025-09-15"
       }
     },
     {
@@ -3361,7 +3363,8 @@
         "osm_type": "node",
         "name": "Żabka",
         "brand": "Żabka",
-        "opening_hours": "Mo-Sa 06:00-23:00; Su 09:00-21:00"
+        "opening_hours": "Mo-Sa 06:00-23:00; Su 09:00-21:00",
+        "check_date": "2025-07-08"
       }
     },
     {
@@ -3490,7 +3493,8 @@
         "osm_type": "node",
         "name": "Żabka",
         "brand": "Żabka",
-        "opening_hours": "Mo-Su,PH 06:00-23:00"
+        "opening_hours": "Mo-Su,PH 06:00-23:00",
+        "check_date": "2026-04-03"
       }
     },
     {
@@ -4588,7 +4592,9 @@
       "properties": {
         "id": 4001053081,
         "osm_type": "node",
-        "name": "Shop"
+        "name": "Shop",
+        "opening_hours": "24/7",
+        "check_date": "2026-04-14"
       }
     },
     {
@@ -4897,7 +4903,8 @@
         "id": 4058139024,
         "osm_type": "node",
         "name": "Żabka",
-        "brand": "Żabka"
+        "brand": "Żabka",
+        "check_date": "2024-04-19"
       }
     },
     {
@@ -5859,7 +5866,8 @@
       "properties": {
         "id": 4462381773,
         "osm_type": "node",
-        "name": "Lewiatan"
+        "name": "Lewiatan",
+        "brand": "Lewiatan"
       }
     },
     {
@@ -6479,7 +6487,8 @@
         "id": 4467112665,
         "osm_type": "node",
         "name": "Groszek",
-        "brand": "Groszek"
+        "brand": "Groszek",
+        "check_date": "2024-10-19"
       }
     },
     {
@@ -7673,7 +7682,8 @@
         "id": 4879898939,
         "osm_type": "node",
         "name": "Ukrainoczka",
-        "opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-19:00"
+        "opening_hours": "Mo-Sa 09:00-21:00; Su 10:00-19:00",
+        "check_date": "2024-04-19"
       }
     },
     {
@@ -8017,7 +8027,8 @@
         "id": 5083796332,
         "osm_type": "node",
         "name": "U Eli",
-        "opening_hours": "Mo-Sa 06:00-21:00; Su 11:00-20:00"
+        "opening_hours": "Mo-Sa 06:00-21:00; Su 11:00-20:00",
+        "check_date": "2024-12-05"
       }
     },
     {
@@ -10381,7 +10392,8 @@
         "id": 6617371185,
         "osm_type": "node",
         "name": "Sklep \"U małysza\" Lewiatan",
-        "opening_hours": "Mo-Sa 06:30-21:00; Su 14:00-21:00"
+        "opening_hours": "Mo-Sa 06:30-21:00; Su 14:00-21:00",
+        "check_date": "2024-12-04"
       }
     },
     {
@@ -10750,7 +10762,9 @@
       },
       "properties": {
         "id": 7649892910,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "abc",
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa 08:00-17:00; Su 09:00-16:00"
       }
     },
     {
@@ -14428,7 +14442,9 @@
       },
       "properties": {
         "id": 245945072,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "Kiosk wielobranżowy Jasiówka",
+        "opening_hours": "Mo-Fr 08:00-16:00; Sa,Su,PH off"
       }
     },
     {
@@ -14747,7 +14763,8 @@
         "id": 274531914,
         "osm_type": "way",
         "name": "Żabka",
-        "brand": "Żabka"
+        "brand": "Żabka",
+        "opening_hours": "Mo-Su 06:00-23:00"
       }
     },
     {
@@ -14792,20 +14809,6 @@
         "osm_type": "way",
         "name": "abc",
         "brand": "abc"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.0896811,
-          52.0516015
-        ]
-      },
-      "properties": {
-        "id": 290366799,
-        "osm_type": "way"
       }
     },
     {
@@ -14894,21 +14897,6 @@
       "properties": {
         "id": 308669830,
         "osm_type": "way"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.0889537,
-          52.7306994
-        ]
-      },
-      "properties": {
-        "id": 311846150,
-        "osm_type": "way",
-        "name": "Ewa"
       }
     },
     {
@@ -17361,6 +17349,49 @@
         "id": 1496940232,
         "osm_type": "way",
         "name": "Blaszak"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.2434955,
+          52.7397355
+        ]
+      },
+      "properties": {
+        "id": 1499660731,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.2441726,
+          52.7404494
+        ]
+      },
+      "properties": {
+        "id": 1499660736,
+        "osm_type": "way",
+        "name": "Turecki Mini Kiosk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.2447496,
+          52.7405927
+        ]
+      },
+      "properties": {
+        "id": 1499660748,
+        "osm_type": "way"
       }
     }
   ]

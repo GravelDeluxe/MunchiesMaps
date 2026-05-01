@@ -1468,7 +1468,8 @@
       "properties": {
         "id": 4590631633,
         "osm_type": "node",
-        "name": "Cukráreň Oáza"
+        "name": "Cukráreň Oáza",
+        "check_date": "2024-08-03"
       }
     },
     {
@@ -1548,7 +1549,8 @@
         "osm_type": "node",
         "name": "ŠTRBSKÉ PRESSO",
         "opening_hours": "Mo-Su 09:00-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-11-16"
       }
     },
     {
@@ -2063,7 +2065,8 @@
         "id": 6881014486,
         "osm_type": "node",
         "name": "SAINT Coffee",
-        "opening_hours": "Mo-Fr 07:00-21:30; Sa 08:00-21:30; Su 08:00-21:00"
+        "opening_hours": "Mo-Fr 07:00-21:30; Sa 08:00-21:30; Su 08:00-21:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -2625,22 +2628,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.2504236,
-          48.9849081
-        ]
-      },
-      "properties": {
-        "id": 7913782604,
-        "osm_type": "node",
-        "name": "Caffe Freecoolin",
-        "opening_hours": "Mo-Fr 07:00-18:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           21.2435212,
           48.9931469
         ]
@@ -3083,21 +3070,6 @@
         "name": "KROMKA Galéria",
         "opening_hours": "Mo-Fr 07:00-17:00",
         "outdoor_seating": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          21.2492374,
-          48.9864164
-        ]
-      },
-      "properties": {
-        "id": 9138988698,
-        "osm_type": "node",
-        "name": "Caffe Da Vinci"
       }
     },
     {
@@ -4490,7 +4462,8 @@
         "osm_type": "node",
         "name": "Zara caffe",
         "opening_hours": "Mo-Th 10:00-23:00, Fr 10:00-02:00, Sa 14:00-02:00, Su 14:00-23:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-10"
       }
     },
     {
@@ -4583,7 +4556,8 @@
       "properties": {
         "id": 12046513958,
         "osm_type": "node",
-        "name": "Bistro Bus"
+        "name": "Bistro Bus",
+        "check_date": "2024-07-10"
       }
     },
     {
@@ -4646,7 +4620,7 @@
         "id": 12135550522,
         "osm_type": "node",
         "name": "BolBol caffé",
-        "opening_hours": "Mo-Fr 08:00-19:00"
+        "opening_hours": "Mo-Fr 09:00-20:00; Su 10:00-20:00"
       }
     },
     {
@@ -4949,7 +4923,7 @@
         "id": 12950237769,
         "osm_type": "node",
         "name": "Atelier 75",
-        "opening_hours": "Mo-Fr 07:00-22:00; Sa 14:00-22:00",
+        "opening_hours": "Mo-Th 07:00-18:00; Fr 07:00-22:00",
         "outdoor_seating": "yes"
       }
     },
@@ -5571,38 +5545,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.2506208,
-          49.0062844
-        ]
-      },
-      "properties": {
-        "id": 13646299138,
-        "osm_type": "node",
-        "name": "Spojka Roastery Hruška",
-        "opening_hours": "Fr 10:00-18:00; Sa 07:00-15:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          21.2507098,
-          49.0063575
-        ]
-      },
-      "properties": {
-        "id": 13646299139,
-        "osm_type": "node",
-        "name": "KROMKA Hruška",
-        "opening_hours": "Fr 10:00-18:00; Sa 07:00-15:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           21.2863651,
           49.3030555
         ]
@@ -5634,6 +5576,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          20.1776349,
+          49.0583498
+        ]
+      },
+      "properties": {
+        "id": 13766006809,
+        "osm_type": "node",
+        "name": "Café Adriana",
+        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:30-12:00; PH off",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           20.6390272,
           49.3025339
         ]
@@ -5643,7 +5602,8 @@
         "osm_type": "way",
         "name": "Nestville Chocolate",
         "opening_hours": "Mo-Su 10:00-20:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-07-26"
       }
     },
     {

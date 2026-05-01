@@ -29,7 +29,8 @@
         "id": 4502216496,
         "osm_type": "node",
         "name": "BC Naklo",
-        "vending": "milk"
+        "vending": "milk",
+        "check_date": "2024-01-05"
       }
     },
     {
@@ -44,7 +45,8 @@
       "properties": {
         "id": 4678630212,
         "osm_type": "node",
-        "vending": "coffee"
+        "vending": "coffee",
+        "check_date": "2023-05-18"
       }
     },
     {
@@ -75,7 +77,8 @@
         "id": 4723666268,
         "osm_type": "node",
         "name": "Mlekomat glavna pošta",
-        "vending": "milk"
+        "vending": "milk",
+        "check_date": "2024-05-10"
       }
     },
     {
@@ -108,7 +111,8 @@
         "id": 4732755825,
         "osm_type": "node",
         "name": "mlekomat na cesti talcev",
-        "vending": "milk"
+        "vending": "milk",
+        "check_date": "2021-11-11"
       }
     },
     {
@@ -270,7 +274,8 @@
       "properties": {
         "id": 10045045419,
         "osm_type": "node",
-        "vending": "coffee"
+        "vending": "coffee",
+        "check_date": "2022-09-22"
       }
     },
     {
@@ -334,6 +339,36 @@
         "opening_hours": "24/7",
         "vending": "yoghurt;milk;food;cheese;dairy",
         "operator": "Pr' Vernk;Pr' Krč"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4551911,
+          46.2302785
+        ]
+      },
+      "properties": {
+        "id": 13727931601,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.455175,
+          46.2302862
+        ]
+      },
+      "properties": {
+        "id": 13727931602,
+        "osm_type": "node",
+        "vending": "food"
       }
     }
   ]

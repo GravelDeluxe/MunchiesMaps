@@ -1983,6 +1983,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -1.8346437,
+          51.5525088
+        ]
+      },
+      "properties": {
+        "id": 13747074429,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.845458,
+          51.5539819
+        ]
+      },
+      "properties": {
+        "id": 13747074476,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -0.1474365,
           50.8209653
         ]
@@ -2082,7 +2114,8 @@
       "properties": {
         "id": 96659578,
         "osm_type": "way",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "weather_shelter",
+        "check_date": "2025-02-03"
       }
     },
     {
@@ -2097,7 +2130,8 @@
       "properties": {
         "id": 96659586,
         "osm_type": "way",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "weather_shelter",
+        "check_date": "2025-02-03"
       }
     },
     {
@@ -2363,23 +2397,6 @@
         "id": 183147636,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -2.4090704,
-          55.1011716
-        ]
-      },
-      "properties": {
-        "id": 183727467,
-        "osm_type": "way",
-        "name": "Green",
-        "access": "permissive",
-        "operator": "Mountain Bothies Association"
       }
     },
     {
@@ -7488,7 +7505,8 @@
         "id": 1430670726,
         "osm_type": "way",
         "shelter_type": "weather_shelter",
-        "bench": "yes"
+        "bench": "yes",
+        "check_date": "2026-04-15"
       }
     },
     {
@@ -7792,6 +7810,21 @@
         "id": 1470901884,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.4530153,
+          51.3669439
+        ]
+      },
+      "properties": {
+        "id": 1501209454,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     }
   ]

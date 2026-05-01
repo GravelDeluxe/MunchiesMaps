@@ -29,9 +29,10 @@
       "properties": {
         "id": 5511392058,
         "osm_type": "node",
-        "name": "LOGO",
+        "name": "LOGO Brezovica",
         "brand": "LOGO",
-        "opening_hours": "Mo-Su 06:00-22:30"
+        "opening_hours": "06:00-22:00",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -48,7 +49,8 @@
         "osm_type": "node",
         "name": "Shell Brezovica",
         "brand": "Shell",
-        "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-22:00; PH 07:00-22:00"
+        "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-22:00; PH 07:00-22:00",
+        "check_date": "2024-08-02"
       }
     },
     {
@@ -129,22 +131,6 @@
         "name": "MOL",
         "brand": "MOL",
         "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.5645036,
-          46.0616537
-        ]
-      },
-      "properties": {
-        "id": 13537357978,
-        "osm_type": "node",
-        "name": "MOL",
-        "brand": "MOL"
       }
     },
     {
@@ -284,6 +270,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          14.4851978,
+          46.0444613
+        ]
+      },
+      "properties": {
+        "id": 180893908,
+        "osm_type": "way",
+        "name": "Petrol - Ljubljana - Tržaška 44",
+        "brand": "Petrol",
+        "opening_hours": "Mo-Fr 07:00-21:00; Sa 07:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           14.5310412,
           46.0661085
         ]
@@ -318,8 +321,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.512741,
-          46.0782081
+          14.5126708,
+          46.0781248
         ]
       },
       "properties": {
@@ -361,7 +364,8 @@
         "osm_type": "way",
         "name": "Petrol - Ljubljana - Tivolska",
         "brand": "Petrol",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-11-10"
       }
     },
     {
@@ -395,7 +399,8 @@
         "osm_type": "way",
         "name": "Petrol - Ljubljana - Celovška 148",
         "brand": "Petrol",
-        "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:00-13:00"
+        "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:00-13:00",
+        "check_date": "2025-11-10"
       }
     },
     {
@@ -446,7 +451,8 @@
         "osm_type": "way",
         "name": "Petrol - Ljubljana - Zaloška",
         "brand": "Petrol",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-02-22"
       }
     },
     {
@@ -531,7 +537,8 @@
         "osm_type": "way",
         "name": "Petrol - Ljubljana - Celovška 226",
         "brand": "Petrol",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-11-10"
       }
     },
     {
@@ -607,8 +614,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.5427962,
-          46.0200485
+          14.5427721,
+          46.0200461
         ]
       },
       "properties": {
@@ -624,8 +631,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.5421933,
-          46.0198741
+          14.5421538,
+          46.0198622
         ]
       },
       "properties": {
@@ -684,7 +691,8 @@
         "osm_type": "way",
         "name": "Petrol - Ljubljana - Tržaška 130",
         "brand": "Petrol",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-10-10"
       }
     },
     {
@@ -770,40 +778,6 @@
         "name": "Petrol - Horjul",
         "brand": "Petrol",
         "opening_hours": "Mo-Fr 06:30-20:00; Sa 07:00-19:00; Su 08:00-13:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.4163302,
-          46.136748
-        ]
-      },
-      "properties": {
-        "id": 192836924,
-        "osm_type": "way",
-        "name": "Petrol - Medvode - Gorenjska 1",
-        "brand": "Petrol",
-        "opening_hours": "Mo-Fr 06:00-20:00; Sa 07:00-13:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.4168535,
-          46.1371561
-        ]
-      },
-      "properties": {
-        "id": 192836925,
-        "osm_type": "way",
-        "name": "Petrol - Medvode - Gorenjska 14",
-        "brand": "Petrol",
-        "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-21:00"
       }
     },
     {
@@ -930,8 +904,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.6239525,
-          45.8495145
+          14.623945,
+          45.849512
         ]
       },
       "properties": {
@@ -1024,7 +998,8 @@
         "osm_type": "way",
         "name": "Petrol - Ljubljana - Polje",
         "brand": "Petrol",
-        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-20:00"
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-20:00",
+        "check_date": "2022-10-17"
       }
     },
     {
@@ -1365,23 +1340,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.4851991,
-          46.0444674
-        ]
-      },
-      "properties": {
-        "id": 776095448,
-        "osm_type": "way",
-        "name": "Petrol - Ljubljana - Tržaška 44",
-        "brand": "Petrol",
-        "opening_hours": "Mo-Fr 07:00-21:00; Sa 07:00-13:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           14.5377044,
           45.9528174
         ]
@@ -1502,7 +1460,8 @@
         "osm_type": "way",
         "name": "INA Brezovica",
         "brand": "INA",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-07-28"
       }
     },
     {
@@ -1510,8 +1469,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.7904997,
-          46.2194499
+          14.7905017,
+          46.2194549
         ]
       },
       "properties": {
@@ -1604,6 +1563,40 @@
         "osm_type": "way",
         "name": "Shell - Senožeti",
         "brand": "Shell"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4163521,
+          46.1367852
+        ]
+      },
+      "properties": {
+        "id": 1491090483,
+        "osm_type": "way",
+        "name": "Petrol - Medvode - Gorenjska 1",
+        "brand": "Petrol",
+        "opening_hours": "Mo-Fr 06:00-20:00; Sa 07:00-13:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.416882,
+          46.1371216
+        ]
+      },
+      "properties": {
+        "id": 1491090487,
+        "osm_type": "way",
+        "name": "Petrol - Medvode - Gorenjska 14",
+        "brand": "Petrol",
+        "opening_hours": "Mo-Sa 06:00-22:00; Su 07:00-21:00"
       }
     }
   ]

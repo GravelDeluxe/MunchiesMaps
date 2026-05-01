@@ -91,7 +91,8 @@
       "properties": {
         "id": 3206616492,
         "osm_type": "node",
-        "vending": "drinks"
+        "vending": "drinks",
+        "check_date": "2025-01-06"
       }
     },
     {
@@ -106,7 +107,8 @@
       "properties": {
         "id": 3206616493,
         "osm_type": "node",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2025-01-06"
       }
     },
     {
@@ -121,7 +123,8 @@
       "properties": {
         "id": 3292472655,
         "osm_type": "node",
-        "vending": "drinks"
+        "vending": "drinks",
+        "check_date": "2025-03-14"
       }
     },
     {
@@ -136,7 +139,8 @@
       "properties": {
         "id": 3292472657,
         "osm_type": "node",
-        "vending": "drinks"
+        "vending": "drinks",
+        "check_date": "2025-03-14"
       }
     },
     {
@@ -166,7 +170,8 @@
       "properties": {
         "id": 4063696782,
         "osm_type": "node",
-        "vending": "food;drinks"
+        "vending": "food;drinks",
+        "check_date": "2021-11-04"
       }
     },
     {
@@ -229,7 +234,8 @@
         "id": 4980488184,
         "osm_type": "node",
         "name": "Slovenské syry",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2026-02-07"
       }
     },
     {
@@ -245,7 +251,8 @@
         "id": 4980488185,
         "osm_type": "node",
         "name": "Slovenské syry",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2026-02-07"
       }
     },
     {
@@ -275,7 +282,8 @@
       "properties": {
         "id": 5203109994,
         "osm_type": "node",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2021-10-30"
       }
     },
     {
@@ -290,7 +298,8 @@
       "properties": {
         "id": 5292160528,
         "osm_type": "node",
-        "vending": "food;drinks"
+        "vending": "food;drinks",
+        "check_date": "2023-08-26"
       }
     },
     {
@@ -305,7 +314,8 @@
       "properties": {
         "id": 5430226651,
         "osm_type": "node",
-        "vending": "food;coffee"
+        "vending": "food;coffee",
+        "check_date": "2023-11-08"
       }
     },
     {
@@ -351,7 +361,8 @@
         "id": 8227812110,
         "osm_type": "node",
         "vending": "food",
-        "operator": "Slovenske syry"
+        "operator": "Slovenske syry",
+        "check_date": "2024-05-04"
       }
     },
     {
@@ -366,7 +377,8 @@
       "properties": {
         "id": 8570226210,
         "osm_type": "node",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2024-03-13"
       }
     },
     {
@@ -374,8 +386,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.1297804,
-          48.218185
+          17.1297864,
+          48.2181658
         ]
       },
       "properties": {
@@ -413,7 +425,8 @@
         "id": 9026260471,
         "osm_type": "node",
         "vending": "coffee",
-        "operator": "Lidl"
+        "operator": "Lidl",
+        "check_date": "2023-09-10"
       }
     },
     {
@@ -902,6 +915,66 @@
         "osm_type": "node",
         "vending": "food",
         "operator": "Syromat"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.0406023,
+          48.2068496
+        ]
+      },
+      "properties": {
+        "id": 13739829555,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.0406267,
+          48.2067978
+        ]
+      },
+      "properties": {
+        "id": 13739829556,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.0406134,
+          48.2068289
+        ]
+      },
+      "properties": {
+        "id": 13739829557,
+        "osm_type": "node",
+        "vending": "coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.040058,
+          48.208147
+        ]
+      },
+      "properties": {
+        "id": 13739829565,
+        "osm_type": "node",
+        "vending": "food"
       }
     }
   ]

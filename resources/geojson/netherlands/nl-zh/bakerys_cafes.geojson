@@ -93,7 +93,8 @@
         "osm_type": "node",
         "name": "Bakker van Maanen",
         "brand": "Bakker van Maanen",
-        "opening_hours": "Mo-Fr 07:30-17:30, Sa 08:00-17:00"
+        "opening_hours": "Mo-Fr 07:30-17:30, Sa 08:00-17:00",
+        "check_date": "2024-11-17"
       }
     },
     {
@@ -125,7 +126,8 @@
         "osm_type": "node",
         "name": "Bagels & Beans",
         "brand": "Bagels & Beans",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2025-07-30"
       }
     },
     {
@@ -141,7 +143,8 @@
         "id": 286884994,
         "osm_type": "node",
         "name": "Pol",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-04-25"
       }
     },
     {
@@ -174,7 +177,8 @@
         "osm_type": "node",
         "name": "Dudok",
         "opening_hours": "Mo-Su 09:00-23:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-07-30"
       }
     },
     {
@@ -296,7 +300,8 @@
       "properties": {
         "id": 286885041,
         "osm_type": "node",
-        "name": "Nine Bar"
+        "name": "Nine Bar",
+        "check_date": "2024-06-01"
       }
     },
     {
@@ -328,7 +333,8 @@
       "properties": {
         "id": 296996427,
         "osm_type": "node",
-        "name": "Roos"
+        "name": "Roos",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -343,7 +349,9 @@
       "properties": {
         "id": 297026139,
         "osm_type": "node",
-        "name": "Vooraf en toe"
+        "name": "Vooraf en toe",
+        "opening_hours": "Su-We 08:00-17:00; Th-Su off",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -358,7 +366,8 @@
       "properties": {
         "id": 297030176,
         "osm_type": "node",
-        "name": "Dende"
+        "name": "Dende",
+        "check_date": "2026-01-08"
       }
     },
     {
@@ -374,7 +383,8 @@
         "id": 297030177,
         "osm_type": "node",
         "name": "Grandcafe De Stadthouder",
-        "opening_hours": "Su-Th 10:00-24:00, Fr,Sa 10:00-01:00"
+        "opening_hours": "Su-Th 10:00-24:00, Fr,Sa 10:00-01:00",
+        "check_date": "2026-02-04"
       }
     },
     {
@@ -391,7 +401,8 @@
         "osm_type": "node",
         "name": "Meneer Jansen",
         "opening_hours": "Mo-Sa 10:00-01:00, Su 10:00-24:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -407,7 +418,8 @@
         "id": 297034404,
         "osm_type": "node",
         "name": "Barrera",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-03-19"
       }
     },
     {
@@ -424,7 +436,8 @@
         "osm_type": "node",
         "name": "BetterBagels",
         "opening_hours": "We-Fr 10:00-16:00; Sa 09:00-17:00; Su 10:00-16:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "sidewalk",
+        "check_date": "2026-04-15"
       }
     },
     {
@@ -456,7 +469,8 @@
       "properties": {
         "id": 305048866,
         "osm_type": "node",
-        "name": "Leidsch Beleg"
+        "name": "Leidsch Beleg",
+        "check_date": "2023-05-30"
       }
     },
     {
@@ -471,7 +485,8 @@
       "properties": {
         "id": 305058349,
         "osm_type": "node",
-        "name": "Us Bertus"
+        "name": "Us Bertus",
+        "check_date": "2024-03-13"
       }
     },
     {
@@ -590,8 +605,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.6470745,
-          52.0502386
+          4.6470353,
+          52.0502359
         ]
       },
       "properties": {
@@ -627,7 +642,8 @@
       "properties": {
         "id": 460012848,
         "osm_type": "node",
-        "name": "Estaminet Schommelen"
+        "name": "Estaminet Schommelen",
+        "check_date": "2026-02-22"
       }
     },
     {
@@ -692,7 +708,8 @@
         "osm_type": "node",
         "name": "Cafe Abel",
         "opening_hours": "Mo-Fr 09:00-17:00; Sa-Su 10:00-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -748,14 +765,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.374388,
-          52.0050189
+          4.3744053,
+          52.0050104
         ]
       },
       "properties": {
         "id": 545060439,
         "osm_type": "node",
-        "name": "fortune",
+        "name": "Fortune",
         "outdoor_seating": "yes"
       }
     },
@@ -891,7 +908,8 @@
         "osm_type": "node",
         "name": "Belgisch Bier Café Belvédère",
         "opening_hours": "Mo-Th 11:00-01:00; Fr 11:00-02:00; Sa 10:00-02:00; Su 12:00-01:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -906,7 +924,8 @@
       "properties": {
         "id": 560133698,
         "osm_type": "node",
-        "name": "Gulcan Bakkerij en Minimarket"
+        "name": "Gulcan Bakkerij en Minimarket",
+        "check_date": "2023-04-18"
       }
     },
     {
@@ -921,7 +940,8 @@
       "properties": {
         "id": 560133701,
         "osm_type": "node",
-        "name": "Ons Cafeestje"
+        "name": "Ons Cafeestje",
+        "check_date": "2023-04-18"
       }
     },
     {
@@ -1031,7 +1051,8 @@
         "osm_type": "node",
         "name": "Bakker Bart",
         "brand": "Bakker Bart",
-        "opening_hours": "Tu-Sa 08:00-17:00; Mo 09:00-17:00; Su off"
+        "opening_hours": "Tu-Sa 08:00-17:00; Mo 09:00-17:00; Su off",
+        "check_date": "2026-02-08"
       }
     },
     {
@@ -1128,7 +1149,8 @@
         "brand": "Starbucks",
         "opening_hours": "Mo-We 06:30-19:00; Th,Fr 06:30-20:00; Sa 08:00-20:00; Su 08:00-19:00",
         "takeaway": "yes",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -1194,7 +1216,8 @@
         "osm_type": "node",
         "name": "Echte Bakker Den Dulk",
         "brand": "De Echte Bakker",
-        "opening_hours": "Mo-Fr 08:00-18:00; Sa 07:30-17:00"
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa 07:30-17:00",
+        "check_date": "2025-09-13"
       }
     },
     {
@@ -1230,7 +1253,8 @@
         "brand": "Bagels & Beans",
         "opening_hours": "Mo-Sa 08:59-17:32; Su 09:59-17:32",
         "takeaway": "yes",
-        "outdoor_seating": "pedestrian_zone"
+        "outdoor_seating": "pedestrian_zone",
+        "check_date": "2026-03-30"
       }
     },
     {
@@ -1238,15 +1262,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4908866,
-          52.1587083
+          4.4908725,
+          52.158695
         ]
       },
       "properties": {
         "id": 695802572,
         "osm_type": "node",
         "name": "Two Cups Bubble Tea",
-        "opening_hours": "Su-Th 13:00-19:00; Fr,Sa 13:00-19:30"
+        "opening_hours": "We 13:00-19:00; Su-Tu, Th 12:00-19:00; Fr-Sa 12:00-19:30",
+        "check_date": "2026-02-22"
       }
     },
     {
@@ -1262,7 +1287,8 @@
         "id": 702959669,
         "osm_type": "node",
         "name": "Koffiehuis De Hooiberg",
-        "opening_hours": "Tu-Sa 10:00-17:00; Apr 01-Oct 30 Su 12:00-17:00"
+        "opening_hours": "Tu-Sa 10:00-17:00; Apr 01-Oct 30 Su 12:00-17:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -1389,7 +1415,8 @@
         "osm_type": "node",
         "name": "De Punt",
         "opening_hours": "Mo-Th 09:30-19:00; Fr-Sa 09:30-02:00; Su 09:30-20:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-11"
       }
     },
     {
@@ -1437,7 +1464,8 @@
         "osm_type": "node",
         "name": "Bakkerij Nur",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2026-01-26"
       }
     },
     {
@@ -1548,6 +1576,7 @@
         "osm_type": "node",
         "name": "Bagels & Beans",
         "brand": "Bagels & Beans",
+        "opening_hours": "Mo-Fr 08:30-17:00; Sa,Su 10:00-17:00",
         "takeaway": "yes"
       }
     },
@@ -1564,7 +1593,8 @@
         "id": 971183425,
         "osm_type": "node",
         "name": "Délifrance",
-        "brand": "Délifrance"
+        "brand": "Délifrance",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -1798,7 +1828,8 @@
       "properties": {
         "id": 1109622147,
         "osm_type": "node",
-        "name": "Jacobs"
+        "name": "Jacobs",
+        "check_date": "2024-11-17"
       }
     },
     {
@@ -2102,7 +2133,8 @@
         "brand": "Bagels & Beans",
         "opening_hours": "Mo-Fr 08:00-17:00; Sa 09:00-17:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-05-23"
       }
     },
     {
@@ -2580,7 +2612,8 @@
       "properties": {
         "id": 1625683573,
         "osm_type": "node",
-        "name": "Meesterbakker Roodenrijs"
+        "name": "Meesterbakker Roodenrijs",
+        "check_date": "2023-11-15"
       }
     },
     {
@@ -2671,7 +2704,8 @@
         "id": 1696390541,
         "osm_type": "node",
         "name": "Bakkerij van Noort",
-        "opening_hours": "Mo,Tu,Th 08:30-14:00; We 08:30-13:00; Fr 08:30-15:00; Sa 08:30-16:00"
+        "opening_hours": "Mo,Tu,Th,Fr 08:00-18:00; We 08:30-12:30; Sa 07:45-14:00",
+        "check_date": "2026-04-27"
       }
     },
     {
@@ -3012,7 +3046,8 @@
       "properties": {
         "id": 1806971379,
         "osm_type": "node",
-        "name": "Bakker Klink"
+        "name": "Bakker Klink",
+        "check_date": "2025-08-23"
       }
     },
     {
@@ -3213,7 +3248,8 @@
       "properties": {
         "id": 1949010160,
         "osm_type": "node",
-        "name": "Postiljon"
+        "name": "Postiljon",
+        "check_date": "2025-04-25"
       }
     },
     {
@@ -3364,7 +3400,8 @@
         "id": 1949297421,
         "osm_type": "node",
         "name": "Vlaamsch Broodhuys",
-        "opening_hours": "Mo-Fr 08:30-17:00; Sa 08:00-17:00; Su 10:00-16:00"
+        "opening_hours": "Mo-Fr 08:30-17:00; Sa 08:00-17:00; Su 10:00-16:00",
+        "check_date": "2025-04-25"
       }
     },
     {
@@ -3491,7 +3528,8 @@
         "id": 2028101037,
         "osm_type": "node",
         "name": "Meesterbakker Voskamp",
-        "opening_hours": "Mo 08:30-17:30; Tu 08:30-17:30; We 08:30-17:30; Th 08:30-17:30; Fr 08:30-17:30; Sa 08:00-16:00; Su off"
+        "opening_hours": "Mo 08:30-17:30; Tu 08:30-17:30; We 08:30-17:30; Th 08:30-17:30; Fr 08:30-17:30; Sa 08:00-16:00; Su off",
+        "check_date": "2022-05-27"
       }
     },
     {
@@ -3515,8 +3553,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.3752948,
-          52.0025537
+          4.375218,
+          52.0025905
         ]
       },
       "properties": {
@@ -3524,7 +3562,8 @@
         "osm_type": "node",
         "name": "Coffee-star",
         "brand": "Coffee-star",
-        "opening_hours": "Mo-Su 08:00-12:00, 13:00-17:00, 18:00-21:00"
+        "opening_hours": "Mo-Su 08:00-12:00, 13:00-17:00, 18:00-21:00",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -3599,7 +3638,8 @@
       "properties": {
         "id": 2123854255,
         "osm_type": "node",
-        "name": "Wakuli"
+        "name": "Wakuli",
+        "check_date": "2025-03-19"
       }
     },
     {
@@ -3692,7 +3732,8 @@
         "id": 2269508291,
         "osm_type": "node",
         "name": "Resistor",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2026-01-26"
       }
     },
     {
@@ -3771,7 +3812,8 @@
       "properties": {
         "id": 2306852086,
         "osm_type": "node",
-        "name": "Akershoek"
+        "name": "Akershoek",
+        "check_date": "2025-10-06"
       }
     },
     {
@@ -3848,7 +3890,8 @@
       "properties": {
         "id": 2352652900,
         "osm_type": "node",
-        "name": "Paris Pain"
+        "name": "Paris Pain",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -3986,7 +4029,8 @@
       "properties": {
         "id": 2405697882,
         "osm_type": "node",
-        "name": "Jacobs"
+        "name": "Jacobs",
+        "check_date": "2024-07-24"
       }
     },
     {
@@ -4063,7 +4107,8 @@
         "id": 2418857544,
         "osm_type": "node",
         "name": "Bakker Bart",
-        "brand": "Bakker Bart"
+        "brand": "Bakker Bart",
+        "check_date": "2024-06-15"
       }
     },
     {
@@ -4127,7 +4172,8 @@
         "name": "Coffee Company",
         "brand": "Coffee Company",
         "opening_hours": "Mo-Th 07:30-18:30; Fr 07:30-19:00; Su 08:30-19:00",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2024-05-23"
       }
     },
     {
@@ -4235,7 +4281,8 @@
         "id": 2495636793,
         "osm_type": "node",
         "name": "Rijnbeek",
-        "opening_hours": "Mo-Tu 07:30-16:00; We 08:00-13:00; Th-Fr 08:00-17:30; Sa 07:00-15:00; Su off"
+        "opening_hours": "Mo-Tu 07:30-16:00; We 08:00-13:00; Th-Fr 08:00-17:30; Sa 07:00-15:00; Su off",
+        "check_date": "2025-11-14"
       }
     },
     {
@@ -4357,7 +4404,8 @@
       "properties": {
         "id": 2570442505,
         "osm_type": "node",
-        "name": "Capriccio (Italiaanse IJssalon)"
+        "name": "Capriccio (Italiaanse IJssalon)",
+        "check_date": "2023-09-20"
       }
     },
     {
@@ -4713,7 +4761,8 @@
       "properties": {
         "id": 2590952034,
         "osm_type": "node",
-        "name": "Mimi's Bubble Tea & Ice"
+        "name": "Mimi's Bubble Tea & Ice",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -4948,7 +4997,8 @@
         "osm_type": "node",
         "name": "Meneer Leffers",
         "opening_hours": "Tu-Fr 09:00-17:00; Sa 09:00-15:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-10-23"
       }
     },
     {
@@ -4998,7 +5048,8 @@
         "id": 2599505725,
         "osm_type": "node",
         "name": "Let's bake a Story",
-        "opening_hours": "We-Fr 08:00-17:00; Sa 09:00-16:00; Su 09:00-13:00"
+        "opening_hours": "We-Fr 08:00-17:00; Sa 09:00-16:00; Su 09:00-13:00",
+        "check_date": "2026-02-06"
       }
     },
     {
@@ -5014,7 +5065,8 @@
         "id": 2599505733,
         "osm_type": "node",
         "name": "Café de Bonte Os",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-25"
       }
     },
     {
@@ -5033,7 +5085,8 @@
         "brand": "Coffee Company",
         "opening_hours": "Mo-Th 08:00-19:00; Fr 09:00-21:00; Sa 09:00-19:00; Su 10:00-19:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -5049,7 +5102,8 @@
         "id": 2599505746,
         "osm_type": "node",
         "name": "De Ruif",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-14"
       }
     },
     {
@@ -5066,7 +5120,8 @@
         "osm_type": "node",
         "name": "Eetcafé De Caroussel",
         "opening_hours": "Tu-Th, Su 17:00-01:00; Fr-Sa 17:00-02:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-02-20"
       }
     },
     {
@@ -5083,7 +5138,8 @@
         "osm_type": "node",
         "name": "Kobus Kuch",
         "opening_hours": "Mo-Th 09:30-24:00, Fr,Sa 09:30-01:00, Su 10:00-24:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -5132,7 +5188,8 @@
         "osm_type": "node",
         "name": "The Good Egg",
         "opening_hours": "Mo,Th-Fr 08:00-16:00; Sa 08:00-16:00; Su 09:00-16:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -5164,7 +5221,8 @@
         "id": 2599507799,
         "osm_type": "node",
         "name": "Fresko",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-10-20"
       }
     },
     {
@@ -5181,7 +5239,8 @@
         "osm_type": "node",
         "name": "Koffie & Zo",
         "opening_hours": "Tu-Fr 09:00-17:00; Sa 09:30-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -5215,7 +5274,8 @@
         "osm_type": "node",
         "name": "De Botanie",
         "opening_hours": "Tu-Su 09:00-24:00; Sa-Su 00:00-01:00",
-        "outdoor_seating": "garden;terrace"
+        "outdoor_seating": "garden;terrace",
+        "check_date": "2024-03-26"
       }
     },
     {
@@ -5231,7 +5291,8 @@
         "id": 2599509853,
         "osm_type": "node",
         "name": "Orintea Milktea & Coffee",
-        "opening_hours": "Mo,Su 12:00-19:00; Tu-Sa 12:00-19:30"
+        "opening_hours": "Mo,Su 12:00-19:00; Tu-Sa 12:00-19:30",
+        "check_date": "2025-08-11"
       }
     },
     {
@@ -5264,7 +5325,8 @@
         "osm_type": "node",
         "name": "Kek",
         "opening_hours": "Mo-Su 08:30-18:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-31"
       }
     },
     {
@@ -5394,7 +5456,8 @@
         "osm_type": "node",
         "name": "Affogato",
         "opening_hours": "Tu-Fr 10:00-21:00; Mo 11:00-21:00; Su 11:00-21:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -5441,7 +5504,8 @@
         "id": 2599513762,
         "osm_type": "node",
         "name": "Rosmarino",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-01-13"
       }
     },
     {
@@ -5458,7 +5522,8 @@
         "osm_type": "node",
         "name": "Lot",
         "opening_hours": "Mo; Fr; Su",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-01-14"
       }
     },
     {
@@ -5476,7 +5541,8 @@
         "name": "Bagels & Beans",
         "brand": "Bagels & Beans",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-07-14"
       }
     },
     {
@@ -5591,7 +5657,8 @@
         "id": 2599516035,
         "osm_type": "node",
         "name": "Café de Volder",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -5610,7 +5677,8 @@
         "brand": "Chocolate Company",
         "opening_hours": "Mo-Su 10:00-18:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -5644,7 +5712,8 @@
         "osm_type": "node",
         "name": "Lily's Lily's Bubble Tea",
         "opening_hours": "Mo-Su 12:00-18:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -5842,25 +5911,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4876885,
-          52.0609841
-        ]
-      },
-      "properties": {
-        "id": 2607518959,
-        "osm_type": "node",
-        "name": "Bakker Ammerlaan",
-        "brand": "Bakker Ammerlaan",
-        "opening_hours": "Mo 10:00-17:30; Tu-Th 09:00-17:30; Fr 09:00-21:00; Sa 09:00-17:00; Su 12:00-17:00",
-        "takeaway": "only",
-        "outdoor_seating": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.4924034,
           52.0611206
         ]
@@ -6001,7 +6051,8 @@
         "brand": "Chocolate Company",
         "opening_hours": "Mo-Su 09:00-19:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-06"
       }
     },
     {
@@ -6020,7 +6071,8 @@
         "brand": "Starbucks",
         "opening_hours": "Mo-Fr 06:00-21:30; Sa 07:30-22:00; Su 07:30-21:30",
         "takeaway": "yes",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-06-02"
       }
     },
     {
@@ -6077,6 +6129,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.469229,
+          51.9254798
+        ]
+      },
+      "properties": {
+        "id": 2610208581,
+        "osm_type": "node",
+        "name": "Joe & The Juice"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.4789473,
           51.9178096
         ]
@@ -6084,7 +6151,8 @@
       "properties": {
         "id": 2610208761,
         "osm_type": "node",
-        "name": "Café KeerWeer"
+        "name": "Café KeerWeer",
+        "check_date": "2026-03-06"
       }
     },
     {
@@ -6116,9 +6184,8 @@
       "properties": {
         "id": 2610212622,
         "osm_type": "node",
-        "name": "Backwerk",
-        "brand": "BackWerk",
-        "outdoor_seating": "no"
+        "name": "Bakker Bart To Go",
+        "opening_hours": "Mo-Fr 06:30-19:00; Sa 07:30-19:00; Su 08:00-17:00"
       }
     },
     {
@@ -6135,7 +6202,8 @@
         "osm_type": "node",
         "name": "Joe & The Juice",
         "brand": "Joe & The Juice",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2024-06-05"
       }
     },
     {
@@ -6204,7 +6272,8 @@
         "id": 2610223347,
         "osm_type": "node",
         "name": "Bas Bakt",
-        "opening_hours": "Tu-Fr 08:00-17:00; Sa 08:00-17:00; Su 10:00-17:00"
+        "opening_hours": "Tu-Fr 08:00-17:00; Sa 08:00-17:00; Su 10:00-17:00",
+        "check_date": "2025-08-11"
       }
     },
     {
@@ -6268,7 +6337,8 @@
         "id": 2610225727,
         "osm_type": "node",
         "name": "Five Five Five",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-11"
       }
     },
     {
@@ -6302,7 +6372,8 @@
         "id": 2610240047,
         "osm_type": "node",
         "name": "The Gallery Kitchen",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-11-15"
       }
     },
     {
@@ -6326,14 +6397,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4767914,
-          51.9181255
+          4.4768048,
+          51.9181083
         ]
       },
       "properties": {
         "id": 2610247257,
         "osm_type": "node",
-        "name": "Sissy-Boy Daily"
+        "name": "Sissy-Boy Daily",
+        "check_date": "2025-02-27"
       }
     },
     {
@@ -6363,7 +6435,8 @@
       "properties": {
         "id": 2610250639,
         "osm_type": "node",
-        "name": "8tea5"
+        "name": "8tea5",
+        "check_date": "2025-08-07"
       }
     },
     {
@@ -6455,7 +6528,8 @@
         "id": 2610259276,
         "osm_type": "node",
         "name": "Van Zanten",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-07-28"
       }
     },
     {
@@ -6535,7 +6609,8 @@
         "osm_type": "node",
         "name": "Nieuw Rotterdams Cafe",
         "opening_hours": "Mo-Th 10:00-01:00; Fr-Sa 10:00-02:00; Su 11:00-01:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-09"
       }
     },
     {
@@ -6569,7 +6644,8 @@
         "name": "Bakker Bart",
         "brand": "Bakker Bart",
         "opening_hours": "Mo-Sa 08:30-17:00; Su 09:30-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-06"
       }
     },
     {
@@ -6586,7 +6662,8 @@
         "osm_type": "node",
         "name": "King Kong",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-09"
       }
     },
     {
@@ -6679,7 +6756,8 @@
         "osm_type": "node",
         "name": "Lila Bakery",
         "opening_hours": "Th-Sa 10:00-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-11-11"
       }
     },
     {
@@ -6709,7 +6787,8 @@
       "properties": {
         "id": 2610278624,
         "osm_type": "node",
-        "name": "Jordy's Bakery"
+        "name": "Jordy's Bakery",
+        "check_date": "2025-09-29"
       }
     },
     {
@@ -7066,7 +7145,8 @@
       "properties": {
         "id": 2693540073,
         "osm_type": "node",
-        "name": "Jeu de Boer"
+        "name": "Jeu de Boer",
+        "check_date": "2023-05-18"
       }
     },
     {
@@ -7097,7 +7177,8 @@
         "id": 2695644505,
         "osm_type": "node",
         "name": "De Egelantier",
-        "opening_hours": "Tu-Th 11:00-24:00, Fr,Sa 11:00-02:00, Su 11:00-22:00"
+        "opening_hours": "Tu-Th 11:00-24:00, Fr,Sa 11:00-02:00, Su 11:00-22:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -7241,7 +7322,8 @@
         "id": 2703305172,
         "osm_type": "node",
         "name": "CUP",
-        "opening_hours": "Mo-Fr 07:30-18:00; Sa 08:00-17:00"
+        "opening_hours": "Mo-Fr 07:30-18:00; Sa 08:00-17:00",
+        "check_date": "2025-05-23"
       }
     },
     {
@@ -7256,7 +7338,8 @@
       "properties": {
         "id": 2703373636,
         "osm_type": "node",
-        "name": "Bakker Klink"
+        "name": "Bakker Klink",
+        "check_date": "2024-03-23"
       }
     },
     {
@@ -7288,7 +7371,23 @@
         "osm_type": "node",
         "name": "Lunchgelegenheid Aan de Tafel",
         "opening_hours": "Tu-Sa 09:00-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-11-21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3653,
+          52.0684432
+        ]
+      },
+      "properties": {
+        "id": 2703377931,
+        "osm_type": "node",
+        "name": "Chapter Voorburg"
       }
     },
     {
@@ -7305,7 +7404,8 @@
         "osm_type": "node",
         "name": "Coffee Works Voorburg",
         "opening_hours": "Mo-Fr 07:30 - 17:00; Sa-Su 08:30 - 17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-03-19"
       }
     },
     {
@@ -7499,7 +7599,8 @@
         "id": 2704595500,
         "osm_type": "node",
         "name": "Baker's House",
-        "opening_hours": "Mo-Fr 07:30-18:00; Sa 08:00-18:00"
+        "opening_hours": "Mo-Fr 07:30-18:00; Sa 08:00-18:00",
+        "check_date": "2024-08-20"
       }
     },
     {
@@ -7515,6 +7616,22 @@
         "id": 2704596042,
         "osm_type": "node",
         "name": "Eva's Fruitpunt"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.331976,
+          52.0838088
+        ]
+      },
+      "properties": {
+        "id": 2704598893,
+        "osm_type": "node",
+        "name": "Kling Engelbert",
+        "opening_hours": "Mo-Fr 07:30-17:30; Sa 08:00-17:00; Su off"
       }
     },
     {
@@ -7546,7 +7663,8 @@
         "id": 2704842039,
         "osm_type": "node",
         "name": "Laurens Bosman",
-        "opening_hours": "Mo-Fr 07:30-17:00; Sa 07:30-16:00"
+        "opening_hours": "Mo-Fr 07:30-17:00; Sa 07:30-16:00",
+        "check_date": "2024-05-22"
       }
     },
     {
@@ -7561,7 +7679,8 @@
       "properties": {
         "id": 2704843729,
         "osm_type": "node",
-        "name": "Hoeve Essesteijn"
+        "name": "Hoeve Essesteijn",
+        "check_date": "2025-12-01"
       }
     },
     {
@@ -7624,7 +7743,8 @@
       "properties": {
         "id": 2707884872,
         "osm_type": "node",
-        "name": "Deli"
+        "name": "Deli",
+        "check_date": "2023-12-13"
       }
     },
     {
@@ -7655,7 +7775,8 @@
       "properties": {
         "id": 2709824588,
         "osm_type": "node",
-        "name": "De Bakery"
+        "name": "De Bakery",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -7808,7 +7929,8 @@
       "properties": {
         "id": 2711566616,
         "osm_type": "node",
-        "name": "Lupi Coffee"
+        "name": "Lupi Coffee",
+        "check_date": "2024-04-17"
       }
     },
     {
@@ -7824,7 +7946,8 @@
         "id": 2711567512,
         "osm_type": "node",
         "name": "Cafetaria 't Sluisje",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2024-04-17"
       }
     },
     {
@@ -7968,7 +8091,9 @@
         "id": 2714757056,
         "osm_type": "node",
         "name": "'t Spijshuisje",
-        "outdoor_seating": "yes"
+        "opening_hours": "Sa-Su 09:00-15:30; We, Fr 08:00-15:30",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-22"
       }
     },
     {
@@ -8059,7 +8184,8 @@
       "properties": {
         "id": 2717648392,
         "osm_type": "node",
-        "name": "Arbouw's Lunchroom"
+        "name": "Arbouw's Lunchroom",
+        "check_date": "2024-07-06"
       }
     },
     {
@@ -8161,7 +8287,8 @@
         "name": "Dutch Language Café",
         "opening_hours": "We 11:00-16:00,19:00-22:00; Th 11:00-22:00; Fr 11:00-16:00,19:00-23:00; Sa 11:00-17:00; Su 10:45-17:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-25"
       }
     },
     {
@@ -8224,7 +8351,8 @@
         "id": 2718099850,
         "osm_type": "node",
         "name": "Grab 'n Bite",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-02-26"
       }
     },
     {
@@ -8289,7 +8417,8 @@
       "properties": {
         "id": 2718101040,
         "osm_type": "node",
-        "name": "Bloem"
+        "name": "Bloem",
+        "check_date": "2024-04-30"
       }
     },
     {
@@ -8498,7 +8627,8 @@
         "osm_type": "node",
         "name": "Lily's Coffee Bubble Tea",
         "opening_hours": "Nov-Feb: Mo-Su 11:00-18:00; Mar-Oct: Mo-Su 11:00-19:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-22"
       }
     },
     {
@@ -8577,7 +8707,8 @@
         "osm_type": "node",
         "name": "Bakker Bart",
         "brand": "Bakker Bart",
-        "opening_hours": "Mo 09:00-17:30; Tu,We,Fr,Sa 08:00-17:30; Th 08:00-18:00; Su 10:00-17:30"
+        "opening_hours": "Mo 09:00-17:30; Tu,We,Fr,Sa 08:00-17:30; Th 08:00-18:00; Su 10:00-17:30",
+        "check_date": "2023-05-15"
       }
     },
     {
@@ -8763,7 +8894,8 @@
       "properties": {
         "id": 2722492960,
         "osm_type": "node",
-        "name": "Cafe 't Achterom"
+        "name": "Cafe 't Achterom",
+        "check_date": "2023-05-13"
       }
     },
     {
@@ -8827,7 +8959,8 @@
         "name": "Vienna",
         "opening_hours": "Mo-Su 07:00-19:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-22"
       }
     },
     {
@@ -8876,7 +9009,8 @@
         "osm_type": "node",
         "name": "Bookstor",
         "opening_hours": "Mo-Su 08:00-20:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-04-12"
       }
     },
     {
@@ -8895,7 +9029,8 @@
         "brand": "Anne&Max",
         "opening_hours": "Mo-Fr 08:00-18:00; Sa 08:00-19:00, Su 09:00-18:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-22"
       }
     },
     {
@@ -8974,7 +9109,8 @@
         "osm_type": "node",
         "name": "SLA",
         "opening_hours": "Mo-Su 11:30-20:30",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-22"
       }
     },
     {
@@ -9243,7 +9379,8 @@
         "id": 2723982520,
         "osm_type": "node",
         "name": "Keijzer",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-05-13"
       }
     },
     {
@@ -9259,7 +9396,8 @@
         "id": 2723984939,
         "osm_type": "node",
         "name": "Mais Bakery",
-        "opening_hours": "Tu-Fr 09:00-16:30; Sa,Su 09:00-16:00"
+        "opening_hours": "Tu-Fr 09:00-16:30; Sa,Su 09:00-16:00",
+        "check_date": "2025-11-06"
       }
     },
     {
@@ -10091,7 +10229,8 @@
       "properties": {
         "id": 2729887350,
         "osm_type": "node",
-        "name": "Bakker Klink"
+        "name": "Bakker Klink",
+        "check_date": "2026-01-26"
       }
     },
     {
@@ -10107,7 +10246,8 @@
         "id": 2729888606,
         "osm_type": "node",
         "name": "Michel",
-        "opening_hours": "Tu-Su 08:00-15:00"
+        "opening_hours": "Tu-Su 08:00-15:00",
+        "check_date": "2026-01-26"
       }
     },
     {
@@ -10300,7 +10440,8 @@
         "osm_type": "node",
         "name": "John & June's Koffietent",
         "opening_hours": "Mo-Fr 07:30-17:00; Sa-Su 09:00-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-24"
       }
     },
     {
@@ -10361,6 +10502,23 @@
         "id": 2730534098,
         "osm_type": "node",
         "name": "Cafetaria Rockanje \"Guilty Pleasures\""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.8208974,
+          51.9244631
+        ]
+      },
+      "properties": {
+        "id": 2730794250,
+        "osm_type": "node",
+        "name": "Van der Grijn",
+        "brand": "Van der Grijn",
+        "opening_hours": "Mo-Fr 07:30-17:30; Sa 07:00-16:00"
       }
     },
     {
@@ -10452,7 +10610,7 @@
       "properties": {
         "id": 2731049082,
         "osm_type": "node",
-        "name": "Leon Blum koffiebar",
+        "name": "badal espressobar",
         "opening_hours": "We-Fr 07:30-17:00; Sa-Mo 09:00-17:00",
         "takeaway": "yes",
         "outdoor_seating": "yes"
@@ -10728,7 +10886,8 @@
       "properties": {
         "id": 2731770065,
         "osm_type": "node",
-        "name": "La Venezia"
+        "name": "La Venezia",
+        "check_date": "2026-04-06"
       }
     },
     {
@@ -10745,6 +10904,7 @@
         "osm_type": "node",
         "name": "Bakkerij Segaar",
         "brand": "Bakkerij Segaar",
+        "opening_hours": "Mo-Fr 07:30-17:30; Sa 08:00-17:30; Su 09:00-16:30",
         "outdoor_seating": "yes"
       }
     },
@@ -10762,7 +10922,8 @@
         "osm_type": "node",
         "name": "Café Drie",
         "opening_hours": "Mo 08:30-16:00; We-Fri 08:30-16:00; Sa-Su 09:00-16:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-03-27"
       }
     },
     {
@@ -10794,6 +10955,21 @@
         "id": 2732103840,
         "osm_type": "node",
         "name": "Cafe Melis"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.2918786,
+          52.0484154
+        ]
+      },
+      "properties": {
+        "id": 2732128726,
+        "osm_type": "node",
+        "name": "Bakkerij Beetje Wolff"
       }
     },
     {
@@ -10985,7 +11161,8 @@
         "osm_type": "node",
         "name": "Holtkamp",
         "opening_hours": "Mo-Fr 08:00-17:30; Sa 08:00-16:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2023-05-29"
       }
     },
     {
@@ -11578,22 +11755,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.1998958,
-          51.9958308
-        ]
-      },
-      "properties": {
-        "id": 2746340515,
-        "osm_type": "node",
-        "name": "Cafetaria de Proeftuin",
-        "opening_hours": "Tu-Sa 12:00-21:00; Su 14:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.1995077,
           51.9959674
         ]
@@ -11664,21 +11825,6 @@
         "osm_type": "node",
         "name": "Voskamp",
         "opening_hours": "Mo-Fr 08:30-17:30, Sa 08:00-16:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.2080152,
-          51.9967502
-        ]
-      },
-      "properties": {
-        "id": 2748044768,
-        "osm_type": "node",
-        "name": "Tramhuisje"
       }
     },
     {
@@ -12035,7 +12181,8 @@
       "properties": {
         "id": 2756943876,
         "osm_type": "node",
-        "name": "Bakkerij Marathon"
+        "name": "Bakkerij Marathon",
+        "check_date": "2025-11-28"
       }
     },
     {
@@ -12678,7 +12825,8 @@
       "properties": {
         "id": 2774026485,
         "osm_type": "node",
-        "name": "Café L'Espérance"
+        "name": "Café L'Espérance",
+        "check_date": "2026-03-19"
       }
     },
     {
@@ -12695,7 +12843,8 @@
         "osm_type": "node",
         "name": "Midi Marché",
         "opening_hours": "Mo-Sa 10:00-19:00; Su 11:00-18:00",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2026-04-01"
       }
     },
     {
@@ -12719,6 +12868,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.4944923,
+          52.1556278
+        ]
+      },
+      "properties": {
+        "id": 2774027467,
+        "osm_type": "node",
+        "name": "Giò Neapolitan Espresso"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.4924487,
           52.1572367
         ]
@@ -12727,7 +12891,8 @@
         "id": 2774027714,
         "osm_type": "node",
         "name": "Banketbakkerij en Lunchroom Snijers",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -12743,7 +12908,8 @@
         "id": 2774029257,
         "osm_type": "node",
         "name": "DE Café",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -12819,6 +12985,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.4862667,
+          52.1570835
+        ]
+      },
+      "properties": {
+        "id": 2774029591,
+        "osm_type": "node",
+        "name": "Madame Marie Koffiebar",
+        "opening_hours": "Th-Sa 11:00-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.4928764,
           52.1569421
         ]
@@ -12827,7 +13009,8 @@
         "id": 2774029775,
         "osm_type": "node",
         "name": "Guitars & Beans",
-        "opening_hours": "Tu-Fr 09:30-17:30; Sa 09:30-18:00"
+        "opening_hours": "Tu-Fr 09:30-17:30; Sa 09:30-18:00",
+        "check_date": "2025-07-22"
       }
     },
     {
@@ -12876,7 +13059,8 @@
         "name": "30ml",
         "brand": "30ml",
         "opening_hours": "Mo-Fr 08:00-17:00; Sa 09:00-17:00; Su 11:00-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-04-22"
       }
     },
     {
@@ -12892,7 +13076,8 @@
         "id": 2774039629,
         "osm_type": "node",
         "name": "Chummy Coffee Leiden",
-        "opening_hours": "Tu-Sa 10:00-17:00"
+        "opening_hours": "Tu-Sa 10:00-17:00",
+        "check_date": "2026-02-04"
       }
     },
     {
@@ -13109,6 +13294,24 @@
         "id": 2783879805,
         "osm_type": "node",
         "name": "De Gulle Jacob"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5485049,
+          51.9402264
+        ]
+      },
+      "properties": {
+        "id": 2783893154,
+        "osm_type": "node",
+        "name": "Van der Grijn",
+        "brand": "Van der Grijn",
+        "opening_hours": "Mo-Fr 07:30-17:30; Sa 07:30-17:00",
+        "check_date": "2024-02-01"
       }
     },
     {
@@ -13394,8 +13597,8 @@
       "properties": {
         "id": 2786152175,
         "osm_type": "node",
-        "name": "Speciaalbakkerij van der Grijn",
-        "brand": "Van Grijn",
+        "name": "Van der Grijn",
+        "brand": "Van der Grijn",
         "opening_hours": "Mo-Fr 07:30-17:30; Sa 07:00-17:00"
       }
     },
@@ -13612,7 +13815,8 @@
       "properties": {
         "id": 2787984651,
         "osm_type": "node",
-        "name": "Berg's Bakery"
+        "name": "Berg's Bakery",
+        "check_date": "2026-02-08"
       }
     },
     {
@@ -13813,7 +14017,8 @@
         "id": 2787988079,
         "osm_type": "node",
         "name": "De Vlaam",
-        "opening_hours": "Mo-Fr 08:00-18:00; Sa 08:00-17:00"
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa 08:00-17:00",
+        "check_date": "2026-02-08"
       }
     },
     {
@@ -14092,7 +14297,8 @@
         "id": 2790970982,
         "osm_type": "node",
         "name": "Bakkerswerkplaats",
-        "opening_hours": "Mo-Fr 08:00-17:00; Sa 08:00-16:00"
+        "opening_hours": "Mo-Fr 08:00-17:00; Sa 08:00-16:00",
+        "check_date": "2024-09-17"
       }
     },
     {
@@ -14262,7 +14468,8 @@
         "id": 2791304829,
         "osm_type": "node",
         "name": "Yunus Bakkerij",
-        "opening_hours": "Mo-Sa 09:00-20:00; Su 10:00-19:00"
+        "opening_hours": "Mo-Sa 09:00-20:00; Su 10:00-19:00",
+        "check_date": "2026-02-21"
       }
     },
     {
@@ -14765,6 +14972,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.8865279,
+          51.8522424
+        ]
+      },
+      "properties": {
+        "id": 2799691961,
+        "osm_type": "node",
+        "name": "Van der Grijn",
+        "brand": "Van der Grijn",
+        "opening_hours": "Mo-Fr 07:30-17:30; Sa 07:00-16:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.6655821,
           51.8142726
         ]
@@ -14774,7 +14998,8 @@
         "osm_type": "node",
         "name": "Centre Ville",
         "opening_hours": "Mo-Sa 10:00-19:00; Su off",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-01-09"
       }
     },
     {
@@ -14805,7 +15030,8 @@
         "id": 2802966631,
         "osm_type": "node",
         "name": "De Eekhoorn",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-12"
       }
     },
     {
@@ -15623,7 +15849,8 @@
         "id": 2850925610,
         "osm_type": "node",
         "name": "Blooot",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-05-08"
       }
     },
     {
@@ -15638,7 +15865,8 @@
       "properties": {
         "id": 2850941792,
         "osm_type": "node",
-        "name": "Van | Hier"
+        "name": "Van | Hier",
+        "check_date": "2026-03-21"
       }
     },
     {
@@ -15654,7 +15882,8 @@
         "id": 2850948199,
         "osm_type": "node",
         "name": "Meesterbakker Haven44",
-        "opening_hours": "Mo-Sa 07:30-17:30; Su,PH off"
+        "opening_hours": "Mo-Sa 07:30-17:30; Su,PH off",
+        "check_date": "2026-03-21"
       }
     },
     {
@@ -15798,7 +16027,8 @@
         "name": "Bakker van Maanen",
         "brand": "Bakker van Maanen",
         "opening_hours": "Mo-We,Fr 08:00-18:00; Th 08:00-21:00; Sa 08:00-17:30",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-09-30"
       }
     },
     {
@@ -15878,6 +16108,23 @@
         "id": 2892744571,
         "osm_type": "node",
         "name": "AK-AL"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4742037,
+          52.1660324
+        ]
+      },
+      "properties": {
+        "id": 2892893260,
+        "osm_type": "node",
+        "name": "Grand Café De Stal",
+        "opening_hours": "Mo-Fr 09:00-16:00",
+        "check_date": "2026-04-21"
       }
     },
     {
@@ -15993,7 +16240,8 @@
         "osm_type": "node",
         "name": "Van Kempen De Echte Bakker",
         "brand": "De Echte Bakker",
-        "opening_hours": "Tu-Th 08:30-14:30; Fr 08:30-17:00; Sa 08:00-16:00"
+        "opening_hours": "Tu-Th 08:30-14:30; Fr 08:30-17:00; Sa 08:00-16:00",
+        "check_date": "2023-05-23"
       }
     },
     {
@@ -16196,7 +16444,8 @@
         "id": 2916993492,
         "osm_type": "node",
         "name": "Backwerk",
-        "brand": "BackWerk"
+        "brand": "BackWerk",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -16212,7 +16461,8 @@
         "id": 2916994109,
         "osm_type": "node",
         "name": "Darras",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -16228,7 +16478,8 @@
         "id": 2916994253,
         "osm_type": "node",
         "name": "Tootje",
-        "opening_hours": "Mo-Fr 08:00-17:00; Sa-Su 10:00-17:00"
+        "opening_hours": "Mo-Fr 08:00-17:00; Sa-Su 10:00-17:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -16244,7 +16495,8 @@
         "id": 2916994442,
         "osm_type": "node",
         "name": "Sophie Kattencafe",
-        "opening_hours": "Tu-Su 10:00-17:00"
+        "opening_hours": "Tu-Su 10:00-17:00",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -16311,7 +16563,8 @@
         "osm_type": "node",
         "name": "I Scream Coffee",
         "opening_hours": "10:00-17:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -16326,7 +16579,8 @@
       "properties": {
         "id": 2917023931,
         "osm_type": "node",
-        "name": "Darras"
+        "name": "Darras",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -16360,7 +16614,8 @@
         "name": "Bakker van Maanen",
         "brand": "Bakker van Maanen",
         "opening_hours": "Mo-Su 08:00-18:00",
-        "outdoor_seating": "sidewalk"
+        "outdoor_seating": "sidewalk",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -16406,7 +16661,8 @@
         "id": 2917709718,
         "osm_type": "node",
         "name": "Branding Beachclub",
-        "opening_hours": "Mo-Fr 09:00-00:00; Sa-Su 08:30-00:00; PH 08:30-00:00"
+        "opening_hours": "Mo-Fr 09:00-00:00; Sa-Su 08:30-00:00; PH 08:30-00:00",
+        "check_date": "2025-10-09"
       }
     },
     {
@@ -16439,7 +16695,8 @@
         "osm_type": "node",
         "name": "Petito Noordwijk",
         "opening_hours": "Tu-Fr 09:30-17:00; Sa,Su 09:00-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-09-23"
       }
     },
     {
@@ -16522,7 +16779,8 @@
         "name": "De Smaakmaker",
         "opening_hours": "Mo-Su,PH 09:00-17:30",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-09-23"
       }
     },
     {
@@ -16562,6 +16820,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.6625215,
+          52.1288955
+        ]
+      },
+      "properties": {
+        "id": 2929247979,
+        "osm_type": "node",
+        "name": "Boei",
+        "opening_hours": "We-Sa 09:00-17:00; Fr 09:00-18:00; Su 12:00-17:00",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.6615277,
           52.1275374
         ]
@@ -16569,7 +16844,8 @@
       "properties": {
         "id": 2932715989,
         "osm_type": "node",
-        "name": "Barista Cafe Juul"
+        "name": "Barista Cafe Juul",
+        "check_date": "2024-06-08"
       }
     },
     {
@@ -16584,7 +16860,8 @@
       "properties": {
         "id": 2932716149,
         "osm_type": "node",
-        "name": "Brood&Ko"
+        "name": "Brood&Ko",
+        "check_date": "2024-06-08"
       }
     },
     {
@@ -16599,7 +16876,8 @@
       "properties": {
         "id": 2932716725,
         "osm_type": "node",
-        "name": "Cafe 1640"
+        "name": "Cafe 1640",
+        "check_date": "2024-06-08"
       }
     },
     {
@@ -17132,7 +17410,8 @@
         "name": "Coffee-star",
         "brand": "Coffee-star",
         "opening_hours": "Mo-Fr 09:00-18:00; Sa 10:00-18:00; Su[-1] 13:00-17:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -17148,7 +17427,8 @@
         "id": 3184157282,
         "osm_type": "node",
         "name": "Borgman Borgman",
-        "opening_hours": "Tu-Sa 08:30-17:00; Su 10:00-17:00; Mo off"
+        "opening_hours": "Tu-Sa 08:30-17:00; Su 10:00-17:00; Mo off",
+        "check_date": "2026-03-29"
       }
     },
     {
@@ -17172,21 +17452,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4928258,
-          52.1577311
-        ]
-      },
-      "properties": {
-        "id": 3229587087,
-        "osm_type": "node",
-        "name": "Gelateria Maxim's"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.4910011,
           52.1588595
         ]
@@ -17195,7 +17460,8 @@
         "id": 3229587095,
         "osm_type": "node",
         "name": "Maciotto",
-        "opening_hours": "Mo 17:00-21:30; We-Su 17:00-21:30"
+        "opening_hours": "Mo 17:00-21:30; We-Su 17:00-21:30",
+        "check_date": "2026-01-08"
       }
     },
     {
@@ -17257,7 +17523,8 @@
         "osm_type": "node",
         "name": "Pieterskerkcafé",
         "opening_hours": "Mo-Su 11:00-18:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-07-17"
       }
     },
     {
@@ -17651,7 +17918,8 @@
         "osm_type": "node",
         "name": "Starbucks",
         "brand": "Starbucks",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2025-11-15"
       }
     },
     {
@@ -17788,7 +18056,8 @@
       "properties": {
         "id": 3606148359,
         "osm_type": "node",
-        "name": "Tref-Inn"
+        "name": "Tref-Inn",
+        "check_date": "2015-06-20"
       }
     },
     {
@@ -17941,7 +18210,8 @@
         "brand": "Starbucks",
         "opening_hours": "Mo-Fr 08:00-18:00; Sa 09:00-17:00; Su 10:00-17:00",
         "takeaway": "yes",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-05-27"
       }
     },
     {
@@ -18035,22 +18305,6 @@
         "id": 3721978729,
         "osm_type": "node",
         "name": "Theetuin De Hichte"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.331976,
-          52.0838088
-        ]
-      },
-      "properties": {
-        "id": 3732776470,
-        "osm_type": "node",
-        "name": "Kling Engelbert",
-        "opening_hours": "Mo-Fr 07:30-17:30; Sa 08:00-17:00; Su off"
       }
     },
     {
@@ -18209,7 +18463,8 @@
         "id": 3801762378,
         "osm_type": "node",
         "name": "Jackie Café",
-        "opening_hours": "Mo 12:00-18:00; Tu-Sa 10:00-18:00; Su 12:00-17:00"
+        "opening_hours": "Mo 12:00-18:00; Tu-Sa 10:00-18:00; Su 12:00-17:00",
+        "check_date": "2025-10-11"
       }
     },
     {
@@ -18714,7 +18969,8 @@
         "osm_type": "node",
         "name": "Starbucks",
         "brand": "Starbucks",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2022-10-26"
       }
     },
     {
@@ -18791,7 +19047,8 @@
         "id": 4165764514,
         "osm_type": "node",
         "name": "Bakker van Maanen",
-        "brand": "Bakker van Maanen"
+        "brand": "Bakker van Maanen",
+        "check_date": "2025-12-06"
       }
     },
     {
@@ -18919,7 +19176,8 @@
         "name": "RataPlan",
         "brand": "RataPlan",
         "opening_hours": "Mo-Fr 09:00-17:30; Sa 10:00-16:30; Su 12:00-16:30",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2026-02-07"
       }
     },
     {
@@ -19031,51 +19289,6 @@
         "osm_type": "node",
         "name": "Ontbijt & Lunch Juni",
         "opening_hours": "Tu-Fr 08:30-16:30; Sa-Su 10:00-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.8208793,
-          51.9244164
-        ]
-      },
-      "properties": {
-        "id": 4376062441,
-        "osm_type": "node",
-        "name": "Speciaalbakkerij van der Grijn"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.8865446,
-          51.85223
-        ]
-      },
-      "properties": {
-        "id": 4377930446,
-        "osm_type": "node",
-        "name": "Speciaalbakkerij van der Grijn"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.5484512,
-          51.9402204
-        ]
-      },
-      "properties": {
-        "id": 4377930448,
-        "osm_type": "node",
-        "name": "Speciaalbakkerij van der Grijn"
       }
     },
     {
@@ -19244,7 +19457,8 @@
         "id": 4448911363,
         "osm_type": "node",
         "name": "De Vlaam",
-        "opening_hours": "Mo-Fr 08:00-18:00; Sa 08:00-16:00"
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa 08:00-16:00",
+        "check_date": "2026-02-09"
       }
     },
     {
@@ -19344,15 +19558,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4726999,
-          51.9166216
+          4.4726603,
+          51.9166332
         ]
       },
       "properties": {
         "id": 4474612292,
         "osm_type": "node",
         "name": "Heilige Boontjes",
-        "opening_hours": "Mo 12:00-23:00, Tu-Fr 09:00-23:00; Sa 10:00-23:00; Su 12:00-23:00"
+        "opening_hours": "Mo 12:00-23:00, Tu-Fr 09:00-23:00; Sa 10:00-23:00; Su 12:00-23:00",
+        "check_date": "2025-07-19"
       }
     },
     {
@@ -19420,7 +19635,8 @@
         "osm_type": "node",
         "name": "Up To Do Good",
         "opening_hours": "Mo-Fr 08:00-19:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-02-13"
       }
     },
     {
@@ -19635,7 +19851,8 @@
         "id": 4548136355,
         "osm_type": "node",
         "name": "Bakkerij Vlot",
-        "opening_hours": "Mo-Th 08:00-18:00; Fr 08:00-21:00; Sa 07:30-17:00"
+        "opening_hours": "Mo-Th 08:00-18:00; Fr 08:00-21:00; Sa 07:30-17:00",
+        "check_date": "2025-01-07"
       }
     },
     {
@@ -19812,7 +20029,8 @@
       "properties": {
         "id": 4619095183,
         "osm_type": "node",
-        "name": "Speciaalbakkerij van der Grijn",
+        "name": "Van der Grijn",
+        "brand": "Van der Grijn",
         "opening_hours": "Mo-Th 08:00-17:30; Fr 07:30-20:00; Sa 07:00-16:00; Su off"
       }
     },
@@ -20367,7 +20585,8 @@
       "properties": {
         "id": 4806643870,
         "osm_type": "node",
-        "name": "Alanya"
+        "name": "Alanya",
+        "check_date": "2025-11-06"
       }
     },
     {
@@ -20446,7 +20665,8 @@
         "osm_type": "node",
         "name": "Tw-ice",
         "opening_hours": "Mo-Su 12:00-22:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2022-07-17"
       }
     },
     {
@@ -20764,7 +20984,8 @@
         "id": 4993099825,
         "osm_type": "node",
         "name": "Japita",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-10"
       }
     },
     {
@@ -20830,7 +21051,8 @@
         "name": "Barista Cafe",
         "brand": "Barista Cafe",
         "opening_hours": "Mo-Fr,Su 09:30-17:00; Sa 09:00-17:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-21"
       }
     },
     {
@@ -20898,22 +21120,6 @@
         "osm_type": "node",
         "name": "Meesterbakker Roodenrijs",
         "opening_hours": "Mo-Fr 08:00-17:30; Sa 08:00-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.2697771,
-          52.0784229
-        ]
-      },
-      "properties": {
-        "id": 5109860981,
-        "osm_type": "node",
-        "name": "Koemans Snacks & Broodjes",
-        "opening_hours": "Mo-Sa 11:00-20:30; Su 00:00-20:30"
       }
     },
     {
@@ -21006,7 +21212,8 @@
       "properties": {
         "id": 5142441021,
         "osm_type": "node",
-        "name": "Skål"
+        "name": "Skål",
+        "check_date": "2023-07-09"
       }
     },
     {
@@ -21039,7 +21246,8 @@
         "name": "Bagels & Beans",
         "brand": "Bagels & Beans",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-10-27"
       }
     },
     {
@@ -21055,7 +21263,8 @@
         "id": 5212975970,
         "osm_type": "node",
         "name": "Gertjan de Echte Bakker",
-        "opening_hours": "Mo-Fr 08:00-18:00; Sa 07:30-16:00; Su,PH off"
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa 07:30-16:00; Su,PH off",
+        "check_date": "2026-03-20"
       }
     },
     {
@@ -21573,7 +21782,8 @@
         "id": 5526221504,
         "osm_type": "node",
         "name": "Café Blauw",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -21742,7 +21952,8 @@
         "id": 5557439596,
         "osm_type": "node",
         "name": "De Verkeerstoren",
-        "opening_hours": "Tu-Fr 10:30-17:00; Sa-Su 10:00-17:00"
+        "opening_hours": "Tu-Fr 10:30-17:00; Sa-Su 10:00-17:00",
+        "check_date": "2025-11-22"
       }
     },
     {
@@ -21789,7 +22000,8 @@
         "osm_type": "node",
         "name": "Verhoog's Bakkerij",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-02-28"
       }
     },
     {
@@ -21837,7 +22049,8 @@
         "osm_type": "node",
         "name": "Koozie",
         "opening_hours": "We-Su 10:00-18:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-16"
       }
     },
     {
@@ -22351,7 +22564,8 @@
       "properties": {
         "id": 5987914106,
         "osm_type": "node",
-        "name": "Bakkerij De Vries"
+        "name": "Bakkerij De Vries",
+        "check_date": "2026-04-06"
       }
     },
     {
@@ -22672,7 +22886,8 @@
         "id": 6515101248,
         "osm_type": "node",
         "name": "Mamie Gourmande",
-        "opening_hours": "Tu-Fr 07:00-19:00; Sa 07:00-17:00; Mo 09:00-19:00"
+        "opening_hours": "Tu-Fr 07:00-19:00; Sa 07:00-17:00; Mo 09:00-19:00",
+        "check_date": "2025-03-03"
       }
     },
     {
@@ -22704,7 +22919,8 @@
         "osm_type": "node",
         "name": "Ús Bertus",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2026-01-26"
       }
     },
     {
@@ -22765,7 +22981,8 @@
       "properties": {
         "id": 6635052886,
         "osm_type": "node",
-        "name": "30ML"
+        "name": "30ML",
+        "check_date": "2025-09-29"
       }
     },
     {
@@ -22812,7 +23029,8 @@
         "osm_type": "node",
         "name": "Jordy's Bakery",
         "opening_hours": "Mo-Su 08:00-18:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-07-27"
       }
     },
     {
@@ -23066,7 +23284,8 @@
       "properties": {
         "id": 7147314631,
         "osm_type": "node",
-        "name": "Museumcafé"
+        "name": "Museumcafé",
+        "check_date": "2026-02-08"
       }
     },
     {
@@ -23176,7 +23395,8 @@
         "osm_type": "node",
         "name": "Ak Al Bakkerij",
         "opening_hours": "Mo-Su 07:00-21:00; Tu off",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-10-04"
       }
     },
     {
@@ -23192,7 +23412,8 @@
         "id": 7495438551,
         "osm_type": "node",
         "name": "Bakker Jan",
-        "opening_hours": "Mo-Th 07:00-15:00; Fr 07:00-17:00; Sa 07:00-16:00"
+        "opening_hours": "Mo-Th 07:00-15:00; Fr 07:00-17:00; Sa 07:00-16:00",
+        "check_date": "2026-01-26"
       }
     },
     {
@@ -23427,7 +23648,8 @@
       "properties": {
         "id": 7777787097,
         "osm_type": "node",
-        "name": "Bakkerij Segaar"
+        "name": "Bakkerij Segaar",
+        "check_date": "2026-01-26"
       }
     },
     {
@@ -23442,7 +23664,8 @@
       "properties": {
         "id": 7777787098,
         "osm_type": "node",
-        "name": "Bakkerij Segaar"
+        "name": "Bakkerij Segaar",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -23555,7 +23778,8 @@
         "osm_type": "node",
         "name": "Wafels & Zoenen",
         "opening_hours": "We 10:00-17:00; Th 11:00-17:00; Fr-Su 10:00-17:30",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -23812,7 +24036,8 @@
       "properties": {
         "id": 8912010679,
         "osm_type": "node",
-        "name": "Bakkerij Luifelbaan"
+        "name": "Bakkerij Luifelbaan",
+        "check_date": "2026-04-19"
       }
     },
     {
@@ -23874,7 +24099,8 @@
         "id": 9103906914,
         "osm_type": "node",
         "name": "Hopper",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2026-03-21"
       }
     },
     {
@@ -23890,7 +24116,8 @@
         "id": 9105418723,
         "osm_type": "node",
         "name": "Het Koffiehoekje",
-        "opening_hours": "Tu-Fr 07:30-16:00; Sa 09:00-16:00"
+        "opening_hours": "Tu-Fr 07:30-16:00; Sa 09:00-16:00",
+        "check_date": "2025-05-30"
       }
     },
     {
@@ -23985,7 +24212,8 @@
         "name": "Anne&Max",
         "brand": "Anne&Max",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -24015,7 +24243,8 @@
       "properties": {
         "id": 9141954771,
         "osm_type": "node",
-        "name": "Café de Viskeet"
+        "name": "Café de Viskeet",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -24442,7 +24671,8 @@
       "properties": {
         "id": 10068897901,
         "osm_type": "node",
-        "name": "Mr NonNo"
+        "name": "Mr NonNo",
+        "check_date": "2025-07-30"
       }
     },
     {
@@ -24704,7 +24934,8 @@
         "id": 10915856356,
         "osm_type": "node",
         "name": "Bakkerij Victor Driessen",
-        "opening_hours": "Mo-Fr 07:30-17:00; Sa 07:30-16:00; Su 07:30-14:00"
+        "opening_hours": "Mo-Fr 07:30-17:00; Sa 07:30-16:00; Su 07:30-14:00",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -25124,7 +25355,9 @@
         "id": 11091676396,
         "osm_type": "node",
         "name": "The Sound Kitchen",
-        "outdoor_seating": "yes"
+        "opening_hours": "Mo-Su 08:00-18:00",
+        "outdoor_seating": "yes",
+        "check_date": "2026-04-18"
       }
     },
     {
@@ -25155,7 +25388,8 @@
         "id": 11199639038,
         "osm_type": "node",
         "name": "Bonza koffie",
-        "opening_hours": "Mo-Fr 08:00-15:30"
+        "opening_hours": "Mo-Fr 08:00-15:30",
+        "check_date": "2026-04-07"
       }
     },
     {
@@ -25340,8 +25574,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.479037,
-          51.9197247
+          4.4790484,
+          51.9197255
         ]
       },
       "properties": {
@@ -25554,7 +25788,8 @@
         "osm_type": "node",
         "name": "STACH",
         "brand": "STACH",
-        "opening_hours": "Mo-Fr 07:00-17:00; Sa-Su 08:00-17:00"
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa-Su 08:00-17:00",
+        "check_date": "2024-07-25"
       }
     },
     {
@@ -26493,7 +26728,8 @@
         "name": "Indie Ruchi",
         "opening_hours": "10:30-14:30,16:30-20:00; PH off",
         "takeaway": "yes",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-12-31"
       }
     },
     {
@@ -26870,7 +27106,8 @@
         "name": "SOCOCO W70",
         "opening_hours": "Mo-Fr 08:30-17:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-07"
       }
     },
     {
@@ -26964,7 +27201,9 @@
       "properties": {
         "id": 13138043723,
         "osm_type": "node",
-        "name": "Bakkerij ‘t Zand"
+        "name": "Bakkerij ‘t Zand",
+        "brand": "Bakkerij ‘t Zand",
+        "opening_hours": "Mo-Fr 08:00-17:00, Sa 08:00-16:00; PH,Su off"
       }
     },
     {
@@ -27360,6 +27599,51 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.7255946,
+          52.1462862
+        ]
+      },
+      "properties": {
+        "id": 13735134257,
+        "osm_type": "node",
+        "name": "Horeca Hoeve Oosterman"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4859726,
+          51.9244307
+        ]
+      },
+      "properties": {
+        "id": 13739798839,
+        "osm_type": "node",
+        "name": "Cup n Crust x Panda Pizza"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.4760699,
+          52.2198497
+        ]
+      },
+      "properties": {
+        "id": 13742091941,
+        "osm_type": "node",
+        "name": "Het Winkeltje"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           4.4692953,
           51.8834897
         ]
@@ -27490,7 +27774,8 @@
         "id": 267587222,
         "osm_type": "way",
         "name": "Koffiehuis De Oude Tol",
-        "opening_hours": "10:00-18:00"
+        "opening_hours": "10:00-18:00",
+        "check_date": "2025-08-16"
       }
     },
     {
@@ -27654,21 +27939,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4742036,
-          52.1660239
-        ]
-      },
-      "properties": {
-        "id": 285621784,
-        "osm_type": "way",
-        "name": "Grand Café De Stal"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.4855965,
           52.1640188
         ]
@@ -27678,7 +27948,8 @@
         "osm_type": "way",
         "name": "De Valk",
         "opening_hours": "Mo-Fr 07:30-19:30; Sa 11:00-17:30",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-08-04"
       }
     },
     {
@@ -27757,7 +28028,8 @@
         "osm_type": "way",
         "name": "Kiosk",
         "brand": "Kiosk",
-        "takeaway": "only"
+        "takeaway": "only",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -27775,7 +28047,8 @@
         "name": "Kiosk",
         "brand": "Kiosk",
         "opening_hours": "Mo-Fr 05:45-21:00; Sa 07:00-21:00; Su 08:00-21:00",
-        "takeaway": "only"
+        "takeaway": "only",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -27856,7 +28129,8 @@
         "osm_type": "way",
         "name": "De Theewagen",
         "opening_hours": "sunrise-sunset",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-08-19"
       }
     }
   ]

@@ -13,7 +13,8 @@
       "properties": {
         "id": 278770481,
         "osm_type": "node",
-        "access": "yes"
+        "access": "yes",
+        "check_date": "2024-07-31"
       }
     },
     {
@@ -501,7 +502,8 @@
       "properties": {
         "id": 2076397041,
         "osm_type": "node",
-        "access": "yes"
+        "access": "yes",
+        "check_date": "2025-07-26"
       }
     },
     {
@@ -1137,7 +1139,8 @@
       "properties": {
         "id": 5630174422,
         "osm_type": "node",
-        "access": "customers"
+        "access": "customers",
+        "check_date": "2024-09-04"
       }
     },
     {
@@ -2958,7 +2961,9 @@
       },
       "properties": {
         "id": 109747020,
-        "osm_type": "way"
+        "osm_type": "way",
+        "opening_hours": "24/7",
+        "access": "yes"
       }
     },
     {
@@ -3457,7 +3462,8 @@
       "properties": {
         "id": 825053111,
         "osm_type": "way",
-        "access": "yes"
+        "access": "yes",
+        "check_date": "2025-08-09"
       }
     },
     {
@@ -3731,6 +3737,34 @@
         "id": 1496477854,
         "osm_type": "way",
         "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1399239,
+          58.9896623
+        ]
+      },
+      "properties": {
+        "id": 1501065034,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.7825612,
+          58.7240941
+        ]
+      },
+      "properties": {
+        "id": 1501659023,
+        "osm_type": "way"
       }
     }
   ]

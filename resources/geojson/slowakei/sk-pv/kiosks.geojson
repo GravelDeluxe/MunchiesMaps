@@ -4410,6 +4410,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          21.1978635,
+          49.2744692
+        ]
+      },
+      "properties": {
+        "id": 6841595725,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           20.2127153,
           49.1349446
         ]
@@ -4435,7 +4449,8 @@
         "osm_type": "node",
         "name": "Dobrô market",
         "brand": "Fresh",
-        "opening_hours": "Mo-Su 07:00-20:00; "
+        "opening_hours": "Mo-Su 07:00-20:00; ",
+        "check_date": "2025-08-05"
       }
     },
     {
@@ -6293,7 +6308,8 @@
       },
       "properties": {
         "id": 12025291568,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-07-01"
       }
     },
     {
@@ -6576,22 +6592,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.2422697,
-          48.9924714
-        ]
-      },
-      "properties": {
-        "id": 12164498268,
-        "osm_type": "node",
-        "name": "M+M tabak",
-        "opening_hours": "Mo-Su 09:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           21.0252955,
           49.133859
         ]
@@ -6778,23 +6778,6 @@
         "osm_type": "node",
         "name": "Potraviny Kotva ⚓",
         "opening_hours": "Mo-Fr 06:00-17:00; Sa 06:00-12:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          21.6748637,
-          48.8902786
-        ]
-      },
-      "properties": {
-        "id": 12504339995,
-        "osm_type": "node",
-        "name": "Milk-Agro",
-        "brand": "Milk-Agro",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-12:00"
       }
     },
     {
@@ -7171,14 +7154,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          20.8484362,
-          49.1452916
+          20.8485619,
+          49.1454067
         ]
       },
       "properties": {
         "id": 12995522096,
         "osm_type": "node",
-        "name": "Obchod u Kamila"
+        "name": "Obchod u Kamila",
+        "opening_hours": "Mo-Fr 07:30-17:00; Sa 07:30-12:00",
+        "check_date": "2025-07-12"
       }
     },
     {
@@ -7754,6 +7739,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          20.1861431,
+          49.0733174
+        ]
+      },
+      "properties": {
+        "id": 13766000290,
+        "osm_type": "node",
+        "name": "Mäso TATRY - potraviny FRESH",
+        "opening_hours": "Mo-Fr 06:30-18:00; Sa 06:30-12:00; PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           20.2075057,
           49.1343241
         ]
@@ -7763,7 +7764,8 @@
         "osm_type": "way",
         "name": "Slovnaft",
         "brand": "Slovnaft",
-        "opening_hours": "Mo-Su 06:00-20:00"
+        "opening_hours": "Mo-Su 06:00-20:00",
+        "check_date": "2024-02-26"
       }
     },
     {
@@ -9148,6 +9150,20 @@
         "id": 1421574960,
         "osm_type": "way",
         "name": "Potraviny Revaj"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.2680517,
+          49.2938707
+        ]
+      },
+      "properties": {
+        "id": 1499556271,
+        "osm_type": "way"
       }
     }
   ]

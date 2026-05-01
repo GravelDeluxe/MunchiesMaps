@@ -148,7 +148,8 @@
         "osm_type": "node",
         "name": "OMV",
         "brand": "OMV",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-05-09"
       }
     },
     {
@@ -264,6 +265,7 @@
         "id": 34149148,
         "osm_type": "node",
         "name": "RealK",
+        "brand": "RealK",
         "opening_hours": "Mo-Fr 06:00-23:00; Sa,Su 07:00-22:00"
       }
     },
@@ -296,8 +298,8 @@
       "properties": {
         "id": 34149152,
         "osm_type": "node",
-        "name": "ORLEN",
-        "brand": "ORLEN"
+        "name": "Orlen",
+        "brand": "Orlen"
       }
     },
     {
@@ -344,7 +346,8 @@
       "properties": {
         "id": 34149279,
         "osm_type": "node",
-        "brand": "ORLEN",
+        "name": "Orlen",
+        "brand": "Orlen",
         "opening_hours": "Mo-Su 06:00-22:00"
       }
     },
@@ -529,8 +532,9 @@
         "id": 130811914,
         "osm_type": "node",
         "name": "OMV Jarovce - diaľnica D2 (smer BA)",
-        "brand": "ÖMV",
-        "opening_hours": "24/7"
+        "brand": "OMV",
+        "opening_hours": "24/7",
+        "check_date": "2023-06-26"
       }
     },
     {
@@ -662,7 +666,8 @@
       "properties": {
         "id": 269728309,
         "osm_type": "node",
-        "name": "TAM",
+        "name": "TAM Autohof",
+        "brand": "TAM Autohof",
         "opening_hours": "24/7"
       }
     },
@@ -697,7 +702,8 @@
         "osm_type": "node",
         "name": "Shell",
         "brand": "Shell",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-01-06"
       }
     },
     {
@@ -979,6 +985,7 @@
         "id": 918355468,
         "osm_type": "node",
         "name": "Tanker",
+        "brand": "Tanker",
         "opening_hours": "Mo-Fr 05:00-22:00; Sa,Su 06:00-22:00"
       }
     },
@@ -1012,7 +1019,7 @@
         "id": 1584316467,
         "osm_type": "node",
         "name": "Orlen",
-        "brand": "ORLEN",
+        "brand": "Orlen",
         "opening_hours": "Mo-Su 06:00-22:00"
       }
     },
@@ -1103,14 +1110,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.1767612,
-          48.4578619
+          17.1767002,
+          48.4577085
         ]
       },
       "properties": {
         "id": 2225713537,
         "osm_type": "node",
-        "name": "čerpacia stanica"
+        "name": "DALIOIL",
+        "brand": "DALIOIL",
+        "opening_hours": "05:00-23:00"
       }
     },
     {
@@ -1125,6 +1134,7 @@
       "properties": {
         "id": 2377736679,
         "osm_type": "node",
+        "name": "Jurki",
         "brand": "Jurki",
         "opening_hours": "Mo-Fr 07:00-19:00; Sa 07:00-18:00; Su 07:00-17:00"
       }
@@ -1159,7 +1169,7 @@
         "id": 2696865901,
         "osm_type": "node",
         "name": "OMV Diaľnica D2 Jarovce (smer VIE)",
-        "brand": "ÖMV",
+        "brand": "OMV",
         "opening_hours": "24/7"
       }
     },
@@ -1206,6 +1216,7 @@
       "properties": {
         "id": 3521387807,
         "osm_type": "node",
+        "name": "Shell",
         "brand": "Shell"
       }
     },
@@ -1237,7 +1248,7 @@
       "properties": {
         "id": 3827542343,
         "osm_type": "node",
-        "name": "GAS",
+        "name": "Gas",
         "brand": "Gas"
       }
     },
@@ -1369,6 +1380,8 @@
       "properties": {
         "id": 5165515282,
         "osm_type": "node",
+        "name": "Slovnaft",
+        "brand": "Slovnaft",
         "opening_hours": "Mo-Fr 06:30-14:30"
       }
     },
@@ -1433,7 +1446,8 @@
       "properties": {
         "id": 5721222636,
         "osm_type": "node",
-        "name": "Tanker"
+        "name": "Tanker",
+        "brand": "Tanker"
       }
     },
     {
@@ -1479,7 +1493,8 @@
       "properties": {
         "id": 5922605568,
         "osm_type": "node",
-        "name": "TAM"
+        "name": "TAM Autohof",
+        "brand": "TAM Autohof"
       }
     },
     {
@@ -1496,7 +1511,8 @@
         "osm_type": "node",
         "name": "Tanker",
         "brand": "Tanker",
-        "opening_hours": "Mo-Fr 05:00-20:00; Sa,Su 06:00-20:00"
+        "opening_hours": "Mo-Fr 05:00-20:00; Sa,Su 06:00-20:00",
+        "check_date": "2023-05-06"
       }
     },
     {
@@ -1595,7 +1611,8 @@
       "properties": {
         "id": 7400058968,
         "osm_type": "node",
-        "name": "Tanker"
+        "name": "Tanker",
+        "brand": "Tanker"
       }
     },
     {
@@ -1610,7 +1627,8 @@
       "properties": {
         "id": 7428755062,
         "osm_type": "node",
-        "name": "Narspetrol"
+        "name": "Narspetrol",
+        "check_date": "2023-05-06"
       }
     },
     {
@@ -1625,7 +1643,8 @@
       "properties": {
         "id": 7433906982,
         "osm_type": "node",
-        "name": "Eurowag"
+        "name": "Eurowag",
+        "check_date": "2025-09-25"
       }
     },
     {
@@ -1708,7 +1727,8 @@
       "properties": {
         "id": 9887243692,
         "osm_type": "node",
-        "name": "TAM"
+        "name": "TAM Autohof",
+        "brand": "TAM Autohof"
       }
     },
     {
@@ -2003,7 +2023,8 @@
       "properties": {
         "id": 28742780,
         "osm_type": "way",
-        "name": "Tanker"
+        "name": "Tanker",
+        "brand": "Tanker"
       }
     },
     {
@@ -2018,6 +2039,7 @@
       "properties": {
         "id": 43900430,
         "osm_type": "way",
+        "name": "Slovnaft",
         "brand": "Slovnaft",
         "opening_hours": "24/7"
       }
@@ -2115,7 +2137,8 @@
       "properties": {
         "id": 90842608,
         "osm_type": "way",
-        "name": "Gas"
+        "name": "Gas",
+        "brand": "Gas"
       }
     },
     {
@@ -2215,8 +2238,8 @@
       "properties": {
         "id": 126507534,
         "osm_type": "way",
-        "name": "Dalioil",
-        "brand": "OMV",
+        "name": "DALIOIL",
+        "brand": "DALIOIL",
         "opening_hours": "24/7"
       }
     },
@@ -2332,7 +2355,8 @@
         "osm_type": "way",
         "name": "OMV",
         "brand": "OMV",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-03-24"
       }
     },
     {
@@ -2413,7 +2437,7 @@
       "properties": {
         "id": 267653498,
         "osm_type": "way",
-        "name": "SHELL",
+        "name": "Shell",
         "brand": "Shell",
         "opening_hours": "24/7"
       }
@@ -2463,6 +2487,7 @@
       "properties": {
         "id": 327997547,
         "osm_type": "way",
+        "name": "Jurki",
         "brand": "Jurki"
       }
     },

@@ -264,7 +264,8 @@
         "osm_type": "node",
         "name": "ICA Supermarket",
         "brand": "ICA Supermarket",
-        "opening_hours": "Mo-Su 07:00-22:00"
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "check_date": "2026-02-20"
       }
     },
     {
@@ -645,7 +646,7 @@
         "id": 7271063949,
         "osm_type": "node",
         "name": "Saittaboden",
-        "opening_hours": "dygnet runt"
+        "opening_hours": "24/7"
       }
     },
     {
@@ -1595,22 +1596,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.6176119,
-          67.168391
-        ]
-      },
-      "properties": {
-        "id": 507106790,
-        "osm_type": "way",
-        "name": "ICA nära",
-        "brand": "ICA Nära"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           21.7068368,
           65.8155312
         ]
@@ -1877,8 +1862,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.6584117,
-          66.3878292
+          23.658415,
+          66.3878299
         ]
       },
       "properties": {
@@ -1887,6 +1872,21 @@
         "name": "Coop Övertorneå",
         "brand": "Coop",
         "opening_hours": "Mo-Su 07:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.7850392,
+          66.0530582
+        ]
+      },
+      "properties": {
+        "id": 1501010526,
+        "osm_type": "way",
+        "opening_hours": "24/7"
       }
     }
   ]

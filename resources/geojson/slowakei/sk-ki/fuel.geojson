@@ -501,7 +501,8 @@
         "osm_type": "node",
         "name": "Gulf",
         "brand": "Gulf",
-        "opening_hours": "Mo-Su 06:00-22:00"
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "check_date": "2024-01-04"
       }
     },
     {
@@ -533,7 +534,7 @@
       "properties": {
         "id": 457846779,
         "osm_type": "node",
-        "name": "TANKER",
+        "name": "Tanker",
         "brand": "Tanker",
         "opening_hours": "24/7"
       }
@@ -566,7 +567,8 @@
       "properties": {
         "id": 457875140,
         "osm_type": "node",
-        "brand": "GAS"
+        "name": "Gas",
+        "brand": "Gas"
       }
     },
     {
@@ -642,8 +644,8 @@
       "properties": {
         "id": 1133676173,
         "osm_type": "node",
-        "name": "Dalioil",
-        "brand": "Dalioil",
+        "name": "DALIOIL",
+        "brand": "DALIOIL",
         "opening_hours": "Mo-Su 05:00-23:00"
       }
     },
@@ -755,8 +757,8 @@
       "properties": {
         "id": 1780131108,
         "osm_type": "node",
-        "name": "Dalioil",
-        "brand": "Dalioil",
+        "name": "DALIOIL",
+        "brand": "DALIOIL",
         "opening_hours": "Mo-Su 05:00-23:00"
       }
     },
@@ -1065,14 +1067,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.2700802,
-          48.7390259
+          21.2700806,
+          48.7390338
         ]
       },
       "properties": {
         "id": 5569716951,
         "osm_type": "node",
         "name": "SPP CNG",
+        "brand": "SPP CNG",
         "opening_hours": "24/7"
       }
     },
@@ -1117,7 +1120,8 @@
       "properties": {
         "id": 8104341159,
         "osm_type": "node",
-        "brand": "GAS"
+        "name": "Gas",
+        "brand": "Gas"
       }
     },
     {
@@ -1429,7 +1433,7 @@
         "osm_type": "way",
         "name": "Tesco",
         "brand": "Tesco",
-        "opening_hours": "24/7"
+        "opening_hours": "Mo-Su 06:00-22:00"
       }
     },
     {
@@ -1437,8 +1441,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.2765974,
-          48.7303705
+          21.2766978,
+          48.7303124
         ]
       },
       "properties": {
@@ -1806,7 +1810,8 @@
         "id": 512326956,
         "osm_type": "way",
         "name": "METRO",
-        "brand": "METRO"
+        "brand": "METRO",
+        "opening_hours": "Mo-Sa 06:00-20:00; Su 08:00-20:00"
       }
     },
     {

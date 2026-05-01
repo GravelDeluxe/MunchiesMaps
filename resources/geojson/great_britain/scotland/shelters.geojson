@@ -583,7 +583,8 @@
         "access": "permissive",
         "fee": "no",
         "operator": "Mountain Bothies Association",
-        "description": "Can be very busy in the Summer, worth bring a tent."
+        "description": "Can be very busy in the Summer, worth bring a tent.",
+        "check_date": "2025-05-11"
       }
     },
     {
@@ -2867,7 +2868,8 @@
         "name": "Leckie Bothy",
         "access": "no",
         "shelter_type": "basic_hut",
-        "description": "An old shepards house previously converted to a bothy. Now locked and disused."
+        "description": "An old shepards house previously converted to a bothy. Now locked and disused.",
+        "check_date": "2024-05-13"
       }
     },
     {
@@ -3465,6 +3467,21 @@
       },
       "properties": {
         "id": 1459123620,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.97705,
+          56.453937
+        ]
+      },
+      "properties": {
+        "id": 1499974910,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
       }

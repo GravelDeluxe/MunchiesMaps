@@ -6,41 +6,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7395522,
-          53.0479609
-        ]
-      },
-      "properties": {
-        "id": 11733504729,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.7889653,
-          53.0738471
-        ]
-      },
-      "properties": {
-        "id": 13310803495,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.8079596,
           53.0734739
         ]
       },
       "properties": {
         "id": 3634362279,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-03-20"
       }
     },
     {
@@ -48,31 +21,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5727655,
-          53.1815602
+          8.8310649,
+          53.0645399
         ]
       },
       "properties": {
-        "id": 10766920748,
+        "id": 6052985973,
         "osm_type": "node",
-        "fee": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6170216,
-          53.1737084
-        ]
-      },
-      "properties": {
-        "id": 9416572789,
-        "osm_type": "node",
-        "access": "yes",
-        "fee": "no",
-        "operator": "swb"
+        "seasonal": "summer"
       }
     },
     {
@@ -98,12 +54,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7588852,
-          53.1163288
+          8.6170216,
+          53.1737084
         ]
       },
       "properties": {
-        "id": 13250468711,
+        "id": 9416572789,
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "operator": "swb"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8171715,
+          53.0840711
+        ]
+      },
+      "properties": {
+        "id": 10047134679,
         "osm_type": "node"
       }
     },
@@ -112,13 +85,73 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7357572,
-          53.1322387
+          8.5727655,
+          53.1815602
         ]
       },
       "properties": {
-        "id": 13194332535,
+        "id": 10766920748,
+        "osm_type": "node",
+        "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8926305,
+          53.0496521
+        ]
+      },
+      "properties": {
+        "id": 11012410399,
+        "osm_type": "node",
+        "operator": "swb",
+        "check_date": "2023-06-28"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8131871,
+          53.0823758
+        ]
+      },
+      "properties": {
+        "id": 11281904032,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7395522,
+          53.0479609
+        ]
+      },
+      "properties": {
+        "id": 11733504729,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8270131,
+          53.0728745
+        ]
+      },
+      "properties": {
+        "id": 12078383273,
+        "osm_type": "node",
+        "fee": "no"
       }
     },
     {
@@ -144,128 +177,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.8310649,
-          53.0645399
-        ]
-      },
-      "properties": {
-        "id": 6052985973,
-        "osm_type": "node",
-        "seasonal": "summer"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8270131,
-          53.0728745
-        ]
-      },
-      "properties": {
-        "id": 12078383273,
-        "osm_type": "node",
-        "fee": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8293303,
-          53.0710056
-        ]
-      },
-      "properties": {
-        "id": 12887291399,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.837031,
-          53.0702231
-        ]
-      },
-      "properties": {
-        "id": 13208706295,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8650203,
-          53.0617721
-        ]
-      },
-      "properties": {
-        "id": 13030941601,
-        "osm_type": "node",
-        "name": "Trinkwasserbrunnen"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8926305,
-          53.0496521
-        ]
-      },
-      "properties": {
-        "id": 11012410399,
-        "osm_type": "node",
-        "operator": "swb"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.9262712,
           53.0734913
         ]
       },
       "properties": {
         "id": 12533864973,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8131871,
-          53.0823758
-        ]
-      },
-      "properties": {
-        "id": 11281904032,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8171715,
-          53.0840711
-        ]
-      },
-      "properties": {
-        "id": 10047134679,
         "osm_type": "node"
       }
     },
@@ -292,6 +209,35 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.8293303,
+          53.0710056
+        ]
+      },
+      "properties": {
+        "id": 12887291399,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8650203,
+          53.0617721
+        ]
+      },
+      "properties": {
+        "id": 13030941601,
+        "osm_type": "node",
+        "name": "Trinkwasserbrunnen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.5788833,
           53.5444833
         ]
@@ -299,6 +245,77 @@
       "properties": {
         "id": 13104222028,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7357572,
+          53.1322387
+        ]
+      },
+      "properties": {
+        "id": 13194332535,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.837031,
+          53.0702231
+        ]
+      },
+      "properties": {
+        "id": 13208706295,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7588852,
+          53.1163288
+        ]
+      },
+      "properties": {
+        "id": 13250468711,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7889653,
+          53.0738471
+        ]
+      },
+      "properties": {
+        "id": 13310803495,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.8388438,
+          53.0321631
+        ]
+      },
+      "properties": {
+        "id": 13773755588,
+        "osm_type": "node",
+        "fee": "no"
       }
     }
   ]
