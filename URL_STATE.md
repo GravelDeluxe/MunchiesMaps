@@ -6,11 +6,7 @@ The region filter uses a compact URL state in the query string:
 
 - `v=2`
 - `s=<country-code>:<base36-bitmask>[;<country-code>:<base36-bitmask>...]`
-- Example: `?v=2&s=de:zzzz;cz:3f2;ch:1a8;at:2k;hr:8v1;it:lf9`
-
-Additional share-state params (optional):
-
-- `pz=<number>`: minimum zoom level required to show POIs (default `10` if omitted).
+- Example: `?v=2&s=de:8;cz:3f2`
 
 Encoding rules:
 
@@ -18,24 +14,27 @@ Encoding rules:
 2. Active region = `1`, inactive region = `0`.
 3. Bit string is converted to an integer and then to Base36.
 4. Missing country entries in `s` mean default selection for that country.
+5. Generated URLs only write canonical short country codes (for example `de`, `cz`, `ch`, `at`, `gb`).
+6. Generated URLs omit countries whose bitmask is `0` or equal to the default selection.
 
-## Backward compatibility
+## Additional share-state params
 
-Legacy links using `states=` (or previous `s=` list format) are still accepted.
-On load, legacy region state is parsed and immediately migrated to `v=2&s=...` using `history.replaceState` (no reload, no extra history entry).
-Legacy region parameters are removed from the URL after migration.
+The writer omits params that match current app defaults and only writes overrides:
 
-## Offline / PWA smoke test
+- `t` is omitted when theme is default light (`l`).
+- `b`, `h`, `m` are omitted when they are default `0`/`false`.
+- `pz` is omitted when it matches `DEFAULT_MIN_POI_ZOOM` (currently `9`).
 
-1. Open the app online once.
-2. Activate a few regions/layers so GeoJSON files are requested.
-3. In DevTools, verify service worker registration under **Application → Service Workers**.
-4. In DevTools, set **Network → Offline**.
-5. Open a new browser tab.
-6. Open the same Munchies Maps URL including query parameters.
-7. Expected behavior:
-   - App shell (`index.html`) still loads.
-   - UI renders and stays usable.
-   - Previously loaded GeoJSON files can be served from cache.
-   - Never-loaded regions fail gracefully while offline.
-8. Go online again and confirm fresh data loads normally.
+Legacy URLs that include these params are still parsed.
+
+## Backward compatibility and normalization
+
+Still accepted on read:
+
+- Current compact `v=2&s=...` URLs.
+- Older legacy `states=` (and legacy `s=` list) URLs.
+- Country aliases and long IDs already seen in old links (for example `de` and `germany`, `cz` and `czechia`, `gb` and `great-britain`).
+
+If old URLs contain duplicate country aliases, values are merged safely. A `0` bitmask from one alias never overwrites a non-zero bitmask from another alias.
+
+After parsing a legacy/expanded URL, the app normalizes it once with `history.replaceState` to the minimal canonical URL (no reload, no extra history entry).
