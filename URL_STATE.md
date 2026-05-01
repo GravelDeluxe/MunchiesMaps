@@ -36,5 +36,8 @@ Still accepted on read:
 - Country aliases and long IDs already seen in old links (for example `de` and `germany`, `cz` and `czechia`, `gb` and `great-britain`).
 
 If old URLs contain duplicate country aliases, values are merged safely. A `0` bitmask from one alias never overwrites a non-zero bitmask from another alias.
+Example normalization:
+- Input: `cz:1o;pl:pa8;czechia:1o;germany:cnc;poland:pa8`
+- Output: `cz:1o;de:cnc;pl:pa8`
 
 After parsing a legacy/expanded URL, the app normalizes it once with `history.replaceState` to the minimal canonical URL (no reload, no extra history entry).
