@@ -20,3 +20,7 @@ Der Workflow installiert npm-Abhängigkeiten, synchronisiert echte lokale Vendor
 ## Wichtiger Hinweis
 
 Keine Placeholder-Dateien, CDN-Wrapper oder synchrone XHR-Fallbacks für Vendor-Libraries verwenden.
+
+## PWA-Icons
+
+Die App verwendet nun eigene PWA-/Homescreen-/Favicon-Icons aus `assets/icons/` (inkl. maskable Icons für Android und Apple Touch Icon für iOS).
