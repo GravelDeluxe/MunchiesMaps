@@ -1284,46 +1284,41 @@
       ]
     };
     let REGION_COUNTRIES = Object.keys(REGION_ORDER);
-    const COUNTRY_CODE_ALIASES = {
-      germany: 'de',
-      czechia: 'cz',
-      switzerland: 'ch',
-      austria: 'at',
-      'great-britain': 'gb',
-      slowakei: 'sk',
-      slovakia: 'sk',
-      finland: 'fi',
-      france: 'fr',
-      italy: 'it',
-      ireland: 'ie',
-      belgium: 'be',
-      bulgaria: 'bg',
-      croatia: 'hr',
-      denmark: 'dk',
-      hungary: 'hu',
-      kosovo: 'xk',
-      luxembourg: 'lu',
-      netherlands: 'nl',
-      norway: 'no',
-      poland: 'pl',
-      portugal: 'pt',
-      serbia: 'rs',
-      slovenia: 'si',
-      spain: 'es',
-      sweden: 'se',
-      turkey: 'tr',
-      albania: 'al',
-      montenegro: 'me',
-      bosnia: 'ba',
-      'bosnia-herzegovina': 'bosnia-herzegovina',
-      macedonia: 'macedonia'
+    const COUNTRY_URL_ALIASES = {
+      de: 'de', germany: 'de', cz: 'cz', czechia: 'cz', pl: 'pl', poland: 'pl',
+      ch: 'ch', switzerland: 'ch', at: 'at', austria: 'at', gb: 'gb', 'great-britain': 'gb', great_britain: 'gb',
+      fr: 'fr', france: 'fr', it: 'it', italy: 'it', fi: 'fi', finland: 'fi', pt: 'pt', portugal: 'pt',
+      bg: 'bg', bulgaria: 'bg', ro: 'ro', romania: 'ro', rs: 'rs', serbia: 'rs', tr: 'tr', turkey: 'tr',
+      ie: 'ie', ireland: 'ie', me: 'me', montenegro: 'me', gr: 'gr', greece: 'gr', si: 'si', slovenia: 'si',
+      hr: 'hr', croatia: 'hr', al: 'al', albania: 'al', be: 'be', belgium: 'be', dk: 'dk', denmark: 'dk',
+      hu: 'hu', hungary: 'hu', lu: 'lu', luxembourg: 'lu', nl: 'nl', netherlands: 'nl', no: 'no', norway: 'no',
+      se: 'se', sweden: 'se', es: 'es', spain: 'es', ba: 'ba', 'bosnia-herzegovina': 'ba', bosnia_herzegovina: 'ba',
+      xk: 'xk', kosovo: 'xk', mk: 'mk', macedonia: 'mk', 'north-macedonia': 'mk', north_macedonia: 'mk',
+      sk: 'sk', slowakei: 'sk', slovakia: 'sk'
     };
+    const URL_COUNTRY_TO_REGION_ORDER_KEY = {
+      ba: 'bosnia-herzegovina',
+      mk: 'macedonia'
+    };
+    const URL_COUNTRY_ORDER = REGION_COUNTRIES
+      .map((country) => canonicalUrlCountryCode(country))
+      .filter((country, index, arr) => country && arr.indexOf(country) === index);
 
-    function canonicalCountryCode(value) {
-      const raw = normalizeTextToken(value);
-      if (!raw) return '';
-      const alias = COUNTRY_CODE_ALIASES[raw] || raw;
-      return Array.isArray(REGION_ORDER[alias]) ? alias : '';
+    function normalizeUrlCountryToken(value) {
+      return String(value || '')
+        .trim()
+        .toLowerCase()
+        .replace(/[_\s]+/g, '-');
+    }
+    function canonicalUrlCountryCode(value) {
+      const token = normalizeUrlCountryToken(value);
+      const canonical = COUNTRY_URL_ALIASES[token] || '';
+      if (!canonical) return '';
+      const key = getRegionOrderKeyForUrlCountry(canonical);
+      return Array.isArray(REGION_ORDER[key]) ? canonical : '';
+    }
+    function getRegionOrderKeyForUrlCountry(urlCountry) {
+      return URL_COUNTRY_TO_REGION_ORDER_KEY[urlCountry] || urlCountry;
     }
     const REGION_UI_GROUPS = {
       al: [
@@ -1874,7 +1869,8 @@
     }
 
     function getRegionOrder(country) {
-      const key = String(country || '').toLowerCase();
+      const urlCountry = canonicalUrlCountryCode(country);
+      const key = getRegionOrderKeyForUrlCountry(urlCountry || String(country || '').toLowerCase());
       return Array.isArray(REGION_ORDER[key]) ? REGION_ORDER[key] : [];
     }
 
@@ -1911,10 +1907,22 @@
       }, {});
     }
 
+    function normalizeRegionStateByUrlCountry(stateByCountry) {
+      const normalized = {};
+      for (const [rawCountry, selection] of Object.entries(stateByCountry || {})) {
+        const urlCountry = canonicalUrlCountryCode(rawCountry);
+        if (!urlCountry || !(selection instanceof Set)) continue;
+        if (!(normalized[urlCountry] instanceof Set)) normalized[urlCountry] = new Set();
+        selection.forEach((regionId) => normalized[urlCountry].add(regionId));
+      }
+      return normalized;
+    }
+
     function serializeRegionStateByCountry(stateByCountry, { includeDefaults = false } = {}) {
+      const normalized = normalizeRegionStateByUrlCountry(stateByCountry);
       const parts = [];
-      REGION_COUNTRIES.forEach((country) => {
-        const selection = stateByCountry?.[country];
+      URL_COUNTRY_ORDER.forEach((country) => {
+        const selection = normalized[country];
         if (!(selection instanceof Set)) return;
         const defaultSet = new Set(getRegionOrder(country));
         if (!includeDefaults && (setEquals(selection, defaultSet) || selection.size === 0)) return;
@@ -1933,7 +1941,7 @@
       const segments = raw.split(';').map((segment) => segment.trim()).filter(Boolean);
       segments.forEach((segment) => {
         const [countryRaw, codeRaw] = segment.split(':');
-        const country = canonicalCountryCode(countryRaw);
+        const country = canonicalUrlCountryCode(countryRaw);
         if (!country || !codeRaw) return;
         const decoded = decodeActiveRegions(country, codeRaw);
         if (!(decoded instanceof Set)) return;
@@ -1942,9 +1950,8 @@
           result[country] = decoded;
           return;
         }
-        if (existing.size === 0 && decoded.size > 0) {
-          result[country] = decoded;
-        }
+        if (decoded.size === 0) return;
+        decoded.forEach((regionId) => existing.add(regionId));
       });
       return result;
     }
@@ -2033,7 +2040,10 @@
       }
       url.searchParams.delete('states');
       if (replace) {
-        window.history.replaceState(null, '', url.toString());
+        const canonicalHref = url.toString();
+        if (canonicalHref !== window.location.href) {
+          window.history.replaceState(null, '', canonicalHref);
+        }
       } else {
         window.history.pushState(null, '', url.toString());
       }
