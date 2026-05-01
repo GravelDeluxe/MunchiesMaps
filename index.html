@@ -1284,6 +1284,47 @@
       ]
     };
     let REGION_COUNTRIES = Object.keys(REGION_ORDER);
+    const COUNTRY_CODE_ALIASES = {
+      germany: 'de',
+      czechia: 'cz',
+      switzerland: 'ch',
+      austria: 'at',
+      'great-britain': 'gb',
+      slowakei: 'sk',
+      slovakia: 'sk',
+      finland: 'fi',
+      france: 'fr',
+      italy: 'it',
+      ireland: 'ie',
+      belgium: 'be',
+      bulgaria: 'bg',
+      croatia: 'hr',
+      denmark: 'dk',
+      hungary: 'hu',
+      kosovo: 'xk',
+      luxembourg: 'lu',
+      netherlands: 'nl',
+      norway: 'no',
+      poland: 'pl',
+      portugal: 'pt',
+      serbia: 'rs',
+      slovenia: 'si',
+      spain: 'es',
+      sweden: 'se',
+      turkey: 'tr',
+      albania: 'al',
+      montenegro: 'me',
+      bosnia: 'ba',
+      'bosnia-herzegovina': 'bosnia-herzegovina',
+      macedonia: 'macedonia'
+    };
+
+    function canonicalCountryCode(value) {
+      const raw = normalizeTextToken(value);
+      if (!raw) return '';
+      const alias = COUNTRY_CODE_ALIASES[raw] || raw;
+      return Array.isArray(REGION_ORDER[alias]) ? alias : '';
+    }
     const REGION_UI_GROUPS = {
       al: [
         {
@@ -1876,9 +1917,9 @@
         const selection = stateByCountry?.[country];
         if (!(selection instanceof Set)) return;
         const defaultSet = new Set(getRegionOrder(country));
-        if (!includeDefaults && setEquals(selection, defaultSet)) return;
+        if (!includeDefaults && (setEquals(selection, defaultSet) || selection.size === 0)) return;
         const encoded = encodeActiveRegions(country, selection);
-        if (encoded) {
+        if (encoded && encoded !== '0') {
           parts.push(`${country}:${encoded}`);
         }
       });
@@ -1892,10 +1933,16 @@
       const segments = raw.split(';').map((segment) => segment.trim()).filter(Boolean);
       segments.forEach((segment) => {
         const [countryRaw, codeRaw] = segment.split(':');
-        const country = String(countryRaw || '').toLowerCase();
-        if (!country || !codeRaw || !getRegionOrder(country).length) return;
+        const country = canonicalCountryCode(countryRaw);
+        if (!country || !codeRaw) return;
         const decoded = decodeActiveRegions(country, codeRaw);
-        if (decoded instanceof Set) {
+        if (!(decoded instanceof Set)) return;
+        const existing = result[country];
+        if (!(existing instanceof Set)) {
+          result[country] = decoded;
+          return;
+        }
+        if (existing.size === 0 && decoded.size > 0) {
           result[country] = decoded;
         }
       });
@@ -2024,6 +2071,8 @@
 
       const migrationSample = parseRegionStateParam('de:1;cz:0');
       checks.push(migrationSample.de instanceof Set && migrationSample.cz instanceof Set);
+      const duplicateAliasSample = parseRegionStateParam('de:0;germany:8');
+      checks.push(encodeActiveRegions('de', duplicateAliasSample.de || new Set()) === '8');
       if (checks.some((ok) => !ok)) {
         console.warn('[url-region-state] self-check failed');
       }
@@ -2222,7 +2271,7 @@
 
       if (regionSource.shouldMigrate) {
         const nextRegionState = getRegionStateByCountryFromSelectedStates(filterState.bundeslaender);
-        writeRegionStateToUrl(nextRegionState, { replace: true, includeDefaults: true });
+        writeRegionStateToUrl(nextRegionState, { replace: true, includeDefaults: false });
       }
     }
 
@@ -2235,10 +2284,10 @@
       params.set('o', toFixedCoord(center.lng));
       params.set('z', String(map.getZoom()));
       const theme = document.documentElement.dataset.theme === 'dark' ? 'd' : 'l';
-      params.set('t', theme);
-      params.set('b', boolTo01(appState.showBadges));
-      params.set('h', boolTo01(appState.hideNoBadges));
-      params.set('m', boolTo01(appState.includeMissingData));
+      if (theme !== 'l') params.set('t', theme);
+      if (appState.showBadges !== false) params.set('b', boolTo01(appState.showBadges));
+      if (appState.hideNoBadges !== false) params.set('h', boolTo01(appState.hideNoBadges));
+      if (appState.includeMissingData !== false) params.set('m', boolTo01(appState.includeMissingData));
       if (minPoiZoom !== DEFAULT_MIN_POI_ZOOM) params.set('pz', String(minPoiZoom));
 
       const regionStateByCountry = getRegionStateByCountryFromSelectedStates(filterState.bundeslaender);
