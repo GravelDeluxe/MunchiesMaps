@@ -1,4 +1,4 @@
-const STATIC_CACHE = 'munchiesmaps-static-v8';
+const STATIC_CACHE = 'munchiesmaps-static-v9';
 const GEOJSON_CACHE = 'munchiesmaps-geojson-v2';
 const OFFLINE_TILE_CACHE_NAME = 'munchiesmaps-offline-tiles-v1';
 
