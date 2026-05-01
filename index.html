@@ -204,6 +204,13 @@
     #layerDrawerToggle:active,
     #locateButton:active,
     #shareMainBtn:active { transform: translateY(1px); }
+    #locateButton.is-loading {
+      opacity: 0.75;
+    }
+    .user-location-marker--stale {
+      opacity: 0.65;
+      filter: grayscale(0.25);
+    }
     .map-controls-br i { font-size: 16px; }
     .share-control {
       position: relative;
@@ -6907,118 +6914,157 @@
     }
 
     // User position marker + accuracy circle
-    let userMarker = null;
-    let userAccuracy = null;
-    let watchId = null;
+    const LAST_KNOWN_LOCATION_KEY = "munchiesmaps.lastKnownLocation";
+    const LOCATION_PRIMARY_OPTIONS = {
+      enableHighAccuracy: true,
+      timeout: 60000,
+      maximumAge: 300000
+    };
+    const LOCATION_FALLBACK_OPTIONS = {
+      enableHighAccuracy: false,
+      timeout: 20000,
+      maximumAge: 600000
+    };
 
-    function updateUserLocationLayers(fix) {
+    let userLocationMarker = null;
+    let userLocationAccuracyCircle = null;
+
+    function getCurrentPositionAsync(options) {
+      return new Promise((resolve, reject) => {
+        if (!("geolocation" in navigator)) {
+          reject({ code: "UNSUPPORTED", message: "Geolocation is not supported by this browser." });
+          return;
+        }
+        navigator.geolocation.getCurrentPosition(resolve, reject, options);
+      });
+    }
+
+    function classifyLocationError(error) {
+      const rawMessage = String(error?.message || '');
+      const normalized = rawMessage.toLowerCase();
+      if (error?.code === "UNSUPPORTED") {
+        return "Geolocation is not supported by this browser.";
+      }
+      if (error?.code === 1) {
+        return "Location permission denied. Enable location access for this site in iOS/Safari settings.";
+      }
+      if (error?.code === 3) {
+        return "Location timed out. Try again outdoors or keep Wi-Fi/Bluetooth enabled on iOS.";
+      }
+      if (
+        error?.code === 2
+        || normalized.includes('kclerrordomain')
+        || normalized.includes('kclerrordomain')
+        || normalized.includes('location unavailable')
+      ) {
+        return "Live location is currently unavailable. On iOS offline, keep Wi-Fi/Bluetooth enabled and move outdoors for GPS. Offline routes and POIs can still work.";
+      }
+      return "Could not determine your live location right now. Offline routes and POIs can still work.";
+    }
+
+    function saveLastKnownLocation(fix) {
+      try {
+        localStorage.setItem(LAST_KNOWN_LOCATION_KEY, JSON.stringify({
+          lat: fix.lat,
+          lng: fix.lng,
+          accuracy: fix.accuracy,
+          timestamp: Date.now()
+        }));
+      } catch (error) {
+        console.warn('Could not persist last known location:', error);
+      }
+    }
+
+    function loadLastKnownLocation() {
+      try {
+        const raw = localStorage.getItem(LAST_KNOWN_LOCATION_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        if (!Number.isFinite(parsed?.lat) || !Number.isFinite(parsed?.lng)) return null;
+        return parsed;
+      } catch (error) {
+        console.warn('Could not read last known location:', error);
+        return null;
+      }
+    }
+
+    function updateUserLocationLayers(fix, { isStale = false } = {}) {
       if (!fix) return;
       const ll = [fix.lat, fix.lng];
       const acc = Number(fix.accuracy);
 
-      if (!userMarker) {
-        userMarker = L.circleMarker(ll, { radius: 8, weight: 2, opacity: 0.95, fillOpacity: 0.8 }).addTo(map);
-        userMarker.bindPopup("Your location");
+      if (!userLocationMarker) {
+        userLocationMarker = L.circleMarker(ll, { radius: 8, weight: 2, opacity: 0.95, fillOpacity: 0.8 }).addTo(map);
       } else {
-        userMarker.setLatLng(ll);
+        userLocationMarker.setLatLng(ll);
       }
+      const markerEl = userLocationMarker.getElement();
+      if (markerEl) markerEl.classList.toggle('user-location-marker--stale', isStale);
+      userLocationMarker.bindPopup(isStale ? "Last known location" : "Your live location");
 
       if (Number.isFinite(acc) && acc > 0) {
-        if (!userAccuracy) {
-          userAccuracy = L.circle(ll, { radius: acc, weight: 1, opacity: 0.35, fillOpacity: 0.08 }).addTo(map);
+        if (!userLocationAccuracyCircle) {
+          userLocationAccuracyCircle = L.circle(ll, { radius: acc, weight: 1, opacity: 0.35, fillOpacity: 0.08 }).addTo(map);
         } else {
-          userAccuracy.setLatLng(ll);
-          userAccuracy.setRadius(acc);
+          userLocationAccuracyCircle.setLatLng(ll);
+          userLocationAccuracyCircle.setRadius(acc);
         }
+        userLocationAccuracyCircle.setStyle({ opacity: isStale ? 0.22 : 0.35, fillOpacity: isStale ? 0.05 : 0.08 });
       }
     }
 
-    function tryGetInitialGeolocation(timeoutMs = 3500) {
-      if (!navigator.geolocation) return Promise.resolve(null);
-      return new Promise((resolve) => {
-        let settled = false;
-        navigator.geolocation.getCurrentPosition(
-          (pos) => {
-            if (settled) return;
-            settled = true;
-            resolve({
-              lat: pos.coords.latitude,
-              lng: pos.coords.longitude,
-              accuracy: pos.coords.accuracy
-            });
-          },
-          () => {
-            if (settled) return;
-            settled = true;
-            resolve(null);
-          },
-          { enableHighAccuracy: false, maximumAge: 60000, timeout: timeoutMs }
-        );
-      });
-    }
+    async function goToUserLocation() {
+      const locateButton = qs('#locateButton');
+      locateButton?.classList.add('is-loading');
+      locateButton?.setAttribute('aria-busy', 'true');
+      showMapToast('Locating…');
 
-    function goToUserLocation({ centerOnFix = true, suppressErrorAlert = false } = {}) {
-      if (!navigator.geolocation) {
-        if (!suppressErrorAlert) {
-          alert("Geolocation is not supported by this browser.");
-        }
-        return;
+      let position = null;
+      let lastError = null;
+      try {
+        position = await getCurrentPositionAsync(LOCATION_PRIMARY_OPTIONS);
+      } catch (error) {
+        console.warn('Primary geolocation attempt failed:', error);
+        lastError = error;
       }
 
-      let shouldCenter = centerOnFix;
-
-      if (watchId != null) {
-        if (shouldCenter && userMarker) {
-          map.setView(userMarker.getLatLng(), Math.max(map.getZoom(), 15), { animate: true });
+      if (!position) {
+        try {
+          position = await getCurrentPositionAsync(LOCATION_FALLBACK_OPTIONS);
+        } catch (error) {
+          console.warn('Fallback geolocation attempt failed:', error);
+          lastError = error;
         }
-        return;
       }
 
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          const fix = {
-            lat: pos.coords.latitude,
-            lng: pos.coords.longitude,
-            accuracy: pos.coords.accuracy
-          };
-          updateUserLocationLayers(fix);
-          if (shouldCenter) {
-            map.setView([fix.lat, fix.lng], Math.max(map.getZoom(), 15), { animate: true });
-            shouldCenter = false;
-          }
+      if (position) {
+        const fix = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          accuracy: position.coords.accuracy,
+          timestamp: position.timestamp
+        };
+        saveLastKnownLocation(fix);
+        updateUserLocationLayers(fix, { isStale: false });
+        map.setView([fix.lat, fix.lng], Math.max(map.getZoom(), 15), { animate: true });
+        showMapToast('Live location found.');
+      } else {
+        const saved = loadLastKnownLocation();
+        if (saved) {
+          updateUserLocationLayers(saved, { isStale: true });
+          map.setView([saved.lat, saved.lng], Math.max(map.getZoom(), 15), { animate: true });
+          showMapToast('Live location unavailable. Showing last known position. On iOS, keep Wi-Fi/Bluetooth enabled and move outdoors for GPS.');
+        } else {
+          showMapToast(classifyLocationError(lastError));
+        }
+      }
 
-          watchId = navigator.geolocation.watchPosition(
-            (watchPos) => {
-              const watchFix = {
-                lat: watchPos.coords.latitude,
-                lng: watchPos.coords.longitude,
-                accuracy: watchPos.coords.accuracy
-              };
-              updateUserLocationLayers(watchFix);
-              if (shouldCenter) {
-                map.setView([watchFix.lat, watchFix.lng], Math.max(map.getZoom(), 15), { animate: true });
-                shouldCenter = false;
-              }
-            },
-            (err) => {
-              if (!suppressErrorAlert) {
-                alert("Could not determine location: " + err.message);
-              }
-            },
-            { enableHighAccuracy: true, maximumAge: 10000, timeout: 15000 }
-          );
-        },
-        (err) => {
-          if (!suppressErrorAlert) {
-            alert("Could not determine location: " + err.message);
-          }
-        },
-        { enableHighAccuracy: true, maximumAge: 10000, timeout: 8000 }
-      );
+      locateButton?.classList.remove('is-loading');
+      locateButton?.removeAttribute('aria-busy');
     }
 
     setupIntroPopup();
-    on(qs('#locateButton'), 'click', () => goToUserLocation({ centerOnFix: true }));
+    on(qs('#locateButton'), 'click', () => goToUserLocation());
     runRegionStateSelfChecks();
 
     (async () => {
