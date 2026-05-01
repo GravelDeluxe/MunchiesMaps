@@ -1465,14 +1465,20 @@
         acc[id] = code;
         return acc;
       }, {});
-
+   const INTRO_DATA_TITLE = 'Welcome to Munchies Maps - Alpha 0.5';
     const INTRO_PARAGRAPHS_TOP = [
       'Munchies Maps is an early-stage, community-driven map for cyclists, focused on night-friendly stops for your ride.',
       'It was originally built with night rides in mind, but it turned out to be also useful for daytime rides, touring, bikepacking, brevets and long-distance cycling.',
       'The project is designed as a practical reference tool rather than a routing or navigation app. It is actively developed and already usable, but it is still in Alpha. Features, data coverage and behavior may change at any time.',
       'Feedback from real-world use is highly appreciated and helps improve data quality, usability and future features.'
     ];
-
+    const INTRO_DATA_TITLE = 'Data & reliability';
+    const INTRO_DATA_TEXT = [
+      'Munchies Maps uses data from OpenStreetMap and other community-maintained sources.',
+      'Because this data depends on local contributions and tagging quality, individual points of interest may be missing, incomplete, outdated or wrong.',
+      'Please treat this map as a helpful guide, not a guarantee, especially at night. If you rely on a specific POI for your ride, it is always a good idea to double-check before you go.',
+      'Map data is based on © OpenStreetMap contributors and licensed under the Open Database License (ODbL).'
+    ];
     const INTRO_FIRST_UPDATE_TITLE = 'First Major Update 🎉';
     const INTRO_FIRST_UPDATE_TEXT = 'With the first major update, Munchies Maps now includes most European countries and is no longer limited to the first pilot regions. You can explore points of interest across a much wider area, filter them by category, region and night availability, and save routes for later use (even use them offline!).';
 
@@ -1493,14 +1499,6 @@
       'Open shelters in Mapy.com for additional details and direct routing',
       'Dark mode and mobile-friendly interface',
       'Community feedback via the built-in feedback form'
-    ];
-
-    const INTRO_DATA_TITLE = 'Data & reliability';
-    const INTRO_DATA_TEXT = [
-      'Munchies Maps uses data from OpenStreetMap and other community-maintained sources.',
-      'Because this data depends on local contributions and tagging quality, individual points of interest may be missing, incomplete, outdated or wrong.',
-      'Please treat this map as a helpful guide, not a guarantee — especially at night. If you rely on a specific POI for your ride, it is always a good idea to double-check before you go.',
-      'Map data is based on © OpenStreetMap contributors and licensed under the Open Database License (ODbL).'
     ];
 
     function shouldShowIntro() {
