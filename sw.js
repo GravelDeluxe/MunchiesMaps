@@ -1,4 +1,4 @@
-const STATIC_CACHE = 'munchiesmaps-static-v6';
+const STATIC_CACHE = 'munchiesmaps-static-v7';
 const GEOJSON_CACHE = 'munchiesmaps-geojson-v2';
 const OFFLINE_TILE_CACHE_NAME = 'munchiesmaps-offline-tiles-v1';
 
@@ -30,9 +30,14 @@ const APP_SHELL_CANDIDATES = [
   './index.html',
   './js/offline-route-store.js',
   './manifest.webmanifest',
-  './favicon.ico',
-  './favicon.png',
-  './apple-touch-icon.png',
+  './assets/icons/icon-192.png',
+  './assets/icons/icon-512.png',
+  './assets/icons/icon-maskable-192.png',
+  './assets/icons/icon-maskable-512.png',
+  './assets/icons/apple-touch-icon.png',
+  './assets/icons/favicon.ico',
+  './assets/icons/favicon-32.png',
+  './assets/icons/favicon-16.png',
   './resources/icons/default.svg',
   './resources/icons/bakeries.svg',
   './resources/icons/cafes.svg',
