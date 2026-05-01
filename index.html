@@ -1466,18 +1466,16 @@
         return acc;
       }, {});
 
-    const INTRO_SUMMARY_TEXT = [
-      'Munchies Maps is an early-stage, community-driven map for cyclists, focused on **night-friendly stops for your ride**.',
+    const INTRO_PARAGRAPHS_TOP = [
+      'Munchies Maps is an early-stage, community-driven map for cyclists, focused on night-friendly stops for your ride.',
       'It was originally built with night rides in mind, but it is also useful for daytime rides, touring, bikepacking, brevets and long-distance cycling.',
       'Feedback from real-world use is highly appreciated and helps improve data quality, usability and future features.'
     ];
 
-    const INTRO_WHO_TITLE = 'First Major Update 🎉';
-    const INTRO_WHO_BULLETS = [
-      'With the first major update, Munchies Maps now includes most European countries and is no longer limited to the first pilot regions. You can explore night-friendly points of interest across a much wider area, filter them by category, region and night availability, and save routes for later use.'
-    ];
+    const INTRO_FIRST_UPDATE_TITLE = 'First Major Update 🎉';
+    const INTRO_FIRST_UPDATE_TEXT = 'With the first major update, Munchies Maps now includes most European countries and is no longer limited to the first pilot regions. You can explore night-friendly points of interest across a much wider area, filter them by category, region and night availability, and save routes for later use.';
 
-    const INTRO_ALPHA_TEXT = [
+    const INTRO_PARAGRAPHS_MIDDLE = [
       'The project is designed as a practical reference tool rather than a routing or navigation app. It is actively developed and already usable, but it is still in Alpha. Features, data coverage and behavior may change at any time.',
       'This tool is made for touring cyclists, bikepackers, night-enthusiasts, brevet and ultra-distance riders. Especially when basic infrastructure is needed outside regular opening hours.'
     ];
@@ -1518,32 +1516,14 @@
       modal.className = 'intro-modal';
       modal.setAttribute('role', 'dialog');
       modal.setAttribute('aria-modal', 'true');
-      modal.setAttribute('aria-labelledby', 'introTitle');
-
-      const title = document.createElement('h2');
-      title.id = 'introTitle';
-      title.textContent = 'Munchies Maps — Alpha Version';
+      modal.setAttribute('aria-label', 'Munchies Maps intro');
 
       const body = document.createElement('div');
       body.className = 'intro-body';
 
-      const appendMarkdownText = (container, text) => {
-        const parts = text.split(/(\*\*[^*]+\*\*)/g);
-        parts.forEach((part) => {
-          if (!part) return;
-          if (part.startsWith('**') && part.endsWith('**')) {
-            const strong = document.createElement('strong');
-            strong.textContent = part.slice(2, -2);
-            container.appendChild(strong);
-          } else {
-            container.appendChild(document.createTextNode(part));
-          }
-        });
-      };
-
       const appendParagraph = (text) => {
         const p = document.createElement('p');
-        appendMarkdownText(p, text);
+        p.textContent = text;
         body.appendChild(p);
       };
 
@@ -1555,24 +1535,18 @@
         body.appendChild(p);
       };
 
-      INTRO_SUMMARY_TEXT.forEach((paragraph) => appendParagraph(paragraph));
+      INTRO_PARAGRAPHS_TOP.forEach((paragraph) => appendParagraph(paragraph));
 
-      appendStrongLine(INTRO_WHO_TITLE);
-      const whoList = document.createElement('ul');
-      INTRO_WHO_BULLETS.forEach((item) => {
-        const li = document.createElement('li');
-        appendMarkdownText(li, item);
-        whoList.appendChild(li);
-      });
-      body.appendChild(whoList);
+      appendStrongLine(INTRO_FIRST_UPDATE_TITLE);
+      appendParagraph(INTRO_FIRST_UPDATE_TEXT);
 
-      INTRO_ALPHA_TEXT.forEach((paragraph) => appendParagraph(paragraph));
+      INTRO_PARAGRAPHS_MIDDLE.forEach((paragraph) => appendParagraph(paragraph));
 
       appendStrongLine(INTRO_TODAY_TITLE);
       const todayList = document.createElement('ul');
       INTRO_TODAY_BULLETS.forEach((item) => {
         const li = document.createElement('li');
-        appendMarkdownText(li, item);
+        li.textContent = item;
         todayList.appendChild(li);
       });
       body.appendChild(todayList);
@@ -1599,7 +1573,6 @@
       actions.appendChild(checkboxLabel);
       actions.appendChild(closeBtn);
 
-      modal.appendChild(title);
       modal.appendChild(body);
       modal.appendChild(actions);
       backdrop.appendChild(modal);
