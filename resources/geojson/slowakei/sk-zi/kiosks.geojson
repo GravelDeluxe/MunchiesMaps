@@ -467,7 +467,8 @@
         "osm_type": "node",
         "name": "COOP Jednota",
         "brand": "COOP Jednota",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:15-12:00; Su 08:00-12:00; PH off"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:15-12:00; Su 08:00-12:00; PH off",
+        "check_date": "2026-03-17"
       }
     },
     {
@@ -1381,15 +1382,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.9269615,
-          49.0772757
+          18.9269998,
+          49.0772185
         ]
       },
       "properties": {
         "id": 1740546331,
         "osm_type": "node",
         "name": "Večierka U Tibora",
-        "opening_hours": "Mo-Fr 12:00-22:00; Sa-Su 12:30-22:00"
+        "opening_hours": "Mo-Su 09:00-22:00"
       }
     },
     {
@@ -1628,6 +1629,7 @@
         "id": 2017139661,
         "osm_type": "node",
         "name": "Jurki",
+        "brand": "Jurki",
         "opening_hours": "24/7"
       }
     },
@@ -1733,21 +1735,6 @@
       "properties": {
         "id": 2093559125,
         "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.7375574,
-          49.2244418
-        ]
-      },
-      "properties": {
-        "id": 2129789088,
-        "osm_type": "node",
-        "name": "Tabak press"
       }
     },
     {
@@ -4994,7 +4981,8 @@
         "osm_type": "node",
         "name": "COOP Jednota",
         "brand": "COOP Jednota",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-12:00; Su 07:00-11:00"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-12:00; Su 07:00-11:00",
+        "check_date": "2025-08-04"
       }
     },
     {
@@ -5938,7 +5926,8 @@
         "id": 11286721676,
         "osm_type": "node",
         "name": "Večierka Kajka",
-        "opening_hours": "Mo-Su 05:00-21:00"
+        "opening_hours": "Mo-Su 05:00-21:00",
+        "check_date": "2023-10-24"
       }
     },
     {
@@ -6017,7 +6006,8 @@
         "id": 11305980467,
         "osm_type": "node",
         "name": "Potraviny mäso a údeniny Monika Dubová",
-        "opening_hours": "Mo 06:00-16:00; Sa 06:00-12:00; Su off"
+        "opening_hours": "Mo 06:00-16:00; Sa 06:00-12:00; Su off",
+        "check_date": "2023-11-01"
       }
     },
     {
@@ -6420,7 +6410,8 @@
         "osm_type": "node",
         "name": "Milk-Agro",
         "brand": "Milk-Agro",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-12:00"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-12:00",
+        "check_date": "2024-08-16"
       }
     },
     {
@@ -6966,6 +6957,22 @@
         "osm_type": "node",
         "name": "Večierka Šedo",
         "opening_hours": "Mo-Su 07:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7486311,
+          49.2837887
+        ]
+      },
+      "properties": {
+        "id": 13771121915,
+        "osm_type": "node",
+        "name": "Koruna",
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-15:00; Su 07:00-12:00"
       }
     },
     {

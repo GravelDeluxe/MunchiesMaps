@@ -6,6 +6,53 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.2785034,
+          49.1651932
+        ]
+      },
+      "properties": {
+        "id": 326131804,
+        "osm_type": "node",
+        "name": "Gerlova Huť",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2358616,
+          49.1150595
+        ]
+      },
+      "properties": {
+        "id": 597731109,
+        "osm_type": "node",
+        "name": "Ferdinandsthal",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2005355,
+          49.1644788
+        ]
+      },
+      "properties": {
+        "id": 736354504,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.3492141,
           49.0811643
         ]
@@ -22,103 +69,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.5723855,
-          49.6358704
+          13.4680942,
+          49.0405307
         ]
       },
       "properties": {
-        "id": 10297088796,
+        "id": 1359495743,
         "osm_type": "node",
-        "name": "Lumišky",
-        "access": "yes",
-        "shelter_type": "basic_hut",
-        "bench": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.4155501,
-          49.7385383
-        ]
-      },
-      "properties": {
-        "id": 3514578829,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter",
-        "bench": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.4958315,
-          49.7381874
-        ]
-      },
-      "properties": {
-        "id": 5743957424,
-        "osm_type": "node",
-        "name": "Rendezvous",
-        "access": "yes",
-        "shelter_type": "lean_to",
-        "bench": "yes",
-        "description": "Přístřešek se sklepem k přenocování."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.5747246,
-          49.7610503
-        ]
-      },
-      "properties": {
-        "id": 11395000593,
-        "osm_type": "node",
-        "name": "Lesní bar u Pastviny",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.5434414,
-          49.7921192
-        ]
-      },
-      "properties": {
-        "id": 9951564136,
-        "osm_type": "node",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.4878724,
-          49.8301111
-        ]
-      },
-      "properties": {
-        "id": 12956263062,
-        "osm_type": "node",
-        "name": "Veřejná útulna LČR",
-        "access": "yes",
-        "shelter_type": "basic_hut",
-        "fee": "no",
-        "operator": "LČR",
-        "description": "Útulna Branka"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -145,12 +103,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.75121,
-          49.4135023
+          13.3307311,
+          49.127357
         ]
       },
       "properties": {
-        "id": 9959392754,
+        "id": 2315598008,
         "osm_type": "node",
         "shelter_type": "lean_to"
       }
@@ -160,12 +118,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7080545,
-          49.4930903
+          12.7538906,
+          49.5653445
         ]
       },
       "properties": {
-        "id": 8900313980,
+        "id": 2349956117,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
       }
@@ -175,12 +133,202 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7707421,
-          49.5056824
+          12.8557092,
+          49.6182247
         ]
       },
       "properties": {
-        "id": 9000615258,
+        "id": 2359333023,
+        "osm_type": "node",
+        "name": "U Vidic",
+        "access": "yes",
+        "shelter_type": "lean_to",
+        "description": "bivakovací přístřešek"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.6013833,
+          49.0606667
+        ]
+      },
+      "properties": {
+        "id": 2714686892,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4109143,
+          49.7888356
+        ]
+      },
+      "properties": {
+        "id": 3039692326,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4155501,
+          49.7385383
+        ]
+      },
+      "properties": {
+        "id": 3514578829,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "check_date": "2025-07-20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2304709,
+          49.178787
+        ]
+      },
+      "properties": {
+        "id": 3717028125,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.7992998,
+          49.8809816
+        ]
+      },
+      "properties": {
+        "id": 3968676762,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1607705,
+          49.9608145
+        ]
+      },
+      "properties": {
+        "id": 4220243109,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4286203,
+          49.2155507
+        ]
+      },
+      "properties": {
+        "id": 4405047011,
+        "osm_type": "node",
+        "name": "Ptáci střední Evropy IV",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2569034,
+          49.2268152
+        ]
+      },
+      "properties": {
+        "id": 5243143000,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4958315,
+          49.7381874
+        ]
+      },
+      "properties": {
+        "id": 5743957424,
+        "osm_type": "node",
+        "name": "Rendezvous",
+        "access": "yes",
+        "shelter_type": "lean_to",
+        "bench": "yes",
+        "description": "Přístřešek se sklepem k přenocování."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9471906,
+          49.8786066
+        ]
+      },
+      "properties": {
+        "id": 5871839870,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.772904,
+          49.9294084
+        ]
+      },
+      "properties": {
+        "id": 5940817298,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.864029,
+          49.3716108
+        ]
+      },
+      "properties": {
+        "id": 6516303804,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
       }
@@ -196,21 +344,6 @@
       },
       "properties": {
         "id": 6516303805,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.864029,
-          49.3716108
-        ]
-      },
-      "properties": {
-        "id": 6516303804,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
       }
@@ -250,12 +383,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.835247,
-          49.4411902
+          12.7080545,
+          49.4930903
         ]
       },
       "properties": {
-        "id": 12106477360,
+        "id": 8900313980,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
       }
@@ -265,12 +398,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.9726561,
-          49.4979592
+          12.7707421,
+          49.5056824
         ]
       },
       "properties": {
-        "id": 12104777326,
+        "id": 9000615258,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
       }
@@ -280,12 +413,42 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2005355,
-          49.1644788
+          13.4226162,
+          49.6219174
         ]
       },
       "properties": {
-        "id": 736354504,
+        "id": 9946022017,
+        "osm_type": "node",
+        "name": "Glamping Prusíny"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5034306,
+          49.1637044
+        ]
+      },
+      "properties": {
+        "id": 9951464403,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5434414,
+          49.7921192
+        ]
+      },
+      "properties": {
+        "id": 9951564136,
         "osm_type": "node",
         "shelter_type": "lean_to"
       }
@@ -295,59 +458,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2358616,
-          49.1150595
+          12.7364456,
+          49.7949972
         ]
       },
       "properties": {
-        "id": 597731109,
-        "osm_type": "node",
-        "name": "Ferdinandsthal",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.2304709,
-          49.178787
-        ]
-      },
-      "properties": {
-        "id": 3717028125,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.2785034,
-          49.1651932
-        ]
-      },
-      "properties": {
-        "id": 326131804,
-        "osm_type": "node",
-        "name": "Gerlova Huť",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.3307311,
-          49.127357
-        ]
-      },
-      "properties": {
-        "id": 2315598008,
+        "id": 9951564138,
         "osm_type": "node",
         "shelter_type": "lean_to"
       }
@@ -372,12 +488,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.2569034,
-          49.2268152
+          13.2150276,
+          49.9919948
         ]
       },
       "properties": {
-        "id": 5243143000,
+        "id": 9955447446,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
       }
@@ -387,14 +503,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7538906,
-          49.5653445
+          12.75121,
+          49.4135023
         ]
       },
       "properties": {
-        "id": 2349956117,
+        "id": 9959392754,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -402,14 +518,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.6177784,
-          49.6667794
+          13.4226618,
+          49.6220611
         ]
       },
       "properties": {
-        "id": 12732705784,
+        "id": 10253748609,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "name": "Glamping Prusiny"
       }
     },
     {
@@ -417,71 +533,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.8557092,
-          49.6182247
+          12.5723855,
+          49.6358704
         ]
       },
       "properties": {
-        "id": 2359333023,
+        "id": 10297088796,
         "osm_type": "node",
-        "name": "U Vidic",
-        "access": "yes",
-        "shelter_type": "lean_to",
-        "description": "bivakovací přístřešek"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.8693418,
-          49.7048048
-        ]
-      },
-      "properties": {
-        "id": 11395000622,
-        "osm_type": "node",
-        "access": "yes",
-        "shelter_type": "lean_to",
-        "bench": "yes",
-        "table": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.8836647,
-          49.7049882
-        ]
-      },
-      "properties": {
-        "id": 11403030762,
-        "osm_type": "node",
+        "name": "Lumišky",
         "access": "yes",
         "shelter_type": "basic_hut",
         "bench": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.9061891,
-          49.7000724
-        ]
-      },
-      "properties": {
-        "id": 11403030761,
-        "osm_type": "node",
-        "name": "Srub Peruťárna",
-        "access": "yes",
-        "bench": "yes",
-        "capacity": "10",
-        "description": "dřevěné palandy dřevěná podlaha otevřené ohniště Volně přístupná bouda"
       }
     },
     {
@@ -507,36 +569,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7294704,
-          49.7435945
-        ]
-      },
-      "properties": {
-        "id": 12994676013,
-        "osm_type": "node",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.7364456,
-          49.7949972
-        ]
-      },
-      "properties": {
-        "id": 9951564138,
-        "osm_type": "node",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.6247869,
           49.8475946
         ]
@@ -552,14 +584,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.8386256,
-          49.8170815
+          12.5747246,
+          49.7610503
         ]
       },
       "properties": {
-        "id": 13069392011,
+        "id": 11395000593,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "name": "Lesní bar u Pastviny",
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -567,229 +600,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.9158143,
-          49.7699345
+          13.821954,
+          49.7181243
         ]
       },
       "properties": {
-        "id": 11415577769,
+        "id": 11395000600,
         "osm_type": "node",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.7992998,
-          49.8809816
-        ]
-      },
-      "properties": {
-        "id": 3968676762,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.9471906,
-          49.8786066
-        ]
-      },
-      "properties": {
-        "id": 5871839870,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.111917,
-          49.6150835
-        ]
-      },
-      "properties": {
-        "id": 11415577779,
-        "osm_type": "node",
-        "name": "Bouda pod Hradeckou skálou",
-        "shelter_type": "basic_hut",
-        "capacity": "6"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4109143,
-          49.7888356
-        ]
-      },
-      "properties": {
-        "id": 3039692326,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.1607705,
-          49.9608145
-        ]
-      },
-      "properties": {
-        "id": 4220243109,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.2150276,
-          49.9919948
-        ]
-      },
-      "properties": {
-        "id": 9955447446,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4680942,
-          49.0405307
-        ]
-      },
-      "properties": {
-        "id": 1359495743,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.6013833,
-          49.0606667
-        ]
-      },
-      "properties": {
-        "id": 2714686892,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter",
-        "bench": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.5034306,
-          49.1637044
-        ]
-      },
-      "properties": {
-        "id": 9951464403,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4286203,
-          49.2155507
-        ]
-      },
-      "properties": {
-        "id": 4405047011,
-        "osm_type": "node",
-        "name": "Ptáci střední Evropy IV",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4226162,
-          49.6219174
-        ]
-      },
-      "properties": {
-        "id": 9946022017,
-        "osm_type": "node",
-        "name": "Glamping Prusíny"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.4226618,
-          49.6220611
-        ]
-      },
-      "properties": {
-        "id": 10253748609,
-        "osm_type": "node",
-        "name": "Glamping Prusiny"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.7200006,
-          49.6718444
-        ]
-      },
-      "properties": {
-        "id": 13299560717,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.7097517,
-          49.7050654
-        ]
-      },
-      "properties": {
-        "id": 11395000619,
-        "osm_type": "node",
-        "name": "Seník pod Převážením",
-        "shelter_type": "lean_to"
+        "name": "Bouda 01 - Aval",
+        "description": "Lesácká bouda"
       }
     },
     {
@@ -832,15 +651,227 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.821954,
-          49.7181243
+          13.7097517,
+          49.7050654
         ]
       },
       "properties": {
-        "id": 11395000600,
+        "id": 11395000619,
         "osm_type": "node",
-        "name": "Bouda 01 - Aval",
-        "description": "Lesácká bouda"
+        "name": "Seník pod Převážením",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.8693418,
+          49.7048048
+        ]
+      },
+      "properties": {
+        "id": 11395000622,
+        "osm_type": "node",
+        "access": "yes",
+        "shelter_type": "lean_to",
+        "bench": "yes",
+        "table": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7070365,
+          49.7525355
+        ]
+      },
+      "properties": {
+        "id": 11395000627,
+        "osm_type": "node",
+        "name": "Seník pod Špičatým vrchem",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9061891,
+          49.7000724
+        ]
+      },
+      "properties": {
+        "id": 11403030761,
+        "osm_type": "node",
+        "name": "Srub Peruťárna",
+        "access": "yes",
+        "bench": "yes",
+        "capacity": "10",
+        "description": "dřevěné palandy dřevěná podlaha otevřené ohniště Volně přístupná bouda"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.8836647,
+          49.7049882
+        ]
+      },
+      "properties": {
+        "id": 11403030762,
+        "osm_type": "node",
+        "access": "yes",
+        "shelter_type": "basic_hut",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9158143,
+          49.7699345
+        ]
+      },
+      "properties": {
+        "id": 11415577769,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.111917,
+          49.6150835
+        ]
+      },
+      "properties": {
+        "id": 11415577779,
+        "osm_type": "node",
+        "name": "Bouda pod Hradeckou skálou",
+        "shelter_type": "basic_hut",
+        "capacity": "6"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9726561,
+          49.4979592
+        ]
+      },
+      "properties": {
+        "id": 12104777326,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.835247,
+          49.4411902
+        ]
+      },
+      "properties": {
+        "id": 12106477360,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.6177784,
+          49.6667794
+        ]
+      },
+      "properties": {
+        "id": 12732705784,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4878724,
+          49.8301111
+        ]
+      },
+      "properties": {
+        "id": 12956263062,
+        "osm_type": "node",
+        "name": "Veřejná útulna LČR",
+        "access": "yes",
+        "shelter_type": "basic_hut",
+        "fee": "no",
+        "operator": "LČR",
+        "description": "Útulna Branka"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.7294704,
+          49.7435945
+        ]
+      },
+      "properties": {
+        "id": 12994676013,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.8386256,
+          49.8170815
+        ]
+      },
+      "properties": {
+        "id": 13069392011,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7200006,
+          49.6718444
+        ]
+      },
+      "properties": {
+        "id": 13299560717,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -867,14 +898,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.7070365,
-          49.7525355
+          13.6061462,
+          49.6569275
         ]
       },
       "properties": {
-        "id": 11395000627,
-        "osm_type": "node",
-        "name": "Seník pod Špičatým vrchem",
+        "id": 206018190,
+        "osm_type": "way",
+        "name": "Chata U Sedmi veveřic",
         "shelter_type": "basic_hut"
       }
     },
@@ -883,13 +914,246 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.772904,
-          49.9294084
+          12.802814,
+          49.3927834
         ]
       },
       "properties": {
-        "id": 5940817298,
-        "osm_type": "node"
+        "id": 244338890,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "check_date": "2025-07-14"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7260698,
+          49.6902993
+        ]
+      },
+      "properties": {
+        "id": 254561962,
+        "osm_type": "way",
+        "name": "U Václava",
+        "shelter_type": "basic_hut",
+        "description": "Bouda U Václava u obce Skořice."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7317664,
+          49.6320122
+        ]
+      },
+      "properties": {
+        "id": 260096946,
+        "osm_type": "way",
+        "name": "Bouda Kuřkovská mýť"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7553271,
+          49.6481508
+        ]
+      },
+      "properties": {
+        "id": 260097038,
+        "osm_type": "way",
+        "name": "U pilouna",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.246369,
+          49.2034322
+        ]
+      },
+      "properties": {
+        "id": 388725660,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1386429,
+          49.2016033
+        ]
+      },
+      "properties": {
+        "id": 584116397,
+        "osm_type": "way",
+        "name": "Stateček-Güttlplatzl",
+        "shelter_type": "lean_to",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5918749,
+          49.1500661
+        ]
+      },
+      "properties": {
+        "id": 688686362,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.8893596,
+          49.4100744
+        ]
+      },
+      "properties": {
+        "id": 694056640,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.7133023,
+          49.5593581
+        ]
+      },
+      "properties": {
+        "id": 694236445,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7192408,
+          49.6710177
+        ]
+      },
+      "properties": {
+        "id": 865170840,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.0128423,
+          49.3562139
+        ]
+      },
+      "properties": {
+        "id": 964301802,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.6045242,
+          49.6150892
+        ]
+      },
+      "properties": {
+        "id": 992652536,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.6908182,
+          49.6301568
+        ]
+      },
+      "properties": {
+        "id": 993001443,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7346902,
+          49.6322956
+        ]
+      },
+      "properties": {
+        "id": 1077109080,
+        "osm_type": "way",
+        "name": "Seník na Kuřkovské mýti",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5315946,
+          49.7786746
+        ]
+      },
+      "properties": {
+        "id": 1125457164,
+        "osm_type": "way",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.7484274,
+          49.7703031
+        ]
+      },
+      "properties": {
+        "id": 1126951559,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -918,42 +1182,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.4858512,
-          49.8188648
+          12.9394103,
+          49.7469988
         ]
       },
       "properties": {
-        "id": 1238951100,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.802814,
-          49.3927834
-        ]
-      },
-      "properties": {
-        "id": 244338890,
-        "osm_type": "way",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.8893596,
-          49.4100744
-        ]
-      },
-      "properties": {
-        "id": 694056640,
+        "id": 1180046802,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
       }
@@ -969,68 +1203,6 @@
       },
       "properties": {
         "id": 1205346868,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.1386429,
-          49.2016033
-        ]
-      },
-      "properties": {
-        "id": 584116397,
-        "osm_type": "way",
-        "name": "Stateček-Güttlplatzl",
-        "shelter_type": "lean_to",
-        "bench": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.246369,
-          49.2034322
-        ]
-      },
-      "properties": {
-        "id": 388725660,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.0128423,
-          49.3562139
-        ]
-      },
-      "properties": {
-        "id": 964301802,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.7133023,
-          49.5593581
-        ]
-      },
-      "properties": {
-        "id": 694236445,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
       }
@@ -1057,31 +1229,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7809427,
-          49.6423803
+          12.9990467,
+          49.7209998
         ]
       },
       "properties": {
-        "id": 1296343708,
+        "id": 1230935719,
         "osm_type": "way",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.9363053,
-          49.6868498
-        ]
-      },
-      "properties": {
-        "id": 1226993980,
-        "osm_type": "way",
-        "access": "yes",
+        "access": "permissive",
         "shelter_type": "lean_to",
-        "bench": "yes"
+        "bench": "yes",
+        "fee": "no"
       }
     },
     {
@@ -1089,12 +1247,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.7484274,
-          49.7703031
+          12.4858512,
+          49.8188648
         ]
       },
       "properties": {
-        "id": 1126951559,
+        "id": 1238951100,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
       }
@@ -1134,32 +1292,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.9394103,
-          49.7469988
+          12.7809427,
+          49.6423803
         ]
       },
       "properties": {
-        "id": 1180046802,
+        "id": 1296343708,
         "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.9990467,
-          49.7209998
-        ]
-      },
-      "properties": {
-        "id": 1230935719,
-        "osm_type": "way",
-        "access": "permissive",
-        "shelter_type": "lean_to",
-        "bench": "yes",
-        "fee": "no"
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -1182,19 +1322,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.1381521,
-          49.9358802
+          13.5537996,
+          50.0058801
         ]
       },
       "properties": {
-        "id": 1429726455,
+        "id": 1323000455,
         "osm_type": "way",
-        "name": "Bivakovací místo Umíř",
-        "access": "yes",
-        "shelter_type": "weather_shelter",
-        "bench": "yes",
-        "table": "yes",
-        "capacity": "6"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1218,169 +1353,19 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.5918749,
-          49.1500661
+          13.1381521,
+          49.9358802
         ]
       },
       "properties": {
-        "id": 688686362,
+        "id": 1429726455,
         "osm_type": "way",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.6045242,
-          49.6150892
-        ]
-      },
-      "properties": {
-        "id": 992652536,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.6061462,
-          49.6569275
-        ]
-      },
-      "properties": {
-        "id": 206018190,
-        "osm_type": "way",
-        "name": "Chata U Sedmi veveřic",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.6908182,
-          49.6301568
-        ]
-      },
-      "properties": {
-        "id": 993001443,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.7317664,
-          49.6320122
-        ]
-      },
-      "properties": {
-        "id": 260096946,
-        "osm_type": "way",
-        "name": "Bouda Kuřkovská mýť"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.7346902,
-          49.6322956
-        ]
-      },
-      "properties": {
-        "id": 1077109080,
-        "osm_type": "way",
-        "name": "Seník na Kuřkovské mýti",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.7192408,
-          49.6710177
-        ]
-      },
-      "properties": {
-        "id": 865170840,
-        "osm_type": "way",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.7260698,
-          49.6902993
-        ]
-      },
-      "properties": {
-        "id": 254561962,
-        "osm_type": "way",
-        "name": "U Václava",
-        "shelter_type": "basic_hut",
-        "description": "Bouda U Václava u obce Skořice."
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.7553271,
-          49.6481508
-        ]
-      },
-      "properties": {
-        "id": 260097038,
-        "osm_type": "way",
-        "name": "U pilouna",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.5315946,
-          49.7786746
-        ]
-      },
-      "properties": {
-        "id": 1125457164,
-        "osm_type": "way",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.5537996,
-          50.0058801
-        ]
-      },
-      "properties": {
-        "id": 1323000455,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
+        "name": "Bivakovací místo Umíř",
+        "access": "yes",
+        "shelter_type": "weather_shelter",
+        "bench": "yes",
+        "table": "yes",
+        "capacity": "6"
       }
     }
   ]

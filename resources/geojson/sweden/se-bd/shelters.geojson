@@ -379,7 +379,8 @@
         "name": "Raststuga Pieljekaise",
         "shelter_type": "basic_hut",
         "capacity": "0",
-        "description": "Kitchen, gas"
+        "description": "Kitchen, gas",
+        "check_date": "2024-07-31"
       }
     },
     {
@@ -813,20 +814,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.8978574,
-          66.8033672
-        ]
-      },
-      "properties": {
-        "id": 4332811011,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.7651555,
           68.095938
         ]
@@ -1246,6 +1233,7 @@
       "properties": {
         "id": 5811023714,
         "osm_type": "node",
+        "access": "yes",
         "shelter_type": "lean_to"
       }
     },
@@ -1601,7 +1589,8 @@
         "osm_type": "node",
         "shelter_type": "weather_shelter",
         "bench": "yes",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2022-07-16"
       }
     },
     {

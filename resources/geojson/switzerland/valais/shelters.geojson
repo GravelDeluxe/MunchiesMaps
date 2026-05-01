@@ -6,35 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.9785612,
-          46.0625214
-        ]
-      },
-      "properties": {
-        "id": 11371480905,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.9855814,
-          46.1503687
-        ]
-      },
-      "properties": {
-        "id": 3298875238,
-        "osm_type": "node",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.2850418,
           45.9326221
         ]
@@ -45,89 +16,6 @@
         "name": "Bivouac Biagio Musso",
         "shelter_type": "basic_hut",
         "description": "http://www.caichivasso.it/bivaccomusso.asp"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.8772691,
-          46.2282518
-        ]
-      },
-      "properties": {
-        "id": 4513441913,
-        "osm_type": "node",
-        "name": "Chalet de Savolayre C.A.S",
-        "capacity": "31",
-        "operator": "CAS Monté Rosa Monthey"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.9390224,
-          46.1642909
-        ]
-      },
-      "properties": {
-        "id": 10045457453,
-        "osm_type": "node",
-        "name": "Refuge des Dents du Midi",
-        "capacity": "20",
-        "fee": "yes",
-        "operator": "Club Alpin Suisse (section Argentine)"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.0718437,
-          46.1979556
-        ]
-      },
-      "properties": {
-        "id": 9057341267,
-        "osm_type": "node",
-        "name": "Abri militaire A97",
-        "shelter_type": "weather_shelter",
-        "description": "Ancien abris militaire transformé en abris de montagne avec Varec pour dormir et poele à Bois"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.8038365,
-          46.3688246
-        ]
-      },
-      "properties": {
-        "id": 7884143085,
-        "osm_type": "node",
-        "name": "La Cabane à Joseph"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.3232397,
-          46.2578562
-        ]
-      },
-      "properties": {
-        "id": 13627199630,
-        "osm_type": "node",
-        "shelter_type": "basic_hut",
-        "bench": "yes"
       }
     },
     {
@@ -153,24 +41,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0302113,
-          46.0447563
-        ]
-      },
-      "properties": {
-        "id": 918916383,
-        "osm_type": "node",
-        "name": "Cresta-Biwak",
-        "shelter_type": "basic_hut",
-        "capacity": "6",
-        "operator": "SAC - CAS"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.8810094,
           46.3774214
         ]
@@ -189,6 +59,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.0302113,
+          46.0447563
+        ]
+      },
+      "properties": {
+        "id": 918916383,
+        "osm_type": "node",
+        "name": "Cresta-Biwak",
+        "shelter_type": "basic_hut",
+        "capacity": "6",
+        "operator": "SAC - CAS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.0025187,
           46.184901
         ]
@@ -200,6 +88,69 @@
         "shelter_type": "basic_hut",
         "capacity": "9",
         "operator": "SAC Brig/Monte Rosa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0092132,
+          46.4175646
+        ]
+      },
+      "properties": {
+        "id": 1778079534,
+        "osm_type": "node",
+        "name": "Fusshorn-Biwak",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9855814,
+          46.1503687
+        ]
+      },
+      "properties": {
+        "id": 3298875238,
+        "osm_type": "node",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.8772691,
+          46.2282518
+        ]
+      },
+      "properties": {
+        "id": 4513441913,
+        "osm_type": "node",
+        "name": "Chalet de Savolayre C.A.S",
+        "capacity": "31",
+        "operator": "CAS Monté Rosa Monthey"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.8038365,
+          46.3688246
+        ]
+      },
+      "properties": {
+        "id": 7884143085,
+        "osm_type": "node",
+        "name": "La Cabane à Joseph"
       }
     },
     {
@@ -238,15 +189,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0092132,
-          46.4175646
+          7.0718437,
+          46.1979556
         ]
       },
       "properties": {
-        "id": 1778079534,
+        "id": 9057341267,
         "osm_type": "node",
-        "name": "Fusshorn-Biwak",
-        "shelter_type": "basic_hut"
+        "name": "Abri militaire A97",
+        "shelter_type": "weather_shelter",
+        "description": "Ancien abris militaire transformé en abris de montagne avec Varec pour dormir et poele à Bois"
       }
     },
     {
@@ -254,15 +206,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.8101684,
-          46.1354814
+          6.9390224,
+          46.1642909
         ]
       },
       "properties": {
-        "id": 463458594,
+        "id": 10045457453,
+        "osm_type": "node",
+        "name": "Refuge des Dents du Midi",
+        "capacity": "20",
+        "fee": "yes",
+        "operator": "Club Alpin Suisse (section Argentine)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.9785612,
+          46.0625214
+        ]
+      },
+      "properties": {
+        "id": 11371480905,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3232397,
+          46.2578562
+        ]
+      },
+      "properties": {
+        "id": 13627199630,
+        "osm_type": "node",
+        "shelter_type": "basic_hut",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.648509,
+          46.2399252
+        ]
+      },
+      "properties": {
+        "id": 77412043,
         "osm_type": "way",
-        "name": "Cabane du col de Bostan",
-        "fee": "no"
+        "name": "Bivouac de Bella Tola"
       }
     },
     {
@@ -270,60 +269,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.0111705,
-          46.0200731
+          7.9841263,
+          46.3586495
         ]
       },
       "properties": {
-        "id": 238358629,
-        "osm_type": "way",
-        "name": "Refuge des Petoudes",
-        "capacity": "9",
-        "operator": "CAS Diablerets",
-        "url": "http://cas-diablerets.ch/cabanes/refuge-des-petoudes/"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.0487509,
-          45.9797697
-        ]
-      },
-      "properties": {
-        "id": 265394492,
-        "osm_type": "way",
-        "name": "Bivouac Envers des Dorées CAS"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.2172695,
-          46.0201289
-        ]
-      },
-      "properties": {
-        "id": 815954271,
-        "osm_type": "way",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.2277368,
-          46.0902363
-        ]
-      },
-      "properties": {
-        "id": 990083690,
+        "id": 211128056,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
       }
@@ -333,43 +284,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.283315,
-          46.1372798
+          7.977173,
+          46.1919939
         ]
       },
       "properties": {
-        "id": 914191663,
-        "osm_type": "way"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.7936672,
-          46.3448016
-        ]
-      },
-      "properties": {
-        "id": 243914563,
+        "id": 234776507,
         "osm_type": "way",
-        "name": "Cabane de Loz",
-        "operator": "Club de spéléologie Saint Exupéry du Valais"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.0106075,
-          46.162285
-        ]
-      },
-      "properties": {
-        "id": 1176355343,
-        "osm_type": "way",
+        "name": "Fletschhornhütte",
         "shelter_type": "basic_hut"
       }
     },
@@ -395,12 +317,62 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4541117,
-          46.1877136
+          7.997846,
+          46.3763485
         ]
       },
       "properties": {
-        "id": 1056422186,
+        "id": 236826298,
+        "osm_type": "way",
+        "name": "Natur- und Wildbeobachtungsposten Holzji",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0111705,
+          46.0200731
+        ]
+      },
+      "properties": {
+        "id": 238358629,
+        "osm_type": "way",
+        "name": "Refuge des Petoudes",
+        "capacity": "9",
+        "operator": "CAS Diablerets",
+        "url": "http://cas-diablerets.ch/cabanes/refuge-des-petoudes/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.7936672,
+          46.3448016
+        ]
+      },
+      "properties": {
+        "id": 243914563,
+        "osm_type": "way",
+        "name": "Cabane de Loz",
+        "operator": "Club de spéléologie Saint Exupéry du Valais"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.9990341,
+          46.3369335
+        ]
+      },
+      "properties": {
+        "id": 260660672,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
       }
@@ -410,15 +382,29 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5042088,
-          46.1901228
+          7.0487509,
+          45.9797697
         ]
       },
       "properties": {
-        "id": 997014697,
+        "id": 265394492,
         "osm_type": "way",
-        "name": "Cabane de la Rèche",
-        "operator": "Consortage de l'Alpage du Tsan"
+        "name": "Bivouac Envers des Dorées CAS"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7405503,
+          46.0234516
+        ]
+      },
+      "properties": {
+        "id": 295848868,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -445,17 +431,63 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6650617,
-          46.031358
+          7.9735559,
+          46.4245463
         ]
       },
       "properties": {
-        "id": 1193035153,
+        "id": 443453242,
         "osm_type": "way",
-        "name": "Arbenbiwak",
+        "name": "Winterraum"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.8101684,
+          46.1354814
+        ]
+      },
+      "properties": {
+        "id": 463458594,
+        "osm_type": "way",
+        "name": "Cabane du col de Bostan",
+        "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.9951339,
+          46.2584596
+        ]
+      },
+      "properties": {
+        "id": 699026821,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0453952,
+          46.1644221
+        ]
+      },
+      "properties": {
+        "id": 703430265,
+        "osm_type": "way",
+        "name": "Laggin Biwak SAC",
         "shelter_type": "basic_hut",
-        "operator": "SAC - CAS",
-        "url": "https://sac.zermatt.ch/verein/arbenbiwak/"
+        "capacity": "10",
+        "operator": "SAC - CAS"
       }
     },
     {
@@ -463,14 +495,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7405503,
-          46.0234516
+          7.5888301,
+          46.3962508
         ]
       },
       "properties": {
-        "id": 295848868,
-        "osm_type": "way",
-        "shelter_type": "lean_to"
+        "id": 767360137,
+        "osm_type": "way"
       }
     },
     {
@@ -478,14 +509,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.648509,
-          46.2399252
+          7.2172695,
+          46.0201289
         ]
       },
       "properties": {
-        "id": 77412043,
+        "id": 815954271,
         "osm_type": "way",
-        "name": "Bivouac de Bella Tola"
+        "shelter_type": "basic_hut"
       }
     },
     {
@@ -493,31 +524,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.7267165,
-          46.3280099
+          7.283315,
+          46.1372798
         ]
       },
       "properties": {
-        "id": 1420730272,
-        "osm_type": "way",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.915762,
-          46.280149
-        ]
-      },
-      "properties": {
-        "id": 1202713410,
-        "osm_type": "way",
-        "name": "Hüoterhüsi",
-        "shelter_type": "basic_hut",
-        "capacity": "1"
+        "id": 914191663,
+        "osm_type": "way"
       }
     },
     {
@@ -555,13 +568,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.5888301,
-          46.3962508
+          7.2277368,
+          46.0902363
         ]
       },
       "properties": {
-        "id": 767360137,
-        "osm_type": "way"
+        "id": 990083690,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -569,14 +583,44 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.977173,
-          46.1919939
+          7.5042088,
+          46.1901228
         ]
       },
       "properties": {
-        "id": 234776507,
+        "id": 997014697,
         "osm_type": "way",
-        "name": "Fletschhornhütte",
+        "name": "Cabane de la Rèche",
+        "operator": "Consortage de l'Alpage du Tsan"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.4541117,
+          46.1877136
+        ]
+      },
+      "properties": {
+        "id": 1056422186,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0106075,
+          46.162285
+        ]
+      },
+      "properties": {
+        "id": 1176355343,
+        "osm_type": "way",
         "shelter_type": "basic_hut"
       }
     },
@@ -585,17 +629,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0453952,
-          46.1644221
+          7.6650617,
+          46.031358
         ]
       },
       "properties": {
-        "id": 703430265,
+        "id": 1193035153,
         "osm_type": "way",
-        "name": "Laggin Biwak SAC",
+        "name": "Arbenbiwak",
         "shelter_type": "basic_hut",
-        "capacity": "10",
-        "operator": "SAC - CAS"
+        "operator": "SAC - CAS",
+        "url": "https://sac.zermatt.ch/verein/arbenbiwak/"
       }
     },
     {
@@ -603,44 +647,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9951339,
-          46.2584596
+          7.915762,
+          46.280149
         ]
       },
       "properties": {
-        "id": 699026821,
+        "id": 1202713410,
         "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.9990341,
-          46.3369335
-        ]
-      },
-      "properties": {
-        "id": 260660672,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.9841263,
-          46.3586495
-        ]
-      },
-      "properties": {
-        "id": 211128056,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
+        "name": "Hüoterhüsi",
+        "shelter_type": "basic_hut",
+        "capacity": "1"
       }
     },
     {
@@ -663,30 +679,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.997846,
-          46.3763485
+          7.7267165,
+          46.3280099
         ]
       },
       "properties": {
-        "id": 236826298,
+        "id": 1420730272,
         "osm_type": "way",
-        "name": "Natur- und Wildbeobachtungsposten Holzji",
         "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.9735559,
-          46.4245463
-        ]
-      },
-      "properties": {
-        "id": 443453242,
-        "osm_type": "way",
-        "name": "Winterraum"
       }
     }
   ]

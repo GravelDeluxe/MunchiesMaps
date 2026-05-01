@@ -27,7 +27,8 @@
       },
       "properties": {
         "id": 763487090,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-10-09"
       }
     },
     {
@@ -55,7 +56,8 @@
       },
       "properties": {
         "id": 1460559531,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-07-07"
       }
     },
     {
@@ -99,7 +101,8 @@
       },
       "properties": {
         "id": 1759742825,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-08-15"
       }
     },
     {
@@ -127,7 +130,8 @@
       },
       "properties": {
         "id": 1759744553,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-04-24"
       }
     },
     {
@@ -170,7 +174,8 @@
       },
       "properties": {
         "id": 1759747547,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-12-17"
       }
     },
     {
@@ -198,7 +203,8 @@
       },
       "properties": {
         "id": 1759761178,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2021-10-17"
       }
     },
     {
@@ -226,7 +232,8 @@
       },
       "properties": {
         "id": 1759767561,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-04-24"
       }
     },
     {
@@ -268,7 +275,8 @@
       },
       "properties": {
         "id": 2288718198,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2021-08-22"
       }
     },
     {
@@ -282,7 +290,8 @@
       },
       "properties": {
         "id": 2291339798,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-11-10"
       }
     },
     {
@@ -339,7 +348,8 @@
       },
       "properties": {
         "id": 2903845399,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-05-21"
       }
     },
     {
@@ -367,21 +377,8 @@
       },
       "properties": {
         "id": 3724960426,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          26.111851,
-          44.4021449
-        ]
-      },
-      "properties": {
-        "id": 4218844994,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-04-16"
       }
     },
     {
@@ -396,7 +393,8 @@
       "properties": {
         "id": 4223729593,
         "osm_type": "node",
-        "name": "Cișmea"
+        "name": "Cișmea",
+        "check_date": "2023-07-07"
       }
     },
     {
@@ -497,7 +495,8 @@
       },
       "properties": {
         "id": 6049432618,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2026-03-14"
       }
     },
     {
@@ -1078,20 +1077,6 @@
         "id": 9091604418,
         "osm_type": "node",
         "name": "Cișmea de apă"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          26.0885478,
-          44.4382047
-        ]
-      },
-      "properties": {
-        "id": 9223893532,
-        "osm_type": "node"
       }
     },
     {
@@ -3450,7 +3435,8 @@
       "properties": {
         "id": 13484719722,
         "osm_type": "node",
-        "operator": "Asociația Aqua World Line"
+        "operator": "Asociația Aqua World Line",
+        "indoor": "yes"
       }
     },
     {
@@ -3473,14 +3459,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          26.0502466,
-          44.4386752
+          26.0500136,
+          44.4387001
         ]
       },
       "properties": {
         "id": 13484719724,
         "osm_type": "node",
-        "operator": "Asociația Aqua World Line"
+        "operator": "Asociația Aqua World Line",
+        "indoor": "yes"
       }
     },
     {
@@ -3503,14 +3490,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          26.0475247,
-          44.4358337
+          26.0472841,
+          44.4359534
         ]
       },
       "properties": {
         "id": 13484719726,
         "osm_type": "node",
-        "operator": "Asociația Aqua World Line"
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "no",
+        "operator": "Asociația Aqua World Line",
+        "indoor": "yes"
       }
     },
     {
@@ -3518,14 +3509,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          26.0500409,
-          44.4385728
+          26.0501979,
+          44.4388862
         ]
       },
       "properties": {
-        "id": 13484719727,
+        "id": 13728056248,
         "osm_type": "node",
-        "operator": "Asociația Aqua World Line"
+        "access": "yes",
+        "fee": "no",
+        "seasonal": "no",
+        "operator": "Asociația Aqua World Line",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0388011,
+          44.4371897
+        ]
+      },
+      "properties": {
+        "id": 13735747219,
+        "osm_type": "node"
       }
     }
   ]

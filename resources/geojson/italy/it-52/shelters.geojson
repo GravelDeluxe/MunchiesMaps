@@ -268,7 +268,8 @@
         "name": "Capanna di Massa Bernagia ruderi",
         "shelter_type": "weather_shelter",
         "bench": "yes",
-        "description": "Edificio in muratura privo di arredamento, tetto crollato"
+        "description": "Edificio in muratura privo di arredamento, tetto crollato",
+        "check_date": "2023-03-18"
       }
     },
     {
@@ -761,6 +762,24 @@
         "id": 7780959685,
         "osm_type": "node",
         "name": "Hospital de peregrinos di Serravalle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0130844,
+          44.0183125
+        ]
+      },
+      "properties": {
+        "id": 8640317919,
+        "osm_type": "node",
+        "name": "Capanno di Chiusoli",
+        "access": "yes",
+        "shelter_type": "basic_hut",
+        "description": "Antico ricovero pastorale in pietra addossato a uno sperone roccioso, sotto il Poggio di Chiusoli, lungo il sentiero CAI 11. Ristrutturato dal Corpo Forestale dello Stato come piccolo riparo temporaneo."
       }
     },
     {
@@ -2377,25 +2396,6 @@
         "access": "yes",
         "fee": "no",
         "operator": "CAI Filattiera"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.9617581,
-          44.3942477
-        ]
-      },
-      "properties": {
-        "id": 701033121,
-        "osm_type": "way",
-        "name": "Enrico Mattei Bivacco Invernale",
-        "access": "yes",
-        "shelter_type": "basic_hut",
-        "fee": "no",
-        "operator": "Sezione CAI Pontremoli"
       }
     },
     {
@@ -4035,6 +4035,25 @@
         "capacity": "3",
         "fee": "no",
         "operator": "Eremo di Montecasale - Frati Cappuccini"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.9611519,
+          44.3942423
+        ]
+      },
+      "properties": {
+        "id": 1501316505,
+        "osm_type": "way",
+        "name": "Enrico Mattei Bivacco Invernale",
+        "access": "yes",
+        "shelter_type": "basic_hut",
+        "fee": "no",
+        "operator": "Sezione CAI Pontremoli"
       }
     }
   ]

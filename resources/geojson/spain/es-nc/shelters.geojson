@@ -89,7 +89,23 @@
       },
       "properties": {
         "id": 12531611401,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-01-25"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5023931,
+          42.9302315
+        ]
+      },
+      "properties": {
+        "id": 13760825061,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -168,7 +184,8 @@
         "id": 179292975,
         "osm_type": "way",
         "name": "Izandorre",
-        "operator": "Gobierno de Navarra"
+        "operator": "Gobierno de Navarra",
+        "check_date": "2024-11-20"
       }
     },
     {
@@ -215,6 +232,7 @@
       "properties": {
         "id": 226919736,
         "osm_type": "way",
+        "name": "Venta espagnole",
         "shelter_type": "basic_hut",
         "capacity": "4",
         "description": "C'est une ancienne venta en ruine, elle est en très mauvais état mais permet de s'abriter voire de dormir sur le sol en cas de mauvais temps. Elle semble squattée et quelques matelas et débris y sont présents."
@@ -312,6 +330,21 @@
         "osm_type": "way",
         "name": "Labigeko borda",
         "access": "permissive"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6727059,
+          42.499097
+        ]
+      },
+      "properties": {
+        "id": 290086494,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -486,7 +519,8 @@
         "shelter_type": "basic_hut",
         "bench": "no",
         "fee": "no",
-        "description": "muy basico refugio. no chairs, no table, no beds, no water. windows broken,"
+        "description": "muy basico refugio. no chairs, no table, no beds, no water. windows broken,",
+        "check_date": "2024-08-14"
       }
     },
     {
@@ -562,6 +596,21 @@
         "osm_type": "way",
         "name": "Auntzetxe",
         "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5863688,
+          42.3001106
+        ]
+      },
+      "properties": {
+        "id": 572023437,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -699,6 +748,7 @@
       "properties": {
         "id": 846638779,
         "osm_type": "way",
+        "name": "El Cubo",
         "capacity": "11"
       }
     },
@@ -907,6 +957,261 @@
       },
       "properties": {
         "id": 1495797836,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.4524732,
+          42.4004195
+        ]
+      },
+      "properties": {
+        "id": 1501138183,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6663747,
+          42.4972971
+        ]
+      },
+      "properties": {
+        "id": 1502978253,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6663132,
+          42.4970131
+        ]
+      },
+      "properties": {
+        "id": 1502978256,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6292231,
+          42.3313706
+        ]
+      },
+      "properties": {
+        "id": 1503298532,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6290505,
+          42.3316006
+        ]
+      },
+      "properties": {
+        "id": 1503298533,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6290997,
+          42.3317969
+        ]
+      },
+      "properties": {
+        "id": 1503298534,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6284534,
+          42.3316217
+        ]
+      },
+      "properties": {
+        "id": 1503298535,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.62818,
+          42.3314258
+        ]
+      },
+      "properties": {
+        "id": 1503298536,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6287255,
+          42.3312135
+        ]
+      },
+      "properties": {
+        "id": 1503298537,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6344998,
+          42.3317239
+        ]
+      },
+      "properties": {
+        "id": 1503298542,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6342454,
+          42.3314769
+        ]
+      },
+      "properties": {
+        "id": 1503298543,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6347731,
+          42.3318923
+        ]
+      },
+      "properties": {
+        "id": 1503298544,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6368273,
+          42.3353058
+        ]
+      },
+      "properties": {
+        "id": 1503298551,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.636309,
+          42.3350558
+        ]
+      },
+      "properties": {
+        "id": 1503298553,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6361479,
+          42.3349195
+        ]
+      },
+      "properties": {
+        "id": 1503298554,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.6364257,
+          42.3346684
+        ]
+      },
+      "properties": {
+        "id": 1503298555,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.5924464,
+          42.2956658
+        ]
+      },
+      "properties": {
+        "id": 1503298563,
         "osm_type": "way",
         "shelter_type": "lean_to"
       }

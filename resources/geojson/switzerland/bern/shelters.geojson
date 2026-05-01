@@ -6,14 +6,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3326347,
-          46.4442664
+          8.1675114,
+          46.6591519
         ]
       },
       "properties": {
-        "id": 7865126174,
+        "id": 502559912,
         "osm_type": "node",
-        "name": "Schutzhütte Wasserngrat"
+        "name": "Rosenlauibiwak SAC",
+        "shelter_type": "basic_hut",
+        "capacity": "10",
+        "operator": "SAC - CAS"
       }
     },
     {
@@ -21,14 +24,76 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4424319,
-          46.3833721
+          7.4088946,
+          47.0297323
         ]
       },
       "properties": {
-        "id": 12167479250,
+        "id": 1262067899,
+        "osm_type": "node",
+        "name": "Robinson-Hüttli, Reservation Gm Schüpfen",
+        "shelter_type": "weather_shelter",
+        "check_date": "2026-04-29"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8705782,
+          46.7064239
+        ]
+      },
+      "properties": {
+        "id": 1837443430,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.92274,
+          46.6731869
+        ]
+      },
+      "properties": {
+        "id": 2926281551,
         "osm_type": "node",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.7437289,
+          46.6453906
+        ]
+      },
+      "properties": {
+        "id": 3685663101,
+        "osm_type": "node",
+        "name": "Tipi Zeltlager"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6713609,
+          47.0773936
+        ]
+      },
+      "properties": {
+        "id": 4719864585,
+        "osm_type": "node",
+        "shelter_type": "lean_to",
+        "bench": "yes"
       }
     },
     {
@@ -51,6 +116,36 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          7.4246348,
+          47.2967778
+        ]
+      },
+      "properties": {
+        "id": 5526190660,
+        "osm_type": "node",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3281866,
+          47.2565054
+        ]
+      },
+      "properties": {
+        "id": 5528610036,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           7.4485692,
           46.7922387
         ]
@@ -59,6 +154,21 @@
         "id": 6284413226,
         "osm_type": "node",
         "name": "Hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.3326347,
+          46.4442664
+        ]
+      },
+      "properties": {
+        "id": 7865126174,
+        "osm_type": "node",
+        "name": "Schutzhütte Wasserngrat"
       }
     },
     {
@@ -83,112 +193,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.4088946,
-          47.0297323
-        ]
-      },
-      "properties": {
-        "id": 1262067899,
-        "osm_type": "node",
-        "name": "Robinson-Hüttli, Reservation Gm Schüpfen",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.3281866,
-          47.2565054
-        ]
-      },
-      "properties": {
-        "id": 5528610036,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.4246348,
-          47.2967778
-        ]
-      },
-      "properties": {
-        "id": 5526190660,
-        "osm_type": "node",
-        "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.7437289,
-          46.6453906
-        ]
-      },
-      "properties": {
-        "id": 3685663101,
-        "osm_type": "node",
-        "name": "Tipi Zeltlager"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.8355082,
-          46.6586969
-        ]
-      },
-      "properties": {
-        "id": 12688770734,
-        "osm_type": "node",
-        "name": "See-Egg",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.92274,
-          46.6731869
-        ]
-      },
-      "properties": {
-        "id": 2926281551,
-        "osm_type": "node",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.8705782,
-          46.7064239
-        ]
-      },
-      "properties": {
-        "id": 1837443430,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           7.9060931,
           46.7825909
         ]
@@ -197,24 +201,6 @@
         "id": 11225649110,
         "osm_type": "node",
         "name": "Hohganthütte",
-        "operator": "SAC - CAS"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.1675114,
-          46.6591519
-        ]
-      },
-      "properties": {
-        "id": 502559912,
-        "osm_type": "node",
-        "name": "Rosenlauibiwak SAC",
-        "shelter_type": "basic_hut",
-        "capacity": "10",
         "operator": "SAC - CAS"
       }
     },
@@ -238,15 +224,30 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.6713609,
-          47.0773936
+          7.4424319,
+          46.3833721
         ]
       },
       "properties": {
-        "id": 4719864585,
+        "id": 12167479250,
         "osm_type": "node",
-        "shelter_type": "lean_to",
-        "bench": "yes"
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.8355082,
+          46.6586969
+        ]
+      },
+      "properties": {
+        "id": 12688770734,
+        "osm_type": "node",
+        "name": "See-Egg",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -263,6 +264,21 @@
         "osm_type": "way",
         "name": "Blattlihütte",
         "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.0348343,
+          47.1842411
+        ]
+      },
+      "properties": {
+        "id": 194277159,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -288,17 +304,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1522296,
-          46.5555284
+          7.9192913,
+          46.7269814
         ]
       },
       "properties": {
-        "id": 443455690,
+        "id": 221049218,
         "osm_type": "way",
-        "name": "Aarbiwak",
-        "shelter_type": "basic_hut",
-        "capacity": "17",
-        "operator": "SAC Pilatus"
+        "name": "Wyssenfluhhütte"
       }
     },
     {
@@ -306,15 +319,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.3567072,
-          46.6365536
+          7.9024534,
+          46.7216151
         ]
       },
       "properties": {
-        "id": 605821729,
+        "id": 223065989,
         "osm_type": "way",
-        "name": "Trimlenhüttli",
-        "fee": "no"
+        "name": "Tenihüttli"
       }
     },
     {
@@ -333,67 +345,6 @@
         "capacity": "18",
         "operator": "SAC Blümlisalp",
         "url": "www.sac-sunnehuesi.ch"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.2081392,
-          46.9069963
-        ]
-      },
-      "properties": {
-        "id": 1217569334,
-        "osm_type": "way",
-        "name": "Hütte Platzgerklub",
-        "operator": "Platzgerklub Kriechenwil"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.0348343,
-          47.1842411
-        ]
-      },
-      "properties": {
-        "id": 194277159,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.7058149,
-          46.7312296
-        ]
-      },
-      "properties": {
-        "id": 328806228,
-        "osm_type": "way",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.7011313,
-          46.7473817
-        ]
-      },
-      "properties": {
-        "id": 1193633518,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -431,14 +382,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9024551,
-          46.7216174
+          8.2300934,
+          46.7411422
         ]
       },
       "properties": {
-        "id": 223065989,
+        "id": 299078761,
         "osm_type": "way",
-        "name": "Teni Hüttli"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -446,14 +397,94 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          7.9192913,
-          46.7269814
+          7.7058149,
+          46.7312296
         ]
       },
       "properties": {
-        "id": 221049218,
+        "id": 328806228,
         "osm_type": "way",
-        "name": "Wyssenfluhhütte"
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0247142,
+          46.6685266
+        ]
+      },
+      "properties": {
+        "id": 356080652,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.1522296,
+          46.5555284
+        ]
+      },
+      "properties": {
+        "id": 443455690,
+        "osm_type": "way",
+        "name": "Aarbiwak",
+        "shelter_type": "basic_hut",
+        "capacity": "17",
+        "operator": "SAC Pilatus"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.6902586,
+          47.2487643
+        ]
+      },
+      "properties": {
+        "id": 472554585,
+        "osm_type": "way",
+        "name": "Brünneli",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.167497,
+          46.6591342
+        ]
+      },
+      "properties": {
+        "id": 534837674,
+        "osm_type": "way",
+        "name": "Rosenlauibiwak SAC",
+        "shelter_type": "basic_hut"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.1630829,
+          46.690139
+        ]
+      },
+      "properties": {
+        "id": 534837756,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -470,21 +501,6 @@
         "osm_type": "way",
         "shelter_type": "lean_to",
         "bench": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.0232375,
-          46.5999087
-        ]
-      },
-      "properties": {
-        "id": 967657775,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -524,12 +540,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.0247142,
-          46.6685266
+          7.3567072,
+          46.6365536
         ]
       },
       "properties": {
-        "id": 356080652,
+        "id": 605821729,
+        "osm_type": "way",
+        "name": "Trimlenhüttli",
+        "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.0232375,
+          46.5999087
+        ]
+      },
+      "properties": {
+        "id": 967657775,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
       }
@@ -555,15 +587,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.167497,
-          46.6591342
+          7.7011313,
+          46.7473817
         ]
       },
       "properties": {
-        "id": 534837674,
+        "id": 1193633518,
         "osm_type": "way",
-        "name": "Rosenlauibiwak SAC",
-        "shelter_type": "basic_hut"
+        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -586,29 +617,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.1630829,
-          46.690139
+          7.2081392,
+          46.9069963
         ]
       },
       "properties": {
-        "id": 534837756,
+        "id": 1217569334,
         "osm_type": "way",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.2300934,
-          46.7411422
-        ]
-      },
-      "properties": {
-        "id": 299078761,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
+        "name": "Hütte Platzgerklub",
+        "operator": "Platzgerklub Kriechenwil"
       }
     },
     {
@@ -654,22 +671,6 @@
         "id": 1381652346,
         "osm_type": "way",
         "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.6902586,
-          47.2487643
-        ]
-      },
-      "properties": {
-        "id": 472554585,
-        "osm_type": "way",
-        "name": "Brünneli",
-        "shelter_type": "lean_to"
       }
     }
   ]

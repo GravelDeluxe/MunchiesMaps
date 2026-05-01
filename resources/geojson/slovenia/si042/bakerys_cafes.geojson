@@ -229,7 +229,8 @@
         "osm_type": "node",
         "name": "Lincer",
         "opening_hours": "Mo-Sa 08:00-19:00; Su 09:00-18:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-01-07"
       }
     },
     {
@@ -247,7 +248,8 @@
         "name": "Slaščičarna Zima",
         "opening_hours": "Mo-Su 08:00-21:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-07-22"
       }
     },
     {
@@ -315,8 +317,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.1451035,
-          46.1051737
+          14.1451196,
+          46.1051774
         ]
       },
       "properties": {
@@ -387,7 +389,7 @@
         "id": 3713592380,
         "osm_type": "node",
         "name": "Hitri Kruhek",
-        "opening_hours": "PH,Mo-Su 06:00-20:00",
+        "opening_hours": "PH,Mo-Su 06:00-18:00",
         "takeaway": "only",
         "outdoor_seating": "no"
       }
@@ -404,7 +406,8 @@
       "properties": {
         "id": 3721490595,
         "osm_type": "node",
-        "name": "Kavarna Ambient & Sladolednie"
+        "name": "Kavarna Ambient & Sladolednie",
+        "check_date": "2023-06-16"
       }
     },
     {
@@ -420,7 +423,8 @@
         "id": 3772179484,
         "osm_type": "node",
         "name": "Brodar",
-        "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-23:00; Sa 07:00-23:00; Su 10:00-22:00"
+        "opening_hours": "Mo-Th 06:00-22:00; Fr 06:00-23:00; Sa 07:00-23:00; Su 10:00-22:00",
+        "check_date": "2025-10-28"
       }
     },
     {
@@ -587,7 +591,8 @@
       "properties": {
         "id": 4227765954,
         "osm_type": "node",
-        "name": "PLATZ"
+        "name": "PLATZ",
+        "check_date": "2025-10-28"
       }
     },
     {
@@ -651,7 +656,8 @@
         "id": 4405587642,
         "osm_type": "node",
         "name": "Baza",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-04-10"
       }
     },
     {
@@ -773,7 +779,8 @@
         "id": 4796222077,
         "osm_type": "node",
         "name": "Belvedere Paviljon",
-        "opening_hours": "\"closed\""
+        "opening_hours": "\"closed\"",
+        "check_date": "2025-08-07"
       }
     },
     {
@@ -1019,7 +1026,8 @@
         "id": 5743043421,
         "osm_type": "node",
         "name": "Kavarna in Cukrarija",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-08-27"
       }
     },
     {
@@ -1497,8 +1505,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.1082934,
-          46.3670898
+          14.1083616,
+          46.3671251
         ]
       },
       "properties": {
@@ -1564,7 +1572,8 @@
       "properties": {
         "id": 10982213744,
         "osm_type": "node",
-        "name": "Joya Bubble Tea"
+        "name": "Joya Bubble Tea",
+        "check_date": "2023-06-17"
       }
     },
     {
@@ -1595,20 +1604,6 @@
         "id": 11196539731,
         "osm_type": "node",
         "name": "Pavin"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.3645122,
-          46.2503697
-        ]
-      },
-      "properties": {
-        "id": 11201743008,
-        "osm_type": "node"
       }
     },
     {
@@ -1692,14 +1687,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.1774394,
-          46.3472387
+          14.1774401,
+          46.3472218
         ]
       },
       "properties": {
         "id": 11949534996,
         "osm_type": "node",
-        "name": "City Bar"
+        "name": "City Bar",
+        "opening_hours": "Mo-Th 07:00-23:00; Fr-Sa 07:00-00:00; Su 08:00-23:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -2033,6 +2030,68 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          14.3518069,
+          46.2408645
+        ]
+      },
+      "properties": {
+        "id": 13623872847,
+        "osm_type": "node",
+        "name": "Orehek"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3556678,
+          46.2422166
+        ]
+      },
+      "properties": {
+        "id": 13664794651,
+        "osm_type": "node",
+        "name": "Mlinar"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3313175,
+          46.3293249
+        ]
+      },
+      "properties": {
+        "id": 13703142073,
+        "osm_type": "node",
+        "name": "Bistro",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4550357,
+          46.2303397
+        ]
+      },
+      "properties": {
+        "id": 13727927899,
+        "osm_type": "node",
+        "name": "Little Slovenia",
+        "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           14.4122481,
           46.2384938
         ]
@@ -2126,20 +2185,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.1426989,
-          46.1055783
-        ]
-      },
-      "properties": {
-        "id": 321460626,
-        "osm_type": "way"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           14.1397389,
           46.1058147
         ]
@@ -2154,29 +2199,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.3567815,
-          46.241866
+          14.3568156,
+          46.2418605
         ]
       },
       "properties": {
         "id": 353701841,
         "osm_type": "way",
         "name": "Slaščičarna in kavarna Carniola"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.3556553,
-          46.2422184
-        ]
-      },
-      "properties": {
-        "id": 377522736,
-        "osm_type": "way",
-        "name": "Mlinar"
       }
     },
     {
@@ -2301,7 +2331,8 @@
         "id": 507217608,
         "osm_type": "way",
         "name": "Kasabrin",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-07-23"
       }
     },
     {
@@ -2421,20 +2452,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.3551777,
-          46.2422022
-        ]
-      },
-      "properties": {
-        "id": 1209759557,
-        "osm_type": "way"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           14.0592381,
           46.4322547
         ]
@@ -2537,6 +2554,34 @@
         "id": 1296219893,
         "osm_type": "way",
         "name": "Esko bar"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3551798,
+          46.2421956
+        ]
+      },
+      "properties": {
+        "id": 1490992842,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.3644994,
+          46.2503658
+        ]
+      },
+      "properties": {
+        "id": 1493134028,
+        "osm_type": "way"
       }
     }
   ]

@@ -6,6 +6,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.5313598,
+          46.94622
+        ]
+      },
+      "properties": {
+        "id": 1621267230,
+        "osm_type": "node",
+        "vending": "cheese;drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.3101978,
           46.9825225
         ]
@@ -15,38 +30,8 @@
         "osm_type": "node",
         "vending": "drinks;sweets",
         "brand": "Selecta",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.3117736,
-          46.982993
-        ]
-      },
-      "properties": {
-        "id": 12698700495,
-        "osm_type": "node",
-        "vending": "drinks;sweets;water;toys"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.3811678,
-          46.9502031
-        ]
-      },
-      "properties": {
-        "id": 10049115239,
-        "osm_type": "node",
-        "vending": "milk",
-        "operator": "Rochushostatt"
+        "operator": "Selecta",
+        "check_date": "2026-03-27"
       }
     },
     {
@@ -63,7 +48,8 @@
         "osm_type": "node",
         "vending": "sweets;drinks;condoms",
         "brand": "Selecta",
-        "operator": "Selecta"
+        "operator": "Selecta",
+        "check_date": "2025-04-17"
       }
     },
     {
@@ -71,31 +57,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.3124971,
-          46.9934998
+          8.4114537,
+          46.9843069
         ]
       },
       "properties": {
-        "id": 11020526482,
+        "id": 7476546807,
         "osm_type": "node",
-        "vending": "food;drinks",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.4213212,
-          46.8835644
-        ]
-      },
-      "properties": {
-        "id": 12951580332,
-        "osm_type": "node",
-        "name": "Ziegenhof",
-        "vending": "food"
+        "vending": "drinks;condoms;sweets; pregnancy_test"
       }
     },
     {
@@ -120,15 +89,46 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4269538,
-          46.9272745
+          8.4317271,
+          46.9968623
         ]
       },
       "properties": {
-        "id": 12925621961,
+        "id": 9999900449,
         "osm_type": "node",
-        "name": "Gut Hasenmatt",
         "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3811678,
+          46.9502031
+        ]
+      },
+      "properties": {
+        "id": 10049115239,
+        "osm_type": "node",
+        "vending": "milk",
+        "operator": "Rochushostatt"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.3124971,
+          46.9934998
+        ]
+      },
+      "properties": {
+        "id": 11020526482,
+        "osm_type": "node",
+        "vending": "food;drinks",
+        "brand": "Selecta"
       }
     },
     {
@@ -154,14 +154,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4114537,
-          46.9843069
+          8.3117736,
+          46.982993
         ]
       },
       "properties": {
-        "id": 7476546807,
+        "id": 12698700495,
         "osm_type": "node",
-        "vending": "drinks;condoms;sweets; pregnancy_test"
+        "vending": "drinks;sweets;water;toys"
       }
     },
     {
@@ -169,14 +169,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5313598,
-          46.94622
+          8.4269538,
+          46.9272745
         ]
       },
       "properties": {
-        "id": 1621267230,
+        "id": 12925621961,
         "osm_type": "node",
-        "vending": "cheese;drinks"
+        "name": "Gut Hasenmatt",
+        "vending": "food"
       }
     },
     {
@@ -184,13 +185,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.4317271,
-          46.9968623
+          8.4213212,
+          46.8835644
         ]
       },
       "properties": {
-        "id": 9999900449,
+        "id": 12951580332,
         "osm_type": "node",
+        "name": "Ziegenhof",
         "vending": "food"
       }
     }

@@ -174,7 +174,8 @@
       },
       "properties": {
         "id": 1424958058,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-09-09"
       }
     },
     {
@@ -218,7 +219,8 @@
       "properties": {
         "id": 1572920201,
         "osm_type": "node",
-        "name": "Špina"
+        "name": "Špina",
+        "check_date": "2023-08-15"
       }
     },
     {
@@ -289,7 +291,8 @@
       },
       "properties": {
         "id": 2281059685,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-10-29"
       }
     },
     {
@@ -303,7 +306,8 @@
       },
       "properties": {
         "id": 2351384021,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-12-29"
       }
     },
     {
@@ -581,7 +585,8 @@
       },
       "properties": {
         "id": 3535705314,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-03-19"
       }
     },
     {
@@ -711,8 +716,11 @@
         "id": 4075529965,
         "osm_type": "node",
         "access": "yes",
+        "opening_hours": "24/7",
         "fee": "no",
-        "operator": "ViK Rijeka"
+        "seasonal": "no",
+        "operator": "ViK Rijeka",
+        "check_date": "2024-02-04"
       }
     },
     {
@@ -825,7 +833,8 @@
       "properties": {
         "id": 4354464823,
         "osm_type": "node",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2024-07-03"
       }
     },
     {
@@ -870,7 +879,8 @@
         "osm_type": "node",
         "access": "yes",
         "fee": "no",
-        "indoor": "no"
+        "indoor": "no",
+        "check_date": "2023-08-17"
       }
     },
     {
@@ -1043,7 +1053,8 @@
       },
       "properties": {
         "id": 6549432858,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-10-25"
       }
     },
     {
@@ -1168,7 +1179,8 @@
         "id": 6869272367,
         "osm_type": "node",
         "opening_hours": "24/7",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2024-07-27"
       }
     },
     {
@@ -1196,20 +1208,6 @@
       },
       "properties": {
         "id": 6950563086,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.6978505,
-          45.170232
-        ]
-      },
-      "properties": {
-        "id": 7193428306,
         "osm_type": "node"
       }
     },
@@ -1825,7 +1823,8 @@
       },
       "properties": {
         "id": 9935594976,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-07-18"
       }
     },
     {
@@ -2449,7 +2448,8 @@
         "id": 12893806889,
         "osm_type": "node",
         "access": "yes",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2025-06-07"
       }
     },
     {
@@ -2565,7 +2565,9 @@
         "id": 13065042011,
         "osm_type": "node",
         "access": "yes",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "fee": "no",
+        "seasonal": "no"
       }
     },
     {
@@ -2581,7 +2583,9 @@
         "id": 13065069009,
         "osm_type": "node",
         "access": "yes",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "fee": "no",
+        "seasonal": "no"
       }
     },
     {
@@ -2636,22 +2640,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.3338867,
-          45.3740938
-        ]
-      },
-      "properties": {
-        "id": 13110366589,
-        "osm_type": "node",
-        "access": "yes",
-        "fee": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           14.1654026,
           45.4556884
         ]
@@ -2688,6 +2676,22 @@
       "properties": {
         "id": 13146897888,
         "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5389374,
+          45.3077443
+        ]
+      },
+      "properties": {
+        "id": 13175097340,
+        "osm_type": "node",
+        "fee": "no",
+        "seasonal": "no"
       }
     },
     {
@@ -2746,6 +2750,40 @@
       },
       "properties": {
         "id": 13705675357,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "fee": "no",
+        "seasonal": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4137214,
+          45.3380335
+        ]
+      },
+      "properties": {
+        "id": 13739535533,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "fee": "no",
+        "seasonal": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4230173,
+          45.3336517
+        ]
+      },
+      "properties": {
+        "id": 13739686728,
         "osm_type": "node",
         "opening_hours": "24/7",
         "fee": "no",

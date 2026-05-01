@@ -6,16 +6,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.5065111,
-          46.88588
+          10.9452312,
+          47.0844059
         ]
       },
       "properties": {
-        "id": 11166983817,
+        "id": 1131073612,
         "osm_type": "node",
+        "vending": "milk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.3729525,
+          47.0178691
+        ]
+      },
+      "properties": {
+        "id": 1517993752,
+        "osm_type": "node",
+        "name": "Milchautomat",
         "opening_hours": "24/7",
-        "vending": "food",
-        "operator": "Brennerhof"
+        "vending": "milk",
+        "operator": "Weifer Bio-Bauernhof"
       }
     },
     {
@@ -23,15 +39,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.2647753,
-          47.1279955
+          10.7461067,
+          47.0279872
         ]
       },
       "properties": {
-        "id": 9033006911,
+        "id": 1710704642,
         "osm_type": "node",
-        "name": "Eisbär",
-        "vending": "ice_cream"
+        "name": "AlpenhofFrischMilch",
+        "vending": "milk",
+        "operator": "Alpenhof",
+        "check_date": "2022-08-31"
       }
     },
     {
@@ -39,15 +57,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.2770572,
-          47.1357904
+          11.4274323,
+          47.259421
         ]
       },
       "properties": {
-        "id": 9663849612,
+        "id": 1799267036,
         "osm_type": "node",
-        "name": "Regiobox Arlberg",
-        "vending": "food;drinks;milk"
+        "name": "Milchautomat",
+        "vending": "milk",
+        "operator": "Stecherhof",
+        "check_date": "2025-10-19"
       }
     },
     {
@@ -55,14 +75,63 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.2806218,
-          47.2406578
+          11.5084036,
+          47.3009579
         ]
       },
       "properties": {
-        "id": 9881896479,
+        "id": 1799270157,
         "osm_type": "node",
-        "name": "Kuhlschrank",
+        "name": "Milchautomat",
+        "vending": "milk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1194407,
+          47.511423
+        ]
+      },
+      "properties": {
+        "id": 1803732495,
+        "osm_type": "node",
+        "name": "Milchautomat",
+        "vending": "milk",
+        "operator": "Lengerer"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1538135,
+          47.5878714
+        ]
+      },
+      "properties": {
+        "id": 2110303187,
+        "osm_type": "node",
+        "name": "Michautomat",
+        "vending": "milk",
+        "check_date": "2025-08-23"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5379487,
+          47.480973
+        ]
+      },
+      "properties": {
+        "id": 2554489776,
+        "osm_type": "node",
         "vending": "drinks"
       }
     },
@@ -71,12 +140,215 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.4349794,
-          47.2897856
+          11.7134241,
+          47.3515857
         ]
       },
       "properties": {
-        "id": 13057439654,
+        "id": 3260086953,
+        "osm_type": "node",
+        "name": "Milchtankstelle",
+        "vending": "milk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7045338,
+          47.3364435
+        ]
+      },
+      "properties": {
+        "id": 3265413800,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.6827149,
+          47.3419004
+        ]
+      },
+      "properties": {
+        "id": 3547190483,
+        "osm_type": "node",
+        "name": "Lebensmittelautomat",
+        "vending": "food",
+        "operator": "Metzgerei Prem",
+        "check_date": "2023-12-09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3266061,
+          47.1182141
+        ]
+      },
+      "properties": {
+        "id": 3855018372,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "food;condoms;feminine_hygiene"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3265646,
+          47.1181822
+        ]
+      },
+      "properties": {
+        "id": 3855018373,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "drinks",
+        "check_date": "2025-05-28"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3897193,
+          47.266352
+        ]
+      },
+      "properties": {
+        "id": 4443392727,
+        "osm_type": "node",
+        "vending": "coffee",
+        "operator": "holly",
+        "check_date": "2026-04-09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.396276,
+          47.259722
+        ]
+      },
+      "properties": {
+        "id": 4447226672,
+        "osm_type": "node",
+        "name": "Späti Wilten Automatenshop",
+        "opening_hours": "24/7",
+        "vending": "drinks;food;sweets;water",
+        "check_date": "2026-03-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2791884,
+          47.2311587
+        ]
+      },
+      "properties": {
+        "id": 4482490925,
+        "osm_type": "node",
+        "vending": "milk",
+        "operator": "Hiaslhof",
+        "check_date": "2023-12-06"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4504349,
+          47.120879
+        ]
+      },
+      "properties": {
+        "id": 4489859887,
+        "osm_type": "node",
+        "vending": "milk",
+        "check_date": "2022-02-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7217515,
+          47.463546
+        ]
+      },
+      "properties": {
+        "id": 4558560998,
+        "osm_type": "node",
+        "vending": "drinks",
+        "operator": "highline179",
+        "check_date": "2023-08-21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4091464,
+          47.2681334
+        ]
+      },
+      "properties": {
+        "id": 4642098060,
+        "osm_type": "node",
+        "name": "Milchautomat",
+        "opening_hours": "24/7",
+        "vending": "milk",
+        "check_date": "2025-05-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.46556,
+          47.0946273
+        ]
+      },
+      "properties": {
+        "id": 4876718897,
+        "osm_type": "node",
+        "name": "Regiomat",
+        "vending": "food",
+        "operator": "Metzgerei Zorn Mieders",
+        "check_date": "2024-08-05"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3000739,
+          47.2368006
+        ]
+      },
+      "properties": {
+        "id": 4897760230,
         "osm_type": "node",
         "vending": "food"
       }
@@ -86,15 +358,145 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.6288178,
-          47.0587031
+          11.5146747,
+          47.2861108
         ]
       },
       "properties": {
-        "id": 13192497720,
+        "id": 4959867928,
         "osm_type": "node",
-        "opening_hours": "08:00-20:00",
+        "vending": "food",
+        "check_date": "2024-07-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4290027,
+          47.5217927
+        ]
+      },
+      "properties": {
+        "id": 5108237582,
+        "osm_type": "node",
+        "name": "Lafferhof 24h Frischeautomat",
+        "opening_hours": "24/7",
         "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3110555,
+          47.2552822
+        ]
+      },
+      "properties": {
+        "id": 5110714453,
+        "osm_type": "node",
+        "vending": "milk; food",
+        "check_date": "2023-09-25"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4070903,
+          47.230243
+        ]
+      },
+      "properties": {
+        "id": 5133610250,
+        "osm_type": "node",
+        "vending": "milk",
+        "check_date": "2023-11-18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4022701,
+          47.2349994
+        ]
+      },
+      "properties": {
+        "id": 5133611767,
+        "osm_type": "node",
+        "vending": "food",
+        "check_date": "2025-07-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4070742,
+          47.2302522
+        ]
+      },
+      "properties": {
+        "id": 5133611769,
+        "osm_type": "node",
+        "vending": "bread",
+        "check_date": "2025-09-04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7779702,
+          47.3877038
+        ]
+      },
+      "properties": {
+        "id": 5169135028,
+        "osm_type": "node",
+        "vending": "coffee",
+        "operator": "Holly.at",
+        "check_date": "2025-09-18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7779593,
+          47.3877016
+        ]
+      },
+      "properties": {
+        "id": 5169136927,
+        "osm_type": "node",
+        "vending": "sweets;drinks",
+        "operator": "Holly.at",
+        "check_date": "2025-09-18"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3849827,
+          47.2643767
+        ]
+      },
+      "properties": {
+        "id": 5217029643,
+        "osm_type": "node",
+        "vending": "food;drinks;coffee"
       }
     },
     {
@@ -120,14 +522,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.5532298,
-          47.1408948
+          11.3433791,
+          47.1554368
         ]
       },
       "properties": {
-        "id": 10688730674,
+        "id": 5465504026,
         "osm_type": "node",
-        "vending": "food;drinks;coffee"
+        "vending": "drinks"
       }
     },
     {
@@ -135,61 +537,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.5666724,
-          47.1408521
+          10.8930665,
+          47.203071
         ]
       },
       "properties": {
-        "id": 11234912876,
-        "osm_type": "node",
-        "name": "Smile Automatenshop",
-        "opening_hours": "24/7",
-        "vending": "drinks;food;sweets;water"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.5872868,
-          47.1601172
-        ]
-      },
-      "properties": {
-        "id": 9113701170,
-        "osm_type": "node",
-        "vending": "food;sweets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.7461067,
-          47.0279872
-        ]
-      },
-      "properties": {
-        "id": 1710704642,
-        "osm_type": "node",
-        "name": "AlpenhofFrischMilch",
-        "vending": "milk",
-        "operator": "Alpenhof"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.7319324,
-          47.1703135
-        ]
-      },
-      "properties": {
-        "id": 5693897623,
+        "id": 5537635352,
         "osm_type": "node",
         "vending": "milk"
       }
@@ -199,29 +552,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.8856695,
-          47.1951745
+          11.1576787,
+          47.1952013
         ]
       },
       "properties": {
-        "id": 12089413070,
+        "id": 5537872589,
         "osm_type": "node",
-        "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.6767809,
-          47.2556246
-        ]
-      },
-      "properties": {
-        "id": 10655237263,
-        "osm_type": "node",
-        "vending": "drinks"
+        "name": "Milchtankstelle",
+        "vending": "milk;eggs",
+        "operator": "Haider",
+        "check_date": "2026-04-17"
       }
     },
     {
@@ -246,12 +587,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.8930665,
-          47.203071
+          10.7319324,
+          47.1703135
         ]
       },
       "properties": {
-        "id": 5537635352,
+        "id": 5693897623,
         "osm_type": "node",
         "vending": "milk"
       }
@@ -261,14 +602,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.8857843,
-          47.2620696
+          11.8952992,
+          47.2619591
         ]
       },
       "properties": {
-        "id": 11012004722,
+        "id": 5730788395,
         "osm_type": "node",
-        "vending": "drinks"
+        "vending": "food",
+        "operator": "Walter Gasser - Fleischerei"
       }
     },
     {
@@ -276,28 +618,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.1149674,
-          46.9872872
+          12.3007483,
+          47.5126718
         ]
       },
       "properties": {
-        "id": 12526876118,
+        "id": 5754206424,
         "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.9452312,
-          47.0844059
-        ]
-      },
-      "properties": {
-        "id": 1131073612,
-        "osm_type": "node",
+        "name": "Milchtankstelle Schmiedbauer, frische Heumilch selber zapfen",
+        "opening_hours": "24/7",
         "vending": "milk"
       }
     },
@@ -306,16 +635,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.1576787,
-          47.1952013
+          10.7188341,
+          47.4642421
         ]
       },
       "properties": {
-        "id": 5537872589,
+        "id": 5759888203,
         "osm_type": "node",
-        "name": "Milchtankstelle",
-        "vending": "milk;eggs",
-        "operator": "Haider"
+        "vending": "drinks",
+        "operator": "highline179"
       }
     },
     {
@@ -323,14 +651,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.0948798,
-          47.3045652
+          12.3045001,
+          47.513545
         ]
       },
       "properties": {
-        "id": 12209931305,
+        "id": 5764472978,
         "osm_type": "node",
-        "vending": "drinks;sweets"
+        "vending": "drinks;cigarettes",
+        "check_date": "2026-04-03"
       }
     },
     {
@@ -338,14 +667,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.9230954,
-          47.3984299
+          12.3019469,
+          47.5136247
         ]
       },
       "properties": {
-        "id": 13190847327,
+        "id": 5765441161,
         "osm_type": "node",
-        "vending": "snacks"
+        "vending": "drinks"
       }
     },
     {
@@ -353,12 +682,201 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.9053001,
-          47.4016436
+          12.3044581,
+          47.5135392
         ]
       },
       "properties": {
-        "id": 13108696407,
+        "id": 5777724671,
+        "osm_type": "node",
+        "vending": "ice_cream",
+        "check_date": "2026-04-03"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5145892,
+          46.7560426
+        ]
+      },
+      "properties": {
+        "id": 5864892129,
+        "osm_type": "node",
+        "vending": "food",
+        "operator": "Guggenberger Alexander"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4738597,
+          47.298412
+        ]
+      },
+      "properties": {
+        "id": 5871920636,
+        "osm_type": "node",
+        "vending": "food;drinks;milk;bread;cheese;meat;saussages",
+        "operator": "Regio-Box"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7183339,
+          47.4639941
+        ]
+      },
+      "properties": {
+        "id": 5891417008,
+        "osm_type": "node",
+        "vending": "ice_cream"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7217279,
+          47.4635517
+        ]
+      },
+      "properties": {
+        "id": 5891417054,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2024-07-12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2659829,
+          47.5367427
+        ]
+      },
+      "properties": {
+        "id": 6327520091,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4964816,
+          47.2801962
+        ]
+      },
+      "properties": {
+        "id": 6401712173,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.880601,
+          47.4349578
+        ]
+      },
+      "properties": {
+        "id": 6778985712,
+        "osm_type": "node",
+        "vending": "sweets;drinks",
+        "check_date": "2024-10-19"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3579894,
+          47.2672075
+        ]
+      },
+      "properties": {
+        "id": 7121558090,
+        "osm_type": "node",
+        "name": "Milkomat",
+        "vending": "milk",
+        "check_date": "2025-11-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4293654,
+          47.2644956
+        ]
+      },
+      "properties": {
+        "id": 7166073601,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "operator": "Dallmayr Vending & Office"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4295203,
+          47.2639602
+        ]
+      },
+      "properties": {
+        "id": 7166073603,
+        "osm_type": "node",
+        "vending": "coffee",
+        "operator": "Dallmayr Vending & Office"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.584638,
+          47.2443016
+        ]
+      },
+      "properties": {
+        "id": 7775864929,
+        "osm_type": "node",
+        "vending": "beverages"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4368617,
+          47.000076
+        ]
+      },
+      "properties": {
+        "id": 7776248595,
         "osm_type": "node",
         "vending": "drinks"
       }
@@ -384,21 +902,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.0352707,
-          47.3141781
-        ]
-      },
-      "properties": {
-        "id": 13081911970,
-        "osm_type": "node",
-        "vending": "drinks;food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.1998102,
           47.2726589
         ]
@@ -407,7 +910,8 @@
         "id": 7881991448,
         "osm_type": "node",
         "name": "Wurst Joggl",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2026-03-26"
       }
     },
     {
@@ -415,30 +919,133 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.1993545,
-          47.2731168
+          11.2417003,
+          47.2706664
         ]
       },
       "properties": {
-        "id": 13001900721,
+        "id": 7881991450,
         "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.2791884,
-          47.2311587
-        ]
-      },
-      "properties": {
-        "id": 4482490925,
-        "osm_type": "node",
+        "name": "Zirler Milchquelle",
         "vending": "milk",
-        "operator": "Hiaslhof"
+        "operator": "Kapferer Hof",
+        "check_date": "2026-01-26"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9399989,
+          47.2484729
+        ]
+      },
+      "properties": {
+        "id": 7903310206,
+        "osm_type": "node",
+        "vending": "drinks;ice_cream;sausage;food;sweets;water",
+        "check_date": "2023-06-25"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3375688,
+          47.2549152
+        ]
+      },
+      "properties": {
+        "id": 8171523450,
+        "osm_type": "node",
+        "vending": "eggs;bread",
+        "operator": "Wiesenhof"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4272332,
+          47.2592857
+        ]
+      },
+      "properties": {
+        "id": 8381453545,
+        "osm_type": "node",
+        "vending": "food",
+        "operator": "Hofer Bauer",
+        "check_date": "2025-01-12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.424938,
+          47.2655487
+        ]
+      },
+      "properties": {
+        "id": 8416447212,
+        "osm_type": "node",
+        "vending": "coffee;drinks",
+        "operator": "Holly",
+        "check_date": "2023-04-13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.6056389,
+          47.2738532
+        ]
+      },
+      "properties": {
+        "id": 8762076164,
+        "osm_type": "node",
+        "name": "Bauernladen wattenberg",
+        "opening_hours": "Mo-Su 07:00-20:00",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4274514,
+          47.2382482
+        ]
+      },
+      "properties": {
+        "id": 8762076165,
+        "osm_type": "node",
+        "vending": "food",
+        "check_date": "2023-11-20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4069173,
+          47.2825243
+        ]
+      },
+      "properties": {
+        "id": 8809660168,
+        "osm_type": "node",
+        "vending": "milk;food;bread;eggs",
+        "operator": "Heil-Hof",
+        "check_date": "2026-04-19"
       }
     },
     {
@@ -461,14 +1068,1250 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.3000739,
-          47.2368006
+          10.5186293,
+          47.4974843
         ]
       },
       "properties": {
-        "id": 4897760230,
+        "id": 8900990490,
+        "osm_type": "node",
+        "name": "Eisdirndl",
+        "opening_hours": "24/7",
+        "vending": "ice_cream"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.3057711,
+          47.3771914
+        ]
+      },
+      "properties": {
+        "id": 8954352011,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5160421,
+          47.2774682
+        ]
+      },
+      "properties": {
+        "id": 8972546944,
+        "osm_type": "node",
+        "vending": "milk;eggs",
+        "operator": "Weberhof"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.2647753,
+          47.1279955
+        ]
+      },
+      "properties": {
+        "id": 9033006911,
+        "osm_type": "node",
+        "name": "Eisbär",
+        "vending": "ice_cream"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9279464,
+          47.3722601
+        ]
+      },
+      "properties": {
+        "id": 9108584708,
+        "osm_type": "node",
+        "vending": "food;drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.5872868,
+          47.1601172
+        ]
+      },
+      "properties": {
+        "id": 9113701170,
+        "osm_type": "node",
+        "vending": "food;sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5353378,
+          47.2929567
+        ]
+      },
+      "properties": {
+        "id": 9178535069,
+        "osm_type": "node",
+        "name": "Weberhof",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4303693,
+          47.1855835
+        ]
+      },
+      "properties": {
+        "id": 9230974518,
+        "osm_type": "node",
+        "name": "Ellbögener Bauernladele",
+        "vending": "milk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4090624,
+          47.274272
+        ]
+      },
+      "properties": {
+        "id": 9233525052,
+        "osm_type": "node",
+        "vending": "food",
+        "check_date": "2025-05-27"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.187903,
+          47.3268812
+        ]
+      },
+      "properties": {
+        "id": 9272763525,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2026-03-06"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3256483,
+          47.2530216
+        ]
+      },
+      "properties": {
+        "id": 9327684729,
+        "osm_type": "node",
+        "name": "Singomat",
+        "opening_hours": "24/7",
+        "vending": "food;eggs;milk;drinks",
+        "operator": "Metzgerei Karl Singer",
+        "check_date": "2023-08-30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.2770572,
+          47.1357904
+        ]
+      },
+      "properties": {
+        "id": 9663849612,
+        "osm_type": "node",
+        "name": "Regiobox Arlberg",
+        "vending": "food;drinks;milk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7795418,
+          47.3929306
+        ]
+      },
+      "properties": {
+        "id": 9689453758,
+        "osm_type": "node",
+        "vending": "milk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7088318,
+          47.3418916
+        ]
+      },
+      "properties": {
+        "id": 9869958099,
+        "osm_type": "node",
+        "vending": "food",
+        "operator": "Tiroler Gebirgsimkerei Farthofer"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.2806218,
+          47.2406578
+        ]
+      },
+      "properties": {
+        "id": 9881896479,
+        "osm_type": "node",
+        "name": "Kuhlschrank",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5648587,
+          47.3336107
+        ]
+      },
+      "properties": {
+        "id": 9925250331,
+        "osm_type": "node",
+        "vending": "beverages"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4028913,
+          47.2371438
+        ]
+      },
+      "properties": {
+        "id": 9960838015,
+        "osm_type": "node",
+        "vending": "food;cheese;butter;yogurt"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0425561,
+          47.2266935
+        ]
+      },
+      "properties": {
+        "id": 9998887167,
+        "osm_type": "node",
+        "vending": "food;drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2344787,
+          47.6480998
+        ]
+      },
+      "properties": {
+        "id": 10266481559,
+        "osm_type": "node",
+        "vending": "food",
+        "operator": "Käserei Plangger GmbH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3790313,
+          47.2692124
+        ]
+      },
+      "properties": {
+        "id": 10300606922,
+        "osm_type": "node",
+        "vending": "food",
+        "check_date": "2025-11-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.6767809,
+          47.2556246
+        ]
+      },
+      "properties": {
+        "id": 10655237263,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7469939,
+          47.4120546
+        ]
+      },
+      "properties": {
+        "id": 10687775256,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "check_date": "2025-03-16"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.5532298,
+          47.1408948
+        ]
+      },
+      "properties": {
+        "id": 10688730674,
+        "osm_type": "node",
+        "vending": "food;drinks;coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.2650553,
+          47.4501851
+        ]
+      },
+      "properties": {
+        "id": 10745443503,
+        "osm_type": "node",
+        "name": "Untertanzer Bauernstandl",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1645998,
+          47.3720005
+        ]
+      },
+      "properties": {
+        "id": 10873755572,
+        "osm_type": "node",
+        "vending": "drinks;food",
+        "operator": "Schlachthaus Metzgerei Klamm 80b KG"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3689087,
+          47.2614924
+        ]
+      },
+      "properties": {
+        "id": 10884314771,
         "osm_type": "node",
         "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.5385658,
+          47.0007263
+        ]
+      },
+      "properties": {
+        "id": 10911220340,
+        "osm_type": "node",
+        "vending": "food;sweets",
+        "operator": "Fleischerei Mühlstätter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.493967,
+          47.287074
+        ]
+      },
+      "properties": {
+        "id": 10916898047,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4621052,
+          47.2622845
+        ]
+      },
+      "properties": {
+        "id": 10937981366,
+        "osm_type": "node",
+        "vending": "eggs;milk;meat;cheese",
+        "operator": "Demlhof"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.883236,
+          47.2357104
+        ]
+      },
+      "properties": {
+        "id": 11004081663,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "food;milk",
+        "check_date": "2023-06-24"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1423474,
+          47.3708728
+        ]
+      },
+      "properties": {
+        "id": 11005453948,
+        "osm_type": "node",
+        "name": "Milchautomat Lippenhof",
+        "vending": "milk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8857843,
+          47.2620696
+        ]
+      },
+      "properties": {
+        "id": 11012004722,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4013642,
+          47.263361
+        ]
+      },
+      "properties": {
+        "id": 11073173534,
+        "osm_type": "node",
+        "vending": "drinks;sweets;snacks",
+        "brand": "Selecta",
+        "check_date": "2026-01-31"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4011454,
+          47.2633816
+        ]
+      },
+      "properties": {
+        "id": 11073173535,
+        "osm_type": "node",
+        "vending": "drinks;sweets;snacks",
+        "brand": "Selecta",
+        "check_date": "2026-01-31"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4009435,
+          47.2634075
+        ]
+      },
+      "properties": {
+        "id": 11073173536,
+        "osm_type": "node",
+        "vending": "drinks;sweets;snacks;condoms",
+        "brand": "Selecta",
+        "check_date": "2026-01-31"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4009097,
+          47.26255
+        ]
+      },
+      "properties": {
+        "id": 11073173537,
+        "osm_type": "node",
+        "vending": "drinks;sweets;snacks",
+        "brand": "Selecta",
+        "check_date": "2024-08-21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4007032,
+          47.2625799
+        ]
+      },
+      "properties": {
+        "id": 11073173538,
+        "osm_type": "node",
+        "vending": "drinks;sweets;snacks",
+        "brand": "Selecta",
+        "check_date": "2024-08-21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.401136,
+          47.262519
+        ]
+      },
+      "properties": {
+        "id": 11073173539,
+        "osm_type": "node",
+        "vending": "drinks;sweets;snacks",
+        "brand": "Selecta",
+        "check_date": "2024-08-21"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1238496,
+          47.3611801
+        ]
+      },
+      "properties": {
+        "id": 11110227546,
+        "osm_type": "node",
+        "vending": "drinks;food",
+        "operator": "Schlachthaus Metzgerei Klamm 80b KG"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.5065111,
+          46.88588
+        ]
+      },
+      "properties": {
+        "id": 11166983817,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "food",
+        "operator": "Brennerhof"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3211766,
+          47.2557992
+        ]
+      },
+      "properties": {
+        "id": 11215444456,
+        "osm_type": "node",
+        "vending": "drinks;food;water",
+        "check_date": "2026-02-11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.5666724,
+          47.1408521
+        ]
+      },
+      "properties": {
+        "id": 11234912876,
+        "osm_type": "node",
+        "name": "Smile Automatenshop",
+        "opening_hours": "24/7",
+        "vending": "drinks;food;sweets;water"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4271625,
+          47.2377572
+        ]
+      },
+      "properties": {
+        "id": 11343968517,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3934557,
+          47.2649962
+        ]
+      },
+      "properties": {
+        "id": 11418304928,
+        "osm_type": "node",
+        "name": "coffeekult",
+        "opening_hours": "05:00-22:00",
+        "vending": "coffee;drinks",
+        "check_date": "2025-05-10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4467628,
+          47.2518704
+        ]
+      },
+      "properties": {
+        "id": 11520054127,
+        "osm_type": "node",
+        "vending": "milk;yogurt",
+        "operator": "Klingenschmid"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0507936,
+          47.5084587
+        ]
+      },
+      "properties": {
+        "id": 11928132757,
+        "osm_type": "node",
+        "vending": "food;drinks;cigarettes",
+        "operator": "Grubers"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9541201,
+          47.3902279
+        ]
+      },
+      "properties": {
+        "id": 12010080110,
+        "osm_type": "node",
+        "vending": "drinks;sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3814338,
+          47.2679082
+        ]
+      },
+      "properties": {
+        "id": 12012089346,
+        "osm_type": "node",
+        "vending": "food",
+        "check_date": "2025-07-05"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8812421,
+          47.2313541
+        ]
+      },
+      "properties": {
+        "id": 12055081392,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8744826,
+          47.1350598
+        ]
+      },
+      "properties": {
+        "id": 12057122233,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "check_date": "2024-07-22"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8856695,
+          47.1951745
+        ]
+      },
+      "properties": {
+        "id": 12089413070,
+        "osm_type": "node",
+        "vending": "coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0948798,
+          47.3045652
+        ]
+      },
+      "properties": {
+        "id": 12209931305,
+        "osm_type": "node",
+        "vending": "drinks;sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3496575,
+          47.1527551
+        ]
+      },
+      "properties": {
+        "id": 12232845562,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7014627,
+          47.3496883
+        ]
+      },
+      "properties": {
+        "id": 12248347303,
+        "osm_type": "node",
+        "vending": "drinks;sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4334976,
+          47.2379624
+        ]
+      },
+      "properties": {
+        "id": 12304875751,
+        "osm_type": "node",
+        "vending": "food",
+        "check_date": "2024-10-10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3899369,
+          47.2672172
+        ]
+      },
+      "properties": {
+        "id": 12306643828,
+        "osm_type": "node",
+        "vending": "food",
+        "operator": "Tiroler Schmankerl Alm",
+        "check_date": "2026-04-09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1250602,
+          47.3595318
+        ]
+      },
+      "properties": {
+        "id": 12518502250,
+        "osm_type": "node",
+        "vending": "cigarettes;food;drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1149674,
+          46.9872872
+        ]
+      },
+      "properties": {
+        "id": 12526876118,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1971057,
+          47.6488619
+        ]
+      },
+      "properties": {
+        "id": 12550975773,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.6161224,
+          46.7087939
+        ]
+      },
+      "properties": {
+        "id": 12609649668,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "milk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3928243,
+          47.2679037
+        ]
+      },
+      "properties": {
+        "id": 12646032981,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2025-02-22"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.500125,
+          47.0625595
+        ]
+      },
+      "properties": {
+        "id": 12715516252,
+        "osm_type": "node",
+        "vending": "eggs;milk;meat",
+        "operator": "Fleischhauerei Gogl"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2436139,
+          47.2728662
+        ]
+      },
+      "properties": {
+        "id": 12791404919,
+        "osm_type": "node",
+        "name": "Quickstopp",
+        "vending": "drinks;food",
+        "operator": "Quickstopp"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9548256,
+          47.5859354
+        ]
+      },
+      "properties": {
+        "id": 12802913923,
+        "osm_type": "node",
+        "vending": "cheese;drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4569564,
+          47.2658486
+        ]
+      },
+      "properties": {
+        "id": 12829566555,
+        "osm_type": "node",
+        "vending": "drinks;food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4044444,
+          47.2649792
+        ]
+      },
+      "properties": {
+        "id": 12841530834,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7919643,
+          47.4191945
+        ]
+      },
+      "properties": {
+        "id": 12877106604,
+        "osm_type": "node",
+        "vending": "milk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.40006,
+          47.2583053
+        ]
+      },
+      "properties": {
+        "id": 12911210787,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4000612,
+          47.2583167
+        ]
+      },
+      "properties": {
+        "id": 12911231338,
+        "osm_type": "node",
+        "vending": "coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3993287,
+          47.2859692
+        ]
+      },
+      "properties": {
+        "id": 12945220516,
+        "osm_type": "node",
+        "vending": "ice_cream",
+        "check_date": "2025-06-22"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.399338,
+          47.2859562
+        ]
+      },
+      "properties": {
+        "id": 12945220517,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2025-06-22"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4076047,
+          47.2766353
+        ]
+      },
+      "properties": {
+        "id": 12985446950,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1993545,
+          47.2731168
+        ]
+      },
+      "properties": {
+        "id": 13001900721,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3493806,
+          47.1521487
+        ]
+      },
+      "properties": {
+        "id": 13006786957,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "drinks;sweets;coffee",
+        "operator": "Snacktiker",
+        "check_date": "2025-07-17"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9941292,
+          47.4418163
+        ]
+      },
+      "properties": {
+        "id": 13014188639,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.4349794,
+          47.2897856
+        ]
+      },
+      "properties": {
+        "id": 13057439654,
+        "osm_type": "node",
+        "vending": "food",
+        "check_date": "2025-08-08"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4047287,
+          47.2712646
+        ]
+      },
+      "properties": {
+        "id": 13075885211,
+        "osm_type": "node",
+        "vending": "ice_cream",
+        "operator": "Tomaselli"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9227748,
+          47.4643552
+        ]
+      },
+      "properties": {
+        "id": 13076633570,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0352707,
+          47.3141781
+        ]
+      },
+      "properties": {
+        "id": 13081911970,
+        "osm_type": "node",
+        "vending": "drinks;food"
       }
     },
     {
@@ -527,16 +2370,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.2417003,
-          47.2706664
+          10.9053001,
+          47.4016436
         ]
       },
       "properties": {
-        "id": 7881991450,
+        "id": 13108696407,
         "osm_type": "node",
-        "name": "Zirler Milchquelle",
-        "vending": "milk",
-        "operator": "Kapferer Hof"
+        "vending": "drinks",
+        "check_date": "2025-08-28"
       }
     },
     {
@@ -544,545 +2386,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.2436139,
-          47.2728662
+          11.9540844,
+          47.3902021
         ]
       },
       "properties": {
-        "id": 12791404919,
-        "osm_type": "node",
-        "name": "Quickstopp",
-        "vending": "drinks;food",
-        "operator": "Quickstopp"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3110555,
-          47.2552822
-        ]
-      },
-      "properties": {
-        "id": 5110714453,
-        "osm_type": "node",
-        "vending": "milk; food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3211766,
-          47.2557992
-        ]
-      },
-      "properties": {
-        "id": 11215444456,
-        "osm_type": "node",
-        "vending": "drinks;food;water"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.1250602,
-          47.3595318
-        ]
-      },
-      "properties": {
-        "id": 12518502250,
-        "osm_type": "node",
-        "vending": "cigarettes;food;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.187903,
-          47.3268812
-        ]
-      },
-      "properties": {
-        "id": 9272763525,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.1879362,
-          47.3268478
-        ]
-      },
-      "properties": {
-        "id": 9272763526,
-        "osm_type": "node",
-        "vending": "coffee",
-        "operator": "Dallmayr"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.1238496,
-          47.3611801
-        ]
-      },
-      "properties": {
-        "id": 11110227546,
-        "osm_type": "node",
-        "vending": "drinks;food",
-        "operator": "Schlachthaus Metzgerei Klamm 80b KG"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.1423474,
-          47.3708728
-        ]
-      },
-      "properties": {
-        "id": 11005453948,
-        "osm_type": "node",
-        "name": "Milchautomat Lippenhof",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.1645998,
-          47.3720005
-        ]
-      },
-      "properties": {
-        "id": 10873755572,
-        "osm_type": "node",
-        "vending": "drinks;food",
-        "operator": "Schlachthaus Metzgerei Klamm 80b KG"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4368617,
-          47.000076
-        ]
-      },
-      "properties": {
-        "id": 7776248595,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.46556,
-          47.0946273
-        ]
-      },
-      "properties": {
-        "id": 4876718897,
-        "osm_type": "node",
-        "name": "Regiomat",
-        "vending": "food",
-        "operator": "Metzgerei Zorn Mieders"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.500125,
-          47.0625595
-        ]
-      },
-      "properties": {
-        "id": 12715516252,
-        "osm_type": "node",
-        "vending": "eggs;milk;meat",
-        "operator": "Fleischhauerei Gogl"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3266061,
-          47.1182141
-        ]
-      },
-      "properties": {
-        "id": 3855018372,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "food;condoms;feminine_hygiene"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3265646,
-          47.1181822
-        ]
-      },
-      "properties": {
-        "id": 3855018373,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3433791,
-          47.1554368
-        ]
-      },
-      "properties": {
-        "id": 5465504026,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3496575,
-          47.1527551
-        ]
-      },
-      "properties": {
-        "id": 12232845562,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3493806,
-          47.1521487
-        ]
-      },
-      "properties": {
-        "id": 13006786957,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "drinks;sweets;coffee",
-        "operator": "Snacktiker"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4504349,
-          47.120879
-        ]
-      },
-      "properties": {
-        "id": 4489859887,
-        "osm_type": "node",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4303693,
-          47.1855835
-        ]
-      },
-      "properties": {
-        "id": 9230974518,
-        "osm_type": "node",
-        "name": "Ellbögener Bauernladele",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3256483,
-          47.2530216
-        ]
-      },
-      "properties": {
-        "id": 9327684729,
-        "osm_type": "node",
-        "name": "Singomat",
-        "opening_hours": "24/7",
-        "vending": "food;eggs;milk;drinks",
-        "operator": "Metzgerei Karl Singer"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4022701,
-          47.2349994
-        ]
-      },
-      "properties": {
-        "id": 5133611767,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4028913,
-          47.2371438
-        ]
-      },
-      "properties": {
-        "id": 9960838015,
-        "osm_type": "node",
-        "vending": "food;cheese;butter;yogurt"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4070903,
-          47.230243
-        ]
-      },
-      "properties": {
-        "id": 5133610250,
-        "osm_type": "node",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4070742,
-          47.2302522
-        ]
-      },
-      "properties": {
-        "id": 5133611769,
-        "osm_type": "node",
-        "vending": "bread"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4274514,
-          47.2382482
-        ]
-      },
-      "properties": {
-        "id": 8762076165,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4271625,
-          47.2377572
-        ]
-      },
-      "properties": {
-        "id": 11343968517,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3375688,
-          47.2549152
-        ]
-      },
-      "properties": {
-        "id": 8171523450,
-        "osm_type": "node",
-        "vending": "eggs;bread",
-        "operator": "Wiesenhof"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3579894,
-          47.2672075
-        ]
-      },
-      "properties": {
-        "id": 7121558090,
-        "osm_type": "node",
-        "name": "Milkomat",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3689087,
-          47.2614924
-        ]
-      },
-      "properties": {
-        "id": 10884314771,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3897015,
-          47.2663563
-        ]
-      },
-      "properties": {
-        "id": 4443392727,
-        "osm_type": "node",
-        "vending": "coffee",
-        "operator": "holly"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3849827,
-          47.2643767
-        ]
-      },
-      "properties": {
-        "id": 5217029643,
-        "osm_type": "node",
-        "vending": "food;drinks;coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3899369,
-          47.2672172
-        ]
-      },
-      "properties": {
-        "id": 12306643828,
-        "osm_type": "node",
-        "vending": "food",
-        "operator": "Tiroler Schmankerl Alm"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.396276,
-          47.259722
-        ]
-      },
-      "properties": {
-        "id": 4447226672,
-        "osm_type": "node",
-        "name": "Späti Wilten Automatenshop",
-        "opening_hours": "24/7",
-        "vending": "drinks;food;sweets;water"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.40006,
-          47.2583053
-        ]
-      },
-      "properties": {
-        "id": 12911210787,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4000612,
-          47.2583167
-        ]
-      },
-      "properties": {
-        "id": 12911231338,
+        "id": 13114832628,
         "osm_type": "node",
         "vending": "coffee"
       }
@@ -1092,16 +2401,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.3934557,
-          47.2649962
+          10.9230954,
+          47.3984299
         ]
       },
       "properties": {
-        "id": 11418304928,
+        "id": 13190847327,
         "osm_type": "node",
-        "name": "coffeekult",
-        "opening_hours": "05:00-22:00",
-        "vending": "coffee;drinks"
+        "vending": "snacks"
       }
     },
     {
@@ -1109,517 +2416,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.4013642,
-          47.263361
+          10.6288178,
+          47.0587031
         ]
       },
       "properties": {
-        "id": 11073173534,
+        "id": 13192497720,
         "osm_type": "node",
-        "vending": "drinks;sweets;snacks",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4011454,
-          47.2633816
-        ]
-      },
-      "properties": {
-        "id": 11073173535,
-        "osm_type": "node",
-        "vending": "drinks;sweets;snacks",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4009435,
-          47.2634075
-        ]
-      },
-      "properties": {
-        "id": 11073173536,
-        "osm_type": "node",
-        "vending": "drinks;sweets;snacks;condoms",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4009097,
-          47.26255
-        ]
-      },
-      "properties": {
-        "id": 11073173537,
-        "osm_type": "node",
-        "vending": "drinks;sweets;snacks",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4007032,
-          47.2625799
-        ]
-      },
-      "properties": {
-        "id": 11073173538,
-        "osm_type": "node",
-        "vending": "drinks;sweets;snacks",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.401136,
-          47.262519
-        ]
-      },
-      "properties": {
-        "id": 11073173539,
-        "osm_type": "node",
-        "vending": "drinks;sweets;snacks",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3790313,
-          47.2692124
-        ]
-      },
-      "properties": {
-        "id": 10300606922,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3814338,
-          47.2679082
-        ]
-      },
-      "properties": {
-        "id": 12012089346,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3928243,
-          47.2679037
-        ]
-      },
-      "properties": {
-        "id": 12646032981,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4044444,
-          47.2649792
-        ]
-      },
-      "properties": {
-        "id": 12841530834,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4274323,
-          47.259421
-        ]
-      },
-      "properties": {
-        "id": 1799267036,
-        "osm_type": "node",
-        "name": "Milchautomat",
-        "vending": "milk",
-        "operator": "Stecherhof"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4272332,
-          47.2592857
-        ]
-      },
-      "properties": {
-        "id": 8381453545,
-        "osm_type": "node",
+        "opening_hours": "08:00-20:00",
         "vending": "food",
-        "operator": "Hofer Bauer"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4293654,
-          47.2644956
-        ]
-      },
-      "properties": {
-        "id": 7166073601,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "operator": "Dallmayr Vending & Office"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.424938,
-          47.2655487
-        ]
-      },
-      "properties": {
-        "id": 8416447212,
-        "osm_type": "node",
-        "vending": "coffee;drinks",
-        "operator": "Holly"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4091464,
-          47.2681334
-        ]
-      },
-      "properties": {
-        "id": 4642098060,
-        "osm_type": "node",
-        "name": "Milchautomat",
-        "opening_hours": "24/7",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4090624,
-          47.274272
-        ]
-      },
-      "properties": {
-        "id": 9233525052,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4076047,
-          47.2766353
-        ]
-      },
-      "properties": {
-        "id": 12985446950,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.3993287,
-          47.2859692
-        ]
-      },
-      "properties": {
-        "id": 12945220516,
-        "osm_type": "node",
-        "vending": "ice_cream"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.399338,
-          47.2859562
-        ]
-      },
-      "properties": {
-        "id": 12945220517,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4069173,
-          47.2825243
-        ]
-      },
-      "properties": {
-        "id": 8809660168,
-        "osm_type": "node",
-        "vending": "milk;food;bread;eggs",
-        "operator": "Heil-Hof"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4334976,
-          47.2379624
-        ]
-      },
-      "properties": {
-        "id": 12304875751,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4467628,
-          47.2518704
-        ]
-      },
-      "properties": {
-        "id": 11520054127,
-        "osm_type": "node",
-        "vending": "milk;yogurt",
-        "operator": "Klingenschmid"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4295203,
-          47.2639602
-        ]
-      },
-      "properties": {
-        "id": 7166073603,
-        "osm_type": "node",
-        "vending": "coffee",
-        "operator": "Dallmayr Vending & Office"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4458912,
-          47.2676272
-        ]
-      },
-      "properties": {
-        "id": 13678622343,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "ice_cream",
-        "operator": "Tomaselli"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4412494,
-          47.2803002
-        ]
-      },
-      "properties": {
-        "id": 13678525365,
-        "osm_type": "node",
-        "vending": "food;drinks;sweets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4621052,
-          47.2622845
-        ]
-      },
-      "properties": {
-        "id": 10937981366,
-        "osm_type": "node",
-        "vending": "eggs;milk;meat;cheese",
-        "operator": "Demlhof"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4569564,
-          47.2658486
-        ]
-      },
-      "properties": {
-        "id": 12829566555,
-        "osm_type": "node",
-        "vending": "drinks;food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4738597,
-          47.298412
-        ]
-      },
-      "properties": {
-        "id": 5871920636,
-        "osm_type": "node",
-        "vending": "food;drinks;milk;bread;cheese;meat;saussages",
-        "operator": "Regio-Box"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.4964816,
-          47.2801962
-        ]
-      },
-      "properties": {
-        "id": 6401712173,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.5160421,
-          47.2774682
-        ]
-      },
-      "properties": {
-        "id": 8972546944,
-        "osm_type": "node",
-        "vending": "milk;eggs",
-        "operator": "Weberhof"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.493967,
-          47.287074
-        ]
-      },
-      "properties": {
-        "id": 10916898047,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.5146747,
-          47.2861108
-        ]
-      },
-      "properties": {
-        "id": 4959867928,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.5084036,
-          47.3009579
-        ]
-      },
-      "properties": {
-        "id": 1799270157,
-        "osm_type": "node",
-        "name": "Milchautomat",
-        "vending": "milk"
+        "check_date": "2025-10-04"
       }
     },
     {
@@ -1643,14 +2449,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.584638,
-          47.2443016
+          12.3897231,
+          47.4436734
         ]
       },
       "properties": {
-        "id": 7775864929,
+        "id": 13226697469,
         "osm_type": "node",
-        "vending": "beverages"
+        "vending": "drinks;sweets",
+        "brand": "Selecta"
       }
     },
     {
@@ -1658,15 +2465,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.5353378,
-          47.2929567
+          11.8877801,
+          47.2899673
         ]
       },
       "properties": {
-        "id": 9178535069,
+        "id": 13243675808,
         "osm_type": "node",
-        "name": "Weberhof",
-        "vending": "food"
+        "vending": "drinks;food",
+        "operator": "Dorfbäck",
+        "check_date": "2025-10-18"
       }
     },
     {
@@ -1674,16 +2482,31 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.6056389,
-          47.2738532
+          11.4412494,
+          47.2803002
         ]
       },
       "properties": {
-        "id": 8762076164,
+        "id": 13678525365,
         "osm_type": "node",
-        "name": "Bauernladen wattenberg",
-        "opening_hours": "Mo-Su 07:00-20:00",
-        "vending": "food"
+        "vending": "food;drinks;sweets"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4458912,
+          47.2676272
+        ]
+      },
+      "properties": {
+        "id": 13678622343,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "ice_cream",
+        "operator": "Tomaselli"
       }
     },
     {
@@ -1721,692 +2544,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.5648587,
-          47.3336107
-        ]
-      },
-      "properties": {
-        "id": 9925250331,
-        "osm_type": "node",
-        "vending": "beverages"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.6827149,
-          47.3419004
-        ]
-      },
-      "properties": {
-        "id": 3547190483,
-        "osm_type": "node",
-        "name": "Lebensmittelautomat",
-        "vending": "food",
-        "operator": "Metzgerei Prem"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.7045338,
-          47.3364435
-        ]
-      },
-      "properties": {
-        "id": 3265413800,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.7088318,
-          47.3418916
-        ]
-      },
-      "properties": {
-        "id": 9869958099,
-        "osm_type": "node",
-        "vending": "food",
-        "operator": "Tiroler Gebirgsimkerei Farthofer"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.7014627,
-          47.3496883
-        ]
-      },
-      "properties": {
-        "id": 12248347303,
-        "osm_type": "node",
-        "vending": "drinks;sweets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.7134241,
-          47.3515857
-        ]
-      },
-      "properties": {
-        "id": 3260086953,
-        "osm_type": "node",
-        "name": "Milchtankstelle",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.5186293,
-          47.4974843
-        ]
-      },
-      "properties": {
-        "id": 8900990490,
-        "osm_type": "node",
-        "name": "Eisdirndl",
-        "opening_hours": "24/7",
-        "vending": "ice_cream"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.7469939,
-          47.4120546
-        ]
-      },
-      "properties": {
-        "id": 10687775256,
-        "osm_type": "node",
-        "vending": "drinks;sweets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.7188341,
-          47.4642421
-        ]
-      },
-      "properties": {
-        "id": 5759888203,
-        "osm_type": "node",
-        "vending": "drinks",
-        "operator": "highline179"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.7183339,
-          47.4639941
-        ]
-      },
-      "properties": {
-        "id": 5891417008,
-        "osm_type": "node",
-        "vending": "ice_cream"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.7217515,
-          47.463546
-        ]
-      },
-      "properties": {
-        "id": 4558560998,
-        "osm_type": "node",
-        "vending": "drinks",
-        "operator": "highline179"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.7217279,
-          47.4635517
-        ]
-      },
-      "properties": {
-        "id": 5891417054,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.7919643,
-          47.4191945
-        ]
-      },
-      "properties": {
-        "id": 12877106604,
-        "osm_type": "node",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.5145892,
-          46.7560426
-        ]
-      },
-      "properties": {
-        "id": 5864892129,
-        "osm_type": "node",
-        "vending": "food",
-        "operator": "Guggenberger Alexander"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.8744826,
-          47.1350598
-        ]
-      },
-      "properties": {
-        "id": 12057122233,
-        "osm_type": "node",
-        "vending": "drinks;sweets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.8812421,
-          47.2313541
-        ]
-      },
-      "properties": {
-        "id": 12055081392,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.883236,
-          47.2357104
-        ]
-      },
-      "properties": {
-        "id": 11004081663,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "food;milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9399989,
-          47.2484729
-        ]
-      },
-      "properties": {
-        "id": 7903310206,
-        "osm_type": "node",
-        "vending": "drinks;ice_cream;sausage;food;sweets;water"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.8952992,
-          47.2619591
-        ]
-      },
-      "properties": {
-        "id": 5730788395,
-        "osm_type": "node",
-        "vending": "food",
-        "operator": "Walter Gasser - Fleischerei"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.8877801,
-          47.2899673
-        ]
-      },
-      "properties": {
-        "id": 13243675808,
-        "osm_type": "node",
-        "vending": "drinks;food",
-        "operator": "Dorfbäck"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.7779702,
-          47.3877038
-        ]
-      },
-      "properties": {
-        "id": 5169135028,
-        "osm_type": "node",
-        "vending": "coffee",
-        "operator": "Holly.at"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.7779593,
-          47.3877016
-        ]
-      },
-      "properties": {
-        "id": 5169136927,
-        "osm_type": "node",
-        "vending": "sweets;drinks",
-        "operator": "Holly.at"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.7795418,
-          47.3929306
-        ]
-      },
-      "properties": {
-        "id": 9689453758,
-        "osm_type": "node",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9279464,
-          47.3722601
-        ]
-      },
-      "properties": {
-        "id": 9108584708,
-        "osm_type": "node",
-        "vending": "food;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.0425561,
-          47.2266935
-        ]
-      },
-      "properties": {
-        "id": 9998887167,
-        "osm_type": "node",
-        "vending": "food;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9541201,
-          47.3902279
-        ]
-      },
-      "properties": {
-        "id": 12010080110,
-        "osm_type": "node",
-        "vending": "drinks;sweets"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9540844,
-          47.3902021
-        ]
-      },
-      "properties": {
-        "id": 13114832628,
-        "osm_type": "node",
-        "vending": "coffee"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.3729525,
-          47.0178691
-        ]
-      },
-      "properties": {
-        "id": 1517993752,
-        "osm_type": "node",
-        "name": "Milchautomat",
-        "opening_hours": "24/7",
-        "vending": "milk",
-        "operator": "Weifer Bio-Bauernhof"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.5385658,
-          47.0007263
-        ]
-      },
-      "properties": {
-        "id": 10911220340,
-        "osm_type": "node",
-        "vending": "food;sweets",
-        "operator": "Fleischerei Mühlstätter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.3057711,
-          47.3771914
-        ]
-      },
-      "properties": {
-        "id": 8954352011,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.6161224,
-          46.7087939
-        ]
-      },
-      "properties": {
-        "id": 12609649668,
-        "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.880601,
-          47.4349578
-        ]
-      },
-      "properties": {
-        "id": 6778985712,
-        "osm_type": "node",
-        "vending": "sweets;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9227748,
-          47.4643552
-        ]
-      },
-      "properties": {
-        "id": 13076633570,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9941292,
-          47.4418163
-        ]
-      },
-      "properties": {
-        "id": 13014188639,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.0507936,
-          47.5084587
-        ]
-      },
-      "properties": {
-        "id": 11928132757,
-        "osm_type": "node",
-        "vending": "food;drinks;cigarettes",
-        "operator": "Grubers"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.1194407,
-          47.511423
-        ]
-      },
-      "properties": {
-        "id": 1803732495,
-        "osm_type": "node",
-        "name": "Milchautomat",
-        "vending": "milk",
-        "operator": "Lengerer"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.9548256,
-          47.5859354
-        ]
-      },
-      "properties": {
-        "id": 12802913923,
-        "osm_type": "node",
-        "vending": "cheese;drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.1538135,
-          47.5878714
-        ]
-      },
-      "properties": {
-        "id": 2110303187,
-        "osm_type": "node",
-        "name": "Michautomat",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.2650553,
-          47.4501851
-        ]
-      },
-      "properties": {
-        "id": 10745443503,
-        "osm_type": "node",
-        "name": "Untertanzer Bauernstandl",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.3007483,
-          47.5126718
-        ]
-      },
-      "properties": {
-        "id": 5754206424,
-        "osm_type": "node",
-        "name": "Milchtankstelle Schmiedbauer, frische Heumilch selber zapfen",
-        "opening_hours": "24/7",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.3045001,
-          47.513545
-        ]
-      },
-      "properties": {
-        "id": 5764472978,
-        "osm_type": "node",
-        "vending": "drinks;cigarettes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.3019469,
-          47.5136247
-        ]
-      },
-      "properties": {
-        "id": 5765441161,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.3044581,
-          47.5135392
-        ]
-      },
-      "properties": {
-        "id": 5777724671,
-        "osm_type": "node",
-        "vending": "ice_cream"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.2659829,
-          47.5367427
-        ]
-      },
-      "properties": {
-        "id": 6327520091,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.170076,
           47.5846061
         ]
@@ -2422,15 +2559,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.3897231,
-          47.4436734
+          12.7700689,
+          46.8427566
         ]
       },
       "properties": {
-        "id": 13226697469,
+        "id": 13716574612,
         "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
+        "vending": "food;eggs"
       }
     },
     {
@@ -2438,12 +2574,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.5379487,
-          47.480973
+          11.2385561,
+          47.2692133
         ]
       },
       "properties": {
-        "id": 2554489776,
+        "id": 13737431912,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "sweets;drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7132196,
+          47.355204
+        ]
+      },
+      "properties": {
+        "id": 13742604403,
         "osm_type": "node",
         "vending": "drinks"
       }
@@ -2453,16 +2605,60 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.4290027,
-          47.5217927
+          11.7132346,
+          47.3551977
         ]
       },
       "properties": {
-        "id": 5108237582,
+        "id": 13742604404,
         "osm_type": "node",
-        "name": "Lafferhof 24h Frischeautomat",
+        "vending": "coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.713247,
+          47.3551925
+        ]
+      },
+      "properties": {
+        "id": 13742604405,
+        "osm_type": "node",
+        "vending": "food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7113311,
+          47.3552538
+        ]
+      },
+      "properties": {
+        "id": 13742604406,
+        "osm_type": "node",
+        "vending": "coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5929689,
+          47.294466
+        ]
+      },
+      "properties": {
+        "id": 13746346223,
+        "osm_type": "node",
         "opening_hours": "24/7",
-        "vending": "food"
+        "vending": "drinks"
       }
     },
     {
@@ -2470,30 +2666,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.1971057,
-          47.6488619
+          11.3959734,
+          47.2567574
         ]
       },
       "properties": {
-        "id": 12550975773,
+        "id": 13758022860,
         "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.2344787,
-          47.6480998
-        ]
-      },
-      "properties": {
-        "id": 10266481559,
-        "osm_type": "node",
-        "vending": "food",
-        "operator": "Käserei Plangger GmbH"
+        "vending": "coffee",
+        "operator": "coffeekult Kaffeerösterei"
       }
     },
     {

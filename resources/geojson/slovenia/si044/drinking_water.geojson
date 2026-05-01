@@ -199,7 +199,10 @@
       },
       "properties": {
         "id": 2501728939,
-        "osm_type": "node"
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "fee": "no",
+        "seasonal": "no"
       }
     },
     {
@@ -213,7 +216,8 @@
       },
       "properties": {
         "id": 2798471356,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-05-02"
       }
     },
     {
@@ -271,7 +275,8 @@
       },
       "properties": {
         "id": 3758094966,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-01-03"
       }
     },
     {
@@ -299,7 +304,8 @@
       },
       "properties": {
         "id": 3904899406,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-03-18"
       }
     },
     {
@@ -383,7 +389,8 @@
       },
       "properties": {
         "id": 5021498187,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-09-22"
       }
     },
     {
@@ -593,20 +600,6 @@
         "osm_type": "node",
         "access": "yes",
         "fee": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.8746903,
-          45.7097877
-        ]
-      },
-      "properties": {
-        "id": 7093391987,
-        "osm_type": "node"
       }
     },
     {
@@ -1259,7 +1252,8 @@
         "id": 12025648930,
         "osm_type": "node",
         "access": "yes",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2025-05-29"
       }
     },
     {
@@ -1522,9 +1516,10 @@
       "properties": {
         "id": 13110148063,
         "osm_type": "node",
-        "name": "Pitnik Famlje",
         "access": "yes",
-        "fee": "no"
+        "opening_hours": "24/7",
+        "fee": "no",
+        "seasonal": "no"
       }
     },
     {
@@ -1685,6 +1680,23 @@
         "id": 13710628909,
         "osm_type": "node",
         "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.8689112,
+          45.7074375
+        ]
+      },
+      "properties": {
+        "id": 13742621799,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "fee": "no",
+        "seasonal": "no"
       }
     }
   ]

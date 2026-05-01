@@ -450,7 +450,8 @@
         "id": 1059239582,
         "osm_type": "node",
         "name": "Naturalia - Cuore Bio",
-        "opening_hours": "Tu-Sa 09:00-19:00; PH off"
+        "opening_hours": "Tu-Sa 09:00-19:00; PH off",
+        "check_date": "2024-06-27"
       }
     },
     {
@@ -465,7 +466,8 @@
       "properties": {
         "id": 1120255349,
         "osm_type": "node",
-        "name": "Da Walter"
+        "name": "Da Walter",
+        "check_date": "2023-05-23"
       }
     },
     {
@@ -480,7 +482,8 @@
       "properties": {
         "id": 1177771459,
         "osm_type": "node",
-        "name": "Eurospesa"
+        "name": "Eurospesa",
+        "check_date": "2025-04-18"
       }
     },
     {
@@ -906,7 +909,8 @@
       "properties": {
         "id": 2163562192,
         "osm_type": "node",
-        "opening_hours": "Mo 07:30-13:00; Tu-Sa 07:30-13:00,16:00-19:00; Su 07:30-12:30"
+        "opening_hours": "Mo 07:30-13:00; Tu-Sa 07:30-13:00,16:00-19:00; Su 07:30-12:30",
+        "check_date": "2024-06-28"
       }
     },
     {
@@ -1015,13 +1019,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.6784771,
-          45.968547
+          12.6785161,
+          45.9684131
         ]
       },
       "properties": {
         "id": 2411891902,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -1443,7 +1448,8 @@
       "properties": {
         "id": 3748934039,
         "osm_type": "node",
-        "name": "Fortuna"
+        "name": "Asia and Africa market",
+        "opening_hours": "Mo-Su 09:00-20:00"
       }
     },
     {
@@ -1741,7 +1747,7 @@
       "properties": {
         "id": 4513415134,
         "osm_type": "node",
-        "name": "Bismillah Minimarket"
+        "name": "Al Madina"
       }
     },
     {
@@ -2006,7 +2012,8 @@
       "properties": {
         "id": 6640642690,
         "osm_type": "node",
-        "name": "Banglabazar"
+        "name": "Banglabazar",
+        "check_date": "2025-09-29"
       }
     },
     {
@@ -2607,7 +2614,8 @@
       },
       "properties": {
         "id": 12170531765,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-09-11"
       }
     },
     {
@@ -2839,6 +2847,67 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.2411719,
+          46.0595722
+        ]
+      },
+      "properties": {
+        "id": 13714579377,
+        "osm_type": "node",
+        "name": "Halal",
+        "opening_hours": "Mo-Sa 09:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.9604209,
+          46.2100032
+        ]
+      },
+      "properties": {
+        "id": 13721364094,
+        "osm_type": "node",
+        "name": "Minimarket Missana"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5495525,
+          45.8015832
+        ]
+      },
+      "properties": {
+        "id": 13742599054,
+        "osm_type": "node",
+        "name": "Eni Shop",
+        "brand": "Eni Shop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.1347515,
+          46.373763
+        ]
+      },
+      "properties": {
+        "id": 13752799012,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.8204605,
           46.5181631
         ]
@@ -2996,7 +3065,8 @@
         "osm_type": "way",
         "name": "Esso",
         "brand": "Esso",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-10-13"
       }
     },
     {
@@ -3105,6 +3175,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.1820908,
+          46.1406257
+        ]
+      },
+      "properties": {
+        "id": 36589678,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.0650734,
           46.3725813
         ]
@@ -3191,20 +3275,6 @@
         "name": "Eni Shop",
         "brand": "Eni Shop",
         "opening_hours": "Mo-Fr 07:00-20:00; Sa 07:00-14:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.7990956,
-          45.6545807
-        ]
-      },
-      "properties": {
-        "id": 904433906,
-        "osm_type": "way"
       }
     },
     {
@@ -3366,20 +3436,6 @@
         "id": 1362634347,
         "osm_type": "way",
         "name": "Stazione Rogers Outdoor"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.713723,
-          45.8820752
-        ]
-      },
-      "properties": {
-        "id": 1463723868,
-        "osm_type": "way"
       }
     }
   ]

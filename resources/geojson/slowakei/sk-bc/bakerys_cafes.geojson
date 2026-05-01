@@ -946,7 +946,8 @@
         "id": 3600228693,
         "osm_type": "node",
         "name": "S-cafe club",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-09-20"
       }
     },
     {
@@ -3041,7 +3042,8 @@
       "properties": {
         "id": 11976232215,
         "osm_type": "node",
-        "opening_hours": "Mo-Tu off; We-Su 10:00-17:30"
+        "opening_hours": "Mo-Tu off; We-Su 10:00-17:30",
+        "check_date": "2025-08-23"
       }
     },
     {
@@ -3576,7 +3578,8 @@
         "id": 13372299415,
         "osm_type": "node",
         "name": "Stop Cafe",
-        "brand": "Stop Cafe"
+        "brand": "Stop Cafe",
+        "takeaway": "yes"
       }
     },
     {
@@ -3698,6 +3701,37 @@
         "osm_type": "node",
         "name": "Špeciality z farmy",
         "opening_hours": "10:00-18:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7217239,
+          48.4820013
+        ]
+      },
+      "properties": {
+        "id": 13734168076,
+        "osm_type": "node",
+        "name": "Kaviareň Fialka",
+        "opening_hours": "Mo-Su 07:30-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.1424582,
+          48.7336411
+        ]
+      },
+      "properties": {
+        "id": 13747783801,
+        "osm_type": "node",
+        "name": "Choco Boss"
       }
     },
     {
@@ -3882,6 +3916,21 @@
       "properties": {
         "id": 1250420224,
         "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.8559413,
+          48.5894373
+        ]
+      },
+      "properties": {
+        "id": 1500181100,
+        "osm_type": "way",
+        "name": "Pekný deň"
       }
     }
   ]

@@ -96,7 +96,8 @@
         "shelter_type": "basic_hut",
         "bench": "yes",
         "table": "yes",
-        "operator": "Länsstyrelsen in Jämtlands Län"
+        "operator": "Länsstyrelsen in Jämtlands Län",
+        "check_date": "2025-09-02"
       }
     },
     {
@@ -436,7 +437,8 @@
         "shelter_type": "weather_shelter",
         "bench": "yes",
         "table": "no",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2020-06-28"
       }
     },
     {
@@ -504,22 +506,8 @@
         "shelter_type": "basic_hut",
         "bench": "yes",
         "table": "yes",
-        "fee": "no"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.5982844,
-          63.1802057
-        ]
-      },
-      "properties": {
-        "id": 1387138935,
-        "osm_type": "node",
-        "shelter_type": "lean_to"
+        "fee": "no",
+        "check_date": "2025-09-06"
       }
     },
     {
@@ -537,7 +525,8 @@
         "name": "Strydalens vindskydd",
         "access": "yes",
         "shelter_type": "basic_hut",
-        "bench": "yes"
+        "bench": "yes",
+        "check_date": "2025-10-26"
       }
     },
     {
@@ -2007,7 +1996,8 @@
         "bench": "yes",
         "table": "yes",
         "fee": "no",
-        "description": "Bänkar, eldplats och bord finns. Går ej att övernatta i vindskyddet. Ligger bredvid grusväg, går att köra hela vägen fram till platsen. Ljud från riksväg 84 kan vara störande. Dass, nej Ved, nej Vatten, ja"
+        "description": "Bänkar, eldplats och bord finns. Går ej att övernatta i vindskyddet. Ligger bredvid grusväg, går att köra hela vägen fram till platsen. Ljud från riksväg 84 kan vara störande. Dass, nej Ved, nej Vatten, ja",
+        "check_date": "2020-06-03"
       }
     },
     {
@@ -3714,7 +3704,8 @@
         "shelter_type": "lean_to",
         "bench": "yes",
         "table": "no",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2023-09-07"
       }
     },
     {
@@ -5304,6 +5295,21 @@
         "id": 13666765103,
         "osm_type": "node",
         "name": "Per-olsbrottet",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.598337,
+          63.1802173
+        ]
+      },
+      "properties": {
+        "id": 13760642511,
+        "osm_type": "node",
         "shelter_type": "lean_to"
       }
     },

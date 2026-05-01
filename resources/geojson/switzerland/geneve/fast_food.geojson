@@ -18,6 +18,7 @@
         "opening_hours": "06.30-24.00, 06.30 - 02.00 (Fri+Sat)",
         "operator": "McDonalds",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -38,6 +39,7 @@
         "opening_hours": "Su-Th 08:00-24:00, Fr,Sa 08:00-02:00",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -54,6 +56,7 @@
         "id": 582822243,
         "osm_type": "node",
         "name": "Constantine",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -73,6 +76,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Th 08:00-22:00, Fr,Sa 08:00-24:00, Su 10:00-22:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -91,6 +95,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -111,6 +116,7 @@
         "opening_hours": "Su-We 09:00-01:00, Th-Sa 09:00-02:00",
         "phone": "+41 22 320 71 10",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -130,6 +136,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 10:00-24:00, Fr,Sa 10:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -148,6 +155,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -164,6 +172,7 @@
         "id": 1286683107,
         "osm_type": "node",
         "name": "Chic Chicken",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -180,6 +189,7 @@
         "id": 1286683110,
         "osm_type": "node",
         "name": "MAKI POKÉ",
+        "cuisine": "japanese",
         "chain": "unknown"
       }
     },
@@ -196,6 +206,7 @@
         "id": 1286683112,
         "osm_type": "node",
         "name": "Au bon kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -215,6 +226,7 @@
         "opening_hours": "Tu-Sa 11:30-22:00",
         "phone": "+41 22 320 70 76",
         "website": "https://misuji.ch/",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -232,6 +244,7 @@
         "osm_type": "node",
         "name": "Onex Kebap",
         "opening_hours": "PH,Mo-Su 09:30-24:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -250,6 +263,7 @@
         "name": "Holy Cow",
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://www.holycow.ch/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -267,6 +281,7 @@
         "osm_type": "node",
         "name": "Thai Twist",
         "opening_hours": "Mo-Fr 11:30-15:00,18:00-22:00; Sa 12:00-22:00",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -286,6 +301,7 @@
         "opening_hours": "We-Sa 11:00-19:30",
         "phone": "+41227336600",
         "website": "https://sites.google.com/site/sushianzoo/",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -305,6 +321,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 10:00-24:00, Fr,Sa 10:00-02:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -340,6 +357,7 @@
         "name": "Holy Cow",
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://www.holycow.ch/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -358,6 +376,7 @@
         "name": "Délifrance",
         "brand": "Délifrance",
         "brand:wikidata": "Q5320229",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -377,6 +396,7 @@
         "opening_hours": "Mo-Th 11:00-13:30,17:00-22:00; Fr-Sa 11:00-13:30,17:00-23:00; Su 11:00-22:00",
         "phone": "+41 22 368 10 10",
         "website": "https://dieci.ch/fr/livraison-pizza-geneve-acacias",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -394,6 +414,28 @@
         "osm_type": "node",
         "name": "Ephese",
         "opening_hours": "Mo-Su,PH 10:00-02:00",
+        "cuisine": "kebab",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1340009,
+          46.1991871
+        ]
+      },
+      "properties": {
+        "id": 2021520039,
+        "osm_type": "node",
+        "name": "Panda Express",
+        "brand": "Panda Express",
+        "opening_hours": "Mo-Su 11:00-14:30, 18:00-22:30",
+        "phone": "+41 22 328 48 55",
+        "brand:wikidata": "Q1358690",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -428,6 +470,7 @@
         "name": "Mikado Sushi",
         "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-18:00",
         "website": "http://www.mikado-food.ch",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -450,6 +493,7 @@
         "website": "https://www.mcdonalds.com/ch/fr-ch/location/les-acacias/gen-ve-acacias-etoile/route-des-jeunes-9/780216.html",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -486,6 +530,7 @@
         "opening_hours": "Mo-Sa 11:00-14:30, 18:00-22:00; Su 18:00-22:00",
         "phone": "+41 22 735 64 20",
         "website": "https://roadrunner-restaurant.ch",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -506,6 +551,8 @@
         "phone": "+41 22 328 07 27",
         "website": "https://www.planetesandwichs.ch/",
         "operator": "D. Santos",
+        "cuisine": "sandwich;portuguese;coffee;snackbar",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -524,6 +571,7 @@
         "name": "Da Peppe Pizza",
         "opening_hours": "Mo-Fr 11:30-14:00,18:00-23:00; Sa,Su 18:00-23:00",
         "operator": "Da Peppe",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -557,6 +605,7 @@
         "osm_type": "node",
         "name": "Kebab House",
         "opening_hours": "Mo-Su 07:00-24:00",
+        "check_date": "2025-07-09",
         "chain": "unknown"
       }
     },
@@ -573,6 +622,7 @@
         "id": 2284327861,
         "osm_type": "node",
         "name": "Ginger Donut",
+        "cuisine": "donut",
         "chain": "unknown"
       }
     },
@@ -592,6 +642,7 @@
         "opening_hours": "Su-Th 11:00-02:00; Fr-Sa 11:00-04:00",
         "phone": "+41 22 731 66 58",
         "website": "https://parfumsdebeyrouth.ch/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -624,6 +675,7 @@
         "osm_type": "node",
         "name": "Supreme Tacos",
         "opening_hours": "11:00 - 00:00 (vendredi 14:00 - 00:00)",
+        "cuisine": "tacos",
         "chain": "unknown"
       }
     },
@@ -641,6 +693,7 @@
         "osm_type": "node",
         "name": "Al Amir",
         "opening_hours": "Siu-Mo 10:00-02:00",
+        "cuisine": "lebanese",
         "chain": "unknown"
       }
     },
@@ -677,6 +730,7 @@
         "opening_hours": "Mo-Th 11:00-13:30,17:00-22:00; Fr-Sa 11:00-13:30,17:00-23:00; Su 11:00-22:00",
         "phone": "+41 22 343 10 10",
         "website": "https://dieci.ch/fr/livraison-pizza-geneve-eaux-vives",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -711,6 +765,7 @@
         "osm_type": "node",
         "name": "Il Forno",
         "opening_hours": "Mo-Su 06:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -743,6 +798,7 @@
       "properties": {
         "id": 3791326818,
         "osm_type": "node",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -760,6 +816,8 @@
         "osm_type": "node",
         "name": "Silver Kebab Gare",
         "opening_hours": "Mo-Sa 10:00-23:00; Su off",
+        "cuisine": "kebab",
+        "check_date": "2025-10-01",
         "chain": "unknown"
       }
     },
@@ -777,6 +835,7 @@
         "osm_type": "node",
         "name": "Mezze du Liban",
         "opening_hours": "Tu-Sa 09:00-02:00, Su,Mo 09:00-01:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -798,6 +857,7 @@
         "phone": "+41 22 900 16 69",
         "website": "https://www.fiveguys.ch",
         "brand:wikidata": "Q1131810",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -813,6 +873,7 @@
       "properties": {
         "id": 4239450977,
         "osm_type": "node",
+        "cuisine": "japanese",
         "chain": "unknown"
       }
     },
@@ -829,6 +890,7 @@
         "id": 4307767389,
         "osm_type": "node",
         "name": "Glacier du soleil",
+        "cuisine": "ice_cream",
         "chain": "unknown"
       }
     },
@@ -848,6 +910,7 @@
         "brand": "McDonald's",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -911,6 +974,7 @@
         "id": 4365117589,
         "osm_type": "node",
         "name": "Casa das Bifanas",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -946,6 +1010,7 @@
         "name": "Khao Kaeng Thaï",
         "opening_hours": "Mo-Tu 11:30-19:30; We 11:30-17:00; Th-Fr 11:30-19:30",
         "phone": "+41 22 808 04 57",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -962,6 +1027,7 @@
         "id": 4386953591,
         "osm_type": "node",
         "name": "Pastradwich",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -1032,6 +1098,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Su 11:00-22:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -1048,6 +1115,7 @@
         "id": 4825677959,
         "osm_type": "node",
         "name": "Kebab du Marché",
+        "cuisine": "turkish",
         "chain": "unknown"
       }
     },
@@ -1067,6 +1135,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Th 10:30-23:30, Fr,Sa 10:30-24:00, Su 11:00-23:30",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -1086,6 +1155,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-We 09:00-24:00, Th-Sa 09:00-02:00, Su 09:00-24:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -1105,6 +1175,8 @@
         "brand": "KFC",
         "opening_hours": "Su-Th 11:00-23:00, Fr,Sa 11:00-24:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
+        "check_date": "2024-10-02",
         "chain": "unknown"
       }
     },
@@ -1122,6 +1194,7 @@
         "osm_type": "node",
         "name": "Pasta Corner",
         "operator": "Eldora SA",
+        "cuisine": "pasta",
         "chain": "unknown"
       }
     },
@@ -1143,6 +1216,7 @@
         "phone": "+41 22 807 09 40",
         "operator": "Domino's Pizza",
         "brand:wikidata": "Q839466",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1162,6 +1236,8 @@
         "opening_hours": "Mo-Sa 08:00-23:00",
         "phone": "+41 22 782 52 90",
         "website": "https://kebabgeneve.ch/",
+        "cuisine": "kebab",
+        "check_date": "2025-08-14",
         "chain": "unknown"
       }
     },
@@ -1178,6 +1254,7 @@
         "id": 6110978085,
         "osm_type": "node",
         "name": "L'Isola",
+        "cuisine": "pizza;italian",
         "chain": "unknown"
       }
     },
@@ -1213,6 +1290,7 @@
         "name": "Kinnik",
         "opening_hours": "Mo-Fr 08:30-15:30",
         "phone": "+41227430044",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1232,6 +1310,7 @@
         "opening_hours": "Mo-Sa 11:00-00:00",
         "phone": "+41 22 700 33 00",
         "website": "https://fouadtraiteur.ch/snack_accueil.html",
+        "cuisine": "lebanese",
         "chain": "unknown"
       }
     },
@@ -1249,6 +1328,7 @@
         "osm_type": "node",
         "name": "Bamee Resto",
         "opening_hours": "Mo-Fr 11:00-15:00,18:00-22:30; Sa 11:00-22:30; Su 11:00-17:30",
+        "cuisine": "vietnamese",
         "chain": "unknown"
       }
     },
@@ -1298,6 +1378,7 @@
         "osm_type": "node",
         "name": "Taco rico",
         "opening_hours": "Mo-Su 11:00-22:00",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -1330,6 +1411,7 @@
         "id": 6798230985,
         "osm_type": "node",
         "name": "Don Pedro",
+        "cuisine": "italian_pizza",
         "chain": "unknown"
       }
     },
@@ -1348,6 +1430,7 @@
         "name": "Inglewood",
         "opening_hours": "Mo-Fr 11:30-14:00,18:30-21:30; Sa-Su 12:00-14:30,18:30-21:30",
         "phone": "+41 22 700 27 85",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1367,6 +1450,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 09:00-01:00, Fr,Sa 09:00-02:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -1384,6 +1468,7 @@
         "osm_type": "node",
         "name": "Petit Piment",
         "opening_hours": "Mo-Su 10:00-16:00",
+        "cuisine": "thai",
         "chain": "unknown"
       }
     },
@@ -1421,6 +1506,7 @@
         "opening_hours": "Mo-Fr 07:30-14:30",
         "phone": "+41793985295",
         "website": "https://www.cafesansnom.ch/",
+        "cuisine": "coffee_shop;sandwich;salad",
         "chain": "unknown"
       }
     },
@@ -1440,6 +1526,7 @@
         "opening_hours": "Mo-Fr 11:00-15:00, Tu-Sa 17:00-22:00",
         "phone": "+41 22 777 71 65",
         "website": "https://lembouchure.ch",
+        "cuisine": "french;local;brunch",
         "chain": "unknown"
       }
     },
@@ -1456,6 +1543,7 @@
         "id": 8411322877,
         "osm_type": "node",
         "name": "Özlem Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1472,6 +1560,7 @@
         "id": 8465103777,
         "osm_type": "node",
         "name": "Epicerie - Pizzeria des Grands-Chênes",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1490,6 +1579,7 @@
         "name": "Formule 10",
         "opening_hours": "Mo-Fr 11:00-14:00, Su-Th 17:30-22:30, Fr,Sa 17:30-23:00",
         "operator": "Formule 10 CHF",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1506,6 +1596,7 @@
         "id": 8679498161,
         "osm_type": "node",
         "name": "Özer",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1524,6 +1615,7 @@
         "name": "Bao Canteen",
         "opening_hours": "Mo-Su 11:30-14:00,18:00-21:30",
         "website": "https://www.baocanteen.com/",
+        "cuisine": "taiwanese;burger",
         "chain": "unknown"
       }
     },
@@ -1543,6 +1635,7 @@
         "brand": "Sushi Shop",
         "opening_hours": "Mo-Su 09:00-22:00",
         "brand:wikidata": "Q3505657",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -1560,6 +1653,7 @@
         "osm_type": "node",
         "name": "Five guys",
         "opening_hours": "Mo-Su 09:00-21:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1578,6 +1672,7 @@
         "name": "Alles Gut Gemüse Kebab",
         "opening_hours": "Apr-Oct: Mo-Fr 11:30-14:00,18:30-21:00; Apr-Oct: Sa 11:30-21:00; Nov-Mar: Mo-Fr 11:30-14:00,18:30-21:00; Nov-Mar: Sa 12:00-15:00,18:30-21:00",
         "website": "https://www.gemusekebab.ch",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1596,6 +1691,7 @@
         "name": "Ali baba kebab",
         "opening_hours": "Mo-Su 08:00-02:00",
         "phone": "+41227387100",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1615,6 +1711,8 @@
         "opening_hours": "Mo-We 11:30-14:00,18:30-21:30; Th-Fr 11:30-14:00,18:30-22:00; Sa 12:00-14:00,18:30-22:00; Su 18:00-21:30",
         "phone": "+41227530022",
         "website": "https://poulet22.com/",
+        "cuisine": "chicken",
+        "check_date": "2025-01-19",
         "chain": "unknown"
       }
     },
@@ -1634,6 +1732,7 @@
         "opening_hours": "Mo-Sa 11:00-14:00,18:00-23:00; Su 18:00-23:00",
         "phone": "+41 22 980 92 92",
         "website": "https://pizzeria-davinci.ch/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1668,6 +1767,7 @@
         "osm_type": "node",
         "name": "Chez Loan Kebab",
         "opening_hours": "Mo-Su 10:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1684,6 +1784,7 @@
         "id": 9783259610,
         "osm_type": "node",
         "name": "Ankara",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1702,6 +1803,7 @@
         "name": "Sushi Shop",
         "brand": "Sushi Shop",
         "brand:wikidata": "Q3505657",
+        "cuisine": "sushi",
         "chain": "unknown"
       }
     },
@@ -1719,6 +1821,7 @@
         "osm_type": "node",
         "name": "A La Turca",
         "opening_hours": "Mo-Su,PH 07:00-24:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1737,6 +1840,7 @@
         "name": "La Cabane des Evaux",
         "website": "https://www.evaux.ch/vente-lemporter",
         "operator": "Restaurant des Evaux",
+        "cuisine": "crepe;ice_cream",
         "chain": "unknown"
       }
     },
@@ -1770,6 +1874,7 @@
         "osm_type": "node",
         "name": "Domino's pizza",
         "opening_hours": "Mo-Th 11:00-13:30, 17:00-22:30; Fr 11:00-13:30, 17:00-23:00; Sa 11:00-23:00; Su 11:00-22:30",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1788,6 +1893,7 @@
         "name": "River Side",
         "opening_hours": "Mo 19:00-01:00; Tu 19:00-02:00; We 19:00-02:30; Th 19:00-03:00; Fr, Sa 19:00-04:00; Su 19:00-00:00",
         "phone": "+41227362365",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1824,6 +1930,8 @@
         "brand": "Burger King",
         "opening_hours": "10:30-01:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
+        "check_date": "2023-05-19",
         "chain": "burger_king"
       }
     },
@@ -1840,6 +1948,7 @@
         "id": 10996716212,
         "osm_type": "node",
         "name": "Deniz",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1889,6 +1998,7 @@
         "id": 11397372402,
         "osm_type": "node",
         "opening_hours": "Tu, Fr 14:00-05:00; Sa 15:00-03:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1908,6 +2018,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Th 10:00-23:00, Fr 10:00-24:00, Sa 00:00-00:00, Su 00:00-23:00, PH 10:00-23:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -1927,6 +2038,7 @@
         "opening_hours": "11:00-23:00",
         "phone": "+41 22 880 08 80",
         "website": "https://www.chic-chicken.ch/",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -1963,6 +2075,7 @@
         "brand": "Nordsee",
         "opening_hours": "Mo-Sa 10:30-22:00; Su 11:00-22:00",
         "brand:wikidata": "Q74866",
+        "cuisine": "seafood",
         "chain": "unknown"
       }
     },
@@ -1980,6 +2093,7 @@
         "osm_type": "node",
         "name": "Naruto",
         "opening_hours": "Mo-Su 11:00-22:00",
+        "cuisine": "ramen",
         "chain": "unknown"
       }
     },
@@ -2014,6 +2128,8 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2025-02-23",
         "chain": "mcdonalds"
       }
     },
@@ -2081,6 +2197,7 @@
         "name": "Side Chick",
         "opening_hours": "We-Fr 11:30-14:30, 18:00-22:00; Sa, Su 11:30-22:00",
         "phone": "+41229084348",
+        "cuisine": "american",
         "chain": "unknown"
       }
     },
@@ -2098,6 +2215,7 @@
         "osm_type": "node",
         "name": "McDonald's",
         "opening_hours": "Mo-Th 09:00-24:00, Fr,Sa 09:00-02:00, Su 10:00-24:00",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2115,6 +2233,7 @@
         "osm_type": "node",
         "name": "Pizza Presto",
         "opening_hours": "Mo-Sa 09:00-23:00; Su 10:00-23:00",
+        "cuisine": "pizza;kebab;arab",
         "chain": "unknown"
       }
     },
@@ -2131,6 +2250,7 @@
         "id": 12169543132,
         "osm_type": "node",
         "name": "Dragon",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -2147,6 +2267,7 @@
         "id": 12169543133,
         "osm_type": "node",
         "name": "Kisa Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2166,6 +2287,7 @@
         "opening_hours": "Mo-Fr 11:45-13:00",
         "website": "https://www.z-steam.com/",
         "operator": "Henan Zeng",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -2182,6 +2304,7 @@
         "id": 12224032960,
         "osm_type": "node",
         "name": "Pretty Patty",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2198,6 +2321,7 @@
         "id": 12229254930,
         "osm_type": "node",
         "name": "Döner kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2215,6 +2339,7 @@
         "osm_type": "node",
         "name": "Orale",
         "opening_hours": "Mo-Fr 11:00-14:30,17:00-22:30; Sa 11:30-22:30; Su 12:00-22:00",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -2231,6 +2356,7 @@
         "id": 12236050052,
         "osm_type": "node",
         "name": "Pitstop Donut",
+        "cuisine": "donut",
         "chain": "unknown"
       }
     },
@@ -2264,6 +2390,7 @@
         "osm_type": "node",
         "name": "Restaurant Kebap",
         "opening_hours": "Mo-Th 08:00-24:00, Fr-Su 10:00-24:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2282,6 +2409,7 @@
         "name": "Pizzi Cotto",
         "opening_hours": "Mo-Sa 11:00-17:30",
         "website": "https://pizzicotto.ch/",
+        "cuisine": "italian;pizza;sandwich",
         "chain": "unknown"
       }
     },
@@ -2315,6 +2443,7 @@
         "id": 12303607526,
         "osm_type": "node",
         "name": "Silver Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2334,6 +2463,7 @@
         "opening_hours": "Apr-Sep We-Fr 11:30-14:30, 18:00-22:00; Sa, Su 11:30-22:00; Oct-Mar off",
         "phone": "+41229084348",
         "website": "https://pavillon-barton.ch/",
+        "cuisine": "american",
         "chain": "unknown"
       }
     },
@@ -2384,6 +2514,7 @@
         "osm_type": "node",
         "name": "Chez Gustave",
         "opening_hours": "Mo-Fr 07:00-19:00; Sa-Su 10:30-17:30",
+        "check_date": "2025-12-05",
         "chain": "unknown"
       }
     },
@@ -2402,6 +2533,7 @@
         "name": "Chez le libanais",
         "opening_hours": "Mo-Su 11:30-14:00, 17:30-21:30",
         "website": "https://www.chez-le-libanais-geneve.ch/",
+        "cuisine": "lebanese",
         "chain": "unknown"
       }
     },
@@ -2420,6 +2552,7 @@
         "name": "El Baraka",
         "opening_hours": "Su-Th 11:00-02:00; Fr-Sa 11:00-06:00",
         "phone": "+41 22 321 16 00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2439,6 +2572,7 @@
         "opening_hours": "Mo-Fr 06:00-18:00",
         "phone": "+41 22 310 20 35",
         "website": "https://www.pret.com/fr-CH/trouver-un-pret/l/geneva/route-du-grand-lancy/4699859",
+        "cuisine": "sandwich;salad;cake;coffee",
         "chain": "unknown"
       }
     },
@@ -2457,6 +2591,7 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -2476,6 +2611,7 @@
         "opening_hours": "Mo-Su 09:00-21:00",
         "phone": "+41 22 808 00 22",
         "website": "https://www.elsalad.com/",
+        "cuisine": "salad",
         "chain": "unknown"
       }
     },
@@ -2510,6 +2646,7 @@
         "osm_type": "node",
         "name": "Sando",
         "opening_hours": "Mo-Fr 11:30-14:30,18:00-21:30; Sa 11:00-21:30; Su 11:00-15:30",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2543,6 +2680,7 @@
         "osm_type": "node",
         "name": "Ali haydar",
         "opening_hours": "Mo-Su 10:00-02:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2577,6 +2715,7 @@
         "name": "ChickenUp",
         "phone": "+41 22 557 28 25",
         "website": "https://www.chickenup.ch/",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -2593,7 +2732,10 @@
         "id": 12915103002,
         "osm_type": "node",
         "name": "Burger King",
+        "brand": "Burger King",
         "phone": "+41227822975",
+        "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -2610,6 +2752,7 @@
         "id": 13064781101,
         "osm_type": "node",
         "name": "L'atlas",
+        "cuisine": "moroccan",
         "chain": "unknown"
       }
     },
@@ -2642,6 +2785,7 @@
         "id": 13083798591,
         "osm_type": "node",
         "name": "Il Fornello Napoletano",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2658,6 +2802,8 @@
         "id": 13131305294,
         "osm_type": "node",
         "name": "Bodrum",
+        "opening_hours": "Mo-We 11:00-01:00, Th-Sa 11:00-02:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2690,6 +2836,7 @@
         "id": 13163231037,
         "osm_type": "node",
         "name": "Tex Mex",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -2706,6 +2853,7 @@
         "id": 13181267393,
         "osm_type": "node",
         "name": "Maily",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2738,6 +2886,7 @@
         "id": 13200699137,
         "osm_type": "node",
         "name": "Tacos Burger",
+        "cuisine": "mexican",
         "chain": "unknown"
       }
     },
@@ -2754,6 +2903,7 @@
         "id": 13208787539,
         "osm_type": "node",
         "name": "Piadina Azzuria",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2786,6 +2936,7 @@
         "id": 13236500212,
         "osm_type": "node",
         "name": "Sultan Beyrouth",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2802,6 +2953,7 @@
         "id": 13236509612,
         "osm_type": "node",
         "name": "Pacha",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2818,6 +2970,7 @@
         "id": 13261087013,
         "osm_type": "node",
         "name": "Pizza!",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2850,6 +3003,7 @@
         "id": 13266867403,
         "osm_type": "node",
         "name": "Genève Alimentation & Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2866,6 +3020,7 @@
         "id": 13266873540,
         "osm_type": "node",
         "name": "La Tranche",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2882,6 +3037,7 @@
         "id": 13266875304,
         "osm_type": "node",
         "name": "Pizza Lina",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2898,6 +3054,7 @@
         "id": 13266900961,
         "osm_type": "node",
         "name": "UFO Food",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2951,6 +3108,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -2982,6 +3140,7 @@
         "id": 170165171,
         "osm_type": "way",
         "name": "Chic Chicken",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },

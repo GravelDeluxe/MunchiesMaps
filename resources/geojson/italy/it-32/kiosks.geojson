@@ -74,7 +74,8 @@
       "properties": {
         "id": 293868275,
         "osm_type": "node",
-        "name": "Tabaccheria Filippi Edicola"
+        "name": "Tabaccheria Filippi Edicola",
+        "check_date": "2024-02-16"
       }
     },
     {
@@ -149,7 +150,8 @@
       "properties": {
         "id": 299805386,
         "osm_type": "node",
-        "name": "Ortofrutta F.lli Duchi"
+        "name": "Ortofrutta F.lli Duchi",
+        "check_date": "2026-02-15"
       }
     },
     {
@@ -1007,7 +1009,8 @@
         "id": 1013450185,
         "osm_type": "node",
         "name": "Coop Trentino",
-        "opening_hours": "Mo 14:30-20:00; Tu-Sa 09:00-20:00; Su closed; PH closed"
+        "opening_hours": "Mo-Fr 08:30-20:30; Su 08:30-19:30",
+        "check_date": "2026-03-04"
       }
     },
     {
@@ -1075,14 +1078,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.4450938,
-          46.9370951
+          11.445158,
+          46.9371812
         ]
       },
       "properties": {
         "id": 1191445566,
         "osm_type": "node",
-        "name": "Mayr"
+        "name": "Mayr",
+        "check_date": "2024-09-20"
       }
     },
     {
@@ -1168,6 +1172,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.0691094,
+          46.2991723
+        ]
+      },
+      "properties": {
+        "id": 1277722017,
+        "osm_type": "node",
+        "name": "MD",
+        "check_date": "2026-04-11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.2099397,
           46.2406758
         ]
@@ -1206,7 +1226,8 @@
         "id": 1313709044,
         "osm_type": "node",
         "name": "La Gastronomia Mein",
-        "opening_hours": "Mo-Fr 08:30-13:00,15:30-19:30, Sa 08:30-13:00"
+        "opening_hours": "Mo-Fr 08:30-13:00,15:30-19:30, Sa 08:30-13:00",
+        "check_date": "2023-11-23"
       }
     },
     {
@@ -1243,8 +1264,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.8543034,
-          46.052182
+          10.8543111,
+          46.052201
         ]
       },
       "properties": {
@@ -1259,14 +1280,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.8836071,
-          46.0562485
+          10.8836634,
+          46.0562936
         ]
       },
       "properties": {
         "id": 1357185926,
         "osm_type": "node",
-        "name": "Famiglia Cooperativa"
+        "name": "Famiglia Cooperativa",
+        "opening_hours": "Mo-Sa 08:30-11:30"
       }
     },
     {
@@ -1341,7 +1363,8 @@
       "properties": {
         "id": 1371988779,
         "osm_type": "node",
-        "name": "Famiglia Cooperativa"
+        "name": "Famiglia Cooperativa",
+        "check_date": "2023-07-13"
       }
     },
     {
@@ -1448,7 +1471,8 @@
         "id": 1404478593,
         "osm_type": "node",
         "name": "Golmarket",
-        "opening_hours": "Mo-We,Fr 07:30-18:00; Th,Sa 07:30-12:00"
+        "opening_hours": "Mo-We,Fr 07:30-18:00; Th,Sa 07:30-12:00",
+        "check_date": "2024-09-09"
       }
     },
     {
@@ -1798,7 +1822,9 @@
       },
       "properties": {
         "id": 1687733791,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "mio negozio",
+        "opening_hours": "Mo-Sa 09:30-19:30; Su 13:30-19:30"
       }
     },
     {
@@ -2103,21 +2129,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.4327256,
-          46.8981081
-        ]
-      },
-      "properties": {
-        "id": 1994259648,
-        "osm_type": "node",
-        "name": "Weltladen - Bottega del Mondo"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.8364959,
           46.8066544
         ]
@@ -2215,7 +2226,8 @@
       },
       "properties": {
         "id": 2214781642,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-07-29"
       }
     },
     {
@@ -2258,20 +2270,6 @@
       },
       "properties": {
         "id": 2297460601,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.7645401,
-          45.8733875
-        ]
-      },
-      "properties": {
-        "id": 2297463805,
         "osm_type": "node"
       }
     },
@@ -2331,7 +2329,8 @@
       "properties": {
         "id": 2335635475,
         "osm_type": "node",
-        "name": "Inser Lodn"
+        "name": "Inser Lodn",
+        "check_date": "2025-10-09"
       }
     },
     {
@@ -2424,7 +2423,8 @@
         "id": 2431398442,
         "osm_type": "node",
         "name": "Bahnhof",
-        "opening_hours": "Mo-Sa 06:00-19:00; Su 06:00-12:00"
+        "opening_hours": "Mo-Sa 06:00-19:00; Su 06:00-12:00",
+        "check_date": "2024-02-25"
       }
     },
     {
@@ -2642,36 +2642,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.3523935,
-          46.4971527
-        ]
-      },
-      "properties": {
-        "id": 2528926910,
-        "osm_type": "node",
-        "name": "Triade",
-        "opening_hours": "Mo-Fr 08:30-19:00, Sa 08:00-12:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.1184562,
-          46.0689677
-        ]
-      },
-      "properties": {
-        "id": 2578614994,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.4550873,
           46.4855241
         ]
@@ -2722,7 +2692,8 @@
       "properties": {
         "id": 2609295121,
         "osm_type": "node",
-        "name": "Margherita - Conad"
+        "name": "Margherita Conad",
+        "brand": "Margherita Conad"
       }
     },
     {
@@ -2875,7 +2846,8 @@
         "id": 2749652161,
         "osm_type": "node",
         "name": "Harasser",
-        "opening_hours": "Mo-Fr 06:45-14:00; Sa-Su off"
+        "opening_hours": "Mo-Fr 06:45-14:00; Sa-Su off",
+        "check_date": "2024-03-09"
       }
     },
     {
@@ -3055,20 +3027,6 @@
         "id": 2883120284,
         "osm_type": "node",
         "name": "Camping Arquin"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          10.9459053,
-          45.854644
-        ]
-      },
-      "properties": {
-        "id": 2886630673,
-        "osm_type": "node"
       }
     },
     {
@@ -3344,7 +3302,8 @@
       "properties": {
         "id": 3235878803,
         "osm_type": "node",
-        "name": "Altromercato Mandacarù"
+        "name": "Altromercato Mandacarù",
+        "opening_hours": "Mo-Sa 09:00-12:00, Tu,Th,Fr 16:00-19:00"
       }
     },
     {
@@ -3813,22 +3772,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.7769128,
-          46.625977
-        ]
-      },
-      "properties": {
-        "id": 4233935894,
-        "osm_type": "node",
-        "name": "Tabakladen",
-        "opening_hours": "Mo-Sa 07:30-12:00, Mo-Fr 15:00-18:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.7748793,
           46.6284356
         ]
@@ -3928,7 +3871,8 @@
       "properties": {
         "id": 4242535380,
         "osm_type": "node",
-        "name": "Dorfladen"
+        "name": "Dorfladen",
+        "check_date": "2024-03-11"
       }
     },
     {
@@ -4193,6 +4137,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.1335264,
+          46.0604546
+        ]
+      },
+      "properties": {
+        "id": 4444700037,
+        "osm_type": "node",
+        "name": "Edera - Emporio di comunità"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.2807202,
           46.4632106
         ]
@@ -4201,7 +4160,8 @@
         "id": 4499266224,
         "osm_type": "node",
         "name": "Gutgsell Doná",
-        "opening_hours": "Mo-Fr 07:00-12:15, 15:30-19:00; Sa 07:00-12:15"
+        "opening_hours": "Mo-Fr 07:00-12:15, 15:30-19:00; Sa 07:00-12:15",
+        "check_date": "2025-08-05"
       }
     },
     {
@@ -4370,8 +4330,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.6364595,
-          45.9494164
+          10.63689,
+          45.9489586
         ]
       },
       "properties": {
@@ -4534,8 +4494,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.8876875,
-          46.0473735
+          10.8876916,
+          46.0473899
         ]
       },
       "properties": {
@@ -4630,7 +4590,8 @@
       "properties": {
         "id": 5801065153,
         "osm_type": "node",
-        "name": "Schlernfrucht"
+        "name": "Schlernfrucht",
+        "opening_hours": "Mo-Fr 08:00-12:30,15:00-18:30; Sa 08:00-12:00; Su,PH off"
       }
     },
     {
@@ -4750,7 +4711,8 @@
       "properties": {
         "id": 5931812395,
         "osm_type": "node",
-        "opening_hours": "Mo-Fr 07:30-12:00,15:00-18:30; Sa 07:30-12:00,15:00-17:00; Su 07:30-11:00"
+        "opening_hours": "Mo-Fr 07:30-12:00,15:00-18:30; Sa 07:30-12:00,15:00-17:00; Su 07:30-11:00",
+        "check_date": "2025-08-10"
       }
     },
     {
@@ -4901,7 +4863,8 @@
       "properties": {
         "id": 6843912887,
         "osm_type": "node",
-        "name": "Walde"
+        "name": "Walde",
+        "check_date": "2025-10-08"
       }
     },
     {
@@ -4917,7 +4880,8 @@
         "id": 6843912888,
         "osm_type": "node",
         "name": "Domanig",
-        "opening_hours": "Mo-Sa 09:00-13:00, Mo 14:45-18:15, Tu-Th,Sa 14:30-18:00, Fr 14:45-18:30; Su off"
+        "opening_hours": "Mo-Sa 09:00-13:00, Mo 14:45-18:15, Tu-Th,Sa 14:30-18:00, Fr 14:45-18:30; Su off",
+        "check_date": "2025-10-08"
       }
     },
     {
@@ -5233,7 +5197,8 @@
         "id": 8880297329,
         "osm_type": "node",
         "name": "Bio Bazar",
-        "opening_hours": "Mo-Fr 09:00-12:30, 15:30-19:00; Sa 9:00-12:30"
+        "opening_hours": "Mo-Fr 09:00-12:30, 15:30-19:00; Sa 9:00-12:30",
+        "check_date": "2025-08-10"
       }
     },
     {
@@ -5455,7 +5420,8 @@
       },
       "properties": {
         "id": 10118154362,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-09-04"
       }
     },
     {
@@ -5561,7 +5527,8 @@
         "id": 11133949882,
         "osm_type": "node",
         "name": "Margherita Conad",
-        "brand": "Conad"
+        "brand": "Conad",
+        "check_date": "2023-11-19"
       }
     },
     {
@@ -5664,7 +5631,8 @@
       "properties": {
         "id": 11323173889,
         "osm_type": "node",
-        "name": "Cyber City Minimarket"
+        "name": "Cyber City Minimarket",
+        "check_date": "2023-11-05"
       }
     },
     {
@@ -5755,7 +5723,8 @@
       "properties": {
         "id": 11708171099,
         "osm_type": "node",
-        "name": "Oberschmied"
+        "name": "Oberschmied",
+        "check_date": "2024-03-09"
       }
     },
     {
@@ -5769,7 +5738,8 @@
       },
       "properties": {
         "id": 11708171135,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-03-09"
       }
     },
     {
@@ -6000,8 +5970,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.1209483,
-          46.0538928
+          11.1209322,
+          46.053919
         ]
       },
       "properties": {
@@ -6114,7 +6084,8 @@
       },
       "properties": {
         "id": 13116246968,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-09-03"
       }
     },
     {
@@ -6182,13 +6153,131 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.0481314,
+          46.1109116
+        ]
+      },
+      "properties": {
+        "id": 13622887285,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8653699,
+          46.1963587
+        ]
+      },
+      "properties": {
+        "id": 13651510266,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.6322297,
+          46.3105602
+        ]
+      },
+      "properties": {
+        "id": 13651531014,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7077179,
+          46.4206679
+        ]
+      },
+      "properties": {
+        "id": 13651637817,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1096368,
+          46.8645963
+        ]
+      },
+      "properties": {
+        "id": 13651656688,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.0759942,
+          46.3060654
+        ]
+      },
+      "properties": {
+        "id": 13722909079,
+        "osm_type": "node",
+        "name": "Famiglia Cooperativa",
+        "check_date": "2026-04-11"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.18416,
+          45.9048702
+        ]
+      },
+      "properties": {
+        "id": 13737473007,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.4454612,
+          46.936771
+        ]
+      },
+      "properties": {
+        "id": 13778397406,
+        "osm_type": "node",
+        "name": "Gossy Shop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.0452794,
           46.0765741
         ]
       },
       "properties": {
         "id": 37860116,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "coop",
+        "opening_hours": "Mo-Sa 07:50-12:00",
+        "check_date": "2026-03-25"
       }
     },
     {
@@ -6503,7 +6592,8 @@
         "id": 168297989,
         "osm_type": "way",
         "name": "Margherita Conad",
-        "opening_hours": "Mo-Sa 08:00-12:00,16:00-19:00; Th 08:00-12:00"
+        "opening_hours": "Mo-Sa 08:00-12:00,16:00-19:00; Th 08:00-12:00",
+        "check_date": "2024-06-28"
       }
     },
     {
@@ -6532,7 +6622,8 @@
       },
       "properties": {
         "id": 210598803,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "Thairmühl"
       }
     },
     {
@@ -6794,6 +6885,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.1749093,
+          46.6093413
+        ]
+      },
+      "properties": {
+        "id": 344545645,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.1069626,
           46.1124999
         ]
@@ -6882,8 +6987,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.0436625,
-          45.8907097
+          11.0436754,
+          45.8907096
         ]
       },
       "properties": {
@@ -7104,6 +7209,20 @@
       },
       "properties": {
         "id": 1323247078,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1755904,
+          46.6078643
+        ]
+      },
+      "properties": {
+        "id": 1488669493,
         "osm_type": "way"
       }
     }

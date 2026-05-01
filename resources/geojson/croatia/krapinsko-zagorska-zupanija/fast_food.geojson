@@ -84,6 +84,7 @@
         "name": "Pizza bar",
         "operator": "Vodeni planet",
         "cuisine": "pizza",
+        "check_date": "2024-08-17",
         "chain": "unknown"
       }
     },
@@ -100,7 +101,28 @@
         "id": 13059611396,
         "osm_type": "node",
         "name": "Family fast food",
+        "check_date": "2025-08-09",
         "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.9080055,
+          46.0231564
+        ]
+      },
+      "properties": {
+        "id": 97906964,
+        "osm_type": "way",
+        "name": "McDonald's",
+        "brand": "McDonald's",
+        "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2026-04-26",
+        "chain": "mcdonalds"
       }
     },
     {
@@ -118,6 +140,7 @@
         "name": "Grill bar",
         "operator": "Vodeni planet",
         "cuisine": "burger;barbecue",
+        "check_date": "2024-08-17",
         "chain": "unknown"
       }
     }

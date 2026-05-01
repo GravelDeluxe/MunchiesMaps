@@ -610,7 +610,8 @@
       "properties": {
         "id": 611035607,
         "osm_type": "node",
-        "brand": "Q-EL"
+        "brand": "Q-EL",
+        "check_date": "2024-01-11"
       }
     },
     {
@@ -1245,7 +1246,8 @@
       "properties": {
         "id": 1786630452,
         "osm_type": "node",
-        "name": "Hil-Gaz"
+        "name": "Hil-Gaz",
+        "check_date": "2026-01-04"
       }
     },
     {
@@ -1497,23 +1499,6 @@
         "id": 2091643257,
         "osm_type": "node",
         "brand": "Styr-Kar"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          14.4901087,
-          53.2212865
-        ]
-      },
-      "properties": {
-        "id": 2112695878,
-        "osm_type": "node",
-        "name": "Moya Pniewo (175)",
-        "brand": "Moya",
-        "opening_hours": "24/7"
       }
     },
     {
@@ -2275,7 +2260,8 @@
         "osm_type": "node",
         "name": "Bobryk",
         "brand": "BOBRYK",
-        "opening_hours": "Mo-Sa 06:30-21:00; Su 08:00-20:00"
+        "opening_hours": "Mo-Sa 06:30-21:00; Su 08:00-20:00",
+        "check_date": "2026-01-04"
       }
     },
     {
@@ -2822,7 +2808,8 @@
         "osm_type": "node",
         "name": "Orlen",
         "brand": "Orlen",
-        "opening_hours": "Mo-Su 06:00-20:00; Sa 07:00-17:00"
+        "opening_hours": "Mo-Su 06:00-20:00; Sa 07:00-17:00",
+        "check_date": "2026-04-19"
       }
     },
     {
@@ -4660,6 +4647,36 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          14.4877163,
+          53.2494378
+        ]
+      },
+      "properties": {
+        "id": 350207665,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.4902346,
+          53.2213815
+        ]
+      },
+      "properties": {
+        "id": 350219813,
+        "osm_type": "way",
+        "name": "Moya Pniewo (175)",
+        "brand": "Moya"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           14.5821236,
           53.305919
         ]
@@ -5468,7 +5485,8 @@
         "osm_type": "way",
         "name": "Orlen",
         "brand": "Orlen",
-        "opening_hours": "06:00-22:00"
+        "opening_hours": "06:00-22:00",
+        "check_date": "2025-10-24"
       }
     },
     {

@@ -496,22 +496,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.9211854,
-          54.750494
-        ]
-      },
-      "properties": {
-        "id": 3259759261,
-        "osm_type": "node",
-        "name": "Shelter Hegnetvej",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.2744079,
           55.2420774
         ]
@@ -1458,22 +1442,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.8465354,
-          55.2556699
-        ]
-      },
-      "properties": {
-        "id": 5520163531,
-        "osm_type": "node",
-        "name": "Olstrup Naturbase",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.0399165,
           55.6691495
         ]
@@ -1684,6 +1652,57 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.3111518,
+          55.7437965
+        ]
+      },
+      "properties": {
+        "id": 6206706062,
+        "osm_type": "node",
+        "shelter_type": "lean_to",
+        "fee": "yes",
+        "operator": "Vesterlyng Camping"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3111035,
+          55.7437202
+        ]
+      },
+      "properties": {
+        "id": 6206706063,
+        "osm_type": "node",
+        "shelter_type": "lean_to",
+        "fee": "yes",
+        "operator": "Vesterlyng Camping"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.310966,
+          55.7437348
+        ]
+      },
+      "properties": {
+        "id": 6206706064,
+        "osm_type": "node",
+        "shelter_type": "lean_to",
+        "fee": "yes",
+        "operator": "Vesterlyng Camping"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.0156044,
           54.8134186
         ]
@@ -1762,7 +1781,8 @@
         "bench": "no",
         "table": "no",
         "fee": "no",
-        "url": "https://udinaturen.dk/shelter/6765"
+        "url": "https://udinaturen.dk/shelter/6765",
+        "check_date": "2023-04-28"
       }
     },
     {
@@ -1858,7 +1878,8 @@
         "shelter_type": "lean_to",
         "capacity": "5",
         "fee": "no",
-        "operator": "Odsherred Kommune"
+        "operator": "Odsherred Kommune",
+        "check_date": "2026-04-01"
       }
     },
     {
@@ -2082,8 +2103,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.0817367,
-          54.8774459
+          11.0817112,
+          54.8774262
         ]
       },
       "properties": {
@@ -2114,8 +2135,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.4746721,
-          54.7414316
+          11.4747285,
+          54.7413679
         ]
       },
       "properties": {
@@ -2252,21 +2273,6 @@
         "osm_type": "node",
         "shelter_type": "lean_to",
         "url": "https://udinaturen.dk/shelter/121471"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.0631557,
-          55.048307
-        ]
-      },
-      "properties": {
-        "id": 8378505614,
-        "osm_type": "node",
-        "shelter_type": "lean_to"
       }
     },
     {
@@ -2520,16 +2526,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.7657183,
-          55.1677003
+          11.0816794,
+          54.8773299
         ]
       },
       "properties": {
-        "id": 8865476509,
+        "id": 8860909817,
         "osm_type": "node",
-        "name": "Dybsø Naturskole",
         "shelter_type": "lean_to",
-        "url": "https://www.naestvednatur.dk/dybsoe-naturskole/"
+        "url": "https://udinaturen.dk/shelter/105647"
       }
     },
     {
@@ -2538,13 +2543,12 @@
         "type": "Point",
         "coordinates": [
           11.7934574,
-          55.2105062
+          55.2105066
         ]
       },
       "properties": {
         "id": 8865504449,
         "osm_type": "node",
-        "name": "Fruens Ly",
         "shelter_type": "lean_to",
         "url": "https://www.naestvednatur.dk/naturbaserne/"
       }
@@ -4606,6 +4610,66 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.8465419,
+          55.2556724
+        ]
+      },
+      "properties": {
+        "id": 677217347,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5934891,
+          55.9490494
+        ]
+      },
+      "properties": {
+        "id": 677603170,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5934451,
+          55.9489788
+        ]
+      },
+      "properties": {
+        "id": 677603785,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.5935788,
+          55.9489925
+        ]
+      },
+      "properties": {
+        "id": 677605005,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.8866366,
           55.1078256
         ]
@@ -5410,6 +5474,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.2517826,
+          55.5749511
+        ]
+      },
+      "properties": {
+        "id": 761253540,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "fee": "yes",
+        "url": "https://vikingecenter.dk/praktis-info/shelters/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.2517838,
           55.5747777
         ]
@@ -5417,10 +5498,9 @@
       "properties": {
         "id": 761254019,
         "osm_type": "way",
-        "name": "Fugledegård",
         "shelter_type": "lean_to",
         "fee": "yes",
-        "url": "https://udinaturen.dk/shelter/5704"
+        "url": "https://vikingecenter.dk/praktis-info/shelters/"
       }
     },
     {
@@ -5435,10 +5515,9 @@
       "properties": {
         "id": 761254054,
         "osm_type": "way",
-        "name": "Fugledegård",
         "shelter_type": "lean_to",
         "fee": "yes",
-        "url": "https://udinaturen.dk/shelter/5704"
+        "url": "https://vikingecenter.dk/praktis-info/shelters/"
       }
     },
     {
@@ -5453,10 +5532,9 @@
       "properties": {
         "id": 761254055,
         "osm_type": "way",
-        "name": "Fugledegård",
         "shelter_type": "lean_to",
         "fee": "yes",
-        "url": "https://udinaturen.dk/shelter/5704"
+        "url": "https://vikingecenter.dk/praktis-info/shelters/"
       }
     },
     {
@@ -5853,6 +5931,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.7657365,
+          55.1686095
+        ]
+      },
+      "properties": {
+        "id": 814533328,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7656565,
+          55.1686838
+        ]
+      },
+      "properties": {
+        "id": 814533332,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.9318724,
           54.8307101
         ]
@@ -6166,22 +6276,6 @@
         "shelter_type": "lean_to",
         "operator": "Museumsgården Keldbylille",
         "url": "https://udinaturen.dk/shelter/5516"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.5356442,
-          55.1960749
-        ]
-      },
-      "properties": {
-        "id": 841366756,
-        "osm_type": "way",
-        "shelter_type": "lean_to",
-        "url": "https://www.sydkystdanmark.dk/ferie/soeg-efter-oplevelser/kristiansholm-plantage-naturlejrplads-gdk1058712"
       }
     },
     {
@@ -6683,6 +6777,66 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.0632648,
+          55.048407
+        ]
+      },
+      "properties": {
+        "id": 1056482546,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0631848,
+          55.0483922
+        ]
+      },
+      "properties": {
+        "id": 1056482547,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0631301,
+          55.0483518
+        ]
+      },
+      "properties": {
+        "id": 1056482548,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.063145,
+          55.0482952
+        ]
+      },
+      "properties": {
+        "id": 1056482549,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.5156781,
           54.9442935
         ]
@@ -6846,7 +7000,8 @@
         "shelter_type": "lean_to",
         "bench": "no",
         "fee": "no",
-        "url": "https://udinaturen.dk/shelter/2869"
+        "url": "https://udinaturen.dk/shelter/2869",
+        "check_date": "2023-06-13"
       }
     },
     {
@@ -9739,6 +9894,156 @@
         "capacity": "6",
         "fee": "yes",
         "operator": "Rørvig Centret"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.1529625,
+          54.8482616
+        ]
+      },
+      "properties": {
+        "id": 1497713636,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8383303,
+          54.9292151
+        ]
+      },
+      "properties": {
+        "id": 1499245087,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8384116,
+          54.9292195
+        ]
+      },
+      "properties": {
+        "id": 1499245088,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8384721,
+          54.9291844
+        ]
+      },
+      "properties": {
+        "id": 1499245089,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3424896,
+          55.7010789
+        ]
+      },
+      "properties": {
+        "id": 1502943592,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3424484,
+          55.7010291
+        ]
+      },
+      "properties": {
+        "id": 1502943593,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3424568,
+          55.7009714
+        ]
+      },
+      "properties": {
+        "id": 1502943594,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3425107,
+          55.7009264
+        ]
+      },
+      "properties": {
+        "id": 1502943595,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.846628,
+          55.2557139
+        ]
+      },
+      "properties": {
+        "id": 1504305983,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8465567,
+          55.2556084
+        ]
+      },
+      "properties": {
+        "id": 1504305984,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     }
   ]

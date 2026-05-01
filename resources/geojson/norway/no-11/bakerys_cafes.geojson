@@ -928,7 +928,8 @@
       "properties": {
         "id": 4379079796,
         "osm_type": "node",
-        "name": "Efendi Tea & Coffee House"
+        "name": "Efendi Tea & Coffee House",
+        "check_date": "2025-07-22"
       }
     },
     {
@@ -1266,7 +1267,8 @@
         "id": 7216362945,
         "osm_type": "node",
         "name": "Kanelsnurren",
-        "opening_hours": "Mo-Th 10:00-16:30; Fr 10:00-18:00; Sa-Su 10:00-16:00; "
+        "opening_hours": "Mo-Th 10:00-16:30; Fr 10:00-18:00; Sa-Su 10:00-16:00; ",
+        "check_date": "2025-11-27"
       }
     },
     {
@@ -1893,6 +1895,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          5.7339799,
+          58.9726676
+        ]
+      },
+      "properties": {
+        "id": 13781337510,
+        "osm_type": "node",
+        "name": "Bak til Livet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.2816175,
           59.4271802
         ]
@@ -1943,7 +1960,8 @@
       },
       "properties": {
         "id": 91655622,
-        "osm_type": "way"
+        "osm_type": "way",
+        "outdoor_seating": "yes"
       }
     },
     {

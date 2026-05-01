@@ -7767,7 +7767,9 @@
         "id": 3165736716,
         "osm_type": "node",
         "name": "Hotel Torques",
-        "tourism": "hotel"
+        "tourism": "hotel",
+        "phone": "981970170",
+        "website": "http://www.hoteltorques.com/"
       }
     },
     {
@@ -7909,7 +7911,7 @@
         "osm_type": "node",
         "name": "Hotel Balneario do Río Pambre",
         "tourism": "hotel",
-        "contact:phone": "+34 982153232; +34 679035713",
+        "contact:phone": "+34 982153232;+34 679035713",
         "contact:website": "http://www.balnearioriopambre.com/"
       }
     },
@@ -10923,7 +10925,7 @@
       "properties": {
         "id": 4344192158,
         "osm_type": "node",
-        "name": "Parador Monforte de Lemos",
+        "name": "Parador de Monforte de Lemos",
         "tourism": "hotel",
         "contact:phone": "+34 982 41 84 84",
         "website": "https://paradores.es/es/parador-de-monforte-de-lemos"
@@ -16868,7 +16870,7 @@
       "properties": {
         "id": 7728977098,
         "osm_type": "node",
-        "name": "Torre do rio",
+        "name": "Torre do Río",
         "tourism": "hotel",
         "phone": "+34 986 540 513",
         "website": "https://torredorio.es/"
@@ -25914,14 +25916,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -8.1210536,
-          42.3703021
+          -8.1213357,
+          42.3707026
         ]
       },
       "properties": {
         "id": 13372400823,
         "osm_type": "node",
-        "name": "Área de Autocaravanas",
+        "name": "Área de Autocaravanas de Leiro",
         "tourism": "caravan_site",
         "opening_hours": "24/7"
       }
@@ -26739,6 +26741,57 @@
         "id": 13766589601,
         "osm_type": "node",
         "tourism": "apartment"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.5149431,
+          42.5218352
+        ]
+      },
+      "properties": {
+        "id": 13781034960,
+        "osm_type": "node",
+        "name": "Hotel Cardenal",
+        "tourism": "hotel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.5237127,
+          42.5213035
+        ]
+      },
+      "properties": {
+        "id": 13781034961,
+        "osm_type": "node",
+        "name": "Albergue Santiago 15",
+        "tourism": "hostel",
+        "website": "https://www.santiago15.com/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.115004,
+          42.3673276
+        ]
+      },
+      "properties": {
+        "id": 13781330317,
+        "osm_type": "node",
+        "name": "Eurostars Monumento Monasterio de San Clodio Hotel",
+        "tourism": "hotel",
+        "phone": "+34 988 485 601",
+        "website": "https://www.eurostarshotels.com/eurostars-monumento-monasterio-de-san-clodio-hotel.html"
       }
     },
     {
@@ -31367,7 +31420,7 @@
       "properties": {
         "id": 347382430,
         "osm_type": "way",
-        "name": "Área de O Portiño",
+        "name": "Área de Autocaravanas do Portiño",
         "tourism": "caravan_site",
         "opening_hours": "24/7",
         "tents": "no"
@@ -42357,24 +42410,6 @@
         "id": 8024424,
         "osm_type": "relation",
         "tourism": "hotel"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.1149865,
-          42.3673425
-        ]
-      },
-      "properties": {
-        "id": 8535434,
-        "osm_type": "relation",
-        "name": "Eurostars Monumento Monasterio de San Clodio Hotel",
-        "tourism": "hotel",
-        "phone": "+34 988 485 601",
-        "website": "https://www.eurostarshotels.com/eurostars-monumento-monasterio-de-san-clodio-hotel.html"
       }
     },
     {

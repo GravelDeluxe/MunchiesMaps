@@ -746,7 +746,8 @@
       },
       "properties": {
         "id": 7635121322,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-06-04"
       }
     },
     {
@@ -792,7 +793,8 @@
       "properties": {
         "id": 7721830186,
         "osm_type": "node",
-        "opening_hours": "Mo 08:00-18:00; Tu 08:00-20:00; We 08:00-18:00; Th 08:00-20:00; Fr 08:00-20:00, Sa-Su 08:00-19:00"
+        "opening_hours": "Mo 08:00-18:00; Tu 08:00-20:00; We 08:00-18:00; Th 08:00-20:00; Fr 08:00-20:00, Sa-Su 08:00-19:00",
+        "check_date": "2024-06-20"
       }
     },
     {
@@ -808,7 +810,8 @@
         "id": 8039701391,
         "osm_type": "node",
         "name": "Bahaar Markt",
-        "opening_hours": "Fr-We 08:30-18:00; Th 08:30-19:00"
+        "opening_hours": "Fr-We 08:30-18:00; Th 08:30-19:00",
+        "check_date": "2023-09-13"
       }
     },
     {
@@ -1153,7 +1156,8 @@
       "properties": {
         "id": 12855111935,
         "osm_type": "node",
-        "name": "IJskast"
+        "name": "IJskast",
+        "check_date": "2025-05-22"
       }
     },
     {
@@ -1198,6 +1202,22 @@
         "osm_type": "node",
         "name": "De Groe'se Buurtsuper",
         "opening_hours": "Mo-Su 13:00-18:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.7381215,
+          51.6937296
+        ]
+      },
+      "properties": {
+        "id": 13733178529,
+        "osm_type": "node",
+        "name": "Het Molenwinkeltje",
+        "opening_hours": "Mo-Su 12:00-20:00"
       }
     },
     {

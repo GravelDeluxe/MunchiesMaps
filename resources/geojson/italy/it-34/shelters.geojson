@@ -867,6 +867,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.9614533,
+          45.9979734
+        ]
+      },
+      "properties": {
+        "id": 13730050452,
+        "osm_type": "node",
+        "name": "Bivacco Monte Miesna",
+        "operator": "A.N.A. Gruppo Monte Miesna"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.4521875,
           46.1764652
         ]
@@ -909,21 +925,6 @@
         "id": 58610160,
         "osm_type": "way",
         "shelter_type": "basic_hut"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.0061637,
-          45.832894
-        ]
-      },
-      "properties": {
-        "id": 59646161,
-        "osm_type": "way",
-        "shelter_type": "weather_shelter"
       }
     },
     {
@@ -1190,21 +1191,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.5670493,
-          45.603738
-        ]
-      },
-      "properties": {
-        "id": 141034840,
-        "osm_type": "way",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.260348,
           46.0270474
         ]
@@ -1354,8 +1340,9 @@
       "properties": {
         "id": 169138553,
         "osm_type": "way",
-        "name": "Cason dei Lebi",
-        "shelter_type": "basic_hut"
+        "name": "Bivacco Cason dei Lebi",
+        "access": "yes",
+        "description": "bivacco aperto per riparo e sosta, richiesta offerta per pernottare"
       }
     },
     {
@@ -1506,7 +1493,8 @@
         "name": "Casera Campotorondo",
         "capacity": "8",
         "fee": "no",
-        "operator": "Corpo Forestale dello Stato"
+        "operator": "Corpo Forestale dello Stato",
+        "check_date": "2024-06-20"
       }
     },
     {
@@ -2165,6 +2153,21 @@
         "id": 199054531,
         "osm_type": "way",
         "name": "Malga Campedel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9595775,
+          46.2603554
+        ]
+      },
+      "properties": {
+        "id": 199055971,
+        "osm_type": "way",
+        "name": "Malga Losch"
       }
     },
     {
@@ -4569,7 +4572,8 @@
         "osm_type": "way",
         "shelter_type": "weather_shelter",
         "bench": "yes",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2024-12-15"
       }
     },
     {

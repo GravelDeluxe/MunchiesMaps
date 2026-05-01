@@ -978,6 +978,7 @@
         "website": "https://ibatu.sk/",
         "operator": "JAM Gastro",
         "cuisine": "regional",
+        "check_date": "2026-01-29",
         "chain": "unknown"
       }
     },
@@ -1988,6 +1989,7 @@
         "opening_hours": "Mo-Su 09:00-21:00",
         "website": "http://www.bageteria.eu/",
         "cuisine": "sandwich",
+        "check_date": "2024-07-09",
         "chain": "unknown"
       }
     },
@@ -2261,8 +2263,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.2472333,
-          48.9895761
+          21.2473481,
+          48.9895177
         ]
       },
       "properties": {
@@ -2306,6 +2308,7 @@
         "name": "Tony kebab",
         "opening_hours": "Mo-Fr 10:00-22:00; Sa 12:00-22:00; Su 14:00-21:00",
         "cuisine": "kebab",
+        "check_date": "2025-07-29",
         "chain": "unknown"
       }
     },
@@ -2567,15 +2570,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.2501626,
-          48.9846069
+          21.250419,
+          48.9847273
         ]
       },
       "properties": {
         "id": 11188922026,
         "osm_type": "node",
         "name": "Kebab BolBol",
-        "opening_hours": "Mo-Fr 10:00-19:00; Su 12:00-19:00",
+        "opening_hours": "Mo-Fr 09:00-20:00; Su 10:00-20:00",
+        "phone": "+421 911 658 736",
         "cuisine": "kebab",
         "chain": "unknown"
       }
@@ -2645,6 +2649,7 @@
       "properties": {
         "id": 12039970826,
         "osm_type": "node",
+        "check_date": "2024-07-07",
         "chain": "unknown"
       }
     },
@@ -2774,10 +2779,12 @@
         "id": 12552115961,
         "osm_type": "node",
         "name": "La Donuteria",
+        "brand": "La Donuteria",
         "opening_hours": "Mo-Su 09:00-21:00",
         "phone": "+421 907 222 088",
         "website": "https://ladonuteria.eu/sk/",
-        "cuisine": "donut",
+        "brand:wikidata": "Q136734522",
+        "cuisine": "donut;coffee_shop",
         "chain": "unknown"
       }
     },
@@ -3123,6 +3130,7 @@
         "phone": "+421 917 733 111",
         "website": "https://www.facebook.com/share/1AEi46Cviy/",
         "cuisine": "burger",
+        "check_date": "2025-12-28",
         "chain": "unknown"
       }
     },
@@ -3138,6 +3146,23 @@
       "properties": {
         "id": 13424306315,
         "osm_type": "node",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.249582,
+          48.98374
+        ]
+      },
+      "properties": {
+        "id": 13771807854,
+        "osm_type": "node",
+        "name": "Bistro Strela",
+        "opening_hours": "Mo-Fr 09:00-16:30",
         "chain": "unknown"
       }
     },

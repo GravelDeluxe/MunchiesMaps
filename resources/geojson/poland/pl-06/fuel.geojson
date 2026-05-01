@@ -23,23 +23,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.108076,
-          52.0496567
-        ]
-      },
-      "properties": {
-        "id": 270966933,
-        "osm_type": "node",
-        "name": "Shell Express",
-        "brand": "Shell Express",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           23.1210009,
           52.0512203
         ]
@@ -64,7 +47,8 @@
         "id": 292350920,
         "osm_type": "node",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -235,7 +219,8 @@
       },
       "properties": {
         "id": 362734194,
-        "osm_type": "node"
+        "osm_type": "node",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -540,7 +525,8 @@
         "id": 481953189,
         "osm_type": "node",
         "name": "Shell",
-        "brand": "Shell"
+        "brand": "Shell",
+        "check_date": "2022-11-14"
       }
     },
     {
@@ -949,21 +935,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.4411845,
-          50.7295355
-        ]
-      },
-      "properties": {
-        "id": 1770568571,
-        "osm_type": "node",
-        "name": "Stacja Paliw 24h"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           23.2705012,
           50.7148256
         ]
@@ -1017,7 +988,8 @@
       "properties": {
         "id": 1832067193,
         "osm_type": "node",
-        "name": "Orawo"
+        "name": "ExOil",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -1097,7 +1069,8 @@
         "osm_type": "node",
         "name": "MBX Stacja Paliw Parczew",
         "brand": "MBX",
-        "opening_hours": "Mo-Su 06:00-22:00"
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "check_date": "2024-09-23"
       }
     },
     {
@@ -1556,7 +1529,8 @@
         "id": 2063837821,
         "osm_type": "node",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -1587,7 +1561,8 @@
         "id": 2069682356,
         "osm_type": "node",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "check_date": "2024-09-08"
       }
     },
     {
@@ -1649,7 +1624,8 @@
         "id": 2087339309,
         "osm_type": "node",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -2255,7 +2231,9 @@
       "properties": {
         "id": 2478903134,
         "osm_type": "node",
-        "brand": "ORLEN"
+        "name": "Orlen",
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -2571,7 +2549,8 @@
         "id": 2933340301,
         "osm_type": "node",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -2963,7 +2942,8 @@
         "id": 3476402591,
         "osm_type": "node",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -3116,7 +3096,8 @@
         "id": 3689109911,
         "osm_type": "node",
         "name": "Moya",
-        "brand": "Moya"
+        "brand": "Moya",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -3179,8 +3160,8 @@
       "properties": {
         "id": 3981311657,
         "osm_type": "node",
-        "name": "Lotos",
-        "brand": "Lotos"
+        "name": "Stacja Paliw MOL",
+        "brand": "MOL"
       }
     },
     {
@@ -4699,7 +4680,8 @@
         "id": 12120276238,
         "osm_type": "node",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5056,7 +5038,8 @@
         "id": 176336872,
         "osm_type": "way",
         "name": "BP",
-        "brand": "BP"
+        "brand": "BP",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5514,6 +5497,23 @@
         "osm_type": "way",
         "name": "Shell",
         "brand": "Shell",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.1080853,
+          52.0496458
+        ]
+      },
+      "properties": {
+        "id": 237771766,
+        "osm_type": "way",
+        "name": "Shell Express",
+        "brand": "Shell Express",
         "opening_hours": "24/7"
       }
     },
@@ -6132,7 +6132,8 @@
         "id": 332042747,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -6345,7 +6346,8 @@
         "id": 359419906,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -6814,7 +6816,8 @@
         "id": 387754471,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -7030,7 +7033,8 @@
         "id": 445593416,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -7605,7 +7609,8 @@
         "id": 662848848,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "check_date": "2024-09-08"
       }
     },
     {
@@ -7741,7 +7746,8 @@
         "osm_type": "way",
         "name": "MBX - Stacja Paliw Parczew",
         "brand": "MBX",
-        "opening_hours": "Mo-Su 06:00-22:00"
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "check_date": "2024-09-23"
       }
     },
     {
@@ -7803,7 +7809,8 @@
         "id": 763977979,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -8290,7 +8297,8 @@
         "osm_type": "way",
         "name": "Orlen",
         "brand": "Orlen",
-        "opening_hours": "06:00-22:00"
+        "opening_hours": "06:00-22:00",
+        "check_date": "2023-09-23"
       }
     },
     {
@@ -8354,7 +8362,8 @@
         "osm_type": "way",
         "name": "Orlen",
         "brand": "Orlen",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-04-08"
       }
     },
     {
@@ -8369,7 +8378,8 @@
       "properties": {
         "id": 1019030667,
         "osm_type": "way",
-        "name": "Sprint Bus"
+        "name": "Sprint Bus",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -8385,7 +8395,8 @@
         "id": 1024677328,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "check_date": "2026-04-06"
       }
     },
     {
@@ -8595,7 +8606,8 @@
         "id": 1081095102,
         "osm_type": "way",
         "name": "Orlen 7706",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -8611,7 +8623,8 @@
         "id": 1096784465,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -8830,7 +8843,8 @@
         "id": 1308388857,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -8846,7 +8860,8 @@
         "id": 1319108001,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -8862,7 +8877,8 @@
         "id": 1319848997,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -8940,7 +8956,8 @@
         "id": 1422744312,
         "osm_type": "way",
         "name": "Moya",
-        "brand": "Moya"
+        "brand": "Moya",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -8965,8 +8982,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.2197269,
-          50.9313348
+          22.219847,
+          50.9314033
         ]
       },
       "properties": {

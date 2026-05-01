@@ -405,7 +405,8 @@
       "properties": {
         "id": 11229140172,
         "osm_type": "node",
-        "name": "Alo banana"
+        "name": "Alo banana",
+        "check_date": "2023-09-30"
       }
     },
     {
@@ -419,7 +420,8 @@
       },
       "properties": {
         "id": 11229153029,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-09-30"
       }
     },
     {
@@ -434,7 +436,8 @@
       "properties": {
         "id": 11229153035,
         "osm_type": "node",
-        "name": "TSV Diskont"
+        "name": "TSV Diskont",
+        "check_date": "2023-09-30"
       }
     },
     {
@@ -450,7 +453,8 @@
         "id": 11229162724,
         "osm_type": "node",
         "name": "PerSu",
-        "brand": "PerSu"
+        "brand": "PerSu",
+        "check_date": "2023-09-30"
       }
     },
     {
@@ -465,7 +469,8 @@
       "properties": {
         "id": 11229502934,
         "osm_type": "node",
-        "name": "iKiosk"
+        "name": "iKiosk",
+        "check_date": "2023-09-30"
       }
     },
     {
@@ -480,7 +485,8 @@
       "properties": {
         "id": 11229509337,
         "osm_type": "node",
-        "name": "Voli I and M"
+        "name": "Voli I and M",
+        "check_date": "2023-09-30"
       }
     },
     {
@@ -495,7 +501,8 @@
       "properties": {
         "id": 11229601807,
         "osm_type": "node",
-        "name": "Diskont Dinky 95"
+        "name": "Diskont Dinky 95",
+        "check_date": "2023-09-30"
       }
     },
     {
@@ -511,7 +518,8 @@
         "id": 11232561577,
         "osm_type": "node",
         "name": "IDEA",
-        "brand": "IDEA"
+        "brand": "IDEA",
+        "check_date": "2023-10-01"
       }
     },
     {
@@ -614,6 +622,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          20.4624708,
+          45.828711
+        ]
+      },
+      "properties": {
+        "id": 13760573870,
+        "osm_type": "node",
+        "name": "Gomex",
+        "brand": "Gomex",
+        "opening_hours": "Mo-Sa 07:00-21:00; Su 07:00-15:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           20.6065627,
           45.8199083
         ]
@@ -636,20 +661,6 @@
       },
       "properties": {
         "id": 892734539,
-        "osm_type": "way"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          20.4422561,
-          45.82811
-        ]
-      },
-      "properties": {
-        "id": 1097308141,
         "osm_type": "way"
       }
     },

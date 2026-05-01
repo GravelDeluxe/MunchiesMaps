@@ -6,20 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.7327038,
-          45.7493273
-        ]
-      },
-      "properties": {
-        "id": 356908329,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.6733747,
           45.554956
         ]
@@ -609,22 +595,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.6797197,
-          45.5610447
-        ]
-      },
-      "properties": {
-        "id": 894110731,
-        "osm_type": "node",
-        "name": "Konzum",
-        "opening_hours": "Mo-Fr 08:00-21:00; Sa 07:00-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.6827096,
           45.5561423
         ]
@@ -885,22 +855,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.7337414,
-          45.7503482
-        ]
-      },
-      "properties": {
-        "id": 1344344399,
-        "osm_type": "node",
-        "name": "Konzum",
-        "brand": "Konzum"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.5975239,
           45.5726897
         ]
@@ -946,8 +900,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.5981384,
-          45.7679673
+          18.5982553,
+          45.7681167
         ]
       },
       "properties": {
@@ -1363,8 +1317,7 @@
       "properties": {
         "id": 7093333053,
         "osm_type": "node",
-        "name": "Konzum",
-        "brand": "Konzum"
+        "name": "Slavonija"
       }
     },
     {
@@ -1668,6 +1621,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.59804,
+          45.7673904
+        ]
+      },
+      "properties": {
+        "id": 13730487876,
+        "osm_type": "node",
+        "name": "Studenac",
+        "brand": "Studenac",
+        "opening_hours": "Tu-Sa 07:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           18.695135,
           45.5594966
         ]
@@ -1726,7 +1696,8 @@
         "osm_type": "way",
         "name": "Tisak",
         "brand": "Tisak",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-09-13"
       }
     },
     {
@@ -1803,22 +1774,6 @@
       "properties": {
         "id": 555973231,
         "osm_type": "way"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.7449023,
-          45.6041278
-        ]
-      },
-      "properties": {
-        "id": 559233828,
-        "osm_type": "way",
-        "name": "Konzum",
-        "brand": "Konzum"
       }
     },
     {
@@ -2201,7 +2156,25 @@
         "id": 1474126677,
         "osm_type": "way",
         "name": "NTL",
-        "brand": "NTL"
+        "brand": "NTL",
+        "opening_hours": "Mo-Sa 07:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.2868579,
+          45.5452799
+        ]
+      },
+      "properties": {
+        "id": 1474840158,
+        "osm_type": "way",
+        "name": "NTL",
+        "brand": "NTL",
+        "opening_hours": "Mo-Fr 06:30-20:00; Sa 06:30-18:00"
       }
     }
   ]

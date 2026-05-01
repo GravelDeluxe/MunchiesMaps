@@ -346,7 +346,8 @@
         "capacity": "3",
         "fee": "no",
         "operator": "Länsstyrelsen Dalarnas Län",
-        "description": "A copy/paste of the local hut kind. have a oven, 3 sides bench and emergency box with some food, matches,  etc."
+        "description": "A copy/paste of the local hut kind. have a oven, 3 sides bench and emergency box with some food, matches,  etc.",
+        "check_date": "2025-07-14"
       }
     },
     {
@@ -386,7 +387,8 @@
         "capacity": "4",
         "fee": "no",
         "operator": "Länsstyrelsen Dalarnas Län",
-        "description": "Sauna hut with wood in the nearby hut"
+        "description": "Sauna hut with wood in the nearby hut",
+        "check_date": "2025-07-14"
       }
     },
     {
@@ -2713,7 +2715,8 @@
         "bench": "yes",
         "capacity": "3",
         "fee": "no",
-        "description": "Just a basic hut with oven, 3 side bench. And wood outside to burn."
+        "description": "Just a basic hut with oven, 3 side bench. And wood outside to burn.",
+        "check_date": "2025-07-14"
       }
     },
     {
@@ -5531,6 +5534,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          15.6555146,
+          60.623351
+        ]
+      },
+      "properties": {
+        "id": 11298357005,
+        "osm_type": "node",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           15.6651427,
           60.6206683
         ]
@@ -5839,7 +5857,8 @@
       "properties": {
         "id": 12156041322,
         "osm_type": "node",
-        "name": "Luskojan 2"
+        "name": "Luskojan 2",
+        "fee": "no"
       }
     },
     {
@@ -5982,7 +6001,8 @@
         "shelter_type": "lean_to",
         "bench": "no",
         "fee": "no",
-        "url": "https://vindskyddskartan.se/en/places/3274/Ingvarssons%20udde"
+        "url": "https://vindskyddskartan.se/en/places/3274/Ingvarssons%20udde",
+        "check_date": "2019-08-06"
       }
     },
     {
@@ -6739,7 +6759,8 @@
       "properties": {
         "id": 91300728,
         "osm_type": "way",
-        "name": "Lärkstugan"
+        "name": "Lärkstugan",
+        "check_date": "2024-06-22"
       }
     },
     {
@@ -7309,7 +7330,8 @@
         "osm_type": "way",
         "shelter_type": "lean_to",
         "bench": "yes",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2019-08-15"
       }
     },
     {
@@ -7743,6 +7765,38 @@
       },
       "properties": {
         "id": 1473695718,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.1734599,
+          61.1329929
+        ]
+      },
+      "properties": {
+        "id": 1499465630,
+        "osm_type": "way",
+        "access": "yes",
+        "shelter_type": "lean_to",
+        "operator": "Älvdalen Kommun"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.7575369,
+          61.6205187
+        ]
+      },
+      "properties": {
+        "id": 1503359467,
         "osm_type": "way",
         "shelter_type": "lean_to"
       }

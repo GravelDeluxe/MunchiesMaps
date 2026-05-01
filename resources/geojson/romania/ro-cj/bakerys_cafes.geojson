@@ -397,7 +397,8 @@
         "osm_type": "node",
         "name": "Enigma Cafe",
         "opening_hours": "Mo-Fr 08:00-02:00; Sa-Su 10:00-01:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-06-20"
       }
     },
     {
@@ -598,7 +599,8 @@
         "osm_type": "node",
         "name": "Panemar",
         "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-14:00; Su off",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-07-13"
       }
     },
     {
@@ -901,7 +903,8 @@
         "id": 3107578043,
         "osm_type": "node",
         "name": "Panemar",
-        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-14:00; Su off"
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-14:00; Su off",
+        "check_date": "2023-08-30"
       }
     },
     {
@@ -1038,7 +1041,8 @@
       "properties": {
         "id": 3325253815,
         "osm_type": "node",
-        "name": "Air Caffe"
+        "name": "Air Caffe",
+        "check_date": "2024-05-27"
       }
     },
     {
@@ -1146,7 +1150,8 @@
         "osm_type": "node",
         "name": "Delisima",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-05-13"
       }
     },
     {
@@ -1197,7 +1202,8 @@
         "name": "gigi",
         "opening_hours": "Mo-Fr 06:30-31:30; Sa 09:00-21:00; Su 13:00-21:00",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-05-10"
       }
     },
     {
@@ -2498,7 +2504,8 @@
         "osm_type": "node",
         "name": "Panemar",
         "brand": "Panemar",
-        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-16:00; Su off"
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-16:00; Su off",
+        "check_date": "2025-08-25"
       }
     },
     {
@@ -3266,7 +3273,9 @@
         "id": 8553120225,
         "osm_type": "node",
         "name": "Ted's Coffee Co.",
-        "opening_hours": "Mo-Fr 07:30-20:00; Sa 08:30-20:00; Su 09:00-19:00"
+        "brand": "Ted's Coffee Co.",
+        "opening_hours": "Mo-Fr 07:30-20:00; Sa 08:30-20:00; Su 09:00-19:00",
+        "takeaway": "yes"
       }
     },
     {
@@ -4500,7 +4509,9 @@
       "properties": {
         "id": 10867725975,
         "osm_type": "node",
-        "name": "Ted's Coffee Co."
+        "name": "Ted's Coffee Co.",
+        "brand": "Ted's Coffee Co.",
+        "takeaway": "yes"
       }
     },
     {
@@ -4575,7 +4586,8 @@
       "properties": {
         "id": 11031902427,
         "osm_type": "node",
-        "name": "Agropan"
+        "name": "Agropan",
+        "check_date": "2023-07-07"
       }
     },
     {
@@ -4867,7 +4879,8 @@
         "id": 11524126873,
         "osm_type": "node",
         "name": "Red Barn",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-01-17"
       }
     },
     {
@@ -5136,7 +5149,7 @@
         "id": 13282651912,
         "osm_type": "node",
         "name": "Laboratorium",
-        "opening_hours": "Tu-Sa 08:00-16:00"
+        "opening_hours": "Tu-Fr 08:00-16:00, Sa 09:00-17:00"
       }
     },
     {
@@ -5626,6 +5639,23 @@
         "id": 1212945992,
         "osm_type": "way",
         "name": "Bar-Cafenea"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4518327,
+          46.7463444
+        ]
+      },
+      "properties": {
+        "id": 1486848166,
+        "osm_type": "way",
+        "name": "Starbucks",
+        "brand": "Starbucks",
+        "takeaway": "yes"
       }
     }
   ]

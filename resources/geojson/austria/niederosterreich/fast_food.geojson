@@ -15,6 +15,7 @@
         "osm_type": "node",
         "name": "Bruck's Kebap Standl",
         "opening_hours": "Mo-Fr 08:30-21:00, Sa 09:00-20:30",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -34,6 +35,7 @@
         "opening_hours": "Mo-Fr 10:00-20:00; PH,Sa,Su 10:00-15:00",
         "phone": "+43 2572 20537",
         "website": "https://www.schnitzelhaus-mistelbach.at/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -87,6 +89,7 @@
         "name": "Schnitzel",
         "opening_hours": "Mo-Su,PH 10:00-21:00",
         "website": "http://www.schnitzel.cc/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -105,6 +108,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -122,6 +126,7 @@
         "osm_type": "node",
         "name": "Valentino",
         "opening_hours": "Mo-Su 10:00-22:00",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -139,22 +144,7 @@
         "osm_type": "node",
         "name": "Pöchhacker",
         "opening_hours": "May-Sep: Sa 10:00-12:30",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.8202627,
-          48.3314951
-        ]
-      },
-      "properties": {
-        "id": 294194741,
-        "osm_type": "node",
-        "name": "Zum Drahrerstüberl",
+        "cuisine": "chicken;regional",
         "chain": "unknown"
       }
     },
@@ -171,6 +161,7 @@
         "id": 331355417,
         "osm_type": "node",
         "name": "Pizzeria-Kebab Lilla Boss",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -187,6 +178,7 @@
         "id": 331355418,
         "osm_type": "node",
         "name": "Altrichter Silvia",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -203,6 +195,7 @@
         "id": 336571874,
         "osm_type": "node",
         "name": "Kebab&Pizza House",
+        "check_date": "2024-11-17",
         "chain": "unknown"
       }
     },
@@ -220,6 +213,7 @@
         "osm_type": "node",
         "name": "Heisshunger",
         "opening_hours": "Mo-Fr 10:30-21:00; Su 11:00-20:00",
+        "cuisine": "burger;noodle",
         "chain": "unknown"
       }
     },
@@ -271,6 +265,7 @@
         "osm_type": "node",
         "name": "Jausenstation",
         "opening_hours": "May 1-Sep 30 Su,PH 14:00+",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -288,6 +283,8 @@
         "osm_type": "node",
         "name": "Bruno’s Hafenbar",
         "website": "https://litschau.at/bruno_s_hafenbar",
+        "cuisine": "regional",
+        "check_date": "2025-10-16",
         "chain": "unknown"
       }
     },
@@ -306,6 +303,7 @@
         "name": "Teichheuriger Guntramsdorf",
         "opening_hours": "Mo-Fr 14:00-21:00; Sa,Su,PH 10:00-21:00",
         "website": "https://reinhard-gausterer.at/teichheuriger-am-rohrfeldteich/",
+        "cuisine": "regional;heuriger",
         "chain": "unknown"
       }
     },
@@ -325,6 +323,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+43 21 65 622 22",
         "website": "http://www.pizzadimare.at/Hainburg/Start_Hainburg.html",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -361,6 +360,7 @@
         "osm_type": "node",
         "name": "Mocca Lounge & Wings Bar",
         "website": "https://www.mocca-lounge.at",
+        "cuisine": "coffee_shop",
         "chain": "unknown"
       }
     },
@@ -379,6 +379,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -400,6 +401,7 @@
         "phone": "+43 2732 850 81",
         "website": "https://www.mcdonalds.at/restaurant/wiener-strasse-96-102-im-buehl-center-a-3500-krems",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -435,6 +437,7 @@
         "name": "mr kebap",
         "opening_hours": "Mo-Sa 11:00-21:00; PH Su 12:00-21:00",
         "operator": "R. Karagöz KG",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -467,6 +470,7 @@
         "id": 456842694,
         "osm_type": "node",
         "name": "Billa Marktküche",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -486,6 +490,8 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Sa 06:00-23:00; Su,PH 08:00-23:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2025-08-21",
         "chain": "mcdonalds"
       }
     },
@@ -521,6 +527,8 @@
         "opening_hours": "Mo-Fr 11:00-14:00,17:00-21:00",
         "phone": "+43 2732 771 98",
         "website": "https://www.schnitzelpalast.at",
+        "cuisine": "regional",
+        "check_date": "2025-06-07",
         "chain": "unknown"
       }
     },
@@ -540,6 +548,7 @@
         "opening_hours": "Mo-Su,PH 09:00-22:00",
         "phone": "+43 676 722 63 80",
         "website": "https://www.facebook.com/ParadisoKrems",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -594,6 +603,7 @@
         "opening_hours": "10:30-21:00",
         "phone": "+43 800665558",
         "website": "https://pizzanista-purgstall.at/",
+        "cuisine": "italian",
         "chain": "unknown"
       }
     },
@@ -614,6 +624,7 @@
         "opening_hours": "Fr-Su 11:00-22:00;Mo-Th 11:00-19:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -632,6 +643,7 @@
         "name": "Donaublick Imbiss",
         "phone": "+43 680 3141608",
         "website": "https://www.donaublick-imbiss.at/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -664,6 +676,8 @@
         "id": 593264900,
         "osm_type": "node",
         "name": "Paradies Kebap & Pizza Haus",
+        "cuisine": "kebab;pizza",
+        "check_date": "2023-01-14",
         "chain": "unknown"
       }
     },
@@ -681,6 +695,8 @@
         "osm_type": "node",
         "name": "Nawano",
         "website": "https://nawano-krems.at/",
+        "cuisine": "burger;kebab;pizza;sandwich",
+        "check_date": "2025-09-11",
         "chain": "unknown"
       }
     },
@@ -698,6 +714,8 @@
         "osm_type": "node",
         "name": "Santorini Stadl",
         "opening_hours": "10:00-21:00",
+        "cuisine": "greek;pizza",
+        "check_date": "2026-02-22",
         "chain": "unknown"
       }
     },
@@ -715,6 +733,7 @@
         "osm_type": "node",
         "name": "Anatolia",
         "opening_hours": "Mo-Fr 10:00-18:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -734,6 +753,8 @@
         "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-17:00",
         "phone": "+43 665 652 73 739",
         "website": "https://www.kennys.at/",
+        "cuisine": "juice;breakfast;soup;salad;waffle;frozen_yogurt;bowl;poke;smoothies",
+        "check_date": "2025-08-21",
         "chain": "unknown"
       }
     },
@@ -766,6 +787,7 @@
         "osm_type": "node",
         "name": "Aspendos Pizza und Kebab",
         "opening_hours": "Mo-Su,PH 11:00-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -800,6 +822,7 @@
         "osm_type": "node",
         "name": "Schnitzel Max",
         "website": "https://www.schnitzelmax.at/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -816,6 +839,7 @@
         "id": 775863408,
         "osm_type": "node",
         "name": "Sportplatz Kantine",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -833,6 +857,8 @@
         "osm_type": "node",
         "name": "Kebap King",
         "opening_hours": "Mo-Sa 10:00-20:00",
+        "cuisine": "kebab;pizza",
+        "check_date": "2025-08-23",
         "chain": "unknown"
       }
     },
@@ -851,6 +877,7 @@
         "name": "Don Camillo",
         "phone": "+43 676 326 47 33",
         "website": "https://www.don-camillo-krems-krems-an-der-donau.at",
+        "cuisine": "indian;italian",
         "chain": "unknown"
       }
     },
@@ -868,6 +895,7 @@
         "osm_type": "node",
         "name": "Schnitzel-Imbiss",
         "opening_hours": "10:00-22:00",
+        "cuisine": "fried_food",
         "chain": "unknown"
       }
     },
@@ -917,6 +945,7 @@
         "osm_type": "node",
         "name": "Waldschenke",
         "opening_hours": "Fr 16:00-20:00; Sa,Su,PH 10:00-18:00",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -974,6 +1003,7 @@
         "website": "https://www.mcdonalds.at/restaurant/dr-adolf-schaerf-strasse-12-a-3107-st-poelten",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -991,6 +1021,7 @@
         "osm_type": "node",
         "opening_hours": "Tu-We 17:00-22:00; Th-Sa 11:00-22:00; Su 11:00-21:00",
         "website": "http://www.trattoria-brachetti.at",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1041,6 +1072,7 @@
         "id": 1120652848,
         "osm_type": "node",
         "name": "Tanja's Espresso",
+        "cuisine": "austrian",
         "chain": "unknown"
       }
     },
@@ -1058,6 +1090,7 @@
         "osm_type": "node",
         "name": "Hollabrunner Kebap & Pizza",
         "operator": "Efendi",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1076,6 +1109,7 @@
         "name": "Pizzeria Bella Cio",
         "opening_hours": "We-Mo 10:00-22:00",
         "website": "https://www.bellocioaschbachmarkt.at/contact",
+        "cuisine": "pizza;kebab;burger",
         "chain": "unknown"
       }
     },
@@ -1091,6 +1125,7 @@
       "properties": {
         "id": 1230257473,
         "osm_type": "node",
+        "check_date": "2023-06-12",
         "chain": "unknown"
       }
     },
@@ -1108,6 +1143,7 @@
         "osm_type": "node",
         "name": "Denis Kebap",
         "website": "https://denis-kebap.at/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1125,6 +1161,7 @@
         "osm_type": "node",
         "name": "Pizzaria Kebap Koc",
         "opening_hours": "Mo-Su 10:30-22:00",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -1141,6 +1178,7 @@
         "id": 1364459243,
         "osm_type": "node",
         "name": "Genussgarten",
+        "check_date": "2025-05-23",
         "chain": "unknown"
       }
     },
@@ -1159,6 +1197,7 @@
         "name": "Casa Papa Pizzadienst",
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "https://www.casa-papa-purkersdorf.at/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1177,6 +1216,7 @@
         "name": "Pizza, Kebap",
         "opening_hours": "Mo off; Tu-Su 11:00-21:00",
         "phone": "+4327162022",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -1195,6 +1235,7 @@
         "name": "Ibi's Kebab",
         "opening_hours": "Mo-Fr 08:00-19:00; Sa 08:00-18:30",
         "operator": "Samy Hussain",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1211,6 +1252,7 @@
         "id": 1395057416,
         "osm_type": "node",
         "name": "Hot Box",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -1243,6 +1285,7 @@
         "id": 1403767677,
         "osm_type": "node",
         "name": "Pizzeria Americano",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -1291,6 +1334,7 @@
         "id": 1424370667,
         "osm_type": "node",
         "name": "Pizzaria Giovanni",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1323,6 +1367,7 @@
         "osm_type": "node",
         "name": "Tury's",
         "opening_hours": "Mo-Fr 09:00-18:30; Sa 09:00-14:00",
+        "cuisine": "chicken;fish",
         "chain": "unknown"
       }
     },
@@ -1339,6 +1384,7 @@
         "id": 1445456539,
         "osm_type": "node",
         "name": "Blockhütte",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1358,6 +1404,7 @@
         "brand": "KFC",
         "opening_hours": "Mo-Sa 10:00-22:00; Su 10:30-21:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -1376,6 +1423,7 @@
         "name": "Kaiserkeller",
         "phone": "+43 2782 821 65",
         "operator": "Kaiser Anita",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -1410,6 +1458,8 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2025-02-01",
         "chain": "mcdonalds"
       }
     },
@@ -1444,6 +1494,8 @@
         "name": "Kaiser's",
         "opening_hours": "Mo-Su 10:00-20:00",
         "website": "https://www.kaisers-original.com/",
+        "cuisine": "regional",
+        "check_date": "2025-08-19",
         "chain": "unknown"
       }
     },
@@ -1461,6 +1513,7 @@
         "osm_type": "node",
         "name": "Piya Pizza",
         "opening_hours": "Mo-Fr 10:00-20:00; Sa,Su,PH off",
+        "cuisine": "kebab;falafel;pizza;turkish",
         "chain": "unknown"
       }
     },
@@ -1480,6 +1533,8 @@
         "brand": "KFC",
         "opening_hours": "Mo-Su,PH 10:00-22:00",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
+        "check_date": "2025-08-21",
         "chain": "unknown"
       }
     },
@@ -1488,8 +1543,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.6240108,
-          48.2074999
+          15.6240317,
+          48.2075012
         ]
       },
       "properties": {
@@ -1497,6 +1552,7 @@
         "osm_type": "node",
         "name": "Kristall",
         "opening_hours": "Mo-Fr 09:30-21:00; Sa,Su,PH off",
+        "cuisine": "pizza;turkish",
         "chain": "unknown"
       }
     },
@@ -1512,6 +1568,7 @@
       "properties": {
         "id": 1675998604,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1528,6 +1585,7 @@
         "id": 1695939375,
         "osm_type": "node",
         "name": "Die Demirkoca's",
+        "cuisine": "pizza;turkish;regional",
         "chain": "unknown"
       }
     },
@@ -1545,6 +1603,8 @@
         "osm_type": "node",
         "name": "Pizza Italiano",
         "phone": "+43 2732 878 47",
+        "cuisine": "turkish",
+        "check_date": "2025-10-03",
         "chain": "unknown"
       }
     },
@@ -1563,6 +1623,7 @@
         "name": "Johny’s Burger",
         "opening_hours": "Tu-Th 16:30-21:30; Fr-Su 15:30-21:30",
         "website": "https://www.johnys.at/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -1580,6 +1641,7 @@
         "osm_type": "node",
         "name": "Pizza Hollywood",
         "opening_hours": "Mo-Su, PH 10:30-21:50",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1597,6 +1659,7 @@
         "osm_type": "node",
         "name": "NZI's Würstelhütte",
         "opening_hours": "Mo-Fr 08:00-18:00",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -1628,6 +1691,7 @@
       "properties": {
         "id": 1778254871,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1660,6 +1724,7 @@
         "id": 1867890429,
         "osm_type": "node",
         "name": "Freibadkantine",
+        "cuisine": "pizza;regional",
         "chain": "unknown"
       }
     },
@@ -1708,6 +1773,7 @@
         "id": 1950481509,
         "osm_type": "node",
         "name": "Monte Christo - Pizzaria",
+        "cuisine": "italian",
         "chain": "unknown"
       }
     },
@@ -1724,6 +1790,8 @@
         "id": 2119308559,
         "osm_type": "node",
         "name": "Ikonia",
+        "cuisine": "pizza;kebab",
+        "check_date": "2024-05-19",
         "chain": "unknown"
       }
     },
@@ -1790,6 +1858,7 @@
         "osm_type": "node",
         "name": "Schnitzel Imbiss",
         "opening_hours": "10:00-22:00",
+        "cuisine": "fried_food",
         "chain": "unknown"
       }
     },
@@ -1808,6 +1877,7 @@
         "name": "Hollywood Pizza Service",
         "opening_hours": "PH,Mo-Su 11:00-22:00",
         "website": "http://www.pizza-hollywood.net/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1842,6 +1912,7 @@
         "opening_hours": "Mo-Su 11:00-21:00",
         "phone": "+43 2256 81321",
         "website": "https://www.tufis-kebab-pizza.at/",
+        "cuisine": "kebab;pizza;pasta",
         "chain": "unknown"
       }
     },
@@ -1874,6 +1945,7 @@
         "id": 2317360315,
         "osm_type": "node",
         "name": "Pizzaria Hollywood",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1892,6 +1964,7 @@
         "name": "Zum Goldenen Löwe",
         "phone": "+43 2764 2245",
         "operator": "Musa Türkoglu",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1910,6 +1983,7 @@
         "name": "Pizza Hainburg",
         "phone": "+432165 63707",
         "website": "http://www.pizzahainburg.at",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -1926,6 +2000,7 @@
         "id": 2409851027,
         "osm_type": "node",
         "name": "Holu Kebab Hainburg",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -1944,6 +2019,8 @@
         "name": "Nordsee",
         "brand": "Nordsee",
         "brand:wikidata": "Q74866",
+        "cuisine": "seafood",
+        "check_date": "2023-06-01",
         "chain": "unknown"
       }
     },
@@ -1960,6 +2037,8 @@
         "id": 2480272260,
         "osm_type": "node",
         "name": "Dem's Gourmet",
+        "cuisine": "kebab",
+        "check_date": "2023-06-01",
         "chain": "unknown"
       }
     },
@@ -1978,6 +2057,8 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2023-06-01",
         "chain": "mcdonalds"
       }
     },
@@ -1997,6 +2078,8 @@
         "brand": "Subway",
         "opening_hours": "Mo-We 09:30-19:00; Th,Fr 09:30-20:00; Sa 09:00-18:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
+        "check_date": "2025-10-30",
         "chain": "unknown"
       }
     },
@@ -2030,6 +2113,7 @@
         "name": "Lanue Pizza & Kebap",
         "phone": "+43262782390",
         "website": "https://www.lanue-pizza-kebap-pitten.at/",
+        "cuisine": "turkish;pizza",
         "chain": "unknown"
       }
     },
@@ -2066,6 +2150,7 @@
         "phone": "+43 1 7077007550",
         "website": "https://www.burgerking.at/",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -2101,6 +2186,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "website": "https://www.noodleking.at/",
         "brand:wikidata": "Q112571654",
+        "cuisine": "noodle;asian;sushi",
         "chain": "unknown"
       }
     },
@@ -2119,6 +2205,7 @@
         "name": "Pizza Mega",
         "opening_hours": "Su-Th 10:00-00:00; Fr-Sa 10:00-02:00",
         "website": "https://www.pizzamega-moedling.at/",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -2138,6 +2225,8 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-We 08:30-19:30; Th,Fr 08:30-20:00; Sa 08:30-18:30",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2025-03-29",
         "chain": "mcdonalds"
       }
     },
@@ -2156,6 +2245,8 @@
         "name": "Nordsee",
         "brand": "Nordsee",
         "brand:wikidata": "Q74866",
+        "cuisine": "seafood",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -2177,6 +2268,8 @@
         "phone": "+4369914235574",
         "website": "https://tuerkis.at/",
         "brand:wikidata": "Q112157842",
+        "cuisine": "turkish",
+        "check_date": "2025-03-29",
         "chain": "unknown"
       }
     },
@@ -2193,6 +2286,8 @@
         "id": 3029570583,
         "osm_type": "node",
         "name": "Zushi Market",
+        "cuisine": "asian",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -2209,6 +2304,8 @@
         "id": 3029570584,
         "osm_type": "node",
         "name": "Trześniewski",
+        "cuisine": "sandwich",
+        "check_date": "2022-11-05",
         "chain": "unknown"
       }
     },
@@ -2225,6 +2322,8 @@
         "id": 3029570585,
         "osm_type": "node",
         "name": "Kaiser's",
+        "cuisine": "regional",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -2244,6 +2343,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-We 10:00-19:30; Th,Fr 10:00-21:30; Sa 10:00-19:00; PH,Su off",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2277,6 +2377,7 @@
         "name": "Burger King",
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -2293,6 +2394,7 @@
         "id": 3126407355,
         "osm_type": "node",
         "name": "Kuzu Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2309,6 +2411,7 @@
         "id": 3217991167,
         "osm_type": "node",
         "name": "Pizza & Kebap Haus AMORE",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -2325,6 +2428,7 @@
         "id": 3324181958,
         "osm_type": "node",
         "name": "Kapatokya",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2343,6 +2447,7 @@
         "name": "Subway",
         "brand": "Subway",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2376,6 +2481,7 @@
         "osm_type": "node",
         "name": "Bella",
         "opening_hours": "We-Mo 11:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2425,6 +2531,7 @@
         "id": 3527172920,
         "osm_type": "node",
         "name": "Paintball Action Park Imbiss",
+        "cuisine": "snack",
         "chain": "unknown"
       }
     },
@@ -2444,6 +2551,7 @@
         "brand": "Dunkin'",
         "opening_hours": "Mo-Fr 07:00-19:00; Sa 09:00-19:00; Su 10:00-18:00",
         "brand:wikidata": "Q847743",
+        "cuisine": "donut;coffee_shop",
         "chain": "unknown"
       }
     },
@@ -2462,6 +2570,7 @@
         "name": "Mr.24",
         "opening_hours": "Tu-Su 10:00-21:00",
         "phone": "+43 2738 86102",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -2512,6 +2621,7 @@
         "name": "Pizzeria Deniz",
         "phone": "+43 2285 64091",
         "website": "http://www.pizzeriadeniz.com",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2564,6 +2674,7 @@
         "phone": "+43699 11359097",
         "website": "http://www.schnitzelhaus-haidhof.at",
         "operator": "Ketenci KG",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2583,6 +2694,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+43 2253 80116",
         "website": "https://www.pizzeria-fabiano-teesdorf.at/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2600,6 +2712,7 @@
         "osm_type": "node",
         "name": "Imbissstube",
         "operator": "Gantner",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2618,6 +2731,7 @@
         "name": "Kebap & Pizza House",
         "opening_hours": "Mo-Sa 10:00-21:00; Su,PH 11:00-21:00",
         "operator": "K & K Kelec",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -2637,6 +2751,7 @@
         "brand": "Subway",
         "opening_hours": "Mo-Su 08:00-22:00",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -2672,6 +2787,8 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 07:00-24:00; Fr, Sa 07:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2023-10-06",
         "chain": "mcdonalds"
       }
     },
@@ -2691,6 +2808,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+43 2162 64363",
         "website": "http://www.pizzaservice-pannonia.at/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2707,6 +2825,7 @@
         "id": 4040772019,
         "osm_type": "node",
         "name": "Pizzeria Rialto",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -2725,6 +2844,7 @@
         "name": "Pizza & Burger Treff",
         "opening_hours": "Mo-Su 10:00-21:00",
         "phone": "+43 2732 90503",
+        "cuisine": "burger;pizza",
         "chain": "unknown"
       }
     },
@@ -2756,6 +2876,7 @@
       "properties": {
         "id": 4142497903,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2772,6 +2893,7 @@
         "id": 4200239585,
         "osm_type": "node",
         "name": "Kebap & Pizza",
+        "cuisine": "turkish;italian",
         "chain": "unknown"
       }
     },
@@ -2789,6 +2911,7 @@
         "osm_type": "node",
         "name": "Area 21 Mautern",
         "website": "https://www.facebook.com/KremserSchmankerl/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2806,6 +2929,7 @@
         "osm_type": "node",
         "name": "Mauterner Teichbuffet",
         "website": "https://www.mauterner-teichbuffet.at/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2824,6 +2948,7 @@
         "name": "Das Biss:Chen",
         "opening_hours": "Mo-Sa 10:00-21:00",
         "phone": "+43 664 6403000",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2840,6 +2965,7 @@
         "id": 4269855090,
         "osm_type": "node",
         "name": "Döner Pamukkale",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -2871,6 +2997,7 @@
         "id": 4335494815,
         "osm_type": "node",
         "name": "Villacher Hütte",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -2905,6 +3032,7 @@
         "id": 4359306341,
         "osm_type": "node",
         "name": "Kebab Imbiss",
+        "cuisine": "turkish",
         "chain": "unknown"
       }
     },
@@ -2953,6 +3081,7 @@
         "name": "Burg Kebap & Pizza",
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+43 7412 54831",
+        "cuisine": "italian;kebab",
         "chain": "unknown"
       }
     },
@@ -2970,6 +3099,7 @@
         "osm_type": "node",
         "name": "J's American Burger",
         "opening_hours": "Mo-Sa 11:00-14:30, 16:00-21:00; Su 16:00-21:00",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -2989,6 +3119,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+43 2773 42850",
         "website": "https://www.pizza-service-giovanni-hutten.at/",
+        "cuisine": "pizza;burger;kebab",
         "chain": "unknown"
       }
     },
@@ -3005,6 +3136,7 @@
         "id": 4665980400,
         "osm_type": "node",
         "name": "eat and meet",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -3025,6 +3157,7 @@
         "opening_hours": "Mo-Su 10:00-18:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -3044,6 +3177,7 @@
         "opening_hours": "Mo-Su 10:00-23:00",
         "phone": "+43 1 7062787",
         "website": "http://rialto-pizzeria.at/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3095,6 +3229,7 @@
         "opening_hours": "Mo-Su,PH 11:00-22:00",
         "phone": "+43 2732 708 99",
         "website": "http://www.pizza-hollywood.net",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3115,6 +3250,7 @@
         "phone": "+43 676 47 07 571",
         "website": "https://planb-snackbar.at/",
         "operator": "Katharina Stieglitz",
+        "cuisine": "begels",
         "chain": "unknown"
       }
     },
@@ -3132,6 +3268,7 @@
         "osm_type": "node",
         "name": "Valentinus",
         "opening_hours": "Mo-Su 10:30-22:00",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -3148,6 +3285,7 @@
         "id": 4921775962,
         "osm_type": "node",
         "name": "Lara’s Pepito",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -3195,6 +3333,7 @@
         "osm_type": "node",
         "name": "Golden Pizzeria",
         "opening_hours": "Tu-Sa 11:00-22:00; Su,PH 11:00-21:00; Mo off",
+        "cuisine": "pizza;burger;ice_cream;pasta;regional",
         "chain": "unknown"
       }
     },
@@ -3213,6 +3352,8 @@
         "name": "Miami Ristorante & Bar",
         "opening_hours": "10:00-22:00",
         "phone": "+43 7412 53094",
+        "cuisine": "pizza",
+        "check_date": "2023-07-13",
         "chain": "unknown"
       }
     },
@@ -3230,6 +3371,7 @@
         "osm_type": "node",
         "name": "Brunn Pizza",
         "opening_hours": "Mo-Fr 10:00-22:00; Sa 12:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3247,6 +3389,7 @@
         "osm_type": "node",
         "name": "my schnitzel",
         "opening_hours": "Mo-Su 10:00-21:00",
+        "cuisine": "austrian",
         "chain": "unknown"
       }
     },
@@ -3264,6 +3407,7 @@
         "osm_type": "node",
         "name": "Heuriger Zöchmeister",
         "operator": "Zöchmeister",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -3280,6 +3424,7 @@
         "id": 5017783929,
         "osm_type": "node",
         "name": "Kebab Haus Schwechat",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3297,6 +3442,7 @@
         "osm_type": "node",
         "name": "Buffetwaggon",
         "opening_hours": "Su,PH",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -3316,6 +3462,7 @@
         "brand": "Noodle King",
         "opening_hours": "Mo-Su 11:00-22:00",
         "brand:wikidata": "Q112571654",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -3332,6 +3479,7 @@
         "id": 5063725661,
         "osm_type": "node",
         "name": "Latak Geflügel Imbiss",
+        "cuisine": "chicken;snack",
         "chain": "unknown"
       }
     },
@@ -3348,6 +3496,7 @@
         "id": 5071944747,
         "osm_type": "node",
         "name": "Grano",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3414,6 +3563,7 @@
         "name": "Pizzeria Keskin Kebab Haus",
         "opening_hours": "Mo-Sa 10:00-21:00",
         "phone": "+436606801978",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -3431,6 +3581,7 @@
         "osm_type": "node",
         "name": "Ladini",
         "opening_hours": "Mo-Fr 08:00-19:00",
+        "check_date": "2025-09-13",
         "chain": "unknown"
       }
     },
@@ -3450,6 +3601,7 @@
         "opening_hours": "Mo-Fr,Su 11:00-21:00; Sa 11:00-20:45",
         "phone": "+43 2256 20342",
         "website": "https://www.lieferando.at/speisekarte/gs-bosporus-kebap-pizza-schnitzel",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -3469,6 +3621,7 @@
         "opening_hours": "Mo-Th 08:30-20:00; Fr 08:30-20:30; Sa 08:30-19:30; Su 09:30-14:30",
         "phone": "+43 2732 776 11",
         "website": "https://www.schnitzel-drive-in.at/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -3484,6 +3637,7 @@
       "properties": {
         "id": 5169797087,
         "osm_type": "node",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3535,6 +3689,7 @@
         "osm_type": "node",
         "name": "Geflügel-Imbiss Wurzer",
         "opening_hours": "Mo-We, Fr 06:30-12:30, 15:00-18:00; Th 06:30-12:30; PH off",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -3552,6 +3707,7 @@
         "osm_type": "node",
         "name": "Taki",
         "opening_hours": "Mo-Fr 09:00-18:00; Sa 09:00-15:00",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -3588,6 +3744,7 @@
         "opening_hours": "Mo-Th 10:30-21:30; Fr-Sa 10:30-22:00",
         "phone": "+43 677 62044210",
         "website": "https://tonys-to-go.onepage.me",
+        "cuisine": "bowls;burger;chicken;kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -3638,6 +3795,7 @@
         "id": 5391018662,
         "osm_type": "node",
         "name": "Arzum Kebap Haus",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3671,6 +3829,7 @@
         "osm_type": "node",
         "name": "Rudi's Würstelstand",
         "phone": "+43 664 425 26 15",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -3690,6 +3849,7 @@
         "opening_hours": "Mo-Su 11:00-22:00; Th off",
         "phone": "+43 7412 55273",
         "website": "https://www.pizzeria.at/lieferservices/ybbs/pizza-hollywood?plz=auswahl&SID=d1d6ec740db14774ebe1e42b65e2c3c0",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3723,6 +3883,7 @@
         "osm_type": "node",
         "name": "Italo",
         "opening_hours": "Mo-We, Su 11:00-22:00; Fr 17:00-24:00; Sa 11:00-24:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3740,6 +3901,7 @@
         "osm_type": "node",
         "name": "Erkus",
         "website": "https://www.erkus-doener-pizza-schnitzel-schwadorf.at/",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -3758,6 +3920,7 @@
         "name": "Blue7 Lounge",
         "opening_hours": "Fr 15:00-22:00; Sa 11:30-22:00; Su, PH 11:30-22:00",
         "website": "http://blue7lounge.com",
+        "check_date": "2023-06-13",
         "chain": "unknown"
       }
     },
@@ -3790,6 +3953,7 @@
         "id": 5723962355,
         "osm_type": "node",
         "name": "Kebap House",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3807,6 +3971,8 @@
         "osm_type": "node",
         "name": "Aspendos Kebab",
         "opening_hours": "Mo-Sa 09:00-23:00",
+        "cuisine": "kebab",
+        "check_date": "2025-08-23",
         "chain": "unknown"
       }
     },
@@ -3823,6 +3989,7 @@
         "id": 5739132921,
         "osm_type": "node",
         "name": "Big Daddy",
+        "check_date": "2025-11-10",
         "chain": "unknown"
       }
     },
@@ -3843,6 +4010,7 @@
         "phone": "+43 6604769232",
         "website": "https://www.poeggstallerpizzaburgerhaus.at/",
         "operator": "El Mexico Pizzaria OG",
+        "cuisine": "pizza;burger;kebab;barbecue;pasta;salad",
         "chain": "unknown"
       }
     },
@@ -3875,6 +4043,7 @@
         "id": 5765601842,
         "osm_type": "node",
         "name": "Alen's Grill",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -3891,6 +4060,7 @@
         "id": 5789956740,
         "osm_type": "node",
         "name": "Hendl König",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -3924,6 +4094,7 @@
         "id": 5839784934,
         "osm_type": "node",
         "name": "Slavija Grill",
+        "cuisine": "greek",
         "chain": "unknown"
       }
     },
@@ -3962,6 +4133,7 @@
         "opening_hours": "Mo-Su 11:00-22:30",
         "phone": "+43 1 7014533",
         "website": "https://www.karimo2-schwechat.at/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -3996,6 +4168,7 @@
         "name": "Ünal s Pizza Palast",
         "opening_hours": "Mo-Su 11:00-21:30",
         "website": "https://m.facebook.com/Ünal-s-Pizza-Palast-829607213790882/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4013,6 +4186,7 @@
         "osm_type": "node",
         "name": "Pizza Friska",
         "phone": "+43 2279 26004",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4050,6 +4224,7 @@
         "opening_hours": "Mo-Su 10:00-23:00",
         "website": "https://restaurants.subway.com/de/osterreich/ni/amstetten/stadionstr-11",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4068,6 +4243,8 @@
         "name": "Baba Pizza Service",
         "phone": "+43 2736 61400",
         "website": "https://www.baba-pizza-service-paudorf.at",
+        "cuisine": "pizza",
+        "check_date": "2025-05-30",
         "chain": "unknown"
       }
     },
@@ -4102,6 +4279,7 @@
         "opening_hours": "Mo-Su 09:30-21:30",
         "phone": "+432162 6463633",
         "website": "blitz-burger.at",
+        "cuisine": "italian_pizza;burger;regional",
         "chain": "unknown"
       }
     },
@@ -4119,6 +4297,8 @@
         "osm_type": "node",
         "name": "Burgerista",
         "opening_hours": "Mo-We 09:30-19:30; Th 09:30-21:30; Fr 09:30-19:30; Sa 09:00-18:30",
+        "cuisine": "burger",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -4137,6 +4317,7 @@
         "name": "Gablitzer Kebap",
         "opening_hours": "Mo-Sa 10:00-21:00; PH,Su 11:00-20:00",
         "phone": "+43 664 99007131",
+        "cuisine": "kebab;burger;pizza",
         "chain": "unknown"
       }
     },
@@ -4154,6 +4335,7 @@
         "osm_type": "node",
         "name": "Heuriger Schuh",
         "operator": "Schuh",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -4170,6 +4352,7 @@
         "id": 6394690283,
         "osm_type": "node",
         "name": "Koc Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4186,6 +4369,7 @@
         "id": 6398644785,
         "osm_type": "node",
         "name": "Zur Emma",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -4206,6 +4390,7 @@
         "opening_hours": "Fr-Sa 11:00-24:00;Mo-Th,Su 11:00-23:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -4224,6 +4409,7 @@
         "name": "Brezelkönig",
         "brand": "Brezelkönig",
         "brand:wikidata": "Q111728604",
+        "cuisine": "pretzel",
         "chain": "unknown"
       }
     },
@@ -4242,6 +4428,8 @@
         "name": "Mario Brezel",
         "opening_hours": "Mo,We,Th 11:00-15:00; Sa 10:00-14:00",
         "phone": "+43 680 404 20 11",
+        "cuisine": "romanian",
+        "check_date": "2025-09-25",
         "chain": "unknown"
       }
     },
@@ -4291,6 +4479,7 @@
         "id": 6960761634,
         "osm_type": "node",
         "name": "Pizza Kebap",
+        "cuisine": "italian;kebab",
         "chain": "unknown"
       }
     },
@@ -4326,6 +4515,7 @@
         "opening_hours": "Mo 10:45-21:00; We,Th 11:00-21:00; Fr-Su 11:00-21:30",
         "phone": "+43 7412 55370",
         "website": "https://www.facebook.com/pages/category/Hospitality-Service/N17K%C3%BCche-102645365325684/",
+        "cuisine": "asian;japanese",
         "chain": "unknown"
       }
     },
@@ -4376,6 +4566,7 @@
         "name": "Pizzeria Alfonso",
         "opening_hours": "Mo-Su 11:00-22:00",
         "website": "http://www.pizzeriaalfonso.at/",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -4392,6 +4583,7 @@
         "id": 7468551965,
         "osm_type": "node",
         "name": "Izzi",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4408,6 +4600,8 @@
         "id": 7527231500,
         "osm_type": "node",
         "name": "Zur Hütt'n",
+        "cuisine": "burger",
+        "check_date": "2025-04-20",
         "chain": "unknown"
       }
     },
@@ -4424,6 +4618,7 @@
         "id": 7622336340,
         "osm_type": "node",
         "name": "Steckerlfisch in Emmersdorf",
+        "cuisine": "fish",
         "chain": "unknown"
       }
     },
@@ -4442,6 +4637,7 @@
         "name": "Berndorf Kebap",
         "opening_hours": "Mo-Su 09:00-21:00",
         "phone": "+43 660 7187799",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4459,6 +4655,7 @@
         "osm_type": "node",
         "name": "Geflügel Imbiss - Martina Riha",
         "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-13:00",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4491,6 +4688,7 @@
         "osm_type": "node",
         "name": "izzi Kebab",
         "opening_hours": "Mo-Fr 10:30-20:00; Sa 10:30-18:00; PH off",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4510,6 +4708,7 @@
         "brand": "Noodle King",
         "website": "https://www.noodleking.at/",
         "brand:wikidata": "Q112571654",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -4546,6 +4745,8 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
+        "check_date": "2025-07-15",
         "chain": "burger_king"
       }
     },
@@ -4562,6 +4763,7 @@
         "id": 7952786797,
         "osm_type": "node",
         "name": "Nur Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4578,6 +4780,7 @@
         "id": 7952786821,
         "osm_type": "node",
         "name": "Solo del gusto",
+        "cuisine": "italian",
         "chain": "unknown"
       }
     },
@@ -4612,6 +4815,8 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+43 2732 790 79",
         "website": "https://www.burgerkuhnst.at/",
+        "cuisine": "burger",
+        "check_date": "2025-09-25",
         "chain": "unknown"
       }
     },
@@ -4629,6 +4834,7 @@
         "osm_type": "node",
         "name": "Pizzeria Mozzarella",
         "opening_hours": "Tu-Su 11:00-13:50, 16:15-21:30",
+        "check_date": "2025-05-30",
         "chain": "unknown"
       }
     },
@@ -4645,6 +4851,7 @@
         "id": 8019568402,
         "osm_type": "node",
         "name": "Klausi's Achterltreff",
+        "cuisine": "heuriger",
         "chain": "unknown"
       }
     },
@@ -4662,6 +4869,7 @@
         "osm_type": "node",
         "name": "Kebab Time",
         "phone": "+43 660 8426727",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4679,6 +4887,7 @@
         "osm_type": "node",
         "name": "Schnitzelfan",
         "opening_hours": "Tu-Su 11:00-21:00",
+        "cuisine": "asian;austrian",
         "chain": "unknown"
       }
     },
@@ -4695,6 +4904,7 @@
         "id": 8148398799,
         "osm_type": "node",
         "name": "Billy's Fast Food",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4728,6 +4938,7 @@
         "osm_type": "node",
         "name": "Pizza Tyom",
         "opening_hours": "Mo-Fr 11:00-21:00; Sa, Su, PH 11:00-22:00",
+        "cuisine": "italian",
         "chain": "unknown"
       }
     },
@@ -4746,6 +4957,8 @@
         "name": "Vautzi´s Wurstbar",
         "opening_hours": "Mo-Fr 09:00-19:00",
         "operator": "Thomas Gervautz",
+        "cuisine": "regional",
+        "check_date": "2023-04-14",
         "chain": "unknown"
       }
     },
@@ -4780,6 +4993,7 @@
         "name": "La Lanterne",
         "phone": "+43 2772 51528",
         "website": "https://www.pizzalalanterne.at/",
+        "cuisine": "pizza;kebab;burger",
         "chain": "unknown"
       }
     },
@@ -4796,6 +5010,7 @@
         "id": 8445801180,
         "osm_type": "node",
         "name": "Pizza Diyala",
+        "check_date": "2024-02-02",
         "chain": "unknown"
       }
     },
@@ -4812,6 +5027,7 @@
         "id": 8492063599,
         "osm_type": "node",
         "name": "Sultan Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -4828,6 +5044,7 @@
         "id": 8512982719,
         "osm_type": "node",
         "name": "Heuriger Familie Resch",
+        "cuisine": "heuriger",
         "chain": "unknown"
       }
     },
@@ -4848,6 +5065,7 @@
         "opening_hours": "Mo-Th 08:00-23:00; Fr-Sa 08:00-24:00; Su 08:00-23:00",
         "website": "https://www.kfc.co.at/",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -4864,6 +5082,7 @@
         "id": 8648752686,
         "osm_type": "node",
         "name": "Pizza & Kebap SARA",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -4899,6 +5118,23 @@
         "osm_type": "node",
         "name": "Alaturka",
         "website": "http://www.ala-turka.at/",
+        "cuisine": "kebab",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.6239631,
+          48.2079701
+        ]
+      },
+      "properties": {
+        "id": 8978014909,
+        "osm_type": "node",
+        "name": "mod point",
         "chain": "unknown"
       }
     },
@@ -4917,6 +5153,7 @@
         "name": "The King",
         "opening_hours": "Mo-Su 10:00-22:00",
         "phone": "+43 7489 29051",
+        "cuisine": "pizza;burger;pasta;kebab",
         "chain": "unknown"
       }
     },
@@ -4933,6 +5170,7 @@
         "id": 9045661095,
         "osm_type": "node",
         "name": "Pizza Roma",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -4949,6 +5187,7 @@
         "id": 9138118029,
         "osm_type": "node",
         "name": "essBAR",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -4967,6 +5206,7 @@
         "name": "Nordsee",
         "brand": "Nordsee",
         "brand:wikidata": "Q74866",
+        "cuisine": "seafood",
         "chain": "unknown"
       }
     },
@@ -4984,6 +5224,7 @@
         "osm_type": "node",
         "name": "Cigköftem",
         "website": "cigköftem.eu",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5000,6 +5241,7 @@
         "id": 9161250175,
         "osm_type": "node",
         "name": "Pizzeria Flora",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -5017,6 +5259,7 @@
         "osm_type": "node",
         "name": "De Icco",
         "opening_hours": "Mo-Fr 10:00-18:00; Sa,Su,PH off",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5034,6 +5277,7 @@
         "osm_type": "node",
         "name": "PIZZANORMA",
         "website": "https://pizzanorma.at/",
+        "cuisine": "pizza;burger;kebab",
         "chain": "unknown"
       }
     },
@@ -5051,6 +5295,7 @@
         "osm_type": "node",
         "name": "Marco Polo",
         "website": "https://pizza-marco-polo.business.site/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5067,6 +5312,7 @@
         "id": 9343581495,
         "osm_type": "node",
         "name": "Deniz Imbiss",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5084,6 +5330,7 @@
         "osm_type": "node",
         "name": "Ti Amo",
         "opening_hours": "Mo-Su 10:00-22:00",
+        "cuisine": "pizza;kebab;burger;pasta",
         "chain": "unknown"
       }
     },
@@ -5104,6 +5351,7 @@
         "opening_hours": "Mo-Su 09:30-22:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -5124,6 +5372,7 @@
         "opening_hours": "Mo-Su 11:00-21:00",
         "website": "https://www.noodleking.at/",
         "brand:wikidata": "Q112571654",
+        "cuisine": "asian",
         "chain": "unknown"
       }
     },
@@ -5178,6 +5427,7 @@
         "phone": "+43 660 668 88 78",
         "website": "https://www.noodleking.at/",
         "brand:wikidata": "Q112571654",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -5244,6 +5494,7 @@
         "id": 9887401668,
         "osm_type": "node",
         "name": "Arno`s Zentrale",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -5299,6 +5550,7 @@
         "brand": "Burger King",
         "opening_hours": "09:00-23:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -5318,6 +5570,7 @@
         "brand": "Nordsee",
         "opening_hours": "11:00-21:00",
         "brand:wikidata": "Q74866",
+        "cuisine": "seafood",
         "chain": "unknown"
       }
     },
@@ -5355,6 +5608,8 @@
         "phone": "+43 664 4466995",
         "website": "https://dunkin.at/",
         "brand:wikidata": "Q847743",
+        "cuisine": "donut;coffee_shop",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -5374,6 +5629,7 @@
         "opening_hours": "Tu-Su 11:00-20:45; PH 10:00-20:45",
         "phone": "+43 7416 59100",
         "website": "https://giovanni-pronto.at/",
+        "cuisine": "pizza;italian",
         "chain": "unknown"
       }
     },
@@ -5390,6 +5646,7 @@
         "id": 10029796241,
         "osm_type": "node",
         "name": "Leberkas-Pepi",
+        "check_date": "2025-07-21",
         "chain": "unknown"
       }
     },
@@ -5424,6 +5681,7 @@
         "name": "Noodle King",
         "brand": "Noodle King",
         "brand:wikidata": "Q112571654",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -5440,6 +5698,7 @@
         "id": 10159506928,
         "osm_type": "node",
         "name": "Duran",
+        "check_date": "2022-11-05",
         "chain": "unknown"
       }
     },
@@ -5457,6 +5716,7 @@
         "osm_type": "node",
         "name": "Radatz",
         "brand": "Radatz",
+        "check_date": "2022-11-05",
         "chain": "unknown"
       }
     },
@@ -5475,6 +5735,7 @@
         "name": "Mr Currywurst",
         "opening_hours": "Mo-Fr 09:30-19:00; Sa 09:30-18:00; Su,PH off",
         "website": "https://mrcurrywurst.at/",
+        "check_date": "2023-09-24",
         "chain": "unknown"
       }
     },
@@ -5493,6 +5754,7 @@
         "name": "Screamin Italian",
         "opening_hours": "Mo-Su 11:00-22:00",
         "website": "https://screaminitalian.business.site/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5512,6 +5774,7 @@
         "opening_hours": "Mo-Sa 09:00-14:00",
         "phone": "+432732 82764",
         "website": "https://www.fleischer-ellinger.at/das-men%C3%BC/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -5532,6 +5795,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "website": "https://www.noodleking.at/",
         "brand:wikidata": "Q112571654",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -5550,6 +5814,7 @@
         "name": "Schnitzelboxx Raststation",
         "opening_hours": "10:00-14:00",
         "website": "https://www.schnitzelboxx.at",
+        "check_date": "2022-11-27",
         "chain": "unknown"
       }
     },
@@ -5569,6 +5834,7 @@
         "opening_hours": "10:00-21:30",
         "phone": "+43 650 8111414",
         "website": "https://shop.liefersoft.de/etem-kebap-pizza-2524-b5",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -5588,6 +5854,7 @@
         "opening_hours": "Mo,We,Su 11:00-21:30; Fr,Sa 11:00-22:00",
         "phone": "+43 664 75477442",
         "website": "https://www.tivolilangenlois.at/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -5605,6 +5872,7 @@
         "osm_type": "node",
         "name": "Apapika",
         "website": "https://www.apapika.at/",
+        "cuisine": "bowl",
         "chain": "unknown"
       }
     },
@@ -5640,6 +5908,7 @@
         "opening_hours": "Mo off; Tu-Su,PH 09:00-17:00",
         "phone": "+43 664 3824664",
         "website": "https://www.museumnoe.at/de/ihr-besuch/gastro-ausflug/edison",
+        "check_date": "2026-01-03",
         "chain": "unknown"
       }
     },
@@ -5657,6 +5926,7 @@
         "osm_type": "node",
         "name": "Arminay Kebab & Pizzahaus",
         "website": "https://arminay.stadtausstellung.at/speisen/",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -5674,6 +5944,7 @@
         "osm_type": "node",
         "name": "Pizzeria Sole Mio",
         "opening_hours": "11:00-22:00",
+        "cuisine": "pasta;pizza",
         "chain": "unknown"
       }
     },
@@ -5708,6 +5979,8 @@
         "id": 10929193896,
         "osm_type": "node",
         "opening_hours": "Mo-Sa 11:30-17:00",
+        "cuisine": "chicken",
+        "check_date": "2023-05-26",
         "chain": "unknown"
       }
     },
@@ -5726,6 +5999,8 @@
         "name": "Dunkin'",
         "brand": "Dunkin'",
         "brand:wikidata": "Q847743",
+        "cuisine": "donut;coffee_shop",
+        "check_date": "2023-06-01",
         "chain": "unknown"
       }
     },
@@ -5742,6 +6017,8 @@
         "id": 10944358260,
         "osm_type": "node",
         "name": "Lucky Noodle",
+        "cuisine": "chinese;asian",
+        "check_date": "2023-06-01",
         "chain": "unknown"
       }
     },
@@ -5758,6 +6035,8 @@
         "id": 10944358280,
         "osm_type": "node",
         "name": "Kebap Saloon",
+        "cuisine": "kebab",
+        "check_date": "2023-06-01",
         "chain": "unknown"
       }
     },
@@ -5774,6 +6053,8 @@
         "id": 10944373186,
         "osm_type": "node",
         "name": "Sajado",
+        "cuisine": "asian",
+        "check_date": "2023-06-01",
         "chain": "unknown"
       }
     },
@@ -5810,6 +6091,7 @@
         "opening_hours": "Mo-Su 07:00-24:00",
         "website": "https://www.mcdonalds.at/restaurant/brunnerstrasse-4-a-3830-waidhofen-an-der-thaya",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -5843,6 +6125,8 @@
         "id": 11028324824,
         "osm_type": "node",
         "name": "Pizza King",
+        "cuisine": "pizza",
+        "check_date": "2023-07-05",
         "chain": "unknown"
       }
     },
@@ -5861,6 +6145,7 @@
         "name": "Fast & Fresh",
         "phone": "+43 2272 63566",
         "website": "https://www.fastandfresh.at",
+        "check_date": "2023-07-05",
         "chain": "unknown"
       }
     },
@@ -5879,6 +6164,8 @@
         "name": "Pizzeria Lecce",
         "phone": "+43 676 453 13 53",
         "website": "https://www.facebook.com/Pizzeria.Lecce/",
+        "cuisine": "kebab;pizza",
+        "check_date": "2023-07-11",
         "chain": "unknown"
       }
     },
@@ -5915,6 +6202,7 @@
         "name": "Noodle King",
         "brand": "Noodle King",
         "brand:wikidata": "Q112571654",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -5931,6 +6219,7 @@
         "id": 11116277836,
         "osm_type": "node",
         "name": "Mega Kebap",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -5947,6 +6236,8 @@
         "id": 11145971778,
         "osm_type": "node",
         "name": "Le Burger",
+        "cuisine": "burger",
+        "check_date": "2023-08-26",
         "chain": "unknown"
       }
     },
@@ -5963,6 +6254,7 @@
         "id": 11155737167,
         "osm_type": "node",
         "name": "Stern Pizza",
+        "cuisine": "pizza;burger;kebab",
         "chain": "unknown"
       }
     },
@@ -5982,6 +6274,7 @@
         "brand": "Burger King",
         "opening_hours": "Mo-Su 09:00-22:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -6000,6 +6293,7 @@
         "name": "Street Food Pista",
         "opening_hours": "Mo-Fr 11:00-19:00",
         "operator": "Samir Mitic",
+        "cuisine": "sausage;burger;chicken",
         "chain": "unknown"
       }
     },
@@ -6035,6 +6329,7 @@
         "opening_hours": "Mo-Th 09:00-19:00; Fr 09:00-21:00",
         "phone": "+43 664 3327071",
         "website": "https://www.oiswuaschtimgwoeb.at",
+        "check_date": "2023-10-01",
         "chain": "unknown"
       }
     },
@@ -6052,6 +6347,7 @@
         "osm_type": "node",
         "name": "RadlerRast Klein-Reinprechtsdorf",
         "opening_hours": "Mo-Su 08:00+",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -6086,6 +6382,7 @@
         "id": 11268979799,
         "osm_type": "node",
         "name": "Gartenvinothek WEIN-GE-NUSS",
+        "cuisine": "sandwich;wein",
         "chain": "unknown"
       }
     },
@@ -6122,6 +6419,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "website": "https://www.noodleking.at/",
         "brand:wikidata": "Q112571654",
+        "cuisine": "noodle;asian;sushi",
         "chain": "unknown"
       }
     },
@@ -6140,6 +6438,7 @@
         "name": "Amore di Pasta",
         "phone": "+43 677 64051974",
         "website": "https://amoredipasta.at/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6158,6 +6457,7 @@
         "name": "Miya Asia Noodles",
         "opening_hours": "Mo-Fr 11:00-18:30; Sa 11:00-17:00; PH off",
         "phone": "+43 676 5907889",
+        "cuisine": "asian;noodle;sushi",
         "chain": "unknown"
       }
     },
@@ -6175,6 +6475,8 @@
         "osm_type": "node",
         "name": "Pizza Bertl",
         "phone": "+43 2944 26343",
+        "cuisine": "burger;pizza",
+        "check_date": "2024-01-01",
         "chain": "unknown"
       }
     },
@@ -6194,6 +6496,7 @@
         "opening_hours": "Mo-Su 10:30-22:00",
         "phone": "+43295220704",
         "website": "https://pizza-hollywood.at/",
+        "cuisine": "burger;pizza",
         "chain": "unknown"
       }
     },
@@ -6211,6 +6514,7 @@
         "osm_type": "node",
         "name": "Pizza Bella Italia",
         "opening_hours": "Mo-Su 10:00-22:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6227,6 +6531,7 @@
         "id": 11663696763,
         "osm_type": "node",
         "name": "Every Day",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6245,6 +6550,7 @@
         "name": "Pizza Holywood",
         "opening_hours": "Mo-Su 11:00-21:45",
         "website": "https://pizza-hollywood.at/kontakt/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6253,8 +6559,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.5207804,
-          48.1927223
+          14.5208532,
+          48.1925404
         ]
       },
       "properties": {
@@ -6263,9 +6569,9 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 07:00-00:00",
-        "phone": "+43 810 001212",
         "website": "https://www.mcdonalds.at/restaurant/handelsstrasse-5-a-4300-st-valentin",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -6298,6 +6604,7 @@
         "id": 11751608015,
         "osm_type": "node",
         "name": "Do Eat",
+        "cuisine": "sushi;asian",
         "chain": "unknown"
       }
     },
@@ -6333,6 +6640,7 @@
         "opening_hours": "Mo-Su 06:00-03:00",
         "phone": "+436767266438",
         "website": "https://nonstop-kebap.eatbu.com/?lang=de",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6368,6 +6676,8 @@
         "id": 11828694744,
         "osm_type": "node",
         "name": "Trzesniewski",
+        "cuisine": "sandwich",
+        "check_date": "2025-07-27",
         "chain": "unknown"
       }
     },
@@ -6384,6 +6694,7 @@
         "id": 11828694746,
         "osm_type": "node",
         "name": "Johann Strauss",
+        "check_date": "2024-04-18",
         "chain": "unknown"
       }
     },
@@ -6400,6 +6711,7 @@
         "id": 11829153736,
         "osm_type": "node",
         "name": "Noodle One",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -6416,6 +6728,7 @@
         "id": 11871529057,
         "osm_type": "node",
         "name": "Lisi's und Paul's Imbiss",
+        "check_date": "2024-05-01",
         "chain": "unknown"
       }
     },
@@ -6448,6 +6761,7 @@
         "id": 11891035660,
         "osm_type": "node",
         "name": "GIO's Pizza & Kebap",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -6480,6 +6794,7 @@
         "id": 11895166466,
         "osm_type": "node",
         "name": "Dinc Kebab Haus",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6497,6 +6812,7 @@
         "osm_type": "node",
         "name": "Sen Kebap",
         "phone": "+43 2630 32157",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6516,6 +6832,7 @@
         "phone": "+43 2253 6238",
         "website": "https://schneidhoferkg.at/",
         "operator": "Schneidhofer Fleischerei KG",
+        "cuisine": "austrian",
         "chain": "unknown"
       }
     },
@@ -6567,6 +6884,7 @@
         "name": "Noodle King",
         "brand": "Noodle King",
         "brand:wikidata": "Q112571654",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -6586,6 +6904,7 @@
         "brand": "Noodle King",
         "opening_hours": "Mo-Su 11:00-22:00",
         "brand:wikidata": "Q112571654",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -6603,6 +6922,7 @@
         "osm_type": "node",
         "name": "San Pöly",
         "opening_hours": "Mo-Sa 08:00-18:00+",
+        "check_date": "2025-08-23",
         "chain": "unknown"
       }
     },
@@ -6638,6 +6958,7 @@
         "name": "Le Burger",
         "opening_hours": "Mo-Th 11:00-23:00; Fr,Sa 11:00-24:00; Su,PH 11:00-22:00",
         "website": "https://www.leburger.at/standorte/amstetten/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6655,6 +6976,7 @@
         "osm_type": "node",
         "name": "Green Pasta alla siciliana",
         "website": "https://greenpasta.at/",
+        "cuisine": "italian",
         "chain": "unknown"
       }
     },
@@ -6672,6 +6994,7 @@
         "osm_type": "node",
         "name": "Kebap & Pizza Haus Breitenfurt",
         "opening_hours": "Mo-Sa 10:00-20:30; Su 11:00-20:30",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6690,6 +7013,7 @@
         "name": "Wok & BBQ",
         "opening_hours": "Mo-Su 11:30-15:00, 17:00-22:00",
         "website": "https://wok-bbq.eatbu.com/?lang=de",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -6709,6 +7033,7 @@
         "phone": "+43 2635 22301",
         "website": "https://www.derbutcher.at/",
         "operator": "Agron Sinani",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -6760,6 +7085,7 @@
         "phone": "+436766266944",
         "website": "https://www.donau.com/de/wachau-nibelungengau-kremstal/imx/bistro---buffet---imbiss/imbiss-aggsbach-dorf/",
         "operator": "Familie Struzik",
+        "cuisine": "hot_dog;bosner;kaffee;käsekrainer",
         "chain": "unknown"
       }
     },
@@ -6779,6 +7105,8 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+436601525227",
         "website": "http://zushi-market.at",
+        "cuisine": "asian",
+        "check_date": "2025-06-20",
         "chain": "unknown"
       }
     },
@@ -6795,6 +7123,7 @@
         "id": 12530028009,
         "osm_type": "node",
         "name": "Kaiser's",
+        "check_date": "2025-06-20",
         "chain": "unknown"
       }
     },
@@ -6811,6 +7140,7 @@
         "id": 12549319902,
         "osm_type": "node",
         "name": "Tasty Food",
+        "check_date": "2025-02-01",
         "chain": "unknown"
       }
     },
@@ -6827,6 +7157,8 @@
         "id": 12549319907,
         "osm_type": "node",
         "name": "Gusto Gourmet",
+        "cuisine": "kebab",
+        "check_date": "2025-02-01",
         "chain": "unknown"
       }
     },
@@ -6845,6 +7177,8 @@
         "name": "Dunkin'",
         "brand": "Dunkin'",
         "brand:wikidata": "Q847743",
+        "cuisine": "donut;coffee_shop",
+        "check_date": "2025-02-01",
         "chain": "unknown"
       }
     },
@@ -6863,6 +7197,7 @@
         "name": "Chef's",
         "opening_hours": "Mo-Sa 10:00-21:00",
         "phone": "+436767202140",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -6897,6 +7232,7 @@
         "name": "Gastrofreund",
         "opening_hours": "Mo-Sa 10:00-21:00; Su,PH 11:00-21:00",
         "phone": "+43 676 444 39 90",
+        "cuisine": "kebab;turkish",
         "chain": "unknown"
       }
     },
@@ -6914,6 +7250,7 @@
         "osm_type": "node",
         "name": "Snack & Weg",
         "website": "https://snack-und-weg.at/",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -6962,6 +7299,8 @@
         "id": 12694678690,
         "osm_type": "node",
         "name": "Mien House",
+        "cuisine": "sushi;asian",
+        "check_date": "2025-03-23",
         "chain": "unknown"
       }
     },
@@ -6996,6 +7335,7 @@
         "opening_hours": "Mo-Fr,Su 11:00-21:00; Sa 11:00-18:45",
         "phone": "+436603744707",
         "website": "https://burgervista.at/",
+        "cuisine": "burger;kebab;fries",
         "chain": "unknown"
       }
     },
@@ -7062,6 +7402,7 @@
         "id": 12877974179,
         "osm_type": "node",
         "name": "Arin",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7094,6 +7435,7 @@
         "id": 12914312298,
         "osm_type": "node",
         "name": "Reina",
+        "cuisine": "kebab;turkish",
         "chain": "unknown"
       }
     },
@@ -7111,6 +7453,7 @@
         "osm_type": "node",
         "name": "Pizzanista - Lieferdienst",
         "opening_hours": "Tu-Sa 11:00-21:30",
+        "cuisine": "pizza;burger;italian;",
         "chain": "unknown"
       }
     },
@@ -7127,6 +7470,7 @@
         "id": 12960076740,
         "osm_type": "node",
         "name": "No 1 Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7143,6 +7487,7 @@
         "id": 12969594514,
         "osm_type": "node",
         "name": "Fana's Buffet",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -7162,6 +7507,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "phone": "+43 660 1711525",
         "website": "https://www.rocket-burger.at/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -7194,6 +7540,8 @@
         "id": 13074055092,
         "osm_type": "node",
         "name": "Pommesfreunde",
+        "cuisine": "burger",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -7212,6 +7560,8 @@
         "name": "KFC",
         "brand": "KFC",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -7228,6 +7578,8 @@
         "id": 13074055094,
         "osm_type": "node",
         "name": "Ossis",
+        "cuisine": "bowl",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -7244,6 +7596,8 @@
         "id": 13074055095,
         "osm_type": "node",
         "name": "Green Pasta",
+        "cuisine": "pasta",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -7260,6 +7614,8 @@
         "id": 13074055096,
         "osm_type": "node",
         "name": "il Pazzi",
+        "cuisine": "italian",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -7276,6 +7632,7 @@
         "id": 13074055097,
         "osm_type": "node",
         "name": "Wok Town",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -7292,6 +7649,7 @@
         "id": 13074055098,
         "osm_type": "node",
         "name": "Kenny's",
+        "check_date": "2025-08-16",
         "chain": "unknown"
       }
     },
@@ -7308,6 +7666,8 @@
         "id": 13081507828,
         "osm_type": "node",
         "name": "Highländer Würstelstand",
+        "cuisine": "hot_dog",
+        "check_date": "2025-08-19",
         "chain": "unknown"
       }
     },
@@ -7325,6 +7685,7 @@
         "osm_type": "node",
         "name": "Wolf's Revier",
         "phone": "+43 664 5063 360",
+        "cuisine": "regional;sausage",
         "chain": "unknown"
       }
     },
@@ -7340,6 +7701,7 @@
       "properties": {
         "id": 13110984246,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7356,6 +7718,7 @@
         "id": 13120193744,
         "osm_type": "node",
         "name": "Orient",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -7391,6 +7754,7 @@
         "name": "Kaiser's",
         "opening_hours": "Mo-Su 11:30-21:30",
         "website": "https://www.kaisers-original.com/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -7408,6 +7772,7 @@
         "osm_type": "node",
         "name": "Pizza Pronto",
         "opening_hours": "Fr,Sa 11:00-24:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -7442,6 +7807,8 @@
         "name": "Le Burger",
         "opening_hours": "Mo-Th,Su,PH 11:00-23:00; Fr-Sa 11:00-24:00",
         "website": "https://www.leburger.at/standorte/krems/",
+        "cuisine": "burger",
+        "check_date": "2025-11-29",
         "chain": "unknown"
       }
     },
@@ -7458,6 +7825,7 @@
         "id": 13298531091,
         "osm_type": "node",
         "name": "Tommys Imbiss",
+        "cuisine": "hot_dog;sausage;leberkäse",
         "chain": "unknown"
       }
     },
@@ -7490,6 +7858,7 @@
         "osm_type": "node",
         "name": "Kentucky Fried Chicken",
         "website": "https://www.kfc.co.at/",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -7508,6 +7877,7 @@
         "name": "Klappe auf Klappe zu",
         "opening_hours": "Mo-Su 11:00-20:00",
         "phone": "+43 676 4490963",
+        "cuisine": "burger;turkish",
         "chain": "unknown"
       }
     },
@@ -7524,6 +7894,7 @@
         "id": 13334536265,
         "osm_type": "node",
         "name": "Mosaik",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7559,6 +7930,8 @@
         "name": "Dunkin'",
         "brand": "Dunkin'",
         "brand:wikidata": "Q847743",
+        "cuisine": "donut;coffee_shop",
+        "check_date": "2025-11-29",
         "chain": "unknown"
       }
     },
@@ -7576,6 +7949,7 @@
         "osm_type": "node",
         "name": "Koch Insel",
         "website": "https://www.kochinselneunkirchen.at/",
+        "cuisine": "burger;kebab;pasta;pizza",
         "chain": "unknown"
       }
     },
@@ -7594,6 +7968,7 @@
         "name": "mySchnitzel",
         "opening_hours": "Mo-Su 10:00-21:00",
         "website": "https://myschnitzel.at/#neunkirchen",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -7611,6 +7986,7 @@
         "osm_type": "node",
         "name": "Ybbser Kebap",
         "opening_hours": "Mo-Sa 10:30-19:30",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7629,6 +8005,7 @@
         "name": "Kaiser’s - Kaiser’schmarrn",
         "opening_hours": "Mo-Su 10:00-20:00",
         "website": "https://www.kaisers-original.com/stores",
+        "cuisine": "dessert",
         "chain": "unknown"
       }
     },
@@ -7649,6 +8026,7 @@
         "opening_hours": "Su-Th 07:00-00:00; Fr-Sa 07:00-01:00",
         "website": "https://www.mcdonalds.at/restaurant/schlitpacherstrasse-3-a-3390-melk",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7681,6 +8059,7 @@
         "id": 13649507175,
         "osm_type": "node",
         "name": "Euro Kebap & Pizzahaus",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -7698,6 +8077,28 @@
         "osm_type": "node",
         "name": "BistroBox",
         "opening_hours": "24/7",
+        "cuisine": "pizza;snack",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.5196265,
+          48.1913618
+        ]
+      },
+      "properties": {
+        "id": 13748963229,
+        "osm_type": "node",
+        "name": "Noodle King",
+        "brand": "Noodle King",
+        "opening_hours": "Mo-Su 11:00-22:00",
+        "website": "https://www.noodleking.at/",
+        "brand:wikidata": "Q112571654",
+        "cuisine": "noodle",
         "chain": "unknown"
       }
     },
@@ -7717,6 +8118,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 07:00-24:00; Fr, Sa 07:00-02:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7786,6 +8188,7 @@
         "opening_hours": "Mo-Th,Su,PH 07:00-24:00; Fr,Sa 07:00-01:00",
         "website": "https://www.mcdonalds.at/restaurant/stockerauer-strasse-183-a-2100-korneuburg",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7822,6 +8225,7 @@
         "opening_hours": "Mo-Fr 08:00-21:00, Sa 09:00-14:00",
         "phone": "+43 664 4823455",
         "website": "https://www.facebook.com/zurTheresa/",
+        "cuisine": "regional;barbecue;hot_dog;sausage;fries",
         "chain": "unknown"
       }
     },
@@ -7839,6 +8243,7 @@
         "osm_type": "way",
         "name": "Snackeria und Würstlstand",
         "phone": "+43 664 164 96 97",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -7874,6 +8279,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Th 06:30-24:00; Fr 06:30-24:00; Sa 00:00-01:00, 07:00-24:00; Su 00:00-01:00, 08:00-24:00; PH 08:00-24:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7890,6 +8296,7 @@
         "id": 61186929,
         "osm_type": "way",
         "name": "Ulli K.",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -7906,6 +8313,7 @@
         "id": 62245477,
         "osm_type": "way",
         "name": "Würstelbude",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -7945,6 +8353,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 05:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7964,6 +8373,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 07:00-00:00; Fr, Sa 07:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -7984,6 +8394,7 @@
         "opening_hours": "05:00-24:00",
         "operator": "Burger Safare GmbH",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8004,6 +8415,7 @@
         "opening_hours": "24/7",
         "phone": "+43 2622 29835",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8024,7 +8436,24 @@
         "opening_hours": "Mo-Su 06:00-01:00",
         "phone": "+43 2622 81111",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.8202458,
+          48.3314838
+        ]
+      },
+      "properties": {
+        "id": 97875227,
+        "osm_type": "way",
+        "name": "Zum Drahrerstüberl",
+        "chain": "unknown"
       }
     },
     {
@@ -8080,6 +8509,7 @@
         "phone": "+43 2754 56781",
         "website": "https://www.mcdonalds.at/restaurant/gewerbestrasse-10-a-3382-loosdorf",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8099,6 +8529,7 @@
         "brand": "McDonald's",
         "opening_hours": "PH,Su-Th 07:00-00:00; Fr,Sa 07:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8115,6 +8546,7 @@
         "id": 117231468,
         "osm_type": "way",
         "name": "Loatawagl",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -8151,6 +8583,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 07:00-24:00, Fr,Sa 07:00-02:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8167,6 +8600,7 @@
         "id": 122822147,
         "osm_type": "way",
         "name": "Kebaphaus Pitten",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -8186,6 +8620,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Th 07:00-01:00; Fr-Sa 07:00-02:00; Su 07:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8202,6 +8637,7 @@
         "id": 124419866,
         "osm_type": "way",
         "name": "Würstel-Planet",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -8235,6 +8671,7 @@
       "properties": {
         "id": 129671481,
         "osm_type": "way",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -8317,6 +8754,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 07:00-24:00; Fr,Sa 07:00-02:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8333,6 +8771,7 @@
         "id": 134223649,
         "osm_type": "way",
         "name": "Schwei(t)zer Haus",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -8353,6 +8792,7 @@
         "opening_hours": "Su-Th 07:00-24:00; Fr, Sa 07:00-01:00",
         "website": "https://www.mcdonalds.at/restaurant/waidhofner-strasse-46-a-3300-amstetten-greinsfurth",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8372,6 +8812,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 07:00-24:00; Fr-Sa 07:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8391,6 +8832,7 @@
         "brand": "Burger King",
         "opening_hours": "Su -Th 10:00-22:00; Fr, Sa 10:00-23:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -8409,6 +8851,7 @@
         "name": "Pizzaservice Marco Polo",
         "opening_hours": "Mo-Sa 10:30-22:00; Su 11:30-21:00",
         "phone": "+43 676 3346253",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8426,6 +8869,7 @@
         "osm_type": "way",
         "name": "Kebap-Gönül Ocagi",
         "opening_hours": "Mo-Su 11:00-22:00",
+        "cuisine": "turkish",
         "chain": "unknown"
       }
     },
@@ -8458,6 +8902,7 @@
         "id": 148985576,
         "osm_type": "way",
         "name": "Valentinus",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -8476,6 +8921,7 @@
         "name": "Lucky Food",
         "opening_hours": "Mo-Su 11:00-23:00",
         "website": "http://www.luckyfood.at",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -8511,6 +8957,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Fr,PH 07:00-01:00, Sa 07:00-02:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8531,6 +8978,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -8546,6 +8994,7 @@
       "properties": {
         "id": 157405411,
         "osm_type": "way",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -8562,6 +9011,7 @@
         "id": 158003804,
         "osm_type": "way",
         "name": "Würstelhütte",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -8579,6 +9029,7 @@
         "osm_type": "way",
         "name": "Kebap Island",
         "opening_hours": "10:00-20:00",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -8611,6 +9062,7 @@
         "id": 158942452,
         "osm_type": "way",
         "name": "Wieselburger Kebab",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8630,6 +9082,8 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Th,Su,PH 07:00-24:00; Fr-Sa 07:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2024-02-02",
         "chain": "mcdonalds"
       }
     },
@@ -8648,6 +9102,7 @@
         "name": "Pizzeria Lara",
         "opening_hours": "Tu-Su 11:00-22:00",
         "phone": "+43 2243 22024",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -8664,6 +9119,7 @@
         "id": 161104106,
         "osm_type": "way",
         "name": "MyKebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -8766,6 +9222,7 @@
         "phone": "+43 2236 35273",
         "website": "https://www.mcdonalds.at/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -8802,6 +9259,7 @@
         "website": "https://www.kfc.co.at/restaurants/kfc-brunn-am-gebirge",
         "operator": "Queensway Restaurants GmbH (KFC - Kentucky Fried Chicken)",
         "brand:wikidata": "Q524757",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -8836,6 +9294,7 @@
         "name": "Casa Italia",
         "opening_hours": "Mo 11:00-22:00; We-Su 11:00-22:00",
         "phone": "+43 664 99155051;+43 660 6514400",
+        "cuisine": "kebab;pizza;burger",
         "chain": "unknown"
       }
     },
@@ -8851,6 +9310,7 @@
       "properties": {
         "id": 179174313,
         "osm_type": "way",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -8899,6 +9359,7 @@
         "osm_type": "way",
         "name": "Kurtis Pizza Kebap Grill",
         "opening_hours": "Tu-Su 10:00-23:00",
+        "cuisine": "pizza;kebab;turkish",
         "chain": "unknown"
       }
     },
@@ -8915,6 +9376,7 @@
         "id": 187232095,
         "osm_type": "way",
         "name": "Pfeiffers Imbiss",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -8945,6 +9407,7 @@
       "properties": {
         "id": 207953567,
         "osm_type": "way",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -8961,6 +9424,7 @@
         "id": 207953578,
         "osm_type": "way",
         "name": "Keltenküche",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -8978,6 +9442,7 @@
         "osm_type": "way",
         "name": "Der Leesdorfer Würstel Baron",
         "opening_hours": "Tu-Fr 18:00+; PH off",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -8995,6 +9460,7 @@
         "osm_type": "way",
         "name": "Nr. 1 Pizza & Kebap",
         "website": "https://www.nr1-pizza-kebap-wiener-neustadt.at/",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -9031,6 +9497,7 @@
         "opening_hours": "10:00-22:00",
         "phone": "+43 2252 607173",
         "website": "http://kebapandmore.com/",
+        "cuisine": "turkish",
         "chain": "unknown"
       }
     },
@@ -9080,6 +9547,8 @@
         "opening_hours": "Mo-Tu,Th 09:00-24:00; We,Fr 09:00-20:00; Sa-Su 13:30-19:00",
         "phone": "+43 664 533 01 29",
         "operator": "Thomas Völker",
+        "cuisine": "regional",
+        "check_date": "2023-07-12",
         "chain": "unknown"
       }
     },
@@ -9096,6 +9565,7 @@
         "id": 230160856,
         "osm_type": "way",
         "name": "Fassl Kebap",
+        "check_date": "2022-10-09",
         "chain": "unknown"
       }
     },
@@ -9130,6 +9600,7 @@
         "name": "Nikis Schnitzel",
         "phone": "+4367764400905",
         "website": "https://www.facebook.com/nikisschnitzl/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -9199,6 +9670,7 @@
         "name": "Big Mama",
         "opening_hours": "Mo-Fr 09:00-21:00; PH off",
         "phone": "+436765076818",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -9233,6 +9705,7 @@
         "name": "Pizza Mega²",
         "opening_hours": "Mo-Su 10:00-22:00",
         "website": "https://www.pizza-mega-2-moedling.at/",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -9250,6 +9723,7 @@
         "osm_type": "way",
         "name": "Mitterteichhütte",
         "operator": "Schuster Silvia",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -9266,6 +9740,7 @@
         "id": 280582332,
         "osm_type": "way",
         "name": "Die Wurst",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -9284,6 +9759,7 @@
         "name": "Laa Kebap & Pizzahaus",
         "opening_hours": "Mo-Su 10:30-21:00",
         "phone": "+43 2522 85039",
+        "cuisine": "pizza;burger;kebab;pasta;salad",
         "chain": "unknown"
       }
     },
@@ -9303,6 +9779,7 @@
         "opening_hours": "Mo-Fr 09:00-19:00; Sa 10:00-18:00",
         "phone": "+43 664 3804345",
         "website": "https://pizza-kebap-treff.com/",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -9322,6 +9799,7 @@
         "opening_hours": "Mo-Fr 10:00-18:30",
         "phone": "+436608323298",
         "website": "https://scheibbser-kebab.business.site/",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9338,6 +9816,7 @@
         "id": 307216566,
         "osm_type": "way",
         "name": "Würstelparadies",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -9356,6 +9835,7 @@
         "name": "Pizza City",
         "opening_hours": "Mo-Su 10:00-22:00",
         "website": "https://pizzacity-brunn-am-gebirge.at/",
+        "cuisine": "kebab;pizza;burger",
         "chain": "unknown"
       }
     },
@@ -9375,6 +9855,8 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 06:30-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2025-06-10",
         "chain": "mcdonalds"
       }
     },
@@ -9391,6 +9873,7 @@
         "id": 311886782,
         "osm_type": "way",
         "name": "Günthers Würstel-Box",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -9407,6 +9890,7 @@
         "id": 312104361,
         "osm_type": "way",
         "name": "B8 Kebap & Pizza",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9424,6 +9908,7 @@
         "osm_type": "way",
         "name": "Kebap & Pizza House",
         "opening_hours": "Mo-Fr 10:00-21:00; Sa, Su 11:00-21:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9443,6 +9928,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-We 07:00-22:30; Th-Sa 07:00-23:00; Su 09:00-21:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -9462,6 +9948,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 06:00-24:00; Fr-Sa 06:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -9479,6 +9966,7 @@
         "osm_type": "way",
         "name": "Pizzeria Wölbling",
         "opening_hours": "Tu-Su 11:00-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9497,6 +9985,7 @@
         "name": "Sultan Kebap",
         "opening_hours": "Mo-Sa11:00-21:00",
         "operator": "Sultan Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9516,6 +10005,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 07:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -9533,6 +10023,7 @@
         "osm_type": "way",
         "name": "Schabanck",
         "opening_hours": "Tu-Su 10:00-22:00",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -9550,6 +10041,7 @@
         "osm_type": "way",
         "name": "Pizzeria & Kebap House",
         "opening_hours": "11:00-22:00",
+        "cuisine": "pizza;turkish;regional",
         "chain": "unknown"
       }
     },
@@ -9567,6 +10059,7 @@
         "osm_type": "way",
         "name": "Schnitzel Mann",
         "opening_hours": "10:00-21:00",
+        "cuisine": "schnitzel",
         "chain": "unknown"
       }
     },
@@ -9584,6 +10077,7 @@
         "osm_type": "way",
         "name": "Ayan Minimarkt",
         "opening_hours": "Mo-Fr 07:30-20:00; Sa,Su 07:30-20:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9604,6 +10098,7 @@
         "opening_hours": "Mo-Sa 10:00-22:00;Su 11:00-22:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -9654,6 +10149,7 @@
         "name": "Pottendorfer Kebap-Pizza & Markt",
         "opening_hours": "Mo-Su 10:00-22:00",
         "phone": "+43 660 6619192",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -9674,6 +10170,7 @@
         "phone": "+43 664 1842066",
         "website": "https://www.schifferlfahren.at/",
         "operator": "Christian Haider",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -9691,6 +10188,7 @@
         "osm_type": "way",
         "name": "Ötzi Kebab",
         "opening_hours": "Mo-Sa 11:00-22:00; PH,Su 12:00-22:00",
+        "cuisine": "snack",
         "chain": "unknown"
       }
     },
@@ -9708,6 +10206,7 @@
         "osm_type": "way",
         "name": "Caramellini",
         "opening_hours": "Mo-Sa 10:30-18:00; PH,Su off",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9743,6 +10242,7 @@
         "name": "Pizza Amore",
         "opening_hours": "Tu-Fr 11:00-14:00,17:00-22:00; Sa,Su 11:00-22:00",
         "phone": "+43 2627 82895;+43 699 191 840 65",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9779,6 +10279,7 @@
         "name": "Grilli's Treff",
         "opening_hours": "09:00-23:00",
         "phone": "+43 660 9416710",
+        "check_date": "2023-07-05",
         "chain": "unknown"
       }
     },
@@ -9798,6 +10299,7 @@
         "opening_hours": "Mo-Sa 10:00-21:00; Su 11:00-21:00",
         "phone": "+43 664 4814593",
         "website": "https://mega-kebap-pizza.business.site/",
+        "cuisine": "pizza;kebab;salad",
         "chain": "unknown"
       }
     },
@@ -9814,6 +10316,7 @@
         "id": 401485540,
         "osm_type": "way",
         "name": "Öksüm Kebap & Pizzahaus",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -9847,6 +10350,7 @@
         "osm_type": "way",
         "name": "My Pizza & Kebap",
         "opening_hours": "Mo-Su,PH 10:30-21:30",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9865,6 +10369,7 @@
         "name": "Arslan Kebap",
         "phone": "+43 676 4625473",
         "operator": "Ahmet Arslan",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -9884,6 +10389,7 @@
         "opening_hours": "Tu-Th 11:00-14:00, 17:00-22:00; Fr-Su, PH 11:00-22:00",
         "phone": "+43 660 6709969",
         "website": "http://www.wuerstelpavillon.at/",
+        "cuisine": "burger;steak;sausage",
         "chain": "unknown"
       }
     },
@@ -9900,6 +10406,7 @@
         "id": 412652896,
         "osm_type": "way",
         "name": "Horner Pizza & Schnitzelservice",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -9916,6 +10423,7 @@
         "id": 414648492,
         "osm_type": "way",
         "name": "Haasenhütte",
+        "cuisine": "heuriger",
         "chain": "unknown"
       }
     },
@@ -9952,6 +10460,7 @@
         "opening_hours": "Fr-Sa 10:00-24:00;Mo-Th,Su 10:00-23:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -9997,6 +10506,7 @@
       "properties": {
         "id": 448132452,
         "osm_type": "way",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -10028,6 +10538,7 @@
       "properties": {
         "id": 456844586,
         "osm_type": "way",
+        "cuisine": "chestnut",
         "chain": "unknown"
       }
     },
@@ -10046,6 +10557,7 @@
         "name": "Foodie",
         "opening_hours": "Mo-Su 10:00-22:00",
         "website": "https://www.foodiepoechlarn.at/",
+        "cuisine": "kebab;pizza;burger",
         "chain": "unknown"
       }
     },
@@ -10094,6 +10606,7 @@
         "osm_type": "way",
         "name": "Guad und Schoaf",
         "opening_hours": "Mo-Fr 06:00-20:00; Sa 07:00-20:00",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -10111,6 +10624,7 @@
         "osm_type": "way",
         "name": "Burg Kebap",
         "opening_hours": "Apr-Oct: Mo-Fr 10:30-23:30,Sa-Su 10:30-22:00; Nov-Mar: Mo-Su 10:30-22:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10127,6 +10641,7 @@
         "id": 484419240,
         "osm_type": "way",
         "name": "Juri's Imbiss",
+        "cuisine": "snack;hot_dog",
         "chain": "unknown"
       }
     },
@@ -10159,6 +10674,7 @@
         "id": 487328751,
         "osm_type": "way",
         "name": "Ois Wuascht!",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -10178,6 +10694,7 @@
         "opening_hours": "We-Su 10:00-21:00; PH off",
         "phone": "+43 699 10201755",
         "website": "https://www.backhendl-schnitzel-station.at/",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -10194,6 +10711,7 @@
         "id": 493642054,
         "osm_type": "way",
         "name": "Hexenküche",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -10210,6 +10728,7 @@
         "id": 497942833,
         "osm_type": "way",
         "name": "Würstelburg",
+        "check_date": "2026-03-22",
         "chain": "unknown"
       }
     },
@@ -10243,6 +10762,7 @@
         "id": 501340948,
         "osm_type": "way",
         "name": "Paul’s Kalorienstadl",
+        "check_date": "2026-03-19",
         "chain": "unknown"
       }
     },
@@ -10278,6 +10798,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 07:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -10295,6 +10816,7 @@
         "osm_type": "way",
         "name": "Würstl Boutique Wilczek",
         "opening_hours": "Mo-Fr 09:00-18:00; Sa 09:00-15:00",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -10315,6 +10837,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -10332,6 +10855,7 @@
         "osm_type": "way",
         "name": "Stockerau Imbiss",
         "opening_hours": "Mo-Fr 08:30-22:00; Sa,Su,PH 09:30-22:00",
+        "cuisine": "pizza;kebab;pasta",
         "chain": "unknown"
       }
     },
@@ -10350,6 +10874,7 @@
         "name": "Zum Schwarzen",
         "opening_hours": "Mo,Tu,Th 09:00-19:00; We 09:00-13:00",
         "phone": "+43 680 301244",
+        "cuisine": "sausage",
         "chain": "unknown"
       }
     },
@@ -10365,6 +10890,7 @@
       "properties": {
         "id": 539886881,
         "osm_type": "way",
+        "cuisine": "hot_dog",
         "chain": "unknown"
       }
     },
@@ -10382,6 +10908,7 @@
         "osm_type": "way",
         "name": "Hendlkönig",
         "opening_hours": "Mo-Fr 09:00-18:30; Sa 09:00-17:00",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -10401,6 +10928,8 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-We 07:00-01:00; Th 07:00-02:00; Fr-Sa 07:00-05:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2025-05-30",
         "chain": "mcdonalds"
       }
     },
@@ -10432,6 +10961,7 @@
         "id": 576023303,
         "osm_type": "way",
         "name": "Engl am Campus",
+        "cuisine": "american",
         "chain": "unknown"
       }
     },
@@ -10447,6 +10977,7 @@
       "properties": {
         "id": 581016048,
         "osm_type": "way",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10495,6 +11026,7 @@
         "osm_type": "way",
         "name": "Star Pizza Kebap Burger",
         "opening_hours": "Tu-Su 11:00-21:00",
+        "cuisine": "burger;pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -10512,6 +11044,7 @@
         "osm_type": "way",
         "name": "Teichbuffet",
         "opening_hours": "We-Su 10:00-18:00",
+        "cuisine": "ice_cream;fast_food;snacks;coffee",
         "chain": "unknown"
       }
     },
@@ -10528,6 +11061,7 @@
         "id": 633995269,
         "osm_type": "way",
         "name": "Selo",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -10548,6 +11082,7 @@
         "opening_hours": "Fr,Sa 11:00-22:00; Mo-Th,Su 11:00-21:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -10566,6 +11101,7 @@
         "name": "Wolf's Würstelstand",
         "opening_hours": "Mo-Fr 10:00-20:00; Sa,Su,PH 10:30-20:00",
         "operator": "Patrik Wolf",
+        "cuisine": "burger;barbecue",
         "chain": "unknown"
       }
     },
@@ -10584,6 +11120,7 @@
         "name": "Siestahittn",
         "website": "https://www.siestahittn-reischl.com/",
         "operator": "Weingut Reischl GesBR",
+        "cuisine": "heuriger",
         "chain": "unknown"
       }
     },
@@ -10600,6 +11137,7 @@
         "id": 660581423,
         "osm_type": "way",
         "name": "Jausenstadl",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -10619,6 +11157,7 @@
         "brand": "dean&david",
         "opening_hours": "Mo-Su 06:30-20:00",
         "brand:wikidata": "Q66132404",
+        "cuisine": "salad;sandwich",
         "chain": "unknown"
       }
     },
@@ -10635,6 +11174,7 @@
         "id": 693292168,
         "osm_type": "way",
         "name": "Imbissstube Steinbauer",
+        "cuisine": "snackbar",
         "chain": "unknown"
       }
     },
@@ -10669,6 +11209,8 @@
         "name": "Gyros & Pita G.R.I.L.L",
         "opening_hours": "10:30-21:30",
         "operator": "Ilias Polychronakis",
+        "cuisine": "greek",
+        "check_date": "2022-10-15",
         "chain": "unknown"
       }
     },
@@ -10688,6 +11230,7 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-We 07:00-00:00; Th 07:00-01:00; Fr-Sa 06:00-03:00; Su 07:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -10706,6 +11249,7 @@
         "name": "Snack & Weg",
         "opening_hours": "Mo-Sa 10:30-20:30",
         "phone": "+43 664 1245001",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -10721,6 +11265,7 @@
       "properties": {
         "id": 727662375,
         "osm_type": "way",
+        "check_date": "2023-06-21",
         "chain": "unknown"
       }
     },
@@ -10741,6 +11286,7 @@
         "opening_hours": "Mo-Su 10:00-23:00",
         "operator": "MFAT AdFund",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     },
@@ -10773,6 +11319,7 @@
         "id": 834287738,
         "osm_type": "way",
         "name": "Donau Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -10789,6 +11336,7 @@
         "id": 839909087,
         "osm_type": "way",
         "name": "Wolf's Beer & Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -10808,6 +11356,8 @@
         "brand": "Burger King",
         "opening_hours": "Su-Th 10:00-23:00; Fr-Sa 10:00-01:00",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
+        "check_date": "2025-05-30",
         "chain": "burger_king"
       }
     },
@@ -10846,6 +11396,7 @@
         "phone": "+43262242773",
         "website": "https://www.mcdonalds.at/",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -10881,6 +11432,7 @@
         "opening_hours": "Mo-Sa 09:00-21:00, So 11:00-21:00; PH 11:00-21:00",
         "phone": "+43 664 6458464",
         "website": "https://www.laenzoospizzakebapco.at/",
+        "cuisine": "pizza;kebab;noodle",
         "chain": "unknown"
       }
     },
@@ -10914,6 +11466,7 @@
         "osm_type": "way",
         "name": "Pizza Service Bella",
         "opening_hours": "Mo-Su 10:30-21:00",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -10929,9 +11482,12 @@
       "properties": {
         "id": 1000255414,
         "osm_type": "way",
-        "name": "Robinson's",
-        "opening_hours": "Th-Mo 14:00-21:00",
+        "name": "ROBINSON'S",
+        "opening_hours": "Th-Mo 14:00-22:00",
+        "phone": "+436646353637",
         "website": "https://www.robinsons.at/",
+        "operator": "Ricardo Zanot",
+        "cuisine": "feuerflecken;_snacks_&_co",
         "chain": "unknown"
       }
     },
@@ -10949,6 +11505,8 @@
         "osm_type": "way",
         "name": "Velowelle",
         "opening_hours": "Tu-Th 11:00-22:00; Fr-Sa 10:00-23:00; Su 10:00-21:00",
+        "cuisine": "burger",
+        "check_date": "2023-06-13",
         "chain": "unknown"
       }
     },
@@ -10965,6 +11523,7 @@
         "id": 1158708734,
         "osm_type": "way",
         "name": "Pia Pizza Kebap",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -10999,6 +11558,7 @@
         "id": 1160878404,
         "osm_type": "way",
         "name": "Weingut Anton Luegmayer",
+        "cuisine": "heuriger",
         "chain": "unknown"
       }
     },
@@ -11034,6 +11594,8 @@
         "brand": "McDonald's",
         "opening_hours": "Mo-Su 07:00-01:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2023-08-19",
         "chain": "mcdonalds"
       }
     },
@@ -11066,6 +11628,7 @@
         "id": 1178187869,
         "osm_type": "way",
         "name": "Radler-Tränke",
+        "cuisine": "getränke",
         "chain": "unknown"
       }
     },
@@ -11133,6 +11696,7 @@
         "opening_hours": "24/7",
         "website": "https://www.bistrobox.com/",
         "operator": "BistroBox GmbH",
+        "cuisine": "pizza;leberkäs",
         "chain": "unknown"
       }
     },
@@ -11165,6 +11729,7 @@
         "id": 1373409757,
         "osm_type": "way",
         "name": "Karmer Street Food",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11204,6 +11769,7 @@
         "website": "https://www.mcdonalds.at/restaurant/bauweltstrasse-3-a-2405-bad-deutsch-altenburg",
         "operator": "Bacsich Gesellschaft m.b.H.",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -11222,6 +11788,7 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger;coffee_shop",
         "chain": "mcdonalds"
       }
     },
@@ -11268,6 +11835,7 @@
         "id": 1459931735,
         "osm_type": "way",
         "name": "Deli Kebap & Pizzahaus",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -11304,6 +11872,7 @@
         "opening_hours": "Su-Sa 05:00-23:00",
         "website": "https://www.viennaairport.com/passagiere/shops__restaurants/detail?sug_id=1681746550857&_shop=&_gastro=yes",
         "brand:wikidata": "Q177054",
+        "cuisine": "burger",
         "chain": "burger_king"
       }
     }

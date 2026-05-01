@@ -754,6 +754,7 @@
         "name": "Placintarie",
         "opening_hours": "Mo-Fr 09:00-15:30; Sa-Su off",
         "cuisine": "regional;kebab",
+        "check_date": "2024-06-04",
         "chain": "unknown"
       }
     },
@@ -828,6 +829,7 @@
         "operator": "US Food Network",
         "brand:wikidata": "Q524757",
         "cuisine": "chicken",
+        "check_date": "2025-11-01",
         "chain": "unknown"
       }
     },
@@ -1012,6 +1014,7 @@
         "name": "Frenchy Tacos",
         "opening_hours": "Mo 13:00-22:00; Tu 13:45-22:00; We 13:30-18:00; Th 13:00-22:15; Fr 15:30-22:30; Sa 14:00-23:00; Su 13:45-21:00",
         "phone": "+40732624239",
+        "check_date": "2026-03-10",
         "chain": "unknown"
       }
     },
@@ -2134,6 +2137,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "phone": "+40 0722 377 413",
         "cuisine": "kebab",
+        "check_date": "2025-11-03",
         "chain": "unknown"
       }
     },
@@ -2411,6 +2415,7 @@
         "osm_type": "node",
         "name": "Mama Manu",
         "opening_hours": "24/7",
+        "check_date": "2024-02-24",
         "chain": "unknown"
       }
     },
@@ -2447,6 +2452,7 @@
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2025-11-01",
         "chain": "burger_king"
       }
     },
@@ -2560,6 +2566,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          23.7877346,
+          46.5732493
+        ]
+      },
+      "properties": {
+        "id": 13764792002,
+        "osm_type": "node",
+        "name": "American Crust",
+        "cuisine": "pizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           23.554066,
           46.7539836
         ]
@@ -2574,6 +2597,7 @@
         "website": "https://mcdonalds.ro/",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2023-07-18",
         "chain": "mcdonalds"
       }
     },
@@ -2679,6 +2703,7 @@
         "phone": "+40738874502",
         "website": "https://noodlepack.ro/",
         "cuisine": "noodle",
+        "check_date": "2023-03-09",
         "chain": "unknown"
       }
     },
@@ -2697,6 +2722,7 @@
         "name": "Focco",
         "opening_hours": "11:00-22:00",
         "cuisine": "pizza",
+        "check_date": "2024-08-07",
         "chain": "unknown"
       }
     },
@@ -2751,6 +2777,25 @@
         "website": "https://www.newagepizza.ro/",
         "cuisine": "pizza",
         "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.4506204,
+          46.7465362
+        ]
+      },
+      "properties": {
+        "id": 1486848163,
+        "osm_type": "way",
+        "name": "McDonald's",
+        "brand": "McDonald's",
+        "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "chain": "mcdonalds"
       }
     },
     {

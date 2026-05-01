@@ -28,7 +28,8 @@
       "properties": {
         "id": 4714256675,
         "osm_type": "node",
-        "vending": "milk"
+        "vending": "milk",
+        "check_date": "2022-07-17"
       }
     },
     {
@@ -90,7 +91,8 @@
       "properties": {
         "id": 9415728109,
         "osm_type": "node",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2026-04-04"
       }
     },
     {
@@ -105,7 +107,8 @@
       "properties": {
         "id": 10224480100,
         "osm_type": "node",
-        "vending": "ice_cream"
+        "vending": "ice_cream",
+        "check_date": "2022-11-28"
       }
     },
     {
@@ -195,7 +198,8 @@
       "properties": {
         "id": 12857229206,
         "osm_type": "node",
-        "vending": "coffee;drinks;snacks"
+        "vending": "coffee;drinks;snacks",
+        "check_date": "2025-05-23"
       }
     },
     {
@@ -258,6 +262,51 @@
         "id": 13479410015,
         "osm_type": "node",
         "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.033108,
+          52.0923318
+        ]
+      },
+      "properties": {
+        "id": 13723132897,
+        "osm_type": "node",
+        "vending": "pizza"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.8673682,
+          51.8268936
+        ]
+      },
+      "properties": {
+        "id": 13734733581,
+        "osm_type": "node",
+        "vending": "sweets;drinks;food"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.8673684,
+          51.8268889
+        ]
+      },
+      "properties": {
+        "id": 13734733582,
+        "osm_type": "node",
+        "vending": "sweets;drinks;food"
       }
     }
   ]

@@ -30,7 +30,8 @@
         "osm_type": "node",
         "name": "TotalEnergies 't Haasje",
         "brand": "TotalEnergies",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-03-06"
       }
     },
     {
@@ -941,7 +942,8 @@
         "osm_type": "node",
         "name": "Tango Breda",
         "brand": "Tango",
-        "opening_hours": "06:00-23:00"
+        "opening_hours": "06:00-23:00",
+        "check_date": "2026-04-03"
       }
     },
     {
@@ -3093,14 +3095,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.3483867,
-          51.4401981
+          5.3483633,
+          51.4401685
         ]
       },
       "properties": {
         "id": 1737626537,
         "osm_type": "node",
-        "name": "AutoFood"
+        "name": "Autofood",
+        "brand": "Autofood",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -3209,14 +3213,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.6954387,
-          51.3472377
+          5.6954656,
+          51.3472482
         ]
       },
       "properties": {
         "id": 1792418655,
         "osm_type": "node",
-        "name": "Autofood"
+        "name": "GT24",
+        "brand": "GT24",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4307,8 +4313,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.8057177,
-          51.5939927
+          4.805713,
+          51.5939969
         ]
       },
       "properties": {
@@ -4651,7 +4657,8 @@
         "id": 2754116171,
         "osm_type": "node",
         "name": "TinQ",
-        "brand": "TinQ"
+        "brand": "TinQ",
+        "check_date": "2023-01-28"
       }
     },
     {
@@ -4684,7 +4691,8 @@
         "id": 2761870957,
         "osm_type": "node",
         "name": "Tamoil express",
-        "brand": "Tamoil express"
+        "brand": "Tamoil express",
+        "check_date": "2024-03-20"
       }
     },
     {
@@ -4904,7 +4912,8 @@
         "osm_type": "node",
         "name": "Shell van Berkel",
         "brand": "Shell",
-        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; PH,Su 09:00-21:00"
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-21:00; PH,Su 09:00-21:00",
+        "check_date": "2026-01-28"
       }
     },
     {
@@ -5736,7 +5745,8 @@
         "osm_type": "node",
         "name": "Texaco Asten",
         "brand": "Texaco",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2024-10-27"
       }
     },
     {
@@ -5900,7 +5910,7 @@
       "properties": {
         "id": 2869339231,
         "osm_type": "node",
-        "name": "Esso Express Vijfeiken",
+        "name": "Esso Express",
         "brand": "Esso Express",
         "opening_hours": "24/7"
       }
@@ -5910,14 +5920,31 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          5.3094465,
-          51.3586818
+          5.3094417,
+          51.3586758
         ]
       },
       "properties": {
         "id": 2872487356,
         "osm_type": "node",
-        "name": "Esso Verstappen",
+        "name": "Esso Express",
+        "brand": "Esso Express",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.7983242,
+          51.4500834
+        ]
+      },
+      "properties": {
+        "id": 2872516028,
+        "osm_type": "node",
+        "name": "Esso",
         "brand": "Esso",
         "opening_hours": "24/7"
       }
@@ -5952,7 +5979,8 @@
         "id": 2872978610,
         "osm_type": "node",
         "name": "Shell Station Obers Deurne",
-        "brand": "Shell"
+        "brand": "Shell",
+        "check_date": "2026-02-18"
       }
     },
     {
@@ -6740,14 +6768,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4349447,
-          51.6768101
+          4.4349133,
+          51.6768304
         ]
       },
       "properties": {
         "id": 3458754234,
         "osm_type": "node",
-        "name": "Autofood"
+        "name": "Esso Express",
+        "brand": "Esso Express",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -7023,7 +7053,7 @@
         "id": 4169797178,
         "osm_type": "node",
         "name": "AVIA Made",
-        "brand": "AVIA",
+        "brand": "Avia",
         "opening_hours": "Mo-Fr 07:00-09:30; Sa 08:00-16:00; Su off"
       }
     },
@@ -7424,6 +7454,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          4.4522857,
+          51.6397667
+        ]
+      },
+      "properties": {
+        "id": 4769019014,
+        "osm_type": "node",
+        "name": "Esso Express",
+        "brand": "Esso Express",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           5.1450268,
           51.589596
         ]
@@ -7440,15 +7487,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4390129,
-          51.6931705
+          4.4390323,
+          51.6931638
         ]
       },
       "properties": {
         "id": 4829389651,
         "osm_type": "node",
-        "name": "Texaco",
-        "brand": "Texaco"
+        "name": "TinQ",
+        "brand": "TinQ",
+        "opening_hours": "Mo-Su 06:00-22:00"
       }
     },
     {
@@ -7462,7 +7510,10 @@
       },
       "properties": {
         "id": 4881660944,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Shell",
+        "brand": "Shell",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -9420,8 +9471,8 @@
       "properties": {
         "id": 11793891893,
         "osm_type": "node",
-        "name": "BP",
-        "brand": "BP",
+        "name": "OK",
+        "brand": "OK",
         "opening_hours": "24/7"
       }
     },
@@ -9956,8 +10007,8 @@
       "properties": {
         "id": 13479675546,
         "osm_type": "node",
-        "name": "BP express",
-        "brand": "BP express",
+        "name": "OK express",
+        "brand": "OK express",
         "opening_hours": "24/7"
       }
     },
@@ -10042,6 +10093,23 @@
         "osm_type": "node",
         "name": "Argos",
         "brand": "Argos",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.3421143,
+          51.311523
+        ]
+      },
+      "properties": {
+        "id": 13734306600,
+        "osm_type": "node",
+        "name": "Autofood",
+        "brand": "Autofood",
         "opening_hours": "24/7"
       }
     },

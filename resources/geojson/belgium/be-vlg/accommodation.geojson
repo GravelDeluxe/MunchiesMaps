@@ -7092,22 +7092,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.2708,
-          50.8301
-        ]
-      },
-      "properties": {
-        "id": 4367852314,
-        "osm_type": "node",
-        "name": "Square Hotel",
-        "tourism": "hotel"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           3.7162731,
           51.0497444
         ]
@@ -8258,23 +8242,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.6908239,
-          50.8810164
-        ]
-      },
-      "properties": {
-        "id": 5137723193,
-        "osm_type": "node",
-        "name": "Hostel St Jacob",
-        "tourism": "hostel",
-        "website": "http://www.stjacob.be"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.1400724,
           51.105453
         ]
@@ -8815,7 +8782,9 @@
       "properties": {
         "id": 5449164076,
         "osm_type": "node",
-        "tourism": "hotel"
+        "name": "Trilogie",
+        "tourism": "hotel",
+        "website": "https://www.trilogie-kemmel.be/"
       }
     },
     {
@@ -10720,7 +10689,9 @@
       "properties": {
         "id": 6510638961,
         "osm_type": "node",
-        "tourism": "hotel"
+        "name": "Woestyne",
+        "tourism": "hotel",
+        "website": "https://www.woestyne.be/nl/flats"
       }
     },
     {
@@ -16432,7 +16403,8 @@
         "osm_type": "node",
         "name": "Landgoed Altenbroek",
         "tourism": "hotel",
-        "website": "https://www.altenbroek.com/"
+        "website": "https://www.altenbroek.com/",
+        "check_date": "2026-04-25"
       }
     },
     {
@@ -21785,7 +21757,7 @@
         "osm_type": "node",
         "name": "Hotel Domein Polderwind",
         "tourism": "hotel",
-        "website": "www.domeinpolderwind.be"
+        "website": "https://www.domeinpolderwind.be/"
       }
     },
     {
@@ -21923,6 +21895,39 @@
         "name": "Hotel Thermen Dilbeek",
         "tourism": "hotel",
         "contact:website": "https://www.thermendilbeek.be/hotel"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.9250665,
+          51.2151795
+        ]
+      },
+      "properties": {
+        "id": 13760693701,
+        "osm_type": "node",
+        "name": "Gemeentelijke camperparking van Moerbeke",
+        "tourism": "caravan_site",
+        "website": "http://www.moerbeke.be/camperparking"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5697443,
+          51.13005
+        ]
+      },
+      "properties": {
+        "id": 13771019975,
+        "osm_type": "node",
+        "name": "Airbnb Lantaarnstraat 12",
+        "tourism": "apartment"
       }
     },
     {
@@ -22639,7 +22644,9 @@
       "properties": {
         "id": 74330779,
         "osm_type": "way",
-        "tourism": "camp_site"
+        "name": "Krekenpoort",
+        "tourism": "camp_site",
+        "website": "https://krekenpoort.be/"
       }
     },
     {
@@ -23033,7 +23040,7 @@
         "name": "Roompot Park Eksel",
         "tourism": "chalet",
         "phone": "+32 11 36 15 20",
-        "website": "https://www.roompot.be/vakantieparken/belgie/limburg-b/roompot-park-eksel/"
+        "website": "https://www.roompot.be/parken/park-eksel"
       }
     },
     {
@@ -25446,7 +25453,8 @@
         "osm_type": "way",
         "name": "De Secretaris",
         "tourism": "hotel",
-        "website": "http://www.desecretaris.be/"
+        "website": "http://www.desecretaris.be/",
+        "check_date": "2026-04-29"
       }
     },
     {
@@ -26288,13 +26296,15 @@
         "type": "Point",
         "coordinates": [
           2.8168555,
-          51.181173
+          51.1811637
         ]
       },
       "properties": {
         "id": 127350151,
         "osm_type": "way",
-        "tourism": "camp_site"
+        "name": "Mercator",
+        "tourism": "camp_site",
+        "website": "https://marvaparken.be/parken/mercator-park"
       }
     },
     {
@@ -26686,6 +26696,7 @@
       "properties": {
         "id": 132803007,
         "osm_type": "way",
+        "name": "Riviera",
         "tourism": "camp_site"
       }
     },
@@ -27158,7 +27169,8 @@
         "id": 140159994,
         "osm_type": "way",
         "name": "Hotel Florent",
-        "tourism": "hotel"
+        "tourism": "hotel",
+        "check_date": "2026-04-30"
       }
     },
     {
@@ -42242,7 +42254,9 @@
       "properties": {
         "id": 276651565,
         "osm_type": "way",
-        "tourism": "hotel"
+        "name": "Square Hotel",
+        "tourism": "hotel",
+        "website": "https://www.squarehotel.be/"
       }
     },
     {
@@ -44130,7 +44144,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          4.4490771,
+          4.4490476,
           51.0385705
         ]
       },
@@ -54102,8 +54116,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.806071,
-          51.2089429
+          3.806083,
+          51.2089595
         ]
       },
       "properties": {
@@ -63286,21 +63300,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          3.3524089,
-          51.3592414
-        ]
-      },
-      "properties": {
-        "id": 1445973078,
-        "osm_type": "way",
-        "tourism": "camp_site"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           4.1122453,
           50.9121335
         ]
@@ -63471,8 +63470,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          2.993075,
-          50.9599228
+          2.993037,
+          50.9599973
         ]
       },
       "properties": {
@@ -63850,7 +63849,9 @@
       "properties": {
         "id": 11755659,
         "osm_type": "relation",
-        "tourism": "hotel"
+        "name": "Domein Westhoek",
+        "tourism": "hotel",
+        "website": "https://www.domein-westhoek.be/"
       }
     },
     {

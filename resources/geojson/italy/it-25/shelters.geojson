@@ -1507,24 +1507,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.6716032,
-          46.0645364
-        ]
-      },
-      "properties": {
-        "id": 9957713941,
-        "osm_type": "node",
-        "name": "bivacco ViviOrobie / Elio Angelini alla memoria di Mario Castiglioni",
-        "access": "permit",
-        "capacity": "8",
-        "operator": "www.valcorta.it/bivacco-viviorobie"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.9658715,
           45.8722955
         ]
@@ -1679,7 +1661,8 @@
         "name": "bivacco G.A.M.",
         "access": "yes",
         "capacity": "2/4",
-        "description": "attrezzature: 1 letto a castello a 2 piani con materassi + 2 brande piegate - piccola stufa a legna - luce e presa corrente tramite pannelli solari - mobilio ma niente pentole"
+        "description": "attrezzature: 1 letto a castello a 2 piani con materassi + 2 brande piegate - piccola stufa a legna - luce e presa corrente tramite pannelli solari - mobilio ma niente pentole",
+        "check_date": "2025-06-11"
       }
     },
     {
@@ -1732,6 +1715,75 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.6624973,
+          46.1156407
+        ]
+      },
+      "properties": {
+        "id": 13759113879,
+        "osm_type": "node",
+        "name": "Roberto Rovedatti m.1860",
+        "access": "yes",
+        "capacity": "10"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.4965278,
+          46.1047806
+        ]
+      },
+      "properties": {
+        "id": 13759151960,
+        "osm_type": "node",
+        "name": "bivacco Carla",
+        "access": "yes",
+        "capacity": "5/7",
+        "fee": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.4966403,
+          46.104643
+        ]
+      },
+      "properties": {
+        "id": 13759164133,
+        "osm_type": "node",
+        "name": "bivacco Plinio",
+        "access": "yes",
+        "capacity": "5/7",
+        "fee": "yes",
+        "description": "Bivacco gemello a quello vicino, costituito da un monolocale con cucina a legna (piccola), cucina  a gas, bagno con doccia e boiler a legna, luce a pannello solare."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.495821,
+          46.1056036
+        ]
+      },
+      "properties": {
+        "id": 13759189929,
+        "osm_type": "node",
+        "name": "bivacco Alpe Piazza m.1844"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.5259937,
           45.9303508
         ]
@@ -1755,22 +1807,6 @@
       "properties": {
         "id": 60750423,
         "osm_type": "way",
-        "shelter_type": "lean_to"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.0558141,
-          45.5054808
-        ]
-      },
-      "properties": {
-        "id": 65645833,
-        "osm_type": "way",
-        "name": "Punto Parco",
         "shelter_type": "lean_to"
       }
     },
@@ -2543,7 +2579,8 @@
         "name": "Bivacco Case di Bles",
         "access": "yes",
         "capacity": "12",
-        "operator": "Club Alpino Italiano - Sottosezione di Manerbio"
+        "operator": "Club Alpino Italiano - Sottosezione di Manerbio",
+        "check_date": "2024-09-16"
       }
     },
     {
@@ -4469,7 +4506,8 @@
         "osm_type": "way",
         "name": "Bivacco Silvio Saglio",
         "shelter_type": "basic_hut",
-        "capacity": "6"
+        "capacity": "6",
+        "check_date": "2025-06-11"
       }
     },
     {
@@ -5832,7 +5870,8 @@
         "name": "Bivacco alpe Mudada di Rozzo",
         "access": "yes",
         "capacity": "se sistemati a regola d'arte, almeno 4 posti letto a castello su 2 piani vi stanno visto che il locale misura 4,70 mt. x 2,80 met",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2024 - 12 - 30"
       }
     },
     {
@@ -8408,21 +8447,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.6625064,
-          46.1156418
-        ]
-      },
-      "properties": {
-        "id": 960877140,
-        "osm_type": "way",
-        "name": "Bivacco Roberto Rovedatti"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.3905417,
           45.3906046
         ]
@@ -9310,7 +9334,8 @@
         "capacity": "2",
         "fee": "no",
         "operator": "Cai Teglio",
-        "description": "piccolo locale annesso alla struttura principale sempre aperto ad uso emergenza con materassi, piumoni e cuscini, luce elettrica, spina di ricarica"
+        "description": "piccolo locale annesso alla struttura principale sempre aperto ad uso emergenza con materassi, piumoni e cuscini, luce elettrica, spina di ricarica",
+        "check_date": "2025-09-19"
       }
     },
     {
@@ -9346,7 +9371,8 @@
         "access": "yes",
         "capacity": "4 persone",
         "fee": "yes",
-        "description": "monolocale con cucina economica e a gas"
+        "description": "monolocale con cucina economica e a gas",
+        "check_date": "2024"
       }
     },
     {
@@ -9524,6 +9550,24 @@
         "id": 1468537641,
         "osm_type": "way",
         "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.6715243,
+          46.0645483
+        ]
+      },
+      "properties": {
+        "id": 1499396984,
+        "osm_type": "way",
+        "name": "Bivacco ViviOrobie / Elio Angelini alla memoria di Mario Castiglioni",
+        "access": "permit",
+        "capacity": "8",
+        "operator": "Associazione fondiaria ValCorta"
       }
     }
   ]

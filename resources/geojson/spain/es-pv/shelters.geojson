@@ -52,22 +52,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -2.712915,
-          43.0147247
-        ]
-      },
-      "properties": {
-        "id": 8272409397,
-        "osm_type": "node",
-        "name": "Zizkinoko txabola",
-        "shelter_type": "weather_shelter"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -2.3155317,
           42.9676527
         ]
@@ -133,7 +117,8 @@
       },
       "properties": {
         "id": 12532340150,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-01-25"
       }
     },
     {
@@ -686,6 +671,22 @@
         "id": 1462887046,
         "osm_type": "way",
         "name": "Asunkorta aterpea"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.7127162,
+          43.0146264
+        ]
+      },
+      "properties": {
+        "id": 1500171075,
+        "osm_type": "way",
+        "name": "Zizkinoko txabola",
+        "shelter_type": "weather_shelter"
       }
     }
   ]

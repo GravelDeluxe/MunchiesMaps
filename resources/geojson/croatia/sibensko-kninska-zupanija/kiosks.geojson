@@ -61,7 +61,8 @@
         "id": 495029782,
         "osm_type": "node",
         "name": "Tobacco shop",
-        "opening_hours": "Jul-Aug: Mo-Su 08:00-12:00 \"seasonal only\""
+        "opening_hours": "Jul-Aug: Mo-Su 08:00-12:00 \"seasonal only\"",
+        "check_date": "2024-06-01"
       }
     },
     {
@@ -243,8 +244,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.8898916,
-          43.7405151
+          15.8899163,
+          43.7406091
         ]
       },
       "properties": {
@@ -266,7 +267,8 @@
         "id": 937044985,
         "osm_type": "node",
         "name": "Ultra",
-        "opening_hours": "Mo-Sa 07:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-21:00",
+        "check_date": "2025-07-09"
       }
     },
     {
@@ -423,7 +425,8 @@
         "id": 1393786725,
         "osm_type": "node",
         "name": "Djelo",
-        "opening_hours": "Tu-Sa 07:00-21:00; Mo, Su 07:00-14:00"
+        "opening_hours": "Tu-Sa 07:00-21:00; Mo, Su 07:00-14:00",
+        "check_date": "2022-10-11"
       }
     },
     {
@@ -500,7 +503,8 @@
         "id": 1432631146,
         "osm_type": "node",
         "name": "T.O. Riva",
-        "opening_hours": "Jan-Dec: Mo-Sa 17:30-20:00; Jan-Dec: Mo-Sa 07:30-12:30; Su 08:20-12:00"
+        "opening_hours": "Jan-Dec: Mo-Sa 17:30-20:00; Jan-Dec: Mo-Sa 07:30-12:30; Su 08:20-12:00",
+        "check_date": "2023-07-19"
       }
     },
     {
@@ -561,7 +565,8 @@
         "id": 1484969846,
         "osm_type": "node",
         "name": "Djelo",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 07:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 07:00-21:00",
+        "check_date": "2025-09-02"
       }
     },
     {
@@ -886,7 +891,9 @@
       },
       "properties": {
         "id": 2409761170,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Tisak",
+        "brand": "Tisak"
       }
     },
     {
@@ -894,8 +901,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.9014315,
-          43.7199502
+          15.9014388,
+          43.7199436
         ]
       },
       "properties": {
@@ -1121,15 +1128,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.8919173,
-          43.7335336
+          15.891842,
+          43.7335816
         ]
       },
       "properties": {
         "id": 2921709464,
         "osm_type": "node",
         "name": "Tisak",
-        "brand": "Tisak"
+        "brand": "Tisak",
+        "check_date": "2026-04-15"
       }
     },
     {
@@ -1147,20 +1155,6 @@
         "name": "Studenac",
         "brand": "Studenac",
         "opening_hours": "Mo-Su 06:30-22:00; Su 07:00-20:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.7878062,
-          43.755732
-        ]
-      },
-      "properties": {
-        "id": 3033608505,
-        "osm_type": "node"
       }
     },
     {
@@ -1301,7 +1295,8 @@
       "properties": {
         "id": 4440760687,
         "osm_type": "node",
-        "name": "Djelo"
+        "name": "Djelo",
+        "check_date": "2022-09-09"
       }
     },
     {
@@ -1595,7 +1590,8 @@
       "properties": {
         "id": 7685683883,
         "osm_type": "node",
-        "name": "samo taco"
+        "name": "samo taco",
+        "check_date": "2022-08-19"
       }
     },
     {
@@ -1834,7 +1830,8 @@
         "osm_type": "node",
         "name": "Studenac market",
         "brand": "Studenac",
-        "opening_hours": "Mo-Sa 06:30-21:30; Su off"
+        "opening_hours": "Mo-Sa 06:30-21:30; Su off",
+        "check_date": "2025-05-28"
       }
     },
     {
@@ -1851,7 +1848,8 @@
         "osm_type": "node",
         "name": "Studenac",
         "brand": "Studenac",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su 07:00-14:00"
+        "opening_hours": "Mo-Sa 07:00-21:00; Su 07:00-14:00",
+        "check_date": "2022-10-02"
       }
     },
     {
@@ -1865,7 +1863,8 @@
       },
       "properties": {
         "id": 10072911199,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-10-02"
       }
     },
     {
@@ -1897,7 +1896,8 @@
         "osm_type": "node",
         "name": "Studenac",
         "brand": "Studenac",
-        "opening_hours": "Mo-Sa 07:00-22:00; Su 07:00-14:00"
+        "opening_hours": "Mo-Sa 07:00-22:00; Su 07:00-14:00",
+        "check_date": "2026-04-09"
       }
     },
     {
@@ -1929,7 +1929,8 @@
         "id": 11102230903,
         "osm_type": "node",
         "name": "Moja prodavaonica",
-        "opening_hours": "Mo-Sa 06:00-13:00; Su off"
+        "opening_hours": "Mo-Sa 06:00-13:00; Su off",
+        "check_date": "2023-08-08"
       }
     },
     {
@@ -1945,7 +1946,8 @@
         "id": 11102233007,
         "osm_type": "node",
         "name": "Djelo",
-        "opening_hours": "Mo-Fr 07:00-14:00; Sa 07:00-13:00; Su off"
+        "opening_hours": "Mo-Fr 07:00-14:00; Sa 07:00-13:00; Su off",
+        "check_date": "2023-08-08"
       }
     },
     {
@@ -2181,15 +2183,45 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.9681809,
-          43.54126
+          15.7914026,
+          43.7528929
         ]
       },
       "properties": {
-        "id": 118492562,
-        "osm_type": "way",
-        "name": "Studenac",
-        "brand": "Studenac"
+        "id": 13716880273,
+        "osm_type": "node",
+        "name": "Djelo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.9241444,
+          43.5870783
+        ]
+      },
+      "properties": {
+        "id": 13719034579,
+        "osm_type": "node",
+        "name": "Djelo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.9275178,
+          43.5881671
+        ]
+      },
+      "properties": {
+        "id": 13719169191,
+        "osm_type": "node",
+        "name": "Fresh Corner",
+        "brand": "Fresh Corner"
       }
     },
     {

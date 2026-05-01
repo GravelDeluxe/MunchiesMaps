@@ -6,36 +6,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.6280921,
-          47.5204102
-        ]
-      },
-      "properties": {
-        "id": 5434678084,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          21.6280136,
-          47.5203811
-        ]
-      },
-      "properties": {
-        "id": 5434678087,
-        "osm_type": "node",
-        "vending": "drinks"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           21.7032102,
           47.131882
         ]
@@ -135,7 +105,8 @@
         "id": 13520019180,
         "osm_type": "node",
         "vending": "coffee;food;sweets",
-        "operator": "MÁV-Volán Csoport"
+        "operator": "MÁV-Volán Csoport",
+        "check_date": "2026-02-02"
       }
     },
     {
@@ -150,7 +121,8 @@
       "properties": {
         "id": 13645275944,
         "osm_type": "node",
-        "vending": "coffee"
+        "vending": "coffee",
+        "check_date": "2026-03-13"
       }
     },
     {
@@ -158,15 +130,32 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.6285686,
-          47.5206707
+          21.6285612,
+          47.520684
         ]
       },
       "properties": {
         "id": 13645999667,
         "osm_type": "node",
-        "vending": "coffee;drinks;sweets",
-        "operator": "U22899694"
+        "vending": "coffee",
+        "operator": "U22899694",
+        "check_date": "2026-04-20"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.6285685,
+          47.5206671
+        ]
+      },
+      "properties": {
+        "id": 13744634395,
+        "osm_type": "node",
+        "vending": "drinks",
+        "check_date": "2026-04-20"
       }
     }
   ]

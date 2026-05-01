@@ -337,13 +337,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.9919786,
-          43.3215805
+          16.9918629,
+          43.3215578
         ]
       },
       "properties": {
         "id": 8972909217,
-        "osm_type": "node"
+        "osm_type": "node",
+        "name": "Adria oil"
       }
     },
     {
@@ -358,8 +359,7 @@
       "properties": {
         "id": 9353153631,
         "osm_type": "node",
-        "name": "Crodux",
-        "brand": "Crodux"
+        "brand": "Petrol"
       }
     },
     {
@@ -437,7 +437,25 @@
         "id": 12978289074,
         "osm_type": "node",
         "name": "Shell",
-        "brand": "Shell"
+        "brand": "Shell",
+        "check_date": "2025-07-06"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.0068713,
+          43.3068484
+        ]
+      },
+      "properties": {
+        "id": 13727942296,
+        "osm_type": "node",
+        "name": "INA Makarska-Ratac",
+        "brand": "INA",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -536,7 +554,8 @@
       "properties": {
         "id": 97285908,
         "osm_type": "way",
-        "name": "INA Jelsa - Pelinje"
+        "name": "INA Jelsa - Pelinje",
+        "check_date": "2025-07-04"
       }
     },
     {
@@ -1127,23 +1146,6 @@
         "name": "INA Makarska-Dugiš",
         "brand": "INA",
         "opening_hours": "Mo-Su 06:00-22:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          17.0069826,
-          43.3067798
-        ]
-      },
-      "properties": {
-        "id": 339732381,
-        "osm_type": "way",
-        "name": "INA Makarska-Ratac",
-        "brand": "INA",
-        "opening_hours": "24/7"
       }
     },
     {

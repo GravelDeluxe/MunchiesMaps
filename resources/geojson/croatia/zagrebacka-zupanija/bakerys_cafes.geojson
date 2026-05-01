@@ -776,34 +776,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.7951159,
-          45.8704112
-        ]
-      },
-      "properties": {
-        "id": 1535843065,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          15.7946743,
-          45.8704429
-        ]
-      },
-      "properties": {
-        "id": 1535843074,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           16.06373,
           45.7236287
         ]
@@ -1021,7 +993,8 @@
       "properties": {
         "id": 2102213877,
         "osm_type": "node",
-        "name": "NEC"
+        "name": "NEC",
+        "check_date": "2022-09-10"
       }
     },
     {
@@ -2022,7 +1995,8 @@
       "properties": {
         "id": 3011317625,
         "osm_type": "node",
-        "name": "Anastazija"
+        "name": "Anastazija",
+        "check_date": "2025-11-18"
       }
     },
     {
@@ -2128,7 +2102,8 @@
       "properties": {
         "id": 3063669668,
         "osm_type": "node",
-        "name": "go-go"
+        "name": "go-go",
+        "check_date": "2023-10-26"
       }
     },
     {
@@ -2459,8 +2434,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.6531235,
-          45.6727788
+          15.6530413,
+          45.6727931
         ]
       },
       "properties": {
@@ -3089,7 +3064,8 @@
         "id": 4968950653,
         "osm_type": "node",
         "name": "Antonija",
-        "opening_hours": "Mo-Sa 05:00-20:00; Su 06:00-14:00"
+        "opening_hours": "Mo-Sa 05:00-20:00; Su 06:00-14:00",
+        "check_date": "2023-07-09"
       }
     },
     {
@@ -3254,7 +3230,8 @@
         "id": 5308147785,
         "osm_type": "node",
         "name": "Caffe bar \"Mirjana\"",
-        "opening_hours": "06:00-24:00"
+        "opening_hours": "06:00-24:00",
+        "check_date": "2024-08-10"
       }
     },
     {
@@ -3278,8 +3255,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.6536107,
-          45.6743532
+          15.6535768,
+          45.6743712
         ]
       },
       "properties": {
@@ -4362,8 +4339,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.6515228,
-          45.6727677
+          15.6515444,
+          45.6728096
         ]
       },
       "properties": {
@@ -4735,7 +4712,8 @@
       "properties": {
         "id": 9998864479,
         "osm_type": "node",
-        "name": "Turopolje"
+        "name": "Turopolje",
+        "check_date": "2025-05-12"
       }
     },
     {
@@ -4961,7 +4939,8 @@
         "id": 11552022532,
         "osm_type": "node",
         "name": "Mlinar",
-        "brand": "Mlinar"
+        "brand": "Mlinar",
+        "opening_hours": "Mo-Sa 06:00-21:00; Su 06:00-21:00"
       }
     },
     {
@@ -5148,7 +5127,8 @@
       "properties": {
         "id": 12316939521,
         "osm_type": "node",
-        "name": "Relax"
+        "name": "Relax",
+        "check_date": "2024-05-19"
       }
     },
     {
@@ -5412,6 +5392,96 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          15.7945466,
+          45.8704809
+        ]
+      },
+      "properties": {
+        "id": 13725263581,
+        "osm_type": "node",
+        "name": "Pekarna Zaprešić"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.7949964,
+          45.8704645
+        ]
+      },
+      "properties": {
+        "id": 13725263582,
+        "osm_type": "node",
+        "name": "Pekarna Dubravica P38 Marles"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.7873386,
+          45.862769
+        ]
+      },
+      "properties": {
+        "id": 13725382953,
+        "osm_type": "node",
+        "name": "Allegri"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.8040475,
+          45.8572123
+        ]
+      },
+      "properties": {
+        "id": 13730525100,
+        "osm_type": "node",
+        "name": "Pekarna Zapresic"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.80367,
+          45.8565805
+        ]
+      },
+      "properties": {
+        "id": 13730599502,
+        "osm_type": "node",
+        "name": "Caffe Lav"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.7149143,
+          45.8015737
+        ]
+      },
+      "properties": {
+        "id": 13738837712,
+        "osm_type": "node",
+        "name": "Grič"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           16.055642,
           45.6432077
         ]
@@ -5570,7 +5640,8 @@
         "id": 297032011,
         "osm_type": "way",
         "name": "Noć i dan",
-        "opening_hours": "05:00-24:00"
+        "opening_hours": "05:00-24:00",
+        "check_date": "2025-11-18"
       }
     },
     {
@@ -5730,8 +5801,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          15.6425388,
-          45.6635294
+          15.6425529,
+          45.6635531
         ]
       },
       "properties": {

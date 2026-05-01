@@ -23,6 +23,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.6231533,
+          46.9019808
+        ]
+      },
+      "properties": {
+        "id": 1299328892,
+        "osm_type": "node",
+        "name": "Bootstankstelle"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.6678712,
           46.7743544
         ]
@@ -73,14 +88,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6231533,
-          46.9019808
+          8.6331934,
+          46.8474035
         ]
       },
       "properties": {
-        "id": 1299328892,
-        "osm_type": "node",
-        "name": "Bootstankstelle"
+        "id": 378599923,
+        "osm_type": "way",
+        "name": "Eni",
+        "brand": "Eni",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -88,12 +105,47 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5968325,
-          46.6342446
+          8.6389296,
+          46.8573258
         ]
       },
       "properties": {
-        "id": 1280026023,
+        "id": 379114131,
+        "osm_type": "way",
+        "name": "Agrola",
+        "brand": "Agrola",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6321983,
+          46.8471764
+        ]
+      },
+      "properties": {
+        "id": 379158124,
+        "osm_type": "way",
+        "name": "Socar",
+        "brand": "SOCAR",
+        "opening_hours": "24/7",
+        "check_date": "2023-10-28"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6266779,
+          46.8961414
+        ]
+      },
+      "properties": {
+        "id": 432548632,
         "osm_type": "way",
         "name": "Shell",
         "brand": "Shell",
@@ -105,15 +157,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6004268,
-          46.7075523
+          8.6508034,
+          46.8698481
         ]
       },
       "properties": {
-        "id": 1194474095,
+        "id": 791049113,
         "osm_type": "way",
-        "name": "Tankstelle Mattli",
-        "brand": "Shell",
+        "name": "Coop Tankstelle",
+        "brand": "Coop",
         "opening_hours": "24/7"
       }
     },
@@ -122,30 +174,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5990303,
-          46.7053493
+          8.6326372,
+          46.8877604
         ]
       },
       "properties": {
-        "id": 1194474096,
+        "id": 940785685,
         "osm_type": "way",
-        "name": "Ruedi Rüssel",
-        "brand": "Ruedi Rüssel",
+        "name": "Avia",
+        "brand": "Avia",
         "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6250581,
-          46.7300249
-        ]
-      },
-      "properties": {
-        "id": 1227368392,
-        "osm_type": "way"
       }
     },
     {
@@ -159,6 +197,23 @@
       },
       "properties": {
         "id": 984865240,
+        "osm_type": "way",
+        "name": "Hubrol",
+        "brand": "Hubrol",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6393635,
+          46.8584266
+        ]
+      },
+      "properties": {
+        "id": 985586017,
         "osm_type": "way",
         "name": "Hubrol",
         "brand": "Hubrol",
@@ -221,6 +276,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.6311038,
+          46.8782596
+        ]
+      },
+      "properties": {
+        "id": 1157660632,
+        "osm_type": "way",
+        "name": "Hubrol",
+        "brand": "Hubrol",
+        "opening_hours": "24/7",
+        "check_date": "2026-04-04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.6352085,
           46.8360975
         ]
@@ -229,7 +302,8 @@
         "id": 1177101421,
         "osm_type": "way",
         "name": "Truckstopp Gotthard",
-        "brand": "Hubrol"
+        "brand": "Hubrol",
+        "check_date": "2023-09-19"
       }
     },
     {
@@ -245,7 +319,8 @@
         "id": 1177101422,
         "osm_type": "way",
         "name": "Truckstopp Gotthard",
-        "brand": "Hubrol"
+        "brand": "Hubrol",
+        "check_date": "2023-09-19"
       }
     },
     {
@@ -253,83 +328,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6331934,
-          46.8474035
+          8.6419063,
+          46.8816105
         ]
       },
       "properties": {
-        "id": 378599923,
-        "osm_type": "way",
-        "name": "Eni",
-        "brand": "Eni",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6321983,
-          46.8471764
-        ]
-      },
-      "properties": {
-        "id": 379158124,
-        "osm_type": "way",
-        "name": "Socar",
-        "brand": "SOCAR",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6389296,
-          46.8573258
-        ]
-      },
-      "properties": {
-        "id": 379114131,
-        "osm_type": "way",
-        "name": "Agrola",
-        "brand": "Agrola",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6393635,
-          46.8584266
-        ]
-      },
-      "properties": {
-        "id": 985586017,
+        "id": 1177909253,
         "osm_type": "way",
         "name": "Hubrol",
         "brand": "Hubrol",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6423353,
-          46.8579173
-        ]
-      },
-      "properties": {
-        "id": 1179840011,
-        "osm_type": "way",
-        "name": "Avia",
-        "brand": "Avia",
         "opening_hours": "24/7"
       }
     },
@@ -344,6 +351,23 @@
       },
       "properties": {
         "id": 1178789768,
+        "osm_type": "way",
+        "name": "Avia",
+        "brand": "Avia",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6423353,
+          46.8579173
+        ]
+      },
+      "properties": {
+        "id": 1179840011,
         "osm_type": "way",
         "name": "Avia",
         "brand": "Avia",
@@ -372,15 +396,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6508034,
-          46.8698481
+          8.6004268,
+          46.7075523
         ]
       },
       "properties": {
-        "id": 791049113,
+        "id": 1194474095,
         "osm_type": "way",
-        "name": "Coop Tankstelle",
-        "brand": "Coop",
+        "name": "Tankstelle Mattli",
+        "brand": "Shell",
         "opening_hours": "24/7"
       }
     },
@@ -389,15 +413,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6326372,
-          46.8877604
+          8.5990303,
+          46.7053493
         ]
       },
       "properties": {
-        "id": 940785685,
+        "id": 1194474096,
         "osm_type": "way",
-        "name": "Avia",
-        "brand": "Avia",
+        "name": "Ruedi Rüssel",
+        "brand": "Ruedi Rüssel",
         "opening_hours": "24/7"
       }
     },
@@ -406,16 +430,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6311038,
-          46.8782596
+          8.6250581,
+          46.7300249
         ]
       },
       "properties": {
-        "id": 1157660632,
-        "osm_type": "way",
-        "name": "Hubrol",
-        "brand": "Hubrol",
-        "opening_hours": "24/7"
+        "id": 1227368392,
+        "osm_type": "way"
       }
     },
     {
@@ -423,29 +444,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6419063,
-          46.8816105
+          8.5968325,
+          46.6342446
         ]
       },
       "properties": {
-        "id": 1177909253,
-        "osm_type": "way",
-        "name": "Hubrol",
-        "brand": "Hubrol",
-        "opening_hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6266779,
-          46.8961414
-        ]
-      },
-      "properties": {
-        "id": 432548632,
+        "id": 1280026023,
         "osm_type": "way",
         "name": "Shell",
         "brand": "Shell",

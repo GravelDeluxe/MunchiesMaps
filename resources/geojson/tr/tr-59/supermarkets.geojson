@@ -4922,7 +4922,8 @@
       "properties": {
         "id": 11517843579,
         "osm_type": "node",
-        "name": "Örnek Marketleri"
+        "name": "Örnek Marketleri",
+        "check_date": "2024-06-05"
       }
     },
     {
@@ -5434,7 +5435,8 @@
       "properties": {
         "id": 11958260099,
         "osm_type": "node",
-        "name": "Borlu Kuruyemiş"
+        "name": "Borlu Kuruyemiş",
+        "check_date": "2024-06-05"
       }
     },
     {
@@ -6291,7 +6293,8 @@
         "id": 12076045350,
         "osm_type": "node",
         "name": "BİM",
-        "opening_hours": "Mo-Su 09:00-21:00"
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "check_date": "2024-07-27"
       }
     },
     {
@@ -6538,7 +6541,7 @@
       "properties": {
         "id": 12292369405,
         "osm_type": "node",
-        "name": "FİLE"
+        "name": "File"
       }
     },
     {
@@ -8123,6 +8126,38 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          27.8192633,
+          41.1538717
+        ]
+      },
+      "properties": {
+        "id": 13711278311,
+        "osm_type": "node",
+        "name": "Türkiye Tarım Kredi Kooperatif Market",
+        "brand": "Türkiye Tarım Kredi Kooperatif Market",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.0000431,
+          41.2931168
+        ]
+      },
+      "properties": {
+        "id": 13712890517,
+        "osm_type": "node",
+        "name": "A101"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           28.0134814,
           41.278604
         ]
@@ -8131,6 +8166,22 @@
         "id": 97519747,
         "osm_type": "way",
         "name": "Asbaş Hipermarket"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8227806,
+          41.1548948
+        ]
+      },
+      "properties": {
+        "id": 180257826,
+        "osm_type": "way",
+        "name": "Migros",
+        "brand": "Migros"
       }
     },
     {
@@ -8322,6 +8373,22 @@
         "id": 1432377760,
         "osm_type": "way",
         "name": "Doğa Market"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.8490913,
+          41.008295
+        ]
+      },
+      "properties": {
+        "id": 1495946922,
+        "osm_type": "way",
+        "name": "Türkiye Tarım Kredi Kooperatif Market",
+        "brand": "Türkiye Tarım Kredi Kooperatif Market"
       }
     }
   ]

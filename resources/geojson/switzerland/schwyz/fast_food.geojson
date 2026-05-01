@@ -17,6 +17,7 @@
         "brand": "McDonald's",
         "opening_hours": "Su-Th 06:00-24:00, Fr,Sa 06:00-02:00",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -67,6 +68,7 @@
         "osm_type": "node",
         "name": "Babylon",
         "opening_hours": "Mo-Fr 10:00-13:30,16:00-24:00; Sa 00:00-02:00,10:00-13:30,16:00-24:00; Su 00:00-02:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -98,6 +100,7 @@
         "id": 2038615898,
         "osm_type": "node",
         "name": "Alfa Fulmine",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -114,6 +117,7 @@
         "id": 2134869122,
         "osm_type": "node",
         "name": "Pogragja",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -130,6 +134,8 @@
         "id": 2866812509,
         "osm_type": "node",
         "name": "Goldau Pizza Haus",
+        "cuisine": "pizza",
+        "check_date": "2025-09-07",
         "chain": "unknown"
       }
     },
@@ -149,6 +155,7 @@
         "opening_hours": "Mo-Fr 11:00-13:30, 17:00-20:00",
         "phone": "+41 79 407 01 01",
         "website": "https://kilinpalast.ch/",
+        "cuisine": "chinese",
         "chain": "unknown"
       }
     },
@@ -168,6 +175,7 @@
         "opening_hours": "Mo-Th, Su 10:00-22:30; Fr, Sa 10:00-23:00",
         "phone": "+41 41 811 11 19",
         "website": "https://www.babylon-kurier.ch/",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -183,6 +191,7 @@
       "properties": {
         "id": 4077370159,
         "osm_type": "node",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -200,6 +209,7 @@
         "osm_type": "node",
         "name": "Safran's",
         "opening_hours": "Mo-Th 10:00-23:00; Fr-Sa 10:00-24:00; Su 10:00-22:00; PH unknown",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -249,6 +259,8 @@
         "id": 5088849636,
         "osm_type": "node",
         "name": "Bistro Krone Take Away",
+        "cuisine": "kebab",
+        "check_date": "2025-02-23",
         "chain": "unknown"
       }
     },
@@ -266,6 +278,8 @@
         "osm_type": "node",
         "name": "Gjakova Imbiss",
         "opening_hours": "Mo-Tu,Th-Su 09:00-20:00; We off",
+        "cuisine": "sandwich;balkan",
+        "check_date": "2023-09-24",
         "chain": "unknown"
       }
     },
@@ -287,23 +301,7 @@
         "phone": "+41 55 410 20 60",
         "website": "https://dieci.ch/de/pizzakurier-pfaeffikon",
         "operator": "Dieci",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.8519141,
-          47.1927847
-        ]
-      },
-      "properties": {
-        "id": 5547862391,
-        "osm_type": "node",
-        "name": "See La Wyy",
-        "opening_hours": "We-Fr 16:00-19:00; Sa 12:00-19:00; Su 12:00-17:00; PH closed",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -321,6 +319,7 @@
         "osm_type": "node",
         "name": "Vesta Pizza Kebap",
         "opening_hours": "Mo-Th 11:00-14:00,17:00-22:00; Fr 11:00-14:00,17:00-23:00; Sa 11:00-23:00; Su 12:00-22:00",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -338,6 +337,7 @@
         "osm_type": "node",
         "name": "Kebab Haus Wangen, Kebab & Pizza Kurier",
         "opening_hours": "Mo-Th 11:00-14:00,16:30-22:00; Fr 11:00-14:00,16:30-23:00; Sa 11:00-23:00; Su 11:00-22:00; PH unknown",
+        "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
     },
@@ -357,6 +357,7 @@
         "opening_hours": "Mo-Su 07:00-22:00; Fr,Sa 07:00-24:00",
         "phone": "+41 76 566 99 48",
         "website": "https://memos-imbiss-cafe.business.site",
+        "cuisine": "american",
         "chain": "unknown"
       }
     },
@@ -374,6 +375,7 @@
         "osm_type": "node",
         "name": "Layla Imbiss",
         "opening_hours": "Mo-Su 11:00-24:00; PH closed",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -392,6 +394,7 @@
         "name": "BRIX Burger & Salad",
         "website": "https://www.brix-burger.ch/",
         "operator": "SV (Schweiz)",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -408,6 +411,7 @@
         "id": 7578371425,
         "osm_type": "node",
         "name": "Spuntino",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -427,6 +431,7 @@
         "brand": "Subway",
         "website": "https://www.subway.com/de-CH/",
         "brand:wikidata": "Q244457",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -444,6 +449,7 @@
         "osm_type": "node",
         "name": "Fortuna",
         "opening_hours": "Mo-Sa 11:00-13:30,17:00-22:30; Su 17:00-22:30; PH open",
+        "cuisine": "burger;kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -460,6 +466,7 @@
         "id": 7849160921,
         "osm_type": "node",
         "name": "Rothenthurm Pizza & Kebap",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -477,6 +484,8 @@
         "osm_type": "node",
         "name": "Kebappa",
         "opening_hours": "Mo-Fr 10:00-22:00; Sa off; Su 12:00-22:00",
+        "cuisine": "kebab;burger",
+        "check_date": "2025-10-06",
         "chain": "unknown"
       }
     },
@@ -493,6 +502,7 @@
         "id": 9323356999,
         "osm_type": "node",
         "name": "Kebab Hüsli",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -512,6 +522,8 @@
         "opening_hours": "Mo-Sa 11:00-13:30; Mo-Th 17:30-22:00; Fr 17:30-01:00; Sa 17:00-01:00; Su 17:00-22:00",
         "phone": "+41 55 422 83 83",
         "website": "https://www.torettos.ch",
+        "cuisine": "pizza;burger",
+        "check_date": "2025-05-14",
         "chain": "unknown"
       }
     },
@@ -528,6 +540,8 @@
         "id": 9901550304,
         "osm_type": "node",
         "name": "Casa Cello",
+        "cuisine": "pizza",
+        "check_date": "2022-07-21",
         "chain": "unknown"
       }
     },
@@ -545,6 +559,8 @@
         "osm_type": "node",
         "name": "Time Out",
         "opening_hours": "Mo-Fr 10:00-14:00, 17:00-22:00; Sa 10:00-22:30; Su 11:30-22:00",
+        "cuisine": "pizza;burger",
+        "check_date": "2022-12-04",
         "chain": "unknown"
       }
     },
@@ -561,6 +577,8 @@
         "id": 10706596327,
         "osm_type": "node",
         "name": "Fopisa",
+        "cuisine": "pizza",
+        "check_date": "2023-03-03",
         "chain": "unknown"
       }
     },
@@ -594,6 +612,7 @@
         "name": "Smashy",
         "opening_hours": "We-Th 11:00-14:00,17:00-21:00; Fr 11:00-14:00,17:00-22:00; Sa-Su 12:00-22:00",
         "website": "https://smashy-burger.com/",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -610,6 +629,7 @@
         "id": 12698821310,
         "osm_type": "node",
         "name": "Rigi Pizza",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -626,6 +646,7 @@
         "id": 12698821316,
         "osm_type": "node",
         "name": "Foodpoint Kebab & Pizza",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -645,6 +666,7 @@
         "opening_hours": "Mo-Su 11:00-13:30,17:00-22:00",
         "phone": "+41 41 830 03 03",
         "website": "https://www.molinipizza.ch/pizzakurier-k%C3%BCssnacht-am-rigi",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -661,6 +683,7 @@
         "id": 13058141285,
         "osm_type": "node",
         "name": "Pizzaria8840",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -681,6 +704,7 @@
         "opening_hours": "Mo-Th 10:00-23:00; Fr-Su 10:00-00:00",
         "phone": "+41 41 545 42 80",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -701,6 +725,7 @@
         "opening_hours": "Mo-Th 10:00-00:00; Fr 10:00-00:00; Sa,Su 00:00-02:00, 10:00-00:00",
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -719,6 +744,7 @@
         "name": "Alp Wisstannen",
         "opening_hours": "Sa-Su 09:00-18:00",
         "operator": "Skiclub Einsiedeln",
+        "cuisine": "regional",
         "chain": "unknown"
       }
     },
@@ -752,6 +778,7 @@
         "osm_type": "way",
         "name": "Ali Baba",
         "opening_hours": "Mo-Th 11:00-23:00; Fr-Sa 11:00-24:00; Su 12:30-23:00",
+        "cuisine": "kebab",
         "chain": "unknown"
       }
     },
@@ -804,6 +831,8 @@
         "id": 1324822711,
         "osm_type": "way",
         "name": "Sascha's Burger",
+        "cuisine": "burger",
+        "check_date": "2022-10-10",
         "chain": "unknown"
       }
     },

@@ -6,15 +6,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5937027,
-          46.6339201
+          8.6315066,
+          46.876264
         ]
       },
       "properties": {
-        "id": 11683955305,
+        "id": 4642325886,
         "osm_type": "node",
-        "vending": "cheese;eggs;jam;milk;food",
-        "operator": "Privat"
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
+        "operator": "Selecta"
       }
     },
     {
@@ -22,15 +23,33 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.5886623,
-          46.6659241
+          8.6370878,
+          46.8698429
         ]
       },
       "properties": {
-        "id": 13108522112,
+        "id": 9160974698,
         "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta"
+        "opening_hours": "Mo-Su 07:00-21:00",
+        "vending": "milk;eggs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6274324,
+          46.8933412
+        ]
+      },
+      "properties": {
+        "id": 9164402308,
+        "osm_type": "node",
+        "vending": "snack;drinks",
+        "brand": "Selecta",
+        "operator": "Selecta",
+        "check_date": "2025-03-30"
       }
     },
     {
@@ -47,7 +66,8 @@
         "osm_type": "node",
         "opening_hours": "24/7",
         "vending": "snack;drinks",
-        "operator": "Selecta"
+        "operator": "Selecta",
+        "check_date": "2024-09-16"
       }
     },
     {
@@ -63,6 +83,23 @@
         "id": 9811193475,
         "osm_type": "node",
         "vending": "coffee",
+        "operator": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6210057,
+          46.9493521
+        ]
+      },
+      "properties": {
+        "id": 10284728742,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta",
         "operator": "Selecta"
       }
     },
@@ -88,37 +125,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6488884,
-          46.8614452
-        ]
-      },
-      "properties": {
-        "id": 10958166683,
-        "osm_type": "node",
-        "vending": "milk"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6370878,
-          46.8698429
-        ]
-      },
-      "properties": {
-        "id": 9160974698,
-        "osm_type": "node",
-        "opening_hours": "Mo-Su 07:00-21:00",
-        "vending": "milk;eggs"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           8.6310446,
           46.8781923
         ]
@@ -129,6 +135,54 @@
         "vending": "drinks;sweets",
         "brand": "Selecta",
         "operator": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.62432,
+          46.9021937
+        ]
+      },
+      "properties": {
+        "id": 10916497240,
+        "osm_type": "node",
+        "vending": "drinks;sweets",
+        "brand": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6313032,
+          46.8793541
+        ]
+      },
+      "properties": {
+        "id": 10942324317,
+        "osm_type": "node",
+        "opening_hours": "24/7",
+        "vending": "milk",
+        "check_date": "2026-04-04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6488884,
+          46.8614452
+        ]
+      },
+      "properties": {
+        "id": 10958166683,
+        "osm_type": "node",
+        "vending": "milk"
       }
     },
     {
@@ -153,16 +207,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6315066,
-          46.876264
+          8.6239552,
+          46.8952366
         ]
       },
       "properties": {
-        "id": 4642325886,
+        "id": 11161988471,
         "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta",
-        "operator": "Selecta"
+        "opening_hours": "Mo-Th 06:00-18:30; Fr 06:00-20:00; Sa 06:00-17:00",
+        "vending": "drinks",
+        "operator": "Lidl"
       }
     },
     {
@@ -170,15 +224,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6313032,
-          46.8793541
+          8.5937027,
+          46.6339201
         ]
       },
       "properties": {
-        "id": 10942324317,
+        "id": 11683955305,
         "osm_type": "node",
-        "opening_hours": "24/7",
-        "vending": "milk"
+        "vending": "cheese;eggs;jam;milk;food",
+        "operator": "Privat"
       }
     },
     {
@@ -202,66 +256,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6239552,
-          46.8952366
+          8.5886623,
+          46.6659241
         ]
       },
       "properties": {
-        "id": 11161988471,
-        "osm_type": "node",
-        "opening_hours": "Mo-Th 06:00-18:30; Fr 06:00-20:00; Sa 06:00-17:00",
-        "vending": "drinks",
-        "operator": "Lidl"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.62432,
-          46.9021937
-        ]
-      },
-      "properties": {
-        "id": 10916497240,
+        "id": 13108522112,
         "osm_type": "node",
         "vending": "drinks;sweets",
         "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6274324,
-          46.8933412
-        ]
-      },
-      "properties": {
-        "id": 9164402308,
-        "osm_type": "node",
-        "vending": "snack;drinks",
-        "brand": "Selecta",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6210057,
-          46.9493521
-        ]
-      },
-      "properties": {
-        "id": 10284728742,
-        "osm_type": "node",
-        "vending": "drinks;sweets",
-        "brand": "Selecta",
-        "operator": "Selecta"
       }
     }
   ]

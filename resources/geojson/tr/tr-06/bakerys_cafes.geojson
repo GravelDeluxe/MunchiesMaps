@@ -1702,7 +1702,8 @@
       "properties": {
         "id": 3885155290,
         "osm_type": "node",
-        "name": "Afiyet fırın"
+        "name": "Afiyet fırın",
+        "check_date": "2023-09-30"
       }
     },
     {
@@ -3292,7 +3293,8 @@
         "osm_type": "node",
         "name": "Starbucks",
         "brand": "Starbucks",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2025-05-01"
       }
     },
     {
@@ -4521,22 +4523,6 @@
         "id": 5358150624,
         "osm_type": "node",
         "name": "Arabica"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          32.6486718,
-          39.9334876
-        ]
-      },
-      "properties": {
-        "id": 5378199646,
-        "osm_type": "node",
-        "name": "Selinin Yeri",
-        "outdoor_seating": "yes"
       }
     },
     {
@@ -6239,21 +6225,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          32.8175862,
-          39.7797135
-        ]
-      },
-      "properties": {
-        "id": 9714470837,
-        "osm_type": "node",
-        "name": "Yemekhane"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           32.8094296,
           39.7890775
         ]
@@ -6786,23 +6757,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          32.6449557,
-          39.8575147
-        ]
-      },
-      "properties": {
-        "id": 10286155829,
-        "osm_type": "node",
-        "name": "Mado",
-        "brand": "Mado",
-        "takeaway": "yes"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           32.6470285,
           39.8543639
         ]
@@ -6903,8 +6857,9 @@
       "properties": {
         "id": 10690451705,
         "osm_type": "node",
-        "name": "Şirinyel Kütüphane Kafe",
-        "opening_hours": "Mo-Su 09:00-22:00"
+        "name": "Sanat Edebiyat Kafe",
+        "opening_hours": "24/7",
+        "check_date": "2026-04-08"
       }
     },
     {
@@ -7126,6 +7081,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          32.5631828,
+          39.8189318
+        ]
+      },
+      "properties": {
+        "id": 10961115857,
+        "osm_type": "node",
+        "name": "Arabica",
+        "brand": "Arabica",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           32.5629712,
           39.8187037
         ]
@@ -7134,6 +7106,7 @@
         "id": 10961121931,
         "osm_type": "node",
         "name": "Arabica",
+        "brand": "Arabica",
         "takeaway": "yes"
       }
     },
@@ -7168,7 +7141,8 @@
         "osm_type": "node",
         "name": "Grano",
         "takeaway": "only",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-07-08"
       }
     },
     {
@@ -7231,7 +7205,8 @@
       "properties": {
         "id": 11093193963,
         "osm_type": "node",
-        "name": "MisBaşak"
+        "name": "MisBaşak",
+        "opening_hours": "Mo-Su 07:00-22:00"
       }
     },
     {
@@ -7400,8 +7375,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          32.6562444,
-          39.8540812
+          32.6562182,
+          39.8540729
         ]
       },
       "properties": {
@@ -7549,7 +7524,8 @@
         "id": 11226532727,
         "osm_type": "node",
         "name": "Arabica",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2023-09-18"
       }
     },
     {
@@ -7947,7 +7923,8 @@
         "name": "3 Cores Roastery Coffee Shop",
         "brand": "3cores",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-06-06"
       }
     },
     {
@@ -8229,7 +8206,8 @@
       "properties": {
         "id": 12179983348,
         "osm_type": "node",
-        "name": "Coffee Bus"
+        "name": "Coffee Bus",
+        "check_date": "2024-09-16"
       }
     },
     {
@@ -8600,7 +8578,8 @@
       "properties": {
         "id": 12538897667,
         "osm_type": "node",
-        "name": "Sun's Fury Coffee"
+        "name": "Sun's Fury Coffee",
+        "check_date": "2025-01-28"
       }
     },
     {
@@ -8615,7 +8594,8 @@
       "properties": {
         "id": 12539191138,
         "osm_type": "node",
-        "name": "Mirket Kitap & Plak & Atölye"
+        "name": "Mirket Kitap & Plak & Atölye",
+        "check_date": "2025-01-28"
       }
     },
     {
@@ -9544,8 +9524,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          32.6136414,
-          39.9537737
+          32.6137346,
+          39.953802
         ]
       },
       "properties": {
@@ -10487,7 +10467,9 @@
       "properties": {
         "id": 13179269174,
         "osm_type": "node",
-        "name": "Sauron Board Game Coffee"
+        "name": "Runik Board Game Cafe",
+        "opening_hours": "14:00-00:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -10752,21 +10734,6 @@
         "id": 13307778924,
         "osm_type": "node",
         "name": "Crazy Black Cat Cafe"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          32.6092796,
-          39.9824949
-        ]
-      },
-      "properties": {
-        "id": 13307807549,
-        "osm_type": "node",
-        "name": "Coffee De Madrid"
       }
     },
     {
@@ -11053,8 +11020,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          32.6125842,
-          39.9525911
+          32.6125728,
+          39.9525932
         ]
       },
       "properties": {
@@ -11068,8 +11035,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          32.6126857,
-          39.9527341
+          32.6126528,
+          39.9527721
         ]
       },
       "properties": {
@@ -11083,8 +11050,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          32.6128234,
-          39.9521194
+          32.6129099,
+          39.9521281
         ]
       },
       "properties": {
@@ -11180,7 +11147,8 @@
       "properties": {
         "id": 13564052401,
         "osm_type": "node",
-        "name": "Sofa Coffee House"
+        "name": "Sofa Coffee House",
+        "check_date": "2026-02-14"
       }
     },
     {
@@ -11195,7 +11163,8 @@
       "properties": {
         "id": 13566100101,
         "osm_type": "node",
-        "name": "Bi' Kahve Atölyesi"
+        "name": "Bi' Kahve Atölyesi",
+        "check_date": "2026-02-15"
       }
     },
     {
@@ -11351,7 +11320,8 @@
         "id": 13607928701,
         "osm_type": "node",
         "name": "Cozy Vintage Coffee",
-        "opening_hours": "Su-Th 11:00-22:00; Fr-Sa 11:00-22:30"
+        "opening_hours": "Su-Th 11:00-22:00; Fr-Sa 11:00-22:30",
+        "check_date": "2026-02-28"
       }
     },
     {
@@ -11404,8 +11374,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          32.6132509,
-          39.9537624
+          32.6131792,
+          39.9537994
         ]
       },
       "properties": {
@@ -11451,8 +11421,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          32.6143685,
-          39.95572
+          32.6143343,
+          39.9557272
         ]
       },
       "properties": {
@@ -11488,7 +11458,8 @@
       "properties": {
         "id": 13633449101,
         "osm_type": "node",
-        "name": "Casa Italia"
+        "name": "Casa Italia",
+        "check_date": "2026-03-10"
       }
     },
     {
@@ -11504,7 +11475,8 @@
         "id": 13633490201,
         "osm_type": "node",
         "name": "Cofengo Cafe",
-        "opening_hours": "Mo-Su 10:00-23:30"
+        "opening_hours": "Mo-Su 10:00-23:30",
+        "check_date": "2026-03-10"
       }
     },
     {
@@ -11512,8 +11484,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          32.6356792,
-          39.8486488
+          32.6357146,
+          39.8486502
         ]
       },
       "properties": {
@@ -11734,6 +11706,660 @@
         "id": 13683020450,
         "osm_type": "node",
         "name": "Simit Center"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8232362,
+          39.9212487
+        ]
+      },
+      "properties": {
+        "id": 13714969101,
+        "osm_type": "node",
+        "name": "Faust Coffee",
+        "opening_hours": "Mo-Su 08:00-00:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.7722262,
+          39.9638287
+        ]
+      },
+      "properties": {
+        "id": 13724546185,
+        "osm_type": "node",
+        "name": "Aniva Pasta Fırın Cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6525973,
+          39.9350369
+        ]
+      },
+      "properties": {
+        "id": 13727018668,
+        "osm_type": "node",
+        "name": "Emin Yufka"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6492928,
+          39.9342682
+        ]
+      },
+      "properties": {
+        "id": 13727018687,
+        "osm_type": "node",
+        "name": "Müdavim Cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6479521,
+          39.934317
+        ]
+      },
+      "properties": {
+        "id": 13727018697,
+        "osm_type": "node",
+        "name": "Yepaş Ekmek"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6489794,
+          39.9339301
+        ]
+      },
+      "properties": {
+        "id": 13727058230,
+        "osm_type": "node",
+        "name": "Simit'çi Barış"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8518534,
+          39.9942773
+        ]
+      },
+      "properties": {
+        "id": 13729110837,
+        "osm_type": "node",
+        "name": "Ankara Halk Ekmek"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8515327,
+          39.9220341
+        ]
+      },
+      "properties": {
+        "id": 13734003392,
+        "osm_type": "node",
+        "name": "Coffee de Madrid",
+        "brand": "Coffee de Madrid"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6386428,
+          39.8474014
+        ]
+      },
+      "properties": {
+        "id": 13736953124,
+        "osm_type": "node",
+        "name": "Kuka Taş Fırın"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8172492,
+          39.7792004
+        ]
+      },
+      "properties": {
+        "id": 13745168001,
+        "osm_type": "node",
+        "name": "Botanik Café",
+        "opening_hours": "Mo-Fr 08:00-00:00; Sa 10:00-00:00; Su 11:00-00:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8116635,
+          39.7826552
+        ]
+      },
+      "properties": {
+        "id": 13745613601,
+        "osm_type": "node",
+        "name": "Tchibo GOLD"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8122169,
+          39.7827426
+        ]
+      },
+      "properties": {
+        "id": 13745779502,
+        "osm_type": "node",
+        "name": "Arabica",
+        "brand": "Arabica",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8124291,
+          39.7826944
+        ]
+      },
+      "properties": {
+        "id": 13745779503,
+        "osm_type": "node",
+        "name": "Coffee Kangoo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.811118,
+          39.7828536
+        ]
+      },
+      "properties": {
+        "id": 13745779504,
+        "osm_type": "node",
+        "name": "Angry Waffle & Coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8107376,
+          39.7830255
+        ]
+      },
+      "properties": {
+        "id": 13745779505,
+        "osm_type": "node",
+        "name": "Coffy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8102972,
+          39.7827048
+        ]
+      },
+      "properties": {
+        "id": 13745779506,
+        "osm_type": "node",
+        "name": "Guta Coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6587463,
+          39.8541487
+        ]
+      },
+      "properties": {
+        "id": 13745785833,
+        "osm_type": "node",
+        "name": "Nevada Coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.810925,
+          39.7830467
+        ]
+      },
+      "properties": {
+        "id": 13745786807,
+        "osm_type": "node",
+        "name": "Yemen Kahvesi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8110388,
+          39.783053
+        ]
+      },
+      "properties": {
+        "id": 13745786904,
+        "osm_type": "node",
+        "name": "Dara Bakery & Pastry"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8110994,
+          39.7824837
+        ]
+      },
+      "properties": {
+        "id": 13745787001,
+        "osm_type": "node",
+        "name": "Mackbear Coffee Co."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8111223,
+          39.7826263
+        ]
+      },
+      "properties": {
+        "id": 13745787101,
+        "osm_type": "node",
+        "name": "Chocolabs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.811102,
+          39.7830324
+        ]
+      },
+      "properties": {
+        "id": 13745787201,
+        "osm_type": "node",
+        "name": "Chaplin"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8097429,
+          39.7829105
+        ]
+      },
+      "properties": {
+        "id": 13745829203,
+        "osm_type": "node",
+        "name": "Pusula Cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8044723,
+          39.7866536
+        ]
+      },
+      "properties": {
+        "id": 13746046201,
+        "osm_type": "node",
+        "name": "Cadı'nın Evi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8044245,
+          39.7865584
+        ]
+      },
+      "properties": {
+        "id": 13746046301,
+        "osm_type": "node",
+        "name": "Söğütaltı"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8043683,
+          39.7864566
+        ]
+      },
+      "properties": {
+        "id": 13746046401,
+        "osm_type": "node",
+        "name": "Coffeelab"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8042805,
+          39.7863083
+        ]
+      },
+      "properties": {
+        "id": 13746046402,
+        "osm_type": "node",
+        "name": "Colombia Coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8041672,
+          39.7861411
+        ]
+      },
+      "properties": {
+        "id": 13746066402,
+        "osm_type": "node",
+        "name": "Bi'Hatıra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8040301,
+          39.7859636
+        ]
+      },
+      "properties": {
+        "id": 13746066403,
+        "osm_type": "node",
+        "name": "Arabica",
+        "brand": "Arabica",
+        "opening_hours": "Mo-Su 09:00-00:00",
+        "takeaway": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8035336,
+          39.7852387
+        ]
+      },
+      "properties": {
+        "id": 13746066405,
+        "osm_type": "node",
+        "name": "Caffè Di' Toeè"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8039037,
+          39.7858131
+        ]
+      },
+      "properties": {
+        "id": 13746066701,
+        "osm_type": "node",
+        "name": "My Mandolin Cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8037349,
+          39.7856229
+        ]
+      },
+      "properties": {
+        "id": 13746066702,
+        "osm_type": "node",
+        "name": "Colambia Coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8024325,
+          39.7836801
+        ]
+      },
+      "properties": {
+        "id": 13746087001,
+        "osm_type": "node",
+        "name": "1919 Kahve Evi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8249765,
+          39.9199018
+        ]
+      },
+      "properties": {
+        "id": 13752770101,
+        "osm_type": "node",
+        "name": "Part II Coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.825338,
+          39.9197917
+        ]
+      },
+      "properties": {
+        "id": 13752778903,
+        "osm_type": "node",
+        "name": "Speco Coffee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8260347,
+          39.9200588
+        ]
+      },
+      "properties": {
+        "id": 13752779102,
+        "osm_type": "node",
+        "name": "Tortilla Fırın"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8293067,
+          39.9206892
+        ]
+      },
+      "properties": {
+        "id": 13752792601,
+        "osm_type": "node",
+        "name": "Rubby Coffee & Cake"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8294778,
+          39.9203046
+        ]
+      },
+      "properties": {
+        "id": 13752792901,
+        "osm_type": "node",
+        "name": "Skål Coffee & Dessert"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6117074,
+          39.9836506
+        ]
+      },
+      "properties": {
+        "id": 13758250939,
+        "osm_type": "node",
+        "name": "Gloria Jeans"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8539956,
+          39.9229865
+        ]
+      },
+      "properties": {
+        "id": 13760763501,
+        "osm_type": "node",
+        "name": "Cafe Down Engelsiz Cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.5190137,
+          40.0136241
+        ]
+      },
+      "properties": {
+        "id": 13766193013,
+        "osm_type": "node",
+        "name": "Barışzade Fırın"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.824779,
+          39.9232368
+        ]
+      },
+      "properties": {
+        "id": 13776056603,
+        "osm_type": "node",
+        "name": "Caffè di Toeè"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.825003,
+          39.9234425
+        ]
+      },
+      "properties": {
+        "id": 13776070801,
+        "osm_type": "node",
+        "name": "LAOS Coffee Roastery",
+        "opening_hours": "Mo-Su 08:00-01:00"
       }
     },
     {
@@ -12163,6 +12789,20 @@
         "name": "Anka E-Spor Merkezi Bayındır",
         "opening_hours": "24/7",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8515505,
+          39.9220183
+        ]
+      },
+      "properties": {
+        "id": 698960804,
+        "osm_type": "way"
       }
     },
     {
@@ -13008,6 +13648,65 @@
         "id": 1491268497,
         "osm_type": "way",
         "name": "GMO Simitçii"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.8064275,
+          39.9514258
+        ]
+      },
+      "properties": {
+        "id": 1497307271,
+        "osm_type": "way",
+        "name": "Bitki Evi Cafe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.851033,
+          39.9919798
+        ]
+      },
+      "properties": {
+        "id": 1498392640,
+        "osm_type": "way"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6118188,
+          39.9823775
+        ]
+      },
+      "properties": {
+        "id": 1503685541,
+        "osm_type": "way",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6443547,
+          39.8579302
+        ]
+      },
+      "properties": {
+        "id": 1505156598,
+        "osm_type": "way",
+        "name": "Halk Ekmek"
       }
     }
   ]

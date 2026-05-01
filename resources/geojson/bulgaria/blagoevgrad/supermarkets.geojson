@@ -21,20 +21,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.2826937,
-          41.5634454
-        ]
-      },
-      "properties": {
-        "id": 3325309852,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           23.280641,
           41.5605954
         ]
@@ -304,7 +290,8 @@
       "properties": {
         "id": 10792879806,
         "osm_type": "node",
-        "name": "Family Market Sandanski"
+        "name": "Family Market Sandanski",
+        "opening_hours": "Mo-Su 07:00-22:00"
       }
     },
     {
@@ -336,7 +323,8 @@
         "id": 10967583824,
         "osm_type": "node",
         "name": "Free Shop",
-        "opening_hours": "09:00-21:00"
+        "opening_hours": "09:00-21:00",
+        "check_date": "2023-06-10"
       }
     },
     {
@@ -469,7 +457,8 @@
       "properties": {
         "id": 12695296688,
         "osm_type": "node",
-        "name": "Happy Market"
+        "name": "Happy Market",
+        "check_date": "2023-10-05"
       }
     },
     {
@@ -605,7 +594,8 @@
         "osm_type": "way",
         "name": "Kaufland",
         "brand": "Kaufland",
-        "opening_hours": "Mo-Sa 07:00-21:00; Su 08:00-21:00"
+        "opening_hours": "Mo-Sa 07:00-21:00; Su 08:00-21:00",
+        "check_date": "2023-06-03"
       }
     },
     {
@@ -782,7 +772,8 @@
       },
       "properties": {
         "id": 904292530,
-        "osm_type": "way"
+        "osm_type": "way",
+        "check_date": "2025-03-01"
       }
     },
     {
@@ -851,15 +842,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.1008635,
-          42.0027448
+          23.100892,
+          42.0028199
         ]
       },
       "properties": {
         "id": 1221272168,
         "osm_type": "way",
         "name": "Billa",
-        "brand": "Billa"
+        "brand": "Billa",
+        "opening_hours": "Mo-Su 07:30-22:00"
       }
     },
     {

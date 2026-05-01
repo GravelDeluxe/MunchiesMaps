@@ -94,7 +94,8 @@
         "name": "Pyynikin munkkikahvila",
         "opening_hours": "Mo-Su 09:00-20:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-10-21"
       }
     },
     {
@@ -432,7 +433,7 @@
         "id": 957182381,
         "osm_type": "node",
         "name": "Kuikka Kafe",
-        "opening_hours": "Mo-Su 12:00-17:00"
+        "opening_hours": "Sa,Su 12:00-17:00"
       }
     },
     {
@@ -541,7 +542,8 @@
       "properties": {
         "id": 1499928398,
         "osm_type": "node",
-        "name": "Novellia"
+        "name": "Novellia",
+        "opening_hours": "Mo-Fr 10:00-18:00"
       }
     },
     {
@@ -559,7 +561,8 @@
         "name": "Café Bitti",
         "opening_hours": "Mo-Fr 08:00-17:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-11-06"
       }
     },
     {
@@ -793,7 +796,8 @@
       "properties": {
         "id": 1680090075,
         "osm_type": "node",
-        "name": "Neste Toijala"
+        "name": "Neste Toijala",
+        "opening_hours": "Mo-Fr 06:30-20:00; Sa 08:00-19:00; Su 09:00-19:00"
       }
     },
     {
@@ -961,7 +965,6 @@
       "properties": {
         "id": 2320492381,
         "osm_type": "node",
-        "name": "M-Market Nikkilä",
         "opening_hours": "Mo-Su 09:00-18:00"
       }
     },
@@ -1307,7 +1310,8 @@
         "osm_type": "node",
         "name": "Pyymäen Oma",
         "opening_hours": "Mo-Fr 07:00-20:00; Sa 09:00-19:00; Su 10:00-16:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-02-03"
       }
     },
     {
@@ -1434,7 +1438,8 @@
         "osm_type": "node",
         "name": "Lautapelikahvila Taverna",
         "opening_hours": "Mo 16:00-22:00; Tu-Th 15:00-23:00; Fr 15:00-01:00; Sa 13:00-01:00; Su off",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2026-02-22"
       }
     },
     {
@@ -1450,7 +1455,8 @@
         "id": 4488100333,
         "osm_type": "node",
         "name": "Moision Kotipakari",
-        "opening_hours": "Mo-Fr 06:30-17:00+; Sa 08:00-14:00+"
+        "opening_hours": "Mo-Fr 06:30-17:00+; Sa 08:00-14:00+",
+        "check_date": "2023-09-17"
       }
     },
     {
@@ -1516,7 +1522,8 @@
         "id": 4805634722,
         "osm_type": "node",
         "name": "Bär Bar",
-        "opening_hours": "Mo-Fr 08:00-17:00; Sa 08:00-15:00; Su 09:00-15:00"
+        "opening_hours": "Mo-Fr 08:00-17:00; Sa 08:00-15:00; Su 09:00-15:00",
+        "check_date": "2025-10-25"
       }
     },
     {
@@ -1566,7 +1573,8 @@
         "osm_type": "node",
         "name": "Kuparitalon Vohvelikahvila",
         "opening_hours": "Mo-Fr 10:00-20:00; Sa 11:00-19:00; PH,Su 12:00-18:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-12-14"
       }
     },
     {
@@ -1614,7 +1622,8 @@
         "name": "Bakery Café Puusti",
         "opening_hours": "Mo 09:00-17:00; Tu-Fr 09:00-18:00; Sa 10:00-17:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-09-08"
       }
     },
     {
@@ -1631,7 +1640,8 @@
         "osm_type": "node",
         "name": "Arnold's",
         "opening_hours": "Mo-Fr 08:00-20:00; Sa 10:00-19:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-05-23"
       }
     },
     {
@@ -1664,7 +1674,8 @@
         "osm_type": "node",
         "name": "Cafe & Bakery Mimosa",
         "opening_hours": "Mo-Fr 10:00-18:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2024-12-07"
       }
     },
     {
@@ -1830,7 +1841,8 @@
         "id": 6512920938,
         "osm_type": "node",
         "name": "Pikante Café",
-        "opening_hours": "Mo-Fr 07:00-18:00; Sa, Su 11:00-16:00"
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa, Su 11:00-16:00",
+        "check_date": "2025-03-20"
       }
     },
     {
@@ -2007,6 +2019,22 @@
         "osm_type": "node",
         "name": "Brander",
         "opening_hours": "Mo-Fr 09:00-16:30; Sa 09:00-16:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.8522828,
+          61.4510856
+        ]
+      },
+      "properties": {
+        "id": 8582357823,
+        "osm_type": "node",
+        "name": "Caffitella",
+        "outdoor_seating": "no"
       }
     },
     {
@@ -2425,7 +2453,8 @@
         "brand": "Espresso House",
         "opening_hours": "Mo-Fr 07:30-21:00; Sa 08:00-21:00; Su 09:00-20:00",
         "takeaway": "yes",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-02-03"
       }
     },
     {
@@ -2595,7 +2624,8 @@
         "id": 11207122518,
         "osm_type": "node",
         "name": "Café Atomi",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2023-09-20"
       }
     },
     {
@@ -2626,7 +2656,8 @@
         "id": 11455629259,
         "osm_type": "node",
         "name": "KahvioVirelä",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-12-26"
       }
     },
     {
@@ -2656,7 +2687,8 @@
         "id": 11599152579,
         "osm_type": "node",
         "name": "Bar & Cafe Lategame",
-        "opening_hours": "Mo off; Tu,Su 14:00-22:00; We-Th 12:00-23:00; Fr-Sa 12:00-02:00"
+        "opening_hours": "Mo off; Tu,Su 14:00-22:00; We-Th 12:00-23:00; Fr-Sa 12:00-02:00",
+        "check_date": "2026-02-22"
       }
     },
     {
@@ -2703,7 +2735,8 @@
         "osm_type": "node",
         "name": "Kahvila Elonen",
         "opening_hours": "Mo-Sa 09:00-17:00",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-09-06"
       }
     },
     {
@@ -2930,22 +2963,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.7880675,
-          61.4902077
-        ]
-      },
-      "properties": {
-        "id": 12271197454,
-        "osm_type": "node",
-        "name": "Planet Gamers",
-        "opening_hours": "Tu-Fr 15:00-23:00; Sa-Su 09:00-00:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           23.1832945,
           61.6574406
         ]
@@ -2999,7 +3016,8 @@
         "id": 12568598929,
         "osm_type": "node",
         "name": "Pyymäen Aira",
-        "opening_hours": "Mo-Fr 07:00-21:00; Sa 09:00-21:00; Su 10:00-19:00"
+        "opening_hours": "Mo-Fr 07:00-21:00; Sa 09:00-21:00; Su 10:00-19:00",
+        "check_date": "2025-12-06"
       }
     },
     {
@@ -3014,7 +3032,8 @@
       "properties": {
         "id": 12806214838,
         "osm_type": "node",
-        "name": "Onda Music & Arts Cafe"
+        "name": "Onda Music & Arts Cafe",
+        "check_date": "2025-05-03"
       }
     },
     {
@@ -3173,7 +3192,8 @@
         "id": 13112600327,
         "osm_type": "node",
         "name": "Cafe Metso",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-09-01"
       }
     },
     {
@@ -3220,7 +3240,8 @@
       "properties": {
         "id": 13373597611,
         "osm_type": "node",
-        "name": "Hakasen Leipomo"
+        "name": "Hakasen Leipomo",
+        "check_date": "2025-12-13"
       }
     },
     {
@@ -3235,7 +3256,8 @@
       "properties": {
         "id": 13373597612,
         "osm_type": "node",
-        "name": "Pullapuoti Wilenius"
+        "name": "Pullapuoti Wilenius",
+        "check_date": "2025-12-13"
       }
     },
     {
@@ -3621,7 +3643,8 @@
       "properties": {
         "id": 222941880,
         "osm_type": "way",
-        "name": "Paakari"
+        "name": "Paakari",
+        "opening_hours": "Mo-Fr 08:00-17:00; Sa 09:00-15:30; Su 11:00-15:00"
       }
     },
     {
@@ -3754,7 +3777,8 @@
       "properties": {
         "id": 605378879,
         "osm_type": "way",
-        "name": "Kahvila Auretar"
+        "name": "Kahvila Auretar",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -3862,7 +3886,7 @@
         "id": 910485904,
         "osm_type": "way",
         "name": "Kirkkoharjun Kahvila",
-        "opening_hours": "We-Sa 11:00-17:00; Su 12:00-16:00"
+        "opening_hours": "Fr,Sa 11:00-18:00; Su 11:00-16:00"
       }
     },
     {
@@ -4116,7 +4140,8 @@
         "id": 1424287114,
         "osm_type": "way",
         "name": "Aseman Kahvila",
-        "opening_hours": "Mo-Th 07:30-18:00; Fr,Sa 07:30-19:00; Su 10:00-19:00"
+        "opening_hours": "Mo-Th 07:30-18:00; Fr,Sa 07:30-19:00; Su 10:00-19:00",
+        "check_date": "2025-08-09"
       }
     },
     {

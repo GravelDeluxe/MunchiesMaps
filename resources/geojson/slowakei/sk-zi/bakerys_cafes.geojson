@@ -170,7 +170,8 @@
         "id": 1313962358,
         "osm_type": "node",
         "name": "Lesopark Žilina",
-        "opening_hours": "Mo-Fr 12:00-18:00; Sa-Su 10:00-18:00"
+        "opening_hours": "Mo-Fr 12:00-18:00; Sa-Su 10:00-18:00",
+        "check_date": "2024-11-14"
       }
     },
     {
@@ -232,6 +233,21 @@
         "osm_type": "node",
         "name": "Caffé 23",
         "opening_hours": "Mo-Sa 08:00-20:00;Su 09:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0359627,
+          49.2566229
+        ]
+      },
+      "properties": {
+        "id": 1708039188,
+        "osm_type": "node",
+        "name": "Kaviareň Dolina"
       }
     },
     {
@@ -635,6 +651,24 @@
         "id": 3301299776,
         "osm_type": "node",
         "name": "Pečivo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.7425508,
+          49.225778
+        ]
+      },
+      "properties": {
+        "id": 3604868388,
+        "osm_type": "node",
+        "name": "Park Cafe",
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa-Su 09:00-19:00; PH 09:00-19:00",
+        "takeaway": "yes",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -2217,7 +2251,8 @@
         "id": 7026155173,
         "osm_type": "node",
         "name": "MIPEK Pekáreň Ľubeľa",
-        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-11:00"
+        "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:00-11:00",
+        "check_date": "2025-08-04"
       }
     },
     {
@@ -2232,7 +2267,8 @@
       "properties": {
         "id": 7200205431,
         "osm_type": "node",
-        "name": "Pekáreň Búgel Ján"
+        "name": "Pekáreň Búgel Ján",
+        "check_date": "2024-07-23"
       }
     },
     {
@@ -2645,7 +2681,8 @@
         "id": 9933092606,
         "osm_type": "node",
         "name": "Strada Caffe Bar",
-        "opening_hours": "Mo-Th 10:00-22:00; Fr 10:00-23:00; Sa,Su 14:00-22:00"
+        "opening_hours": "Mo-Th 10:00-22:00; Fr 10:00-23:00; Sa,Su 14:00-22:00",
+        "check_date": "2025-07-30"
       }
     },
     {
@@ -3574,6 +3611,25 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.7470246,
+          49.2280444
+        ]
+      },
+      "properties": {
+        "id": 13301842362,
+        "osm_type": "node",
+        "name": "Starbucks",
+        "brand": "Starbucks",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 08:00-21:00; Su 08:30-21:00; PH off",
+        "takeaway": "yes",
+        "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           18.7412212,
           49.2252413
         ]
@@ -4133,7 +4189,8 @@
         "name": "Fresh Corner",
         "brand": "Fresh Corner",
         "opening_hours": "24/7",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2025-07-26"
       }
     },
     {

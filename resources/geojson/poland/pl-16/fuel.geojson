@@ -356,7 +356,8 @@
         "id": 2213337581,
         "osm_type": "node",
         "name": "Stacja Paliw Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "check_date": "2026-03-18"
       }
     },
     {
@@ -373,7 +374,8 @@
         "osm_type": "node",
         "name": "Shell",
         "brand": "Shell",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-03-18"
       }
     },
     {
@@ -1278,20 +1280,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.0045998,
-          50.0857758
-        ]
-      },
-      "properties": {
-        "id": 10244046579,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           17.5704103,
           50.3160596
         ]
@@ -2070,7 +2058,8 @@
         "id": 285953504,
         "osm_type": "way",
         "name": "Pieprzyk",
-        "brand": "Pieprzyk"
+        "brand": "Pieprzyk",
+        "check_date": "2025-12-27"
       }
     },
     {
@@ -2136,7 +2125,8 @@
         "id": 305286350,
         "osm_type": "way",
         "name": "Orlen",
-        "brand": "Orlen"
+        "brand": "Orlen",
+        "check_date": "2025-12-25"
       }
     },
     {
@@ -2784,7 +2774,8 @@
       "properties": {
         "id": 965448310,
         "osm_type": "way",
-        "name": "Driver"
+        "name": "Driver",
+        "check_date": "2025-08-23"
       }
     },
     {
@@ -3023,6 +3014,20 @@
         "osm_type": "way",
         "name": "Orlen",
         "brand": "Orlen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.0048263,
+          50.0857804
+        ]
+      },
+      "properties": {
+        "id": 1503934030,
+        "osm_type": "way"
       }
     }
   ]

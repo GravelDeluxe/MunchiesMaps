@@ -96,7 +96,11 @@
       },
       "properties": {
         "id": 851554308,
-        "osm_type": "node"
+        "osm_type": "node",
+        "access": "yes",
+        "fee": "no",
+        "indoor": "no",
+        "check_date": "2022-06-22"
       }
     },
     {
@@ -198,7 +202,8 @@
       },
       "properties": {
         "id": 1982575097,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-01-05"
       }
     },
     {
@@ -298,7 +303,8 @@
       },
       "properties": {
         "id": 3760138358,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-03-25"
       }
     },
     {
@@ -845,7 +851,8 @@
         "osm_type": "node",
         "access": "yes",
         "fee": "no",
-        "indoor": "no"
+        "indoor": "no",
+        "check_date": "2023-12-11"
       }
     },
     {
@@ -2282,6 +2289,34 @@
         "id": 13713329730,
         "osm_type": "node",
         "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.785202,
+          37.3976989
+        ]
+      },
+      "properties": {
+        "id": 13742099101,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.6802174,
+          37.1060583
+        ]
+      },
+      "properties": {
+        "id": 13754493361,
+        "osm_type": "node"
       }
     }
   ]

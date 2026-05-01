@@ -37,20 +37,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.3171341,
-          41.9927745
-        ]
-      },
-      "properties": {
-        "id": 367045844,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           22.005306,
           41.4444801
         ]
@@ -1076,22 +1062,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          20.7984189,
-          41.3054113
-        ]
-      },
-      "properties": {
-        "id": 2260122822,
-        "osm_type": "node",
-        "name": "ОКТА",
-        "brand": "ОКТА"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           20.958756,
           41.986615
         ]
@@ -1298,7 +1268,8 @@
         "osm_type": "node",
         "name": "Макпетрол",
         "brand": "Макпетрол",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-07-17"
       }
     },
     {
@@ -1343,20 +1314,6 @@
         "id": 6054048518,
         "osm_type": "node",
         "name": "Peak"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          21.323116,
-          41.9962956
-        ]
-      },
-      "properties": {
-        "id": 6054048709,
-        "osm_type": "node"
       }
     },
     {
@@ -1468,21 +1425,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          20.9518182,
-          41.5159681
-        ]
-      },
-      "properties": {
-        "id": 6830542292,
-        "osm_type": "node",
-        "name": "Power Patrol"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           20.809137,
           41.1254011
         ]
@@ -1506,21 +1448,6 @@
         "id": 6837039809,
         "osm_type": "node",
         "name": "Gulf"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          21.5432026,
-          41.9941052
-        ]
-      },
-      "properties": {
-        "id": 7058905685,
-        "osm_type": "node",
-        "name": "Дени Интернационал"
       }
     },
     {
@@ -1895,8 +1822,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.3961518,
-          42.003558
+          21.3961381,
+          42.0035551
         ]
       },
       "properties": {
@@ -1912,7 +1839,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.5699004,
+          21.5699003,
           41.9690076
         ]
       },
@@ -1953,7 +1880,8 @@
         "id": 177647423,
         "osm_type": "way",
         "name": "Макпетрол",
-        "brand": "Макпетрол"
+        "brand": "Макпетрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -2291,14 +2219,15 @@
         "type": "Point",
         "coordinates": [
           21.6888143,
-          41.8837238
+          41.8837237
         ]
       },
       "properties": {
         "id": 334810078,
         "osm_type": "way",
         "name": "Макпетрол",
-        "brand": "Макпетрол"
+        "brand": "Макпетрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -2344,7 +2273,8 @@
         "id": 344054209,
         "osm_type": "way",
         "name": "Лукоил",
-        "brand": "Lukoil"
+        "brand": "Lukoil",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -2565,12 +2495,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.5792795,
-          41.9636362
+          21.5790923,
+          41.9637593
         ]
       },
       "properties": {
-        "id": 423419872,
+        "id": 423419870,
         "osm_type": "way",
         "name": "Lukoil",
         "brand": "Lukoil",
@@ -3136,14 +3066,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.3163713,
-          41.9923349
+          21.3162332,
+          41.9923833
         ]
       },
       "properties": {
         "id": 670787524,
         "osm_type": "way",
-        "brand": "Imo Oil"
+        "name": "Имо Оил"
       }
     },
     {
@@ -3151,13 +3081,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.3230991,
-          41.9960468
+          21.3229687,
+          41.9961235
         ]
       },
       "properties": {
         "id": 670787531,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "Бора Петрол"
       }
     },
     {
@@ -3345,6 +3276,22 @@
         "osm_type": "way",
         "name": "Памела Ойл",
         "brand": "Памела Ойл"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.5433182,
+          41.9940634
+        ]
+      },
+      "properties": {
+        "id": 764148011,
+        "osm_type": "way",
+        "name": "Дени Интернационал",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -3823,8 +3770,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.7006915,
-          41.2237133
+          22.700725,
+          41.2237061
         ]
       },
       "properties": {
@@ -3860,7 +3807,8 @@
         "id": 1263409698,
         "osm_type": "way",
         "name": "Макпетрол",
-        "brand": "Макпетрол"
+        "brand": "Макпетрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4113,7 +4061,8 @@
         "id": 1303820563,
         "osm_type": "way",
         "name": "Макпетрол 121",
-        "brand": "Макпетрол"
+        "brand": "Макпетрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4360,7 +4309,8 @@
       "properties": {
         "id": 1313743113,
         "osm_type": "way",
-        "name": "Лукоил 002"
+        "name": "Лукоил 002",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -4925,8 +4875,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          20.9830977,
-          41.9970826
+          20.9830984,
+          41.9970817
         ]
       },
       "properties": {
@@ -5011,7 +4961,8 @@
       "properties": {
         "id": 1349817524,
         "osm_type": "way",
-        "name": "ИБ Петрол"
+        "name": "ИБ Петрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5026,7 +4977,8 @@
       "properties": {
         "id": 1349817533,
         "osm_type": "way",
-        "name": "ИБ Петрол"
+        "name": "ИБ Петрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5042,7 +4994,8 @@
         "id": 1349886648,
         "osm_type": "way",
         "name": "Макпетрол",
-        "brand": "Макпетрол"
+        "brand": "Макпетрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5057,8 +5010,9 @@
       "properties": {
         "id": 1349886651,
         "osm_type": "way",
-        "name": "Gulf",
-        "brand": "Gulf"
+        "name": "Гулф",
+        "brand": "Gulf",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5074,7 +5028,8 @@
         "id": 1349886656,
         "osm_type": "way",
         "name": "Макпетрол",
-        "brand": "Макпетрол"
+        "brand": "Макпетрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5090,7 +5045,8 @@
         "id": 1349886659,
         "osm_type": "way",
         "name": "Макпетрол",
-        "brand": "Макпетрол"
+        "brand": "Макпетрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5105,7 +5061,8 @@
       "properties": {
         "id": 1349887425,
         "osm_type": "way",
-        "name": "Детоил"
+        "name": "Детоил",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5169,7 +5126,8 @@
         "id": 1349987531,
         "osm_type": "way",
         "name": "Макпетрол",
-        "brand": "Макпетрол"
+        "brand": "Макпетрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5269,6 +5227,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          20.798584,
+          41.3054051
+        ]
+      },
+      "properties": {
+        "id": 1378110969,
+        "osm_type": "way",
+        "name": "ОКТА",
+        "brand": "ОКТА",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           21.5011709,
           41.9631962
         ]
@@ -5307,7 +5282,8 @@
         "id": 1408929913,
         "osm_type": "way",
         "name": "Макпетрол 081",
-        "brand": "Макпетрол"
+        "brand": "Макпетрол",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5460,7 +5436,8 @@
       "properties": {
         "id": 1456601451,
         "osm_type": "way",
-        "name": "Макоил"
+        "name": "Макоил",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5573,14 +5550,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.7731303,
-          41.9710221
+          20.9518323,
+          41.5158464
         ]
       },
       "properties": {
-        "id": 12342839,
-        "osm_type": "relation",
-        "name": "Dadi Kompani"
+        "id": 1497201643,
+        "osm_type": "way",
+        "name": "Power Patrol",
+        "opening_hours": "24/7"
       }
     },
     {
@@ -5588,13 +5566,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          21.77855,
-          41.7401397
+          21.7785736,
+          41.7401329
         ]
       },
       "properties": {
-        "id": 18529042,
-        "osm_type": "relation",
+        "id": 1499166496,
+        "osm_type": "way",
         "name": "Макпетрол 072",
         "brand": "Макпетрол"
       }
@@ -5604,15 +5582,64 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.2469724,
-          41.4105805
+          21.9495271,
+          41.575029
         ]
       },
       "properties": {
-        "id": 18529174,
-        "osm_type": "relation",
+        "id": 1503776962,
+        "osm_type": "way",
         "name": "Макпетрол",
-        "brand": "Макпетрол"
+        "brand": "Макпетрол",
+        "opening_hours": "Mo-Su 06:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2469793,
+          41.4105797
+        ]
+      },
+      "properties": {
+        "id": 1506089909,
+        "osm_type": "way",
+        "name": "Макпетрол",
+        "brand": "Макпетрол",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.2426791,
+          41.4094241
+        ]
+      },
+      "properties": {
+        "id": 1506089920,
+        "osm_type": "way",
+        "name": "Гас Трејд",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.7731303,
+          41.9710221
+        ]
+      },
+      "properties": {
+        "id": 12342839,
+        "osm_type": "relation",
+        "name": "Dadi Kompani"
       }
     }
   ]

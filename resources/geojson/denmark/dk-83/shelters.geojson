@@ -480,25 +480,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.8439781,
-          55.6163812
-        ]
-      },
-      "properties": {
-        "id": 2429183639,
-        "osm_type": "node",
-        "name": "Trelde Næs – Syd",
-        "shelter_type": "lean_to",
-        "fee": "no",
-        "operator": "Fredericia Kommune",
-        "description": "Alle der har booket shelters på www.bookenshelter.dk har fortrinsret"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.6535079,
           55.2895889
         ]
@@ -562,8 +543,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.9228408,
-          55.4300222
+          9.9227951,
+          55.4299767
         ]
       },
       "properties": {
@@ -987,15 +968,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.6887232,
-          54.9785003
+          10.688774,
+          54.9784729
         ]
       },
       "properties": {
         "id": 4202302133,
         "osm_type": "node",
-        "name": "Hegnet shelterplads",
         "shelter_type": "lean_to",
+        "capacity": "2",
+        "fee": "yes",
         "url": "https://bookenshelter.dk/fyn/shelterplads/hegnet-taasinge/"
       }
     },
@@ -1954,8 +1936,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.547577,
-          55.0412274
+          10.5475593,
+          55.0412251
         ]
       },
       "properties": {
@@ -1963,6 +1945,8 @@
         "osm_type": "node",
         "name": "Shelterplads Poulinelund",
         "shelter_type": "lean_to",
+        "fee": "yes",
+        "operator": "Svendborg Kommune",
         "url": "https://udinaturen.dk/shelter/6750"
       }
     },
@@ -2050,15 +2034,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.7609892,
-          55.0567391
+          9.7609283,
+          55.056778
         ]
       },
       "properties": {
         "id": 8021265771,
         "osm_type": "node",
         "shelter_type": "lean_to",
-        "url": "https://udinaturen.dk/shelter/3599"
+        "capacity": "4",
+        "fee": "no",
+        "operator": "Sønderborg Kommune",
+        "url": "https://udinaturen.dk/facilitet/shelter-p%C3%A5-primitiv-overnatningsplads/?id=bed79810-5af6-11f0-9185-13771eaaaa24"
       }
     },
     {
@@ -6317,6 +6304,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          8.9458172,
+          55.6000382
+        ]
+      },
+      "properties": {
+        "id": 13057815236,
+        "osm_type": "node",
+        "shelter_type": "basic_hut",
+        "bench": "yes",
+        "description": "An african shelter for sleeping with toilet access and energy at the cricket hut. Open for everyone but without an website."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.9207623,
           55.4101864
         ]
@@ -6891,6 +6895,104 @@
         "osm_type": "node",
         "shelter_type": "lean_to",
         "description": "Kontakt: Hans Jørgen Lassen, Kirkegade 23B, Bedsted, 6240 Løgumkloster, tlf. 21 77 44 73. Ring i forvejen mellem kl. 8 og 17."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.8440698,
+          55.616416
+        ]
+      },
+      "properties": {
+        "id": 13719351067,
+        "osm_type": "node",
+        "name": "Egen",
+        "shelter_type": "lean_to",
+        "fee": "no",
+        "operator": "Fredericia Kommune",
+        "description": "Alle der har booket shelters på www.bookenshelter.dk har fortrinsret",
+        "check_date": "2026-04-09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.8439285,
+          55.6164275
+        ]
+      },
+      "properties": {
+        "id": 13719351068,
+        "osm_type": "node",
+        "name": "Stor Gøgeurt",
+        "shelter_type": "lean_to",
+        "fee": "no",
+        "operator": "Fredericia Kommune",
+        "description": "Alle der har booket shelters på www.bookenshelter.dk har fortrinsret",
+        "check_date": "2026-04-09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.843807,
+          55.616365
+        ]
+      },
+      "properties": {
+        "id": 13719351069,
+        "osm_type": "node",
+        "name": "Marsvinet",
+        "shelter_type": "lean_to",
+        "fee": "no",
+        "operator": "Fredericia Kommune",
+        "description": "Alle der har booket shelters på www.bookenshelter.dk har fortrinsret",
+        "check_date": "2026-04-09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.843701,
+          55.6163594
+        ]
+      },
+      "properties": {
+        "id": 13719351070,
+        "osm_type": "node",
+        "name": "Sortspætten",
+        "shelter_type": "lean_to",
+        "fee": "no",
+        "operator": "Fredericia Kommune",
+        "description": "Alle der har booket shelters på www.bookenshelter.dk har fortrinsret",
+        "check_date": "2026-04-09"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.6886741,
+          54.9784831
+        ]
+      },
+      "properties": {
+        "id": 13743436436,
+        "osm_type": "node",
+        "shelter_type": "lean_to",
+        "capacity": "2",
+        "fee": "yes",
+        "url": "https://bookenshelter.dk/fyn/shelterplads/hegnet-taasinge/"
       }
     },
     {
@@ -9031,6 +9133,51 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.5495835,
+          55.7554995
+        ]
+      },
+      "properties": {
+        "id": 681325874,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.5495525,
+          55.7555868
+        ]
+      },
+      "properties": {
+        "id": 681325979,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.5494854,
+          55.7555356
+        ]
+      },
+      "properties": {
+        "id": 681326098,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           10.6152176,
           55.0380756
         ]
@@ -9491,7 +9638,10 @@
       "properties": {
         "id": 712492685,
         "osm_type": "way",
-        "shelter_type": "lean_to"
+        "name": "Ronja",
+        "shelter_type": "lean_to",
+        "capacity": "6",
+        "fee": "yes"
       }
     },
     {
@@ -9506,7 +9656,10 @@
       "properties": {
         "id": 712492711,
         "osm_type": "way",
-        "shelter_type": "lean_to"
+        "name": "Storshelteren",
+        "shelter_type": "lean_to",
+        "capacity": "8",
+        "fee": "yes"
       }
     },
     {
@@ -9521,7 +9674,10 @@
       "properties": {
         "id": 712492764,
         "osm_type": "way",
-        "shelter_type": "lean_to"
+        "name": "Blink",
+        "shelter_type": "lean_to",
+        "capacity": "6",
+        "fee": "yes"
       }
     },
     {
@@ -9536,7 +9692,10 @@
       "properties": {
         "id": 712492811,
         "osm_type": "way",
-        "shelter_type": "lean_to"
+        "name": "Birk",
+        "shelter_type": "lean_to",
+        "capacity": "6",
+        "fee": "yes"
       }
     },
     {
@@ -10190,6 +10349,36 @@
         "osm_type": "way",
         "shelter_type": "lean_to",
         "url": "https://www.visithaderslev.dk/haderslev/planlaeg-din-tur/vedsted-shelter-det-groenne-hjoerne-gdk1082787"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.5749421,
+          55.5278445
+        ]
+      },
+      "properties": {
+        "id": 792006915,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.5749842,
+          55.5277976
+        ]
+      },
+      "properties": {
+        "id": 792007159,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
       }
     },
     {
@@ -11412,8 +11601,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.2614472,
-          55.2976351
+          10.2614279,
+          55.2976386
         ]
       },
       "properties": {
@@ -11427,8 +11616,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.2613449,
-          55.2976138
+          10.261324,
+          55.2976152
         ]
       },
       "properties": {
@@ -12161,7 +12350,10 @@
       "properties": {
         "id": 1090926387,
         "osm_type": "way",
-        "shelter_type": "lean_to"
+        "name": "Kirsebærshelteren",
+        "shelter_type": "lean_to",
+        "capacity": "6",
+        "fee": "yes"
       }
     },
     {
@@ -12176,7 +12368,10 @@
       "properties": {
         "id": 1090934715,
         "osm_type": "way",
-        "shelter_type": "lean_to"
+        "name": "Liv",
+        "shelter_type": "lean_to",
+        "capacity": "6",
+        "fee": "yes"
       }
     },
     {
@@ -12191,7 +12386,10 @@
       "properties": {
         "id": 1090934716,
         "osm_type": "way",
-        "shelter_type": "lean_to"
+        "name": "Pil",
+        "shelter_type": "lean_to",
+        "capacity": "6",
+        "fee": "yes"
       }
     },
     {
@@ -12713,6 +12911,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          10.1798623,
+          55.2596563
+        ]
+      },
+      "properties": {
+        "id": 1194551035,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           8.9251545,
           55.7658692
         ]
@@ -12848,8 +13061,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.318913,
-          55.3670645
+          10.3189275,
+          55.3670606
         ]
       },
       "properties": {
@@ -16697,6 +16910,52 @@
       },
       "properties": {
         "id": 1496249492,
+        "osm_type": "way",
+        "shelter_type": "lean_to"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1844921,
+          55.6580081
+        ]
+      },
+      "properties": {
+        "id": 1497707216,
+        "osm_type": "way",
+        "shelter_type": "lean_to",
+        "fee": "no"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.5182924,
+          55.3059835
+        ]
+      },
+      "properties": {
+        "id": 1498229200,
+        "osm_type": "way",
+        "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2161283,
+          55.1573817
+        ]
+      },
+      "properties": {
+        "id": 1500019200,
         "osm_type": "way",
         "shelter_type": "lean_to"
       }

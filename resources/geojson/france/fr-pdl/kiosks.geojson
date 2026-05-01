@@ -40,15 +40,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -1.6547286,
-          47.3375985
+          -1.6548874,
+          47.3378074
         ]
       },
       "properties": {
         "id": 25210060,
         "osm_type": "node",
-        "name": "évole énergies",
-        "brand": "évole énergies",
+        "name": "Évole énergies",
+        "brand": "Évole énergies",
         "opening_hours": "24/7",
         "check_date": "2025-12-29"
       }
@@ -170,7 +170,8 @@
         "osm_type": "node",
         "name": "Relais Total De Courdoux",
         "brand": "Total Access",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -1373,7 +1374,7 @@
         "id": 1693195765,
         "osm_type": "node",
         "name": "Total",
-        "brand": "Total",
+        "brand": "TotalEnergies",
         "opening_hours": "24/7"
       }
     },
@@ -9303,7 +9304,7 @@
         "name": "Station Service E. Leclerc",
         "brand": "E.Leclerc",
         "opening_hours": "24/7",
-        "check_date": "2024-08-07"
+        "check_date": "2026-04-29"
       }
     },
     {
@@ -9891,7 +9892,9 @@
       "properties": {
         "id": 8247750394,
         "osm_type": "node",
-        "name": "Viveco"
+        "name": "Viveco",
+        "brand": "Viveco",
+        "opening_hours": "Tu-Fr 07:00-19:30; Sa 08:00-19:30; Su,PH 08:00-13:00"
       }
     },
     {
@@ -12635,7 +12638,8 @@
         "id": 11089223508,
         "osm_type": "node",
         "name": "Proxi",
-        "brand": "Proxi"
+        "brand": "Proxi",
+        "opening_hours": "Mo-Su 09:00-19:30"
       }
     },
     {
@@ -15537,6 +15541,54 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -1.1146155,
+          47.9700899
+        ]
+      },
+      "properties": {
+        "id": 13755425205,
+        "osm_type": "node",
+        "name": "Proxi",
+        "brand": "Proxi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.8248927,
+          46.9935677
+        ]
+      },
+      "properties": {
+        "id": 13756449073,
+        "osm_type": "node",
+        "name": "L'Épicoretz",
+        "opening_hours": "Mo 10:30-12:30; We 10:30-12:30,17:30-19:30; Fr 17:30-19:30; Sa 10:30-12:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.7615086,
+          47.4767064
+        ]
+      },
+      "properties": {
+        "id": 13766251739,
+        "osm_type": "node",
+        "name": "Total",
+        "brand": "TotalEnergies"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           0.2188305,
           48.0163429
         ]
@@ -15807,7 +15859,8 @@
         "id": 68322981,
         "osm_type": "way",
         "name": "Proxi",
-        "brand": "Proxi"
+        "brand": "Proxi",
+        "opening_hours": "Mo-Su 07:30-20:30;Dec off;Jan off"
       }
     },
     {
@@ -15937,7 +15990,8 @@
         "osm_type": "way",
         "name": "Carrefour Contact",
         "brand": "Carrefour Contact",
-        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-12:00"
+        "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-13:00",
+        "check_date": "2026-04-26"
       }
     },
     {
@@ -16250,22 +16304,6 @@
         "osm_type": "way",
         "name": "Proxi",
         "brand": "Proxi"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -1.6433196,
-          47.1677008
-        ]
-      },
-      "properties": {
-        "id": 89767343,
-        "osm_type": "way",
-        "brand": "Avia",
-        "opening_hours": "24/7"
       }
     },
     {
@@ -17815,23 +17853,6 @@
         "osm_type": "way",
         "name": "Viveco",
         "brand": "Viveco"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -0.8086755,
-          48.410767
-        ]
-      },
-      "properties": {
-        "id": 320197813,
-        "osm_type": "way",
-        "name": "Total",
-        "brand": "Total",
-        "opening_hours": "Mo-Sa 07:30-19:30"
       }
     },
     {

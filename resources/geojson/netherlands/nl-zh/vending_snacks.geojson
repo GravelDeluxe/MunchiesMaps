@@ -13,7 +13,8 @@
       "properties": {
         "id": 1571089675,
         "osm_type": "node",
-        "vending": "drinks"
+        "vending": "drinks",
+        "check_date": "2025-06-15"
       }
     },
     {
@@ -61,7 +62,8 @@
         "osm_type": "node",
         "name": "Vlister Hoeve",
         "opening_hours": "Mo-Sa 00:00-24:00; PH off",
-        "vending": "milk;eggs,drinks"
+        "vending": "milk;eggs,drinks",
+        "check_date": "2025-07-28"
       }
     },
     {
@@ -139,7 +141,8 @@
       "properties": {
         "id": 6789435155,
         "osm_type": "node",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2026-03-06"
       }
     },
     {
@@ -169,7 +172,8 @@
       "properties": {
         "id": 6827363825,
         "osm_type": "node",
-        "vending": "drinks"
+        "vending": "drinks",
+        "check_date": "2023-05-07"
       }
     },
     {
@@ -278,7 +282,8 @@
       "properties": {
         "id": 9743422056,
         "osm_type": "node",
-        "vending": "sweets;water"
+        "vending": "sweets;water",
+        "check_date": "2025-05-12"
       }
     },
     {
@@ -790,7 +795,40 @@
       "properties": {
         "id": 13713143349,
         "osm_type": "node",
-        "vending": "snacks;drinks"
+        "vending": "snacks;drinks",
+        "check_date": "2026-04-07"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3475508,
+          52.0557508
+        ]
+      },
+      "properties": {
+        "id": 13758089414,
+        "osm_type": "node",
+        "vending": "food",
+        "operator": "Quiosk"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.5756355,
+          52.0976005
+        ]
+      },
+      "properties": {
+        "id": 13776198142,
+        "osm_type": "node",
+        "name": "zuivelautomaat",
+        "vending": "milk;cheese"
       }
     }
   ]

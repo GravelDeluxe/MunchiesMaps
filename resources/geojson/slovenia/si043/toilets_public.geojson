@@ -41,7 +41,8 @@
       },
       "properties": {
         "id": 2476478309,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2022-07-07"
       }
     },
     {
@@ -83,7 +84,8 @@
       },
       "properties": {
         "id": 2987731678,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2023-09-03"
       }
     },
     {
@@ -450,13 +452,14 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.7401903,
-          46.1980179
+          13.7397688,
+          46.1979621
         ]
       },
       "properties": {
         "id": 9970345129,
-        "osm_type": "node"
+        "osm_type": "node",
+        "access": "yes"
       }
     },
     {
@@ -692,7 +695,8 @@
       "properties": {
         "id": 11816461210,
         "osm_type": "node",
-        "access": "yes"
+        "access": "yes",
+        "check_date": "2024-04-12"
       }
     },
     {
@@ -1119,7 +1123,8 @@
       "properties": {
         "id": 13075873801,
         "osm_type": "node",
-        "access": "yes"
+        "access": "yes",
+        "check_date": "2025-08-17"
       }
     },
     {
@@ -1177,7 +1182,24 @@
       "properties": {
         "id": 13524385415,
         "osm_type": "node",
-        "access": "yes"
+        "access": "yes",
+        "check_date": "2026-02-04"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.9050194,
+          45.8805544
+        ]
+      },
+      "properties": {
+        "id": 13703053620,
+        "osm_type": "node",
+        "access": "customers",
+        "check_date": "2026-04-03"
       }
     },
     {
@@ -1281,6 +1303,22 @@
         "id": 732909408,
         "osm_type": "way",
         "access": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5879144,
+          45.8516844
+        ]
+      },
+      "properties": {
+        "id": 776295121,
+        "osm_type": "way",
+        "access": "customers",
+        "check_date": "2025-08-09"
       }
     },
     {

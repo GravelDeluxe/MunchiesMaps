@@ -978,7 +978,8 @@
       "properties": {
         "id": 3440857682,
         "osm_type": "node",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2026-04-07"
       }
     },
     {
@@ -1503,20 +1504,6 @@
       },
       "properties": {
         "id": 3458295284,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.408214,
-          46.279556
-        ]
-      },
-      "properties": {
-        "id": 3458296574,
         "osm_type": "node"
       }
     },
@@ -3677,21 +3664,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.2144228,
-          46.07098
-        ]
-      },
-      "properties": {
-        "id": 11060477676,
-        "osm_type": "node",
-        "name": "Via Markt"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.2310431,
           46.0435502
         ]
@@ -4006,7 +3978,22 @@
       "properties": {
         "id": 13725266112,
         "osm_type": "node",
-        "name": "Varga Vegyesbolt"
+        "name": "Varga Vegyesbolt",
+        "check_date": "2026-04-12"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.3968988,
+          46.2681191
+        ]
+      },
+      "properties": {
+        "id": 13777101711,
+        "osm_type": "node"
       }
     },
     {
@@ -4436,7 +4423,7 @@
         "id": 1416336181,
         "osm_type": "way",
         "name": "Terike Boltja (Nimród vegyesbolt)",
-        "opening_hours": "Mo-Tu 10:00-18:00, We-Th off, Fr-Su 10:00-18:00"
+        "opening_hours": "We-Su 09:00-17:00"
       }
     },
     {

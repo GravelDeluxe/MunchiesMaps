@@ -44,7 +44,8 @@
       },
       "properties": {
         "id": 1712794374,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2021-09-24"
       }
     },
     {
@@ -88,7 +89,8 @@
       },
       "properties": {
         "id": 3629267462,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-08-31"
       }
     },
     {
@@ -131,7 +133,8 @@
       "properties": {
         "id": 3799918058,
         "osm_type": "node",
-        "operator": "NS"
+        "operator": "NS",
+        "check_date": "2025-04-01"
       }
     },
     {
@@ -248,7 +251,8 @@
       },
       "properties": {
         "id": 4852101022,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2024-03-06"
       }
     },
     {
@@ -276,20 +280,6 @@
       },
       "properties": {
         "id": 4856049899,
-        "osm_type": "node"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          7.0343864,
-          52.3235605
-        ]
-      },
-      "properties": {
-        "id": 4873419756,
         "osm_type": "node"
       }
     },
@@ -421,7 +411,8 @@
       "properties": {
         "id": 5804166411,
         "osm_type": "node",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2025-02-27"
       }
     },
     {
@@ -437,7 +428,8 @@
         "id": 5928165853,
         "osm_type": "node",
         "access": "yes",
-        "fee": "no"
+        "fee": "no",
+        "check_date": "2025-12-18"
       }
     },
     {
@@ -451,7 +443,8 @@
       },
       "properties": {
         "id": 6269396616,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2025-04-07"
       }
     },
     {
@@ -483,7 +476,8 @@
         "id": 6481271485,
         "osm_type": "node",
         "name": "Watertap",
-        "operator": "Gemeente Oldenzaal"
+        "operator": "Gemeente Oldenzaal",
+        "check_date": "2024-08-14"
       }
     },
     {
@@ -755,7 +749,9 @@
       "properties": {
         "id": 8380651451,
         "osm_type": "node",
-        "fee": "no"
+        "name": "Noaberpomp",
+        "fee": "no",
+        "operator": "Gemeente Hellendoorn"
       }
     },
     {
@@ -889,7 +885,8 @@
       "properties": {
         "id": 9654278132,
         "osm_type": "node",
-        "indoor": "no"
+        "indoor": "no",
+        "check_date": "2025-04-01"
       }
     },
     {
@@ -982,7 +979,8 @@
       },
       "properties": {
         "id": 9990603328,
-        "osm_type": "node"
+        "osm_type": "node",
+        "check_date": "2026-03-10"
       }
     },
     {
@@ -1969,6 +1967,20 @@
       },
       "properties": {
         "id": 13705922567,
+        "osm_type": "node"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.8585278,
+          52.2288579
+        ]
+      },
+      "properties": {
+        "id": 13733173971,
         "osm_type": "node"
       }
     }

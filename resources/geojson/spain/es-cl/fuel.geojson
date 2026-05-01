@@ -258,7 +258,8 @@
         "osm_type": "node",
         "name": "Galp",
         "brand": "Galp",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2025-12-23"
       }
     },
     {
@@ -510,7 +511,8 @@
         "id": 287008513,
         "osm_type": "node",
         "name": "Buquerin",
-        "opening_hours": "Mo-Su 07:00-23:00"
+        "opening_hours": "Mo-Su 07:00-23:00",
+        "check_date": "2023-08-19"
       }
     },
     {
@@ -831,7 +833,8 @@
         "osm_type": "node",
         "name": "Repsol",
         "brand": "Repsol",
-        "opening_hours": "Mo-Su 06:00-00:00"
+        "opening_hours": "Mo-Su 06:00-00:00",
+        "check_date": "2026-03-18"
       }
     },
     {
@@ -1418,7 +1421,8 @@
         "osm_type": "node",
         "name": "Repsol",
         "brand": "Repsol",
-        "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 08:00-23:00"
+        "opening_hours": "Mo-Fr 07:00-23:00; Sa,Su 08:00-23:00",
+        "check_date": "2024-07-17"
       }
     },
     {
@@ -1655,7 +1659,8 @@
         "osm_type": "node",
         "name": "Estación de Servicio Buenavista",
         "brand": "Moeve",
-        "opening_hours": "Mo-Su 06:00-24:00"
+        "opening_hours": "Mo-Su 06:00-24:00",
+        "check_date": "2025-02-12"
       }
     },
     {
@@ -1780,8 +1785,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -5.3799125,
-          41.826778
+          -5.3799228,
+          41.8268088
         ]
       },
       "properties": {
@@ -4398,7 +4403,8 @@
         "osm_type": "node",
         "name": "Moeve",
         "brand": "Moeve",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2014-04-04"
       }
     },
     {
@@ -9965,6 +9971,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -3.4871585,
+          42.9339143
+        ]
+      },
+      "properties": {
+        "id": 12299293433,
+        "osm_type": "node",
+        "name": "Repsol Butano",
+        "brand": "Repsol"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -5.6545344,
           40.9400448
         ]
@@ -10005,7 +10027,8 @@
         "id": 12458676463,
         "osm_type": "node",
         "name": "Ballenoil",
-        "brand": "Ballenoil"
+        "brand": "Ballenoil",
+        "check_date": "2024-12-30"
       }
     },
     {
@@ -10104,7 +10127,8 @@
         "id": 13122004843,
         "osm_type": "node",
         "name": "Moeve",
-        "brand": "Moeve"
+        "brand": "Moeve",
+        "check_date": "2017-04-04"
       }
     },
     {
@@ -10200,6 +10224,40 @@
         "id": 13705985927,
         "osm_type": "node",
         "name": "Copiso"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.7855476,
+          41.9528968
+        ]
+      },
+      "properties": {
+        "id": 13762436003,
+        "osm_type": "node",
+        "name": "Petronor",
+        "brand": "Petronor",
+        "opening_hours": "Mo-Su 08:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.3775527,
+          41.321646
+        ]
+      },
+      "properties": {
+        "id": 13775394911,
+        "osm_type": "node",
+        "name": "Moeve",
+        "brand": "Moeve",
+        "opening_hours": "Mo-Su 08:00-21:00"
       }
     },
     {
@@ -11222,7 +11280,8 @@
         "id": 352645366,
         "osm_type": "way",
         "name": "BP",
-        "brand": "BP"
+        "brand": "BP",
+        "check_date": "2025-09-21"
       }
     },
     {
@@ -11271,7 +11330,8 @@
         "id": 364584475,
         "osm_type": "way",
         "name": "Ballenoil",
-        "brand": "Ballenoil"
+        "brand": "Ballenoil",
+        "check_date": "2025-02-07"
       }
     },
     {
@@ -11452,23 +11512,6 @@
         "osm_type": "way",
         "name": "BP",
         "brand": "BP"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -5.7855754,
-          41.9529299
-        ]
-      },
-      "properties": {
-        "id": 389442573,
-        "osm_type": "way",
-        "name": "Petronor",
-        "brand": "Petronor",
-        "opening_hours": "Mo-Su 08:00-22:00"
       }
     },
     {
@@ -12030,7 +12073,8 @@
         "osm_type": "way",
         "name": "Shell",
         "brand": "Shell",
-        "opening_hours": "PH,Mo-Su 06:00-24:00"
+        "opening_hours": "PH,Mo-Su 06:00-24:00",
+        "check_date": "2026-01-28"
       }
     },
     {
@@ -13355,7 +13399,8 @@
         "id": 907162804,
         "osm_type": "way",
         "name": "Cocope",
-        "opening_hours": "24/7"
+        "opening_hours": "24/7",
+        "check_date": "2023-04-23"
       }
     },
     {
@@ -13643,7 +13688,8 @@
         "osm_type": "way",
         "name": "Gasolinera Alcampo",
         "brand": "Alcampo",
-        "opening_hours": "06:00-24:00"
+        "opening_hours": "06:00-24:00",
+        "check_date": "2025-08-28"
       }
     },
     {
@@ -13726,7 +13772,8 @@
       "properties": {
         "id": 1025037870,
         "osm_type": "way",
-        "name": "Área de Servicio"
+        "name": "Área de Servicio",
+        "check_date": "2026-03-31"
       }
     },
     {
@@ -13850,21 +13897,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -4.8324494,
-          41.6984413
-        ]
-      },
-      "properties": {
-        "id": 1031880332,
-        "osm_type": "way",
-        "name": "Los Ángeles"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -4.7282307,
           41.6268266
         ]
@@ -13890,23 +13922,6 @@
         "osm_type": "way",
         "name": "Repsol",
         "brand": "Repsol"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -6.3775841,
-          41.3216254
-        ]
-      },
-      "properties": {
-        "id": 1047787008,
-        "osm_type": "way",
-        "name": "Moeve",
-        "brand": "Moeve",
-        "opening_hours": "Mo-Su 08:00-21:00"
       }
     },
     {
@@ -14126,6 +14141,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -4.9427028,
+          41.7858021
+        ]
+      },
+      "properties": {
+        "id": 1122507790,
+        "osm_type": "way",
+        "name": "Shell",
+        "brand": "Shell",
+        "opening_hours": "Mo-Su 06:00-23:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -4.7720055,
           41.6225297
         ]
@@ -14185,7 +14217,8 @@
         "osm_type": "way",
         "name": "Repsol",
         "brand": "Repsol",
-        "opening_hours": "Mo-Su 08:00-22:00"
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "check_date": "2026-02-19"
       }
     },
     {
@@ -16016,6 +16049,22 @@
         "id": 1489805651,
         "osm_type": "way",
         "name": "Avia",
+        "brand": "Avia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.8323835,
+          41.6984627
+        ]
+      },
+      "properties": {
+        "id": 1493403271,
+        "osm_type": "way",
+        "name": "Los Ángeles",
         "brand": "Avia"
       }
     },

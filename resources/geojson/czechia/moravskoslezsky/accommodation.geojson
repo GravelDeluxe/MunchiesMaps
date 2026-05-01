@@ -1969,7 +1969,7 @@
         "id": 2425927285,
         "osm_type": "node",
         "name": "Doroťanka",
-        "tourism": "alpine_hut",
+        "tourism": "chalet",
         "website": "http://www.dorotanka.cz/"
       }
     },
@@ -6715,6 +6715,7 @@
         "osm_type": "node",
         "name": "Ubytování Klokočov",
         "tourism": "guest_house",
+        "phone": "+420 603 874 741",
         "website": "https://www.farmaklokocov.cz/ubytovani"
       }
     },
@@ -6882,8 +6883,46 @@
         "osm_type": "node",
         "name": "K3 - INSTALMONT – ubytování",
         "tourism": "hostel",
-        "phone": "+420 775 100 651, +420 775 100 655",
-        "website": "https://k3-instalmont.cz/"
+        "phone": "+420 775 100 651;+420 775 100 655",
+        "website": "https://k3-instalmont.cz/",
+        "check_date": "2026-04-27"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4938148,
+          49.7645505
+        ]
+      },
+      "properties": {
+        "id": 13764778208,
+        "osm_type": "node",
+        "name": "Resort Těrlicko",
+        "tourism": "hotel",
+        "phone": "+420 724 387 666",
+        "website": "https://www.resort-terlicko.cz"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.493139,
+          49.7658928
+        ]
+      },
+      "properties": {
+        "id": 13764787236,
+        "osm_type": "node",
+        "name": "Penzion U Popelků",
+        "tourism": "guest_house",
+        "opening_hours": "Mo-Su 12:00-18:00   (reception only)",
+        "phone": "+420 724 200 838",
+        "website": "https://www.penzionupopelku.cz"
       }
     },
     {
@@ -8308,6 +8347,126 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          18.4938139,
+          49.764995
+        ]
+      },
+      "properties": {
+        "id": 108688167,
+        "osm_type": "way",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4938285,
+          49.7647939
+        ]
+      },
+      "properties": {
+        "id": 108688303,
+        "osm_type": "way",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4938184,
+          49.7649437
+        ]
+      },
+      "properties": {
+        "id": 108688364,
+        "osm_type": "way",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4938316,
+          49.7651024
+        ]
+      },
+      "properties": {
+        "id": 108688432,
+        "osm_type": "way",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4938347,
+          49.7647408
+        ]
+      },
+      "properties": {
+        "id": 108688503,
+        "osm_type": "way",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4938211,
+          49.764894
+        ]
+      },
+      "properties": {
+        "id": 108688573,
+        "osm_type": "way",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4938111,
+          49.765046
+        ]
+      },
+      "properties": {
+        "id": 108688637,
+        "osm_type": "way",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.4938258,
+          49.7648444
+        ]
+      },
+      "properties": {
+        "id": 108688764,
+        "osm_type": "way",
+        "tourism": "chalet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           17.3007999,
           50.0242063
         ]
@@ -9398,8 +9557,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.3623649,
-          49.5503241
+          18.3623943,
+          49.5503501
         ]
       },
       "properties": {
@@ -11112,6 +11271,25 @@
         "osm_type": "way",
         "name": "tábořiště Salajka",
         "tourism": "camp_site"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.7287893,
+          49.7209899
+        ]
+      },
+      "properties": {
+        "id": 1421566525,
+        "osm_type": "way",
+        "name": "Spálovský mlýn",
+        "tourism": "camp_site",
+        "opening_hours": "24/7",
+        "phone": "+420 777 666 430",
+        "website": "https://www.spalovskymlyn.cz/uvod-rekreacni-areal/"
       }
     }
   ]

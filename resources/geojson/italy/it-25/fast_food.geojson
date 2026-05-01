@@ -35,6 +35,7 @@
         "id": 266384203,
         "osm_type": "node",
         "name": "Alice pizza",
+        "opening_hours": "Mo-Th 11:00-22:00; Fr-Su 11:00-23:00",
         "cuisine": "pizza",
         "chain": "unknown"
       }
@@ -125,6 +126,7 @@
         "operator": "EuroRistoro s.r.l.",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-09-13",
         "chain": "mcdonalds"
       }
     },
@@ -161,6 +163,7 @@
         "osm_type": "node",
         "name": "Il nano pazzo",
         "cuisine": "pizza",
+        "check_date": "2025-12-13",
         "chain": "unknown"
       }
     },
@@ -178,6 +181,7 @@
         "osm_type": "node",
         "name": "Il Focolare",
         "cuisine": "pizza",
+        "check_date": "2024-05-16",
         "chain": "unknown"
       }
     },
@@ -452,6 +456,7 @@
         "operator": "B-FOOD S.r.l.",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2024-05-22",
         "chain": "mcdonalds"
       }
     },
@@ -510,6 +515,25 @@
         "osm_type": "node",
         "name": "Pronto Pizza",
         "opening_hours": "Tu-Sa 11:00-12:10, Tu-Su 08:00-10:00",
+        "cuisine": "pizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1511066,
+          45.4512715
+        ]
+      },
+      "properties": {
+        "id": 429220027,
+        "osm_type": "node",
+        "name": "Alice",
+        "brand": "Alice",
+        "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
         "chain": "unknown"
       }
@@ -712,14 +736,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1791922,
-          45.4438082
+          9.179181,
+          45.4438747
         ]
       },
       "properties": {
         "id": 506111534,
         "osm_type": "node",
         "name": "Pasa Doner Kebap",
+        "opening_hours": "Mo-Su 11:00-01:00",
         "cuisine": "kebab",
         "chain": "unknown"
       }
@@ -772,11 +797,12 @@
         "name": "McDonald's",
         "brand": "McDonald's",
         "opening_hours": "Mo 16:00-03:00; Tu-Th 08:00-03:00; Fr-Sa 00:00-24:00; Su 08:00-20:00",
-        "phone": "+390289418146",
+        "phone": "+39 02 89418146",
         "website": "https://www.mcdonalds.it/ristorante/lombardia/milano/milano-xxiv-maggio",
         "operator": "Medea s.r.l.",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2026-04-22",
         "chain": "mcdonalds"
       }
     },
@@ -2087,6 +2113,7 @@
         "opening_hours": "Mo-Su 11:30-21:00",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-09-24",
         "chain": "unknown"
       }
     },
@@ -3370,6 +3397,7 @@
         "website": "https://restaurants.fiveguys.it/via-stampa-13-15-via-torino",
         "brand:wikidata": "Q1131810",
         "cuisine": "burger",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -3532,6 +3560,23 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.2012356,
+          45.4709706
+        ]
+      },
+      "properties": {
+        "id": 2131451013,
+        "osm_type": "node",
+        "name": "Panino Giusto",
+        "cuisine": "sandwich",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.1942077,
           45.4623069
         ]
@@ -3542,6 +3587,7 @@
         "name": "Margy Burger 1968",
         "opening_hours": "12:00-15:00,18:00-02:00",
         "cuisine": "burger",
+        "check_date": "2026-03-20",
         "chain": "unknown"
       }
     },
@@ -3559,6 +3605,7 @@
         "osm_type": "node",
         "name": "Pizza King",
         "cuisine": "pizza",
+        "check_date": "2025-11-03",
         "chain": "unknown"
       }
     },
@@ -3713,6 +3760,7 @@
         "osm_type": "node",
         "name": "Casa Sorbillo",
         "cuisine": "pizza",
+        "check_date": "2022-11-24",
         "chain": "unknown"
       }
     },
@@ -3999,6 +4047,7 @@
         "brand": "Burger King",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2024-05-20",
         "chain": "burger_king"
       }
     },
@@ -4038,6 +4087,7 @@
         "operator": "Original Bucket SRL",
         "brand:wikidata": "Q524757",
         "cuisine": "chicken",
+        "check_date": "2025-05-14",
         "chain": "unknown"
       }
     },
@@ -4226,6 +4276,7 @@
         "name": "El Supremo",
         "operator": "G&D Food Company S.r.l.",
         "cuisine": "mexican",
+        "check_date": "2024-09-27",
         "chain": "unknown"
       }
     },
@@ -4314,6 +4365,7 @@
         "opening_hours": "Mo-Th, Su 12:00-15:00, 18:30-22:00; Fr-Sa 12:00-15:00, 18:30-23:00",
         "website": "https://burgez.com/",
         "cuisine": "burger",
+        "check_date": "2023-08-19",
         "chain": "unknown"
       }
     },
@@ -4441,6 +4493,7 @@
         "opening_hours": "Mo-Fr 12:00-15:00,18:00-24:00; Th,Sa 11:00-15:00,18:00-24:00; Su 11:00-15:00,18:00-23:00",
         "phone": "+39 039 2302942",
         "cuisine": "pizza",
+        "check_date": "2023-04-21",
         "chain": "unknown"
       }
     },
@@ -4476,6 +4529,7 @@
         "id": 2388872528,
         "osm_type": "node",
         "cuisine": "kebab",
+        "check_date": "2023-04-20",
         "chain": "unknown"
       }
     },
@@ -4619,6 +4673,7 @@
         "osm_type": "node",
         "name": "Ciao Pizza",
         "cuisine": "pizza",
+        "check_date": "2025-04-05",
         "chain": "unknown"
       }
     },
@@ -4711,6 +4766,7 @@
         "osm_type": "node",
         "name": "Street Smashburgers",
         "cuisine": "burger",
+        "check_date": "2026-01-12",
         "chain": "unknown"
       }
     },
@@ -4731,6 +4787,7 @@
         "opening_hours": "11:30-23:30",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-11-10",
         "chain": "unknown"
       }
     },
@@ -4751,6 +4808,7 @@
         "phone": "+39 02 6554728",
         "website": "https://www.paninogiusto.it/",
         "cuisine": "sandwich",
+        "check_date": "2025-11-26",
         "chain": "unknown"
       }
     },
@@ -4804,6 +4862,7 @@
         "operator": "McDonald's Development Italy Unc.",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-06-18",
         "chain": "mcdonalds"
       }
     },
@@ -4954,6 +5013,7 @@
         "osm_type": "node",
         "name": "Dolce Vita",
         "cuisine": "pizza",
+        "check_date": "2022-10-23",
         "chain": "unknown"
       }
     },
@@ -5203,6 +5263,7 @@
         "opening_hours": "Su-Th 12:00-15:00,18:00-23:00, Fr,Sa 12:00-15:00,18:00-24:00",
         "website": "https://burgez.com/",
         "cuisine": "burger",
+        "check_date": "2025-10-11",
         "chain": "unknown"
       }
     },
@@ -5220,6 +5281,7 @@
         "osm_type": "node",
         "name": "Hamerica's",
         "cuisine": "burger",
+        "check_date": "2025-10-08",
         "chain": "unknown"
       }
     },
@@ -5237,6 +5299,7 @@
         "osm_type": "node",
         "name": "Zhen Asian Fusion Restaurant",
         "opening_hours": "Mo-Su 12:00-15:00,18:00-23:00",
+        "check_date": "2026-01-22",
         "chain": "unknown"
       }
     },
@@ -5271,6 +5334,7 @@
         "osm_type": "node",
         "name": "Turkish Kebap",
         "cuisine": "turkish",
+        "check_date": "2025-10-08",
         "chain": "unknown"
       }
     },
@@ -5324,6 +5388,7 @@
         "name": "Voglia di Pizza",
         "operator": "Gatti Sergio",
         "cuisine": "pizza",
+        "check_date": "2025-06-21",
         "chain": "unknown"
       }
     },
@@ -5376,6 +5441,7 @@
         "osm_type": "node",
         "name": "ILK",
         "cuisine": "kebab",
+        "check_date": "2025-09-17",
         "chain": "unknown"
       }
     },
@@ -5542,6 +5608,7 @@
         "name": "Chicken&Chicken",
         "operator": "Zia maria s.r.l.",
         "cuisine": "chicken",
+        "check_date": "2025-09-11",
         "chain": "unknown"
       }
     },
@@ -5561,6 +5628,7 @@
         "opening_hours": "\"Su appuntamento\"",
         "phone": "+393335285930",
         "cuisine": "regional",
+        "check_date": "2025-02-07",
         "chain": "unknown"
       }
     },
@@ -5599,6 +5667,7 @@
         "website": "https://kebhouze.com/",
         "brand:wikidata": "Q130465663",
         "cuisine": "kebab",
+        "check_date": "2023-11-16",
         "chain": "unknown"
       }
     },
@@ -5939,6 +6008,7 @@
         "id": 2719663650,
         "osm_type": "node",
         "name": "Cheers",
+        "check_date": "2025-09-11",
         "chain": "unknown"
       }
     },
@@ -5956,6 +6026,7 @@
         "osm_type": "node",
         "name": "Cesarino",
         "cuisine": "sandwich",
+        "check_date": "2025-11-14",
         "chain": "unknown"
       }
     },
@@ -6189,6 +6260,7 @@
         "osm_type": "node",
         "name": "A' Vucciria",
         "cuisine": "regional",
+        "check_date": "2025-03-16",
         "chain": "unknown"
       }
     },
@@ -6311,6 +6383,7 @@
         "phone": "+39 02 39811750",
         "operator": "CB Taste s.r.l.",
         "cuisine": "american",
+        "check_date": "2026-01-12",
         "chain": "unknown"
       }
     },
@@ -6363,6 +6436,7 @@
         "osm_type": "node",
         "name": "Scapricci",
         "cuisine": "pizza;kebab",
+        "check_date": "2023-08-14",
         "chain": "unknown"
       }
     },
@@ -6725,8 +6799,12 @@
         "osm_type": "node",
         "name": "McDonald's",
         "brand": "McDonald's",
+        "opening_hours": "Mo-Th 06:30-23:00; Fr 06:30-00:00; Sa 07:00-00:00; Su 07:00-23:00",
+        "phone": "+39 02 23369262",
+        "website": "https://www.mcdonalds.it/",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2026-04-22",
         "chain": "mcdonalds"
       }
     },
@@ -6744,6 +6822,7 @@
         "osm_type": "node",
         "name": "Piadiniamo",
         "opening_hours": "12:00-17:00",
+        "check_date": "2022-11-25",
         "chain": "unknown"
       }
     },
@@ -6834,6 +6913,7 @@
         "operator": "Alice Pizza Negozzi SRL",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -6851,10 +6931,13 @@
         "osm_type": "node",
         "name": "McDonald's",
         "brand": "McDonald's",
-        "phone": "+39 340 8484034",
+        "opening_hours": "Mo-Th 07:00-01:00; Fr 07:00-06:00; Sa 06:00-06:00; Su 06:00-01:00",
+        "phone": "+39 02 84246453;+39 340 8484034",
+        "website": "https://www.mcdonalds.it/",
         "operator": "Euroristoro s.r.l.",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2026-04-22",
         "chain": "mcdonalds"
       }
     },
@@ -7084,6 +7167,7 @@
         "website": "https://www.minuscolistore.it/negozi/bergamo-citta-alta/",
         "operator": "Minuscoli",
         "cuisine": "pizza",
+        "check_date": "2024-07-09",
         "chain": "unknown"
       }
     },
@@ -7157,6 +7241,7 @@
         "phone": "+39 039 212 1940",
         "website": "https://pizzaespressa.it/",
         "cuisine": "pizza",
+        "check_date": "2024-07-28",
         "chain": "unknown"
       }
     },
@@ -7180,6 +7265,7 @@
         "operator": "McDonald's Development Italy LLC",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-12-05",
         "chain": "mcdonalds"
       }
     },
@@ -7236,6 +7322,7 @@
         "website": "http://www.venetiantrame.it",
         "operator": "Tramè S.r.l.",
         "cuisine": "sandwich",
+        "check_date": "2025-10-12",
         "chain": "unknown"
       }
     },
@@ -7271,6 +7358,7 @@
         "id": 3147224069,
         "osm_type": "node",
         "name": "Il Santa",
+        "check_date": "2024-10-10",
         "chain": "unknown"
       }
     },
@@ -7359,6 +7447,7 @@
         "osm_type": "node",
         "name": "Pizzeria Kebab K2",
         "opening_hours": "11:00-23:00",
+        "check_date": "2025-08-13",
         "chain": "unknown"
       }
     },
@@ -7379,6 +7468,7 @@
         "phone": "+3903621820525",
         "website": "https://pizzeria-da-aldo-4.it/",
         "cuisine": "pizza;friture;dessert",
+        "check_date": "2023-08-27",
         "chain": "unknown"
       }
     },
@@ -7486,6 +7576,23 @@
         "id": 3252587852,
         "osm_type": "node",
         "cuisine": "pizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1790069,
+          45.4419967
+        ]
+      },
+      "properties": {
+        "id": 3270524061,
+        "osm_type": "node",
+        "name": "Turkish Kebab Pizza Grill",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -7700,6 +7807,7 @@
         "opening_hours": "Mo-Th,Su 06:00-01:00; Fr-Sa 06:00-06:00",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2026-04-19",
         "chain": "mcdonalds"
       }
     },
@@ -8083,6 +8191,7 @@
         "brand": "Poke House",
         "brand:wikidata": "Q123399421",
         "cuisine": "poke",
+        "check_date": "2025-11-26",
         "chain": "unknown"
       }
     },
@@ -8100,6 +8209,22 @@
         "osm_type": "node",
         "name": "Bellavita",
         "cuisine": "pizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2037883,
+          45.4853035
+        ]
+      },
+      "properties": {
+        "id": 3450815868,
+        "osm_type": "node",
+        "name": "a puteca di Rossopomodoro",
         "chain": "unknown"
       }
     },
@@ -8260,6 +8385,7 @@
         "operator": "Gruppo Iva Arranger",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2025-01-01",
         "chain": "burger_king"
       }
     },
@@ -8354,6 +8480,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.1803125,
+          45.4818384
+        ]
+      },
+      "properties": {
+        "id": 3605721567,
+        "osm_type": "node",
+        "name": "Dora",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.1796664,
           45.4817649
         ]
@@ -8363,6 +8505,7 @@
         "osm_type": "node",
         "name": "RomAntica",
         "cuisine": "pizza",
+        "check_date": "2025-09-19",
         "chain": "unknown"
       }
     },
@@ -8451,6 +8594,7 @@
         "osm_type": "node",
         "name": "Pizzeria Me Gusta",
         "cuisine": "pizza",
+        "check_date": "2024-05-05",
         "chain": "unknown"
       }
     },
@@ -8485,6 +8629,7 @@
         "osm_type": "node",
         "name": "Mekan",
         "cuisine": "kebab",
+        "check_date": "2023-06-24",
         "chain": "unknown"
       }
     },
@@ -8647,6 +8792,7 @@
         "name": "Mr. Kebap stazione",
         "opening_hours": "Su-Th 11:00-23:00; Fr-Sa 11:00-00:00",
         "phone": "+39 388 420 3023",
+        "check_date": "2026-04-14",
         "chain": "unknown"
       }
     },
@@ -8664,6 +8810,7 @@
         "osm_type": "node",
         "name": "In Piadineria",
         "cuisine": "piadina",
+        "check_date": "2025-06-14",
         "chain": "unknown"
       }
     },
@@ -8891,6 +9038,7 @@
         "name": "Peach Pit",
         "opening_hours": "Mo-We 10:00-20:00; Th 10:00-02:00; Fr 10:00-20:00; Sa 10:00-02:00",
         "cuisine": "pizza",
+        "check_date": "2024-10-15",
         "chain": "unknown"
       }
     },
@@ -8964,6 +9112,7 @@
         "opening_hours": "Mo-Su 11:00-22:00",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2026-01-12",
         "chain": "unknown"
       }
     },
@@ -8981,6 +9130,7 @@
         "osm_type": "node",
         "name": "Frankie's",
         "cuisine": "hot_dog",
+        "check_date": "2025-10-11",
         "chain": "unknown"
       }
     },
@@ -9100,6 +9250,7 @@
         "id": 3816838510,
         "osm_type": "node",
         "name": "Piadineria La Caveja",
+        "check_date": "2024-10-15",
         "chain": "unknown"
       }
     },
@@ -9228,6 +9379,7 @@
         "osm_type": "node",
         "name": "Döner Republic",
         "cuisine": "kebab",
+        "check_date": "2025-11-28",
         "chain": "unknown"
       }
     },
@@ -9479,6 +9631,7 @@
         "opening_hours": "12:00-14:30,18:30-22:00",
         "phone": "+39 348 934 1492",
         "cuisine": "pizza",
+        "check_date": "2025-07-26",
         "chain": "unknown"
       }
     },
@@ -9518,6 +9671,7 @@
         "operator": "To be me s.r.l",
         "brand:wikidata": "Q67168925",
         "cuisine": "burger",
+        "check_date": "2026-04-05",
         "chain": "unknown"
       }
     },
@@ -9555,6 +9709,7 @@
         "name": "Da Benjamin",
         "opening_hours": "Mo-We 11:00-01:00; Th 10:30-23:30; Fr 10:30-02:00; Sa 11:00-03:00; Su 12:00-00:00",
         "cuisine": "kebab",
+        "check_date": "2026-03-23",
         "chain": "unknown"
       }
     },
@@ -9810,6 +9965,7 @@
         "osm_type": "node",
         "name": "Il Poeta",
         "cuisine": "pizza;kebab;salad;dessert",
+        "check_date": "2025-01-01",
         "chain": "unknown"
       }
     },
@@ -9864,6 +10020,7 @@
         "phone": "+39 348 646 2945",
         "website": "https://www.pausapiadina.it/",
         "cuisine": "piadina",
+        "check_date": "2026-03-21",
         "chain": "unknown"
       }
     },
@@ -10218,7 +10375,7 @@
         "id": 4159782171,
         "osm_type": "node",
         "name": "Il grano d'oro",
-        "cuisine": "pizza",
+        "cuisine": "kebab;pizza",
         "chain": "unknown"
       }
     },
@@ -10341,6 +10498,7 @@
         "website": "https://www.belladentro.org/kitchen/",
         "operator": "Bella Dentro s.r.l.",
         "cuisine": "sushi",
+        "check_date": "2025-08-26",
         "chain": "unknown"
       }
     },
@@ -10376,6 +10534,7 @@
         "phone": "+390249762543",
         "website": "http://a-vucciria.it",
         "operator": "The Godfather s.a.s.",
+        "check_date": "2025-05-25",
         "chain": "unknown"
       }
     },
@@ -10555,6 +10714,7 @@
         "operator": "Original Bucket Srl",
         "brand:wikidata": "Q524757",
         "cuisine": "chicken",
+        "check_date": "2024-12-26",
         "chain": "unknown"
       }
     },
@@ -10571,6 +10731,7 @@
         "id": 4223556365,
         "osm_type": "node",
         "name": "Bomaki",
+        "check_date": "2024-12-26",
         "chain": "unknown"
       }
     },
@@ -10606,6 +10767,7 @@
         "brand": "La Piadineria",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-12-06",
         "chain": "unknown"
       }
     },
@@ -10627,6 +10789,7 @@
         "operator": "McDonald's",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2024-12-26",
         "chain": "mcdonalds"
       }
     },
@@ -10662,6 +10825,7 @@
         "osm_type": "node",
         "name": "Roll Eat",
         "operator": "Kairos Group Srl",
+        "check_date": "2024-12-26",
         "chain": "unknown"
       }
     },
@@ -10713,6 +10877,7 @@
         "opening_hours": "Mo off; Tu-Su 11:00-23:00",
         "operator": "Pizzeria Istanbul Kebap Grill Lissone di Dasgin Kamil e Gunduz Mehmet S.N.C.",
         "cuisine": "kebab;pizza;coffee_shop",
+        "check_date": "2023-10-08",
         "chain": "unknown"
       }
     },
@@ -10886,6 +11051,7 @@
         "osm_type": "node",
         "name": "A Reginella",
         "cuisine": "pizza",
+        "check_date": "2024-12-07",
         "chain": "unknown"
       }
     },
@@ -10941,6 +11107,7 @@
         "brand": "GOSS Quality Burger",
         "opening_hours": "Mo-Su 10:30-23:00",
         "cuisine": "burger",
+        "check_date": "2023-09-15",
         "chain": "unknown"
       }
     },
@@ -10977,6 +11144,7 @@
         "name": "Krescenza",
         "opening_hours": "Mo-Sa 07:30-22:00",
         "cuisine": "piadina",
+        "check_date": "2023-10-23",
         "chain": "unknown"
       }
     },
@@ -10993,6 +11161,7 @@
         "id": 4242980374,
         "osm_type": "node",
         "name": "Burger Wave",
+        "check_date": "2023-11-16",
         "chain": "unknown"
       }
     },
@@ -11010,6 +11179,7 @@
         "osm_type": "node",
         "name": "Panzerotto",
         "opening_hours": "Mo-Su 12:00-23:00",
+        "check_date": "2023-09-08",
         "chain": "unknown"
       }
     },
@@ -11027,6 +11197,7 @@
         "osm_type": "node",
         "name": "Panda",
         "cuisine": "chinese",
+        "check_date": "2023-10-27",
         "chain": "unknown"
       }
     },
@@ -11044,6 +11215,7 @@
         "osm_type": "node",
         "name": "Pokeway 96",
         "opening_hours": "Mo-Su 12:00-22:30",
+        "check_date": "2023-11-17",
         "chain": "unknown"
       }
     },
@@ -11062,6 +11234,7 @@
         "name": "La Pala Bros",
         "opening_hours": "Tu-We 10:00-19:00; Th 10:00-14:30, 16:30-20:00; Fr 10:00-19:00; Sa-Su 10:00-13:00, 15:30-19:00",
         "cuisine": "pizza",
+        "check_date": "2023-08-30",
         "chain": "unknown"
       }
     },
@@ -11079,6 +11252,7 @@
         "osm_type": "node",
         "name": "Squaquerone e rucola",
         "cuisine": "piadina",
+        "check_date": "2023-08-30",
         "chain": "unknown"
       }
     },
@@ -11111,6 +11285,7 @@
         "id": 4242990378,
         "osm_type": "node",
         "name": "Tosteria Italiana",
+        "check_date": "2025-05-16",
         "chain": "unknown"
       }
     },
@@ -11128,6 +11303,7 @@
         "osm_type": "node",
         "name": "La Taqueria",
         "cuisine": "mexican",
+        "check_date": "2023-08-01",
         "chain": "unknown"
       }
     },
@@ -11145,6 +11321,7 @@
         "osm_type": "node",
         "name": "Miscusi",
         "opening_hours": "Mo-Su 12:00-24:00",
+        "check_date": "2025-05-16",
         "chain": "unknown"
       }
     },
@@ -11164,6 +11341,7 @@
         "opening_hours": "12:00-14:00,18:00-22:00",
         "phone": "+39 035 221131",
         "cuisine": "pizza",
+        "check_date": "2023-11-16",
         "chain": "unknown"
       }
     },
@@ -11204,6 +11382,7 @@
         "name": "Panissimo",
         "opening_hours": "Mo-Sa 07:00-20:00",
         "cuisine": "burger",
+        "check_date": "2024-02-19",
         "chain": "unknown"
       }
     },
@@ -11223,6 +11402,7 @@
         "brand": "Billy Tacos",
         "brand:wikidata": "Q122167398",
         "cuisine": "tacos;mexican",
+        "check_date": "2023-09-15",
         "chain": "unknown"
       }
     },
@@ -11241,6 +11421,7 @@
         "name": "Schiaccia",
         "opening_hours": "Mo-Sa 11:00-21:00",
         "cuisine": "pizza",
+        "check_date": "2023-11-16",
         "chain": "unknown"
       }
     },
@@ -11276,6 +11457,7 @@
         "osm_type": "node",
         "name": "Desi Tarka",
         "cuisine": "kebab;pizza",
+        "check_date": "2024-09-27",
         "chain": "unknown"
       }
     },
@@ -11296,6 +11478,7 @@
         "operator": "Wind Telecomunicazioni S.p.A.",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2023-08-01",
         "chain": "unknown"
       }
     },
@@ -11313,6 +11496,7 @@
         "osm_type": "node",
         "name": "Panini Durini",
         "cuisine": "sandwich",
+        "check_date": "2025-09-16",
         "chain": "unknown"
       }
     },
@@ -11619,6 +11803,7 @@
         "id": 4321518291,
         "osm_type": "node",
         "name": "Rosticceria Fontana",
+        "check_date": "2025-03-01",
         "chain": "unknown"
       }
     },
@@ -11961,6 +12146,7 @@
         "osm_type": "node",
         "name": "Mezzaluna",
         "cuisine": "kebab",
+        "check_date": "2025-03-08",
         "chain": "unknown"
       }
     },
@@ -12118,6 +12304,7 @@
         "opening_hours": "Mo-Th,Su 11:00-24:00; Fr 11:00-01:00; Sa 11:00-02:00; PH closed",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2025-10-18",
         "chain": "burger_king"
       }
     },
@@ -12205,6 +12392,7 @@
         "opening_hours": "12:00-23:00",
         "operator": "Garibaldi S.R.L.",
         "cuisine": "burger;organic",
+        "check_date": "2025-09-10",
         "chain": "unknown"
       }
     },
@@ -12400,6 +12588,7 @@
         "osm_type": "node",
         "name": "Xing Yuan",
         "cuisine": "asian",
+        "check_date": "2023-11-17",
         "chain": "unknown"
       }
     },
@@ -12418,6 +12607,7 @@
         "name": "Ham holy burger",
         "website": "https://hamholyburger.it/",
         "operator": "Steak & Rice Brera s.r.l.",
+        "check_date": "2025-10-11",
         "chain": "unknown"
       }
     },
@@ -12520,6 +12710,7 @@
         "opening_hours": "Mo-Su 11:00-23:00",
         "operator": "Bun srl",
         "cuisine": "burger",
+        "check_date": "2022-11-23",
         "chain": "unknown"
       }
     },
@@ -12608,6 +12799,7 @@
         "phone": "+39 02 9163 7315",
         "website": "https://www.nunmilano.com",
         "cuisine": "international;arab;oriental;asian;mediterranean;kebab;falafel;lebanese",
+        "check_date": "2023-10-01",
         "chain": "unknown"
       }
     },
@@ -12678,6 +12870,7 @@
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2024-05-25",
         "chain": "mcdonalds"
       }
     },
@@ -12712,6 +12905,7 @@
         "osm_type": "node",
         "name": "Hamerica's",
         "website": "https://www.hamericas.com/",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -12902,6 +13096,7 @@
         "operator": "Poke House S.r.l.",
         "brand:wikidata": "Q123399421",
         "cuisine": "poke",
+        "check_date": "2022-11-23",
         "chain": "unknown"
       }
     },
@@ -13062,6 +13257,7 @@
         "name": "La Piadineria",
         "opening_hours": "Mo-Th 12:00-14:30,18:30-23:30; Fr-Sa 12:00-14:00,18:30-01:00; Su 18:30-22:30",
         "cuisine": "piadina",
+        "check_date": "2023-11-17",
         "chain": "unknown"
       }
     },
@@ -13168,6 +13364,7 @@
         "name": "Pizza alla Fara",
         "opening_hours": "Mo-Su 10:00-21:30",
         "cuisine": "pizza",
+        "check_date": "2024-05-29",
         "chain": "unknown"
       }
     },
@@ -13187,6 +13384,7 @@
         "opening_hours": "Mo-Su 11:30-01:00; PH open",
         "website": "https://www.polentone.com",
         "cuisine": "regional;italian",
+        "check_date": "2023-11-18",
         "chain": "unknown"
       }
     },
@@ -13205,6 +13403,7 @@
         "name": "Piadella",
         "opening_hours": "Mo-Su 11:30-23:00",
         "cuisine": "chips",
+        "check_date": "2025-09-24",
         "chain": "unknown"
       }
     },
@@ -13222,6 +13421,7 @@
         "osm_type": "node",
         "name": "Mauro",
         "cuisine": "pizza",
+        "check_date": "2025-02-06",
         "chain": "unknown"
       }
     },
@@ -13327,6 +13527,7 @@
         "name": "Mar Rosso",
         "operator": "Said Ayman & C.",
         "cuisine": "pizza;kebab;falafel",
+        "check_date": "2025-05-31",
         "chain": "unknown"
       }
     },
@@ -13475,6 +13676,7 @@
         "id": 4824581333,
         "osm_type": "node",
         "name": "Popeyes",
+        "check_date": "2025-09-11",
         "chain": "unknown"
       }
     },
@@ -13529,6 +13731,7 @@
         "phone": "+390272105293",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2023-04-16",
         "chain": "unknown"
       }
     },
@@ -13655,6 +13858,7 @@
         "website": "https://portami.online/",
         "operator": "Four Fires srl",
         "cuisine": "asian",
+        "check_date": "2025-10-11",
         "chain": "unknown"
       }
     },
@@ -13696,8 +13900,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.0948992,
-          45.4428163
+          9.0949259,
+          45.4428278
         ]
       },
       "properties": {
@@ -13828,6 +14032,7 @@
         "operator": "Stay Hungry SRL",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2024-11-10",
         "chain": "unknown"
       }
     },
@@ -13950,6 +14155,7 @@
         "osm_type": "node",
         "name": "Quanto Basta",
         "phone": "+39 3474 630263",
+        "check_date": "2025-06-12",
         "chain": "unknown"
       }
     },
@@ -14072,6 +14278,7 @@
         "osm_type": "node",
         "name": "Kebap e Pizza Zara",
         "cuisine": "kebab;pizza;turkish",
+        "check_date": "2025-10-19",
         "chain": "unknown"
       }
     },
@@ -14193,6 +14400,7 @@
         "brand": "La Piadineria",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-04-03",
         "chain": "unknown"
       }
     },
@@ -14213,6 +14421,7 @@
         "opening_hours": "Mo-Th,Su 11:30-23:00; Fr-Sa 11:30-24:00",
         "brand:wikidata": "Q524757",
         "cuisine": "chicken",
+        "check_date": "2025-04-03",
         "chain": "unknown"
       }
     },
@@ -14248,6 +14457,7 @@
         "osm_type": "node",
         "name": "Pizzeria Grill",
         "cuisine": "pizza;kebab",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -14264,6 +14474,7 @@
         "id": 4971709242,
         "osm_type": "node",
         "name": "Piadineria Artigianale",
+        "check_date": "2025-11-04",
         "chain": "unknown"
       }
     },
@@ -14357,6 +14568,7 @@
         "operator": "Italfood S.r.l.",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-11-16",
         "chain": "mcdonalds"
       }
     },
@@ -14830,6 +15042,7 @@
         "osm_type": "node",
         "name": "Bun",
         "cuisine": "burger",
+        "check_date": "2025-09-25",
         "chain": "unknown"
       }
     },
@@ -14918,6 +15131,7 @@
         "name": "Lo Scrocchiaro di Della Bosca Paolo",
         "opening_hours": "Mo-Su 08:00-21:00",
         "cuisine": "pizza",
+        "check_date": "2025-07-14",
         "chain": "unknown"
       }
     },
@@ -14993,6 +15207,7 @@
         "website": "https://poke-house.com/",
         "brand:wikidata": "Q123399421",
         "cuisine": "poke",
+        "check_date": "2023-09-11",
         "chain": "unknown"
       }
     },
@@ -15118,6 +15333,7 @@
         "osm_type": "node",
         "name": "De Santis",
         "cuisine": "panini",
+        "check_date": "2025-10-09",
         "chain": "unknown"
       }
     },
@@ -15157,6 +15373,7 @@
         "operator": "Original Bucket S.r.l.",
         "brand:wikidata": "Q524757",
         "cuisine": "chicken",
+        "check_date": "2025-09-10",
         "chain": "unknown"
       }
     },
@@ -15248,6 +15465,7 @@
         "opening_hours": "Mo-Fr 11:00-15:30,16:30-22:30; Sa,Su 11:00-22:30",
         "operator": "Angi SRL",
         "cuisine": "chinese_dumplings",
+        "check_date": "2025-09-26",
         "chain": "unknown"
       }
     },
@@ -15286,6 +15504,7 @@
         "website": "https://www.flowerburger.it",
         "brand:wikidata": "Q67168925",
         "cuisine": "burger",
+        "check_date": "2025-10-28",
         "chain": "unknown"
       }
     },
@@ -15683,6 +15902,7 @@
         "operator": "Kebhouze S.R.L.",
         "brand:wikidata": "Q130465663",
         "cuisine": "kebab",
+        "check_date": "2023-11-16",
         "chain": "unknown"
       }
     },
@@ -15768,6 +15988,7 @@
         "id": 5484157756,
         "osm_type": "node",
         "cuisine": "pizza;kebab",
+        "check_date": "2025-02-28",
         "chain": "unknown"
       }
     },
@@ -16002,6 +16223,7 @@
         "name": "Spontini",
         "opening_hours": "Mo-Su 08:00-20:00",
         "cuisine": "pizza",
+        "check_date": "2025-06-18",
         "chain": "unknown"
       }
     },
@@ -16057,22 +16279,7 @@
         "id": 5535679595,
         "osm_type": "node",
         "name": "Bento Bus",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.1988638,
-          45.462138
-        ]
-      },
-      "properties": {
-        "id": 5535679616,
-        "osm_type": "node",
-        "name": "Crostone",
+        "check_date": "2023-04-15",
         "chain": "unknown"
       }
     },
@@ -16249,6 +16456,7 @@
         "name": "La Caveja",
         "operator": "Treggi Food",
         "cuisine": "piadina",
+        "check_date": "2025-03-20",
         "chain": "unknown"
       }
     },
@@ -16376,6 +16584,7 @@
         "name": "Ouya Club",
         "operator": "Bonjoy S.r.l.",
         "cuisine": "sushi;chinese;japanese",
+        "check_date": "2023-09-21",
         "chain": "unknown"
       }
     },
@@ -16513,6 +16722,7 @@
         "osm_type": "node",
         "name": "Profumo Di Pizza",
         "cuisine": "pizza",
+        "check_date": "2025-07-14",
         "chain": "unknown"
       }
     },
@@ -16612,6 +16822,7 @@
         "osm_type": "node",
         "name": "La montagnetta tris",
         "cuisine": "kebab",
+        "check_date": "2026-01-11",
         "chain": "unknown"
       }
     },
@@ -16759,6 +16970,7 @@
         "website": "https://www.antegnateshoppingcenter.it/ristoranti/la-piadineria/",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-08-24",
         "chain": "unknown"
       }
     },
@@ -16781,6 +16993,7 @@
         "operator": "Valfood srl",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-08-24",
         "chain": "mcdonalds"
       }
     },
@@ -16814,6 +17027,7 @@
         "osm_type": "node",
         "name": "Mevlana",
         "cuisine": "kebab;pizza",
+        "check_date": "2025-05-31",
         "chain": "unknown"
       }
     },
@@ -16970,6 +17184,7 @@
         "phone": "+39028053860",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2023-08-29",
         "chain": "burger_king"
       }
     },
@@ -17147,6 +17362,7 @@
         "operator": "Mc Donald's",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-08-05",
         "chain": "mcdonalds"
       }
     },
@@ -17213,6 +17429,7 @@
         "opening_hours": "Tu-Su 10:30-14:30,17:30-23:00",
         "operator": "Torky Maher",
         "cuisine": "kebab;pizza",
+        "check_date": "2024-07-17",
         "chain": "unknown"
       }
     },
@@ -17245,6 +17462,24 @@
         "id": 5875317651,
         "osm_type": "node",
         "name": "Piadami",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1784209,
+          45.4372848
+        ]
+      },
+      "properties": {
+        "id": 5879143531,
+        "osm_type": "node",
+        "name": "CIK Fried Chicken",
+        "website": "https://www.cikchicken.com",
+        "cuisine": "chicken",
         "chain": "unknown"
       }
     },
@@ -17361,24 +17596,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1963612,
-          45.4556555
-        ]
-      },
-      "properties": {
-        "id": 5940396692,
-        "osm_type": "node",
-        "name": "Hello Chicken",
-        "website": "https://www.hellochicken.it/",
-        "cuisine": "chicken",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.1765329,
           45.4682889
         ]
@@ -17391,6 +17608,7 @@
         "website": "https://www.facebook.com/people/Yours-Bubble-Tea-Dumplings/100069012708545/",
         "operator": "Tre Gusti S.A.S. di Shen Wenwen",
         "cuisine": "chinese;korean;bubble_tea;asian;dumpling",
+        "check_date": "2023-06-14",
         "chain": "unknown"
       }
     },
@@ -17407,6 +17625,7 @@
         "id": 5941189586,
         "osm_type": "node",
         "name": "Panino Giusto",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -17424,6 +17643,7 @@
         "osm_type": "node",
         "name": "Les Amis",
         "cuisine": "pizza;kebab",
+        "check_date": "2024-05-06",
         "chain": "unknown"
       }
     },
@@ -17473,6 +17693,7 @@
         "id": 5964186892,
         "osm_type": "node",
         "name": "Monterosso",
+        "check_date": "2024-05-22",
         "chain": "unknown"
       }
     },
@@ -17565,6 +17786,7 @@
         "website": "https://www.dispensaemilia.it/it/i-ristoranti.html",
         "operator": "Vaimo S.p.A.",
         "cuisine": "regional",
+        "check_date": "2024-10-14",
         "chain": "unknown"
       }
     },
@@ -17671,6 +17893,7 @@
         "opening_hours": "Mo-Th 11:30-15:00,18:00-21:30; Fr 11:30-15:00,18:00-22:00; Sa 13:00-14:00,18:00-22:00; Su 18:00-22:00",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2024-10-23",
         "chain": "unknown"
       }
     },
@@ -17744,6 +17967,7 @@
         "phone": "+39 030 505 5523",
         "website": "https://www.puntofermo.net",
         "cuisine": "piadina",
+        "check_date": "2024-09-25",
         "chain": "unknown"
       }
     },
@@ -17813,6 +18037,7 @@
         "opening_hours": "Mo-Th 11:00-23:00; Fr-Sa 11:00-24:00; Su 11:00-23:00",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2024-10-11",
         "chain": "burger_king"
       }
     },
@@ -17852,6 +18077,7 @@
         "phone": "+39 02 40 70 33 28",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2025-03-22",
         "chain": "unknown"
       }
     },
@@ -18303,6 +18529,7 @@
         "opening_hours": "Mo-Su,PH 09:00-22:00; Jan 1,Dec 25 off",
         "website": "https://www.antegnateshoppingcenter.it/ristoranti/poke-kal/",
         "cuisine": "poke",
+        "check_date": "2026-01-25",
         "chain": "unknown"
       }
     },
@@ -18569,6 +18796,7 @@
         "osm_type": "node",
         "name": "U3 - Kebap & Pizza",
         "cuisine": "kebab;pizza",
+        "check_date": "2024-05-08",
         "chain": "unknown"
       }
     },
@@ -18744,6 +18972,7 @@
         "name": "I Nostrani",
         "opening_hours": "Mo-Sa 07:30-14:00,16:00-20:00",
         "cuisine": "pizza",
+        "check_date": "2026-04-02",
         "chain": "unknown"
       }
     },
@@ -18797,6 +19026,24 @@
         "osm_type": "node",
         "name": "Pizza asporto da Ciro",
         "cuisine": "pizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2191599,
+          45.4912404
+        ]
+      },
+      "properties": {
+        "id": 6514991642,
+        "osm_type": "node",
+        "name": "Cevichito",
+        "cuisine": "fish;peruvian",
+        "check_date": "2026-04-19",
         "chain": "unknown"
       }
     },
@@ -18888,6 +19135,7 @@
         "phone": "+39 02 66806909",
         "operator": "Luo SRLS",
         "cuisine": "chinese",
+        "check_date": "2025-09-15",
         "chain": "unknown"
       }
     },
@@ -19096,6 +19344,7 @@
         "osm_type": "node",
         "name": "Musa's Kebab",
         "cuisine": "kebab",
+        "check_date": "2025-01-06",
         "chain": "unknown"
       }
     },
@@ -19113,6 +19362,7 @@
         "osm_type": "node",
         "name": "Pizzeria Magherita",
         "cuisine": "pizza;kebab",
+        "check_date": "2025-01-06",
         "chain": "unknown"
       }
     },
@@ -19276,6 +19526,7 @@
         "opening_hours": "Mo-Su 12:00-20:00",
         "phone": "+39 351 9408076",
         "cuisine": "chinese",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -19296,6 +19547,7 @@
         "operator": "Gruppo Negozi S.R.L. Unipersonale",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-10-06",
         "chain": "unknown"
       }
     },
@@ -19345,6 +19597,7 @@
         "id": 6763575209,
         "osm_type": "node",
         "name": "Neko Bento & Ramen",
+        "check_date": "2023-04-16",
         "chain": "unknown"
       }
     },
@@ -19432,6 +19685,7 @@
         "id": 6834600581,
         "osm_type": "node",
         "name": "Latin Bar",
+        "check_date": "2023-11-16",
         "chain": "unknown"
       }
     },
@@ -19522,6 +19776,7 @@
         "name": "Kebhouze",
         "website": "https://kebhouze.com/",
         "cuisine": "kebab",
+        "check_date": "2024-05-26",
         "chain": "unknown"
       }
     },
@@ -19710,6 +19965,7 @@
         "operator": "Dalia S.r.l.",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2022-11-23",
         "chain": "unknown"
       }
     },
@@ -19820,6 +20076,7 @@
         "osm_type": "node",
         "name": "Mekan Kebab",
         "cuisine": "kebab",
+        "check_date": "2024-03-15",
         "chain": "unknown"
       }
     },
@@ -19857,6 +20114,7 @@
         "phone": "+39 377 882 1346",
         "website": "https://www.freshpokedimsum.it/",
         "cuisine": "poke;asian;chinese",
+        "check_date": "2026-03-21",
         "chain": "unknown"
       }
     },
@@ -19912,6 +20170,7 @@
         "id": 6954918140,
         "osm_type": "node",
         "name": "Paninoteca La Palazzina",
+        "opening_hours": "Su-Th 18:00-24:00, Fr,Sa 18:00-01:00",
         "chain": "unknown"
       }
     },
@@ -20095,6 +20354,26 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          9.166003,
+          45.4559133
+        ]
+      },
+      "properties": {
+        "id": 7113020723,
+        "osm_type": "node",
+        "name": "La Mia GastronoMia",
+        "opening_hours": "Mo-Fr 11:30-15:00, 18:00-21:00; Sa 11:30-15:00; Su off",
+        "phone": "+390249701334",
+        "website": "https://lamiagastronomia.com/",
+        "cuisine": "italian",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.4547999,
           45.5458699
         ]
@@ -20107,6 +20386,7 @@
         "opening_hours": "Su-Th 8:30-23:00; Fr,Sa 8:30-00:00",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2022-11-13",
         "chain": "unknown"
       }
     },
@@ -20125,6 +20405,7 @@
         "name": "QQTea",
         "operator": "Xiang Daxuan",
         "cuisine": "bubble_tea",
+        "check_date": "2024-10-21",
         "chain": "unknown"
       }
     },
@@ -20416,6 +20697,7 @@
         "operator": "Gruppo negozi S.r.l.",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2026-04-12",
         "chain": "unknown"
       }
     },
@@ -20470,6 +20752,7 @@
         "name": "Rom'Antica",
         "opening_hours": "Mo-Su 10:00-22:00",
         "cuisine": "pizza",
+        "check_date": "2025-08-05",
         "chain": "unknown"
       }
     },
@@ -20564,6 +20847,7 @@
         "phone": "+39 02 7060 0857",
         "website": "https://pizzalandia-milano.it/",
         "cuisine": "pizza;italian",
+        "check_date": "2025-03-22",
         "chain": "unknown"
       }
     },
@@ -20634,6 +20918,7 @@
         "opening_hours": "Mo-Su 12:00-15:00,18:30-22:00",
         "brand:wikidata": "Q67168925",
         "cuisine": "burger",
+        "check_date": "2024-05-04",
         "chain": "unknown"
       }
     },
@@ -20909,6 +21194,7 @@
         "osm_type": "node",
         "name": "Al Chioschetto Fazfamily",
         "cuisine": "hot_dog",
+        "check_date": "2023-09-08",
         "chain": "unknown"
       }
     },
@@ -21174,6 +21460,7 @@
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-11-28",
         "chain": "mcdonalds"
       }
     },
@@ -21210,6 +21497,7 @@
         "opening_hours": "09:00-22:00",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-02-02",
         "chain": "mcdonalds"
       }
     },
@@ -21243,6 +21531,7 @@
         "osm_type": "node",
         "name": "Alice",
         "brand": "Alice",
+        "opening_hours": "Mo-Th 11:00-22:00; Fr-Su 11:00-22:30",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
         "chain": "unknown"
@@ -21662,8 +21951,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2354561,
-          45.4853895
+          9.2354675,
+          45.4853984
         ]
       },
       "properties": {
@@ -21762,6 +22051,7 @@
         "website": "https://burgez.com/",
         "operator": "Burgenland Energie AGez srl",
         "cuisine": "burger",
+        "check_date": "2025-08-12",
         "chain": "unknown"
       }
     },
@@ -21789,8 +22079,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2150638,
-          45.4738778
+          9.214986,
+          45.4741595
         ]
       },
       "properties": {
@@ -21819,6 +22109,7 @@
         "opening_hours": "Su-Th 12:00-15:00,18:00-23:00, Fr,Sa 12:00-15:00,18:00-24:00",
         "website": "https://burgez.com/",
         "cuisine": "burger",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -21973,6 +22264,7 @@
         "phone": "+39 328 056 8632",
         "operator": "Iqbal Yasir",
         "cuisine": "kebab",
+        "check_date": "2026-04-02",
         "chain": "unknown"
       }
     },
@@ -22044,6 +22336,7 @@
         "brand": "La Piadineria",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-09-14",
         "chain": "unknown"
       }
     },
@@ -22063,6 +22356,7 @@
         "brand": "Poke House",
         "brand:wikidata": "Q123399421",
         "cuisine": "poke",
+        "check_date": "2025-09-24",
         "chain": "unknown"
       }
     },
@@ -22202,6 +22496,7 @@
         "name": "Pokescuse",
         "opening_hours": "Mo-Sa 10:00-02:00; Su 10:00-23:00",
         "website": "https://pokescuse.com",
+        "check_date": "2023-04-16",
         "chain": "unknown"
       }
     },
@@ -22392,6 +22687,7 @@
         "name": "La Florida",
         "opening_hours": "Mo-Tu,Th,Su 11:00-02:00; We off; Fr-Sa 11:00-03:00",
         "cuisine": "pizza;burger;grill;ice_cream",
+        "check_date": "2025-04-21",
         "chain": "unknown"
       }
     },
@@ -22972,6 +23268,7 @@
         "opening_hours": "Tu-Su 12:00-14:30,19:00-21:30",
         "website": "https://www.fabpoke.it",
         "cuisine": "poke",
+        "check_date": "2025-12-12",
         "chain": "unknown"
       }
     },
@@ -23094,6 +23391,7 @@
         "osm_type": "node",
         "name": "Bento Bus",
         "opening_hours": "Mo-Su 11:00-15:00,17:00-22:00",
+        "check_date": "2023-10-22",
         "chain": "unknown"
       }
     },
@@ -23118,24 +23416,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1572557,
-          45.663287
-        ]
-      },
-      "properties": {
-        "id": 8975620882,
-        "osm_type": "node",
-        "name": "Ciccio Piada",
-        "phone": "+3903621262011",
-        "cuisine": "italian;regional",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.1836158,
           45.473957
         ]
@@ -23145,6 +23425,7 @@
         "osm_type": "node",
         "name": "La fabbrica del grano",
         "cuisine": "italian",
+        "check_date": "2025-10-02",
         "chain": "unknown"
       }
     },
@@ -23636,6 +23917,8 @@
         "osm_type": "node",
         "name": "Ultimo Giro - Pizza da asporto",
         "opening_hours": "Tu-Su 17:30-21:30+",
+        "phone": "039 0383 270985",
+        "check_date": "2022-06-25",
         "chain": "unknown"
       }
     },
@@ -23791,6 +24074,7 @@
         "name": "La Bottega della Pizza",
         "phone": "+39 0341 285459",
         "cuisine": "pizza",
+        "check_date": "2024-09-27",
         "chain": "unknown"
       }
     },
@@ -24261,6 +24545,7 @@
         "osm_type": "node",
         "name": "Sweetburger",
         "cuisine": "burger",
+        "check_date": "2026-04-10",
         "chain": "unknown"
       }
     },
@@ -24407,6 +24692,7 @@
         "brand": "Flower Burger",
         "brand:wikidata": "Q67168925",
         "cuisine": "burger",
+        "check_date": "2025-12-30",
         "chain": "unknown"
       }
     },
@@ -24427,6 +24713,7 @@
         "opening_hours": "Mo-Su 11:30-21:00",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-12-30",
         "chain": "unknown"
       }
     },
@@ -24768,6 +25055,7 @@
         "opening_hours": "10:00-22:00",
         "phone": "+39 333 269 0704",
         "website": "https://www.allanticovinaio.com/milano-stazione-centrale/",
+        "check_date": "2026-02-20",
         "chain": "unknown"
       }
     },
@@ -24835,6 +25123,7 @@
         "id": 9561991483,
         "osm_type": "node",
         "name": "Hela Chicken",
+        "check_date": "2024-10-15",
         "chain": "unknown"
       }
     },
@@ -24852,6 +25141,7 @@
         "osm_type": "node",
         "name": "BaoZi",
         "cuisine": "chinese;dumplings",
+        "check_date": "2026-04-19",
         "chain": "unknown"
       }
     },
@@ -25199,6 +25489,7 @@
         "opening_hours": "Tu-Su 9:00-23:00",
         "website": "https://hambery.it",
         "cuisine": "burger;cake;coffee_shop;bagel;pancake;breakfast;tea;brunch;waffle",
+        "check_date": "2025-11-13",
         "chain": "unknown"
       }
     },
@@ -25207,8 +25498,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.0021751,
-          45.1305111
+          10.0021347,
+          45.1305291
         ]
       },
       "properties": {
@@ -25378,6 +25669,7 @@
         "name": "Matcha Healthy Food and Poke",
         "opening_hours": "09:00-22:00",
         "cuisine": "poke",
+        "check_date": "2024-01-14",
         "chain": "unknown"
       }
     },
@@ -25791,6 +26083,7 @@
         "id": 9938030462,
         "osm_type": "node",
         "name": "Pizza Sound",
+        "check_date": "2025-04-09",
         "chain": "unknown"
       }
     },
@@ -25824,22 +26117,6 @@
         "osm_type": "node",
         "name": "Azazi kebab",
         "cuisine": "pizza;kebab",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.1741884,
-          45.4812149
-        ]
-      },
-      "properties": {
-        "id": 9950997918,
-        "osm_type": "node",
-        "name": "Mi’ Yama",
         "chain": "unknown"
       }
     },
@@ -25931,6 +26208,7 @@
         "name": "MA Pizza Kebab",
         "phone": "+39 328 743 0019",
         "cuisine": "pizza;kebab",
+        "check_date": "2025-08-24",
         "chain": "unknown"
       }
     },
@@ -26019,6 +26297,7 @@
         "osm_type": "node",
         "name": "Piadineria di Colombare",
         "cuisine": "sandwich",
+        "check_date": "2022-09-21",
         "chain": "unknown"
       }
     },
@@ -26036,6 +26315,7 @@
         "osm_type": "node",
         "name": "Mo Sarpi",
         "cuisine": "chinese;dumplings",
+        "check_date": "2025-08-15",
         "chain": "unknown"
       }
     },
@@ -26057,6 +26337,7 @@
         "operator": "Alice Pizza Negozi SRL",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2025-09-24",
         "chain": "unknown"
       }
     },
@@ -26091,6 +26372,7 @@
         "osm_type": "node",
         "name": "Lo spicchio",
         "cuisine": "pizza",
+        "check_date": "2022-09-17",
         "chain": "unknown"
       }
     },
@@ -26130,6 +26412,7 @@
         "opening_hours": "PH,Mo-Su 09:00-22:00",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2024-01-14",
         "chain": "unknown"
       }
     },
@@ -26181,6 +26464,7 @@
         "osm_type": "node",
         "name": "gennari",
         "cuisine": "pizza",
+        "check_date": "2022-09-26",
         "chain": "unknown"
       }
     },
@@ -26232,6 +26516,7 @@
         "osm_type": "node",
         "name": "La Svolta Piadineria",
         "opening_hours": "Mo-Su 11:00-03:00",
+        "check_date": "2025-10-06",
         "chain": "unknown"
       }
     },
@@ -26250,6 +26535,7 @@
         "name": "pizza OK",
         "phone": "+39 02 4979 8426",
         "cuisine": "kebab",
+        "check_date": "2022-10-06",
         "chain": "unknown"
       }
     },
@@ -26267,6 +26553,7 @@
         "osm_type": "node",
         "name": "Repubblica della pizza",
         "cuisine": "pizza",
+        "check_date": "2022-10-07",
         "chain": "unknown"
       }
     },
@@ -26286,6 +26573,7 @@
         "brand": "Poke House",
         "brand:wikidata": "Q123399421",
         "cuisine": "poke",
+        "check_date": "2023-08-25",
         "chain": "unknown"
       }
     },
@@ -26302,6 +26590,7 @@
         "id": 10087608937,
         "osm_type": "node",
         "name": "All'Antico Vinaio",
+        "check_date": "2023-08-25",
         "chain": "unknown"
       }
     },
@@ -26319,6 +26608,7 @@
         "osm_type": "node",
         "name": "Ravioleria di Meixia",
         "phone": "+39 366 9520516",
+        "check_date": "2025-10-27",
         "chain": "unknown"
       }
     },
@@ -26337,6 +26627,7 @@
         "name": "Alice Pizza",
         "opening_hours": "Mo-Su 05:00-21:00",
         "cuisine": "pizza",
+        "check_date": "2023-06-26",
         "chain": "unknown"
       }
     },
@@ -26357,6 +26648,7 @@
         "opening_hours": "Mo-Su,PH 09:00-21:00",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2024-11-23",
         "chain": "unknown"
       }
     },
@@ -26377,6 +26669,7 @@
         "opening_hours": "Mo-Su,PH 09:00-22:00",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2024-11-23",
         "chain": "mcdonalds"
       }
     },
@@ -26417,6 +26710,7 @@
         "phone": "+39 02 4070 3328",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2023-10-22",
         "chain": "unknown"
       }
     },
@@ -26473,6 +26767,7 @@
         "name": "Royal Kebab",
         "opening_hours": "Mo-Sa 11:00-23:00; Su,PH 17:00-23:00",
         "cuisine": "kebab",
+        "check_date": "2025-04-10",
         "chain": "unknown"
       }
     },
@@ -26716,6 +27011,7 @@
         "brand": "Billy Tacos",
         "brand:wikidata": "Q122167398",
         "cuisine": "tacos;mexican",
+        "check_date": "2023-06-24",
         "chain": "unknown"
       }
     },
@@ -26735,6 +27031,7 @@
         "brand": "Alice",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2022-11-13",
         "chain": "unknown"
       }
     },
@@ -26788,6 +27085,7 @@
         "name": "El Gordito",
         "phone": "+39 02 36742668",
         "cuisine": "argentinian",
+        "check_date": "2023-04-16",
         "chain": "unknown"
       }
     },
@@ -26859,6 +27157,7 @@
         "brand": "La Piadineria",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-06-14",
         "chain": "unknown"
       }
     },
@@ -26915,6 +27214,7 @@
         "brand": "La Piadineria",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2022-12-12",
         "chain": "unknown"
       }
     },
@@ -26933,6 +27233,7 @@
         "name": "La Piadineria",
         "opening_hours": "Mo-Th 11:30-15:00+; Fr,Sa 11:30-15:00,18:30-21:30+; PH,Su off",
         "cuisine": "italian;sandwich",
+        "check_date": "2022-12-12",
         "chain": "unknown"
       }
     },
@@ -27079,6 +27380,7 @@
         "opening_hours": "PH,Mo-Su 09:00-22:00",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-11-16",
         "chain": "unknown"
       }
     },
@@ -27100,6 +27402,7 @@
         "website": "https://www.alicepizza.it/store/alice-elnos/",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2025-08-23",
         "chain": "unknown"
       }
     },
@@ -27120,6 +27423,7 @@
         "opening_hours": "Mo-Su,PH 09:00-20:00",
         "brand:wikidata": "Q123399421",
         "cuisine": "poke",
+        "check_date": "2025-11-16",
         "chain": "unknown"
       }
     },
@@ -27450,6 +27754,7 @@
         "brand": "Spacca",
         "operator": "Valendo SRL",
         "cuisine": "pizza",
+        "check_date": "2026-01-02",
         "chain": "unknown"
       }
     },
@@ -27470,6 +27775,7 @@
         "opening_hours": "Mo-Su 10:00-22:00",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-02-28",
         "chain": "mcdonalds"
       }
     },
@@ -27506,6 +27812,7 @@
         "osm_type": "node",
         "name": "Ortro",
         "cuisine": "sandwich",
+        "check_date": "2025-09-20",
         "chain": "unknown"
       }
     },
@@ -27630,6 +27937,7 @@
         "osm_type": "node",
         "name": "Istanbul Kebap",
         "cuisine": "kebab",
+        "check_date": "2025-03-16",
         "chain": "unknown"
       }
     },
@@ -27921,6 +28229,7 @@
         "id": 10729516478,
         "osm_type": "node",
         "name": "Pokéria",
+        "check_date": "2023-06-24",
         "chain": "unknown"
       }
     },
@@ -27938,6 +28247,7 @@
         "osm_type": "node",
         "name": "Pizza in piazza",
         "cuisine": "pizza;kebab",
+        "check_date": "2023-03-12",
         "chain": "unknown"
       }
     },
@@ -27954,6 +28264,7 @@
         "id": 10729792633,
         "osm_type": "node",
         "name": "Pollo fritto",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -28090,6 +28401,7 @@
         "phone": "+39 02 8708 7480",
         "website": "https://www.momomilano.it",
         "cuisine": "breakfast;cake;brunch",
+        "check_date": "2025-09-13",
         "chain": "unknown"
       }
     },
@@ -28164,6 +28476,7 @@
         "phone": "+39035235452",
         "website": "https://elbossdeltaco.plateform.app/",
         "cuisine": "mexican",
+        "check_date": "2024-09-22",
         "chain": "unknown"
       }
     },
@@ -28195,6 +28508,9 @@
       "properties": {
         "id": 10788808857,
         "osm_type": "node",
+        "name": "Pizza Pizza Marescià",
+        "phone": "0364331332",
+        "website": "https://ristoratorivallecamonica.com/",
         "cuisine": "pizza",
         "chain": "unknown"
       }
@@ -28252,6 +28568,7 @@
         "name": "La bergamasca",
         "opening_hours": "Mo 17:30-22:30; Tu-Su 10:30-12:30,17:30-22:30",
         "cuisine": "pizza",
+        "check_date": "2023-04-17",
         "chain": "unknown"
       }
     },
@@ -28305,6 +28622,7 @@
         "name": "Kyūba",
         "opening_hours": "Mo off; Tu-Su 12:00-14:00,18:00-22:00",
         "cuisine": "japanese;sushi",
+        "check_date": "2024-02-15",
         "chain": "unknown"
       }
     },
@@ -28324,6 +28642,7 @@
         "phone": "+39028373880",
         "operator": "E.M. S.R.L.S.",
         "cuisine": "regional;italian;granita",
+        "check_date": "2026-04-13",
         "chain": "unknown"
       }
     },
@@ -28470,6 +28789,7 @@
         "osm_type": "node",
         "name": "Pizzeria 5 Stelle",
         "cuisine": "kebab;pizza;burger",
+        "check_date": "2023-06-03",
         "chain": "unknown"
       }
     },
@@ -28504,8 +28824,11 @@
         "id": 10969401631,
         "osm_type": "node",
         "name": "All'Antico Vinaio",
+        "brand": "All'Antico Vinaio",
         "phone": "+39 02 62912835",
+        "brand:wikidata": "Q136350648",
         "cuisine": "sandwich",
+        "check_date": "2025-10-11",
         "chain": "unknown"
       }
     },
@@ -28549,22 +28872,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1965121,
-          45.4952432
-        ]
-      },
-      "properties": {
-        "id": 10982500031,
-        "osm_type": "node",
-        "cuisine": "pizza",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.8608879,
           45.6325625
         ]
@@ -28597,6 +28904,7 @@
         "opening_hours": "10:00-23:00; Th off",
         "operator": "Ciao Ciao Bar SAS",
         "cuisine": "chinese",
+        "check_date": "2024-05-26",
         "chain": "unknown"
       }
     },
@@ -28614,6 +28922,7 @@
         "osm_type": "node",
         "name": "Burgery",
         "cuisine": "burger",
+        "check_date": "2023-06-26",
         "chain": "unknown"
       }
     },
@@ -28630,6 +28939,7 @@
         "id": 11007274034,
         "osm_type": "node",
         "name": "Davide Oldani café",
+        "check_date": "2023-06-26",
         "chain": "unknown"
       }
     },
@@ -28646,6 +28956,7 @@
         "id": 11007274055,
         "osm_type": "node",
         "name": "Caffè Milano",
+        "check_date": "2023-06-26",
         "chain": "unknown"
       }
     },
@@ -28654,8 +28965,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1801552,
-          45.4531521
+          9.1801594,
+          45.4532013
         ]
       },
       "properties": {
@@ -28668,6 +28979,7 @@
         "operator": "Original Bucket S.R.L.",
         "brand:wikidata": "Q524757",
         "cuisine": "chicken",
+        "check_date": "2026-04-13",
         "chain": "unknown"
       }
     },
@@ -28828,6 +29140,7 @@
         "name": "Da Attilio 3.0",
         "opening_hours": "Mo,We-Su 18:00-23:00; Tu off",
         "cuisine": "pizza",
+        "check_date": "2023-08-21",
         "chain": "unknown"
       }
     },
@@ -28921,6 +29234,7 @@
         "website": "https://www.burgerking.it",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2025-09-30",
         "chain": "burger_king"
       }
     },
@@ -28991,6 +29305,7 @@
         "name": "Ely's",
         "opening_hours": "Mo-Su 18:00-02:00",
         "cuisine": "burger;pizza",
+        "check_date": "2025-08-03",
         "chain": "unknown"
       }
     },
@@ -29008,6 +29323,7 @@
         "osm_type": "node",
         "name": "Mamma Mia",
         "cuisine": "pizza",
+        "check_date": "2023-09-09",
         "chain": "unknown"
       }
     },
@@ -29080,6 +29396,7 @@
         "osm_type": "node",
         "name": "Torre centro",
         "cuisine": "kebab;pizza",
+        "check_date": "2023-09-26",
         "chain": "unknown"
       }
     },
@@ -29134,6 +29451,7 @@
         "name": "Tandoori Kebab",
         "opening_hours": "10:00-24:00",
         "cuisine": "pakistani",
+        "check_date": "2023-09-30",
         "chain": "unknown"
       }
     },
@@ -29150,6 +29468,7 @@
         "id": 11237948200,
         "osm_type": "node",
         "cuisine": "pizza",
+        "check_date": "2023-10-04",
         "chain": "unknown"
       }
     },
@@ -29240,6 +29559,7 @@
         "osm_type": "node",
         "name": "Pizzeria d'Asporto",
         "cuisine": "pizza",
+        "check_date": "2023-10-10",
         "chain": "unknown"
       }
     },
@@ -29273,6 +29593,7 @@
         "osm_type": "node",
         "name": "Saka Kura",
         "cuisine": "ramen",
+        "check_date": "2025-09-19",
         "chain": "unknown"
       }
     },
@@ -29290,6 +29611,7 @@
         "osm_type": "node",
         "name": "Sambuus Milano",
         "cuisine": "somali",
+        "check_date": "2023-10-22",
         "chain": "unknown"
       }
     },
@@ -29401,6 +29723,7 @@
         "name": "Crispy pizza",
         "phone": "+39 02 0995 8062",
         "cuisine": "pizza",
+        "check_date": "2025-10-27",
         "chain": "unknown"
       }
     },
@@ -29487,6 +29810,7 @@
         "osm_type": "node",
         "name": "Piadina più",
         "cuisine": "piadina",
+        "check_date": "2025-06-15",
         "chain": "unknown"
       }
     },
@@ -29524,6 +29848,7 @@
         "name": "Kebhouze - Marghera",
         "website": "https://kebhouze.com/",
         "cuisine": "kebab",
+        "check_date": "2023-11-07",
         "chain": "unknown"
       }
     },
@@ -29542,6 +29867,7 @@
         "name": "Kebhouze",
         "website": "https://kebhouze.com/",
         "cuisine": "kebab",
+        "check_date": "2023-11-09",
         "chain": "unknown"
       }
     },
@@ -29561,6 +29887,7 @@
         "brand": "Kebhouze",
         "brand:wikidata": "Q130465663",
         "cuisine": "pizza",
+        "check_date": "2025-03-30",
         "chain": "unknown"
       }
     },
@@ -29578,6 +29905,7 @@
         "osm_type": "node",
         "name": "Turkish Kebab Pizzeria",
         "cuisine": "kebab;pizza",
+        "check_date": "2025-10-27",
         "chain": "unknown"
       }
     },
@@ -29595,6 +29923,7 @@
         "osm_type": "node",
         "name": "Turkish Bergamo",
         "cuisine": "kebab",
+        "check_date": "2023-11-16",
         "chain": "unknown"
       }
     },
@@ -29612,6 +29941,7 @@
         "osm_type": "node",
         "name": "Pizzeria d'asporto Mazzini",
         "cuisine": "pizza",
+        "check_date": "2023-11-16",
         "chain": "unknown"
       }
     },
@@ -29650,6 +29980,7 @@
         "website": "https://kebhouze.com/",
         "brand:wikidata": "Q130465663",
         "cuisine": "kebab",
+        "check_date": "2023-11-17",
         "chain": "unknown"
       }
     },
@@ -29669,6 +30000,7 @@
         "brand": "Kebhouze",
         "brand:wikidata": "Q130465663",
         "cuisine": "kebab",
+        "check_date": "2023-11-17",
         "chain": "unknown"
       }
     },
@@ -29689,6 +30021,7 @@
         "phone": "+39 351 376 8200",
         "website": "https://spiedoss.eatbu.com/",
         "cuisine": "regional",
+        "check_date": "2026-03-26",
         "chain": "unknown"
       }
     },
@@ -29795,6 +30128,7 @@
         "brand": "Cipiace",
         "operator": "C-Piace SRL",
         "cuisine": "risotto;soup",
+        "check_date": "2023-11-26",
         "chain": "unknown"
       }
     },
@@ -29998,6 +30332,7 @@
         "brand": "KFC",
         "brand:wikidata": "Q524757",
         "cuisine": "chicken",
+        "check_date": "2025-02-02",
         "chain": "unknown"
       }
     },
@@ -30050,6 +30385,7 @@
         "website": "https://panfuwa.com/",
         "operator": "LuMo S.R.L.",
         "cuisine": "pancake",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -30124,6 +30460,7 @@
         "osm_type": "node",
         "name": "Aladino",
         "cuisine": "kebab;pizza",
+        "check_date": "2024-01-31",
         "chain": "unknown"
       }
     },
@@ -30312,6 +30649,7 @@
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-03-30",
         "chain": "mcdonalds"
       }
     },
@@ -30346,6 +30684,7 @@
         "osm_type": "node",
         "name": "Pizzeria Santa Maria Pizza & Kebab",
         "cuisine": "kebab;pizza",
+        "check_date": "2024-03-04",
         "chain": "unknown"
       }
     },
@@ -30608,6 +30947,7 @@
         "osm_type": "node",
         "name": "Berghem Love",
         "cuisine": "italian",
+        "check_date": "2024-03-22",
         "chain": "unknown"
       }
     },
@@ -30697,6 +31037,7 @@
         "name": "Piada & Burger",
         "opening_hours": "Mo-Fr 11:00-15:00; Sa 12:00-15:00",
         "cuisine": "burger",
+        "check_date": "2024-12-03",
         "chain": "unknown"
       }
     },
@@ -30803,6 +31144,7 @@
         "brand": "La Piadineria",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-03-23",
         "chain": "unknown"
       }
     },
@@ -30889,6 +31231,7 @@
         "opening_hours": "Mo off; Tu-Fr 08:30-18:30; Sa 09:00-18:00; Su 09:00-16:00",
         "operator": "Gaol s.r.l.",
         "cuisine": "coffee_shop;sandwich;cake;dessert",
+        "check_date": "2024-04-14",
         "chain": "unknown"
       }
     },
@@ -30944,6 +31287,7 @@
         "operator": "All'antico vinaio Milano srl",
         "brand:wikidata": "Q136350648",
         "cuisine": "sandwich",
+        "check_date": "2025-10-27",
         "chain": "unknown"
       }
     },
@@ -30962,6 +31306,7 @@
         "name": "Il Ristoro Del Principe",
         "phone": "+39 340 299 2404",
         "cuisine": "kebab",
+        "check_date": "2024-05-03",
         "chain": "unknown"
       }
     },
@@ -30982,6 +31327,7 @@
         "operator": "Gruppo Negozi s.r.l.",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-07-24",
         "chain": "unknown"
       }
     },
@@ -30999,6 +31345,7 @@
         "osm_type": "node",
         "name": "MU Finest Italian Burger",
         "cuisine": "burger",
+        "check_date": "2024-05-20",
         "chain": "unknown"
       }
     },
@@ -31085,6 +31432,7 @@
         "name": "LLOA BeNatural",
         "operator": "Project HL Sas di Jiang Li & C.",
         "cuisine": "coffee_shop",
+        "check_date": "2024-03-30",
         "chain": "unknown"
       }
     },
@@ -31219,6 +31567,7 @@
         "id": 11920191391,
         "osm_type": "node",
         "name": "Pret A Manger",
+        "check_date": "2024-05-20",
         "chain": "unknown"
       }
     },
@@ -31236,6 +31585,7 @@
         "osm_type": "node",
         "name": "PizzaFlor",
         "cuisine": "pizza",
+        "check_date": "2024-05-20",
         "chain": "unknown"
       }
     },
@@ -31427,6 +31777,7 @@
         "osm_type": "node",
         "name": "Botteguccia della Pizza",
         "cuisine": "pizza",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -31444,6 +31795,7 @@
         "osm_type": "node",
         "name": "Istanbul Efem",
         "cuisine": "kebab;turkish",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -31461,6 +31813,7 @@
         "osm_type": "node",
         "name": "Il Ghiotto",
         "cuisine": "pizza",
+        "check_date": "2024-05-25",
         "chain": "unknown"
       }
     },
@@ -31469,14 +31822,49 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1792339,
-          45.4433309
+          9.1785729,
+          45.4386371
+        ]
+      },
+      "properties": {
+        "id": 11933819758,
+        "osm_type": "node",
+        "name": "Pizzammo'",
+        "website": "https://pizzammo.it/",
+        "cuisine": "pizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1791247,
+          45.4433275
         ]
       },
       "properties": {
         "id": 11933928491,
         "osm_type": "node",
         "name": "La Piadineria",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1787445,
+          45.4405557
+        ]
+      },
+      "properties": {
+        "id": 11933928519,
+        "osm_type": "node",
+        "name": "Tomato Pizza",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -31494,6 +31882,7 @@
         "osm_type": "node",
         "name": "Pizzeria Al Vascello",
         "cuisine": "pizza;kebab",
+        "check_date": "2026-03-21",
         "chain": "unknown"
       }
     },
@@ -31528,6 +31917,7 @@
         "osm_type": "node",
         "name": "Daisy Ramen",
         "cuisine": "ramen",
+        "check_date": "2025-09-19",
         "chain": "unknown"
       }
     },
@@ -31545,6 +31935,7 @@
         "osm_type": "node",
         "name": "Mumbao",
         "cuisine": "baozi",
+        "check_date": "2025-08-15",
         "chain": "unknown"
       }
     },
@@ -31580,6 +31971,7 @@
         "name": "Sushi Fun",
         "operator": "Golden group srl",
         "cuisine": "sushi",
+        "check_date": "2025-09-19",
         "chain": "unknown"
       }
     },
@@ -31597,6 +31989,7 @@
         "osm_type": "node",
         "name": "Kuafood Fried Chuan",
         "cuisine": "chinese;fried_skewers",
+        "check_date": "2025-09-19",
         "chain": "unknown"
       }
     },
@@ -31630,6 +32023,7 @@
         "osm_type": "node",
         "name": "Greek Fusion",
         "cuisine": "greek",
+        "check_date": "2024-09-22",
         "chain": "unknown"
       }
     },
@@ -31646,6 +32040,7 @@
         "id": 11951560298,
         "osm_type": "node",
         "name": "Locanda Cafè",
+        "check_date": "2026-04-10",
         "chain": "unknown"
       }
     },
@@ -31792,25 +32187,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.0575925,
-          45.6175681
-        ]
-      },
-      "properties": {
-        "id": 11985948240,
-        "osm_type": "node",
-        "name": "McDonald's",
-        "brand": "McDonald's",
-        "brand:wikidata": "Q38076",
-        "cuisine": "burger",
-        "chain": "mcdonalds"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.5756113,
           45.5368263
         ]
@@ -31869,6 +32245,7 @@
         "name": "Assaje to go",
         "operator": "Assaje to go srl a socio unico",
         "cuisine": "pizza",
+        "check_date": "2025-10-08",
         "chain": "unknown"
       }
     },
@@ -31905,6 +32282,7 @@
         "opening_hours": "Mo-Su 09:00-22:00",
         "brand:wikidata": "Q122167398",
         "cuisine": "tacos;mexican",
+        "check_date": "2024-07-06",
         "chain": "unknown"
       }
     },
@@ -31960,6 +32338,7 @@
         "osm_type": "node",
         "name": "Old Wild West",
         "cuisine": "burger",
+        "check_date": "2024-07-12",
         "chain": "unknown"
       }
     },
@@ -32121,6 +32500,7 @@
         "osm_type": "node",
         "name": "Pizza Kebab",
         "cuisine": "pizza",
+        "check_date": "2024-07-20",
         "chain": "unknown"
       }
     },
@@ -32246,6 +32626,7 @@
         "osm_type": "node",
         "name": "Turkish City",
         "cuisine": "kebab",
+        "check_date": "2024-08-16",
         "chain": "unknown"
       }
     },
@@ -32444,6 +32825,7 @@
         "name": "Bun Burgers",
         "opening_hours": "11:00-23:00; PH off",
         "cuisine": "burger",
+        "check_date": "2024-09-18",
         "chain": "unknown"
       }
     },
@@ -32498,6 +32880,7 @@
         "osm_type": "node",
         "name": "Kebap & Pizza Land",
         "cuisine": "kebab",
+        "check_date": "2024-10-15",
         "chain": "unknown"
       }
     },
@@ -32514,6 +32897,7 @@
         "id": 12253539179,
         "osm_type": "node",
         "name": "L'Ora della Pasta",
+        "check_date": "2024-10-15",
         "chain": "unknown"
       }
     },
@@ -32971,6 +33355,7 @@
         "website": "https://www.lecorti.it/ristorazione-alimentari/burger-king/",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2024-12-26",
         "chain": "burger_king"
       }
     },
@@ -33173,6 +33558,7 @@
         "id": 12543525164,
         "osm_type": "node",
         "cuisine": "pizza",
+        "check_date": "2025-01-30",
         "chain": "unknown"
       }
     },
@@ -33192,6 +33578,24 @@
         "brand": "Poke House",
         "brand:wikidata": "Q123399421",
         "cuisine": "poke",
+        "check_date": "2025-01-30",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1807423,
+          45.4573269
+        ]
+      },
+      "properties": {
+        "id": 12548731571,
+        "osm_type": "node",
+        "name": "Vintage Burger",
+        "cuisine": "burger",
         "chain": "unknown"
       }
     },
@@ -33212,6 +33616,7 @@
         "opening_hours": "09:00-22:00",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2025-02-02",
         "chain": "burger_king"
       }
     },
@@ -33265,6 +33670,7 @@
         "osm_type": "node",
         "name": "Il trevigliese",
         "cuisine": "pizza;kebab",
+        "check_date": "2025-02-19",
         "chain": "unknown"
       }
     },
@@ -33334,6 +33740,7 @@
         "osm_type": "node",
         "name": "I Love Poke",
         "cuisine": "poke",
+        "check_date": "2025-02-26",
         "chain": "unknown"
       }
     },
@@ -33353,6 +33760,7 @@
         "brand": "La Piadineria",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-02-26",
         "chain": "unknown"
       }
     },
@@ -33370,6 +33778,7 @@
         "osm_type": "node",
         "name": "Spontini",
         "cuisine": "pizza",
+        "check_date": "2025-02-26",
         "chain": "unknown"
       }
     },
@@ -33386,6 +33795,7 @@
         "id": 12620907383,
         "osm_type": "node",
         "name": "Spacca",
+        "check_date": "2025-02-26",
         "chain": "unknown"
       }
     },
@@ -33403,6 +33813,7 @@
         "osm_type": "node",
         "name": "Billy Tacos",
         "cuisine": "mexican",
+        "check_date": "2025-02-26",
         "chain": "unknown"
       }
     },
@@ -33420,6 +33831,7 @@
         "osm_type": "node",
         "name": "C'è Pizza Per Te",
         "cuisine": "pizza",
+        "check_date": "2025-02-28",
         "chain": "unknown"
       }
     },
@@ -33435,6 +33847,7 @@
       "properties": {
         "id": 12626048929,
         "osm_type": "node",
+        "check_date": "2025-02-28",
         "chain": "unknown"
       }
     },
@@ -33454,6 +33867,7 @@
         "brand": "Five Guys",
         "brand:wikidata": "Q1131810",
         "cuisine": "burger",
+        "check_date": "2025-06-18",
         "chain": "unknown"
       }
     },
@@ -33511,23 +33925,6 @@
         "name": "VietGnam",
         "opening_hours": "Tu-Sa 12:30-15:00, 19:30-22:00",
         "cuisine": "vietnamese",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.2043382,
-          45.4621544
-        ]
-      },
-      "properties": {
-        "id": 12641186274,
-        "osm_type": "node",
-        "name": "Antica Focacceria di Recco",
-        "operator": "Proforec srl",
         "chain": "unknown"
       }
     },
@@ -33652,6 +34049,7 @@
         "name": "PokeSushi",
         "opening_hours": "Mo-Sa 11:00-15:30,17:30-22:00",
         "cuisine": "sushi;japanese",
+        "check_date": "2025-03-22",
         "chain": "unknown"
       }
     },
@@ -33687,6 +34085,7 @@
         "id": 12690663368,
         "osm_type": "node",
         "name": "Flame",
+        "check_date": "2025-03-22",
         "chain": "unknown"
       }
     },
@@ -33757,6 +34156,7 @@
         "id": 12713301701,
         "osm_type": "node",
         "name": "Rossopomodoro",
+        "check_date": "2025-03-30",
         "chain": "unknown"
       }
     },
@@ -33773,6 +34173,7 @@
         "id": 12713760484,
         "osm_type": "node",
         "name": "Dispensa Emilia",
+        "check_date": "2025-03-30",
         "chain": "unknown"
       }
     },
@@ -33790,6 +34191,7 @@
         "osm_type": "node",
         "name": "Mc Drive",
         "cuisine": "burger",
+        "check_date": "2025-03-30",
         "chain": "unknown"
       }
     },
@@ -33842,6 +34244,7 @@
         "opening_hours": "Fr, Sa 11:00-22:00; Mo-Th 11:00-20:00; Su 12:00-16:00",
         "operator": "Rovere Diana",
         "cuisine": "burger;italian",
+        "check_date": "2026-02-15",
         "chain": "unknown"
       }
     },
@@ -34136,6 +34539,7 @@
         "operator": "Gruppo Negozi srl",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-11-28",
         "chain": "unknown"
       }
     },
@@ -34156,6 +34560,7 @@
         "opening_hours": "08:00-22:00",
         "brand:wikidata": "Q524757",
         "cuisine": "chicken",
+        "check_date": "2025-05-02",
         "chain": "unknown"
       }
     },
@@ -34230,6 +34635,7 @@
         "name": "La piadineria",
         "operator": "Gruppo Negozi S.R.L.",
         "cuisine": "italian",
+        "check_date": "2025-11-11",
         "chain": "unknown"
       }
     },
@@ -34266,8 +34672,10 @@
         "id": 12830043238,
         "osm_type": "node",
         "name": "Mamo Pinsa & Drink",
+        "opening_hours": "Tu-Sa 12:00-14:30,18:00-24:00, Su 18:00-24:00; Mo off",
         "website": "https://mamopinsa.it/",
         "cuisine": "pizza",
+        "check_date": "2026-04-17",
         "chain": "unknown"
       }
     },
@@ -34914,6 +35322,7 @@
         "osm_type": "node",
         "name": "La Piadineria",
         "cuisine": "piadina",
+        "check_date": "2025-06-11",
         "chain": "unknown"
       }
     },
@@ -34988,6 +35397,7 @@
         "id": 12923779261,
         "osm_type": "node",
         "name": "La Focacceria",
+        "check_date": "2026-01-30",
         "chain": "unknown"
       }
     },
@@ -35024,6 +35434,7 @@
         "osm_type": "node",
         "name": "La Piadineria di Michele",
         "cuisine": "piadina",
+        "check_date": "2025-11-17",
         "chain": "unknown"
       }
     },
@@ -35112,6 +35523,7 @@
         "name": "Da Nando",
         "opening_hours": "We-Su 18:30-22:00",
         "cuisine": "pizza",
+        "check_date": "2025-09-04",
         "chain": "unknown"
       }
     },
@@ -35185,6 +35597,7 @@
         "brand": "La Piadineria",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-07-01",
         "chain": "unknown"
       }
     },
@@ -35204,6 +35617,7 @@
         "brand": "Alice",
         "brand:wikidata": "Q113973272",
         "cuisine": "pizza",
+        "check_date": "2025-07-01",
         "chain": "unknown"
       }
     },
@@ -35221,6 +35635,7 @@
         "osm_type": "node",
         "name": "Da Luca",
         "cuisine": "pizza",
+        "check_date": "2025-07-17",
         "chain": "unknown"
       }
     },
@@ -35237,6 +35652,7 @@
         "id": 13009533235,
         "osm_type": "node",
         "name": "Punto Fermo",
+        "check_date": "2025-07-17",
         "chain": "unknown"
       }
     },
@@ -35254,6 +35670,7 @@
         "osm_type": "node",
         "name": "Il Pizzicotto",
         "cuisine": "pizza",
+        "check_date": "2025-07-17",
         "chain": "unknown"
       }
     },
@@ -35345,6 +35762,7 @@
         "phone": "+39 0383 813596",
         "website": "https://romanticapizza.it/pizzerie/milano-brera/",
         "cuisine": "italian_pizza",
+        "check_date": "2025-12-15",
         "chain": "unknown"
       }
     },
@@ -35397,6 +35815,7 @@
         "osm_type": "node",
         "name": "Daddy Pizza",
         "cuisine": "pizza",
+        "check_date": "2025-07-29",
         "chain": "unknown"
       }
     },
@@ -35473,6 +35892,7 @@
         "brand": "Giangusto",
         "opening_hours": "Mo-We 11:00-15:30; Th-Fr 11:00-19:30; Sa 08:30-20:00; Su off; ",
         "cuisine": "piadina",
+        "check_date": "2025-04-25",
         "chain": "unknown"
       }
     },
@@ -35526,6 +35946,7 @@
         "name": "Noodleman",
         "opening_hours": "11:30-15:00,18:00-21:30",
         "cuisine": "chinese",
+        "check_date": "2025-09-09",
         "chain": "unknown"
       }
     },
@@ -35558,6 +35979,7 @@
         "id": 13069096502,
         "osm_type": "node",
         "name": "Cesarino",
+        "check_date": "2025-10-08",
         "chain": "unknown"
       }
     },
@@ -35788,6 +36210,7 @@
         "id": 13119101491,
         "osm_type": "node",
         "name": "Pei Poke",
+        "check_date": "2025-09-04",
         "chain": "unknown"
       }
     },
@@ -35805,6 +36228,7 @@
         "osm_type": "node",
         "name": "La Piadineria",
         "opening_hours": "Mo-Sa 11:00-21:00; Su 11:00-15:00",
+        "check_date": "2025-09-04",
         "chain": "unknown"
       }
     },
@@ -35825,6 +36249,7 @@
         "phone": "+39 351 718 0035",
         "website": "https://www.sbunda.com",
         "cuisine": "sandwich",
+        "check_date": "2025-09-04",
         "chain": "unknown"
       }
     },
@@ -35914,6 +36339,7 @@
         "id": 13135672280,
         "osm_type": "node",
         "name": "Mason's Famous Lobster Rolls",
+        "check_date": "2025-09-11",
         "chain": "unknown"
       }
     },
@@ -35965,6 +36391,7 @@
         "osm_type": "node",
         "name": "Mamaburger",
         "cuisine": "burger",
+        "check_date": "2025-09-14",
         "chain": "unknown"
       }
     },
@@ -35984,6 +36411,7 @@
         "brand": "Poke House",
         "brand:wikidata": "Q123399421",
         "cuisine": "poke",
+        "check_date": "2025-09-14",
         "chain": "unknown"
       }
     },
@@ -36000,6 +36428,7 @@
         "id": 13142753459,
         "osm_type": "node",
         "name": "Maki 567 Café",
+        "check_date": "2025-09-14",
         "chain": "unknown"
       }
     },
@@ -36017,6 +36446,7 @@
         "osm_type": "node",
         "name": "Panino Kebab",
         "cuisine": "kebab",
+        "check_date": "2025-09-14",
         "chain": "unknown"
       }
     },
@@ -36034,6 +36464,7 @@
         "osm_type": "node",
         "name": "Panino Giusto",
         "cuisine": "sandwich",
+        "check_date": "2025-09-16",
         "chain": "unknown"
       }
     },
@@ -36157,6 +36588,7 @@
         "osm_type": "node",
         "name": "Il Cannolo",
         "cuisine": "cake",
+        "check_date": "2025-10-01",
         "chain": "unknown"
       }
     },
@@ -36207,6 +36639,7 @@
         "id": 13189249443,
         "osm_type": "node",
         "name": "Fun House Food Drinks and Fun",
+        "check_date": "2025-10-02",
         "chain": "unknown"
       }
     },
@@ -36455,6 +36888,7 @@
         "operator": "Original Bucket S.r.l.",
         "brand:wikidata": "Q524757",
         "cuisine": "chicken",
+        "check_date": "2025-10-11",
         "chain": "unknown"
       }
     },
@@ -36472,6 +36906,7 @@
         "osm_type": "node",
         "name": "Sberla",
         "cuisine": "burger",
+        "check_date": "2025-10-07",
         "chain": "unknown"
       }
     },
@@ -36488,6 +36923,7 @@
         "id": 13200160509,
         "osm_type": "node",
         "name": "Dalla Nonna Rina",
+        "check_date": "2025-12-15",
         "chain": "unknown"
       }
     },
@@ -36504,6 +36940,7 @@
         "id": 13200160510,
         "osm_type": "node",
         "name": "Nice Tea",
+        "check_date": "2025-12-15",
         "chain": "unknown"
       }
     },
@@ -36540,6 +36977,7 @@
         "id": 13200508182,
         "osm_type": "node",
         "name": "La Piadineria",
+        "check_date": "2025-10-07",
         "chain": "unknown"
       }
     },
@@ -36593,6 +37031,7 @@
         "id": 13202087511,
         "osm_type": "node",
         "name": "Dalla Nonna Rina",
+        "check_date": "2025-12-15",
         "chain": "unknown"
       }
     },
@@ -36610,6 +37049,7 @@
         "osm_type": "node",
         "name": "Sberla",
         "cuisine": "burger",
+        "check_date": "2025-10-07",
         "chain": "unknown"
       }
     },
@@ -36627,6 +37067,7 @@
         "osm_type": "node",
         "name": "George Lobster",
         "cuisine": "fish",
+        "check_date": "2025-10-08",
         "chain": "unknown"
       }
     },
@@ -37125,6 +37566,7 @@
         "name": "Burger & Fried Chicken",
         "opening_hours": "Mo-Sa 11:00-14:30,18:00-22:30; Su 18:00-22:30",
         "cuisine": "chicken",
+        "check_date": "2025-11-08",
         "chain": "unknown"
       }
     },
@@ -37231,6 +37673,7 @@
         "osm_type": "node",
         "name": "Wang Guiren",
         "cuisine": "chinese",
+        "check_date": "2025-11-20",
         "chain": "unknown"
       }
     },
@@ -37322,6 +37765,7 @@
         "name": "Il Capriccio",
         "phone": "+39 031 943343",
         "cuisine": "pizza",
+        "check_date": "2025-11-26",
         "chain": "unknown"
       }
     },
@@ -37338,6 +37782,7 @@
         "id": 13335846038,
         "osm_type": "node",
         "name": "Galileo",
+        "check_date": "2025-11-27",
         "chain": "unknown"
       }
     },
@@ -37355,6 +37800,7 @@
         "osm_type": "node",
         "name": "Food Heaven",
         "cuisine": "indian",
+        "check_date": "2025-11-27",
         "chain": "unknown"
       }
     },
@@ -37684,6 +38130,7 @@
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-11-04",
         "chain": "mcdonalds"
       }
     },
@@ -38198,6 +38645,7 @@
         "name": "Oh My Crunch",
         "website": "https://www.ohmycrunch.com/",
         "cuisine": "sandwich",
+        "check_date": "2026-02-10",
         "chain": "unknown"
       }
     },
@@ -38424,8 +38872,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2090722,
-          45.44889
+          9.2089516,
+          45.4487455
         ]
       },
       "properties": {
@@ -38487,6 +38935,8 @@
         "id": 13625492102,
         "osm_type": "node",
         "name": "Pane & Trita",
+        "cuisine": "burger",
+        "check_date": "2026-04-17",
         "chain": "unknown"
       }
     },
@@ -38552,6 +39002,23 @@
       "properties": {
         "id": 13641363383,
         "osm_type": "node",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1813149,
+          45.4434239
+        ]
+      },
+      "properties": {
+        "id": 13641886703,
+        "osm_type": "node",
+        "name": "Da Mimmo Pizzeria",
+        "cuisine": "pizza",
         "chain": "unknown"
       }
     },
@@ -38739,6 +39206,7 @@
         "osm_type": "node",
         "name": "Mauri's l'hamburgheria",
         "cuisine": "burger",
+        "check_date": "2026-03-24",
         "chain": "unknown"
       }
     },
@@ -38756,6 +39224,7 @@
         "osm_type": "node",
         "name": "Mama's Pizza",
         "cuisine": "pizza",
+        "check_date": "2026-03-24",
         "chain": "unknown"
       }
     },
@@ -38792,6 +39261,7 @@
         "osm_type": "node",
         "name": "Gioca Gusto",
         "cuisine": "sandwich",
+        "check_date": "2026-03-27",
         "chain": "unknown"
       }
     },
@@ -38809,6 +39279,7 @@
         "osm_type": "node",
         "name": "Mami-an Sa Milan",
         "cuisine": "breakfast;coffee_shop;filipino",
+        "check_date": "2026-03-29",
         "chain": "unknown"
       }
     },
@@ -38825,6 +39296,7 @@
         "id": 13690467989,
         "osm_type": "node",
         "name": "Rice Express",
+        "check_date": "2026-03-30",
         "chain": "unknown"
       }
     },
@@ -38842,6 +39314,7 @@
         "osm_type": "node",
         "name": "Los Reyes del Sabor",
         "cuisine": "peruvian",
+        "check_date": "2026-03-30",
         "chain": "unknown"
       }
     },
@@ -38961,6 +39434,7 @@
         "id": 13716924601,
         "osm_type": "node",
         "name": "Pizza Kebab",
+        "check_date": "2026-04-08",
         "chain": "unknown"
       }
     },
@@ -38978,6 +39452,7 @@
         "osm_type": "node",
         "name": "Altoke",
         "cuisine": "fish;peruvian",
+        "check_date": "2026-04-11",
         "chain": "unknown"
       }
     },
@@ -39004,18 +39479,464 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1948666,
-          45.4730336
+          9.1948713,
+          45.473072
         ]
       },
       "properties": {
-        "id": 13724952916,
+        "id": 13724958501,
         "osm_type": "node",
         "name": "Poke House",
         "brand": "Poke House",
-        "opening_hours": "11:30-22:00",
         "brand:wikidata": "Q123399421",
         "cuisine": "poke",
+        "check_date": "2026-04-12",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7415706,
+          45.6739127
+        ]
+      },
+      "properties": {
+        "id": 13726962701,
+        "osm_type": "node",
+        "name": "I Due Vulcani",
+        "opening_hours": "Mo 17:30-22:30; Tu-Su 10:30-14:30, 17:30-23:00",
+        "phone": "+39 0331 296742",
+        "cuisine": "pizza",
+        "check_date": "2026-04-13",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1704944,
+          45.5196234
+        ]
+      },
+      "properties": {
+        "id": 13727224201,
+        "osm_type": "node",
+        "name": "Istanbul Turkish Pizza & Kebap",
+        "cuisine": "kebab;pizza",
+        "check_date": "2026-04-13",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.178951,
+          45.443952
+        ]
+      },
+      "properties": {
+        "id": 13730545501,
+        "osm_type": "node",
+        "name": "Alice Pizza",
+        "cuisine": "pizza",
+        "check_date": "2026-04-14",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1528548,
+          45.4669908
+        ]
+      },
+      "properties": {
+        "id": 13733492699,
+        "osm_type": "node",
+        "name": "La Piadineria",
+        "brand": "La Piadineria",
+        "opening_hours": "Mo-Su 11:00-22:30",
+        "phone": "+390248104563",
+        "operator": "Gruppo negozi S.R.L. unipersonale",
+        "brand:wikidata": "Q108195414",
+        "cuisine": "piadina",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.5136836,
+          45.4300714
+        ]
+      },
+      "properties": {
+        "id": 13735216274,
+        "osm_type": "node",
+        "name": "McDonald's",
+        "brand": "McDonald's",
+        "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "chain": "mcdonalds"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1745828,
+          45.4816134
+        ]
+      },
+      "properties": {
+        "id": 13738098847,
+        "osm_type": "node",
+        "name": "Zheng ji",
+        "cuisine": "chinese",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1743018,
+          45.481192
+        ]
+      },
+      "properties": {
+        "id": 13738124365,
+        "osm_type": "node",
+        "name": "Fried Skewers",
+        "cuisine": "chinese",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1784925,
+          45.4815175
+        ]
+      },
+      "properties": {
+        "id": 13738137048,
+        "osm_type": "node",
+        "name": "Ravioli yuan ji",
+        "cuisine": "chinese",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1786456,
+          45.4815279
+        ]
+      },
+      "properties": {
+        "id": 13738138013,
+        "osm_type": "node",
+        "name": "Kungfu",
+        "cuisine": "chinese",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1752973,
+          45.4814151
+        ]
+      },
+      "properties": {
+        "id": 13738235130,
+        "osm_type": "node",
+        "name": "Báhn Mì 38",
+        "cuisine": "chinese",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1752565,
+          45.4812507
+        ]
+      },
+      "properties": {
+        "id": 13738239258,
+        "osm_type": "node",
+        "name": "Juntai",
+        "cuisine": "chinese",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.163028,
+          45.5331959
+        ]
+      },
+      "properties": {
+        "id": 13740143376,
+        "osm_type": "node",
+        "name": "Dispensa Emilia",
+        "cuisine": "emilian",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1630992,
+          45.53366
+        ]
+      },
+      "properties": {
+        "id": 13740170306,
+        "osm_type": "node",
+        "name": "Popeyes",
+        "brand": "Popeyes",
+        "brand:wikidata": "Q1330910",
+        "cuisine": "chicken",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.1632328,
+          45.533116
+        ]
+      },
+      "properties": {
+        "id": 13740176133,
+        "osm_type": "node",
+        "name": "Eatica",
+        "cuisine": "fish",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1782555,
+          45.5075384
+        ]
+      },
+      "properties": {
+        "id": 13740257053,
+        "osm_type": "node",
+        "name": "Pizza Kebab",
+        "cuisine": "pizza;kebab",
+        "check_date": "2026-04-18",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2067689,
+          45.4822058
+        ]
+      },
+      "properties": {
+        "id": 13740992705,
+        "osm_type": "node",
+        "cuisine": "chinese",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.204332,
+          45.4917088
+        ]
+      },
+      "properties": {
+        "id": 13741021942,
+        "osm_type": "node",
+        "name": "Panino Doc",
+        "cuisine": "sandwich",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2061925,
+          45.4905315
+        ]
+      },
+      "properties": {
+        "id": 13741036261,
+        "osm_type": "node",
+        "name": "Pasa",
+        "cuisine": "kebab",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.3390782,
+          45.5478307
+        ]
+      },
+      "properties": {
+        "id": 13749503388,
+        "osm_type": "node",
+        "name": "Mars Alam",
+        "cuisine": "kebab",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.0270917,
+          45.1351869
+        ]
+      },
+      "properties": {
+        "id": 13755908978,
+        "osm_type": "node",
+        "name": "Pizzeria Birbe's Pizza & Food",
+        "opening_hours": "Tu-Su 17:00-21:00",
+        "phone": "+39 349 104 5152",
+        "website": "http://facebook.com/birbespizza",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2145167,
+          45.4837399
+        ]
+      },
+      "properties": {
+        "id": 13759379990,
+        "osm_type": "node",
+        "name": "McDonald's",
+        "brand": "McDonald's",
+        "opening_hours": "Fr,Sa 07:30-24:00, Su-Th 07:30-01:00",
+        "brand:wikidata": "Q38076",
+        "cuisine": "burger",
+        "check_date": "2022-11-23",
+        "chain": "mcdonalds"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2010715,
+          45.470849
+        ]
+      },
+      "properties": {
+        "id": 13760687501,
+        "osm_type": "node",
+        "name": "Pokèria",
+        "check_date": "2026-04-25",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.2247455,
+          45.4507915
+        ]
+      },
+      "properties": {
+        "id": 13761411401,
+        "osm_type": "node",
+        "name": "New Dreams Kebab",
+        "check_date": "2026-04-25",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1171341,
+          45.443752
+        ]
+      },
+      "properties": {
+        "id": 13762585238,
+        "osm_type": "node",
+        "name": "Mangiari Di Strada",
+        "cuisine": "burger",
+        "chain": "unknown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1728401,
+          45.4715394
+        ]
+      },
+      "properties": {
+        "id": 13764486432,
+        "osm_type": "node",
+        "name": "Panini Da Lucia",
+        "phone": "+393285796363",
+        "cuisine": "sandwich",
         "chain": "unknown"
       }
     },
@@ -39215,10 +40136,9 @@
       "properties": {
         "id": 142243217,
         "osm_type": "way",
-        "name": "Pizzeria Sorriso",
+        "name": "El Raian Pizzeria",
         "opening_hours": "Mo-Su 11:00-14:30,17:30-23:00",
-        "phone": "+39 039 9240033",
-        "operator": "Mohamed Magdi",
+        "operator": "Mohamed Mohamed Fathy Mohamed",
         "cuisine": "pizza;kebab",
         "chain": "unknown"
       }
@@ -39432,24 +40352,8 @@
         "operator": "Scacco S.r.l.",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-01-01",
         "chain": "mcdonalds"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.117121,
-          45.4437393
-        ]
-      },
-      "properties": {
-        "id": 199883574,
-        "osm_type": "way",
-        "name": "Mangiari Di Strada",
-        "cuisine": "burger",
-        "chain": "unknown"
       }
     },
     {
@@ -39655,6 +40559,7 @@
         "phone": "+39 0373 473708",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
+        "check_date": "2022-07-24",
         "chain": "burger_king"
       }
     },
@@ -39938,6 +40843,7 @@
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-12-26",
         "chain": "mcdonalds"
       }
     },
@@ -40049,6 +40955,7 @@
         "brand": "McDonald's",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2026-04-04",
         "chain": "mcdonalds"
       }
     },
@@ -40158,6 +41065,7 @@
         "id": 446791997,
         "osm_type": "way",
         "name": "La Piadineria",
+        "check_date": "2024-12-29",
         "chain": "unknown"
       }
     },
@@ -40304,26 +41212,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.2145421,
-          45.4837385
-        ]
-      },
-      "properties": {
-        "id": 549500413,
-        "osm_type": "way",
-        "name": "McDonald's",
-        "brand": "McDonald's",
-        "opening_hours": "Fr,Sa 07:30-24:00, Su-Th 07:30-01:00",
-        "brand:wikidata": "Q38076",
-        "cuisine": "burger",
-        "chain": "mcdonalds"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           10.227683,
           45.5581924
         ]
@@ -40333,6 +41221,7 @@
         "osm_type": "way",
         "name": "Burger King",
         "brand": "Burger King",
+        "opening_hours": "Su-We 11:00-01:00, Th 11:00-02:00, Fr,Sa 11:00-04:00",
         "operator": "Burger King Restaurants Italia S.p.A.",
         "brand:wikidata": "Q177054",
         "cuisine": "burger",
@@ -40638,8 +41527,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.1795602,
-          45.4377173
+          9.179564,
+          45.437715
         ]
       },
       "properties": {
@@ -40775,7 +41664,7 @@
         "type": "Point",
         "coordinates": [
           9.3587236,
-          45.600462
+          45.600497
         ]
       },
       "properties": {
@@ -40823,6 +41712,7 @@
         "brand": "La Piadineria",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2025-12-10",
         "chain": "unknown"
       }
     },
@@ -41600,8 +42490,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.0577065,
-          45.6179707
+          9.0577112,
+          45.6179693
         ]
       },
       "properties": {
@@ -41609,6 +42499,8 @@
         "osm_type": "way",
         "name": "McDonald's",
         "brand": "McDonald's",
+        "brand:wikidata": "Q38076",
+        "cuisine": "burger",
         "chain": "mcdonalds"
       }
     },
@@ -41630,6 +42522,7 @@
         "website": "https://www.mcdonalds.it/ristorante/lombardia/bergamo/caravaggio",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-11-15",
         "chain": "mcdonalds"
       }
     },
@@ -41681,6 +42574,7 @@
         "id": 1322697777,
         "osm_type": "way",
         "name": "McDonald's",
+        "check_date": "2025-04-23",
         "chain": "mcdonalds"
       }
     },
@@ -41720,6 +42614,7 @@
         "opening_hours": "08:00-01:00",
         "brand:wikidata": "Q38076",
         "cuisine": "burger",
+        "check_date": "2025-02-04",
         "chain": "mcdonalds"
       }
     },
@@ -41736,24 +42631,7 @@
         "id": 1393107381,
         "osm_type": "way",
         "name": "Bar alla Torre",
-        "chain": "unknown"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.1728444,
-          45.4715401
-        ]
-      },
-      "properties": {
-        "id": 1421353779,
-        "osm_type": "way",
-        "name": "Panini Da Lucia",
-        "phone": "+393285796363",
-        "cuisine": "sandwich",
+        "check_date": "2025-05-10",
         "chain": "unknown"
       }
     },
@@ -41919,6 +42797,7 @@
         "operator": "Gruppo Negozi SRL",
         "brand:wikidata": "Q108195414",
         "cuisine": "piadina",
+        "check_date": "2024-04-17",
         "chain": "unknown"
       }
     },

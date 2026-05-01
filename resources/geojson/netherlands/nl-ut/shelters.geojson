@@ -109,7 +109,8 @@
       "properties": {
         "id": 12912283855,
         "osm_type": "node",
-        "shelter_type": "weather_shelter"
+        "shelter_type": "weather_shelter",
+        "check_date": "2025-06-09"
       }
     },
     {
@@ -138,6 +139,22 @@
       },
       "properties": {
         "id": 13444767267,
+        "osm_type": "node",
+        "shelter_type": "weather_shelter",
+        "bench": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.0657596,
+          52.0853586
+        ]
+      },
+      "properties": {
+        "id": 13730649987,
         "osm_type": "node",
         "shelter_type": "weather_shelter",
         "bench": "yes"

@@ -191,7 +191,8 @@
         "osm_type": "node",
         "name": "Slaščičarna Diana",
         "opening_hours": "06:00-21:00",
-        "takeaway": "yes"
+        "takeaway": "yes",
+        "check_date": "2025-07-14"
       }
     },
     {
@@ -207,7 +208,8 @@
         "id": 1920071846,
         "osm_type": "node",
         "name": "Slaščičarna Jadran pri Ekremu",
-        "opening_hours": "Mo-Fr 09:00-22:00"
+        "opening_hours": "Mo-Fr 09:00-22:00",
+        "check_date": "2025-07-17"
       }
     },
     {
@@ -252,6 +254,23 @@
         "id": 2101185224,
         "osm_type": "node",
         "name": "Potnik"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.8563026,
+          45.7046797
+        ]
+      },
+      "properties": {
+        "id": 2147028032,
+        "osm_type": "node",
+        "name": "Krog",
+        "opening_hours": "Mo-Th 07:00-22:00; Fr 07:00-24:00; Sa 08:00-20:00",
+        "outdoor_seating": "yes"
       }
     },
     {
@@ -407,21 +426,6 @@
         "osm_type": "node",
         "name": "Šalara",
         "opening_hours": "Su-Th 06:00-22:00; Fr-Sa 00:00-24:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.5913539,
-          45.5139699
-        ]
-      },
-      "properties": {
-        "id": 3700210091,
-        "osm_type": "node",
-        "name": "Pekarna Rina"
       }
     },
     {
@@ -843,7 +847,8 @@
         "osm_type": "node",
         "name": "Kavarna Piran",
         "opening_hours": "06:00-01:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-07-21"
       }
     },
     {
@@ -920,7 +925,8 @@
       "properties": {
         "id": 5833818605,
         "osm_type": "node",
-        "name": "Pekarna dan in noč"
+        "name": "Pekarna dan in noč",
+        "check_date": "2024-06-29"
       }
     },
     {
@@ -968,7 +974,8 @@
         "name": "Pekarna Panificio Izola",
         "opening_hours": "Mo-Su 06:00-22:00",
         "takeaway": "only",
-        "outdoor_seating": "no"
+        "outdoor_seating": "no",
+        "check_date": "2025-07-15"
       }
     },
     {
@@ -1015,7 +1022,8 @@
         "id": 7787639683,
         "osm_type": "node",
         "name": "Žoga Bar",
-        "opening_hours": "Mo-Sa 06:00-22:00; Su 08:00-13:00"
+        "opening_hours": "Mo-Sa 06:00-22:00; Su 08:00-13:00",
+        "check_date": "2025-07-16"
       }
     },
     {
@@ -1032,7 +1040,8 @@
         "osm_type": "node",
         "name": "Bife Petra",
         "opening_hours": "Mo-Sa 07:00-21:00; Su 08:00-13:00",
-        "takeaway": "no"
+        "takeaway": "no",
+        "check_date": "2025-07-16"
       }
     },
     {
@@ -1203,7 +1212,8 @@
         "id": 9922948817,
         "osm_type": "node",
         "name": "Pekarna",
-        "opening_hours": "Mo-Sa 07:00-18:00; Su 07:00-12:00"
+        "opening_hours": "Mo-Sa 07:00-18:00; Su 07:00-12:00",
+        "check_date": "2024-07-09"
       }
     },
     {
@@ -1236,7 +1246,8 @@
         "osm_type": "node",
         "name": "Kava bar Angelca",
         "opening_hours": "07:00-15:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2023-07-21"
       }
     },
     {
@@ -1424,7 +1435,8 @@
         "id": 11811112803,
         "osm_type": "node",
         "name": "Naša",
-        "opening_hours": "06:30-22:00"
+        "opening_hours": "06:30-22:00",
+        "check_date": "2024-10-15"
       }
     },
     {
@@ -1441,7 +1453,8 @@
         "osm_type": "node",
         "name": "Caffe alle Porte",
         "opening_hours": "Mo-Th 07:00-24:00, Fr,Sa 07:00-01:00, Su 08:00-23:00",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2024-06-30"
       }
     },
     {
@@ -1508,6 +1521,38 @@
         "osm_type": "node",
         "name": "excelsior",
         "outdoor_seating": "yes"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.934813,
+          45.6066909
+        ]
+      },
+      "properties": {
+        "id": 13760712201,
+        "osm_type": "node",
+        "name": "KONNA",
+        "check_date": "2026-04-25"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.5918171,
+          45.5139829
+        ]
+      },
+      "properties": {
+        "id": 13766194454,
+        "osm_type": "node",
+        "name": "Mlinar",
+        "opening_hours": "Mo-Su 07:30-20:00"
       }
     },
     {
@@ -1650,7 +1695,8 @@
         "id": 617119949,
         "osm_type": "way",
         "name": "Caffe bar Oljka",
-        "outdoor_seating": "yes"
+        "outdoor_seating": "yes",
+        "check_date": "2025-07-14"
       }
     },
     {

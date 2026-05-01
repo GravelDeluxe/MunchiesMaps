@@ -1734,6 +1734,7 @@
       "properties": {
         "id": 8670346204,
         "osm_type": "node",
+        "name": "Borie",
         "shelter_type": "weather_shelter",
         "description": "2014-03 : Borie. Grande surface."
       }
@@ -1885,6 +1886,7 @@
       "properties": {
         "id": 8714167084,
         "osm_type": "node",
+        "name": "Chapelle Saint Pierre",
         "shelter_type": "weather_shelter",
         "description": "C'est une toute petite chapelle rurale. Bien sûr on ne peut dormir dans la chapelle mais l'on peut s'y abriter en cas d orage subit."
       }
@@ -2072,6 +2074,7 @@
       "properties": {
         "id": 8839159826,
         "osm_type": "node",
+        "name": "Casemates du col de Gialorgues",
         "shelter_type": "weather_shelter",
         "description": "Baraquements militaires (casemates)"
       }
@@ -3824,7 +3827,8 @@
         "id": 149039819,
         "osm_type": "way",
         "name": "Refuge d'hiver de l'Alpe de Villar-d'Arène",
-        "capacity": "25"
+        "capacity": "25",
+        "fee": "yes"
       }
     },
     {
@@ -4396,6 +4400,7 @@
       "properties": {
         "id": 183215707,
         "osm_type": "way",
+        "name": "Cabane de l'Alp",
         "shelter_type": "basic_hut"
       }
     },
@@ -4828,21 +4833,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          6.5180447,
-          44.4786543
-        ]
-      },
-      "properties": {
-        "id": 206891506,
-        "osm_type": "way",
-        "name": "Cabane du Clos de la Sagne"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           6.516747,
           44.4970408
         ]
@@ -5143,6 +5133,21 @@
         "osm_type": "way",
         "name": "Cabane du Ruisseau des Granges",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.5175258,
+          44.4794101
+        ]
+      },
+      "properties": {
+        "id": 253363083,
+        "osm_type": "way",
+        "name": "Cabane du Clos de la Sagne"
       }
     },
     {
@@ -6058,6 +6063,7 @@
       "properties": {
         "id": 607752994,
         "osm_type": "way",
+        "name": "Abri de l'Ours",
         "shelter_type": "weather_shelter",
         "description": "2018-07 : Très bon pour bivouac : abrité, pas de rosée, à l'écart, point d'eau à côté, beau panorama."
       }
@@ -6978,6 +6984,7 @@
       "properties": {
         "id": 957739045,
         "osm_type": "way",
+        "name": "Cabane d'Alpage (cirque de Morgon)",
         "shelter_type": "weather_shelter",
         "description": "Simple abri accolé à une cabane fermée"
       }
@@ -7490,6 +7497,7 @@
       "properties": {
         "id": 1189158523,
         "osm_type": "way",
+        "name": "Chapelle N.D. de Lamaron",
         "shelter_type": "weather_shelter",
         "bench": "no"
       }
@@ -7631,7 +7639,8 @@
       },
       "properties": {
         "id": 1201096180,
-        "osm_type": "way"
+        "osm_type": "way",
+        "name": "Cabane pastorale de Prafoura"
       }
     },
     {
@@ -7646,6 +7655,7 @@
       "properties": {
         "id": 1201101980,
         "osm_type": "way",
+        "name": "Cabane de la Blave",
         "shelter_type": "weather_shelter"
       }
     },
@@ -8631,7 +8641,8 @@
       },
       "properties": {
         "id": 16215328,
-        "osm_type": "relation"
+        "osm_type": "relation",
+        "name": "Chalets de Prentic"
       }
     },
     {
@@ -8646,7 +8657,23 @@
       "properties": {
         "id": 16216597,
         "osm_type": "relation",
+        "name": "Cabanes du Sellar (Dormillouse)",
         "shelter_type": "weather_shelter"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.6745811,
+          44.150594
+        ]
+      },
+      "properties": {
+        "id": 20573363,
+        "osm_type": "relation",
+        "name": "Cabane pastorale des Juges"
       }
     }
   ]

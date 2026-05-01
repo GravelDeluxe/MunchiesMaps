@@ -261,7 +261,8 @@
         "id": 2939328866,
         "osm_type": "node",
         "name": "Zalaco",
-        "opening_hours": "Mo-Fr 05:00-17:00; Sa-Su off"
+        "opening_hours": "Mo-Fr 05:00-17:00; Sa-Su off",
+        "check_date": "2026-03-20"
       }
     },
     {
@@ -277,7 +278,8 @@
         "id": 2940356279,
         "osm_type": "node",
         "name": "Mini Pékség",
-        "opening_hours": "Mo-Fr 06:00-14:00; Sa-Su,PH off"
+        "opening_hours": "Mo-Fr 06:00-14:00; Sa-Su,PH off",
+        "check_date": "2024-03-30"
       }
     },
     {
@@ -293,7 +295,8 @@
         "id": 2978099629,
         "osm_type": "node",
         "name": "Zalaco pékség",
-        "opening_hours": "Mo-Fr 05:30-17:00; Sa 06:00-12:00; Su,PH off"
+        "opening_hours": "Mo-Fr 05:30-17:00; Sa 06:00-12:00; Su,PH off",
+        "check_date": "2025-04-12"
       }
     },
     {
@@ -355,8 +358,7 @@
       "properties": {
         "id": 3177333070,
         "osm_type": "node",
-        "name": "Zalaco pékség",
-        "opening_hours": "Mo-Fr 07:00-17:30; Sa 07:00-12:00"
+        "name": "A Pékmestertől"
       }
     },
     {
@@ -713,14 +715,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          16.5529156,
-          47.0066965
+          16.5531587,
+          47.0067984
         ]
       },
       "properties": {
         "id": 4933471877,
         "osm_type": "node",
-        "name": "Tranzit Kávézó"
+        "name": "Tranzit Kávézó",
+        "opening_hours": "Su-Th 11:00-22:00, Fr,Sa 11:00-24:00",
+        "outdoor_seating": "veranda"
       }
     },
     {
@@ -1010,7 +1014,8 @@
         "id": 6116761021,
         "osm_type": "node",
         "name": "Fincsi Pékség",
-        "opening_hours": "Mo-Fr 05:00-19:00; Sa 05:00-17:00; Su,PH off"
+        "opening_hours": "Mo-Fr 05:00-19:00; Sa 05:00-17:00; Su,PH off",
+        "check_date": "2024-03-30"
       }
     },
     {
@@ -1162,22 +1167,8 @@
         "osm_type": "node",
         "name": "Lili Nasi Büfé",
         "brand": "Pek-Snack",
-        "opening_hours": "04:30-19:30"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          16.6163785,
-          47.2286011
-        ]
-      },
-      "properties": {
-        "id": 10207082915,
-        "osm_type": "node",
-        "name": "Behari"
+        "opening_hours": "04:30-19:30",
+        "check_date": "2026-03-20"
       }
     },
     {
@@ -1426,7 +1417,8 @@
         "id": 13232285141,
         "osm_type": "node",
         "name": "Morzsázó",
-        "opening_hours": "Mo-Fr 08:00-16:30"
+        "opening_hours": "Mo-Fr 08:00-16:30",
+        "check_date": "2025-11-13"
       }
     },
     {
@@ -1458,6 +1450,22 @@
         "osm_type": "node",
         "name": "zalaco",
         "opening_hours": "Mo-Fr 06:30-17:00; Sa 06:30-12:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.6209942,
+          47.2326972
+        ]
+      },
+      "properties": {
+        "id": 13780094148,
+        "osm_type": "node",
+        "name": "Perecke Pékség",
+        "opening_hours": "Mo-Th 06:00-14:30; Fr 06:00-13:00; Sa,Su,PH off"
       }
     },
     {

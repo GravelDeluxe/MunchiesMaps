@@ -6,12 +6,45 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.998442,
-          46.9263447
+          9.1730755,
+          46.9222046
         ]
       },
       "properties": {
-        "id": 7787953730,
+        "id": 1634543292,
+        "osm_type": "node",
+        "vending": "sweets;drinks",
+        "brand": "Selecta",
+        "operator": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1289182,
+          47.1206121
+        ]
+      },
+      "properties": {
+        "id": 2425327267,
+        "osm_type": "node",
+        "vending": "drinks",
+        "brand": "Selecta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.0232737,
+          46.975953
+        ]
+      },
+      "properties": {
+        "id": 7692175125,
         "osm_type": "node",
         "vending": "food"
       }
@@ -21,14 +54,15 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.0021186,
-          46.9285169
+          8.998442,
+          46.9263447
         ]
       },
       "properties": {
-        "id": 12235235735,
+        "id": 7787953730,
         "osm_type": "node",
-        "vending": "food"
+        "vending": "food",
+        "check_date": "2024-02-04"
       }
     },
     {
@@ -53,38 +87,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          9.0232737,
-          46.975953
-        ]
-      },
-      "properties": {
-        "id": 7692175125,
-        "osm_type": "node",
-        "vending": "food"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.1730755,
-          46.9222046
-        ]
-      },
-      "properties": {
-        "id": 1634543292,
-        "osm_type": "node",
-        "vending": "sweets;drinks",
-        "brand": "Selecta",
-        "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           9.0770081,
           47.0330286
         ]
@@ -93,7 +95,38 @@
         "id": 9932354898,
         "osm_type": "node",
         "vending": "drinks;sweets;condoms;chewing_gums;food",
-        "brand": "Selecta"
+        "brand": "Selecta",
+        "check_date": "2024-11-13"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1277596,
+          47.1178467
+        ]
+      },
+      "properties": {
+        "id": 11176131689,
+        "osm_type": "node",
+        "vending": "drinks"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.0021186,
+          46.9285169
+        ]
+      },
+      "properties": {
+        "id": 12235235735,
+        "osm_type": "node",
+        "vending": "food"
       }
     },
     {
@@ -126,37 +159,6 @@
         "osm_type": "node",
         "vending": "snack",
         "operator": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.1289182,
-          47.1206121
-        ]
-      },
-      "properties": {
-        "id": 2425327267,
-        "osm_type": "node",
-        "vending": "drinks",
-        "brand": "Selecta"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          9.1277596,
-          47.1178467
-        ]
-      },
-      "properties": {
-        "id": 11176131689,
-        "osm_type": "node",
-        "vending": "drinks"
       }
     }
   ]

@@ -825,7 +825,8 @@
         "name": "Hotel \"Zum Zuber\"",
         "tourism": "hotel",
         "phone": "+49 37381 82004",
-        "website": "http://www.zum-zuber.de"
+        "website": "http://www.zum-zuber.de",
+        "check_date": "2026-04-29"
       }
     },
     {
@@ -894,7 +895,7 @@
         "osm_type": "node",
         "name": "Hotel und Restaurant \"Zur Lochmühle\"",
         "tourism": "hotel",
-        "opening_hours": "Mo-Fr 11:00-23:00; Sa 11:00-24:00; Su 11:00-21:00",
+        "opening_hours": "Th,Fr 11:00-22:00; Sa 11:00-24:00; Su 11:00-17:00; Mo-We 17:00-22:00",
         "phone": "+49 37381 66220",
         "website": "https://www.zur-lochmuehle.de"
       }
@@ -1126,8 +1127,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.9892034,
-          51.1558673
+          14.9891861,
+          51.1558696
         ]
       },
       "properties": {
@@ -23238,8 +23239,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.2869613,
-          50.9444457
+          14.2863652,
+          50.9447723
         ]
       },
       "properties": {
@@ -25322,23 +25323,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.6722088,
-          51.0600957
-        ]
-      },
-      "properties": {
-        "id": 5264142376,
-        "osm_type": "node",
-        "name": "Pension Naumann",
-        "tourism": "guest_house",
-        "contact:phone": "+49 351 4210865"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           14.7462313,
           50.9212327
         ]
@@ -26498,7 +26482,7 @@
         "name": "Pension Clärchen",
         "tourism": "guest_house",
         "phone": "+49 3733 24955",
-        "check_date": "2018-06"
+        "check_date": "2026-04-30"
       }
     },
     {
@@ -28152,8 +28136,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.1369396,
-          50.4948587
+          12.1369639,
+          50.4948677
         ]
       },
       "properties": {
@@ -44572,6 +44556,59 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          14.5327135,
+          51.5409219
+        ]
+      },
+      "properties": {
+        "id": 13751132039,
+        "osm_type": "node",
+        "name": "Kleine Pension",
+        "tourism": "guest_house",
+        "contact:phone": "+49 35773 76514",
+        "contact:website": "https://www.kleine-pension.com/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.0472879,
+          50.9315133
+        ]
+      },
+      "properties": {
+        "id": 13766600102,
+        "osm_type": "node",
+        "name": "Ferienwohnung Festungsblick",
+        "tourism": "apartment",
+        "phone": "+49 35021 60342",
+        "website": "http://www.ferienwohnungfestungsblick.de"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.8501005,
+          50.9721208
+        ]
+      },
+      "properties": {
+        "id": 13774100591,
+        "osm_type": "node",
+        "name": "Pension Zum Hirsch",
+        "tourism": "guest_house",
+        "contact:phone": "+49 37202 2443"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.8141595,
           50.8326789
         ]
@@ -45715,24 +45752,6 @@
         "tourism": "hotel",
         "opening_hours": "24/7",
         "check_date": "2025-07-28"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.6608142,
-          51.0636751
-        ]
-      },
-      "properties": {
-        "id": 28695200,
-        "osm_type": "way",
-        "name": "Zum Nussbaum Dresden",
-        "tourism": "hotel",
-        "contact:phone": "+49 351 427-3690",
-        "contact:website": "http://www.hotel-nussbaum-dresden.de"
       }
     },
     {
@@ -47773,8 +47792,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.3850314,
-          51.3565762
+          12.3849374,
+          51.3568943
         ]
       },
       "properties": {
@@ -50470,6 +50489,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.9706265,
+          51.5740708
+        ]
+      },
+      "properties": {
+        "id": 89980656,
+        "osm_type": "way",
+        "name": "Die 1A Pension",
+        "tourism": "guest_house"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.9292592,
           51.2748249
         ]
@@ -53111,8 +53146,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.7804135,
-          51.1071247
+          14.7804235,
+          51.1071084
         ]
       },
       "properties": {
@@ -58412,6 +58447,7 @@
       "properties": {
         "id": 166909247,
         "osm_type": "way",
+        "name": "Zur Lochmühle",
         "tourism": "hotel"
       }
     },
@@ -59198,7 +59234,7 @@
         "name": "Parkhotel Diani",
         "tourism": "hotel",
         "contact:phone": "+49 341 86740",
-        "contact:website": "https://www.parkhotel-diani.de/"
+        "contact:website": "https://www.parkhotel-diani.de"
       }
     },
     {
@@ -59677,8 +59713,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          14.6270836,
-          51.3244358
+          14.6270875,
+          51.3244425
         ]
       },
       "properties": {
@@ -60891,8 +60927,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.6666805,
-          51.0245168
+          12.6666798,
+          51.0245092
         ]
       },
       "properties": {
@@ -63739,6 +63775,22 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          14.7145137,
+          51.1133145
+        ]
+      },
+      "properties": {
+        "id": 225564643,
+        "osm_type": "way",
+        "name": "Pension \"Zum Schweizerhaus\"",
+        "tourism": "guest_house"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           13.6863716,
           50.7209398
         ]
@@ -65103,7 +65155,9 @@
         "id": 238544452,
         "osm_type": "way",
         "name": "Hotel-Pension Flechsig",
-        "tourism": "hotel"
+        "tourism": "hotel",
+        "contact:phone": "+49 (0)37602- 6342",
+        "contact:website": "http://www.hotel-pension-flechsig.de/"
       }
     },
     {
@@ -75966,6 +76020,24 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          13.760962,
+          51.062327
+        ]
+      },
+      "properties": {
+        "id": 895599297,
+        "osm_type": "way",
+        "name": "Hotel am Schwanenhaus",
+        "tourism": "hotel",
+        "phone": "+49 351 56 33 50 62",
+        "website": "https://www.hotel-am-schwanenhaus.de"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.1391191,
           50.4966724
         ]
@@ -76025,10 +76097,10 @@
       "properties": {
         "id": 919972472,
         "osm_type": "way",
-        "name": "Dormero Hotel am Theater",
+        "name": "Dormero",
         "tourism": "hotel",
-        "phone": "+49 3741 12 10",
-        "website": "https://www.dormero.de"
+        "contact:phone": "+49 3741 1210",
+        "contact:website": "https://www.dormero.de/hotel-plauen"
       }
     },
     {
