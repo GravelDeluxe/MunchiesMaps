@@ -779,19 +779,24 @@
     .leaflet-popup-content a { color: var(--btn-text); }
 
     .popup-content { font: 13px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 320px; color: var(--popup-text); }
-    .popup-header-row {
+    .popup-action-row {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
       gap: 8px;
       margin-bottom: 6px;
     }
-    .popup-header-row .popup-title {
-      flex: 1 1 auto;
+    .popup-category-wrap {
       min-width: 0;
+      overflow-wrap: anywhere;
     }
     .popup-title { font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .popup-title span { overflow-wrap: anywhere; }
+    .popup-title--full {
+      display: block;
+      width: 100%;
+      margin-top: 2px;
+    }
     .popup-hide-pill {
       flex: 0 0 auto;
       display: inline-flex;
@@ -810,7 +815,7 @@
     .popup-hide-pill:active { transform: translateY(1px); }
     .popup-hide-pill i { font-size: 10px; }
     @media (max-width: 480px) {
-      .popup-header-row { flex-wrap: wrap; }
+      .popup-action-row { flex-wrap: wrap; }
     }
     .popup-cat { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--muted); padding: 2px 8px; border-radius: 999px; border: 1px solid var(--popup-border); background: rgba(0,0,0,0.03); }
     .theme-dark .popup-cat { background: rgba(255,255,255,0.06); }
@@ -6148,12 +6153,18 @@
       const hideAction = poiVisibilityState.hideModeActive && popupPoiId
         ? `<button type="button" class="popup-hide-pill" data-poi-id="${escapeHtml(popupPoiId)}" data-action="${isRestoreAction ? 'restore' : 'hide'}"><i class="fa-solid ${isRestoreAction ? 'fa-rotate-left' : 'fa-eye-slash'}" aria-hidden="true"></i><span>${isRestoreAction ? 'Restore' : 'Hide'}</span></button>`
         : '';
-      return `
-        <div class="popup-content">
-          <div class="popup-header-row">
-            <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${escapeHtml(name)}</span></div>
+      const popupHeader = poiVisibilityState.hideModeActive
+        ? `
+          <div class="popup-action-row">
+            <div class="popup-category-wrap">${categoryBadge ? categoryBadge : ''}</div>
             ${hideAction}
           </div>
+          <div class="popup-title popup-title--full"><span>${escapeHtml(name)}</span></div>
+        `
+        : `<div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${escapeHtml(name)}</span></div>`;
+      return `
+        <div class="popup-content">
+          ${popupHeader}
           ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
           ${(accommodationTypeField || other) ? `<div class="popup-extra">${accommodationTypeField}${other}</div>` : ''}
           <div class="popup-footer">
