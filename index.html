@@ -1113,6 +1113,8 @@
                   </select>
                 </div>
                 <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved along the route at the selected detail level. A coarse surrounding map is included for context.</p>
+                <button type="button" class="gpx-import-action" id="loadRouteBackupBtn" hidden>Load Backup</button>
+                <button type="button" class="gpx-export" id="exportRouteBackupBtn" hidden>Export Backup</button>
               </div>
               <div class="gpx-error" id="gpxError" aria-live="polite"></div>
             </div>
@@ -4199,6 +4201,7 @@
       if (activeOfflineRouteId) return 'offline-route-package';
       if (activeRouteSource === 'gpx-cache') return 'gpx-cache';
       if (activeRouteSource === 'new-gpx-import') return 'new-gpx-import';
+      if (activeRouteSource === 'backup-import') return 'backup-import';
       return null;
     }
 
@@ -4338,6 +4341,17 @@
         offlineStatus.textContent = hasSaved ? 'Available offline' : 'No offline package saved';
       }
       updateSharePopoverGpxState();
+      updateRouteBackupControlsVisibility();
+    }
+
+    function updateRouteBackupControlsVisibility() {
+      const hasRoute = Boolean(gpxState.active);
+      const loadBtn = qs('#loadRouteBackupBtn');
+      const exportBtn = qs('#exportRouteBackupBtn');
+      if (loadBtn) loadBtn.classList.toggle('is-visible', !hasRoute);
+      if (exportBtn) exportBtn.classList.toggle('is-visible', hasRoute);
+      if (loadBtn) loadBtn.hidden = hasRoute;
+      if (exportBtn) exportBtn.hidden = !hasRoute;
     }
 
     function buildRawGpxFromTrackLatLngs() {
@@ -5629,6 +5643,55 @@
       URL.revokeObjectURL(url);
     }
 
+    function downloadRouteBackup(content, fileName) {
+      const blob = new Blob([content], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = fileName;
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+      URL.revokeObjectURL(url);
+    }
+
+    function buildRouteBackupPayload() {
+      const rawRouteText = typeof gpxState.rawText === 'string' ? gpxState.rawText.trim() : '';
+      if (!rawRouteText) return null;
+      const hiddenPoiIds = Array.from(poiVisibilityState.hiddenPoiIds || []);
+      const hiddenPoiSnapshots = hiddenPoiIds
+        .map((id) => {
+          const point = activePoints.find((entry) => String(entry?.id) === String(id));
+          if (!point || !Number.isFinite(point.lat) || !Number.isFinite(point.lng)) return null;
+          const props = point.propsRef || {};
+          return {
+            id: point.id,
+            lat: point.lat,
+            lng: point.lng,
+            categoryId: point.categoryId || null,
+            name: props.name || null,
+            osm_type: props.osm_type || null,
+            osm_id: props.osm_id || props.id || point.id || null,
+            properties: props
+          };
+        })
+        .filter(Boolean);
+      return {
+        schemaVersion: 1,
+        app: 'Munchies Maps',
+        type: 'munchies-route-backup',
+        createdAt: new Date().toISOString(),
+        routeHash: poiVisibilityState.routeHash || null,
+        gpxRaw: rawRouteText,
+        radiusMeters: gpxState.radiusMeters || null,
+        hiddenPoiIds,
+        hiddenPoiSnapshots,
+        selectedCategories: Array.from(filterState.kategorien || []),
+        selectedRegions: Array.from(filterState.bundeslaender || []),
+        activeRouteSource: activeRouteSource || null
+      };
+    }
+
     function setupGpxExportButton() {
       const exportBtn = document.getElementById('gpxExportBtn');
       const saveBtn = document.getElementById('gpxSaveBtn');
@@ -5636,6 +5699,8 @@
       const loadSavedBtn = document.getElementById('gpxLoadSavedBtn');
       const deleteSavedBtn = document.getElementById('gpxDeleteSavedBtn');
       const importNewBtn = document.getElementById('gpxImportNewBtn');
+      const loadRouteBackupBtn = document.getElementById('loadRouteBackupBtn');
+      const exportRouteBackupBtn = document.getElementById('exportRouteBackupBtn');
       setGpxUiMode(hasSavedGpxRoute() ? 'cache-found' : 'standard');
       refreshGpxUiState();
       if (exportBtn) {
@@ -5753,6 +5818,88 @@
         importNewBtn.addEventListener('click', () => {
           setGpxUiMode('import-open');
           refreshGpxUiState();
+        });
+      }
+      if (exportRouteBackupBtn) {
+        exportRouteBackupBtn.addEventListener('click', async () => {
+          const backup = buildRouteBackupPayload();
+          if (!backup) {
+            showMapToast('No route data available for backup');
+            return;
+          }
+          const now = new Date();
+          const dateStr = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}-${String(now.getUTCDate()).padStart(2, '0')}`;
+          const fileName = `munchies-route-backup-${dateStr}.munchies-route.json`;
+          const json = JSON.stringify(backup, null, 2);
+          if (navigator.share && typeof File !== 'undefined') {
+            try {
+              const file = new File([json], fileName, { type: 'application/json' });
+              if (navigator.canShare?.({ files: [file] })) {
+                await navigator.share({ files: [file], title: fileName });
+                return;
+              }
+            } catch (error) {
+              console.warn('Route backup share failed, using download fallback.', error);
+            }
+          }
+          downloadRouteBackup(json, fileName);
+        });
+      }
+      if (loadRouteBackupBtn) {
+        loadRouteBackupBtn.addEventListener('click', () => {
+          const input = document.createElement('input');
+          input.type = 'file';
+          input.accept = '.json,.munchies-route.json,application/json';
+          input.addEventListener('change', async () => {
+            const file = input.files?.[0];
+            if (!file) return;
+            try {
+              const text = await readFileAsText(file);
+              const backup = JSON.parse(text);
+              if (!backup?.schemaVersion || (backup?.type && backup.type !== 'munchies-route-backup')) {
+                showMapToast('Invalid route backup file');
+                return;
+              }
+              if (typeof backup.gpxRaw !== 'string' || !backup.gpxRaw.trim()) {
+                showMapToast('Backup is missing route data');
+                return;
+              }
+              const hiddenPoiIds = Array.isArray(backup.hiddenPoiIds) ? backup.hiddenPoiIds : [];
+              await handleGpxApply({
+                rawGpxText: backup.gpxRaw,
+                routeSource: 'backup-import',
+                hiddenPoiIds,
+                uiModeAfterApply: 'import-open',
+                skipFitToTrack: false,
+                autoSelectRegions: true
+              });
+              if (Number.isFinite(Number(backup.radiusMeters)) && Number(backup.radiusMeters) > 0) {
+                const radiusKm = clampRadiusKm(Number(backup.radiusMeters) / 1000);
+                gpxState.radiusMeters = radiusKm * 1000;
+                const radiusInput = document.getElementById('gpxRadiusKm');
+                if (radiusInput) radiusInput.value = radiusKm.toFixed(1);
+              }
+              if (Array.isArray(backup.selectedCategories)) {
+                filterState.kategorien = new Set(backup.selectedCategories.filter((entry) => typeof entry === 'string' && entry.trim()));
+              }
+              if (Array.isArray(backup.selectedRegions)) {
+                filterState.bundeslaender = new Set(backup.selectedRegions.filter((entry) => typeof entry === 'string' && entry.trim()));
+              }
+              poiVisibilityState.hiddenPoiIds = new Set(hiddenPoiIds);
+              poiVisibilityState.hideModeActive = false;
+              poiVisibilityState.hideMultipleActive = false;
+              poiVisibilityState.showHiddenActive = false;
+              poiVisibilityState.unsavedChanges = false;
+              updatePoiHideControlsVisibility();
+              updateRouteBackupControlsVisibility();
+              await applyCurrentMapFiltersAndClustering({ reason: 'backup-import', refreshRouteClustering: true });
+              showMapToast('Route backup loaded');
+            } catch (error) {
+              console.error('Route backup import failed', error);
+              showMapToast('Could not load route backup');
+            }
+          });
+          input.click();
         });
       }
     }
