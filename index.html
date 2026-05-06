@@ -185,7 +185,8 @@
     }
     #layerDrawerToggle,
     #locateButton,
-    #shareMainBtn {
+    #shareMainBtn,
+    #poiHideToggleBtn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -203,7 +204,14 @@
     }
     #layerDrawerToggle:active,
     #locateButton:active,
-    #shareMainBtn:active { transform: translateY(1px); }
+    #shareMainBtn:active,
+    #poiHideToggleBtn:active { transform: translateY(1px); }
+    #poiHideToggleBtn.is-active { outline: 2px solid #38bdf8; }
+    .poi-hide-menu { position: fixed; top: 14px; right: 14px; z-index: 1065; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--btn-shadow); padding: 8px; display: grid; gap: 6px; }
+    .poi-hide-menu button { border: 1px solid var(--btn-border); background: var(--action-bg); color: var(--text); border-radius: 8px; padding: 6px 8px; font-weight: 650; text-align: left; }
+    .mm-marker--hidden { filter: grayscale(1); opacity: 0.45; }
+    .popup-content { position: relative; }
+    .popup-hide-action { position: absolute; top: 4px; right: 6px; border: 1px solid var(--btn-border); background: var(--action-bg); border-radius: 6px; padding: 2px 6px; font-size: 12px; cursor: pointer; }
     #locateButton.is-loading {
       opacity: 0.75;
     }
@@ -923,6 +931,9 @@
       <div class="map-subtitle">Night-friendly stops for your ride</div>
     </div>
     <div class="map-controls-br">
+      <button id="poiHideToggleBtn" type="button" class="poi-hide-toggle" aria-label="Toggle POI hide mode" title="POI hide mode" hidden>
+        <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+      </button>
       <button id="locateButton" type="button" aria-label="Center map on my location">
         <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
       </button>
@@ -943,6 +954,12 @@
       </button>
     </div>
     <div id="mapToast" class="map-toast" role="status" aria-live="polite"></div>
+    <div id="poiHideMenu" class="poi-hide-menu" hidden>
+      <button type="button" data-action="show-hidden">Show hidden</button>
+      <button type="button" data-action="restore-hidden">Restore hidden</button>
+      <button type="button" data-action="hide-multiple">Hide multiple</button>
+      <button type="button" data-action="save-hidden">Save changes</button>
+    </div>
     <div id="layerDrawerBackdrop" aria-hidden="true"></div>
   <aside id="layerDrawer" class="menu" aria-hidden="true" aria-label="Filters">
     <div class="menu-header">
@@ -2605,6 +2622,21 @@
     map.on('popupopen', (e) => {
       const popupEl = e.popup && e.popup.getElement ? e.popup.getElement() : null;
       if (!popupEl) return;
+      const hideActionBtn = popupEl.querySelector('.popup-hide-action');
+      if (hideActionBtn) {
+        hideActionBtn.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const poiId = hideActionBtn.getAttribute('data-poi-id');
+          const action = hideActionBtn.getAttribute('data-action');
+          if (!poiId) return;
+          if (action === 'restore') poiVisibilityState.hiddenPoiIds.delete(poiId);
+          else poiVisibilityState.hiddenPoiIds.add(poiId);
+          poiVisibilityState.unsavedChanges = true;
+          map.closePopup();
+          applyCurrentMapFiltersAndClustering({ reason: 'popup-hide-toggle' });
+        });
+      }
       const link = popupEl.querySelector('a.open-gmaps');
       if (!link) return;
 
@@ -2785,6 +2817,15 @@
     const POI_FIELD_LABELS = {
       check_date: 'Last checked'
     };
+    const poiVisibilityState = {
+      hideModeActive: false,
+      hideMultipleActive: false,
+      showHiddenActive: false,
+      hiddenPoiIds: new Set(),
+      unsavedChanges: false,
+      routeHash: null
+    };
+
     const gpxState = {
       points: [],
       sampledPoints: [],
@@ -2883,18 +2924,15 @@
       return `${bundeslandId}__${categoryId}`;
     }
 
-    function stablePoiId(feature, datasetKey) {
+    function getPoiStableId(feature, datasetKey) {
       if (!feature || !datasetKey) return null;
       const props = feature.properties || {};
-      const candidates = [
-        feature.id,
-        props.osm_id,
-        props['@id'],
-        props.id
-      ];
-      const stableSource = candidates.find((value) => value !== undefined && value !== null && String(value).trim() !== '');
+      const osmType = String(props.osm_type || '').trim().toLowerCase();
+      const typePrefix = (osmType === 'node' || osmType === 'way' || osmType === 'relation') ? osmType[0] : 'u';
+      const categoryToken = String(props.categoryID || props.categoryId || props.category || 'uncat').trim();
+      const stableSource = [props.id, props.osm_id, feature.id, props['@id']].find((value) => value !== undefined && value !== null && String(value).trim() !== '');
       if (stableSource != null) {
-        return `${datasetKey}-${String(stableSource)}`;
+        return `${datasetKey}-${categoryToken}-${typePrefix}-${String(stableSource)}`;
       }
       const coords = feature.geometry?.coordinates || [];
       const lon = Number(coords[0]);
@@ -2902,7 +2940,7 @@
       if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
       const normLon = lon.toFixed(6);
       const normLat = lat.toFixed(6);
-      return `${datasetKey}-${normLon}-${normLat}`;
+      return `${datasetKey}-${categoryToken}-${typePrefix}-${normLon}-${normLat}`;
     }
 
     function normalizeTextToken(value) {
@@ -5956,8 +5994,14 @@
       const mapyHref = categoryId === 'shelters'
         ? `https://mapy.com/en/zakladni?x=${encodeURIComponent(lng)}&y=${encodeURIComponent(lat)}&z=17`
         : '';
+      const popupPoiId = getPoiStableId({ properties: p }, `${p.bundeslandId || ''}__${p.categoryId || categoryId || ''}`);
+      const isHidden = popupPoiId ? poiVisibilityState.hiddenPoiIds.has(popupPoiId) : false;
+      const hideAction = poiVisibilityState.hideModeActive && popupPoiId
+        ? `<button type="button" class="popup-hide-action" data-poi-id="${escapeHtml(popupPoiId)}" data-action="${isHidden && poiVisibilityState.showHiddenActive ? 'restore' : 'hide'}">${isHidden && poiVisibilityState.showHiddenActive ? '↺' : '✕'}</button>`
+        : '';
       return `
         <div class="popup-content">
+          ${hideAction}
           <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${escapeHtml(name)}</span></div>
           ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
           ${(accommodationTypeField || other) ? `<div class="popup-extra">${accommodationTypeField}${other}</div>` : ''}
@@ -6284,6 +6328,17 @@
         return cached.marker;
       }
       const marker = L.marker([lat, lng], { icon: markerIcon });
+      marker.on('click', (event) => {
+        if (!(poiVisibilityState.hideModeActive && poiVisibilityState.hideMultipleActive)) return;
+        poiVisibilityState.hiddenPoiIds.add(id);
+        poiVisibilityState.unsavedChanges = true;
+        if (event?.originalEvent) {
+          event.originalEvent.preventDefault();
+          event.originalEvent.stopPropagation();
+        }
+        marker.closePopup();
+        applyCurrentMapFiltersAndClustering({ reason: 'hide-multiple-tap' });
+      });
       marker.bindPopup(() => popupHtml(propsRef, categoryId, lat, lng));
       marker.options.poiData = {
         name: propsRef?.name,
@@ -6295,6 +6350,11 @@
         url: propsRef?.url
       };
       markerCache.set(id, { marker, lastUsed: renderCounter });
+      marker.on('add', () => {
+        const el = marker.getElement?.();
+        if (!el) return;
+        el.classList.toggle('mm-marker--hidden', poiVisibilityState.hiddenPoiIds.has(id) && poiVisibilityState.showHiddenActive);
+      });
       return marker;
     }
 
@@ -6365,11 +6425,15 @@
       const points = getVisiblePointIndices(bounds, paddingPx)
         .map((idx) => activePoints[idx])
         .filter(Boolean);
+      const visibilityFiltered = points.filter((point) => {
+        const isHidden = poiVisibilityState.hiddenPoiIds.has(point.id);
+        return !isHidden || poiVisibilityState.showHiddenActive;
+      });
       if (!appState.showBadges || !appState.hideNoBadges) {
-        return points;
+        return visibilityFiltered;
       }
       const badgeMemo = new Map();
-      return points.filter((point) => {
+      return visibilityFiltered.filter((point) => {
         if (!point) return false;
         if (!badgeMemo.has(point.id)) {
           badgeMemo.set(point.id, getBadgeType(point.categoryId, point.propsRef));
@@ -6632,7 +6696,7 @@
           const lon = Number(coords[0]);
           const lat = Number(coords[1]);
           if (Number.isFinite(lat) && Number.isFinite(lon)) {
-            const poiId = stablePoiId(f, entryKey);
+            const poiId = getPoiStableId(f, entryKey);
             if (!poiId) continue;
             points.push({ id: poiId, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
           }
@@ -6660,7 +6724,7 @@
             const lon = Number(coords[0]);
             const lat = Number(coords[1]);
             if (Number.isFinite(lat) && Number.isFinite(lon)) {
-              const poiId = stablePoiId(f, key);
+              const poiId = getPoiStableId(f, key);
               if (!poiId) continue;
               points.push({ id: poiId, lat, lng: lon, categoryId: f.properties?.categoryId, propsRef: f.properties });
             }
@@ -6717,6 +6781,12 @@
 
     function resetGpxState() {
       gpxState.active = false;
+      poiVisibilityState.hideModeActive = false;
+      poiVisibilityState.hideMultipleActive = false;
+      poiVisibilityState.showHiddenActive = false;
+      poiVisibilityState.hiddenPoiIds.clear();
+      poiVisibilityState.unsavedChanges = false;
+      poiVisibilityState.routeHash = null;
       gpxState.points = [];
       gpxState.sampledPoints = [];
       gpxState.radiusMeters = DEFAULT_GPX_RADIUS_KM * 1000;
@@ -6740,6 +6810,7 @@
       if (err) err.textContent = '';
       setGpxUiMode(hasSavedGpxRoute() ? 'cache-found' : 'standard');
       refreshGpxUiState();
+      syncPoiHideUi();
       refreshRouteDependentClustering({ reason: 'gpx-reset' });
     }
 
@@ -6804,6 +6875,13 @@
       gpxState.geoJson = gpxGeoJson;
       gpxState.rawText = gpxRawText;
       gpxState.active = true;
+      poiVisibilityState.routeHash = simpleStableHash(gpxRawText || trackPoints.map((pt) => `${pt.lat},${pt.lon}`).join('|'));
+      try {
+        const saved = JSON.parse(localStorage.getItem(`munchies:hiddenPois:${poiVisibilityState.routeHash}`) || '[]');
+        poiVisibilityState.hiddenPoiIds = new Set(Array.isArray(saved) ? saved : []);
+      } catch (err) {
+        poiVisibilityState.hiddenPoiIds = new Set();
+      }
       appState.hasImportedGpx = true;
       appState.clusterThresholdManual = false;
       appState.clusterThresholdAutoDirty = true;
@@ -6839,6 +6917,7 @@
       }
       setGpxUiMode(uiModeAfterApply);
       refreshGpxUiState();
+      syncPoiHideUi();
 
       await applyCurrentMapFiltersAndClustering({
         reason: hasFittedToTrack ? 'gpx-import-after-fit' : 'gpx-import-no-fit',
@@ -7066,6 +7145,30 @@
 
     setupIntroPopup();
     on(qs('#locateButton'), 'click', () => goToUserLocation());
+    function simpleStableHash(text) {
+      const input = String(text || '');
+      let h = 2166136261;
+      for (let i = 0; i < input.length; i++) { h ^= input.charCodeAt(i); h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24); }
+      return (h >>> 0).toString(16);
+    }
+    function syncPoiHideUi() {
+      const btn = qs('#poiHideToggleBtn');
+      const menu = qs('#poiHideMenu');
+      const hasRoute = Boolean(gpxState.active || appState.hasImportedGpx);
+      if (btn) { btn.hidden = !hasRoute; btn.classList.toggle('is-active', poiVisibilityState.hideModeActive); }
+      if (menu) menu.hidden = !(hasRoute && poiVisibilityState.hideModeActive);
+    }
+    on(qs('#poiHideToggleBtn'), 'click', () => { poiVisibilityState.hideModeActive = !poiVisibilityState.hideModeActive; syncPoiHideUi(); });
+    on(qs('#poiHideMenu'), 'click', (event) => {
+      const action = event?.target?.getAttribute?.('data-action');
+      if (!action) return;
+      if (action === 'show-hidden') poiVisibilityState.showHiddenActive = !poiVisibilityState.showHiddenActive;
+      if (action === 'restore-hidden') { poiVisibilityState.hiddenPoiIds.clear(); poiVisibilityState.unsavedChanges = true; showMapToast('All hidden POIs restored'); }
+      if (action === 'hide-multiple') { poiVisibilityState.hideMultipleActive = !poiVisibilityState.hideMultipleActive; if (poiVisibilityState.hideMultipleActive) showMapToast('You can now hide POIs by one single tap on the icon'); }
+      if (action === 'save-hidden' && poiVisibilityState.routeHash) { localStorage.setItem(`munchies:hiddenPois:${poiVisibilityState.routeHash}`, JSON.stringify(Array.from(poiVisibilityState.hiddenPoiIds))); poiVisibilityState.unsavedChanges = false; showMapToast('POI visibility saved for this route'); }
+      applyCurrentMapFiltersAndClustering({ reason: `poi-hide-${action}` });
+      syncPoiHideUi();
+    });
     runRegionStateSelfChecks();
 
     (async () => {
