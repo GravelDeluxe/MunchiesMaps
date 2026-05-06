@@ -4154,8 +4154,48 @@
       }
     }
 
+    const GPX_CACHE_STORAGE_KEY = 'munchiesmaps_cached_gpx_route_v2';
     let offlineRouteIndex = [];
     let activeOfflineRouteId = null;
+    let activeRouteSource = null;
+
+    function getActiveRouteStorageKind() {
+      if (activeOfflineRouteId) return 'offline-route-package';
+      if (activeRouteSource === 'gpx-cache') return 'gpx-cache';
+      if (activeRouteSource === 'new-gpx-import') return 'new-gpx-import';
+      return null;
+    }
+
+    function getCachedGpxRoute() {
+      const raw = localStorage.getItem(GPX_CACHE_STORAGE_KEY);
+      if (!raw) return null;
+      try {
+        const parsed = JSON.parse(raw);
+        if (typeof parsed === 'string') {
+          return { gpxRaw: parsed, hiddenPoiIds: [] };
+        }
+        if (parsed && typeof parsed === 'object') {
+          const gpxRaw = typeof parsed.gpxRaw === 'string' ? parsed.gpxRaw : '';
+          const hiddenPoiIds = Array.isArray(parsed.hiddenPoiIds) ? parsed.hiddenPoiIds : [];
+          return { ...parsed, gpxRaw, hiddenPoiIds };
+        }
+      } catch (_) {
+        return { gpxRaw: raw, hiddenPoiIds: [] };
+      }
+      return null;
+    }
+
+    function setCachedGpxRoute(route) {
+      localStorage.setItem(GPX_CACHE_STORAGE_KEY, JSON.stringify(route));
+    }
+
+    function saveCachedGpxRoutePatch(patch = {}) {
+      const current = getCachedGpxRoute();
+      if (!current || typeof current.gpxRaw !== 'string' || !current.gpxRaw.trim()) return false;
+      const next = { ...current, ...patch };
+      setCachedGpxRoute(next);
+      return true;
+    }
 
     async function listSavedOfflineRoutes() {
       if (!window.offlineRouteStore) return [];
@@ -4175,7 +4215,7 @@
     }
 
     function hasSavedGpxRoute() {
-      return offlineRouteIndex.length > 0;
+      return offlineRouteIndex.length > 0 || Boolean(getCachedGpxRoute()?.gpxRaw);
     }
 
     function setGpxUiMode(mode) {
@@ -4866,7 +4906,9 @@
         const pkg = await buildOfflineRoutePackage(rawText, { onProgress });
         if (!pkg) return { ok: false, reason: 'package-failed' };
         await window.offlineRouteStore.saveOfflineRoute(pkg);
+        setCachedGpxRoute({ gpxRaw: rawText, hiddenPoiIds: Array.from(poiVisibilityState.hiddenPoiIds || []) });
         activeOfflineRouteId = pkg.id;
+        activeRouteSource = 'offline-route-package';
         await listSavedOfflineRoutes();
         setGpxUiMode('cache-found');
         refreshGpxUiState();
@@ -5180,6 +5222,19 @@
     }
 
     async function loadSavedRouteFromCache() {
+      const cached = getCachedGpxRoute();
+      if (cached?.gpxRaw) {
+        activeOfflineRouteId = null;
+        await handleGpxApply({
+          rawGpxText: cached.gpxRaw,
+          skipFitToTrack: false,
+          autoSelectRegions: true,
+          uiModeAfterApply: 'cache-found',
+          routeSource: 'gpx-cache',
+          hiddenPoiIds: Array.isArray(cached.hiddenPoiIds) ? cached.hiddenPoiIds : []
+        });
+        return true;
+      }
       const pkg = await getMostRecentSavedRoute();
       if (!pkg) return false;
       return renderOfflineRoutePackage(pkg);
@@ -5213,10 +5268,13 @@
     }
 
     async function clearSavedRouteCache() {
+      localStorage.removeItem(GPX_CACHE_STORAGE_KEY);
       const pkg = await getMostRecentSavedRoute();
-      if (!pkg) return;
-      await window.offlineRouteStore.deleteOfflineRoute(pkg.id);
+      if (pkg) {
+        await window.offlineRouteStore.deleteOfflineRoute(pkg.id);
+      }
       activeOfflineRouteId = null;
+      activeRouteSource = null;
       await listSavedOfflineRoutes();
       setGpxUiMode('standard');
       refreshGpxUiState();
@@ -5225,6 +5283,7 @@
     function renderOfflineRoutePackage(pkg) {
       if (!pkg?.route?.latlngs?.length) return false;
       activeOfflineRouteId = pkg.id || null;
+      activeRouteSource = 'offline-route-package';
       const shouldUseOfflineTexture = navigator.onLine === false;
       const hasTileTexture = pkg?.mapTexture?.type === 'tiles' && Array.isArray(pkg?.mapTexture?.tiles) && pkg.mapTexture.tiles.length > 0;
       if (shouldUseOfflineTexture) {
@@ -6816,6 +6875,7 @@
       poiVisibilityState.hiddenPoiIds.clear();
       poiVisibilityState.unsavedChanges = false;
       poiVisibilityState.routeHash = null;
+      activeRouteSource = null;
       gpxState.points = [];
       gpxState.sampledPoints = [];
       gpxState.radiusMeters = DEFAULT_GPX_RADIUS_KM * 1000;
@@ -6843,7 +6903,7 @@
       refreshRouteDependentClustering({ reason: 'gpx-reset' });
     }
 
-    async function handleGpxApply({ rawGpxText = null, skipFitToTrack = false, autoSelectRegions = true, uiModeAfterApply = 'import-open' } = {}) {
+    async function handleGpxApply({ rawGpxText = null, skipFitToTrack = false, autoSelectRegions = true, uiModeAfterApply = 'import-open', routeSource = 'new-gpx-import', hiddenPoiIds = null } = {}) {
       const errorEl = document.getElementById('gpxError');
       const radiusInput = document.getElementById('gpxRadiusKm');
       const fileInput = document.getElementById('gpxFileInput');
@@ -6897,8 +6957,8 @@
         return;
       }
 
-      const shouldRestoreSavedHiddenPois = Boolean(savedRoute && Array.isArray(savedRoute.hiddenPoiIds));
-      resetPoiVisibilityState();
+      const shouldRestoreSavedHiddenPois = Array.isArray(hiddenPoiIds);
+      resetPoiVisibilityState({ clearHidden: routeSource === 'new-gpx-import' });
       gpxState.points = trackPoints;
       gpxState.sampledPoints = sampled;
       gpxState.radiusMeters = radiusMeters;
@@ -6907,8 +6967,10 @@
       gpxState.rawText = gpxRawText;
       gpxState.active = true;
       poiVisibilityState.routeHash = simpleStableHash(gpxRawText || trackPoints.map((pt) => `${pt.lat},${pt.lon}`).join('|'));
+      activeRouteSource = routeSource;
+      activeOfflineRouteId = routeSource === 'offline-route-package' ? activeOfflineRouteId : null;
       if (shouldRestoreSavedHiddenPois) {
-        poiVisibilityState.hiddenPoiIds = new Set(savedRoute.hiddenPoiIds);
+        poiVisibilityState.hiddenPoiIds = new Set(hiddenPoiIds);
       }
       updatePoiHideControlsVisibility();
       appState.hasImportedGpx = true;
@@ -7229,14 +7291,25 @@
       if (action === 'show-hidden') poiVisibilityState.showHiddenActive = !poiVisibilityState.showHiddenActive;
       if (action === 'restore-hidden') { poiVisibilityState.hiddenPoiIds.clear(); poiVisibilityState.unsavedChanges = true; showMapToast('All hidden POIs restored'); }
       if (action === 'hide-multiple') { poiVisibilityState.hideMultipleActive = !poiVisibilityState.hideMultipleActive; if (poiVisibilityState.hideMultipleActive) showMapToast('You can now hide POIs by one single tap on the icon'); }
-      if (action === 'save-hidden' && activeOfflineRouteId && window.offlineRouteStore) {
-        const pkg = await window.offlineRouteStore.loadOfflineRoute(activeOfflineRouteId);
-        if (pkg) {
-          pkg.hiddenPoiIds = Array.from(poiVisibilityState.hiddenPoiIds);
-          await window.offlineRouteStore.saveOfflineRoute(pkg);
-          poiVisibilityState.unsavedChanges = false;
-          showMapToast('POI visibility saved for this route');
-          await listSavedOfflineRoutes();
+      if (action === 'save-hidden') {
+        const storageKind = getActiveRouteStorageKind();
+        if (storageKind === 'offline-route-package' && activeOfflineRouteId && window.offlineRouteStore) {
+          const pkg = await window.offlineRouteStore.loadOfflineRoute(activeOfflineRouteId);
+          if (pkg) {
+            pkg.hiddenPoiIds = Array.from(poiVisibilityState.hiddenPoiIds);
+            await window.offlineRouteStore.saveOfflineRoute(pkg);
+            poiVisibilityState.unsavedChanges = false;
+            showMapToast('POI visibility saved for this route');
+            await listSavedOfflineRoutes();
+          }
+        } else if (storageKind === 'gpx-cache') {
+          const ok = saveCachedGpxRoutePatch({ hiddenPoiIds: Array.from(poiVisibilityState.hiddenPoiIds) });
+          if (ok) {
+            poiVisibilityState.unsavedChanges = false;
+            showMapToast('POI visibility saved for this route');
+          }
+        } else if (storageKind === 'new-gpx-import') {
+          showMapToast('POI visibility changes apply to this unsaved route only');
         }
       }
       applyCurrentMapFiltersAndClustering({ reason: `poi-hide-${action}` });
