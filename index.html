@@ -1082,9 +1082,14 @@
               <div class="gpx-cache-actions" id="gpxCacheActions">
                 <div class="gpx-cache-primary-actions">
                   <button type="button" class="gpx-import-action" id="gpxLoadSavedBtn">Load saved route</button>
+                  <button type="button" class="gpx-import-action" id="gpxImportNewBtn">Import GPX</button>
+                  <button type="button" class="gpx-import-action" id="loadRouteBackupBtn" hidden>Load Backup</button>
+                  <button type="button" class="gpx-export" id="gpxSaveBtn">Save Route</button>
+                  <button type="button" class="gpx-import-action" id="gpxRemoveRouteBtn">Remove route from map</button>
                   <button type="button" class="gpx-import-action" id="gpxDeleteSavedBtn">Delete saved route</button>
+                  <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
+                  <button type="button" class="gpx-export" id="exportRouteBackupBtn" hidden>Export Backup</button>
                 </div>
-                <button type="button" class="gpx-import-action" id="gpxImportNewBtn">Import new</button>
                 <div class="share-popover-helper" id="offlineRouteStatus">Available offline</div>
               </div>
               <div class="gpx-import-menu" id="gpxImportMenu">
@@ -1099,8 +1104,6 @@
                   </div>
                   <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
                 </div>
-                <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
-                <button type="button" class="gpx-export" id="gpxSaveBtn">Save route</button>
                 <button type="button" class="gpx-export" id="gpxRefreshTilesBtn">Refresh offline map tiles</button>
                 <div id="offlineSaveProgress" class="option-helper" aria-live="polite"></div>
                 <div class="gpx-row">
@@ -1114,10 +1117,6 @@
                   </select>
                 </div>
                 <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved along the route at the selected detail level. A coarse surrounding map is included for context.</p>
-              </div>
-              <div class="route-backup-actions" id="routeBackupActions">
-                <button type="button" class="gpx-import-action" id="loadRouteBackupBtn" hidden>Load Backup</button>
-                <button type="button" class="gpx-export" id="exportRouteBackupBtn" hidden>Export Backup</button>
               </div>
               <div class="gpx-error" id="gpxError" aria-live="polite"></div>
             </div>
@@ -4304,59 +4303,75 @@
       return gpxState.uiMode;
     }
 
+    function routeHasUnsavedChanges() {
+      return Boolean(poiVisibilityState.unsavedChanges);
+    }
+
     function refreshGpxUiState() {
       const exportBtn = document.getElementById('gpxExportBtn');
       const saveBtn = document.getElementById('gpxSaveBtn');
       const loadSavedBtn = document.getElementById('gpxLoadSavedBtn');
       const deleteSavedBtn = document.getElementById('gpxDeleteSavedBtn');
       const importNewBtn = document.getElementById('gpxImportNewBtn');
+      const removeRouteBtn = document.getElementById('gpxRemoveRouteBtn');
+      const loadBackupBtn = document.getElementById('loadRouteBackupBtn');
+      const exportBackupBtn = document.getElementById('exportRouteBackupBtn');
       const offlineStatus = document.getElementById('offlineRouteStatus');
-      const cacheActions = document.getElementById('gpxCacheActions');
-      const importMenu = document.getElementById('gpxImportMenu');
-      const isVisible = Boolean(appState?.hasImportedGpx);
+      const hasRoute = Boolean(gpxState.active);
       const hasSaved = hasSavedGpxRoute();
-      const showCacheActions = hasSaved && gpxState.uiMode === 'cache-found';
-      const showImportMenu = !hasSaved || gpxState.uiMode !== 'cache-found';
-      if (cacheActions) {
-        cacheActions.classList.toggle('is-visible', showCacheActions);
-      }
-      if (importMenu) {
-        importMenu.classList.toggle('is-visible', showImportMenu);
-      }
-      if (exportBtn) {
-        exportBtn.classList.toggle('is-visible', isVisible);
-        exportBtn.disabled = !isVisible;
-      }
-      if (saveBtn) {
-        saveBtn.classList.add('is-visible');
-        saveBtn.disabled = !isVisible;
-      }
-      if (loadSavedBtn) {
-        loadSavedBtn.classList.toggle('is-visible', showCacheActions);
-      }
-      if (deleteSavedBtn) {
-        deleteSavedBtn.classList.toggle('is-visible', showCacheActions);
-      }
+      const unsavedChanges = routeHasUnsavedChanges();
+      const storageKind = getActiveRouteStorageKind();
+
+      if (loadSavedBtn) loadSavedBtn.classList.toggle('is-visible', hasSaved && !hasRoute);
+
       if (importNewBtn) {
-        importNewBtn.classList.toggle('is-visible', showCacheActions);
+        importNewBtn.classList.add('is-visible');
+        importNewBtn.textContent = (!hasRoute && !hasSaved) ? 'Import GPX' : 'Import new GPX';
       }
+
+      if (loadBackupBtn) {
+        loadBackupBtn.classList.toggle('is-visible', !hasRoute);
+        loadBackupBtn.hidden = hasRoute;
+      }
+
+      if (saveBtn) {
+        if (!hasRoute) {
+          saveBtn.classList.remove('is-visible');
+          saveBtn.hidden = true;
+          saveBtn.disabled = true;
+        } else {
+          saveBtn.classList.add('is-visible');
+          saveBtn.hidden = false;
+          if (storageKind === 'offline-route-package' || storageKind === 'gpx-cache') {
+            if (unsavedChanges) {
+              saveBtn.textContent = 'Update saved route';
+              saveBtn.disabled = false;
+            } else {
+              saveBtn.textContent = 'Saved';
+              saveBtn.disabled = true;
+            }
+          } else {
+            saveBtn.textContent = 'Save Route';
+            saveBtn.disabled = false;
+          }
+        }
+      }
+
+      if (removeRouteBtn) removeRouteBtn.classList.toggle('is-visible', hasRoute);
+      if (deleteSavedBtn) deleteSavedBtn.classList.toggle('is-visible', hasSaved);
+      if (exportBtn) {
+        exportBtn.classList.toggle('is-visible', hasRoute);
+        exportBtn.disabled = !hasRoute;
+      }
+      if (exportBackupBtn) {
+        exportBackupBtn.classList.toggle('is-visible', hasRoute);
+        exportBackupBtn.hidden = !hasRoute;
+      }
+
       if (offlineStatus) {
         offlineStatus.textContent = hasSaved ? 'Available offline' : 'No offline package saved';
       }
       updateSharePopoverGpxState();
-      updateRouteBackupControlsVisibility();
-    }
-
-    function updateRouteBackupControlsVisibility() {
-      const hasRoute = Boolean(gpxState.active);
-      const loadBtn = qs('#loadRouteBackupBtn');
-      const exportBtn = qs('#exportRouteBackupBtn');
-      const actions = qs('#routeBackupActions');
-      if (loadBtn) loadBtn.classList.toggle('is-visible', !hasRoute);
-      if (exportBtn) exportBtn.classList.toggle('is-visible', hasRoute);
-      if (loadBtn) loadBtn.hidden = hasRoute;
-      if (exportBtn) exportBtn.hidden = !hasRoute;
-      if (actions) actions.classList.toggle('has-route', hasRoute);
     }
 
     function buildRawGpxFromTrackLatLngs() {
@@ -5742,6 +5757,7 @@
       const loadSavedBtn = document.getElementById('gpxLoadSavedBtn');
       const deleteSavedBtn = document.getElementById('gpxDeleteSavedBtn');
       const importNewBtn = document.getElementById('gpxImportNewBtn');
+      const removeRouteBtn = document.getElementById('gpxRemoveRouteBtn');
       const loadRouteBackupBtn = document.getElementById('loadRouteBackupBtn');
       const exportRouteBackupBtn = document.getElementById('exportRouteBackupBtn');
       setGpxUiMode(hasSavedGpxRoute() ? 'cache-found' : 'standard');
@@ -5850,6 +5866,12 @@
             });
         });
       }
+      if (removeRouteBtn) {
+        removeRouteBtn.addEventListener('click', () => {
+          resetGpxState();
+          showMapToast('Route removed from map.');
+        });
+      }
       if (deleteSavedBtn) {
         deleteSavedBtn.addEventListener('click', async () => {
           if (!hasSavedGpxRoute()) return;
@@ -5934,7 +5956,7 @@
               poiVisibilityState.showHiddenActive = false;
               poiVisibilityState.unsavedChanges = false;
               updatePoiHideControlsVisibility();
-              updateRouteBackupControlsVisibility();
+              refreshGpxUiState();
               await applyCurrentMapFiltersAndClustering({ reason: 'backup-import', refreshRouteClustering: true });
               showMapToast('Route backup loaded');
             } catch (error) {
