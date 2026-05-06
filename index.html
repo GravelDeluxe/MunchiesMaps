@@ -4317,10 +4317,16 @@
       const loadBackupBtn = document.getElementById('loadRouteBackupBtn');
       const exportBackupBtn = document.getElementById('exportRouteBackupBtn');
       const offlineStatus = document.getElementById('offlineRouteStatus');
+      const cacheActions = document.getElementById('gpxCacheActions');
+      const importMenu = document.getElementById('gpxImportMenu');
       const hasRoute = Boolean(gpxState.active);
       const hasSaved = hasSavedGpxRoute();
+      const showImportMenu = (!hasRoute && !hasSaved) || gpxState.uiMode === 'import-open';
       const unsavedChanges = routeHasUnsavedChanges();
       const storageKind = getActiveRouteStorageKind();
+
+      if (cacheActions) cacheActions.classList.add('is-visible');
+      if (importMenu) importMenu.classList.toggle('is-visible', showImportMenu);
 
       if (loadSavedBtn) loadSavedBtn.classList.toggle('is-visible', hasSaved && !hasRoute);
 
