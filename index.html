@@ -185,8 +185,7 @@
     }
     #layerDrawerToggle,
     #locateButton,
-    #shareMainBtn,
-    #poiHideToggleBtn {
+    #shareMainBtn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -206,8 +205,15 @@
     #locateButton:active,
     #shareMainBtn:active,
     #poiHideToggleBtn:active { transform: translateY(1px); }
+    #poiHideToggleBtn { display: none; }
+    #poiHideToggleBtn.is-visible { display: inline-flex; }
+    #poiHideToggleBtn:not(.is-visible) { display: none !important; }
     #poiHideToggleBtn.is-active { outline: 2px solid #38bdf8; }
-    .poi-hide-menu { position: fixed; top: 14px; right: 14px; z-index: 1065; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--btn-shadow); padding: 8px; display: grid; gap: 6px; }
+    #poiHideMenu,
+    .poi-hide-menu { position: fixed; top: 14px; right: 14px; z-index: 1065; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--btn-shadow); padding: 8px; display: none; gap: 6px; }
+    #poiHideMenu.is-visible { display: grid; }
+    #poiHideMenu:not(.is-visible),
+    .poi-hide-menu:not(.is-visible) { display: none !important; }
     .poi-hide-menu button { border: 1px solid var(--btn-border); background: var(--action-bg); color: var(--text); border-radius: 8px; padding: 6px 8px; font-weight: 650; text-align: left; }
     .mm-marker--hidden {
       filter: grayscale(1) saturate(0.35) contrast(0.85);
@@ -7184,8 +7190,17 @@
       if (!poiVisibilityState.hideModeActive) {
         poiVisibilityState.hideMultipleActive = false;
       }
-      if (btn) { btn.hidden = !hasRoute; btn.classList.toggle('is-active', poiVisibilityState.hideModeActive); }
-      if (menu) menu.hidden = !(hasRoute && poiVisibilityState.hideModeActive);
+      const shouldShowButton = hasRoute;
+      const shouldShowMenu = hasRoute && poiVisibilityState.hideModeActive;
+      if (btn) {
+        btn.classList.toggle('is-visible', shouldShowButton);
+        btn.classList.toggle('is-active', shouldShowMenu);
+        btn.hidden = !shouldShowButton;
+      }
+      if (menu) {
+        menu.classList.toggle('is-visible', shouldShowMenu);
+        menu.hidden = !shouldShowMenu;
+      }
     }
     on(qs('#poiHideToggleBtn'), 'click', () => {
       poiVisibilityState.hideModeActive = !poiVisibilityState.hideModeActive;
