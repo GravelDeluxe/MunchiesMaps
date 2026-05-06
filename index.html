@@ -5660,6 +5660,47 @@
       URL.revokeObjectURL(url);
     }
 
+    const SNACK_BACKUP_NAMES = [
+      'pretzel-pedals',
+      'taco-trails',
+      'donut-detour',
+      'pizza-paceline',
+      'cookie-cruise',
+      'waffle-wheels',
+      'ramen-ride',
+      'bagel-brevet',
+      'burrito-bikepack',
+      'falafel-freewheel',
+      'nachos-nightshift',
+      'croissant-climb',
+      'brownie-bonking',
+      'muffin-miles',
+      'sandwich-sprint',
+      'fries-fixie',
+      'popcorn-pacer',
+      'pancake-pursuit',
+      'dumpling-descent'
+    ];
+
+    function getBackupDateTimeParts(date = new Date()) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      return {
+        dateStr: `${year}-${month}-${day}`,
+        timeStr: `${hours}${minutes}`
+      };
+    }
+
+    function getSnackNameForRoute(routeHash) {
+      const fallbackSource = routeHash || gpxState.rawText || Date.now();
+      const hash = simpleStableHash(fallbackSource);
+      const index = parseInt(hash.slice(0, 8), 16) % SNACK_BACKUP_NAMES.length;
+      return SNACK_BACKUP_NAMES[index];
+    }
+
     function buildRouteBackupPayload() {
       const rawRouteText = typeof gpxState.rawText === 'string' ? gpxState.rawText.trim() : '';
       if (!rawRouteText) return null;
@@ -5832,9 +5873,9 @@
             showMapToast('No route data available for backup');
             return;
           }
-          const now = new Date();
-          const dateStr = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}-${String(now.getUTCDate()).padStart(2, '0')}`;
-          const fileName = `munchies-route-backup-${dateStr}.munchies-route.json`;
+          const { dateStr, timeStr } = getBackupDateTimeParts(new Date());
+          const snack = getSnackNameForRoute(backup.routeHash || gpxState.rawText || Date.now());
+          const fileName = `munchies-backup-${dateStr}-${timeStr}-${snack}.munchies-route.json`;
           const json = JSON.stringify(backup, null, 2);
           if (navigator.share && typeof File !== 'undefined') {
             try {
