@@ -232,7 +232,6 @@
       box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.65), 0 0 0 4px rgba(239, 68, 68, 0.45);
     }
     .popup-content { position: relative; }
-    .popup-hide-action { position: absolute; top: 4px; right: 6px; border: 1px solid var(--btn-border); background: var(--action-bg); border-radius: 6px; padding: 2px 6px; font-size: 12px; cursor: pointer; }
     #locateButton.is-loading {
       opacity: 0.75;
     }
@@ -780,7 +779,39 @@
     .leaflet-popup-content a { color: var(--btn-text); }
 
     .popup-content { font: 13px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 320px; color: var(--popup-text); }
-    .popup-title { font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+    .popup-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .popup-header-row .popup-title {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .popup-title { font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .popup-title span { overflow-wrap: anywhere; }
+    .popup-hide-pill {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid var(--btn-border);
+      background: var(--action-bg);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.2;
+      cursor: pointer;
+    }
+    .popup-hide-pill:active { transform: translateY(1px); }
+    .popup-hide-pill i { font-size: 10px; }
+    @media (max-width: 480px) {
+      .popup-header-row { flex-wrap: wrap; }
+    }
     .popup-cat { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--muted); padding: 2px 8px; border-radius: 999px; border: 1px solid var(--popup-border); background: rgba(0,0,0,0.03); }
     .theme-dark .popup-cat { background: rgba(255,255,255,0.06); }
     .popup-desc { margin-bottom: 8px; }
@@ -2643,7 +2674,7 @@
     map.on('popupopen', (e) => {
       const popupEl = e.popup && e.popup.getElement ? e.popup.getElement() : null;
       if (!popupEl) return;
-      const hideActionBtn = popupEl.querySelector('.popup-hide-action');
+      const hideActionBtn = popupEl.querySelector('.popup-hide-pill');
       if (hideActionBtn) {
         hideActionBtn.addEventListener('click', (event) => {
           event.preventDefault();
@@ -6113,13 +6144,16 @@
         : '';
       const popupPoiId = getPoiStableId({ properties: p }, `${p.bundeslandId || ''}__${p.categoryId || categoryId || ''}`);
       const isHidden = popupPoiId ? poiVisibilityState.hiddenPoiIds.has(popupPoiId) : false;
+      const isRestoreAction = isHidden && poiVisibilityState.showHiddenActive;
       const hideAction = poiVisibilityState.hideModeActive && popupPoiId
-        ? `<button type="button" class="popup-hide-action" data-poi-id="${escapeHtml(popupPoiId)}" data-action="${isHidden && poiVisibilityState.showHiddenActive ? 'restore' : 'hide'}">${isHidden && poiVisibilityState.showHiddenActive ? '↺' : '✕'}</button>`
+        ? `<button type="button" class="popup-hide-pill" data-poi-id="${escapeHtml(popupPoiId)}" data-action="${isRestoreAction ? 'restore' : 'hide'}"><i class="fa-solid ${isRestoreAction ? 'fa-rotate-left' : 'fa-eye-slash'}" aria-hidden="true"></i><span>${isRestoreAction ? 'Restore' : 'Hide'}</span></button>`
         : '';
       return `
         <div class="popup-content">
-          ${hideAction}
-          <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${escapeHtml(name)}</span></div>
+          <div class="popup-header-row">
+            <div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${escapeHtml(name)}</span></div>
+            ${hideAction}
+          </div>
           ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
           ${(accommodationTypeField || other) ? `<div class="popup-extra">${accommodationTypeField}${other}</div>` : ''}
           <div class="popup-footer">
