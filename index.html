@@ -209,7 +209,33 @@
     #poiHideToggleBtn.is-active { outline: 2px solid #38bdf8; }
     .poi-hide-menu { position: fixed; top: 14px; right: 14px; z-index: 1065; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--btn-shadow); padding: 8px; display: grid; gap: 6px; }
     .poi-hide-menu button { border: 1px solid var(--btn-border); background: var(--action-bg); color: var(--text); border-radius: 8px; padding: 6px 8px; font-weight: 650; text-align: left; }
-    .mm-marker--hidden { filter: grayscale(1); opacity: 0.45; }
+    .mm-marker--hidden {
+      filter: grayscale(1) saturate(0.35) contrast(0.85);
+      opacity: 0.92;
+      transform: scale(0.86);
+    }
+    .mm-marker--hidden .mm-marker {
+      border: 2px dashed rgba(255, 255, 255, 0.9) !important;
+      box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.65), 0 0 0 4px rgba(239, 68, 68, 0.45);
+    }
+    .mm-marker--hidden .mm-marker::after {
+      content: "⊘";
+      position: absolute;
+      right: -8px;
+      top: -8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      background: rgba(127, 29, 29, 0.95);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
     .popup-content { position: relative; }
     .popup-hide-action { position: absolute; top: 4px; right: 6px; border: 1px solid var(--btn-border); background: var(--action-bg); border-radius: 6px; padding: 2px 6px; font-size: 12px; cursor: pointer; }
     #locateButton.is-loading {
@@ -4813,6 +4839,7 @@
           categories: Array.from(filterState.kategorien || []),
           regions: Array.from(filterState.bundeslaender || [])
         },
+        hiddenPoiIds: Array.from(poiVisibilityState.hiddenPoiIds || []),
         pois,
         mapTexture,
         offlineSaveMeta: {
@@ -5202,6 +5229,7 @@
 
     function renderOfflineRoutePackage(pkg) {
       if (!pkg?.route?.latlngs?.length) return false;
+      activeOfflineRouteId = pkg.id || null;
       const shouldUseOfflineTexture = navigator.onLine === false;
       const hasTileTexture = pkg?.mapTexture?.type === 'tiles' && Array.isArray(pkg?.mapTexture?.tiles) && pkg.mapTexture.tiles.length > 0;
       if (shouldUseOfflineTexture) {
@@ -5221,7 +5249,13 @@
       gpxState.active = true;
       gpxState.rawText = pkg.route.gpxRaw || '';
       gpxState.radiusMeters = Number(pkg.route.radius) || (DEFAULT_GPX_RADIUS_KM * 1000);
+      poiVisibilityState.hiddenPoiIds = new Set(Array.isArray(pkg.hiddenPoiIds) ? pkg.hiddenPoiIds : []);
+      poiVisibilityState.hideModeActive = false;
+      poiVisibilityState.hideMultipleActive = false;
+      poiVisibilityState.showHiddenActive = false;
+      poiVisibilityState.unsavedChanges = false;
       appState.hasImportedGpx = true;
+      updatePoiHideControlsVisibility();
       appState.clusterThresholdManual = false;
       appState.clusterThresholdAutoDirty = true;
       appState.isOfflineMode = shouldUseOfflineTexture;
@@ -6810,7 +6844,7 @@
       if (err) err.textContent = '';
       setGpxUiMode(hasSavedGpxRoute() ? 'cache-found' : 'standard');
       refreshGpxUiState();
-      syncPoiHideUi();
+      updatePoiHideControlsVisibility();
       refreshRouteDependentClustering({ reason: 'gpx-reset' });
     }
 
@@ -6882,6 +6916,11 @@
       } catch (err) {
         poiVisibilityState.hiddenPoiIds = new Set();
       }
+      poiVisibilityState.hideModeActive = false;
+      poiVisibilityState.hideMultipleActive = false;
+      poiVisibilityState.showHiddenActive = false;
+      poiVisibilityState.unsavedChanges = false;
+      updatePoiHideControlsVisibility();
       appState.hasImportedGpx = true;
       appState.clusterThresholdManual = false;
       appState.clusterThresholdAutoDirty = true;
@@ -6917,7 +6956,7 @@
       }
       setGpxUiMode(uiModeAfterApply);
       refreshGpxUiState();
-      syncPoiHideUi();
+      updatePoiHideControlsVisibility();
 
       await applyCurrentMapFiltersAndClustering({
         reason: hasFittedToTrack ? 'gpx-import-after-fit' : 'gpx-import-no-fit',
@@ -7151,24 +7190,46 @@
       for (let i = 0; i < input.length; i++) { h ^= input.charCodeAt(i); h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24); }
       return (h >>> 0).toString(16);
     }
-    function syncPoiHideUi() {
+    function updatePoiHideControlsVisibility() {
       const btn = qs('#poiHideToggleBtn');
       const menu = qs('#poiHideMenu');
       const hasRoute = Boolean(gpxState.active || appState.hasImportedGpx);
+      if (!hasRoute) {
+        poiVisibilityState.hideModeActive = false;
+        poiVisibilityState.hideMultipleActive = false;
+        poiVisibilityState.showHiddenActive = false;
+      }
+      if (!poiVisibilityState.hideModeActive) {
+        poiVisibilityState.hideMultipleActive = false;
+      }
       if (btn) { btn.hidden = !hasRoute; btn.classList.toggle('is-active', poiVisibilityState.hideModeActive); }
       if (menu) menu.hidden = !(hasRoute && poiVisibilityState.hideModeActive);
     }
-    on(qs('#poiHideToggleBtn'), 'click', () => { poiVisibilityState.hideModeActive = !poiVisibilityState.hideModeActive; syncPoiHideUi(); });
-    on(qs('#poiHideMenu'), 'click', (event) => {
+    on(qs('#poiHideToggleBtn'), 'click', () => {
+      poiVisibilityState.hideModeActive = !poiVisibilityState.hideModeActive;
+      updatePoiHideControlsVisibility();
+      applyCurrentMapFiltersAndClustering({ reason: 'poi-hide-mode-toggle' });
+    });
+    on(qs('#poiHideMenu'), 'click', async (event) => {
       const action = event?.target?.getAttribute?.('data-action');
       if (!action) return;
       if (action === 'show-hidden') poiVisibilityState.showHiddenActive = !poiVisibilityState.showHiddenActive;
       if (action === 'restore-hidden') { poiVisibilityState.hiddenPoiIds.clear(); poiVisibilityState.unsavedChanges = true; showMapToast('All hidden POIs restored'); }
       if (action === 'hide-multiple') { poiVisibilityState.hideMultipleActive = !poiVisibilityState.hideMultipleActive; if (poiVisibilityState.hideMultipleActive) showMapToast('You can now hide POIs by one single tap on the icon'); }
-      if (action === 'save-hidden' && poiVisibilityState.routeHash) { localStorage.setItem(`munchies:hiddenPois:${poiVisibilityState.routeHash}`, JSON.stringify(Array.from(poiVisibilityState.hiddenPoiIds))); poiVisibilityState.unsavedChanges = false; showMapToast('POI visibility saved for this route'); }
+      if (action === 'save-hidden' && activeOfflineRouteId && window.offlineRouteStore) {
+        const pkg = await window.offlineRouteStore.loadOfflineRoute(activeOfflineRouteId);
+        if (pkg) {
+          pkg.hiddenPoiIds = Array.from(poiVisibilityState.hiddenPoiIds);
+          await window.offlineRouteStore.saveOfflineRoute(pkg);
+          poiVisibilityState.unsavedChanges = false;
+          showMapToast('POI visibility saved for this route');
+          await listSavedOfflineRoutes();
+        }
+      }
       applyCurrentMapFiltersAndClustering({ reason: `poi-hide-${action}` });
-      syncPoiHideUi();
+      updatePoiHideControlsVisibility();
     });
+    updatePoiHideControlsVisibility();
     runRegionStateSelfChecks();
 
     (async () => {
