@@ -977,9 +977,9 @@
     <div id="mapToast" class="map-toast" role="status" aria-live="polite"></div>
     <div id="poiHideMenu" class="poi-hide-menu" hidden>
       <button type="button" data-action="show-hidden">Show hidden</button>
-      <button type="button" data-action="restore-hidden">Restore hidden</button>
       <button type="button" data-action="hide-multiple">Hide multiple</button>
       <button type="button" data-action="save-hidden">Save changes</button>
+      <button type="button" data-action="restore-hidden">Restore hidden</button>
     </div>
     <div id="layerDrawerBackdrop" aria-hidden="true"></div>
   <aside id="layerDrawer" class="menu" aria-hidden="true" aria-label="Filters">
@@ -7183,7 +7183,9 @@
     function syncPoiHideMenuState() {
       const menu = qs('#poiHideMenu');
       if (!menu) return;
+      const showHiddenButton = menu.querySelector('[data-action="show-hidden"]');
       const hideMultipleButton = menu.querySelector('[data-action="hide-multiple"]');
+      showHiddenButton?.classList.toggle('is-active', Boolean(poiVisibilityState.showHiddenActive));
       hideMultipleButton?.classList.toggle('is-active', Boolean(poiVisibilityState.hideMultipleActive));
     }
     function resetPoiVisibilityState({ clearHidden = true } = {}) {
@@ -7204,6 +7206,7 @@
       }
       if (!poiVisibilityState.hideModeActive) {
         poiVisibilityState.hideMultipleActive = false;
+        poiVisibilityState.showHiddenActive = false;
       }
       const shouldShowButton = hasRoute;
       const shouldShowMenu = hasRoute && poiVisibilityState.hideModeActive;
