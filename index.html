@@ -5694,11 +5694,8 @@
       };
     }
 
-    function getSnackNameForRoute(routeHash) {
-      const fallbackSource = routeHash || gpxState.rawText || Date.now();
-      const hash = simpleStableHash(fallbackSource);
-      const index = parseInt(hash.slice(0, 8), 16) % SNACK_BACKUP_NAMES.length;
-      return SNACK_BACKUP_NAMES[index];
+    function getRandomSnackBackupName() {
+      return SNACK_BACKUP_NAMES[Math.floor(Math.random() * SNACK_BACKUP_NAMES.length)] || 'snack-spin';
     }
 
     function buildRouteBackupPayload() {
@@ -5874,8 +5871,8 @@
             return;
           }
           const { dateStr, timeStr } = getBackupDateTimeParts(new Date());
-          const snack = getSnackNameForRoute(backup.routeHash || gpxState.rawText || Date.now());
-          const fileName = `munchies-backup-${dateStr}-${timeStr}-${snack}.munchies-route.json`;
+          const snack = getRandomSnackBackupName();
+          const fileName = `munchies-backup-${dateStr}-${timeStr}-${snack}.json`;
           const json = JSON.stringify(backup, null, 2);
           if (navigator.share && typeof File !== 'undefined') {
             try {
@@ -7609,11 +7606,82 @@
       updatePoiHideControlsVisibility();
       applyCurrentMapFiltersAndClustering({ reason: 'poi-hide-mode-toggle' });
     });
+    function showRestoreHiddenConfirmation() {
+      return new Promise((resolve) => {
+        const backdrop = document.createElement('div');
+        backdrop.className = 'intro-backdrop';
+        backdrop.setAttribute('role', 'presentation');
+
+        const modal = document.createElement('div');
+        modal.className = 'intro-modal';
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-label', 'Restore hidden POIs confirmation');
+        modal.tabIndex = -1;
+
+        const heading = document.createElement('h2');
+        heading.textContent = 'Are you sure to restore all POIs?';
+
+        const actions = document.createElement('div');
+        actions.className = 'intro-actions';
+        actions.style.justifyContent = 'flex-end';
+
+        const noBtn = document.createElement('button');
+        noBtn.type = 'button';
+        noBtn.textContent = 'No';
+        noBtn.style.background = 'var(--action-bg)';
+        noBtn.style.color = 'var(--text)';
+        noBtn.style.borderColor = 'var(--btn-border)';
+
+        const yesBtn = document.createElement('button');
+        yesBtn.type = 'button';
+        yesBtn.textContent = 'Yes';
+        yesBtn.style.background = 'var(--action-bg)';
+        yesBtn.style.color = 'var(--text)';
+        yesBtn.style.borderColor = 'var(--btn-border)';
+
+        actions.appendChild(noBtn);
+        actions.appendChild(yesBtn);
+        modal.appendChild(heading);
+        modal.appendChild(actions);
+        backdrop.appendChild(modal);
+
+        const cleanup = (value) => {
+          document.removeEventListener('keydown', onKeyDown, true);
+          backdrop.remove();
+          resolve(value);
+        };
+
+        const onKeyDown = (event) => {
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            cleanup(false);
+          }
+        };
+
+        noBtn.addEventListener('click', () => cleanup(false));
+        yesBtn.addEventListener('click', () => cleanup(true));
+        backdrop.addEventListener('click', (event) => {
+          if (event.target === backdrop) cleanup(false);
+        });
+        modal.addEventListener('click', (event) => event.stopPropagation());
+        document.addEventListener('keydown', onKeyDown, true);
+        document.body.appendChild(backdrop);
+        noBtn.focus();
+      });
+    }
+
     on(qs('#poiHideMenu'), 'click', async (event) => {
       const action = event?.target?.getAttribute?.('data-action');
       if (!action) return;
       if (action === 'show-hidden') poiVisibilityState.showHiddenActive = !poiVisibilityState.showHiddenActive;
-      if (action === 'restore-hidden') { poiVisibilityState.hiddenPoiIds.clear(); poiVisibilityState.unsavedChanges = true; showMapToast('All hidden POIs restored'); }
+      if (action === 'restore-hidden') {
+        const shouldRestore = await showRestoreHiddenConfirmation();
+        if (!shouldRestore) return;
+        poiVisibilityState.hiddenPoiIds.clear();
+        poiVisibilityState.unsavedChanges = true;
+        showMapToast('All hidden POIs restored');
+      }
       if (action === 'hide-multiple') { poiVisibilityState.hideMultipleActive = !poiVisibilityState.hideMultipleActive; if (poiVisibilityState.hideMultipleActive) showMapToast('You can now hide POIs by one single tap on the icon'); }
       if (action === 'save-hidden') {
         // Save changes keeps the normal GPX cache synchronized to avoid stale hiddenPoiIds.
