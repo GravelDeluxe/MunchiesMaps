@@ -607,6 +607,7 @@
     .gpx-cache-primary-actions .gpx-import-action { flex: 1 1 0; min-width: 0; justify-content: center; }
     .gpx-import-menu { display: none; flex-direction: column; gap: 10px; }
     .gpx-import-menu.is-visible { display: flex; }
+.route-backup-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
     .gpx-row { display: flex; flex-direction: column; gap: 6px; }
     .gpx-row label { font-weight: 650; color: var(--text); }
     .gpx-row input[type="number"] { width: 120px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
@@ -1113,6 +1114,8 @@
                   </select>
                 </div>
                 <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved along the route at the selected detail level. A coarse surrounding map is included for context.</p>
+              </div>
+              <div class="route-backup-actions" id="routeBackupActions">
                 <button type="button" class="gpx-import-action" id="loadRouteBackupBtn" hidden>Load Backup</button>
                 <button type="button" class="gpx-export" id="exportRouteBackupBtn" hidden>Export Backup</button>
               </div>
@@ -4348,10 +4351,12 @@
       const hasRoute = Boolean(gpxState.active);
       const loadBtn = qs('#loadRouteBackupBtn');
       const exportBtn = qs('#exportRouteBackupBtn');
+      const actions = qs('#routeBackupActions');
       if (loadBtn) loadBtn.classList.toggle('is-visible', !hasRoute);
       if (exportBtn) exportBtn.classList.toggle('is-visible', hasRoute);
       if (loadBtn) loadBtn.hidden = hasRoute;
       if (exportBtn) exportBtn.hidden = !hasRoute;
+      if (actions) actions.classList.toggle('has-route', hasRoute);
     }
 
     function buildRawGpxFromTrackLatLngs() {
