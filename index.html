@@ -637,6 +637,8 @@
     .gpx-export:disabled { opacity: 0.6; cursor: not-allowed; }
     .gpx-import-action { align-self: flex-start; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--btn-border); background: var(--action-bg); cursor: pointer; font-weight: 700; color: var(--text); display: none; }
     .gpx-import-action.is-visible { display: inline-flex; }
+    .route-clear-action { color: #dc2626; }
+    .theme-dark .route-clear-action { color: #f87171; }
     .gpx-error { color: #dc2626; font-size: 13px; }
     .gpx-km-marker {
       background: transparent;
@@ -1107,18 +1109,7 @@
                       <button type="button" class="gpx-apply" id="gpxApplyBtn">Apply</button>
                     </div>
                   </div>
-                  <div class="gpx-route-action-group" data-route-action-group="save">
-                    <button type="button" class="gpx-export" id="gpxSaveBtn">Save Route</button>
-                  </div>
-                  <div class="gpx-route-action-group" data-route-action-group="delete">
-                    <button type="button" class="gpx-import-action" id="gpxRemoveRouteBtn">Remove route from map</button>
-                    <button type="button" class="gpx-import-action" id="gpxDeleteSavedBtn">Delete saved route</button>
-                  </div>
-                  <div class="gpx-route-action-group" data-route-action-group="export">
-                    <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
-                    <button type="button" class="gpx-export" id="exportRouteBackupBtn" hidden>Export Backup</button>
-                  </div>
-                  <div class="gpx-route-action-group" data-route-action-group="offline">
+                  <div class="gpx-route-action-group" data-route-action-group="offline-save">
                     <button type="button" class="gpx-export" id="gpxRefreshTilesBtn">Refresh offline map tiles</button>
                     <div id="offlineSaveProgress" class="option-helper" aria-live="polite"></div>
                     <div class="gpx-row">
@@ -1133,6 +1124,17 @@
                     </div>
                     <p class="option-helper" id="offlineMapDetailHint">Offline maps are saved along the route at the selected detail level. A coarse surrounding map is included for context.</p>
                     <div class="share-popover-helper" id="offlineRouteStatus">Available offline</div>
+                    <button type="button" class="gpx-export" id="gpxSaveBtn">Save Route</button>
+                  </div>
+                  <div class="gpx-route-action-group" data-route-action-group="delete-saved">
+                    <button type="button" class="gpx-import-action" id="gpxDeleteSavedBtn">Delete saved route</button>
+                  </div>
+                  <div class="gpx-route-action-group" data-route-action-group="export">
+                    <button type="button" class="gpx-export" id="gpxExportBtn">Export GPX (Route + visible POIs)</button>
+                    <button type="button" class="gpx-export" id="exportRouteBackupBtn" hidden>Export Backup</button>
+                  </div>
+                  <div class="gpx-route-action-group" data-route-action-group="clear">
+                    <button type="button" class="gpx-import-action route-clear-action" id="gpxRemoveRouteBtn">Clear Route</button>
                   </div>
                 </div>
               </div>
@@ -4337,7 +4339,7 @@
       const offlineStatus = document.getElementById('offlineRouteStatus');
       const cacheActions = document.getElementById('gpxCacheActions');
       const importMenu = document.getElementById('gpxImportMenu');
-      const offlineGroup = document.querySelector('[data-route-action-group="offline"]');
+      const offlineGroup = document.querySelector('[data-route-action-group="offline-save"]');
       const hasRoute = Boolean(gpxState.active);
       const hasSaved = hasSavedGpxRoute();
       const showImportMenu = gpxState.uiMode === 'import-open';
