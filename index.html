@@ -4337,14 +4337,19 @@
       const offlineStatus = document.getElementById('offlineRouteStatus');
       const cacheActions = document.getElementById('gpxCacheActions');
       const importMenu = document.getElementById('gpxImportMenu');
+      const offlineGroup = document.querySelector('[data-route-action-group="offline"]');
       const hasRoute = Boolean(gpxState.active);
       const hasSaved = hasSavedGpxRoute();
-      const showImportMenu = (!hasRoute && !hasSaved) || gpxState.uiMode === 'import-open';
+      const showImportMenu = gpxState.uiMode === 'import-open';
       const unsavedChanges = routeHasUnsavedChanges();
       const storageKind = getActiveRouteStorageKind();
 
       if (cacheActions) cacheActions.classList.add('is-visible');
       if (importMenu) importMenu.classList.toggle('is-visible', showImportMenu);
+      if (offlineGroup) {
+        offlineGroup.hidden = !hasRoute;
+        offlineGroup.classList.toggle('is-empty', !hasRoute);
+      }
 
       if (loadSavedBtn) loadSavedBtn.classList.toggle('is-visible', hasSaved && !hasRoute);
 
@@ -4403,6 +4408,10 @@
     function syncGpxRouteActionGroups() {
       const groups = Array.from(document.querySelectorAll('.gpx-route-action-group'));
       groups.forEach((group) => {
+        if (group.hidden) {
+          group.classList.add('is-empty');
+          return;
+        }
         const controls = Array.from(group.querySelectorAll('button, input, select, label, p, div'));
         const hasVisibleControl = controls.some((control) => {
           if (control === group) return false;
