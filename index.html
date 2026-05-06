@@ -4208,15 +4208,18 @@
       try {
         const parsed = JSON.parse(raw);
         if (typeof parsed === 'string') {
-          return { gpxRaw: parsed, hiddenPoiIds: [] };
+          return { gpxRaw: parsed, hiddenPoiIds: [], offlineRouteId: null };
         }
         if (parsed && typeof parsed === 'object') {
           const gpxRaw = typeof parsed.gpxRaw === 'string' ? parsed.gpxRaw : '';
           const hiddenPoiIds = Array.isArray(parsed.hiddenPoiIds) ? parsed.hiddenPoiIds : [];
-          return { ...parsed, gpxRaw, hiddenPoiIds };
+          const offlineRouteId = typeof parsed.offlineRouteId === 'string' && parsed.offlineRouteId.trim()
+            ? parsed.offlineRouteId.trim()
+            : null;
+          return { ...parsed, gpxRaw, hiddenPoiIds, offlineRouteId };
         }
       } catch (_) {
-        return { gpxRaw: raw, hiddenPoiIds: [] };
+        return { gpxRaw: raw, hiddenPoiIds: [], offlineRouteId: null };
       }
       return null;
     }
@@ -4971,7 +4974,12 @@
         const pkg = await buildOfflineRoutePackage(rawText, { onProgress });
         if (!pkg) return { ok: false, reason: 'package-failed' };
         await window.offlineRouteStore.saveOfflineRoute(pkg);
-        setCachedGpxRoute({ gpxRaw: rawText, hiddenPoiIds: Array.from(poiVisibilityState.hiddenPoiIds || []), savedAt: new Date().toISOString() });
+        setCachedGpxRoute({
+          gpxRaw: rawText,
+          hiddenPoiIds: Array.from(poiVisibilityState.hiddenPoiIds || []),
+          savedAt: new Date().toISOString(),
+          offlineRouteId: pkg.id || null
+        });
         activeOfflineRouteId = pkg.id;
         activeRouteSource = 'offline-route-package';
         await listSavedOfflineRoutes();
@@ -5290,6 +5298,19 @@
       const cached = getCachedGpxRoute();
       if (cached?.gpxRaw) {
         console.debug('[gpx-cache] loading cached route hiddenPoiIds', Array.isArray(cached.hiddenPoiIds) ? cached.hiddenPoiIds.length : 0);
+        if (cached.offlineRouteId && window.offlineRouteStore) {
+          try {
+            const pkg = await window.offlineRouteStore.loadOfflineRoute(cached.offlineRouteId);
+            if (pkg?.route?.latlngs?.length) {
+              if (!Array.isArray(pkg.hiddenPoiIds) || !pkg.hiddenPoiIds.length) {
+                pkg.hiddenPoiIds = Array.isArray(cached.hiddenPoiIds) ? cached.hiddenPoiIds : [];
+              }
+              return renderOfflineRoutePackage(pkg);
+            }
+          } catch (err) {
+            console.warn('[gpx-cache] linked offline package load failed', err);
+          }
+        }
         activeOfflineRouteId = null;
         await handleGpxApply({
           rawGpxText: cached.gpxRaw,
@@ -5304,6 +5325,22 @@
       const pkg = await getMostRecentSavedRoute();
       if (!pkg) return false;
       return renderOfflineRoutePackage(pkg);
+    }
+
+    async function updateLinkedOfflineRouteHiddenPoiIds(hiddenIds) {
+      if (!window.offlineRouteStore) return false;
+      const cached = getCachedGpxRoute();
+      const offlineRouteId = activeOfflineRouteId || cached?.offlineRouteId || null;
+      if (!offlineRouteId) return false;
+      const pkg = await window.offlineRouteStore.loadOfflineRoute(offlineRouteId);
+      if (!pkg) return false;
+      const currentRaw = typeof gpxState.rawText === 'string' ? gpxState.rawText.trim() : '';
+      const pkgRaw = typeof pkg?.route?.gpxRaw === 'string' ? pkg.route.gpxRaw.trim() : '';
+      if (currentRaw && pkgRaw && currentRaw !== pkgRaw) return false;
+      pkg.hiddenPoiIds = Array.from(hiddenIds || []);
+      await window.offlineRouteStore.saveOfflineRoute(pkg);
+      await listSavedOfflineRoutes();
+      return true;
     }
 
     async function autoLoadSavedRouteWhenOffline() {
@@ -7390,27 +7427,19 @@
         const storageKind = getActiveRouteStorageKind();
         const hiddenIds = Array.from(poiVisibilityState.hiddenPoiIds);
         let saved = false;
-        if (storageKind === 'offline-route-package' && activeOfflineRouteId && window.offlineRouteStore) {
-          const pkg = await window.offlineRouteStore.loadOfflineRoute(activeOfflineRouteId);
-          if (pkg) {
-            pkg.hiddenPoiIds = hiddenIds;
-            await window.offlineRouteStore.saveOfflineRoute(pkg);
-            await listSavedOfflineRoutes();
-            saved = true;
-          }
-          if (gpxState.rawText) {
-            saved = updateCachedGpxHiddenPoiIds(hiddenIds) || saved;
-          }
-        } else if (storageKind === 'gpx-cache') {
-          saved = updateCachedGpxHiddenPoiIds(hiddenIds);
-        } else if (storageKind === 'new-gpx-import') {
+        const offlineSaved = await updateLinkedOfflineRouteHiddenPoiIds(hiddenIds);
+        if (gpxState.rawText) {
+          saved = updateCachedGpxHiddenPoiIds(hiddenIds) || saved;
+        }
+        saved = offlineSaved || saved;
+        if (storageKind === 'new-gpx-import') {
           // Unsaved imports should not silently discard hidden-state edits.
-          if (gpxState.rawText && hasSavedGpxRoute()) {
-            saved = updateCachedGpxHiddenPoiIds(hiddenIds);
-          }
-          if (!saved) {
+          if (!saved && !hasSavedGpxRoute()) {
             showMapToast('POI visibility changes apply to this unsaved route only');
           }
+        } else if (storageKind === 'gpx-cache') {
+          // Keep previous no-op behavior if neither cache nor linked offline package can be updated.
+          saved = Boolean(saved);
         }
         if (saved) {
           poiVisibilityState.unsavedChanges = false;
