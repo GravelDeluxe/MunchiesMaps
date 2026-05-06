@@ -4350,6 +4350,7 @@
       if (!point || !Number.isFinite(point.lat) || !Number.isFinite(point.lng)) return null;
       const props = point.propsRef || {};
       return {
+        id: String(point.id || '').trim() || null,
         lat: point.lat,
         lng: point.lng,
         category: point.categoryId || 'default',
@@ -5398,17 +5399,31 @@
       };
       renderGpxTrack(trackGeoJson);
       const offlinePois = Array.isArray(pkg.pois) ? pkg.pois : [];
-      activePoints = offlinePois.map((poi, index) => ({
-        id: `offline-${index}-${poi.category || 'default'}-${Number(poi.lat).toFixed(6)}-${Number(poi.lng).toFixed(6)}`,
-        lat: poi.lat,
-        lng: poi.lng,
-        categoryId: poi.category || 'default',
-        propsRef: {
-          ...(poi.properties || {}),
-          categoryId: poi.category || 'default',
-          categoryLabel: categoryLabelMap[poi.category] || markerLabel(poi.category, poi.properties || {})
-        }
-      })).filter((point) => Number.isFinite(point.lat) && Number.isFinite(point.lng));
+      activePoints = offlinePois.map((poi, index) => {
+        const lat = Number(poi?.lat);
+        const lng = Number(poi?.lng);
+        const categoryId = poi?.category || 'default';
+        const normalizedId = String(poi?.id || '').trim();
+        return {
+          id: normalizedId || `offline-${index}-${categoryId}-${lat.toFixed(6)}-${lng.toFixed(6)}`,
+          lat,
+          lng,
+          categoryId,
+          propsRef: {
+            ...(poi?.properties || {}),
+            categoryId,
+            categoryLabel: categoryLabelMap[categoryId] || markerLabel(categoryId, poi?.properties || {})
+          }
+        };
+      }).filter((point) => Number.isFinite(point.lat) && Number.isFinite(point.lng));
+      const restoredHiddenCount = poiVisibilityState.hiddenPoiIds.size;
+      const hasRestoredHiddenPoiMatch = restoredHiddenCount > 0
+        && activePoints.some((point) => poiVisibilityState.hiddenPoiIds.has(point.id));
+      console.debug('[offline-route] restored hidden POIs', {
+        restoredHiddenCount,
+        hasRestoredHiddenPoiMatch,
+        offlinePoiCount: activePoints.length
+      });
       rebuildGridIndex(activePoints);
 
       let hasFittedToRoute = false;
