@@ -232,6 +232,24 @@
       box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.65), 0 0 0 4px rgba(239, 68, 68, 0.45);
     }
     .popup-content { position: relative; }
+    .popup-favorite-toggle {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid var(--popup-border);
+      background: rgba(255,255,255,0.82);
+      color: #64748b;
+      display: inline-grid;
+      place-items: center;
+      cursor: pointer;
+      z-index: 2;
+    }
+    .theme-dark .popup-favorite-toggle { background: rgba(15,23,42,0.86); color: #cbd5e1; }
+    .popup-favorite-toggle.is-active { color: #f59e0b; }
+    .popup-favorite-toggle:active { transform: translateY(1px); }
     #locateButton.is-loading {
       opacity: 0.75;
     }
@@ -886,6 +904,23 @@
       transform: scale(1.05);
       box-shadow: 0 3px 8px rgba(0,0,0,0.35);
     }
+    .mm-marker--favorite .mm-marker-favorite-badge { display: inline-grid; }
+    .mm-marker-favorite-badge {
+      position: absolute;
+      top: -4px;
+      left: -5px;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: #f59e0b;
+      color: #ffffff;
+      border: 1px solid rgba(0,0,0,0.25);
+      font-size: 8px;
+      display: none;
+      place-items: center;
+      pointer-events: none;
+      z-index: 2;
+    }
     .mm-badge {
       position: absolute;
       top: -2px;
@@ -1024,6 +1059,7 @@
     <div id="mapToast" class="map-toast" role="status" aria-live="polite"></div>
     <div id="poiHideMenu" class="poi-hide-menu" hidden>
       <button type="button" data-action="show-hidden">Show hidden</button>
+      <button type="button" data-action="favorites-only">Just show favorites</button>
       <button type="button" data-action="hide-multiple">Hide multiple</button>
       <button type="button" data-action="save-hidden">Save changes</button>
       <button type="button" data-action="restore-hidden">Restore hidden</button>
@@ -1259,6 +1295,7 @@
     const THEME_KEY = 'theme';
     const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
     const MIN_POI_ZOOM_KEY = 'minPoiZoom';
+    const FAVORITE_POI_IDS_STORAGE_KEY = 'munchiesMaps.favoritePoiIds.v1';
     const APP_VERSION = "0.5";
     const QUICK_FEEDBACK_ENDPOINT = "https://script.google.com/macros/s/AKfycbzewIElOyqoS0xeGWab6MWoCZq67qs9uKEEAVwJzMRWJDE5ebxZlNwESaZQnNP_pAKVAA/exec";
     const QUICK_FEEDBACK_RATE_LIMIT_MS = 60000;
@@ -2718,6 +2755,19 @@
           applyCurrentMapFiltersAndClustering({ reason: 'popup-hide-toggle' });
         });
       }
+      const favoriteBtn = popupEl.querySelector('.popup-favorite-toggle');
+      if (favoriteBtn && !favoriteBtn.__favoriteBound) {
+        favoriteBtn.__favoriteBound = true;
+        favoriteBtn.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const poiId = favoriteBtn.getAttribute('data-poi-id');
+          if (!poiId) return;
+          const isFavorite = togglePoiFavorite(poiId);
+          updatePopupFavoriteButtonState(favoriteBtn, isFavorite);
+          applyCurrentMapFiltersAndClustering({ reason: 'popup-favorite-toggle' });
+        });
+      }
       const link = popupEl.querySelector('a.open-gmaps');
       if (!link) return;
 
@@ -2902,10 +2952,13 @@
       hideModeActive: false,
       hideMultipleActive: false,
       showHiddenActive: false,
+      favoritesOnlyActive: false,
       hiddenPoiIds: new Set(),
+      favoritePoiIds: new Set(),
       unsavedChanges: false,
       routeHash: null
     };
+    poiVisibilityState.favoritePoiIds = loadStoredPoiIdSet(FAVORITE_POI_IDS_STORAGE_KEY);
 
     const gpxState = {
       points: [],
@@ -3022,6 +3075,41 @@
       const normLon = lon.toFixed(6);
       const normLat = lat.toFixed(6);
       return `${datasetKey}-${categoryToken}-${typePrefix}-${normLon}-${normLat}`;
+    }
+    function loadStoredPoiIdSet(storageKey) {
+      try {
+        const raw = localStorage.getItem(storageKey);
+        if (!raw) return new Set();
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) return new Set();
+        return new Set(parsed.map((v) => String(v)).filter(Boolean));
+      } catch (_) {
+        return new Set();
+      }
+    }
+    function saveStoredPoiIdSet(storageKey, set) {
+      localStorage.setItem(storageKey, JSON.stringify(Array.from(set || [])));
+    }
+    function isPoiFavorite(poiId) {
+      return Boolean(poiId && poiVisibilityState.favoritePoiIds.has(poiId));
+    }
+    function togglePoiFavorite(poiId) {
+      if (!poiId) return false;
+      if (poiVisibilityState.favoritePoiIds.has(poiId)) {
+        poiVisibilityState.favoritePoiIds.delete(poiId);
+      } else {
+        poiVisibilityState.favoritePoiIds.add(poiId);
+      }
+      saveStoredPoiIdSet(FAVORITE_POI_IDS_STORAGE_KEY, poiVisibilityState.favoritePoiIds);
+      return poiVisibilityState.favoritePoiIds.has(poiId);
+    }
+    function updatePopupFavoriteButtonState(buttonEl, isFavorite) {
+      if (!buttonEl) return;
+      const iconEl = buttonEl.querySelector('i');
+      buttonEl.classList.toggle('is-active', Boolean(isFavorite));
+      buttonEl.setAttribute('aria-label', isFavorite ? 'Remove from favorites' : 'Add to favorites');
+      buttonEl.setAttribute('title', isFavorite ? 'Remove from favorites' : 'Add to favorites');
+      if (iconEl) iconEl.className = isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star';
     }
 
     function normalizeTextToken(value) {
@@ -6464,6 +6552,7 @@
         : '';
       const popupPoiId = getPoiStableId({ properties: p }, `${p.bundeslandId || ''}__${p.categoryId || categoryId || ''}`);
       const isHidden = popupPoiId ? poiVisibilityState.hiddenPoiIds.has(popupPoiId) : false;
+      const isFavorite = popupPoiId ? isPoiFavorite(popupPoiId) : false;
       const isRestoreAction = isHidden && poiVisibilityState.showHiddenActive;
       const hideAction = poiVisibilityState.hideModeActive && popupPoiId
         ? `<button type="button" class="popup-hide-pill" data-poi-id="${escapeHtml(popupPoiId)}" data-action="${isRestoreAction ? 'restore' : 'hide'}"><i class="fa-solid ${isRestoreAction ? 'fa-rotate-left' : 'fa-eye-slash'}" aria-hidden="true"></i><span>${isRestoreAction ? 'Restore' : 'Hide'}</span></button>`
@@ -6479,6 +6568,7 @@
         : `<div class="popup-title">${categoryBadge ? categoryBadge : ''}<span>${escapeHtml(name)}</span></div>`;
       return `
         <div class="popup-content">
+          ${popupPoiId ? `<button type="button" class="popup-favorite-toggle ${isFavorite ? 'is-active' : ''}" data-poi-id="${escapeHtml(popupPoiId)}" aria-label="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}" title="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}"><i class="${isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star'}" aria-hidden="true"></i></button>` : ''}
           ${popupHeader}
           ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
           ${(accommodationTypeField || other) ? `<div class="popup-extra">${accommodationTypeField}${other}</div>` : ''}
@@ -6727,6 +6817,7 @@
           ? '<span class="mm-badge mm-badge--247" title="Durchgehend geöffnet">24h</span>'
           : '<span class="mm-badge mm-badge--moon" title="Nach 21 Uhr geöffnet">🌙</span>'
         : '';
+      const favoriteBadgeHtml = '<span class="mm-marker-favorite-badge" aria-hidden="true"><i class="fa-solid fa-star"></i></span>';
       const html = `
         <span class="mm-marker"
               style="--marker-color:${config.color};--marker-hover-color:${hoverColor};--marker-outline-color:${outlineColor};--marker-size:${size}px;--marker-icon-size:${iconSize}px;"
@@ -6734,6 +6825,7 @@
               aria-label="${escapeHtml(label)} marker"
               title="${escapeHtml(label)}">
           <i class="${config.iconClass}" aria-hidden="true"></i>
+          ${favoriteBadgeHtml}
           ${badgeHtml}
         </span>
       `;
@@ -6802,6 +6894,11 @@
           fee: propsRef?.fee,
           url: propsRef?.url
         };
+        const cachedEl = cached.marker.getElement?.();
+        if (cachedEl) {
+          cachedEl.classList.toggle('mm-marker--hidden', poiVisibilityState.hiddenPoiIds.has(id) && poiVisibilityState.showHiddenActive);
+          cachedEl.classList.toggle('mm-marker--favorite', isPoiFavorite(id));
+        }
         return cached.marker;
       }
       const marker = L.marker([lat, lng], { icon: markerIcon });
@@ -6831,6 +6928,7 @@
         const el = marker.getElement?.();
         if (!el) return;
         el.classList.toggle('mm-marker--hidden', poiVisibilityState.hiddenPoiIds.has(id) && poiVisibilityState.showHiddenActive);
+        el.classList.toggle('mm-marker--favorite', isPoiFavorite(id));
       });
       return marker;
     }
@@ -6904,7 +7002,9 @@
         .filter(Boolean);
       const visibilityFiltered = points.filter((point) => {
         const isHidden = poiVisibilityState.hiddenPoiIds.has(point.id);
-        return !isHidden || poiVisibilityState.showHiddenActive;
+        if (isHidden && !poiVisibilityState.showHiddenActive) return false;
+        if (poiVisibilityState.favoritesOnlyActive && !isPoiFavorite(point.id)) return false;
+        return true;
       });
       if (!appState.showBadges || !appState.hideNoBadges) {
         return visibilityFiltered;
@@ -7640,11 +7740,14 @@
       const hideMultipleButton = menu.querySelector('[data-action="hide-multiple"]');
       showHiddenButton?.classList.toggle('is-active', Boolean(poiVisibilityState.showHiddenActive));
       hideMultipleButton?.classList.toggle('is-active', Boolean(poiVisibilityState.hideMultipleActive));
+      const favoritesOnlyButton = menu.querySelector('[data-action="favorites-only"]');
+      favoritesOnlyButton?.classList.toggle('is-active', Boolean(poiVisibilityState.favoritesOnlyActive));
     }
     function resetPoiVisibilityState({ clearHidden = true } = {}) {
       poiVisibilityState.hideModeActive = false;
       poiVisibilityState.hideMultipleActive = false;
       poiVisibilityState.showHiddenActive = false;
+      poiVisibilityState.favoritesOnlyActive = false;
       poiVisibilityState.unsavedChanges = false;
       if (clearHidden) {
         poiVisibilityState.hiddenPoiIds = new Set();
@@ -7660,6 +7763,7 @@
       if (!poiVisibilityState.hideModeActive) {
         poiVisibilityState.hideMultipleActive = false;
         poiVisibilityState.showHiddenActive = false;
+        poiVisibilityState.favoritesOnlyActive = false;
       }
       const shouldShowButton = hasRoute;
       const shouldShowMenu = hasRoute && poiVisibilityState.hideModeActive;
@@ -7748,6 +7852,7 @@
       const action = event?.target?.getAttribute?.('data-action');
       if (!action) return;
       if (action === 'show-hidden') poiVisibilityState.showHiddenActive = !poiVisibilityState.showHiddenActive;
+      if (action === 'favorites-only') poiVisibilityState.favoritesOnlyActive = !poiVisibilityState.favoritesOnlyActive;
       if (action === 'restore-hidden') {
         const shouldRestore = await showRestoreHiddenConfirmation();
         if (!shouldRestore) return;
