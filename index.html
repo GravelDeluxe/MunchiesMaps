@@ -185,7 +185,8 @@
     }
     #layerDrawerToggle,
     #locateButton,
-    #shareMainBtn {
+    #shareMainBtn,
+    #poiHideToggleBtn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -215,6 +216,12 @@
     #poiHideMenu:not(.is-visible),
     .poi-hide-menu:not(.is-visible) { display: none !important; }
     .poi-hide-menu button { border: 1px solid var(--btn-border); background: var(--action-bg); color: var(--text); border-radius: 8px; padding: 6px 8px; font-weight: 650; text-align: left; }
+    .poi-hide-menu button.is-active {
+      border-color: #38bdf8;
+      background: color-mix(in srgb, #38bdf8 16%, var(--action-bg));
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35);
+      font-weight: 700;
+    }
     .mm-marker--hidden {
       filter: grayscale(1) saturate(0.35) contrast(0.85);
       opacity: 0.92;
@@ -6890,6 +6897,8 @@
         return;
       }
 
+      const shouldRestoreSavedHiddenPois = Boolean(savedRoute && Array.isArray(savedRoute.hiddenPoiIds));
+      resetPoiVisibilityState();
       gpxState.points = trackPoints;
       gpxState.sampledPoints = sampled;
       gpxState.radiusMeters = radiusMeters;
@@ -6898,16 +6907,9 @@
       gpxState.rawText = gpxRawText;
       gpxState.active = true;
       poiVisibilityState.routeHash = simpleStableHash(gpxRawText || trackPoints.map((pt) => `${pt.lat},${pt.lon}`).join('|'));
-      try {
-        const saved = JSON.parse(localStorage.getItem(`munchies:hiddenPois:${poiVisibilityState.routeHash}`) || '[]');
-        poiVisibilityState.hiddenPoiIds = new Set(Array.isArray(saved) ? saved : []);
-      } catch (err) {
-        poiVisibilityState.hiddenPoiIds = new Set();
+      if (shouldRestoreSavedHiddenPois) {
+        poiVisibilityState.hiddenPoiIds = new Set(savedRoute.hiddenPoiIds);
       }
-      poiVisibilityState.hideModeActive = false;
-      poiVisibilityState.hideMultipleActive = false;
-      poiVisibilityState.showHiddenActive = false;
-      poiVisibilityState.unsavedChanges = false;
       updatePoiHideControlsVisibility();
       appState.hasImportedGpx = true;
       appState.clusterThresholdManual = false;
@@ -7178,14 +7180,27 @@
       for (let i = 0; i < input.length; i++) { h ^= input.charCodeAt(i); h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24); }
       return (h >>> 0).toString(16);
     }
+    function syncPoiHideMenuState() {
+      const menu = qs('#poiHideMenu');
+      if (!menu) return;
+      const hideMultipleButton = menu.querySelector('[data-action="hide-multiple"]');
+      hideMultipleButton?.classList.toggle('is-active', Boolean(poiVisibilityState.hideMultipleActive));
+    }
+    function resetPoiVisibilityState({ clearHidden = true } = {}) {
+      poiVisibilityState.hideModeActive = false;
+      poiVisibilityState.hideMultipleActive = false;
+      poiVisibilityState.showHiddenActive = false;
+      poiVisibilityState.unsavedChanges = false;
+      if (clearHidden) {
+        poiVisibilityState.hiddenPoiIds = new Set();
+      }
+    }
     function updatePoiHideControlsVisibility() {
       const btn = qs('#poiHideToggleBtn');
       const menu = qs('#poiHideMenu');
       const hasRoute = Boolean(gpxState.active);
       if (!hasRoute) {
-        poiVisibilityState.hideModeActive = false;
-        poiVisibilityState.hideMultipleActive = false;
-        poiVisibilityState.showHiddenActive = false;
+        resetPoiVisibilityState();
       }
       if (!poiVisibilityState.hideModeActive) {
         poiVisibilityState.hideMultipleActive = false;
@@ -7201,6 +7216,7 @@
         menu.classList.toggle('is-visible', shouldShowMenu);
         menu.hidden = !shouldShowMenu;
       }
+      syncPoiHideMenuState();
     }
     on(qs('#poiHideToggleBtn'), 'click', () => {
       poiVisibilityState.hideModeActive = !poiVisibilityState.hideModeActive;
