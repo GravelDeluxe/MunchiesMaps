@@ -803,17 +803,19 @@
       flex: 0 0 auto;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      border: 1px solid var(--btn-border);
-      background: var(--action-bg);
-      color: var(--text);
-      border-radius: 8px;
-      padding: 3px 6px;
+      gap: 6px;
+      border: 1px solid var(--popup-border);
+      background: rgba(0,0,0,0.03);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 2px 8px;
       font-size: 12px;
       font-weight: 700;
       line-height: 1.2;
       cursor: pointer;
+      white-space: nowrap;
     }
+    .theme-dark .popup-hide-pill { background: rgba(255,255,255,0.06); }
     .popup-hide-pill:active { transform: translateY(1px); }
     .popup-hide-pill i { font-size: 11px; }
     .popup-favorite-toggle {
@@ -898,17 +900,17 @@
       position: absolute;
       top: -3px;
       left: -3px;
-      color: #facc15;
-      font-size: 10px;
+      color: #f59e0b;
+      font-size: 11px;
       display: none;
       pointer-events: none;
       z-index: 2;
       line-height: 1;
-      text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+      text-shadow: 0 0 2px rgba(17, 24, 39, 0.65);
     }
     .theme-dark .mm-marker-favorite-badge {
-      color: #fde68a;
-      text-shadow: 0 0 2px rgba(15, 23, 42, 0.85);
+      color: #facc15;
+      text-shadow: 0 0 2px rgba(15, 23, 42, 0.9);
     }
     .mm-badge {
       position: absolute;
