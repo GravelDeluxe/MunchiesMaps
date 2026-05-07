@@ -826,24 +826,22 @@
     .popup-hide-pill:active { transform: translateY(1px); }
     .popup-hide-pill i { font-size: 10px; }
     .popup-favorite-toggle {
-      width: 100%;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 6px;
       border: 1px solid var(--popup-border);
       background: transparent;
       color: var(--muted);
-      border-radius: 10px;
-      padding: 5px 8px;
-      font-size: 12px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 11px;
       font-weight: 650;
       line-height: 1.2;
       cursor: pointer;
-      margin: 6px 0 6px;
+      margin: 6px 0;
     }
-    .popup-favorite-toggle i { font-size: 12px; }
-    .popup-favorite-toggle.is-active { color: #f59e0b; }
+    .popup-favorite-toggle i { font-size: 11px; }
+    .popup-favorite-toggle.is-active { color: #f59e0b; border-color: rgba(245, 158, 11, 0.5); }
     .popup-favorite-toggle:active { transform: translateY(1px); }
     @media (max-width: 480px) {
       .popup-action-row { flex-wrap: wrap; }
@@ -909,15 +907,15 @@
     .mm-marker--favorite .mm-marker-favorite-badge { display: inline-block; }
     .mm-marker-favorite-badge {
       position: absolute;
-      top: -5px;
-      left: -5px;
+      top: -4px;
+      left: -4px;
       color: #facc15;
-      font-size: 12px;
+      font-size: 11px;
       display: none;
       pointer-events: none;
       z-index: 2;
       line-height: 1;
-      text-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.45);
     }
     .theme-dark .mm-marker-favorite-badge {
       color: #fde047;
@@ -3112,6 +3110,8 @@
       buttonEl.setAttribute('aria-label', isFavorite ? 'Remove from favorites' : 'Add to favorites');
       buttonEl.setAttribute('title', isFavorite ? 'Remove from favorites' : 'Add to favorites');
       if (iconEl) iconEl.className = isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star';
+      const textEl = buttonEl.querySelector('span');
+      if (textEl) textEl.textContent = isFavorite ? 'Remove from favorites' : 'Add to favorites';
     }
 
     function normalizeTextToken(value) {
