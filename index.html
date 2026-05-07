@@ -790,17 +790,8 @@
     .leaflet-popup-content a { color: var(--btn-text); }
 
     .popup-content { font: 13px/1.35 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 320px; color: var(--popup-text); }
-    .popup-action-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-    .popup-category-wrap {
-      min-width: 0;
-      overflow-wrap: anywhere;
-    }
+    .popup-action-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+    .popup-category-wrap { display: inline-flex; align-items: center; gap: 8px; flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
     .popup-title { font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .popup-title span { overflow-wrap: anywhere; }
     .popup-title--full {
@@ -816,37 +807,34 @@
       border: 1px solid var(--btn-border);
       background: var(--action-bg);
       color: var(--text);
-      border-radius: 999px;
-      padding: 3px 8px;
-      font-size: 11px;
+      border-radius: 8px;
+      padding: 3px 6px;
+      font-size: 12px;
       font-weight: 700;
       line-height: 1.2;
       cursor: pointer;
     }
     .popup-hide-pill:active { transform: translateY(1px); }
-    .popup-hide-pill i { font-size: 10px; }
+    .popup-hide-pill i { font-size: 11px; }
     .popup-favorite-toggle {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      border: 1px solid var(--popup-border);
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: none;
       background: transparent;
       color: var(--muted);
-      border-radius: 999px;
-      padding: 3px 8px;
-      font-size: 11px;
-      font-weight: 650;
-      line-height: 1.2;
+      border-radius: 8px;
+      padding: 0;
       cursor: pointer;
-      margin: 6px 0;
-      opacity: 0.92;
+      margin: 0;
+      opacity: 0.95;
     }
-    .popup-favorite-toggle i { font-size: 11px; }
-    .popup-favorite-toggle.is-active { color: #f59e0b; border-color: rgba(245, 158, 11, 0.35); }
+    .popup-favorite-toggle i { font-size: 14px; }
+    .popup-favorite-toggle.is-active { color: #f59e0b; }
     .popup-favorite-toggle:active { transform: translateY(1px); }
-    @media (max-width: 480px) {
-      .popup-action-row { flex-wrap: wrap; }
-    }
+    .popup-favorite-toggle .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
     .popup-cat { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--muted); padding: 2px 8px; border-radius: 999px; border: 1px solid var(--popup-border); background: rgba(0,0,0,0.03); }
     .theme-dark .popup-cat { background: rgba(255,255,255,0.06); }
     .popup-desc { margin-bottom: 8px; }
@@ -3111,8 +3099,6 @@
       buttonEl.setAttribute('aria-label', isFavorite ? 'Remove from favorites' : 'Add to favorites');
       buttonEl.setAttribute('title', isFavorite ? 'Remove from favorites' : 'Add to favorites');
       if (iconEl) iconEl.className = isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star';
-      const textEl = buttonEl.querySelector('span');
-      if (textEl) textEl.textContent = isFavorite ? '★ Remove from favorites' : '☆ Add to favorites';
     }
 
     function normalizeTextToken(value) {
@@ -6561,13 +6547,13 @@
         ? `<button type="button" class="popup-hide-pill" data-poi-id="${escapeHtml(popupPoiId)}" data-action="${isRestoreAction ? 'restore' : 'hide'}"><i class="fa-solid ${isRestoreAction ? 'fa-rotate-left' : 'fa-eye-slash'}" aria-hidden="true"></i><span>${isRestoreAction ? 'Restore' : 'Hide'}</span></button>`
         : '';
       const popupTitle = `<div class="popup-title popup-title--full"><span>${escapeHtml(name)}</span></div>`;
-      const popupCategoryRow = categoryBadge ? `<div class="popup-category-wrap">${categoryBadge}</div>` : '';
+      const popupCategoryRow = categoryBadge
+        ? `<div class="popup-category-wrap">${popupPoiId ? `<button type="button" class="popup-favorite-toggle ${isFavorite ? 'is-active' : ''}" data-poi-id="${escapeHtml(popupPoiId)}" aria-label="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}" title="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}"><i class="${isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star'}" aria-hidden="true"></i><span class="sr-only">${isFavorite ? 'Remove from favorites' : 'Add to favorites'}</span></button>` : ''}${categoryBadge}${hideAction || ''}</div>`
+        : '';
       return `
         <div class="popup-content">
           ${popupTitle}
-          ${popupCategoryRow}
-          ${popupPoiId ? `<div class="popup-action-row"><button type="button" class="popup-favorite-toggle ${isFavorite ? 'is-active' : ''}" data-poi-id="${escapeHtml(popupPoiId)}" aria-label="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}" title="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}"><i class="${isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star'}" aria-hidden="true"></i><span>${isFavorite ? '★ Remove from favorites' : '☆ Add to favorites'}</span></button></div>` : ''}
-          ${hideAction ? `<div class="popup-action-row">${hideAction}</div>` : ''}
+          ${popupCategoryRow ? `<div class="popup-action-row">${popupCategoryRow}</div>` : ''}
           ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
           ${(accommodationTypeField || other) ? `<div class="popup-extra">${accommodationTypeField}${other}</div>` : ''}
           <div class="popup-footer">
@@ -6895,7 +6881,7 @@
         const cachedEl = cached.marker.getElement?.();
         if (cachedEl) {
           cachedEl.classList.toggle('mm-marker--hidden', poiVisibilityState.hiddenPoiIds.has(id) && poiVisibilityState.showHiddenActive);
-          cachedEl.classList.toggle('mm-marker--favorite', isPoiFavorite(id));
+          cachedEl.classList.toggle('mm-marker--favorite', hasActiveRoute() && isPoiFavorite(id));
         }
         return cached.marker;
       }
@@ -6926,7 +6912,7 @@
         const el = marker.getElement?.();
         if (!el) return;
         el.classList.toggle('mm-marker--hidden', poiVisibilityState.hiddenPoiIds.has(id) && poiVisibilityState.showHiddenActive);
-        el.classList.toggle('mm-marker--favorite', isPoiFavorite(id));
+        el.classList.toggle('mm-marker--favorite', hasActiveRoute() && isPoiFavorite(id));
       });
       return marker;
     }
@@ -7731,6 +7717,9 @@
       for (let i = 0; i < input.length; i++) { h ^= input.charCodeAt(i); h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24); }
       return (h >>> 0).toString(16);
     }
+    function hasActiveRoute() {
+      return Boolean(gpxState?.active);
+    }
     function syncPoiHideMenuState() {
       const menu = qs('#poiHideMenu');
       if (!menu) return;
@@ -7739,6 +7728,11 @@
       showHiddenButton?.classList.toggle('is-active', Boolean(poiVisibilityState.showHiddenActive));
       hideMultipleButton?.classList.toggle('is-active', Boolean(poiVisibilityState.hideMultipleActive));
       const favoritesOnlyButton = menu.querySelector('[data-action="favorites-only"]');
+      if (favoritesOnlyButton) {
+        const routeActive = hasActiveRoute();
+        favoritesOnlyButton.hidden = !routeActive;
+        favoritesOnlyButton.disabled = !routeActive;
+      }
       favoritesOnlyButton?.classList.toggle('is-active', Boolean(poiVisibilityState.favoritesOnlyActive));
     }
     function resetPoiVisibilityState({ clearHidden = true } = {}) {
@@ -7754,7 +7748,7 @@
     function updatePoiHideControlsVisibility() {
       const btn = qs('#poiHideToggleBtn');
       const menu = qs('#poiHideMenu');
-      const hasRoute = Boolean(gpxState.active);
+      const hasRoute = hasActiveRoute();
       if (!hasRoute) {
         resetPoiVisibilityState();
       }
@@ -7850,7 +7844,10 @@
       const action = event?.target?.getAttribute?.('data-action');
       if (!action) return;
       if (action === 'show-hidden') poiVisibilityState.showHiddenActive = !poiVisibilityState.showHiddenActive;
-      if (action === 'favorites-only') poiVisibilityState.favoritesOnlyActive = !poiVisibilityState.favoritesOnlyActive;
+      if (action === 'favorites-only') {
+        if (!hasActiveRoute()) return;
+        poiVisibilityState.favoritesOnlyActive = !poiVisibilityState.favoritesOnlyActive;
+      }
       if (action === 'restore-hidden') {
         const shouldRestore = await showRestoreHiddenConfirmation();
         if (!shouldRestore) return;
