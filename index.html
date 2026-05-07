@@ -839,9 +839,10 @@
       line-height: 1.2;
       cursor: pointer;
       margin: 6px 0;
+      opacity: 0.92;
     }
     .popup-favorite-toggle i { font-size: 11px; }
-    .popup-favorite-toggle.is-active { color: #f59e0b; border-color: rgba(245, 158, 11, 0.5); }
+    .popup-favorite-toggle.is-active { color: #f59e0b; border-color: rgba(245, 158, 11, 0.35); }
     .popup-favorite-toggle:active { transform: translateY(1px); }
     @media (max-width: 480px) {
       .popup-action-row { flex-wrap: wrap; }
@@ -907,19 +908,19 @@
     .mm-marker--favorite .mm-marker-favorite-badge { display: inline-block; }
     .mm-marker-favorite-badge {
       position: absolute;
-      top: -4px;
-      left: -4px;
+      top: -3px;
+      left: -3px;
       color: #facc15;
-      font-size: 11px;
+      font-size: 10px;
       display: none;
       pointer-events: none;
       z-index: 2;
       line-height: 1;
-      text-shadow: 0 0 1px rgba(0, 0, 0, 0.45);
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
     }
     .theme-dark .mm-marker-favorite-badge {
-      color: #fde047;
-      text-shadow: 0 0 2px rgba(15, 23, 42, 0.9);
+      color: #fde68a;
+      text-shadow: 0 0 2px rgba(15, 23, 42, 0.85);
     }
     .mm-badge {
       position: absolute;
@@ -3111,7 +3112,7 @@
       buttonEl.setAttribute('title', isFavorite ? 'Remove from favorites' : 'Add to favorites');
       if (iconEl) iconEl.className = isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star';
       const textEl = buttonEl.querySelector('span');
-      if (textEl) textEl.textContent = isFavorite ? 'Remove from favorites' : 'Add to favorites';
+      if (textEl) textEl.textContent = isFavorite ? '★ Remove from favorites' : '☆ Add to favorites';
     }
 
     function normalizeTextToken(value) {
@@ -6565,7 +6566,7 @@
         <div class="popup-content">
           ${popupTitle}
           ${popupCategoryRow}
-          ${popupPoiId ? `<button type="button" class="popup-favorite-toggle ${isFavorite ? 'is-active' : ''}" data-poi-id="${escapeHtml(popupPoiId)}" aria-label="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}" title="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}"><i class="${isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star'}" aria-hidden="true"></i><span>${isFavorite ? 'Remove from favorites' : 'Add to favorites'}</span></button>` : ''}
+          ${popupPoiId ? `<div class="popup-action-row"><button type="button" class="popup-favorite-toggle ${isFavorite ? 'is-active' : ''}" data-poi-id="${escapeHtml(popupPoiId)}" aria-label="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}" title="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}"><i class="${isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star'}" aria-hidden="true"></i><span>${isFavorite ? '★ Remove from favorites' : '☆ Add to favorites'}</span></button></div>` : ''}
           ${hideAction ? `<div class="popup-action-row">${hideAction}</div>` : ''}
           ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
           ${(accommodationTypeField || other) ? `<div class="popup-extra">${accommodationTypeField}${other}</div>` : ''}
