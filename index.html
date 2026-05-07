@@ -4392,6 +4392,35 @@
       return true;
     }
 
+    function updateCachedGpxFavoritePoiIds(favoritePoiIds) {
+      const favoriteIdsArray = Array.isArray(favoritePoiIds)
+        ? favoritePoiIds.map(String).filter(Boolean)
+        : [];
+      const rawText = typeof gpxState.rawText === 'string' ? gpxState.rawText.trim() : '';
+      if (!rawText) return false;
+
+      const cached = getCachedGpxRoute();
+      if (cached?.gpxRaw && cached.gpxRaw.trim() === rawText) {
+        setCachedGpxRoute({
+          ...cached,
+          gpxRaw: cached.gpxRaw,
+          favoritePoiIds: favoriteIdsArray,
+          savedAt: cached.savedAt || new Date().toISOString()
+        });
+        return true;
+      }
+
+      const hasSavedRouteState = hasSavedGpxRoute();
+      if (!hasSavedRouteState) return false;
+      setCachedGpxRoute({
+        ...(cached && typeof cached === 'object' ? cached : {}),
+        gpxRaw: rawText,
+        favoritePoiIds: favoriteIdsArray,
+        savedAt: cached?.savedAt || new Date().toISOString()
+      });
+      return true;
+    }
+
     async function listSavedOfflineRoutes() {
       if (!window.offlineRouteStore) return [];
       try {
@@ -5532,6 +5561,24 @@
       const pkgRaw = typeof pkg?.route?.gpxRaw === 'string' ? pkg.route.gpxRaw.trim() : '';
       if (currentRaw && pkgRaw && currentRaw !== pkgRaw) return false;
       pkg.hiddenPoiIds = Array.from(hiddenIds || []);
+      await window.offlineRouteStore.saveOfflineRoute(pkg);
+      await listSavedOfflineRoutes();
+      return true;
+    }
+
+    async function updateLinkedOfflineRouteFavoritePoiIds(favoriteIds) {
+      if (!window.offlineRouteStore) return false;
+      const cached = getCachedGpxRoute();
+      const offlineRouteId = activeOfflineRouteId || cached?.offlineRouteId || null;
+      if (!offlineRouteId) return false;
+      const pkg = await window.offlineRouteStore.loadOfflineRoute(offlineRouteId);
+      if (!pkg) return false;
+      const currentRaw = typeof gpxState.rawText === 'string' ? gpxState.rawText.trim() : '';
+      const pkgRaw = typeof pkg?.route?.gpxRaw === 'string' ? pkg.route.gpxRaw.trim() : '';
+      if (currentRaw && pkgRaw && currentRaw !== pkgRaw) return false;
+      pkg.favoritePoiIds = Array.isArray(favoriteIds)
+        ? favoriteIds.map(String).filter(Boolean)
+        : [];
       await window.offlineRouteStore.saveOfflineRoute(pkg);
       await listSavedOfflineRoutes();
       return true;
@@ -7903,15 +7950,18 @@
       }
       if (action === 'hide-multiple') { poiVisibilityState.hideMultipleActive = !poiVisibilityState.hideMultipleActive; if (poiVisibilityState.hideMultipleActive) showMapToast('You can now hide POIs by one single tap on the icon'); }
       if (action === 'save-hidden') {
-        // Save changes keeps the normal GPX cache synchronized to avoid stale hiddenPoiIds.
+        // Save changes keeps the route cache/package synchronized to avoid stale hidden/favorite POI state.
         const storageKind = getActiveRouteStorageKind();
         const hiddenIds = Array.from(poiVisibilityState.hiddenPoiIds);
+        const favoriteIds = getCurrentFavoritePoiIdsArray();
         let saved = false;
         const offlineSaved = await updateLinkedOfflineRouteHiddenPoiIds(hiddenIds);
+        const offlineFavoritesSaved = await updateLinkedOfflineRouteFavoritePoiIds(favoriteIds);
         if (gpxState.rawText) {
           saved = updateCachedGpxHiddenPoiIds(hiddenIds) || saved;
+          saved = updateCachedGpxFavoritePoiIds(favoriteIds) || saved;
         }
-        saved = offlineSaved || saved;
+        saved = offlineSaved || offlineFavoritesSaved || saved;
         if (storageKind === 'new-gpx-import') {
           // Unsaved imports should not silently discard hidden-state edits.
           if (!saved && !hasSavedGpxRoute()) {
