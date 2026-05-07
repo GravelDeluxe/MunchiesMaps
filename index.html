@@ -6547,13 +6547,17 @@
         ? `<button type="button" class="popup-hide-pill" data-poi-id="${escapeHtml(popupPoiId)}" data-action="${isRestoreAction ? 'restore' : 'hide'}"><i class="fa-solid ${isRestoreAction ? 'fa-rotate-left' : 'fa-eye-slash'}" aria-hidden="true"></i><span>${isRestoreAction ? 'Restore' : 'Hide'}</span></button>`
         : '';
       const popupTitle = `<div class="popup-title popup-title--full"><span>${escapeHtml(name)}</span></div>`;
-      const popupCategoryRow = categoryBadge
-        ? `<div class="popup-category-wrap">${popupPoiId ? `<button type="button" class="popup-favorite-toggle ${isFavorite ? 'is-active' : ''}" data-poi-id="${escapeHtml(popupPoiId)}" aria-label="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}" title="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}"><i class="${isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star'}" aria-hidden="true"></i><span class="sr-only">${isFavorite ? 'Remove from favorites' : 'Add to favorites'}</span></button>` : ''}${categoryBadge}${hideAction || ''}</div>`
+      const showPopupFavoriteToggle = Boolean(popupPoiId && hasActiveRoute());
+      const popupFavoriteToggle = showPopupFavoriteToggle
+        ? `<button type="button" class="popup-favorite-toggle ${isFavorite ? 'is-active' : ''}" data-poi-id="${escapeHtml(popupPoiId)}" aria-label="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}" title="${isFavorite ? 'Remove from favorites' : 'Add to favorites'}"><i class="${isFavorite ? 'fa-solid fa-star' : 'fa-regular fa-star'}" aria-hidden="true"></i><span class="sr-only">${isFavorite ? 'Remove from favorites' : 'Add to favorites'}</span></button>`
+        : '';
+      const popupCategoryRow = (popupFavoriteToggle || categoryBadge || hideAction)
+        ? `<div class="popup-category-wrap">${popupFavoriteToggle}${categoryBadge}${hideAction || ''}</div>`
         : '';
       return `
         <div class="popup-content">
-          ${popupTitle}
           ${popupCategoryRow ? `<div class="popup-action-row">${popupCategoryRow}</div>` : ''}
+          ${popupTitle}
           ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
           ${(accommodationTypeField || other) ? `<div class="popup-extra">${accommodationTypeField}${other}</div>` : ''}
           <div class="popup-footer">
