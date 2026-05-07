@@ -1303,7 +1303,6 @@
     const THEME_KEY = 'theme';
     const CLUSTER_THRESHOLD_KEY = 'clusterThreshold';
     const MIN_POI_ZOOM_KEY = 'minPoiZoom';
-    const FAVORITE_POI_IDS_STORAGE_KEY = 'munchiesMaps.favoritePoiIds.v1';
     const APP_VERSION = "0.5";
     const QUICK_FEEDBACK_ENDPOINT = "https://script.google.com/macros/s/AKfycbzewIElOyqoS0xeGWab6MWoCZq67qs9uKEEAVwJzMRWJDE5ebxZlNwESaZQnNP_pAKVAA/exec";
     const QUICK_FEEDBACK_RATE_LIMIT_MS = 60000;
@@ -2966,7 +2965,6 @@
       unsavedChanges: false,
       routeHash: null
     };
-    poiVisibilityState.favoritePoiIds = loadStoredPoiIdSet(FAVORITE_POI_IDS_STORAGE_KEY);
 
     const gpxState = {
       points: [],
@@ -3084,22 +3082,18 @@
       const normLat = lat.toFixed(6);
       return `${datasetKey}-${categoryToken}-${typePrefix}-${normLon}-${normLat}`;
     }
-    function loadStoredPoiIdSet(storageKey) {
-      try {
-        const raw = localStorage.getItem(storageKey);
-        if (!raw) return new Set();
-        const parsed = JSON.parse(raw);
-        if (!Array.isArray(parsed)) return new Set();
-        return new Set(parsed.map((v) => String(v)).filter(Boolean));
-      } catch (_) {
-        return new Set();
-      }
-    }
-    function saveStoredPoiIdSet(storageKey, set) {
-      localStorage.setItem(storageKey, JSON.stringify(Array.from(set || [])));
-    }
     function isPoiFavorite(poiId) {
       return Boolean(poiId && poiVisibilityState.favoritePoiIds.has(poiId));
+    }
+    function clearFavoritePoiIds({ refreshMap = true } = {}) {
+      const hadFavorites = poiVisibilityState.favoritePoiIds.size > 0;
+      const favoritesOnlyWasActive = Boolean(poiVisibilityState.favoritesOnlyActive);
+      poiVisibilityState.favoritePoiIds.clear();
+      poiVisibilityState.favoritesOnlyActive = false;
+      if (refreshMap && (hadFavorites || favoritesOnlyWasActive)) {
+        applyCurrentMapFiltersAndClustering({ reason: 'favorites-cleared' });
+      }
+      if (favoritesOnlyWasActive) updatePoiHideControlsVisibility();
     }
     function togglePoiFavorite(poiId) {
       if (!poiId) return false;
@@ -3108,7 +3102,6 @@
       } else {
         poiVisibilityState.favoritePoiIds.add(poiId);
       }
-      saveStoredPoiIdSet(FAVORITE_POI_IDS_STORAGE_KEY, poiVisibilityState.favoritePoiIds);
       return poiVisibilityState.favoritePoiIds.has(poiId);
     }
     function updatePopupFavoriteButtonState(buttonEl, isFavorite) {
@@ -5591,6 +5584,7 @@
       poiVisibilityState.hideModeActive = false;
       poiVisibilityState.hideMultipleActive = false;
       poiVisibilityState.showHiddenActive = false;
+      clearFavoritePoiIds({ refreshMap: false });
       poiVisibilityState.unsavedChanges = false;
       appState.hasImportedGpx = true;
       updatePoiHideControlsVisibility();
@@ -6101,6 +6095,7 @@
               poiVisibilityState.hideModeActive = false;
               poiVisibilityState.hideMultipleActive = false;
               poiVisibilityState.showHiddenActive = false;
+              clearFavoritePoiIds({ refreshMap: false });
               poiVisibilityState.unsavedChanges = false;
               updatePoiHideControlsVisibility();
               refreshGpxUiState();
@@ -7368,6 +7363,7 @@
       poiVisibilityState.hideModeActive = false;
       poiVisibilityState.hideMultipleActive = false;
       poiVisibilityState.showHiddenActive = false;
+      clearFavoritePoiIds({ refreshMap: false });
       poiVisibilityState.hiddenPoiIds.clear();
       poiVisibilityState.unsavedChanges = false;
       poiVisibilityState.routeHash = null;
@@ -7457,6 +7453,7 @@
       // New manual GPX imports intentionally clear previously hidden POIs.
       // GPX cache / offline package loads pass hiddenPoiIds so they are restored after reset.
       resetPoiVisibilityState({ clearHidden: routeSource === 'new-gpx-import' });
+      clearFavoritePoiIds({ refreshMap: false });
       gpxState.points = trackPoints;
       gpxState.sampledPoints = sampled;
       gpxState.radiusMeters = radiusMeters;
