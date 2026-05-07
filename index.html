@@ -3095,6 +3095,19 @@
       }
       if (favoritesOnlyWasActive) updatePoiHideControlsVisibility();
     }
+    function getCurrentFavoritePoiIdsArray() {
+      return Array.from(poiVisibilityState.favoritePoiIds || []);
+    }
+    function restoreFavoritePoiIds(favoriteIds = [], { refreshMap = true } = {}) {
+      poiVisibilityState.favoritePoiIds = new Set(
+        Array.isArray(favoriteIds) ? favoriteIds.map(String).filter(Boolean) : []
+      );
+      poiVisibilityState.favoritesOnlyActive = false;
+      if (refreshMap) {
+        applyCurrentMapFiltersAndClustering({ reason: 'favorites-restored' });
+        updatePoiHideControlsVisibility();
+      }
+    }
     function togglePoiFavorite(poiId) {
       if (!poiId) return false;
       if (poiVisibilityState.favoritePoiIds.has(poiId)) {
@@ -4322,18 +4335,19 @@
       try {
         const parsed = JSON.parse(raw);
         if (typeof parsed === 'string') {
-          return { gpxRaw: parsed, hiddenPoiIds: [], offlineRouteId: null };
+          return { gpxRaw: parsed, hiddenPoiIds: [], favoritePoiIds: [], offlineRouteId: null };
         }
         if (parsed && typeof parsed === 'object') {
           const gpxRaw = typeof parsed.gpxRaw === 'string' ? parsed.gpxRaw : '';
           const hiddenPoiIds = Array.isArray(parsed.hiddenPoiIds) ? parsed.hiddenPoiIds : [];
+          const favoritePoiIds = Array.isArray(parsed.favoritePoiIds) ? parsed.favoritePoiIds : [];
           const offlineRouteId = typeof parsed.offlineRouteId === 'string' && parsed.offlineRouteId.trim()
             ? parsed.offlineRouteId.trim()
             : null;
-          return { ...parsed, gpxRaw, hiddenPoiIds, offlineRouteId };
+          return { ...parsed, gpxRaw, hiddenPoiIds, favoritePoiIds, offlineRouteId };
         }
       } catch (_) {
-        return { gpxRaw: raw, hiddenPoiIds: [], offlineRouteId: null };
+        return { gpxRaw: raw, hiddenPoiIds: [], favoritePoiIds: [], offlineRouteId: null };
       }
       return null;
     }
@@ -5117,6 +5131,7 @@
           regions: Array.from(filterState.bundeslaender || [])
         },
         hiddenPoiIds: Array.from(poiVisibilityState.hiddenPoiIds || []),
+        favoritePoiIds: getCurrentFavoritePoiIdsArray(),
         pois,
         mapTexture,
         offlineSaveMeta: {
@@ -5151,6 +5166,7 @@
         setCachedGpxRoute({
           gpxRaw: rawText,
           hiddenPoiIds: Array.from(poiVisibilityState.hiddenPoiIds || []),
+          favoritePoiIds: getCurrentFavoritePoiIdsArray(),
           savedAt: new Date().toISOString(),
           offlineRouteId: pkg.id || null
         });
@@ -5479,6 +5495,9 @@
               if (!Array.isArray(pkg.hiddenPoiIds) || !pkg.hiddenPoiIds.length) {
                 pkg.hiddenPoiIds = Array.isArray(cached.hiddenPoiIds) ? cached.hiddenPoiIds : [];
               }
+              if (!Array.isArray(pkg.favoritePoiIds) || !pkg.favoritePoiIds.length) {
+                pkg.favoritePoiIds = Array.isArray(cached.favoritePoiIds) ? cached.favoritePoiIds : [];
+              }
               return renderOfflineRoutePackage(pkg);
             }
           } catch (err) {
@@ -5492,7 +5511,8 @@
           autoSelectRegions: true,
           uiModeAfterApply: 'cache-found',
           routeSource: 'gpx-cache',
-          hiddenPoiIds: Array.isArray(cached.hiddenPoiIds) ? cached.hiddenPoiIds : []
+          hiddenPoiIds: Array.isArray(cached.hiddenPoiIds) ? cached.hiddenPoiIds : [],
+          favoritePoiIds: Array.isArray(cached.favoritePoiIds) ? cached.favoritePoiIds : []
         });
         return true;
       }
@@ -5584,7 +5604,7 @@
       poiVisibilityState.hideModeActive = false;
       poiVisibilityState.hideMultipleActive = false;
       poiVisibilityState.showHiddenActive = false;
-      clearFavoritePoiIds({ refreshMap: false });
+      restoreFavoritePoiIds(Array.isArray(pkg.favoritePoiIds) ? pkg.favoritePoiIds : [], { refreshMap: false });
       poiVisibilityState.unsavedChanges = false;
       appState.hasImportedGpx = true;
       updatePoiHideControlsVisibility();
@@ -5887,6 +5907,7 @@
         hiddenPoiSnapshots,
         selectedCategories: Array.from(filterState.kategorien || []),
         selectedRegions: Array.from(filterState.bundeslaender || []),
+        favoritePoiIds: getCurrentFavoritePoiIdsArray(),
         activeRouteSource: activeRouteSource || null
       };
     }
@@ -6075,6 +6096,7 @@
                 rawGpxText: backup.gpxRaw,
                 routeSource: 'backup-import',
                 hiddenPoiIds,
+                favoritePoiIds: Array.isArray(backup.favoritePoiIds) ? backup.favoritePoiIds : [],
                 uiModeAfterApply: 'import-open',
                 skipFitToTrack: false,
                 autoSelectRegions: true
@@ -6095,7 +6117,7 @@
               poiVisibilityState.hideModeActive = false;
               poiVisibilityState.hideMultipleActive = false;
               poiVisibilityState.showHiddenActive = false;
-              clearFavoritePoiIds({ refreshMap: false });
+              restoreFavoritePoiIds(Array.isArray(backup.favoritePoiIds) ? backup.favoritePoiIds : [], { refreshMap: false });
               poiVisibilityState.unsavedChanges = false;
               updatePoiHideControlsVisibility();
               refreshGpxUiState();
@@ -7395,7 +7417,7 @@
       refreshRouteDependentClustering({ reason: 'gpx-reset' });
     }
 
-    async function handleGpxApply({ rawGpxText = null, skipFitToTrack = false, autoSelectRegions = true, uiModeAfterApply = 'import-open', routeSource = 'new-gpx-import', hiddenPoiIds = null } = {}) {
+    async function handleGpxApply({ rawGpxText = null, skipFitToTrack = false, autoSelectRegions = true, uiModeAfterApply = 'import-open', routeSource = 'new-gpx-import', hiddenPoiIds = null, favoritePoiIds = null } = {}) {
       const errorEl = document.getElementById('gpxError');
       const radiusInput = document.getElementById('gpxRadiusKm');
       const fileInput = document.getElementById('gpxFileInput');
@@ -7450,6 +7472,7 @@
       }
 
       const shouldRestoreSavedHiddenPois = Array.isArray(hiddenPoiIds);
+      const shouldRestoreSavedFavoritePois = Array.isArray(favoritePoiIds);
       // New manual GPX imports intentionally clear previously hidden POIs.
       // GPX cache / offline package loads pass hiddenPoiIds so they are restored after reset.
       resetPoiVisibilityState({ clearHidden: routeSource === 'new-gpx-import' });
@@ -7466,6 +7489,9 @@
       activeOfflineRouteId = routeSource === 'offline-route-package' ? activeOfflineRouteId : null;
       if (shouldRestoreSavedHiddenPois) {
         poiVisibilityState.hiddenPoiIds = new Set(hiddenPoiIds);
+      }
+      if (shouldRestoreSavedFavoritePois) {
+        restoreFavoritePoiIds(favoritePoiIds, { refreshMap: false });
       }
       updatePoiHideControlsVisibility();
       appState.hasImportedGpx = true;
