@@ -24,3 +24,8 @@ Keine Placeholder-Dateien, CDN-Wrapper oder synchrone XHR-Fallbacks für Vendor-
 ## PWA-Icons
 
 Die App verwendet nun eigene PWA-/Homescreen-/Favicon-Icons aus `assets/icons/` (inkl. maskable Icons für Android und Apple Touch Icon für iOS).
+
+## SEO-Basics (manuell gepflegt)
+
+Basis-SEO-Metadaten in `index.html` sowie `robots.txt` und `sitemap.xml` werden aktuell manuell gepflegt.
+Share-URLs mit Query-Parametern sollten per Canonical-URL auf `https://nightrides.cc/munchiesmaps/` verweisen.
