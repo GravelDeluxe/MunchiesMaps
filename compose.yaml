@@ -1,0 +1,10 @@
+services:
+  munchiesmaps:
+    build:
+      context: .
+    image: ghcr.io/graveldeluxe/munchiesmaps:local
+    container_name: munchiesmaps
+    restart: unless-stopped
+    ports:
+      - "8173:80"
+

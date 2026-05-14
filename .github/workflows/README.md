@@ -4,6 +4,7 @@ Automation for keeping GeoJSON data up to date.
 
 - `fetch_overpass.yml` installs the fetch scripts, runs the Overpass queries, and writes regenerated data from `resources/geojson/`.
 - `fetch_matrix.yml` runs the same fetch script as a country-level matrix job (`fail-fast: false`) and uploads per-country failure/result artifacts.
+- `docker-publish.yml` builds the static nginx image and publishes it to GitHub Container Registry for Portainer/Watchtower deployments.
 - The workflow can be started manually via **Actions → Fetch Overpass Data → Run workflow**.
 - The existing scheduled run remains active on `0 1 1 * *` and uses defaults (no manual inputs required).
 
