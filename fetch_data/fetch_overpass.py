@@ -1711,7 +1711,7 @@ def run(
     if dry_run or skip_manifest:
         print("[dry-run] Skipping manifest write")
     else:
-        save_manifest(regions, categories)
+        save_manifest(all_regions, categories)
 
     endpoints_used = sorted(run_stats["endpoints_used"])
     print(
