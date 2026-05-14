@@ -1199,6 +1199,14 @@
                 </label>
                 <div class="checkrow-helper">Shows day badges for POIs that are open when you are expected to arrive.</div>
               </div>
+              <label class="checkrow checkrow--nested" for="toggleDayTripHideNoBadges">
+                <input type="checkbox" id="toggleDayTripHideNoBadges" />
+                <span>Hide entries without badges</span>
+              </label>
+              <label class="checkrow checkrow--nested" for="toggleDayTripIncludeMissingOH">
+                <input type="checkbox" id="toggleDayTripIncludeMissingOH" />
+                <span>Include entries with missing data</span>
+              </label>
               <div class="gpx-row">
                 <label for="dayTripWeekday">Ride starts on</label>
                 <select id="dayTripWeekday">
@@ -2366,6 +2374,12 @@
       const dayTrips = normalize01(firstParam(params, ['d', 'dayTrips']));
       if (dayTrips !== null) state.d = dayTrips;
 
+      const dayTripHideNoBadges = normalize01(firstParam(params, ['dh', 'dayTripHideNoBadges']));
+      if (dayTripHideNoBadges !== null) state.dh = dayTripHideNoBadges;
+
+      const dayTripIncludeMissing = normalize01(firstParam(params, ['dm', 'dayTripIncludeMissing']));
+      if (dayTripIncludeMissing !== null) state.dm = dayTripIncludeMissing;
+
       const dayTripWeekday = firstParam(params, ['dw', 'dayTripWeekday']);
       if (dayTripWeekday !== null) state.dw = dayTripWeekday;
 
@@ -2478,6 +2492,18 @@
         if (toggle) toggle.checked = state.d;
       }
 
+      if (typeof state.dh === 'boolean') {
+        appState.dayTripHideNoBadges = state.dh;
+        const toggle = document.getElementById('toggleDayTripHideNoBadges');
+        if (toggle) toggle.checked = state.dh;
+      }
+
+      if (typeof state.dm === 'boolean') {
+        appState.dayTripIncludeMissingData = state.dm;
+        const toggle = document.getElementById('toggleDayTripIncludeMissingOH');
+        if (toggle) toggle.checked = state.dm;
+      }
+
       if (isValidDayTripWeekday(state.dw)) {
         appState.dayTripWeekday = String(state.dw);
         const input = document.getElementById('dayTripWeekday');
@@ -2533,6 +2559,8 @@
       if (appState.includeMissingData !== false) params.set('m', boolTo01(appState.includeMissingData));
       if (appState.dayTripsEnabled !== false) {
         params.set('d', boolTo01(appState.dayTripsEnabled));
+        if (appState.dayTripHideNoBadges !== false) params.set('dh', boolTo01(appState.dayTripHideNoBadges));
+        if (appState.dayTripIncludeMissingData !== false) params.set('dm', boolTo01(appState.dayTripIncludeMissingData));
         params.set('dw', String(appState.dayTripWeekday || '6'));
         params.set('dt', String(appState.dayTripStartTime || '09:00'));
         params.set('ds', String(appState.dayTripAvgSpeedKmh || 20));
@@ -3015,6 +3043,8 @@
       hideNoBadges: appState.hideNoBadges ?? false,
       includeMissingData: appState.includeMissingData ?? false,
       dayTripsEnabled: appState.dayTripsEnabled ?? false,
+      dayTripHideNoBadges: appState.dayTripHideNoBadges ?? false,
+      dayTripIncludeMissingData: appState.dayTripIncludeMissingData ?? false,
       dayTripWeekday: appState.dayTripWeekday ?? '6',
       dayTripStartTime: appState.dayTripStartTime ?? '09:00',
       dayTripAvgSpeedKmh: appState.dayTripAvgSpeedKmh ?? 20,
@@ -6592,11 +6622,21 @@
 
     function refreshDayTripControls() {
       const enabled = Boolean(appState.dayTripsEnabled);
-      ['dayTripWeekday', 'dayTripStartTime', 'dayTripAvgSpeed'].forEach((id) => {
+      ['toggleDayTripHideNoBadges', 'toggleDayTripIncludeMissingOH', 'dayTripWeekday', 'dayTripStartTime', 'dayTripAvgSpeed'].forEach((id) => {
         const input = document.getElementById(id);
         if (!input) return;
         input.disabled = !enabled;
+        const row = input.closest('.checkrow');
+        if (row) row.classList.toggle('is-disabled', !enabled);
       });
+      if (!enabled) {
+        appState.dayTripHideNoBadges = false;
+        appState.dayTripIncludeMissingData = false;
+        const hideToggle = document.getElementById('toggleDayTripHideNoBadges');
+        const includeToggle = document.getElementById('toggleDayTripIncludeMissingOH');
+        if (hideToggle) hideToggle.checked = false;
+        if (includeToggle) includeToggle.checked = false;
+      }
     }
 
     function refreshDayTripBadges() {
@@ -6610,6 +6650,8 @@
 
     function setupDayTripControls() {
       const toggle = document.getElementById('toggleDayTrips');
+      const hideNoBadges = document.getElementById('toggleDayTripHideNoBadges');
+      const includeMissing = document.getElementById('toggleDayTripIncludeMissingOH');
       const weekday = document.getElementById('dayTripWeekday');
       const startTime = document.getElementById('dayTripStartTime');
       const avgSpeed = document.getElementById('dayTripAvgSpeed');
@@ -6619,6 +6661,22 @@
         toggle.addEventListener('change', () => {
           appState.dayTripsEnabled = toggle.checked;
           refreshDayTripControls();
+          refreshDayTripBadges();
+        });
+      }
+
+      if (hideNoBadges) {
+        hideNoBadges.checked = Boolean(appState.dayTripHideNoBadges);
+        hideNoBadges.addEventListener('change', () => {
+          appState.dayTripHideNoBadges = hideNoBadges.checked;
+          refreshDayTripBadges();
+        });
+      }
+
+      if (includeMissing) {
+        includeMissing.checked = Boolean(appState.dayTripIncludeMissingData);
+        includeMissing.addEventListener('change', () => {
+          appState.dayTripIncludeMissingData = includeMissing.checked;
           refreshDayTripBadges();
         });
       }
@@ -7052,6 +7110,110 @@
       }
     }
 
+    function stripPublicHolidayRules(openingHoursRaw) {
+      return String(openingHoursRaw || '')
+        .split(';')
+        .map((rule) => rule.trim())
+        .filter((rule) => rule && !/^PH\b/i.test(rule))
+        .join('; ');
+    }
+
+    function parseOpeningHoursWithFallback(value) {
+      const parsed = parseOpeningHours(value);
+      if (parsed) return parsed;
+      const withoutPublicHolidays = stripPublicHolidayRules(value);
+      if (withoutPublicHolidays && withoutPublicHolidays !== value) {
+        return parseOpeningHours(withoutPublicHolidays);
+      }
+      return null;
+    }
+
+    function parseDayTripMinutes(value) {
+      const match = /^(\d{1,2}):(\d{2})$/.exec(String(value || '').trim());
+      if (!match) return null;
+      const hour = Number.parseInt(match[1], 10);
+      const minute = Number.parseInt(match[2], 10);
+      if (!Number.isFinite(hour) || !Number.isFinite(minute)) return null;
+      if (hour === 24 && minute === 0) return 24 * 60;
+      if (hour < 0 || hour > 23 || minute < 0 || minute > 59) return null;
+      return hour * 60 + minute;
+    }
+
+    function dayTripWeekdayIndex(token) {
+      const indexByToken = { Su: 0, Mo: 1, Tu: 2, We: 3, Th: 4, Fr: 5, Sa: 6 };
+      return indexByToken[token] ?? null;
+    }
+
+    function dayTripRuleAppliesToDate(daySpec, date) {
+      const spec = String(daySpec || '').trim();
+      if (!spec) return true;
+      const currentDay = date.getDay();
+      const tokens = spec.split(',').map((token) => token.trim()).filter(Boolean);
+      if (!tokens.length) return true;
+
+      let sawDayToken = false;
+      for (const token of tokens) {
+        if (/^PH$/i.test(token)) continue;
+        const rangeMatch = /^(Mo|Tu|We|Th|Fr|Sa|Su)-(Mo|Tu|We|Th|Fr|Sa|Su)$/i.exec(token);
+        if (rangeMatch) {
+          sawDayToken = true;
+          const start = dayTripWeekdayIndex(rangeMatch[1].slice(0, 1).toUpperCase() + rangeMatch[1].slice(1).toLowerCase());
+          const end = dayTripWeekdayIndex(rangeMatch[2].slice(0, 1).toUpperCase() + rangeMatch[2].slice(1).toLowerCase());
+          if (start == null || end == null) continue;
+          if (start <= end && currentDay >= start && currentDay <= end) return true;
+          if (start > end && (currentDay >= start || currentDay <= end)) return true;
+          continue;
+        }
+        const normalizedToken = token.slice(0, 1).toUpperCase() + token.slice(1).toLowerCase();
+        const day = dayTripWeekdayIndex(normalizedToken);
+        if (day != null) {
+          sawDayToken = true;
+          if (currentDay === day) return true;
+        }
+      }
+
+      return !sawDayToken;
+    }
+
+    function fallbackOpeningHoursStateAt(openingHoursRaw, date) {
+      const value = String(openingHoursRaw || '').trim();
+      if (!value || !(date instanceof Date)) return null;
+      const targetMinutes = (date.getHours() * 60) + date.getMinutes();
+      let sawApplicableRule = false;
+      let sawSupportedRule = false;
+
+      for (const rawRule of value.split(';')) {
+        const rule = rawRule.trim();
+        if (!rule || /^PH\b/i.test(rule)) continue;
+        const firstTime = rule.search(/\d{1,2}:\d{2}/);
+        const daySpec = firstTime > 0 ? rule.slice(0, firstTime).trim().replace(/[,\s]+$/, '') : rule.replace(/\b(closed|off)\b/i, '').trim();
+        const applies = dayTripRuleAppliesToDate(daySpec, date);
+        if (!applies) continue;
+        sawApplicableRule = true;
+        if (/\b(closed|off)\b/i.test(rule) && firstTime === -1) {
+          sawSupportedRule = true;
+          return false;
+        }
+
+        const timeRangeRegex = /(\d{1,2}:\d{2})-(\d{1,2}:\d{2})/g;
+        let match;
+        while ((match = timeRangeRegex.exec(rule)) !== null) {
+          const start = parseDayTripMinutes(match[1]);
+          const end = parseDayTripMinutes(match[2]);
+          if (start == null || end == null) continue;
+          sawSupportedRule = true;
+          if (end >= start) {
+            if (targetMinutes >= start && targetMinutes < end) return true;
+          } else if (targetMinutes >= start || targetMinutes < end) {
+            return true;
+          }
+        }
+      }
+
+      if (sawApplicableRule || sawSupportedRule) return false;
+      return null;
+    }
+
     function buildDayTripStartDate() {
       const weekday = isValidDayTripWeekday(appState.dayTripWeekday) ? Number(appState.dayTripWeekday) : 6;
       const time = isValidDayTripTime(appState.dayTripStartTime) ? appState.dayTripStartTime : '09:00';
@@ -7121,12 +7283,16 @@
         return { state: 'open', arrival: buildDayTripArrivalDate(props).arrival };
       }
 
-      const parsed = parseOpeningHours(openingHoursRaw);
-      if (!parsed) return { state: 'unknown', arrival: buildDayTripArrivalDate(props).arrival };
       const arrivalInfo = buildDayTripArrivalDate(props);
-      const isOpen = safeGetState(parsed, arrivalInfo.arrival);
+      const parsed = parseOpeningHoursWithFallback(openingHoursRaw);
+      const isOpen = parsed
+        ? safeGetState(parsed, arrivalInfo.arrival)
+        : fallbackOpeningHoursStateAt(openingHoursRaw, arrivalInfo.arrival);
       if (isOpen === true) return { state: 'open', ...arrivalInfo };
       if (isOpen === false) return { state: 'closed', ...arrivalInfo };
+      const fallbackState = fallbackOpeningHoursStateAt(openingHoursRaw, arrivalInfo.arrival);
+      if (fallbackState === true) return { state: 'open', ...arrivalInfo };
+      if (fallbackState === false) return { state: 'closed', ...arrivalInfo };
       return { state: 'unknown', ...arrivalInfo };
     }
 
@@ -7424,7 +7590,9 @@
         if (poiVisibilityState.favoritesOnlyActive && !isPoiFavorite(point.id)) return false;
         return true;
       });
-      if (!appState.showBadges || !appState.hideNoBadges) {
+      const filterNightBadges = Boolean(appState.showBadges && appState.hideNoBadges);
+      const filterDayTripBadges = Boolean(appState.dayTripsEnabled && appState.dayTripHideNoBadges);
+      if (!filterNightBadges && !filterDayTripBadges) {
         return visibilityFiltered;
       }
       const badgeMemo = new Map();
@@ -7438,10 +7606,15 @@
           }));
         }
         const badgeType = badgeMemo.get(point.id);
-        if (badgeType === 'twentyfour' || badgeType === 'moon' || badgeType === 'day') {
+        if (filterNightBadges && (badgeType === 'twentyfour' || badgeType === 'moon')) {
           return true;
         }
-        if (appState.includeMissingData) {
+        if (filterDayTripBadges && badgeType === 'day') {
+          return true;
+        }
+        const includeMissing = (filterNightBadges && appState.includeMissingData)
+          || (filterDayTripBadges && appState.dayTripIncludeMissingData);
+        if (includeMissing) {
           const openingHoursRaw = normalizeOpeningHours(point.propsRef?.opening_hours);
           return !openingHoursRaw;
         }
@@ -7964,6 +8137,8 @@
       appState.hideNoBadges = false;
       appState.includeMissingData = false;
       appState.dayTripsEnabled = false;
+      appState.dayTripHideNoBadges = false;
+      appState.dayTripIncludeMissingData = false;
       appState.dayTripWeekday = '6';
       appState.dayTripStartTime = '09:00';
       appState.dayTripAvgSpeedKmh = 20;
@@ -7974,10 +8149,14 @@
       if (hideToggle) hideToggle.checked = false;
       if (includeToggle) includeToggle.checked = false;
       const dayToggle = document.getElementById('toggleDayTrips');
+      const dayHideToggle = document.getElementById('toggleDayTripHideNoBadges');
+      const dayIncludeToggle = document.getElementById('toggleDayTripIncludeMissingOH');
       const dayWeekday = document.getElementById('dayTripWeekday');
       const dayStartTime = document.getElementById('dayTripStartTime');
       const dayAvgSpeed = document.getElementById('dayTripAvgSpeed');
       if (dayToggle) dayToggle.checked = false;
+      if (dayHideToggle) dayHideToggle.checked = false;
+      if (dayIncludeToggle) dayIncludeToggle.checked = false;
       if (dayWeekday) dayWeekday.value = '6';
       if (dayStartTime) dayStartTime.value = '09:00';
       if (dayAvgSpeed) dayAvgSpeed.value = '20';
