@@ -667,7 +667,10 @@
 .route-backup-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
     .gpx-row { display: flex; flex-direction: column; gap: 6px; }
     .gpx-row label { font-weight: 650; color: var(--text); }
-    .gpx-row input[type="number"] { width: 120px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+    .gpx-row input[type="number"],
+    .gpx-row input[type="time"],
+    .gpx-row select { width: 120px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+    .gpx-row select { width: min(100%, 180px); }
     .gpx-row input[type="file"] { color: var(--text); }
     .gpx-radius-apply-row { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 8px; }
 
@@ -1004,6 +1007,13 @@
       font-size: 6.5px;
       letter-spacing: -0.3px;
     }
+    .mm-badge--day {
+      width: 16px;
+      height: 16px;
+      font-size: 8px;
+      background: #38bdf8;
+      color: #082f49;
+    }
 
     #offlineIndicator {
       position: fixed;
@@ -1172,6 +1182,44 @@
                 <span class="toggle-switch" aria-hidden="true"></span>
               </label>
               <p class="option-helper">Reduces screen brightness for night use.</p>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="dayTripsSection">
+          <button type="button" class="accordion-header" data-target="dayTripsBody" aria-expanded="false">
+            <span>Day Trips</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="accordion-body" id="dayTripsBody">
+            <div class="checklist">
+              <div class="checkrow-group">
+                <label class="checkrow" for="toggleDayTrips">
+                  <input type="checkbox" id="toggleDayTrips" />
+                  <span>Show arrival badges</span>
+                </label>
+                <div class="checkrow-helper">Shows day badges for POIs that are open when you are expected to arrive.</div>
+              </div>
+              <div class="gpx-row">
+                <label for="dayTripWeekday">Ride starts on</label>
+                <select id="dayTripWeekday">
+                  <option value="1">Monday</option>
+                  <option value="2">Tuesday</option>
+                  <option value="3">Wednesday</option>
+                  <option value="4">Thursday</option>
+                  <option value="5">Friday</option>
+                  <option value="6" selected>Saturday</option>
+                  <option value="0">Sunday</option>
+                </select>
+              </div>
+              <div class="gpx-row">
+                <label for="dayTripStartTime">Start time</label>
+                <input type="time" id="dayTripStartTime" value="09:00" />
+              </div>
+              <div class="gpx-row">
+                <label for="dayTripAvgSpeed">Average speed (km/h)</label>
+                <input type="number" id="dayTripAvgSpeed" min="1" max="80" step="0.5" value="20" />
+              </div>
+              <p class="option-helper">With a GPX route loaded, arrival time is estimated from the closest route point and average speed. Without GPX, the start time is used.</p>
             </div>
           </div>
         </div>
@@ -2315,6 +2363,18 @@
       const includeMissing = normalize01(firstParam(params, ['m', 'includeMissing']));
       if (includeMissing !== null) state.m = includeMissing;
 
+      const dayTrips = normalize01(firstParam(params, ['d', 'dayTrips']));
+      if (dayTrips !== null) state.d = dayTrips;
+
+      const dayTripWeekday = firstParam(params, ['dw', 'dayTripWeekday']);
+      if (dayTripWeekday !== null) state.dw = dayTripWeekday;
+
+      const dayTripStartTime = firstParam(params, ['dt', 'dayTripStartTime']);
+      if (dayTripStartTime !== null) state.dt = dayTripStartTime;
+
+      const dayTripAvgSpeed = firstParam(params, ['ds', 'dayTripAvgSpeed']);
+      if (dayTripAvgSpeed !== null) state.ds = Number(dayTripAvgSpeed);
+
       const poiZoom = firstParam(params, ['pz', 'minPoiZoom']);
       if (poiZoom !== null) state.pz = parseMinPoiZoom(poiZoom);
 
@@ -2412,6 +2472,30 @@
         if (toggle) toggle.checked = state.m;
       }
 
+      if (typeof state.d === 'boolean') {
+        appState.dayTripsEnabled = state.d;
+        const toggle = document.getElementById('toggleDayTrips');
+        if (toggle) toggle.checked = state.d;
+      }
+
+      if (isValidDayTripWeekday(state.dw)) {
+        appState.dayTripWeekday = String(state.dw);
+        const input = document.getElementById('dayTripWeekday');
+        if (input) input.value = appState.dayTripWeekday;
+      }
+
+      if (isValidDayTripTime(state.dt)) {
+        appState.dayTripStartTime = state.dt;
+        const input = document.getElementById('dayTripStartTime');
+        if (input) input.value = appState.dayTripStartTime;
+      }
+
+      if (Number.isFinite(state.ds)) {
+        appState.dayTripAvgSpeedKmh = clampDayTripSpeed(state.ds);
+        const input = document.getElementById('dayTripAvgSpeed');
+        if (input) input.value = String(appState.dayTripAvgSpeedKmh);
+      }
+
       if (Number.isFinite(state.pz)) {
         minPoiZoom = clampMinPoiZoom(state.pz);
         if (minPoiZoom === DEFAULT_MIN_POI_ZOOM) {
@@ -2447,6 +2531,12 @@
       if (appState.showBadges !== false) params.set('b', boolTo01(appState.showBadges));
       if (appState.hideNoBadges !== false) params.set('h', boolTo01(appState.hideNoBadges));
       if (appState.includeMissingData !== false) params.set('m', boolTo01(appState.includeMissingData));
+      if (appState.dayTripsEnabled !== false) {
+        params.set('d', boolTo01(appState.dayTripsEnabled));
+        params.set('dw', String(appState.dayTripWeekday || '6'));
+        params.set('dt', String(appState.dayTripStartTime || '09:00'));
+        params.set('ds', String(appState.dayTripAvgSpeedKmh || 20));
+      }
       if (minPoiZoom !== DEFAULT_MIN_POI_ZOOM) params.set('pz', String(minPoiZoom));
 
       const regionStateByCountry = getRegionStateByCountryFromSelectedStates(filterState.bundeslaender);
@@ -2924,6 +3014,10 @@
       showBadges: appState.showBadges ?? false,
       hideNoBadges: appState.hideNoBadges ?? false,
       includeMissingData: appState.includeMissingData ?? false,
+      dayTripsEnabled: appState.dayTripsEnabled ?? false,
+      dayTripWeekday: appState.dayTripWeekday ?? '6',
+      dayTripStartTime: appState.dayTripStartTime ?? '09:00',
+      dayTripAvgSpeedKmh: appState.dayTripAvgSpeedKmh ?? 20,
       isOfflineMode: appState.isOfflineMode ?? (!navigator.onLine),
       hasImportedGpx: appState.hasImportedGpx ?? false,
       gpxTrackLatLngs: appState.gpxTrackLatLngs ?? [],
@@ -3880,6 +3974,20 @@
       const numeric = Number(value);
       if (!Number.isFinite(numeric)) return DEFAULT_MIN_POI_ZOOM;
       return Math.min(MIN_POI_ZOOM_MAX, Math.max(MIN_POI_ZOOM_MIN, Math.floor(numeric)));
+    }
+
+    function clampDayTripSpeed(value) {
+      const numeric = Number(value);
+      if (!Number.isFinite(numeric)) return 20;
+      return Math.min(80, Math.max(1, Math.round(numeric * 10) / 10));
+    }
+
+    function isValidDayTripWeekday(value) {
+      return ['0', '1', '2', '3', '4', '5', '6'].includes(String(value));
+    }
+
+    function isValidDayTripTime(value) {
+      return typeof value === 'string' && /^([01]\d|2[0-3]):[0-5]\d$/.test(value);
     }
 
     function parseMinPoiZoom(value) {
@@ -6482,6 +6590,69 @@
       });
     }
 
+    function refreshDayTripControls() {
+      const enabled = Boolean(appState.dayTripsEnabled);
+      ['dayTripWeekday', 'dayTripStartTime', 'dayTripAvgSpeed'].forEach((id) => {
+        const input = document.getElementById(id);
+        if (!input) return;
+        input.disabled = !enabled;
+      });
+    }
+
+    function refreshDayTripBadges() {
+      MARKER_ICON_CACHE.clear();
+      markerCache.clear();
+      updateClusteringForViewport();
+      if (typeof debouncedUrlUpdate === 'function') {
+        debouncedUrlUpdate();
+      }
+    }
+
+    function setupDayTripControls() {
+      const toggle = document.getElementById('toggleDayTrips');
+      const weekday = document.getElementById('dayTripWeekday');
+      const startTime = document.getElementById('dayTripStartTime');
+      const avgSpeed = document.getElementById('dayTripAvgSpeed');
+
+      if (toggle) {
+        toggle.checked = Boolean(appState.dayTripsEnabled);
+        toggle.addEventListener('change', () => {
+          appState.dayTripsEnabled = toggle.checked;
+          refreshDayTripControls();
+          refreshDayTripBadges();
+        });
+      }
+
+      if (weekday) {
+        weekday.value = isValidDayTripWeekday(appState.dayTripWeekday) ? String(appState.dayTripWeekday) : '6';
+        weekday.addEventListener('change', () => {
+          appState.dayTripWeekday = isValidDayTripWeekday(weekday.value) ? weekday.value : '6';
+          weekday.value = appState.dayTripWeekday;
+          refreshDayTripBadges();
+        });
+      }
+
+      if (startTime) {
+        startTime.value = isValidDayTripTime(appState.dayTripStartTime) ? appState.dayTripStartTime : '09:00';
+        startTime.addEventListener('change', () => {
+          appState.dayTripStartTime = isValidDayTripTime(startTime.value) ? startTime.value : '09:00';
+          startTime.value = appState.dayTripStartTime;
+          refreshDayTripBadges();
+        });
+      }
+
+      if (avgSpeed) {
+        avgSpeed.value = String(clampDayTripSpeed(appState.dayTripAvgSpeedKmh));
+        avgSpeed.addEventListener('change', () => {
+          appState.dayTripAvgSpeedKmh = clampDayTripSpeed(avgSpeed.value);
+          avgSpeed.value = String(appState.dayTripAvgSpeedKmh);
+          refreshDayTripBadges();
+        });
+      }
+
+      refreshDayTripControls();
+    }
+
     function updateBadgeDependentToggles(enabled, resetState) {
       const hideToggle = document.getElementById('toggleHideNoBadges');
       const includeToggle = document.getElementById('toggleIncludeMissingOH');
@@ -6689,6 +6860,10 @@
       const accommodationTypeField = categoryId === 'accommodation'
         ? renderField('Accommodation type', p.tourism, 'tourism')
         : '';
+      const dayTripStatus = getDayTripOpenStatus({ ...p, __lat: lat, __lng: lng });
+      const dayTripField = dayTripStatus
+        ? renderField('Day trip arrival', formatDayTripArrivalStatus(dayTripStatus), 'day_trip_arrival')
+        : '';
       const mapHref = mapsHref(lat, lng);
       const mapyHref = categoryId === 'shelters'
         ? `https://mapy.com/en/zakladni?x=${encodeURIComponent(lng)}&y=${encodeURIComponent(lat)}&z=17`
@@ -6713,7 +6888,7 @@
           ${popupCategoryRow ? `<div class="popup-action-row">${popupCategoryRow}</div>` : ''}
           ${popupTitle}
           ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
-          ${(accommodationTypeField || other) ? `<div class="popup-extra">${accommodationTypeField}${other}</div>` : ''}
+          ${(dayTripField || accommodationTypeField || other) ? `<div class="popup-extra">${dayTripField}${accommodationTypeField}${other}</div>` : ''}
           <div class="popup-footer">
             <a
               class="open-gmaps"
@@ -6877,8 +7052,102 @@
       }
     }
 
+    function buildDayTripStartDate() {
+      const weekday = isValidDayTripWeekday(appState.dayTripWeekday) ? Number(appState.dayTripWeekday) : 6;
+      const time = isValidDayTripTime(appState.dayTripStartTime) ? appState.dayTripStartTime : '09:00';
+      const [hour, minute] = time.split(':').map((part) => Number.parseInt(part, 10));
+      const monday = new Date(2026, 0, 5, 0, 0, 0, 0);
+      const dayOffset = weekday === 0 ? 6 : weekday - 1;
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + dayOffset);
+      date.setHours(hour, minute, 0, 0);
+      return date;
+    }
+
+    function getRouteDistanceToNearestPointKm(lat, lng) {
+      const points = Array.isArray(appState.gpxTrackLatLngs)
+        ? appState.gpxTrackLatLngs
+          .map((pt) => L.latLng(pt?.lat ?? pt?.[0], pt?.lng ?? pt?.[1]))
+          .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lng))
+        : [];
+      if (points.length < 2 || !Number.isFinite(lat) || !Number.isFinite(lng)) return 0;
+
+      let cumulativeMeters = 0;
+      let bestDistanceMeters = Infinity;
+      let bestRouteMeters = 0;
+
+      for (let i = 0; i < points.length; i += 1) {
+        if (i > 0) {
+          cumulativeMeters += haversineMeters(
+            points[i - 1].lat,
+            points[i - 1].lng,
+            points[i].lat,
+            points[i].lng
+          );
+        }
+        const distanceMeters = haversineMeters(lat, lng, points[i].lat, points[i].lng);
+        if (distanceMeters < bestDistanceMeters) {
+          bestDistanceMeters = distanceMeters;
+          bestRouteMeters = cumulativeMeters;
+        }
+      }
+
+      return bestRouteMeters / 1000;
+    }
+
+    function buildDayTripArrivalDate(props = {}) {
+      const start = buildDayTripStartDate();
+      const speedKmh = clampDayTripSpeed(appState.dayTripAvgSpeedKmh);
+      const lat = Number(props.__lat);
+      const lng = Number(props.__lng);
+      const distanceKm = appState.hasImportedGpx || gpxState.active
+        ? getRouteDistanceToNearestPointKm(lat, lng)
+        : 0;
+      const travelMinutes = speedKmh > 0 ? (distanceKm / speedKmh) * 60 : 0;
+      const arrival = new Date(start);
+      arrival.setMinutes(arrival.getMinutes() + Math.round(travelMinutes));
+      return {
+        arrival,
+        distanceKm,
+        travelMinutes
+      };
+    }
+
+    function getDayTripOpenStatus(props = {}) {
+      if (!appState.dayTripsEnabled) return null;
+      const openingHoursRaw = normalizeOpeningHours(props.opening_hours);
+      if (!openingHoursRaw) return { state: 'unknown', arrival: buildDayTripArrivalDate(props).arrival };
+      if (OPEN_24H_PATTERNS.some((pattern) => pattern.test(openingHoursRaw))) {
+        return { state: 'open', arrival: buildDayTripArrivalDate(props).arrival };
+      }
+
+      const parsed = parseOpeningHours(openingHoursRaw);
+      if (!parsed) return { state: 'unknown', arrival: buildDayTripArrivalDate(props).arrival };
+      const arrivalInfo = buildDayTripArrivalDate(props);
+      const isOpen = safeGetState(parsed, arrivalInfo.arrival);
+      if (isOpen === true) return { state: 'open', ...arrivalInfo };
+      if (isOpen === false) return { state: 'closed', ...arrivalInfo };
+      return { state: 'unknown', ...arrivalInfo };
+    }
+
+    function formatDayTripArrivalStatus(status) {
+      if (!status?.arrival) return '';
+      const time = status.arrival.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const labelByState = {
+        open: 'open on arrival',
+        closed: 'closed on arrival',
+        unknown: 'unknown on arrival'
+      };
+      const label = labelByState[status.state] || 'unknown on arrival';
+      return `${time} - ${label}`;
+    }
+
     // Badge priority: 24h overrides 🌙; assume 24h if missing opening_hours for selected layers.
     function getBadgeType(layerKey, props = {}) {
+      const dayTripStatus = getDayTripOpenStatus(props);
+      if (dayTripStatus?.state === 'open') return 'day';
+      if (!appState.showBadges) return null;
+
       const normalizedLayer = resolveLayerKey(layerKey, props);
       const openingHoursRaw = normalizeOpeningHours(props.opening_hours);
       const assumes24h = ASSUME_24H_LAYERS.has(normalizedLayer);
@@ -6947,17 +7216,23 @@
       const { key, config } = getLayerIconConfig(layerKey, featureProps);
       const size = config.size || DEFAULT_MARKER_SIZE;
       const iconSize = config.iconSize || DEFAULT_MARKER_ICON_SIZE;
-      const badgeType = appState.showBadges ? getBadgeType(key, featureProps) : null;
+      const badgesEnabled = Boolean(appState.showBadges || appState.dayTripsEnabled);
+      const badgeType = badgesEnabled ? getBadgeType(key, featureProps) : null;
       const iconClassKey = config.iconClass || '';
-      const cacheKey = `${key}-${iconClassKey}-${size}-${iconSize}-${appState.showBadges ? 'badges' : 'nobadges'}-${badgeType || 'none'}`;
+      const dayTripKey = appState.dayTripsEnabled
+        ? `${appState.dayTripWeekday || ''}-${appState.dayTripStartTime || ''}-${appState.dayTripAvgSpeedKmh || ''}`
+        : 'no-day';
+      const cacheKey = `${key}-${iconClassKey}-${size}-${iconSize}-${badgesEnabled ? 'badges' : 'nobadges'}-${dayTripKey}-${badgeType || 'none'}`;
       if (MARKER_ICON_CACHE.has(cacheKey)) return MARKER_ICON_CACHE.get(cacheKey);
       const label = markerLabel(key, featureProps);
       const hoverColor = config.hoverColor || config.color;
       const outlineColor = config.outlineColor || 'rgba(255,255,255,0.25)';
-      const badgeHtml = appState.showBadges && badgeType
+      const badgeHtml = badgesEnabled && badgeType
         ? badgeType === 'twentyfour'
           ? '<span class="mm-badge mm-badge--247" title="Durchgehend geöffnet">24h</span>'
-          : '<span class="mm-badge mm-badge--moon" title="Nach 21 Uhr geöffnet">🌙</span>'
+          : badgeType === 'day'
+            ? '<span class="mm-badge mm-badge--day" title="Open on arrival">D</span>'
+            : '<span class="mm-badge mm-badge--moon" title="Nach 21 Uhr geöffnet">🌙</span>'
         : '';
       const favoriteBadgeHtml = '<span class="mm-marker-favorite-badge" aria-hidden="true"><i class="fa-solid fa-star"></i></span>';
       const html = `
@@ -7020,7 +7295,8 @@
       if (!point) return null;
       const { id, lat, lng, categoryId, propsRef } = point;
       if (id == null) return null;
-      const markerIcon = getLayerMarkerIcon(categoryId, propsRef);
+      const iconProps = { ...(propsRef || {}), __lat: lat, __lng: lng };
+      const markerIcon = getLayerMarkerIcon(categoryId, iconProps);
       const cached = markerCache.get(id);
       if (cached) {
         cached.lastUsed = renderCounter;
@@ -7155,10 +7431,14 @@
       return visibilityFiltered.filter((point) => {
         if (!point) return false;
         if (!badgeMemo.has(point.id)) {
-          badgeMemo.set(point.id, getBadgeType(point.categoryId, point.propsRef));
+          badgeMemo.set(point.id, getBadgeType(point.categoryId, {
+            ...(point.propsRef || {}),
+            __lat: point.lat,
+            __lng: point.lng
+          }));
         }
         const badgeType = badgeMemo.get(point.id);
-        if (badgeType === 'twentyfour' || badgeType === 'moon') {
+        if (badgeType === 'twentyfour' || badgeType === 'moon' || badgeType === 'day') {
           return true;
         }
         if (appState.includeMissingData) {
@@ -7683,13 +7963,26 @@
       appState.showBadges = false;
       appState.hideNoBadges = false;
       appState.includeMissingData = false;
+      appState.dayTripsEnabled = false;
+      appState.dayTripWeekday = '6';
+      appState.dayTripStartTime = '09:00';
+      appState.dayTripAvgSpeedKmh = 20;
       const badgeToggle = document.getElementById('toggleBadges');
       if (badgeToggle) badgeToggle.checked = false;
       const hideToggle = document.getElementById('toggleHideNoBadges');
       const includeToggle = document.getElementById('toggleIncludeMissingOH');
       if (hideToggle) hideToggle.checked = false;
       if (includeToggle) includeToggle.checked = false;
+      const dayToggle = document.getElementById('toggleDayTrips');
+      const dayWeekday = document.getElementById('dayTripWeekday');
+      const dayStartTime = document.getElementById('dayTripStartTime');
+      const dayAvgSpeed = document.getElementById('dayTripAvgSpeed');
+      if (dayToggle) dayToggle.checked = false;
+      if (dayWeekday) dayWeekday.value = '6';
+      if (dayStartTime) dayStartTime.value = '09:00';
+      if (dayAvgSpeed) dayAvgSpeed.value = '20';
       updateBadgeDependentToggles(false, false);
+      refreshDayTripControls();
       setClusterThreshold(DEFAULT_CLUSTER_THRESHOLD);
       setMinPoiZoom(DEFAULT_MIN_POI_ZOOM);
       updateClusteringForViewport();
@@ -8065,6 +8358,7 @@
       setupBadgeToggle();
       setupHideNoBadgesToggle();
       setupIncludeMissingToggle();
+      setupDayTripControls();
       setupGpxApplyControls();
       if (window.offlineRouteStore?.migrateLegacySavedRoute) {
         await window.offlineRouteStore.migrateLegacySavedRoute(async (rawText) => {
