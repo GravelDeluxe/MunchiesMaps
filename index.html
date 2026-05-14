@@ -1701,6 +1701,7 @@
       sh: 'shelters',
       ac: 'accommodation',
       fu: 'fuel',
+      re: 'restaurants',
       sm: 'supermarkets',
       vc: 'vending_snacks',
       bc: 'bakerys_cafes',
@@ -1915,6 +1916,13 @@
       },
       fuel: { iconClass: 'fa-solid fa-gas-pump', color: '#F2C94C', label: 'Fuel' },
       supermarkets: { iconClass: 'fa-solid fa-cart-shopping', color: '#9B51E0', label: 'Supermarkets' },
+      restaurants: {
+        iconClass: 'fa-solid fa-utensils',
+        color: '#D97706',
+        hoverColor: '#F59E0B',
+        outlineColor: '#F59E0B',
+        label: 'Restaurants'
+      },
       // Door-closed uses an access/service metaphor for vending machines (not a food type).
       vending_snacks: {
         iconClass: 'fa-solid fa-door-closed',
@@ -3192,7 +3200,7 @@
     appState.clusterThresholdAutoDirty = appState.clusterThresholdAutoDirty ?? true;
 
     const ASSUME_24H_LAYERS = new Set(['drinking_water', 'vending_snacks', 'shelters', 'toilets_public']);
-    const NIGHT_OPEN_LAYERS = new Set(['supermarkets', 'kiosks', 'fuel', 'bakerys_cafes', 'fast_food', 'accommodation']);
+    const NIGHT_OPEN_LAYERS = new Set(['supermarkets', 'kiosks', 'fuel', 'bakerys_cafes', 'fast_food', 'restaurants', 'accommodation']);
     const OPEN_24H_PATTERNS = [
       /24\s*\/\s*7/i,
       /24\s*\/\s*24/i,
@@ -5978,6 +5986,7 @@
         shelters: 'camping',
         accommodation: 'lodging',
         bakerys_cafes: 'coffee',
+        restaurants: 'restaurant',
         drinking_water: 'water',
         toilets_public: 'restroom',
         fuel: 'gas',
@@ -6897,7 +6906,7 @@
           : escapeHtml(raw);
         return `<div><b>${escapeHtml(label)}</b>: ${renderedValue}</div>`;
       };
-      const other = categoryId === 'fast_food'
+      const other = (categoryId === 'fast_food' || categoryId === 'restaurants')
         ? [
             renderField('Brand', p.brand, 'brand'),
             renderField('Cuisine', formatFastFoodCuisine(p.cuisine), 'cuisine'),
@@ -6906,7 +6915,7 @@
             renderField('Website', p.website, 'website'),
             renderField('URL', p.url, 'url'),
             renderField('contact:website', p['contact:website'], 'contact:website'),
-            renderField('Chain', formatFastFoodChain(p.chain), 'chain')
+            categoryId === 'fast_food' ? renderField('Chain', formatFastFoodChain(p.chain), 'chain') : ''
           ].filter(Boolean).join('')
         : Object.keys(p)
           .filter(k => !['name','description','cluster','cluster_id','point_count','point_count_abbreviated'].includes(k))
