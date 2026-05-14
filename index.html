@@ -1115,6 +1115,7 @@
           <div class="share-popover-title">Share / Export</div>
           <button type="button" id="shareLinkAction" class="share-popover-action">Share link</button>
           <div id="shareLinkStatus" class="share-popover-helper share-popover-status is-hidden" role="status" aria-live="polite"></div>
+          <button type="button" id="exportVisiblePoisTextAction" class="share-popover-action">Export visible POI list</button>
           <button type="button" id="exportGpxAction" class="share-popover-action">Export POIs with GPX</button>
           <div class="share-popover-helper" id="shareGpxHelper">Requires an imported GPX track.</div>
         </div>
@@ -2715,6 +2716,13 @@
       return visiblePois.length;
     }
 
+    function exportVisiblePoisText() {
+      const visiblePois = collectVisiblePoiPointsForExport();
+      const content = buildVisiblePoisTextExport(visiblePois);
+      downloadTextExport(content, 'munchiesmaps_visible_pois.txt');
+      return visiblePois.length;
+    }
+
     function handleExportPoisWithGpx() {
       const hasGpx = Boolean(appState.hasImportedGpx);
       if (!hasGpx) {
@@ -2728,6 +2736,11 @@
       } else {
         showMapToast('Route exported without POIs.');
       }
+    }
+
+    function handleExportVisiblePoisText() {
+      const exportedCount = exportVisiblePoisText();
+      showMapToast(exportedCount > 0 ? 'Visible POI list exported.' : 'No visible POIs to export.');
     }
 
     function openGpxImportUI() {
@@ -2748,8 +2761,9 @@
       const button = document.getElementById('shareMainBtn');
       const popover = document.getElementById('sharePopover');
       const shareAction = document.getElementById('shareLinkAction');
+      const textExportAction = document.getElementById('exportVisiblePoisTextAction');
       const exportAction = document.getElementById('exportGpxAction');
-      if (!button || !popover || !shareAction || !exportAction) return;
+      if (!button || !popover || !shareAction || !textExportAction || !exportAction) return;
 
       button.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -2771,6 +2785,11 @@
 
       shareAction.addEventListener('click', async () => {
         await handleShareLinkAction();
+      });
+
+      textExportAction.addEventListener('click', () => {
+        handleExportVisiblePoisText();
+        setSharePopoverOpen(false);
       });
 
       exportAction.addEventListener('click', () => {
@@ -5977,6 +5996,122 @@
       };
     }
 
+    function mapsUrlForPoint(lat, lng) {
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return '';
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${lat},${lng}`)}`;
+    }
+
+    function formatDistanceKm(value) {
+      if (!Number.isFinite(value)) return '-';
+      if (value < 1) return `${Math.round(value * 1000)} m`;
+      return `${value.toFixed(1)} km`;
+    }
+
+    function getPoiRouteDistanceKm(point) {
+      if (!point || !Number.isFinite(point.lat) || !Number.isFinite(point.lng)) return 0;
+      if (!appState.hasImportedGpx && !gpxState.active) return 0;
+      return getRouteDistanceToNearestPointKm(point.lat, point.lng);
+    }
+
+    function getDayNameForDate(date) {
+      return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()] || '';
+    }
+
+    function openingHoursRulesForDate(openingHoursRaw, date) {
+      const raw = normalizeOpeningHours(openingHoursRaw);
+      if (!raw || !(date instanceof Date)) return '';
+      const matchingRules = raw
+        .split(';')
+        .map((rule) => rule.trim())
+        .filter(Boolean)
+        .filter((rule) => {
+          if (/^PH\b/i.test(rule)) return false;
+          const firstTime = rule.search(/\d{1,2}:\d{2}/);
+          const daySpec = firstTime > 0
+            ? rule.slice(0, firstTime).trim().replace(/[,\s]+$/, '')
+            : rule.replace(/\b(closed|off)\b/i, '').trim();
+          return dayTripRuleAppliesToDate(daySpec, date);
+        });
+      return matchingRules.join('; ');
+    }
+
+    function openingHoursForExport(point) {
+      const props = point?.propsRef || {};
+      const raw = normalizeOpeningHours(props.opening_hours);
+      if (!raw) return 'missing';
+
+      const arrivalInfo = appState.dayTripsEnabled
+        ? buildDayTripArrivalDate({ ...props, __lat: point.lat, __lng: point.lng })
+        : { arrival: buildDayTripStartDate() };
+      const arrival = arrivalInfo.arrival;
+      const status = appState.dayTripsEnabled
+        ? getDayTripOpenStatus({ ...props, __lat: point.lat, __lng: point.lng })
+        : null;
+      const dayName = getDayNameForDate(arrival);
+      const time = arrival.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const state = status?.state ? `; ${status.state} on arrival ${time}` : '';
+      const dayRules = openingHoursRulesForDate(raw, arrival) || raw;
+      return `${dayName}: ${dayRules}${state}`;
+    }
+
+    function buildVisiblePoiTextRows(points) {
+      const unique = new Set();
+      return (Array.isArray(points) ? points : [])
+        .map((point) => {
+          if (!point || !Number.isFinite(point.lat) || !Number.isFinite(point.lng)) return null;
+          const props = point.propsRef || {};
+          const categoryId = point.categoryId || props.categoryId || 'default';
+          const categoryLabel = props.categoryLabel || categoryLabelMap[categoryId] || markerLabel(categoryId, props);
+          const name = (props.name || categoryLabel || 'POI').trim();
+          const distanceKm = getPoiRouteDistanceKm(point);
+          const key = `${Number(point.lat).toFixed(6)}|${Number(point.lng).toFixed(6)}|${name}|${categoryId}`;
+          if (unique.has(key)) return null;
+          unique.add(key);
+          return {
+            categoryId,
+            categoryLabel,
+            distanceKm,
+            name,
+            openingHours: openingHoursForExport(point),
+            mapsUrl: mapsUrlForPoint(point.lat, point.lng)
+          };
+        })
+        .filter(Boolean)
+        .sort((a, b) => {
+          const categoryCompare = String(a.categoryLabel).localeCompare(String(b.categoryLabel));
+          if (categoryCompare !== 0) return categoryCompare;
+          return a.distanceKm - b.distanceKm;
+        });
+    }
+
+    function buildVisiblePoisTextExport(points) {
+      const rows = buildVisiblePoiTextRows(points);
+      const lines = [
+        'Munchies Maps - visible POIs',
+        `Exported: ${new Date().toISOString()}`,
+        appState.hasImportedGpx || gpxState.active ? 'Order: by route distance within each category' : 'Order: visible POIs grouped by category',
+        ''
+      ];
+
+      let currentCategory = null;
+      rows.forEach((row) => {
+        if (row.categoryLabel !== currentCategory) {
+          currentCategory = row.categoryLabel;
+          if (lines[lines.length - 1] !== '') lines.push('');
+          lines.push(`[${currentCategory}]`);
+        }
+        lines.push(`${formatDistanceKm(row.distanceKm)} | ${row.name}`);
+        lines.push(`  Opening hours: ${row.openingHours}`);
+        lines.push(`  Google Maps: ${row.mapsUrl}`);
+      });
+
+      if (!rows.length) {
+        lines.push('No visible POIs.');
+      }
+
+      return `${lines.join('\n')}\n`;
+    }
+
     function cmtKeywordForCategory(category) {
       const safeCategory = category || '';
       const byCategory = {
@@ -5996,9 +6131,7 @@
     }
 
     function collectVisiblePoisForExport() {
-      if (!map) return [];
-      const bounds = map.getBounds();
-      const visiblePoints = getVisiblePoints(bounds, 0);
+      const visiblePoints = collectVisiblePoiPointsForExport();
       const unique = new Set();
       const result = [];
       visiblePoints.forEach((point) => {
@@ -6010,6 +6143,12 @@
         result.push(data);
       });
       return result;
+    }
+
+    function collectVisiblePoiPointsForExport() {
+      if (!map) return [];
+      const bounds = map.getBounds();
+      return getVisiblePoints(bounds, 0);
     }
 
 
@@ -6061,6 +6200,18 @@
       const anchor = document.createElement('a');
       anchor.href = url;
       anchor.download = 'munchiesmaps_route_with_pois.gpx';
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+      URL.revokeObjectURL(url);
+    }
+
+    function downloadTextExport(content, fileName) {
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = fileName;
       document.body.appendChild(anchor);
       anchor.click();
       document.body.removeChild(anchor);
