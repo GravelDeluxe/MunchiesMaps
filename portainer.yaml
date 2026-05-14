@@ -1,0 +1,10 @@
+services:
+  munchiesmaps:
+    image: ghcr.io/graveldeluxe/munchiesmaps:main
+    container_name: munchiesmaps
+    restart: unless-stopped
+    ports:
+      - "8173:80"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
