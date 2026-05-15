@@ -7330,6 +7330,7 @@
       return String(openingHoursRaw || '')
         .split(';')
         .map((rule) => rule.trim())
+        .map((rule) => rule.replace(/\bPH\s*,\s*/gi, '').replace(/,\s*PH\b/gi, '').trim())
         .filter((rule) => rule && !/^PH\b/i.test(rule))
         .join('; ');
     }
