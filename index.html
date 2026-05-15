@@ -6149,10 +6149,10 @@
           if (lines[lines.length - 1] !== '') lines.push('');
           lines.push(`## ${escapeMarkdown(currentCategory)}`);
           lines.push('');
+          lines.push('| Distance | POI | Opening hours |');
+          lines.push('| --- | --- | --- |');
         }
-        lines.push(`- **${escapeMarkdown(formatDistanceKm(row.distanceKm))}** - ${escapeMarkdown(row.name)}`);
-        lines.push(`  - Opening hours: ${escapeMarkdown(row.openingHours)}`);
-        lines.push(`  - Google Maps: [open](${row.mapsUrl})`);
+        lines.push(`| ${escapeMarkdown(formatDistanceKm(row.distanceKm))} | [${escapeMarkdown(row.name)}](${row.mapsUrl}) | ${escapeMarkdown(row.openingHours)} |`);
       });
 
       if (!rows.length) {
