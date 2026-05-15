@@ -6203,6 +6203,9 @@
 
     function collectVisiblePoiPointsForExport() {
       if (!map) return [];
+      if (hasActiveRoute()) {
+        return getDisplayFilteredPoints(activePoints || []);
+      }
       const bounds = map.getBounds();
       return getVisiblePoints(bounds, 0);
     }
@@ -7805,11 +7808,9 @@
       return left.concat(right);
     }
 
-    function getVisiblePoints(bounds, paddingPx = 0) {
-      const points = getVisiblePointIndices(bounds, paddingPx)
-        .map((idx) => activePoints[idx])
-        .filter(Boolean);
-      const visibilityFiltered = points.filter((point) => {
+    function getDisplayFilteredPoints(points) {
+      const displayPoints = Array.isArray(points) ? points : [];
+      const visibilityFiltered = displayPoints.filter((point) => {
         const isHidden = poiVisibilityState.hiddenPoiIds.has(point.id);
         if (isHidden && !poiVisibilityState.showHiddenActive) return false;
         if (poiVisibilityState.favoritesOnlyActive && !isPoiFavorite(point.id)) return false;
@@ -7859,6 +7860,13 @@
         .filter((point) => isPoiFavorite(point.id))
         .forEach((point) => merged.set(point.id, point));
       return Array.from(merged.values());
+    }
+
+    function getVisiblePoints(bounds, paddingPx = 0) {
+      const points = getVisiblePointIndices(bounds, paddingPx)
+        .map((idx) => activePoints[idx])
+        .filter(Boolean);
+      return getDisplayFilteredPoints(points);
     }
 
     function getVisiblePoiCount(bounds) {
