@@ -6074,6 +6074,7 @@
       const matchingRules = raw
         .split(';')
         .map((rule) => rule.trim())
+        .map(stripPublicHolidayTokensFromRule)
         .filter(Boolean)
         .filter((rule) => {
           if (/^PH\b/i.test(rule)) return false;
@@ -7330,9 +7331,16 @@
       return String(openingHoursRaw || '')
         .split(';')
         .map((rule) => rule.trim())
-        .map((rule) => rule.replace(/\bPH\s*,\s*/gi, '').replace(/,\s*PH\b/gi, '').trim())
+        .map(stripPublicHolidayTokensFromRule)
         .filter((rule) => rule && !/^PH\b/i.test(rule))
         .join('; ');
+    }
+
+    function stripPublicHolidayTokensFromRule(rule) {
+      return String(rule || '')
+        .replace(/\bPH\s*,\s*/gi, '')
+        .replace(/,\s*PH\b/gi, '')
+        .trim();
     }
 
     function parseOpeningHoursWithFallback(value) {
@@ -7400,7 +7408,7 @@
       let sawSupportedRule = false;
 
       for (const rawRule of value.split(';')) {
-        const rule = rawRule.trim();
+        const rule = stripPublicHolidayTokensFromRule(rawRule.trim());
         if (!rule || /^PH\b/i.test(rule)) continue;
         const firstTime = rule.search(/\d{1,2}:\d{2}/);
         const daySpec = firstTime > 0 ? rule.slice(0, firstTime).trim().replace(/[,\s]+$/, '') : rule.replace(/\b(closed|off)\b/i, '').trim();
