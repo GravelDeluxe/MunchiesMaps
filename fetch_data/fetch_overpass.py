@@ -40,6 +40,7 @@ TAG_WHITELIST: Dict[str, List[str]] = {
     "toilets_public": ["name", "opening_hours", "access", "check_date"],
     "drinking_water": ["name", "access", "opening_hours", "fee", "seasonal", "operator", "indoor", "check_date"],
     "fast_food": ["name", "brand", "opening_hours", "phone", "website", "operator", "brand:wikidata", "cuisine", "check_date"],
+    "restaurants": ["name", "brand", "opening_hours", "phone", "website", "operator", "cuisine", "outdoor_seating", "takeaway", "check_date"],
     "vending_snacks": ["name", "opening_hours", "vending", "products", "brand", "operator", "check_date"],
     "shelters": [
         "name",
@@ -75,6 +76,7 @@ CATEGORY_LABELS: Dict[str, str] = {
     "toilets_public": "Public toilets",
     "drinking_water": "Drinking water",
     "fast_food": "Fast-Food",
+    "restaurants": "Restaurants",
     "vending_snacks": "Vending (Snacks & Drinks)",
     "shelters": "Shelters",
     "accommodation": "Accommodation",
@@ -1709,7 +1711,7 @@ def run(
     if dry_run or skip_manifest:
         print("[dry-run] Skipping manifest write")
     else:
-        save_manifest(regions, categories)
+        save_manifest(all_regions, categories)
 
     endpoints_used = sorted(run_stats["endpoints_used"])
     print(

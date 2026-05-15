@@ -667,7 +667,10 @@
 .route-backup-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
     .gpx-row { display: flex; flex-direction: column; gap: 6px; }
     .gpx-row label { font-weight: 650; color: var(--text); }
-    .gpx-row input[type="number"] { width: 120px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+    .gpx-row input[type="number"],
+    .gpx-row input[type="time"],
+    .gpx-row select { width: 120px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+    .gpx-row select { width: min(100%, 180px); }
     .gpx-row input[type="file"] { color: var(--text); }
     .gpx-radius-apply-row { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 8px; }
 
@@ -1004,6 +1007,13 @@
       font-size: 6.5px;
       letter-spacing: -0.3px;
     }
+    .mm-badge--day {
+      width: 16px;
+      height: 16px;
+      font-size: 8px;
+      background: #38bdf8;
+      color: #082f49;
+    }
 
     #offlineIndicator {
       position: fixed;
@@ -1105,6 +1115,7 @@
           <div class="share-popover-title">Share / Export</div>
           <button type="button" id="shareLinkAction" class="share-popover-action">Share link</button>
           <div id="shareLinkStatus" class="share-popover-helper share-popover-status is-hidden" role="status" aria-live="polite"></div>
+          <button type="button" id="exportVisiblePoisTextAction" class="share-popover-action">Export visible POI list</button>
           <button type="button" id="exportGpxAction" class="share-popover-action">Export POIs with GPX</button>
           <div class="share-popover-helper" id="shareGpxHelper">Requires an imported GPX track.</div>
         </div>
@@ -1117,6 +1128,7 @@
     <div id="poiHideMenu" class="poi-hide-menu" hidden>
       <button type="button" data-action="restore-hidden">Restore hidden</button>
       <button type="button" data-action="show-hidden">Show hidden</button>
+      <button type="button" data-action="show-favorites">Show favorites</button>
       <button type="button" data-action="favorites-only">Show favorites only</button>
       <button type="button" data-action="hide-multiple">Hide multiple</button>
       <button type="button" data-action="save-hidden">Save changes</button>
@@ -1172,6 +1184,52 @@
                 <span class="toggle-switch" aria-hidden="true"></span>
               </label>
               <p class="option-helper">Reduces screen brightness for night use.</p>
+            </div>
+          </div>
+        </div>
+        <div class="section" id="dayTripsSection">
+          <button type="button" class="accordion-header" data-target="dayTripsBody" aria-expanded="false">
+            <span>Day Trips</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="accordion-body" id="dayTripsBody">
+            <div class="checklist">
+              <div class="checkrow-group">
+                <label class="checkrow" for="toggleDayTrips">
+                  <input type="checkbox" id="toggleDayTrips" />
+                  <span>Show arrival badges</span>
+                </label>
+                <div class="checkrow-helper">Shows day badges for POIs that are open when you are expected to arrive.</div>
+              </div>
+              <label class="checkrow checkrow--nested" for="toggleDayTripHideNoBadges">
+                <input type="checkbox" id="toggleDayTripHideNoBadges" />
+                <span>Hide entries without badges</span>
+              </label>
+              <label class="checkrow checkrow--nested" for="toggleDayTripIncludeMissingOH">
+                <input type="checkbox" id="toggleDayTripIncludeMissingOH" />
+                <span>Include entries with missing data</span>
+              </label>
+              <div class="gpx-row">
+                <label for="dayTripWeekday">Ride starts on</label>
+                <select id="dayTripWeekday">
+                  <option value="1">Monday</option>
+                  <option value="2">Tuesday</option>
+                  <option value="3">Wednesday</option>
+                  <option value="4">Thursday</option>
+                  <option value="5">Friday</option>
+                  <option value="6" selected>Saturday</option>
+                  <option value="0">Sunday</option>
+                </select>
+              </div>
+              <div class="gpx-row">
+                <label for="dayTripStartTime">Start time</label>
+                <input type="time" id="dayTripStartTime" value="09:00" />
+              </div>
+              <div class="gpx-row">
+                <label for="dayTripAvgSpeed">Average speed (km/h)</label>
+                <input type="number" id="dayTripAvgSpeed" min="1" max="80" step="0.5" value="20" />
+              </div>
+              <p class="option-helper">With a GPX route loaded, arrival time is estimated from the closest route point and average speed. Without GPX, the start time is used.</p>
             </div>
           </div>
         </div>
@@ -1327,6 +1385,7 @@
         <div>Version: <span id="appVersion"></span></div>
         <div>by nightrides.cc <a href="https://www.instagram.com/nightrides.cc/" target="_blank" rel="noopener noreferrer">@nightrides.cc</a></div>
         <div>maintained by Markus <a href="https://www.instagram.com/markuscoucho/" target="_blank" rel="noopener noreferrer">@markuscoucho</a></div>
+        <div>added functionality for dayrides by GravelDeluxe <a href="https://www.instagram.com/graveldeluxe_/" target="_blank" rel="noopener noreferrer">@graveldeluxe_</a></div>
       </div>
     </div>
   </aside>
@@ -1645,6 +1704,7 @@
       sh: 'shelters',
       ac: 'accommodation',
       fu: 'fuel',
+      re: 'restaurants',
       sm: 'supermarkets',
       vc: 'vending_snacks',
       bc: 'bakerys_cafes',
@@ -1859,6 +1919,13 @@
       },
       fuel: { iconClass: 'fa-solid fa-gas-pump', color: '#F2C94C', label: 'Fuel' },
       supermarkets: { iconClass: 'fa-solid fa-cart-shopping', color: '#9B51E0', label: 'Supermarkets' },
+      restaurants: {
+        iconClass: 'fa-solid fa-utensils',
+        color: '#D97706',
+        hoverColor: '#F59E0B',
+        outlineColor: '#F59E0B',
+        label: 'Restaurants'
+      },
       // Door-closed uses an access/service metaphor for vending machines (not a food type).
       vending_snacks: {
         iconClass: 'fa-solid fa-door-closed',
@@ -1907,6 +1974,9 @@
 
     const escapeHtml = (value) => escapeText(value);
     const escapeXml = (value) => escapeText(value, { xml: true });
+    const escapeMarkdown = (value) => String(value ?? '')
+      .replace(/\\/g, '\\\\')
+      .replace(/([`*_{}\[\]()#+\-.!|>])/g, '\\$1');
 
     function createCategoryIconElement(categoryId, size = 22, extraClass = '') {
       const { key, config } = getLayerIconConfig(categoryId);
@@ -2315,6 +2385,24 @@
       const includeMissing = normalize01(firstParam(params, ['m', 'includeMissing']));
       if (includeMissing !== null) state.m = includeMissing;
 
+      const dayTrips = normalize01(firstParam(params, ['d', 'dayTrips']));
+      if (dayTrips !== null) state.d = dayTrips;
+
+      const dayTripHideNoBadges = normalize01(firstParam(params, ['dh', 'dayTripHideNoBadges']));
+      if (dayTripHideNoBadges !== null) state.dh = dayTripHideNoBadges;
+
+      const dayTripIncludeMissing = normalize01(firstParam(params, ['dm', 'dayTripIncludeMissing']));
+      if (dayTripIncludeMissing !== null) state.dm = dayTripIncludeMissing;
+
+      const dayTripWeekday = firstParam(params, ['dw', 'dayTripWeekday']);
+      if (dayTripWeekday !== null) state.dw = dayTripWeekday;
+
+      const dayTripStartTime = firstParam(params, ['dt', 'dayTripStartTime']);
+      if (dayTripStartTime !== null) state.dt = dayTripStartTime;
+
+      const dayTripAvgSpeed = firstParam(params, ['ds', 'dayTripAvgSpeed']);
+      if (dayTripAvgSpeed !== null) state.ds = Number(dayTripAvgSpeed);
+
       const poiZoom = firstParam(params, ['pz', 'minPoiZoom']);
       if (poiZoom !== null) state.pz = parseMinPoiZoom(poiZoom);
 
@@ -2412,6 +2500,42 @@
         if (toggle) toggle.checked = state.m;
       }
 
+      if (typeof state.d === 'boolean') {
+        appState.dayTripsEnabled = state.d;
+        const toggle = document.getElementById('toggleDayTrips');
+        if (toggle) toggle.checked = state.d;
+      }
+
+      if (typeof state.dh === 'boolean') {
+        appState.dayTripHideNoBadges = state.dh;
+        const toggle = document.getElementById('toggleDayTripHideNoBadges');
+        if (toggle) toggle.checked = state.dh;
+      }
+
+      if (typeof state.dm === 'boolean') {
+        appState.dayTripIncludeMissingData = state.dm;
+        const toggle = document.getElementById('toggleDayTripIncludeMissingOH');
+        if (toggle) toggle.checked = state.dm;
+      }
+
+      if (isValidDayTripWeekday(state.dw)) {
+        appState.dayTripWeekday = String(state.dw);
+        const input = document.getElementById('dayTripWeekday');
+        if (input) input.value = appState.dayTripWeekday;
+      }
+
+      if (isValidDayTripTime(state.dt)) {
+        appState.dayTripStartTime = state.dt;
+        const input = document.getElementById('dayTripStartTime');
+        if (input) input.value = appState.dayTripStartTime;
+      }
+
+      if (Number.isFinite(state.ds)) {
+        appState.dayTripAvgSpeedKmh = clampDayTripSpeed(state.ds);
+        const input = document.getElementById('dayTripAvgSpeed');
+        if (input) input.value = String(appState.dayTripAvgSpeedKmh);
+      }
+
       if (Number.isFinite(state.pz)) {
         minPoiZoom = clampMinPoiZoom(state.pz);
         if (minPoiZoom === DEFAULT_MIN_POI_ZOOM) {
@@ -2447,6 +2571,14 @@
       if (appState.showBadges !== false) params.set('b', boolTo01(appState.showBadges));
       if (appState.hideNoBadges !== false) params.set('h', boolTo01(appState.hideNoBadges));
       if (appState.includeMissingData !== false) params.set('m', boolTo01(appState.includeMissingData));
+      if (appState.dayTripsEnabled !== false) {
+        params.set('d', boolTo01(appState.dayTripsEnabled));
+        if (appState.dayTripHideNoBadges !== false) params.set('dh', boolTo01(appState.dayTripHideNoBadges));
+        if (appState.dayTripIncludeMissingData !== false) params.set('dm', boolTo01(appState.dayTripIncludeMissingData));
+        params.set('dw', String(appState.dayTripWeekday || '6'));
+        params.set('dt', String(appState.dayTripStartTime || '09:00'));
+        params.set('ds', String(appState.dayTripAvgSpeedKmh || 20));
+      }
       if (minPoiZoom !== DEFAULT_MIN_POI_ZOOM) params.set('pz', String(minPoiZoom));
 
       const regionStateByCountry = getRegionStateByCountryFromSelectedStates(filterState.bundeslaender);
@@ -2584,8 +2716,16 @@
 
     function exportPoisWithGpx() {
       const visiblePois = collectVisiblePoisForExport();
-      const xml = buildGpxExport(appState.gpxTrackLatLngs, visiblePois);
-      downloadGpxExport(xml);
+      const routeName = gpxState.routeName || 'Imported route';
+      const xml = buildGpxExport(appState.gpxTrackLatLngs, visiblePois, routeName);
+      downloadGpxExport(xml, `${getRouteExportBaseName()}_with_pois.gpx`);
+      return visiblePois.length;
+    }
+
+    function exportVisiblePoisText() {
+      const visiblePois = collectVisiblePoiPointsForExport();
+      const content = buildVisiblePoisTextExport(visiblePois);
+      downloadTextExport(content, `${getRouteExportBaseName()}_visible_pois.md`, 'text/markdown;charset=utf-8');
       return visiblePois.length;
     }
 
@@ -2602,6 +2742,11 @@
       } else {
         showMapToast('Route exported without POIs.');
       }
+    }
+
+    function handleExportVisiblePoisText() {
+      const exportedCount = exportVisiblePoisText();
+      showMapToast(exportedCount > 0 ? 'Visible POI list exported.' : 'No visible POIs to export.');
     }
 
     function openGpxImportUI() {
@@ -2622,8 +2767,9 @@
       const button = document.getElementById('shareMainBtn');
       const popover = document.getElementById('sharePopover');
       const shareAction = document.getElementById('shareLinkAction');
+      const textExportAction = document.getElementById('exportVisiblePoisTextAction');
       const exportAction = document.getElementById('exportGpxAction');
-      if (!button || !popover || !shareAction || !exportAction) return;
+      if (!button || !popover || !shareAction || !textExportAction || !exportAction) return;
 
       button.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -2645,6 +2791,11 @@
 
       shareAction.addEventListener('click', async () => {
         await handleShareLinkAction();
+      });
+
+      textExportAction.addEventListener('click', () => {
+        handleExportVisiblePoisText();
+        setSharePopoverOpen(false);
       });
 
       exportAction.addEventListener('click', () => {
@@ -2924,6 +3075,12 @@
       showBadges: appState.showBadges ?? false,
       hideNoBadges: appState.hideNoBadges ?? false,
       includeMissingData: appState.includeMissingData ?? false,
+      dayTripsEnabled: appState.dayTripsEnabled ?? false,
+      dayTripHideNoBadges: appState.dayTripHideNoBadges ?? false,
+      dayTripIncludeMissingData: appState.dayTripIncludeMissingData ?? false,
+      dayTripWeekday: appState.dayTripWeekday ?? '6',
+      dayTripStartTime: appState.dayTripStartTime ?? '09:00',
+      dayTripAvgSpeedKmh: appState.dayTripAvgSpeedKmh ?? 20,
       isOfflineMode: appState.isOfflineMode ?? (!navigator.onLine),
       hasImportedGpx: appState.hasImportedGpx ?? false,
       gpxTrackLatLngs: appState.gpxTrackLatLngs ?? [],
@@ -3008,6 +3165,7 @@
       hideModeActive: false,
       hideMultipleActive: false,
       showHiddenActive: false,
+      showFavoritesActive: false,
       favoritesOnlyActive: false,
       hiddenPoiIds: new Set(),
       favoritePoiIds: new Set(),
@@ -3023,6 +3181,7 @@
       active: false,
       geoJson: null,
       rawText: null,
+      routeName: '',
       uiMode: 'standard',
       routeLengthKm: 0
     };
@@ -3068,7 +3227,7 @@
     appState.clusterThresholdAutoDirty = appState.clusterThresholdAutoDirty ?? true;
 
     const ASSUME_24H_LAYERS = new Set(['drinking_water', 'vending_snacks', 'shelters', 'toilets_public']);
-    const NIGHT_OPEN_LAYERS = new Set(['supermarkets', 'kiosks', 'fuel', 'bakerys_cafes', 'fast_food', 'accommodation']);
+    const NIGHT_OPEN_LAYERS = new Set(['supermarkets', 'kiosks', 'fuel', 'bakerys_cafes', 'fast_food', 'restaurants', 'accommodation']);
     const OPEN_24H_PATTERNS = [
       /24\s*\/\s*7/i,
       /24\s*\/\s*24/i,
@@ -3137,12 +3296,14 @@
     function clearFavoritePoiIds({ refreshMap = true } = {}) {
       const hadFavorites = poiVisibilityState.favoritePoiIds.size > 0;
       const favoritesOnlyWasActive = Boolean(poiVisibilityState.favoritesOnlyActive);
+      const showFavoritesWasActive = Boolean(poiVisibilityState.showFavoritesActive);
       poiVisibilityState.favoritePoiIds.clear();
       poiVisibilityState.favoritesOnlyActive = false;
-      if (refreshMap && (hadFavorites || favoritesOnlyWasActive)) {
+      poiVisibilityState.showFavoritesActive = false;
+      if (refreshMap && (hadFavorites || favoritesOnlyWasActive || showFavoritesWasActive)) {
         applyCurrentMapFiltersAndClustering({ reason: 'favorites-cleared' });
       }
-      if (favoritesOnlyWasActive) updatePoiHideControlsVisibility();
+      if (favoritesOnlyWasActive || showFavoritesWasActive) updatePoiHideControlsVisibility();
     }
     function getCurrentFavoritePoiIdsArray() {
       return Array.from(poiVisibilityState.favoritePoiIds || []);
@@ -3152,6 +3313,7 @@
         Array.isArray(favoriteIds) ? favoriteIds.map(String).filter(Boolean) : []
       );
       poiVisibilityState.favoritesOnlyActive = false;
+      poiVisibilityState.showFavoritesActive = false;
       if (refreshMap) {
         applyCurrentMapFiltersAndClustering({ reason: 'favorites-restored' });
         updatePoiHideControlsVisibility();
@@ -3882,6 +4044,20 @@
       return Math.min(MIN_POI_ZOOM_MAX, Math.max(MIN_POI_ZOOM_MIN, Math.floor(numeric)));
     }
 
+    function clampDayTripSpeed(value) {
+      const numeric = Number(value);
+      if (!Number.isFinite(numeric)) return 20;
+      return Math.min(80, Math.max(1, Math.round(numeric * 10) / 10));
+    }
+
+    function isValidDayTripWeekday(value) {
+      return ['0', '1', '2', '3', '4', '5', '6'].includes(String(value));
+    }
+
+    function isValidDayTripTime(value) {
+      return typeof value === 'string' && /^([01]\d|2[0-3]):[0-5]\d$/.test(value);
+    }
+
     function parseMinPoiZoom(value) {
       if (value == null) return DEFAULT_MIN_POI_ZOOM;
       return clampMinPoiZoom(value);
@@ -3917,12 +4093,51 @@
       return Array.from(xml.getElementsByTagName(name));
     }
 
+    function firstTextByLocalName(parent, name) {
+      if (!parent) return '';
+      const el = getElementsByLocalName(parent, name)[0];
+      return String(el?.textContent || '').trim();
+    }
+
+    function extractGpxRouteName(xmlDoc) {
+      if (!xmlDoc) return '';
+      const track = getElementsByLocalName(xmlDoc, 'trk')[0];
+      const route = getElementsByLocalName(xmlDoc, 'rte')[0];
+      const metadata = getElementsByLocalName(xmlDoc, 'metadata')[0];
+      return firstTextByLocalName(track, 'name')
+        || firstTextByLocalName(route, 'name')
+        || firstTextByLocalName(metadata, 'name')
+        || firstTextByLocalName(xmlDoc, 'name');
+    }
+
+    function fileBaseName(fileName) {
+      return String(fileName || '')
+        .trim()
+        .replace(/\.[^.]+$/, '')
+        .trim();
+    }
+
+    function sanitizeFileName(value, fallback = 'munchiesmaps_route') {
+      const normalized = String(value || '')
+        .trim()
+        .replace(/[\\/:*?"<>|]+/g, '-')
+        .replace(/\s+/g, ' ')
+        .replace(/\.+$/g, '')
+        .slice(0, 80)
+        .trim();
+      return normalized || fallback;
+    }
+
+    function getRouteExportBaseName() {
+      return sanitizeFileName(gpxState.routeName || 'munchiesmaps_route');
+    }
+
     function parseGpxText(text) {
       try {
         const parser = new DOMParser();
         const xml = parser.parseFromString(text, 'application/xml');
         if (xml.getElementsByTagName('parsererror').length) {
-          return { points: [], xml: null };
+          return { points: [], xml: null, name: '' };
         }
 
         const extractPoints = (tagName) => {
@@ -3942,10 +4157,10 @@
         if (!pts.length) pts = extractPoints('rtept');
         if (!pts.length) pts = extractPoints('wpt');
 
-        return { points: pts, xml };
+        return { points: pts, xml, name: extractGpxRouteName(xml) };
       } catch (err) {
         console.error('GPX parse error', err);
-        return { points: [], xml: null };
+        return { points: [], xml: null, name: '' };
       }
     }
 
@@ -4611,7 +4826,7 @@
         ? appState.gpxTrackLatLngs.filter((pt) => Number.isFinite(pt?.lat) && Number.isFinite(pt?.lng))
         : [];
       if (!track.length) return '';
-      const xml = buildGpxExport(track, []);
+      const xml = buildGpxExport(track, [], gpxState.routeName || 'Imported route');
       return typeof xml === 'string' ? xml.trim() : '';
     }
 
@@ -5199,6 +5414,7 @@
         version: OFFLINE_PACKAGE_VERSION,
         route: {
           gpxRaw: rawText || '',
+          name: gpxState.routeName || '',
           latlngs,
           bbox: routeBBox,
           radius: gpxState.radiusMeters
@@ -5695,6 +5911,7 @@
       markerCache.clear();
       gpxState.active = true;
       gpxState.rawText = pkg.route.gpxRaw || '';
+      gpxState.routeName = pkg.route.name || extractGpxRouteName(parseGpxText(gpxState.rawText).xml) || '';
       gpxState.radiusMeters = Number(pkg.route.radius) || (DEFAULT_GPX_RADIUS_KM * 1000);
       poiVisibilityState.hiddenPoiIds = new Set(Array.isArray(pkg.hiddenPoiIds) ? pkg.hiddenPoiIds : []);
       poiVisibilityState.hideModeActive = false;
@@ -5831,6 +6048,142 @@
       };
     }
 
+    function mapsUrlForPoint(lat, lng) {
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) return '';
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${lat},${lng}`)}`;
+    }
+
+    function formatDistanceKm(value) {
+      if (!Number.isFinite(value)) return '-';
+      if (value < 1) return `${Math.round(value * 1000)} m`;
+      return `${value.toFixed(1)} km`;
+    }
+
+    function getPoiRouteDistanceKm(point) {
+      if (!point || !Number.isFinite(point.lat) || !Number.isFinite(point.lng)) return 0;
+      if (!appState.hasImportedGpx && !gpxState.active) return 0;
+      return getRouteDistanceToNearestPointKm(point.lat, point.lng);
+    }
+
+    function getDayNameForDate(date) {
+      return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()] || '';
+    }
+
+    function openingHoursRulesForDate(openingHoursRaw, date) {
+      const raw = normalizeOpeningHours(openingHoursRaw);
+      if (!raw || !(date instanceof Date)) return '';
+      const matchingRules = raw
+        .split(';')
+        .map((rule) => rule.trim())
+        .map(stripPublicHolidayTokensFromRule)
+        .filter(Boolean)
+        .filter((rule) => {
+          if (/^PH\b/i.test(rule)) return false;
+          const firstTime = rule.search(/\d{1,2}:\d{2}/);
+          const daySpec = firstTime > 0
+            ? rule.slice(0, firstTime).trim().replace(/[,\s]+$/, '')
+            : rule.replace(/\b(closed|off)\b/i, '').trim();
+          return dayTripRuleAppliesToDate(daySpec, date);
+        });
+      return matchingRules.join('; ');
+    }
+
+    function openingHoursForExport(point) {
+      const props = point?.propsRef || {};
+      const raw = normalizeOpeningHours(props.opening_hours);
+      if (!raw) return 'missing';
+
+      const arrivalInfo = appState.dayTripsEnabled
+        ? buildDayTripArrivalDate({ ...props, __lat: point.lat, __lng: point.lng })
+        : { arrival: buildDayTripStartDate() };
+      const arrival = arrivalInfo.arrival;
+      const status = appState.dayTripsEnabled
+        ? getDayTripOpenStatus({ ...props, __lat: point.lat, __lng: point.lng })
+        : null;
+      const dayName = getDayNameForDate(arrival);
+      const time = arrival.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const state = status?.state ? `; ${status.state} on arrival ${time}` : '';
+      const dayRules = openingHoursRulesForDate(raw, arrival) || raw;
+      return `${dayName}: ${dayRules}${state}`;
+    }
+
+    function buildVisiblePoiTextRows(points) {
+      const unique = new Set();
+      return (Array.isArray(points) ? points : [])
+        .map((point) => {
+          if (!point || !Number.isFinite(point.lat) || !Number.isFinite(point.lng)) return null;
+          const props = point.propsRef || {};
+          const categoryId = point.categoryId || props.categoryId || 'default';
+          const categoryLabel = props.categoryLabel || categoryLabelMap[categoryId] || markerLabel(categoryId, props);
+          const name = (props.name || categoryLabel || 'POI').trim();
+          const distanceKm = getPoiRouteDistanceKm(point);
+          const key = `${Number(point.lat).toFixed(6)}|${Number(point.lng).toFixed(6)}|${name}|${categoryId}`;
+          if (unique.has(key)) return null;
+          unique.add(key);
+          return {
+            categoryId,
+            categoryLabel,
+            distanceKm,
+            name,
+            openingHours: openingHoursForExport(point),
+            mapsUrl: mapsUrlForPoint(point.lat, point.lng)
+          };
+        })
+        .filter(Boolean)
+        .sort((a, b) => {
+          const categoryCompare = String(a.categoryLabel).localeCompare(String(b.categoryLabel));
+          if (categoryCompare !== 0) return categoryCompare;
+          return a.distanceKm - b.distanceKm;
+        });
+    }
+
+    function buildVisiblePoisTextExport(points) {
+      const rows = buildVisiblePoiTextRows(points);
+      const routeName = gpxState.routeName || 'Munchies Maps route';
+      const lines = [
+        `# ${escapeMarkdown(routeName)} - visible POIs`,
+        '',
+        `Exported: ${new Date().toISOString()}`,
+        '',
+        appState.hasImportedGpx || gpxState.active ? 'Order: categories by name, POIs by route distance within each category.' : 'Order: visible POIs grouped by category.',
+        ''
+      ];
+      const linkLabel = 'Open in Google Maps';
+      const mapsLinkForRow = (row) => row.mapsUrl
+        ? `[${escapeMarkdown(linkLabel)}](${row.mapsUrl})`
+        : '';
+
+      let currentCategory = null;
+      rows.forEach((row) => {
+        if (row.categoryLabel !== currentCategory) {
+          currentCategory = row.categoryLabel;
+          if (lines[lines.length - 1] !== '') lines.push('');
+          lines.push(`## ${escapeMarkdown(currentCategory)}`);
+          lines.push('');
+          lines.push('| Distance | Name | Opening hours | Link |');
+          lines.push('| --- | --- | --- | --- |');
+        }
+        lines.push(`| ${escapeMarkdown(formatDistanceKm(row.distanceKm))} | ${escapeMarkdown(row.name)} | ${escapeMarkdown(row.openingHours)} | ${mapsLinkForRow(row)} |`);
+      });
+
+      if (!rows.length) {
+        lines.push('_No visible POIs._');
+      } else {
+        lines.push('');
+        lines.push('## All POIs');
+        lines.push('');
+        lines.push('| Category | Distance | Name | Opening hours | Link |');
+        lines.push('| --- | --- | --- | --- | --- |');
+        [...rows]
+          .sort((a, b) => a.distanceKm - b.distanceKm)
+          .forEach((row) => {
+            lines.push(`| ${escapeMarkdown(row.categoryLabel)} | ${escapeMarkdown(formatDistanceKm(row.distanceKm))} | ${escapeMarkdown(row.name)} | ${escapeMarkdown(row.openingHours)} | ${mapsLinkForRow(row)} |`);
+          });
+      }
+
+      return `${lines.join('\n')}\n`;
+    }
+
     function cmtKeywordForCategory(category) {
       const safeCategory = category || '';
       const byCategory = {
@@ -5840,6 +6193,7 @@
         shelters: 'camping',
         accommodation: 'lodging',
         bakerys_cafes: 'coffee',
+        restaurants: 'restaurant',
         drinking_water: 'water',
         toilets_public: 'restroom',
         fuel: 'gas',
@@ -5849,9 +6203,7 @@
     }
 
     function collectVisiblePoisForExport() {
-      if (!map) return [];
-      const bounds = map.getBounds();
-      const visiblePoints = getVisiblePoints(bounds, 0);
+      const visiblePoints = collectVisiblePoiPointsForExport();
       const unique = new Set();
       const result = [];
       visiblePoints.forEach((point) => {
@@ -5865,6 +6217,14 @@
       return result;
     }
 
+    function collectVisiblePoiPointsForExport() {
+      if (!map) return [];
+      if (hasActiveRoute()) {
+        return getDisplayFilteredPoints(activePoints || []);
+      }
+      const bounds = map.getBounds();
+      return getVisiblePoints(bounds, 0);
+    }
 
 
 
@@ -5873,13 +6233,15 @@
 
 
 
-    function buildGpxExport(trackLatLngs, visiblePois) {
+
+    function buildGpxExport(trackLatLngs, visiblePois, routeName = 'Imported route') {
       const trackPoints = Array.isArray(trackLatLngs) ? trackLatLngs : [];
       const pois = Array.isArray(visiblePois) ? visiblePois : [];
+      const safeRouteName = String(routeName || 'Imported route').trim() || 'Imported route';
       const lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<gpx version="1.1" creator="Munchies Maps" xmlns="http://www.topografix.com/GPX/1/1">',
-        '<trk><name>Imported route + POIs</name><trkseg>'
+        `<trk><name>${escapeXml(safeRouteName)}</name><trkseg>`
       ];
       trackPoints.forEach((latlng) => {
         const lat = latlng.lat ?? latlng[0];
@@ -5908,12 +6270,24 @@
       return lines.join('');
     }
 
-    function downloadGpxExport(xml) {
+    function downloadGpxExport(xml, fileName = 'munchiesmaps_route_with_pois.gpx') {
       const blob = new Blob([xml], { type: 'application/gpx+xml;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement('a');
       anchor.href = url;
-      anchor.download = 'munchiesmaps_route_with_pois.gpx';
+      anchor.download = fileName;
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+      URL.revokeObjectURL(url);
+    }
+
+    function downloadTextExport(content, fileName, type = 'text/plain;charset=utf-8') {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = fileName;
       document.body.appendChild(anchor);
       anchor.click();
       document.body.removeChild(anchor);
@@ -6482,6 +6856,97 @@
       });
     }
 
+    function refreshDayTripControls() {
+      const enabled = Boolean(appState.dayTripsEnabled);
+      ['toggleDayTripHideNoBadges', 'toggleDayTripIncludeMissingOH', 'dayTripWeekday', 'dayTripStartTime', 'dayTripAvgSpeed'].forEach((id) => {
+        const input = document.getElementById(id);
+        if (!input) return;
+        input.disabled = !enabled;
+        const row = input.closest('.checkrow');
+        if (row) row.classList.toggle('is-disabled', !enabled);
+      });
+      if (!enabled) {
+        appState.dayTripHideNoBadges = false;
+        appState.dayTripIncludeMissingData = false;
+        const hideToggle = document.getElementById('toggleDayTripHideNoBadges');
+        const includeToggle = document.getElementById('toggleDayTripIncludeMissingOH');
+        if (hideToggle) hideToggle.checked = false;
+        if (includeToggle) includeToggle.checked = false;
+      }
+    }
+
+    function refreshDayTripBadges() {
+      MARKER_ICON_CACHE.clear();
+      markerCache.clear();
+      updateClusteringForViewport();
+      if (typeof debouncedUrlUpdate === 'function') {
+        debouncedUrlUpdate();
+      }
+    }
+
+    function setupDayTripControls() {
+      const toggle = document.getElementById('toggleDayTrips');
+      const hideNoBadges = document.getElementById('toggleDayTripHideNoBadges');
+      const includeMissing = document.getElementById('toggleDayTripIncludeMissingOH');
+      const weekday = document.getElementById('dayTripWeekday');
+      const startTime = document.getElementById('dayTripStartTime');
+      const avgSpeed = document.getElementById('dayTripAvgSpeed');
+
+      if (toggle) {
+        toggle.checked = Boolean(appState.dayTripsEnabled);
+        toggle.addEventListener('change', () => {
+          appState.dayTripsEnabled = toggle.checked;
+          refreshDayTripControls();
+          refreshDayTripBadges();
+        });
+      }
+
+      if (hideNoBadges) {
+        hideNoBadges.checked = Boolean(appState.dayTripHideNoBadges);
+        hideNoBadges.addEventListener('change', () => {
+          appState.dayTripHideNoBadges = hideNoBadges.checked;
+          refreshDayTripBadges();
+        });
+      }
+
+      if (includeMissing) {
+        includeMissing.checked = Boolean(appState.dayTripIncludeMissingData);
+        includeMissing.addEventListener('change', () => {
+          appState.dayTripIncludeMissingData = includeMissing.checked;
+          refreshDayTripBadges();
+        });
+      }
+
+      if (weekday) {
+        weekday.value = isValidDayTripWeekday(appState.dayTripWeekday) ? String(appState.dayTripWeekday) : '6';
+        weekday.addEventListener('change', () => {
+          appState.dayTripWeekday = isValidDayTripWeekday(weekday.value) ? weekday.value : '6';
+          weekday.value = appState.dayTripWeekday;
+          refreshDayTripBadges();
+        });
+      }
+
+      if (startTime) {
+        startTime.value = isValidDayTripTime(appState.dayTripStartTime) ? appState.dayTripStartTime : '09:00';
+        startTime.addEventListener('change', () => {
+          appState.dayTripStartTime = isValidDayTripTime(startTime.value) ? startTime.value : '09:00';
+          startTime.value = appState.dayTripStartTime;
+          refreshDayTripBadges();
+        });
+      }
+
+      if (avgSpeed) {
+        avgSpeed.value = String(clampDayTripSpeed(appState.dayTripAvgSpeedKmh));
+        avgSpeed.addEventListener('change', () => {
+          appState.dayTripAvgSpeedKmh = clampDayTripSpeed(avgSpeed.value);
+          avgSpeed.value = String(appState.dayTripAvgSpeedKmh);
+          refreshDayTripBadges();
+        });
+      }
+
+      refreshDayTripControls();
+    }
+
     function updateBadgeDependentToggles(enabled, resetState) {
       const hideToggle = document.getElementById('toggleHideNoBadges');
       const includeToggle = document.getElementById('toggleIncludeMissingOH');
@@ -6668,7 +7133,7 @@
           : escapeHtml(raw);
         return `<div><b>${escapeHtml(label)}</b>: ${renderedValue}</div>`;
       };
-      const other = categoryId === 'fast_food'
+      const other = (categoryId === 'fast_food' || categoryId === 'restaurants')
         ? [
             renderField('Brand', p.brand, 'brand'),
             renderField('Cuisine', formatFastFoodCuisine(p.cuisine), 'cuisine'),
@@ -6677,7 +7142,7 @@
             renderField('Website', p.website, 'website'),
             renderField('URL', p.url, 'url'),
             renderField('contact:website', p['contact:website'], 'contact:website'),
-            renderField('Chain', formatFastFoodChain(p.chain), 'chain')
+            categoryId === 'fast_food' ? renderField('Chain', formatFastFoodChain(p.chain), 'chain') : ''
           ].filter(Boolean).join('')
         : Object.keys(p)
           .filter(k => !['name','description','cluster','cluster_id','point_count','point_count_abbreviated'].includes(k))
@@ -6688,6 +7153,10 @@
           .join('');
       const accommodationTypeField = categoryId === 'accommodation'
         ? renderField('Accommodation type', p.tourism, 'tourism')
+        : '';
+      const dayTripStatus = getDayTripOpenStatus({ ...p, __lat: lat, __lng: lng });
+      const dayTripField = dayTripStatus
+        ? renderField('Day trip arrival', formatDayTripArrivalStatus(dayTripStatus), 'day_trip_arrival')
         : '';
       const mapHref = mapsHref(lat, lng);
       const mapyHref = categoryId === 'shelters'
@@ -6713,7 +7182,7 @@
           ${popupCategoryRow ? `<div class="popup-action-row">${popupCategoryRow}</div>` : ''}
           ${popupTitle}
           ${desc ? `<div class="popup-desc">${escapeHtml(desc)}</div>` : ''}
-          ${(accommodationTypeField || other) ? `<div class="popup-extra">${accommodationTypeField}${other}</div>` : ''}
+          ${(dayTripField || accommodationTypeField || other) ? `<div class="popup-extra">${dayTripField}${accommodationTypeField}${other}</div>` : ''}
           <div class="popup-footer">
             <a
               class="open-gmaps"
@@ -6877,8 +7346,218 @@
       }
     }
 
+    function stripPublicHolidayRules(openingHoursRaw) {
+      return String(openingHoursRaw || '')
+        .split(';')
+        .map((rule) => rule.trim())
+        .map(stripPublicHolidayTokensFromRule)
+        .filter((rule) => rule && !/^PH\b/i.test(rule))
+        .join('; ');
+    }
+
+    function stripPublicHolidayTokensFromRule(rule) {
+      return String(rule || '')
+        .replace(/\bPH\s*,\s*/gi, '')
+        .replace(/,\s*PH\b/gi, '')
+        .trim();
+    }
+
+    function parseOpeningHoursWithFallback(value) {
+      const parsed = parseOpeningHours(value);
+      if (parsed) return parsed;
+      const withoutPublicHolidays = stripPublicHolidayRules(value);
+      if (withoutPublicHolidays && withoutPublicHolidays !== value) {
+        return parseOpeningHours(withoutPublicHolidays);
+      }
+      return null;
+    }
+
+    function parseDayTripMinutes(value) {
+      const match = /^(\d{1,2}):(\d{2})$/.exec(String(value || '').trim());
+      if (!match) return null;
+      const hour = Number.parseInt(match[1], 10);
+      const minute = Number.parseInt(match[2], 10);
+      if (!Number.isFinite(hour) || !Number.isFinite(minute)) return null;
+      if (hour === 24 && minute === 0) return 24 * 60;
+      if (hour < 0 || hour > 23 || minute < 0 || minute > 59) return null;
+      return hour * 60 + minute;
+    }
+
+    function dayTripWeekdayIndex(token) {
+      const indexByToken = { Su: 0, Mo: 1, Tu: 2, We: 3, Th: 4, Fr: 5, Sa: 6 };
+      return indexByToken[token] ?? null;
+    }
+
+    function dayTripRuleAppliesToDate(daySpec, date) {
+      const spec = String(daySpec || '').trim();
+      if (!spec) return true;
+      const currentDay = date.getDay();
+      const tokens = spec.split(',').map((token) => token.trim()).filter(Boolean);
+      if (!tokens.length) return true;
+
+      let sawDayToken = false;
+      for (const token of tokens) {
+        if (/^PH$/i.test(token)) continue;
+        const rangeMatch = /^(Mo|Tu|We|Th|Fr|Sa|Su)-(Mo|Tu|We|Th|Fr|Sa|Su)$/i.exec(token);
+        if (rangeMatch) {
+          sawDayToken = true;
+          const start = dayTripWeekdayIndex(rangeMatch[1].slice(0, 1).toUpperCase() + rangeMatch[1].slice(1).toLowerCase());
+          const end = dayTripWeekdayIndex(rangeMatch[2].slice(0, 1).toUpperCase() + rangeMatch[2].slice(1).toLowerCase());
+          if (start == null || end == null) continue;
+          if (start <= end && currentDay >= start && currentDay <= end) return true;
+          if (start > end && (currentDay >= start || currentDay <= end)) return true;
+          continue;
+        }
+        const normalizedToken = token.slice(0, 1).toUpperCase() + token.slice(1).toLowerCase();
+        const day = dayTripWeekdayIndex(normalizedToken);
+        if (day != null) {
+          sawDayToken = true;
+          if (currentDay === day) return true;
+        }
+      }
+
+      return !sawDayToken;
+    }
+
+    function fallbackOpeningHoursStateAt(openingHoursRaw, date) {
+      const value = String(openingHoursRaw || '').trim();
+      if (!value || !(date instanceof Date)) return null;
+      const targetMinutes = (date.getHours() * 60) + date.getMinutes();
+      let sawApplicableRule = false;
+      let sawSupportedRule = false;
+
+      for (const rawRule of value.split(';')) {
+        const rule = stripPublicHolidayTokensFromRule(rawRule.trim());
+        if (!rule || /^PH\b/i.test(rule)) continue;
+        const firstTime = rule.search(/\d{1,2}:\d{2}/);
+        const daySpec = firstTime > 0 ? rule.slice(0, firstTime).trim().replace(/[,\s]+$/, '') : rule.replace(/\b(closed|off)\b/i, '').trim();
+        const applies = dayTripRuleAppliesToDate(daySpec, date);
+        if (!applies) continue;
+        sawApplicableRule = true;
+        if (/\b(closed|off)\b/i.test(rule) && firstTime === -1) {
+          sawSupportedRule = true;
+          return false;
+        }
+
+        const timeRangeRegex = /(\d{1,2}:\d{2})-(\d{1,2}:\d{2})/g;
+        let match;
+        while ((match = timeRangeRegex.exec(rule)) !== null) {
+          const start = parseDayTripMinutes(match[1]);
+          const end = parseDayTripMinutes(match[2]);
+          if (start == null || end == null) continue;
+          sawSupportedRule = true;
+          if (end >= start) {
+            if (targetMinutes >= start && targetMinutes < end) return true;
+          } else if (targetMinutes >= start || targetMinutes < end) {
+            return true;
+          }
+        }
+      }
+
+      if (sawApplicableRule || sawSupportedRule) return false;
+      return null;
+    }
+
+    function buildDayTripStartDate() {
+      const weekday = isValidDayTripWeekday(appState.dayTripWeekday) ? Number(appState.dayTripWeekday) : 6;
+      const time = isValidDayTripTime(appState.dayTripStartTime) ? appState.dayTripStartTime : '09:00';
+      const [hour, minute] = time.split(':').map((part) => Number.parseInt(part, 10));
+      const monday = new Date(2026, 0, 5, 0, 0, 0, 0);
+      const dayOffset = weekday === 0 ? 6 : weekday - 1;
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + dayOffset);
+      date.setHours(hour, minute, 0, 0);
+      return date;
+    }
+
+    function getRouteDistanceToNearestPointKm(lat, lng) {
+      const points = Array.isArray(appState.gpxTrackLatLngs)
+        ? appState.gpxTrackLatLngs
+          .map((pt) => L.latLng(pt?.lat ?? pt?.[0], pt?.lng ?? pt?.[1]))
+          .filter((pt) => Number.isFinite(pt.lat) && Number.isFinite(pt.lng))
+        : [];
+      if (points.length < 2 || !Number.isFinite(lat) || !Number.isFinite(lng)) return 0;
+
+      let cumulativeMeters = 0;
+      let bestDistanceMeters = Infinity;
+      let bestRouteMeters = 0;
+
+      for (let i = 0; i < points.length; i += 1) {
+        if (i > 0) {
+          cumulativeMeters += haversineMeters(
+            points[i - 1].lat,
+            points[i - 1].lng,
+            points[i].lat,
+            points[i].lng
+          );
+        }
+        const distanceMeters = haversineMeters(lat, lng, points[i].lat, points[i].lng);
+        if (distanceMeters < bestDistanceMeters) {
+          bestDistanceMeters = distanceMeters;
+          bestRouteMeters = cumulativeMeters;
+        }
+      }
+
+      return bestRouteMeters / 1000;
+    }
+
+    function buildDayTripArrivalDate(props = {}) {
+      const start = buildDayTripStartDate();
+      const speedKmh = clampDayTripSpeed(appState.dayTripAvgSpeedKmh);
+      const lat = Number(props.__lat);
+      const lng = Number(props.__lng);
+      const distanceKm = appState.hasImportedGpx || gpxState.active
+        ? getRouteDistanceToNearestPointKm(lat, lng)
+        : 0;
+      const travelMinutes = speedKmh > 0 ? (distanceKm / speedKmh) * 60 : 0;
+      const arrival = new Date(start);
+      arrival.setMinutes(arrival.getMinutes() + Math.round(travelMinutes));
+      return {
+        arrival,
+        distanceKm,
+        travelMinutes
+      };
+    }
+
+    function getDayTripOpenStatus(props = {}) {
+      if (!appState.dayTripsEnabled) return null;
+      const openingHoursRaw = normalizeOpeningHours(props.opening_hours);
+      if (!openingHoursRaw) return { state: 'unknown', arrival: buildDayTripArrivalDate(props).arrival };
+      if (OPEN_24H_PATTERNS.some((pattern) => pattern.test(openingHoursRaw))) {
+        return { state: 'open', arrival: buildDayTripArrivalDate(props).arrival };
+      }
+
+      const arrivalInfo = buildDayTripArrivalDate(props);
+      const parsed = parseOpeningHoursWithFallback(openingHoursRaw);
+      const isOpen = parsed
+        ? safeGetState(parsed, arrivalInfo.arrival)
+        : fallbackOpeningHoursStateAt(openingHoursRaw, arrivalInfo.arrival);
+      if (isOpen === true) return { state: 'open', ...arrivalInfo };
+      if (isOpen === false) return { state: 'closed', ...arrivalInfo };
+      const fallbackState = fallbackOpeningHoursStateAt(openingHoursRaw, arrivalInfo.arrival);
+      if (fallbackState === true) return { state: 'open', ...arrivalInfo };
+      if (fallbackState === false) return { state: 'closed', ...arrivalInfo };
+      return { state: 'unknown', ...arrivalInfo };
+    }
+
+    function formatDayTripArrivalStatus(status) {
+      if (!status?.arrival) return '';
+      const time = status.arrival.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const labelByState = {
+        open: 'open on arrival',
+        closed: 'closed on arrival',
+        unknown: 'unknown on arrival'
+      };
+      const label = labelByState[status.state] || 'unknown on arrival';
+      return `${time} - ${label}`;
+    }
+
     // Badge priority: 24h overrides 🌙; assume 24h if missing opening_hours for selected layers.
     function getBadgeType(layerKey, props = {}) {
+      const dayTripStatus = getDayTripOpenStatus(props);
+      if (dayTripStatus?.state === 'open') return 'day';
+      if (!appState.showBadges) return null;
+
       const normalizedLayer = resolveLayerKey(layerKey, props);
       const openingHoursRaw = normalizeOpeningHours(props.opening_hours);
       const assumes24h = ASSUME_24H_LAYERS.has(normalizedLayer);
@@ -6947,17 +7626,23 @@
       const { key, config } = getLayerIconConfig(layerKey, featureProps);
       const size = config.size || DEFAULT_MARKER_SIZE;
       const iconSize = config.iconSize || DEFAULT_MARKER_ICON_SIZE;
-      const badgeType = appState.showBadges ? getBadgeType(key, featureProps) : null;
+      const badgesEnabled = Boolean(appState.showBadges || appState.dayTripsEnabled);
+      const badgeType = badgesEnabled ? getBadgeType(key, featureProps) : null;
       const iconClassKey = config.iconClass || '';
-      const cacheKey = `${key}-${iconClassKey}-${size}-${iconSize}-${appState.showBadges ? 'badges' : 'nobadges'}-${badgeType || 'none'}`;
+      const dayTripKey = appState.dayTripsEnabled
+        ? `${appState.dayTripWeekday || ''}-${appState.dayTripStartTime || ''}-${appState.dayTripAvgSpeedKmh || ''}`
+        : 'no-day';
+      const cacheKey = `${key}-${iconClassKey}-${size}-${iconSize}-${badgesEnabled ? 'badges' : 'nobadges'}-${dayTripKey}-${badgeType || 'none'}`;
       if (MARKER_ICON_CACHE.has(cacheKey)) return MARKER_ICON_CACHE.get(cacheKey);
       const label = markerLabel(key, featureProps);
       const hoverColor = config.hoverColor || config.color;
       const outlineColor = config.outlineColor || 'rgba(255,255,255,0.25)';
-      const badgeHtml = appState.showBadges && badgeType
+      const badgeHtml = badgesEnabled && badgeType
         ? badgeType === 'twentyfour'
           ? '<span class="mm-badge mm-badge--247" title="Durchgehend geöffnet">24h</span>'
-          : '<span class="mm-badge mm-badge--moon" title="Nach 21 Uhr geöffnet">🌙</span>'
+          : badgeType === 'day'
+            ? '<span class="mm-badge mm-badge--day" title="Open on arrival">D</span>'
+            : '<span class="mm-badge mm-badge--moon" title="Nach 21 Uhr geöffnet">🌙</span>'
         : '';
       const favoriteBadgeHtml = '<span class="mm-marker-favorite-badge" aria-hidden="true"><i class="fa-solid fa-star"></i></span>';
       const html = `
@@ -7020,7 +7705,8 @@
       if (!point) return null;
       const { id, lat, lng, categoryId, propsRef } = point;
       if (id == null) return null;
-      const markerIcon = getLayerMarkerIcon(categoryId, propsRef);
+      const iconProps = { ...(propsRef || {}), __lat: lat, __lng: lng };
+      const markerIcon = getLayerMarkerIcon(categoryId, iconProps);
       const cached = markerCache.get(id);
       if (cached) {
         cached.lastUsed = renderCounter;
@@ -7138,35 +7824,65 @@
       return left.concat(right);
     }
 
-    function getVisiblePoints(bounds, paddingPx = 0) {
-      const points = getVisiblePointIndices(bounds, paddingPx)
-        .map((idx) => activePoints[idx])
-        .filter(Boolean);
-      const visibilityFiltered = points.filter((point) => {
+    function getDisplayFilteredPoints(points) {
+      const displayPoints = Array.isArray(points) ? points : [];
+      const visibilityFiltered = displayPoints.filter((point) => {
         const isHidden = poiVisibilityState.hiddenPoiIds.has(point.id);
         if (isHidden && !poiVisibilityState.showHiddenActive) return false;
         if (poiVisibilityState.favoritesOnlyActive && !isPoiFavorite(point.id)) return false;
         return true;
       });
-      if (!appState.showBadges || !appState.hideNoBadges) {
-        return visibilityFiltered;
-      }
+      const includeFavoriteOverlay = Boolean(
+        poiVisibilityState.showFavoritesActive &&
+        !poiVisibilityState.favoritesOnlyActive &&
+        poiVisibilityState.favoritePoiIds.size > 0
+      );
+      const filterNightBadges = Boolean(appState.showBadges && appState.hideNoBadges);
+      const filterDayTripBadges = Boolean(appState.dayTripsEnabled && appState.dayTripHideNoBadges);
       const badgeMemo = new Map();
-      return visibilityFiltered.filter((point) => {
+      const passesBadgeFilters = (point) => {
         if (!point) return false;
         if (!badgeMemo.has(point.id)) {
-          badgeMemo.set(point.id, getBadgeType(point.categoryId, point.propsRef));
+          badgeMemo.set(point.id, getBadgeType(point.categoryId, {
+            ...(point.propsRef || {}),
+            __lat: point.lat,
+            __lng: point.lng
+          }));
         }
         const badgeType = badgeMemo.get(point.id);
-        if (badgeType === 'twentyfour' || badgeType === 'moon') {
+        if (filterNightBadges && (badgeType === 'twentyfour' || badgeType === 'moon')) {
           return true;
         }
-        if (appState.includeMissingData) {
+        if (filterDayTripBadges && badgeType === 'day') {
+          return true;
+        }
+        const includeMissing = (filterNightBadges && appState.includeMissingData)
+          || (filterDayTripBadges && appState.dayTripIncludeMissingData);
+        if (includeMissing) {
           const openingHoursRaw = normalizeOpeningHours(point.propsRef?.opening_hours);
           return !openingHoursRaw;
         }
         return false;
-      });
+      };
+      const badgeFiltered = (!filterNightBadges && !filterDayTripBadges)
+        ? visibilityFiltered
+        : visibilityFiltered.filter(passesBadgeFilters);
+
+      if (!includeFavoriteOverlay) return badgeFiltered;
+
+      const merged = new Map();
+      badgeFiltered.forEach((point) => merged.set(point.id, point));
+      visibilityFiltered
+        .filter((point) => isPoiFavorite(point.id))
+        .forEach((point) => merged.set(point.id, point));
+      return Array.from(merged.values());
+    }
+
+    function getVisiblePoints(bounds, paddingPx = 0) {
+      const points = getVisiblePointIndices(bounds, paddingPx)
+        .map((idx) => activePoints[idx])
+        .filter(Boolean);
+      return getDisplayFilteredPoints(points);
     }
 
     function getVisiblePoiCount(bounds) {
@@ -7514,6 +8230,7 @@
       gpxState.bbox = null;
       gpxState.geoJson = null;
       gpxState.rawText = null;
+      gpxState.routeName = '';
       gpxState.routeLengthKm = 0;
       currentKmMarkerIntervalKm = null;
       currentKmMarkerRenderKey = null;
@@ -7548,6 +8265,7 @@
       let trackPoints = gpxState.points;
       let gpxGeoJson = gpxState.geoJson;
       let gpxRawText = gpxState.rawText;
+      let gpxRouteName = gpxState.routeName;
       const file = fileInput?.files?.[0];
       const hasNewFile = Boolean(file);
       const hasRawTextInput = typeof rawGpxText === 'string' && rawGpxText.trim().length > 0;
@@ -7558,6 +8276,7 @@
           trackPoints = parsed.points;
           gpxGeoJson = buildGpxGeoJson(parsed.xml);
           gpxRawText = normalizedRaw;
+          gpxRouteName = parsed.name || gpxRouteName || '';
         } catch (err) {
           if (errorEl) errorEl.textContent = 'Saved GPX route is invalid.';
           throw err;
@@ -7569,6 +8288,7 @@
           trackPoints = parsed.points;
           gpxGeoJson = buildGpxGeoJson(parsed.xml);
           gpxRawText = text;
+          gpxRouteName = parsed.name || fileBaseName(file.name) || '';
         } catch (err) {
           if (errorEl) errorEl.textContent = 'Could not read the file.';
           return;
@@ -7601,6 +8321,7 @@
       gpxState.bbox = computeExpandedBBox(sampled, radiusMeters);
       gpxState.geoJson = gpxGeoJson;
       gpxState.rawText = gpxRawText;
+      gpxState.routeName = gpxRouteName || '';
       gpxState.active = true;
       poiVisibilityState.routeHash = simpleStableHash(gpxRawText || trackPoints.map((pt) => `${pt.lat},${pt.lon}`).join('|'));
       activeRouteSource = routeSource;
@@ -7683,13 +8404,32 @@
       appState.showBadges = false;
       appState.hideNoBadges = false;
       appState.includeMissingData = false;
+      appState.dayTripsEnabled = false;
+      appState.dayTripHideNoBadges = false;
+      appState.dayTripIncludeMissingData = false;
+      appState.dayTripWeekday = '6';
+      appState.dayTripStartTime = '09:00';
+      appState.dayTripAvgSpeedKmh = 20;
       const badgeToggle = document.getElementById('toggleBadges');
       if (badgeToggle) badgeToggle.checked = false;
       const hideToggle = document.getElementById('toggleHideNoBadges');
       const includeToggle = document.getElementById('toggleIncludeMissingOH');
       if (hideToggle) hideToggle.checked = false;
       if (includeToggle) includeToggle.checked = false;
+      const dayToggle = document.getElementById('toggleDayTrips');
+      const dayHideToggle = document.getElementById('toggleDayTripHideNoBadges');
+      const dayIncludeToggle = document.getElementById('toggleDayTripIncludeMissingOH');
+      const dayWeekday = document.getElementById('dayTripWeekday');
+      const dayStartTime = document.getElementById('dayTripStartTime');
+      const dayAvgSpeed = document.getElementById('dayTripAvgSpeed');
+      if (dayToggle) dayToggle.checked = false;
+      if (dayHideToggle) dayHideToggle.checked = false;
+      if (dayIncludeToggle) dayIncludeToggle.checked = false;
+      if (dayWeekday) dayWeekday.value = '6';
+      if (dayStartTime) dayStartTime.value = '09:00';
+      if (dayAvgSpeed) dayAvgSpeed.value = '20';
       updateBadgeDependentToggles(false, false);
+      refreshDayTripControls();
       setClusterThreshold(DEFAULT_CLUSTER_THRESHOLD);
       setMinPoiZoom(DEFAULT_MIN_POI_ZOOM);
       updateClusteringForViewport();
@@ -7891,18 +8631,22 @@
       const hideMultipleButton = menu.querySelector('[data-action="hide-multiple"]');
       showHiddenButton?.classList.toggle('is-active', Boolean(poiVisibilityState.showHiddenActive));
       hideMultipleButton?.classList.toggle('is-active', Boolean(poiVisibilityState.hideMultipleActive));
+      const showFavoritesButton = menu.querySelector('[data-action="show-favorites"]');
       const favoritesOnlyButton = menu.querySelector('[data-action="favorites-only"]');
-      if (favoritesOnlyButton) {
+      [showFavoritesButton, favoritesOnlyButton].forEach((button) => {
+        if (!button) return;
         const routeActive = hasActiveRoute();
-        favoritesOnlyButton.hidden = !routeActive;
-        favoritesOnlyButton.disabled = !routeActive;
-      }
+        button.hidden = !routeActive;
+        button.disabled = !routeActive;
+      });
+      showFavoritesButton?.classList.toggle('is-active', Boolean(poiVisibilityState.showFavoritesActive));
       favoritesOnlyButton?.classList.toggle('is-active', Boolean(poiVisibilityState.favoritesOnlyActive));
     }
     function resetPoiVisibilityState({ clearHidden = true } = {}) {
       poiVisibilityState.hideModeActive = false;
       poiVisibilityState.hideMultipleActive = false;
       poiVisibilityState.showHiddenActive = false;
+      poiVisibilityState.showFavoritesActive = false;
       poiVisibilityState.favoritesOnlyActive = false;
       poiVisibilityState.unsavedChanges = false;
       if (clearHidden) {
@@ -7919,6 +8663,7 @@
       if (!poiVisibilityState.hideModeActive) {
         poiVisibilityState.hideMultipleActive = false;
         poiVisibilityState.showHiddenActive = false;
+        poiVisibilityState.showFavoritesActive = false;
         poiVisibilityState.favoritesOnlyActive = false;
       }
       const shouldShowButton = hasRoute;
@@ -8008,9 +8753,15 @@
       const action = event?.target?.getAttribute?.('data-action');
       if (!action) return;
       if (action === 'show-hidden') poiVisibilityState.showHiddenActive = !poiVisibilityState.showHiddenActive;
+      if (action === 'show-favorites') {
+        if (!hasActiveRoute()) return;
+        poiVisibilityState.showFavoritesActive = !poiVisibilityState.showFavoritesActive;
+        if (poiVisibilityState.showFavoritesActive) poiVisibilityState.favoritesOnlyActive = false;
+      }
       if (action === 'favorites-only') {
         if (!hasActiveRoute()) return;
         poiVisibilityState.favoritesOnlyActive = !poiVisibilityState.favoritesOnlyActive;
+        if (poiVisibilityState.favoritesOnlyActive) poiVisibilityState.showFavoritesActive = false;
       }
       if (action === 'restore-hidden') {
         const shouldRestore = await showRestoreHiddenConfirmation();
@@ -8065,6 +8816,7 @@
       setupBadgeToggle();
       setupHideNoBadgesToggle();
       setupIncludeMissingToggle();
+      setupDayTripControls();
       setupGpxApplyControls();
       if (window.offlineRouteStore?.migrateLegacySavedRoute) {
         await window.offlineRouteStore.migrateLegacySavedRoute(async (rawText) => {
@@ -8079,6 +8831,7 @@
             version: OFFLINE_PACKAGE_VERSION,
             route: {
               gpxRaw: rawText,
+              name: parsed.name || '',
               latlngs,
               bbox: [Math.min(...lats), Math.min(...lngs), Math.max(...lats), Math.max(...lngs)],
               radius: DEFAULT_GPX_RADIUS_KM * 1000

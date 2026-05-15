@@ -59,6 +59,15 @@ def fast_food() -> str:
     ).strip()
 
 
+def restaurants() -> str:
+    """Return Overpass body for restaurants."""
+    return dedent(
+        f"""
+        nwr["amenity"="restaurant"]({AREA_ALIAS});
+        """
+    ).strip()
+
+
 def vending_snacks() -> str:
     """Return Overpass body for vending machines offering food and drinks (semicolon-safe)."""
     return dedent(
