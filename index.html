@@ -1972,6 +1972,9 @@
 
     const escapeHtml = (value) => escapeText(value);
     const escapeXml = (value) => escapeText(value, { xml: true });
+    const escapeMarkdown = (value) => String(value ?? '')
+      .replace(/\\/g, '\\\\')
+      .replace(/([`*_{}\[\]()#+\-.!|>])/g, '\\$1');
 
     function createCategoryIconElement(categoryId, size = 22, extraClass = '') {
       const { key, config } = getLayerIconConfig(categoryId);
@@ -2711,15 +2714,16 @@
 
     function exportPoisWithGpx() {
       const visiblePois = collectVisiblePoisForExport();
-      const xml = buildGpxExport(appState.gpxTrackLatLngs, visiblePois);
-      downloadGpxExport(xml);
+      const routeName = gpxState.routeName || 'Imported route';
+      const xml = buildGpxExport(appState.gpxTrackLatLngs, visiblePois, routeName);
+      downloadGpxExport(xml, `${getRouteExportBaseName()}_with_pois.gpx`);
       return visiblePois.length;
     }
 
     function exportVisiblePoisText() {
       const visiblePois = collectVisiblePoiPointsForExport();
       const content = buildVisiblePoisTextExport(visiblePois);
-      downloadTextExport(content, 'munchiesmaps_visible_pois.txt');
+      downloadTextExport(content, `${getRouteExportBaseName()}_visible_pois.md`, 'text/markdown;charset=utf-8');
       return visiblePois.length;
     }
 
@@ -3174,6 +3178,7 @@
       active: false,
       geoJson: null,
       rawText: null,
+      routeName: '',
       uiMode: 'standard',
       routeLengthKm: 0
     };
@@ -4082,12 +4087,51 @@
       return Array.from(xml.getElementsByTagName(name));
     }
 
+    function firstTextByLocalName(parent, name) {
+      if (!parent) return '';
+      const el = getElementsByLocalName(parent, name)[0];
+      return String(el?.textContent || '').trim();
+    }
+
+    function extractGpxRouteName(xmlDoc) {
+      if (!xmlDoc) return '';
+      const track = getElementsByLocalName(xmlDoc, 'trk')[0];
+      const route = getElementsByLocalName(xmlDoc, 'rte')[0];
+      const metadata = getElementsByLocalName(xmlDoc, 'metadata')[0];
+      return firstTextByLocalName(track, 'name')
+        || firstTextByLocalName(route, 'name')
+        || firstTextByLocalName(metadata, 'name')
+        || firstTextByLocalName(xmlDoc, 'name');
+    }
+
+    function fileBaseName(fileName) {
+      return String(fileName || '')
+        .trim()
+        .replace(/\.[^.]+$/, '')
+        .trim();
+    }
+
+    function sanitizeFileName(value, fallback = 'munchiesmaps_route') {
+      const normalized = String(value || '')
+        .trim()
+        .replace(/[\\/:*?"<>|]+/g, '-')
+        .replace(/\s+/g, ' ')
+        .replace(/\.+$/g, '')
+        .slice(0, 80)
+        .trim();
+      return normalized || fallback;
+    }
+
+    function getRouteExportBaseName() {
+      return sanitizeFileName(gpxState.routeName || 'munchiesmaps_route');
+    }
+
     function parseGpxText(text) {
       try {
         const parser = new DOMParser();
         const xml = parser.parseFromString(text, 'application/xml');
         if (xml.getElementsByTagName('parsererror').length) {
-          return { points: [], xml: null };
+          return { points: [], xml: null, name: '' };
         }
 
         const extractPoints = (tagName) => {
@@ -4107,10 +4151,10 @@
         if (!pts.length) pts = extractPoints('rtept');
         if (!pts.length) pts = extractPoints('wpt');
 
-        return { points: pts, xml };
+        return { points: pts, xml, name: extractGpxRouteName(xml) };
       } catch (err) {
         console.error('GPX parse error', err);
-        return { points: [], xml: null };
+        return { points: [], xml: null, name: '' };
       }
     }
 
@@ -4776,7 +4820,7 @@
         ? appState.gpxTrackLatLngs.filter((pt) => Number.isFinite(pt?.lat) && Number.isFinite(pt?.lng))
         : [];
       if (!track.length) return '';
-      const xml = buildGpxExport(track, []);
+      const xml = buildGpxExport(track, [], gpxState.routeName || 'Imported route');
       return typeof xml === 'string' ? xml.trim() : '';
     }
 
@@ -5364,6 +5408,7 @@
         version: OFFLINE_PACKAGE_VERSION,
         route: {
           gpxRaw: rawText || '',
+          name: gpxState.routeName || '',
           latlngs,
           bbox: routeBBox,
           radius: gpxState.radiusMeters
@@ -5860,6 +5905,7 @@
       markerCache.clear();
       gpxState.active = true;
       gpxState.rawText = pkg.route.gpxRaw || '';
+      gpxState.routeName = pkg.route.name || extractGpxRouteName(parseGpxText(gpxState.rawText).xml) || '';
       gpxState.radiusMeters = Number(pkg.route.radius) || (DEFAULT_GPX_RADIUS_KM * 1000);
       poiVisibilityState.hiddenPoiIds = new Set(Array.isArray(pkg.hiddenPoiIds) ? pkg.hiddenPoiIds : []);
       poiVisibilityState.hideModeActive = false;
@@ -6086,10 +6132,13 @@
 
     function buildVisiblePoisTextExport(points) {
       const rows = buildVisiblePoiTextRows(points);
+      const routeName = gpxState.routeName || 'Munchies Maps route';
       const lines = [
-        'Munchies Maps - visible POIs',
+        `# ${escapeMarkdown(routeName)} - visible POIs`,
+        '',
         `Exported: ${new Date().toISOString()}`,
-        appState.hasImportedGpx || gpxState.active ? 'Order: by route distance within each category' : 'Order: visible POIs grouped by category',
+        '',
+        appState.hasImportedGpx || gpxState.active ? 'Order: by route distance within each category.' : 'Order: visible POIs grouped by category.',
         ''
       ];
 
@@ -6098,15 +6147,16 @@
         if (row.categoryLabel !== currentCategory) {
           currentCategory = row.categoryLabel;
           if (lines[lines.length - 1] !== '') lines.push('');
-          lines.push(`[${currentCategory}]`);
+          lines.push(`## ${escapeMarkdown(currentCategory)}`);
+          lines.push('');
         }
-        lines.push(`${formatDistanceKm(row.distanceKm)} | ${row.name}`);
-        lines.push(`  Opening hours: ${row.openingHours}`);
-        lines.push(`  Google Maps: ${row.mapsUrl}`);
+        lines.push(`- **${escapeMarkdown(formatDistanceKm(row.distanceKm))}** - ${escapeMarkdown(row.name)}`);
+        lines.push(`  - Opening hours: ${escapeMarkdown(row.openingHours)}`);
+        lines.push(`  - Google Maps: [open](${row.mapsUrl})`);
       });
 
       if (!rows.length) {
-        lines.push('No visible POIs.');
+        lines.push('_No visible POIs._');
       }
 
       return `${lines.join('\n')}\n`;
@@ -6159,13 +6209,14 @@
 
 
 
-    function buildGpxExport(trackLatLngs, visiblePois) {
+    function buildGpxExport(trackLatLngs, visiblePois, routeName = 'Imported route') {
       const trackPoints = Array.isArray(trackLatLngs) ? trackLatLngs : [];
       const pois = Array.isArray(visiblePois) ? visiblePois : [];
+      const safeRouteName = String(routeName || 'Imported route').trim() || 'Imported route';
       const lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<gpx version="1.1" creator="Munchies Maps" xmlns="http://www.topografix.com/GPX/1/1">',
-        '<trk><name>Imported route + POIs</name><trkseg>'
+        `<trk><name>${escapeXml(safeRouteName)}</name><trkseg>`
       ];
       trackPoints.forEach((latlng) => {
         const lat = latlng.lat ?? latlng[0];
@@ -6194,20 +6245,20 @@
       return lines.join('');
     }
 
-    function downloadGpxExport(xml) {
+    function downloadGpxExport(xml, fileName = 'munchiesmaps_route_with_pois.gpx') {
       const blob = new Blob([xml], { type: 'application/gpx+xml;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement('a');
       anchor.href = url;
-      anchor.download = 'munchiesmaps_route_with_pois.gpx';
+      anchor.download = fileName;
       document.body.appendChild(anchor);
       anchor.click();
       document.body.removeChild(anchor);
       URL.revokeObjectURL(url);
     }
 
-    function downloadTextExport(content, fileName) {
-      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    function downloadTextExport(content, fileName, type = 'text/plain;charset=utf-8') {
+      const blob = new Blob([content], { type });
       const url = URL.createObjectURL(blob);
       const anchor = document.createElement('a');
       anchor.href = url;
@@ -8127,6 +8178,7 @@
       gpxState.bbox = null;
       gpxState.geoJson = null;
       gpxState.rawText = null;
+      gpxState.routeName = '';
       gpxState.routeLengthKm = 0;
       currentKmMarkerIntervalKm = null;
       currentKmMarkerRenderKey = null;
@@ -8161,6 +8213,7 @@
       let trackPoints = gpxState.points;
       let gpxGeoJson = gpxState.geoJson;
       let gpxRawText = gpxState.rawText;
+      let gpxRouteName = gpxState.routeName;
       const file = fileInput?.files?.[0];
       const hasNewFile = Boolean(file);
       const hasRawTextInput = typeof rawGpxText === 'string' && rawGpxText.trim().length > 0;
@@ -8171,6 +8224,7 @@
           trackPoints = parsed.points;
           gpxGeoJson = buildGpxGeoJson(parsed.xml);
           gpxRawText = normalizedRaw;
+          gpxRouteName = parsed.name || gpxRouteName || '';
         } catch (err) {
           if (errorEl) errorEl.textContent = 'Saved GPX route is invalid.';
           throw err;
@@ -8182,6 +8236,7 @@
           trackPoints = parsed.points;
           gpxGeoJson = buildGpxGeoJson(parsed.xml);
           gpxRawText = text;
+          gpxRouteName = parsed.name || fileBaseName(file.name) || '';
         } catch (err) {
           if (errorEl) errorEl.textContent = 'Could not read the file.';
           return;
@@ -8214,6 +8269,7 @@
       gpxState.bbox = computeExpandedBBox(sampled, radiusMeters);
       gpxState.geoJson = gpxGeoJson;
       gpxState.rawText = gpxRawText;
+      gpxState.routeName = gpxRouteName || '';
       gpxState.active = true;
       poiVisibilityState.routeHash = simpleStableHash(gpxRawText || trackPoints.map((pt) => `${pt.lat},${pt.lon}`).join('|'));
       activeRouteSource = routeSource;
@@ -8712,6 +8768,7 @@
             version: OFFLINE_PACKAGE_VERSION,
             route: {
               gpxRaw: rawText,
+              name: parsed.name || '',
               latlngs,
               bbox: [Math.min(...lats), Math.min(...lngs), Math.max(...lats), Math.max(...lngs)],
               radius: DEFAULT_GPX_RADIUS_KM * 1000
