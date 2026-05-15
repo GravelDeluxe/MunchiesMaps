@@ -6144,9 +6144,13 @@
         '',
         `Exported: ${new Date().toISOString()}`,
         '',
-        appState.hasImportedGpx || gpxState.active ? 'Order: by route distance within each category.' : 'Order: visible POIs grouped by category.',
+        appState.hasImportedGpx || gpxState.active ? 'Order: categories by name, POIs by route distance within each category.' : 'Order: visible POIs grouped by category.',
         ''
       ];
+      const linkLabel = 'Open in Google Maps';
+      const mapsLinkForRow = (row) => row.mapsUrl
+        ? `[${escapeMarkdown(linkLabel)}](${row.mapsUrl})`
+        : '';
 
       let currentCategory = null;
       rows.forEach((row) => {
@@ -6155,14 +6159,25 @@
           if (lines[lines.length - 1] !== '') lines.push('');
           lines.push(`## ${escapeMarkdown(currentCategory)}`);
           lines.push('');
-          lines.push('| Distance | POI | Opening hours |');
-          lines.push('| --- | --- | --- |');
+          lines.push('| Distance | Name | Opening hours | Link |');
+          lines.push('| --- | --- | --- | --- |');
         }
-        lines.push(`| ${escapeMarkdown(formatDistanceKm(row.distanceKm))} | [${escapeMarkdown(row.name)}](${row.mapsUrl}) | ${escapeMarkdown(row.openingHours)} |`);
+        lines.push(`| ${escapeMarkdown(formatDistanceKm(row.distanceKm))} | ${escapeMarkdown(row.name)} | ${escapeMarkdown(row.openingHours)} | ${mapsLinkForRow(row)} |`);
       });
 
       if (!rows.length) {
         lines.push('_No visible POIs._');
+      } else {
+        lines.push('');
+        lines.push('## All POIs');
+        lines.push('');
+        lines.push('| Category | Distance | Name | Opening hours | Link |');
+        lines.push('| --- | --- | --- | --- | --- |');
+        [...rows]
+          .sort((a, b) => a.distanceKm - b.distanceKm)
+          .forEach((row) => {
+            lines.push(`| ${escapeMarkdown(row.categoryLabel)} | ${escapeMarkdown(formatDistanceKm(row.distanceKm))} | ${escapeMarkdown(row.name)} | ${escapeMarkdown(row.openingHours)} | ${mapsLinkForRow(row)} |`);
+          });
       }
 
       return `${lines.join('\n')}\n`;
