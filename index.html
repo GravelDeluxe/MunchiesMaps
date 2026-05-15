@@ -1128,6 +1128,7 @@
     <div id="poiHideMenu" class="poi-hide-menu" hidden>
       <button type="button" data-action="restore-hidden">Restore hidden</button>
       <button type="button" data-action="show-hidden">Show hidden</button>
+      <button type="button" data-action="show-favorites">Show favorites</button>
       <button type="button" data-action="favorites-only">Show favorites only</button>
       <button type="button" data-action="hide-multiple">Hide multiple</button>
       <button type="button" data-action="save-hidden">Save changes</button>
@@ -3163,6 +3164,7 @@
       hideModeActive: false,
       hideMultipleActive: false,
       showHiddenActive: false,
+      showFavoritesActive: false,
       favoritesOnlyActive: false,
       hiddenPoiIds: new Set(),
       favoritePoiIds: new Set(),
@@ -3293,12 +3295,14 @@
     function clearFavoritePoiIds({ refreshMap = true } = {}) {
       const hadFavorites = poiVisibilityState.favoritePoiIds.size > 0;
       const favoritesOnlyWasActive = Boolean(poiVisibilityState.favoritesOnlyActive);
+      const showFavoritesWasActive = Boolean(poiVisibilityState.showFavoritesActive);
       poiVisibilityState.favoritePoiIds.clear();
       poiVisibilityState.favoritesOnlyActive = false;
-      if (refreshMap && (hadFavorites || favoritesOnlyWasActive)) {
+      poiVisibilityState.showFavoritesActive = false;
+      if (refreshMap && (hadFavorites || favoritesOnlyWasActive || showFavoritesWasActive)) {
         applyCurrentMapFiltersAndClustering({ reason: 'favorites-cleared' });
       }
-      if (favoritesOnlyWasActive) updatePoiHideControlsVisibility();
+      if (favoritesOnlyWasActive || showFavoritesWasActive) updatePoiHideControlsVisibility();
     }
     function getCurrentFavoritePoiIdsArray() {
       return Array.from(poiVisibilityState.favoritePoiIds || []);
@@ -3308,6 +3312,7 @@
         Array.isArray(favoriteIds) ? favoriteIds.map(String).filter(Boolean) : []
       );
       poiVisibilityState.favoritesOnlyActive = false;
+      poiVisibilityState.showFavoritesActive = false;
       if (refreshMap) {
         applyCurrentMapFiltersAndClustering({ reason: 'favorites-restored' });
         updatePoiHideControlsVisibility();
@@ -7801,13 +7806,15 @@
         if (poiVisibilityState.favoritesOnlyActive && !isPoiFavorite(point.id)) return false;
         return true;
       });
+      const includeFavoriteOverlay = Boolean(
+        poiVisibilityState.showFavoritesActive &&
+        !poiVisibilityState.favoritesOnlyActive &&
+        poiVisibilityState.favoritePoiIds.size > 0
+      );
       const filterNightBadges = Boolean(appState.showBadges && appState.hideNoBadges);
       const filterDayTripBadges = Boolean(appState.dayTripsEnabled && appState.dayTripHideNoBadges);
-      if (!filterNightBadges && !filterDayTripBadges) {
-        return visibilityFiltered;
-      }
       const badgeMemo = new Map();
-      return visibilityFiltered.filter((point) => {
+      const passesBadgeFilters = (point) => {
         if (!point) return false;
         if (!badgeMemo.has(point.id)) {
           badgeMemo.set(point.id, getBadgeType(point.categoryId, {
@@ -7830,7 +7837,19 @@
           return !openingHoursRaw;
         }
         return false;
-      });
+      };
+      const badgeFiltered = (!filterNightBadges && !filterDayTripBadges)
+        ? visibilityFiltered
+        : visibilityFiltered.filter(passesBadgeFilters);
+
+      if (!includeFavoriteOverlay) return badgeFiltered;
+
+      const merged = new Map();
+      badgeFiltered.forEach((point) => merged.set(point.id, point));
+      visibilityFiltered
+        .filter((point) => isPoiFavorite(point.id))
+        .forEach((point) => merged.set(point.id, point));
+      return Array.from(merged.values());
     }
 
     function getVisiblePoiCount(bounds) {
@@ -8579,18 +8598,22 @@
       const hideMultipleButton = menu.querySelector('[data-action="hide-multiple"]');
       showHiddenButton?.classList.toggle('is-active', Boolean(poiVisibilityState.showHiddenActive));
       hideMultipleButton?.classList.toggle('is-active', Boolean(poiVisibilityState.hideMultipleActive));
+      const showFavoritesButton = menu.querySelector('[data-action="show-favorites"]');
       const favoritesOnlyButton = menu.querySelector('[data-action="favorites-only"]');
-      if (favoritesOnlyButton) {
+      [showFavoritesButton, favoritesOnlyButton].forEach((button) => {
+        if (!button) return;
         const routeActive = hasActiveRoute();
-        favoritesOnlyButton.hidden = !routeActive;
-        favoritesOnlyButton.disabled = !routeActive;
-      }
+        button.hidden = !routeActive;
+        button.disabled = !routeActive;
+      });
+      showFavoritesButton?.classList.toggle('is-active', Boolean(poiVisibilityState.showFavoritesActive));
       favoritesOnlyButton?.classList.toggle('is-active', Boolean(poiVisibilityState.favoritesOnlyActive));
     }
     function resetPoiVisibilityState({ clearHidden = true } = {}) {
       poiVisibilityState.hideModeActive = false;
       poiVisibilityState.hideMultipleActive = false;
       poiVisibilityState.showHiddenActive = false;
+      poiVisibilityState.showFavoritesActive = false;
       poiVisibilityState.favoritesOnlyActive = false;
       poiVisibilityState.unsavedChanges = false;
       if (clearHidden) {
@@ -8607,6 +8630,7 @@
       if (!poiVisibilityState.hideModeActive) {
         poiVisibilityState.hideMultipleActive = false;
         poiVisibilityState.showHiddenActive = false;
+        poiVisibilityState.showFavoritesActive = false;
         poiVisibilityState.favoritesOnlyActive = false;
       }
       const shouldShowButton = hasRoute;
@@ -8696,9 +8720,15 @@
       const action = event?.target?.getAttribute?.('data-action');
       if (!action) return;
       if (action === 'show-hidden') poiVisibilityState.showHiddenActive = !poiVisibilityState.showHiddenActive;
+      if (action === 'show-favorites') {
+        if (!hasActiveRoute()) return;
+        poiVisibilityState.showFavoritesActive = !poiVisibilityState.showFavoritesActive;
+        if (poiVisibilityState.showFavoritesActive) poiVisibilityState.favoritesOnlyActive = false;
+      }
       if (action === 'favorites-only') {
         if (!hasActiveRoute()) return;
         poiVisibilityState.favoritesOnlyActive = !poiVisibilityState.favoritesOnlyActive;
+        if (poiVisibilityState.favoritesOnlyActive) poiVisibilityState.showFavoritesActive = false;
       }
       if (action === 'restore-hidden') {
         const shouldRestore = await showRestoreHiddenConfirmation();
